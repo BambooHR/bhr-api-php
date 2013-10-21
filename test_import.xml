@@ -4,9 +4,9 @@
 		<firstName>Jiminy2</firstName>
 		<lastName>Christmas</lastName>
 		<middleName>H.</middleName>
-		<homeEmail>jon+import@bamboohr.com</homeEmail>
+		<homeEmail>import@bamboohr.com</homeEmail>
 		<homePhone>123-456-7890</homePhone>
-		<birthDate>1976-03-23</birthDate>
+		<birthDate>1976-12-25</birthDate>
 		<hireDate>2009-03-01</hireDate>
 		<termDate isNull="true"></termDate>
 		<ssn>123-456-7890</ssn>
@@ -18,12 +18,12 @@
 		</address>
 		<contacts>
 			<contact>
-				<name>Kamarie H. Gardiner</name>
+				<name>Kamarie H. Christmas</name>
 				<relation>Spouse</relation>
 				<homePhone>123-456-7890</homePhone>
 			</contact>
 			<contact>
-				<name>Amber L. Gardiner</name>
+				<name>Amber L. Christmas</name>
 				<relation>daughter</relation>
 				<homePhone>123-456-7890</homePhone>
 			</contact>
@@ -31,11 +31,11 @@
 		<jobInformation>
 			<row>
 				<date>2011-11-12</date>
-				<department>4222</department>
+				<department>Human Resource</department>
 			</row>
 			<row>
 				<date>2011-11-01</date>
-				<department>4221</department>
+				<department>Product</department>
 			</row>
 		</jobInformation>
 	</employee>
