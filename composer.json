@@ -1,0 +1,15 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+{
+	"name": "bamboohr/api",
+	"require": {
+		"php": ">=5.3.0",
+		"ext-curl": "*"
+	},
+	"autoload": {
+		"classmap": ["BambooHR/API/API.php"]
+	}
+}
