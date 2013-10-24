@@ -203,7 +203,7 @@ class CurlHTTP implements HTTP {
 		curl_setopt($http, CURLOPT_POSTFIELDS, $request->content);
 
 		curl_setopt($http, CURLOPT_HEADER, true );
-		curl_setopt($http, CURLOPT_SSL_VERIFYHOST, 1);
+		curl_setopt($http, CURLOPT_SSL_VERIFYHOST, 2);
 		curl_setopt($http, CURLOPT_SSL_VERIFYPEER, 1);
 		curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
 		
@@ -258,7 +258,7 @@ class API {
 		if($http) {
 			$this->httpHandler=$http;
 		} else {
-			$this->httpHandler=new BambooCurlHTTP();
+			$this->httpHandler=new CurlHTTP();
 		}
 		if($baseUrl) {
 			$this->baseUrl=$baseUrl;
@@ -274,7 +274,6 @@ class API {
 	 */
 	function setSecretKey($key){
 		$this->httpHandler->setBasicAuth($key, 'x');
-		$this->requestSecretKey($key, $email, $password);
 	}
 
 	/**
