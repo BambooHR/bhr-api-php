@@ -1,7 +1,7 @@
 <?php
 
 include "BambooHR/API/API.php";
-use \BambooHR\API\API as BHR;
+use \BambooHR\API\BambooAPI as BHR;
 
 //this can be either your subdomain, or the full domain, so either "test", or "test.bamboohr.com"
 $api = new BHR('<your domain>');
