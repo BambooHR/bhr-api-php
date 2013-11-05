@@ -112,7 +112,7 @@ class BambooHTTPResponse {
 
 interface BambooHTTP {
 	function setBasicAuth($username, $password);
-	function sendRequest(HTTPRequest $request);
+	function sendRequest(BambooHTTPRequest $request);
 }
 
 define('BAMBOOHR_MULTIPART_BOUNDARY', "----BambooHR-MultiPart-Mime-Boundary----");
@@ -155,7 +155,7 @@ function buildMultipart($boundary, $postFields, $name, $fileName, $contentType, 
 }
 
 
-class BambooCurlHTTP implements HTTP {
+class BambooCurlHTTP implements BambooHTTP {
 	private $basicAuthUsername;
 	private $basicAuthPassword;
 
