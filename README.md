@@ -16,7 +16,7 @@ Once you have that, the following code will get a directory of employees (as lon
 <?php
 include "BambooHR/API/API.php";
 
-use \BambooHR\API\API;
+use \BambooHR\API\BambooAPI;
 
 $bhr = new API("<company_subdomain>");
 $bhr->setSecretKey("<bar>");
