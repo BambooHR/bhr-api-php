@@ -292,7 +292,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/login.php
 	 */
 	function requestSecretKey($applicationKey, $email, $password) {
-		$request=new HTTPRequest();
+		$request=new BambooHTTPRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/login";
 		$request->content="applicationKey=".urlencode($applicationKey)."&user=".urlencode($email)."&password=".urlencode($password);
