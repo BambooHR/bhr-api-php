@@ -62,7 +62,7 @@ class BambooHTTPResponse {
 	 */
 	public function getContentXML() {
 		if(!$this->isError() && strpos($this->headers['Content-Type'], 'text/xml') !== false) {
-			return new SimpleXMLElement($this->content);
+			return new \SimpleXMLElement($this->content);
 		}
 		return null;
 	}
@@ -315,7 +315,7 @@ class BambooAPI {
 		if($response->isError()) {
 			return false;
 		}
-		$xml = new SimpleXMLElement($response->content);
+		$xml = new \SimpleXMLElement($response->content);
 		if($xml->response != 'authenticated') {
 			return false;
 		}
