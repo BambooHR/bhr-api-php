@@ -706,7 +706,7 @@ class BambooAPI {
 
 		$values=array(
 			"date"=>$ymd,
-			"timeOffTypeId"=>intval($requestId),
+			"timeOffTypeId"=>intval($timeOffTypeId),
 			"eventType"=>"override",	
 			"note"=>$note,
 			"amount"=>$amount
