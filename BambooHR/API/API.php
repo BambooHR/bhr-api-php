@@ -448,7 +448,6 @@ class BambooAPI {
 		}
 		$xml.='</fields></report>';
 		$request->content=$xml;		
-		echo $xml;
 		return $this->httpHandler->sendRequest( $request );
 	}
 
