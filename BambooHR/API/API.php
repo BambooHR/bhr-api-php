@@ -538,7 +538,7 @@ class BambooAPI {
 	 * @return \BambooHR\API\BambooHTTPResponse
 	 * @link http://www.dev5.bamboohr.com/api/documentation/time_off.php#estimateFutureBalance
 	 */
-	function getTimeOffBalances($employeeId,$date) {
+	function getTimeOffBalances($employeeId,$date,$precision=1) {
 		$request=new BambooHTTPRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/time_off/calculator?end=".$date."&precision=".$precision;
