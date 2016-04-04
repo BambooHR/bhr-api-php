@@ -335,7 +335,7 @@ class BambooAPI {
 	function getEmployee($employeeId, $fields=array()) {
 		$request=new BambooHTTPRequest();
 		$request->method="GET";
-		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/?fields=".implode(",",$fields);
+		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/?fields=".urlencode(implode(",",$fields));
 
 		return $this->httpHandler->sendRequest( $request );
 	}
