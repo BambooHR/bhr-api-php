@@ -221,7 +221,7 @@ class BambooCurlHTTP implements BambooHTTP {
 			$response->content= substr($response->content, $headerSize );
 		} else {
 			$response->statusCode=0;
-			$response->content="Connection error";
+			$response->content=curl_error($http);
 		}
 		return $response;
 	}
