@@ -5,6 +5,17 @@
 		"ext-curl": "*"
 	},
 	"autoload": {
-		"classmap": ["BambooHR/API/API.php"]
-	}
+		"classmap": ["BambooHR/API/API.php"],
+        "psr-4": {
+            "BambooHR\\API\\Tests\\": "tests"
+        }
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^5.4"
+	},
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit --strict-coverage"
+        ]
+    }
 }
