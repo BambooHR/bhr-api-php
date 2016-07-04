@@ -11,6 +11,7 @@ namespace BambooHR\API\Tests;
 use BambooHR\API\BambooAPI;
 use BambooHR\API\BambooCurlHTTP;
 use BambooHR\API\BambooHTTP;
+use BambooHR\API\Tests\Injector\BambooHTTPRequestInjectorTest;
 
 
 /**
@@ -21,6 +22,17 @@ use BambooHR\API\BambooHTTP;
  */
 class BambooAPITest extends TestCase
 {
+    use BambooHTTPRequestInjectorTest;
+
+    /**
+     * @return BambooAPI
+     */
+    public function getSubject()
+    {
+        $companyDomain = 'Company Domain';
+        return new BambooAPI($companyDomain);
+    }
+
     /**
      * @test
      * @covers ::__construct
@@ -102,6 +114,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::requestSecretKey
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testRequestSecretKey()
     {
@@ -113,6 +126,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::login
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testLogin()
     {
@@ -124,6 +138,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getEmployee
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetEmployee()
     {
@@ -135,6 +150,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getReport
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetReport()
     {
@@ -146,6 +162,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::prepareKeyValues
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testPrepareKeyValues()
     {
@@ -182,6 +199,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::updateEmployee
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUpdateEmployee()
     {
@@ -193,6 +211,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::addEmployee
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddEmployee()
     {
@@ -204,6 +223,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getCustomReport
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetCustomReport()
     {
@@ -215,6 +235,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getTable
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTable()
     {
@@ -236,6 +257,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getMetaData
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetMetaData()
     {
@@ -247,6 +269,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getUsers
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetUsers()
     {
@@ -258,6 +281,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getLists
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetLists()
     {
@@ -269,6 +293,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getFields
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetFields()
     {
@@ -280,6 +305,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getTables
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTables()
     {
@@ -291,6 +317,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getTimeOffBalances
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTimeOffBalances()
     {
@@ -302,6 +329,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getTimeOffTypes
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTimeOffTypes()
     {
@@ -313,6 +341,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getTimeOffRequestsArr
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTimeOffRequestsArr()
     {
@@ -324,6 +353,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getTimeOffRequests
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTimeOffRequests()
     {
@@ -335,6 +365,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::addTableRow
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddTableRow()
     {
@@ -346,6 +377,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::addTimeOffRequest
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddTimeOffRequest()
     {
@@ -357,6 +389,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::addTimeOffHistoryFromRequest
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddTimeOffHistoryFromRequest()
     {
@@ -368,6 +401,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::recordTimeOffOverride
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testRecordTimeOffOverride()
     {
@@ -379,6 +413,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::updateTableRow
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUpdateTableRow()
     {
@@ -390,6 +425,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::uploadEmployeeFile
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUploadEmployeeFile()
     {
@@ -401,6 +437,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::uploadCompanyFile
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUploadCompanyFile()
     {
@@ -412,6 +449,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::listCompanyFiles
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testListCompanyFiles()
     {
@@ -423,6 +461,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::addEmployeeFileCategory
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddEmployeeFileCategory()
     {
@@ -434,6 +473,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::addCompanyFileCategory
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddCompanyFileCategory()
     {
@@ -445,6 +485,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::updateEmployeeFile
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUpdateEmployeeFile()
     {
@@ -456,6 +497,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::updateCompanyFile
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUpdateCompanyFile()
     {
@@ -467,6 +509,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::downloadCompanyFile
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testDownloadCompanyFile()
     {
@@ -478,6 +521,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::importEmployees
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testImportEmployees()
     {
@@ -489,6 +533,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getDirectory
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetDirectory()
     {
@@ -500,6 +545,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::downloadEmployeePhoto
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testDownloadEmployeePhoto()
     {
@@ -511,6 +557,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::getChangedEmployeeTable
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetChangedEmployeeTable()
     {

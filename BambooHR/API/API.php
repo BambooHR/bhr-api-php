@@ -227,6 +227,8 @@ class BambooCurlHTTP implements BambooHTTP {
 	}
 }
 
+use BambooHR\API\Injector\BambooHTTPRequestInjector;
+
 /**
  * The main class.
  *
@@ -245,6 +247,9 @@ class BambooCurlHTTP implements BambooHTTP {
  * </code>
  */
 class BambooAPI {
+
+	use BambooHTTPRequestInjector;
+
 	protected $companyDomain;
 	protected $httpHandler;
 	protected $baseUrl="https://api.bamboohr.com/api/gateway.php";
@@ -294,7 +299,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/login.php
 	 */
 	function requestSecretKey($applicationKey, $email, $password) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/login";
 		$request->content="applicationKey=".urlencode($applicationKey)."&user=".urlencode($email)."&password=".urlencode($password);
@@ -335,7 +340,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#getEmployee
 	 */
 	function getEmployee($employeeId, $fields=array()) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/?fields=".urlencode(implode(",",$fields));
 
@@ -351,7 +356,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#requestCompanyReport
 	 */
 	function getReport($reportId, $format, $filterDuplicates=true) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/reports/".intval($reportId)."/?format=".$format;		
 		if(!$filterDuplicates) {
@@ -389,7 +394,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#updateEmployee
 	 */
 	function updateEmployee($employeeId, $fieldValues=array()) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId);
 		$request->headers=array("Content-type:"=>"text/xml");
@@ -409,7 +414,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#addEmployee
 	 */
 	function addEmployee($initialFieldValues=array()) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/";
 		$request->headers=array("Content-type"=>"text/xml");
@@ -430,7 +435,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#requestCustomReport
 	 */
 	function getCustomReport($format, $fields, $filterDuplicates=true,$title="", $lastChanged="") {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/reports/custom/?format=".$format;
 		$request->headers=array("Content-type", "text/xml");
@@ -460,7 +465,7 @@ class BambooAPI {
 	 */
 	function getTable($employeeId, $tableName) {
 		if($employeeId!="all") $employeeId=intval($employeeId);
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".$employeeId."/tables/".urlencode($tableName)."/";
 		return $this->httpHandler->sendRequest( $request );
@@ -474,7 +479,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/changes.php#description
 	 */
 	function getChangedEmployees($since, $type="all") {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/changed/?since=".urlencode($since)."&type=".urlencode($type);
 		return $this->httpHandler->sendRequest( $request );
@@ -488,7 +493,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/metadata.php
 	 */
 	function getMetaData($type, $params=array()) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/meta/$type/";
 		return $this->httpHandler->sendRequest( $request );
@@ -539,7 +544,7 @@ class BambooAPI {
 	 * @link http://www.dev5.bamboohr.com/api/documentation/time_off.php#estimateFutureBalance
 	 */
 	function getTimeOffBalances($employeeId,$date,$precision=1) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/time_off/calculator?end=".$date."&precision=".$precision;
 		return $this->httpHandler->sendRequest( $request );
@@ -561,7 +566,7 @@ class BambooAPI {
 	 * @link http://www.dev5.bamboohr.com/api/documentation/time_off.php#requests
 	 */
 	function getTimeOffRequestsArr($arr) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/time_off/requests/?";
 		if(isset($arr['id'])) $request->url.="id=".urlencode($arr['id'])."&";
@@ -605,7 +610,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/tables.php#addRow
 	 */
 	function addTableRow($employeeId, $tableName, $values) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/tables/".$tableName."/";
 
@@ -630,7 +635,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/time_off.php#addrequest
 	 */
 	function addTimeOffRequest($employeeId, $start, $end, $timeOffTypeId, $amount, $status, $employeeNote, $managerNote,$previous=0) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="PUT";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/time_off/request/";
 
@@ -669,7 +674,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/time_off.php#addhistory
 	 */
 	function addTimeOffHistoryFromRequest($employeeId, $ymd, $requestId) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="PUT";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/time_off/history/";
 
@@ -700,7 +705,7 @@ class BambooAPI {
 	 * @see getTimeOffTypes()
 	 */
 	function recordTimeOffOverride($employeeId, $ymd, $timeOffTypeId, $note, $amount) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="PUT";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/time_off/history/";
 
@@ -731,7 +736,7 @@ class BambooAPI {
 	 * @see getTables()
 	 */
 	function updateTableRow($employeeId, $tableName, $rowId, $values) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/tables/".$tableName."/".intval($rowId);
 
@@ -754,7 +759,7 @@ class BambooAPI {
 	 * @see listEmployeeFiles()
 	 */
 	function uploadEmployeeFile($employeeId, $categoryId, $fileName, $contentType, $fileData, $shareWithEmployees = 'no') {
-		$request=new BambooHttpRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/files/";
 		$request->method="POST";
 
@@ -779,7 +784,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/time_off.php#updateRequestStatus
 	 */
 	function updateTimeOffRequestStatus($requestId, $status, $note) { 
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->url=$this->baseUrl."/v1/time_off/requests/".intval($requestId)."/status/";
 		$request->method="POST";
 		$request->content="<request><status>".htmlentities($status,ENT_COMPAT)."</status><note>".htmlentities($note,ENT_COMPAT)."</note></request>";
@@ -798,7 +803,7 @@ class BambooAPI {
 	 * @see getCompanyFiles()
 	 */
 	function uploadCompanyFile($categoryId, $fileName, $contentType, $fileData, $shareWithEmployees = 'no') {
-		$request=new BambooHttpRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->url=$this->baseUrl."/v1/files/";
 		$request->method="POST";
 
@@ -821,7 +826,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#listEmployeeFiles
 	 */
 	function listEmployeeFiles($employeeId){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/files/view/";
 		return $this->httpHandler->sendRequest( $request );
@@ -833,7 +838,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#listCompanyFiles
 	 */
 	function listCompanyFiles(){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/files/view/";
 		return $this->httpHandler->sendRequest( $request );
@@ -846,7 +851,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#addEmployeeCategory
 	 */
 	function addEmployeeFileCategory($categoryName){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/files/categories/";
 
@@ -865,7 +870,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#addCompanyCategory
 	 */
 	function addCompanyFileCategory($categoryName){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/files/categories/";
 
@@ -886,7 +891,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#updateEmployeeFile
 	 */
 	function updateEmployeeFile($employeeId, $fileId, $values){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/files/".intval($fileId)."/";
 
@@ -908,7 +913,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#updateCompanyFile
 	 */
 	function updateCompanyFile($fileId, $values){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/files/".intval($fileId)."/";
 
@@ -930,7 +935,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#downloadEmployeeFile
 	 */
 	function downloadEmployeeFile($employeeId, $fileId) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/files/".intval($fileId)."/";
 		
@@ -944,7 +949,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/employees.php#downloadCompanyFile
 	 */
 	function downloadCompanyFile($fileId){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/files/".intval($fileId)."/";
 		return $this->httpHandler->sendRequest( $request );
@@ -958,7 +963,7 @@ class BambooAPI {
 	 * @return \BambooHR\API\BambooHTTPResponse
 	 */
 	function importEmployees($xml){
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="POST";
 		$request->url=$this->baseUrl."/v1/employees/import";
 		$request->content=$xml;
@@ -972,7 +977,7 @@ class BambooAPI {
 	 * @link http://www.dev5.bamboohr.com/api/documentation/employees.php#getEmployeeDirectory
 	 */
 	function getDirectory() {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/directory";
 		return $this->httpHandler->sendRequest( $request );
@@ -986,7 +991,7 @@ class BambooAPI {
 	 * @return \BambooHR\API\BambooHTTPResponse
 	 */
 	function downloadEmployeePhoto($employeeId, $size, $params=array()) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/".intval($employeeId)."/photo/".urlencode($size);
 		if(count($params)>0) {
@@ -1003,7 +1008,7 @@ class BambooAPI {
 	 * @link http://www.bamboohr.com/api/documentation/tables.php#changedEmployeeTables
 	 */
 	function getChangedEmployeeTable($table,$since) {
-		$request=new BambooHTTPRequest();
+		$request=$this->getBambooHttpRequest();
 		$request->method="GET";
 		$request->url=$this->baseUrl."/v1/employees/changed/tables/".urlencode($table)."?since=".urlencode($since);
 		return $this->httpHandler->sendRequest( $request );
