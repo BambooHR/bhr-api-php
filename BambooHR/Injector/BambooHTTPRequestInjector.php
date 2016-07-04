@@ -19,12 +19,12 @@ use BambooHR\API\BambooHTTPRequest;
 trait BambooHTTPRequestInjector
 {
     /**
-     * @var BambooHTTPRequestInjector
+     * @var BambooHTTPRequest
      */
     private $bambooHttpRequest;
 
     /**
-     * @return BambooHTTPRequestInjector
+     * @return BambooHTTPRequest
      */
     protected function getBambooHttpRequest()
     {
