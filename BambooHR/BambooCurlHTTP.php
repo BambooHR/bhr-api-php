@@ -71,10 +71,11 @@ class BambooCurlHTTP implements BambooHTTP {
             $headerSize = curl_getinfo($http,CURLINFO_HEADER_SIZE);
             $response->headers= $this->parseHeaders( substr($response->content, 0, $headerSize) );
             $response->content= substr($response->content, $headerSize );
-        } else {
-            $response->statusCode=0;
-            $response->content="Connection error";
+            return $response;
         }
+
+        $response->statusCode=0;
+        $response->content="Connection error";
         return $response;
     }
 }
