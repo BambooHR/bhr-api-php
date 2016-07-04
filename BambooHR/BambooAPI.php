@@ -538,7 +538,7 @@ class BambooAPI {
             "fileName"=>$fileName,
             "share"=>$shareWithEmployees
         );
-        $request->content=$request::buildMultipart( $request::BAMBOOHR_MULTIPART_BOUNDARY, $params, "file",$fileName,$contentType, $fileData);
+        $request->content=$request->buildMultipart( $request::BAMBOOHR_MULTIPART_BOUNDARY, $params, "file",$fileName,$contentType, $fileData);
         $request->headers[]="Content-Type: multipart/form-data; boundary=".$request::BAMBOOHR_MULTIPART_BOUNDARY;
         $request->headers[]="Content-Length: ".strlen( $request->content );
 
@@ -582,7 +582,7 @@ class BambooAPI {
             "fileName"=>$fileName,
             "share"=>$shareWithEmployees
         );
-        $request->content=$request::buildMultipart( $request::BAMBOOHR_MULTIPART_BOUNDARY, $params, "file",$fileName,$contentType, $fileData);
+        $request->content=$request->buildMultipart( $request::BAMBOOHR_MULTIPART_BOUNDARY, $params, "file",$fileName,$contentType, $fileData);
         $request->headers[]="Content-Type: multipart/form-data; boundary=".$request::BAMBOOHR_MULTIPART_BOUNDARY;
         $request->headers[]="Content-Length: ".strlen( $request->content );
 

@@ -30,7 +30,7 @@ class BambooHTTPRequest {
      * @param string $fileData
      * @return string
      */
-    static function buildMultipart($boundary, $postFields, $name, $fileName, $contentType, $fileData ) {
+    function buildMultipart($boundary, $postFields, $name, $fileName, $contentType, $fileData ) {
 
         $data = '';
 
