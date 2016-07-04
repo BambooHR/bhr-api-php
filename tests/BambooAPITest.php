@@ -62,7 +62,7 @@ class BambooAPITest extends TestCase
     public function testConstructWithNameHttp()
     {
         $companyDomain = 'Company Domain';
-        $http = $this->createMock(BambooHTTP::class);
+        $http = $this->createMockBambooHTTP();
         $bambooApi = new BambooAPI($companyDomain, $http);
         $this->assertSame(
             $companyDomain,
@@ -85,7 +85,7 @@ class BambooAPITest extends TestCase
     public function testConstructWithNameHttpBaseUrl()
     {
         $companyDomain = 'Company Domain';
-        $http = $this->createMock(BambooHTTP::class);
+        $http = $this->createMockBambooHTTP();
         $baseUrl = 'base url';
         $bambooApi = new BambooAPI($companyDomain, $http, $baseUrl);
         $this->assertSame(
@@ -115,7 +115,7 @@ class BambooAPITest extends TestCase
     {
         $companyDomain = 'Company Domain';
         $secretKey = 'Secret Key';
-        $http = $this->createMock(BambooHTTP::class);
+        $http = $this->createMockBambooHTTP();
         $http->expects($this->once())
             ->method('setBasicAuth')
             ->with($secretKey, 'x');

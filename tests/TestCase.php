@@ -10,16 +10,16 @@
 namespace BambooHR\API\Tests;
 
 use BambooHR\API\BambooCurlHTTP;
+use BambooHR\API\BambooHTTP;
 use BambooHR\API\BambooHTTPRequest;
 use BambooHR\API\BambooHTTPResponse;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * TestCase
  * This class can be used to add further asserts, etc
  * @package BambooHR
  */
-class TestCase extends PHPUnitTestCase
+class TestCase extends \PHPUnit_Framework_TestCase
 {
     /**
      * @param $object
@@ -50,7 +50,7 @@ class TestCase extends PHPUnitTestCase
      */
     protected function createMockBambooHTTPRequest()
     {
-        return $this->createMock(BambooHTTPRequest::class);
+        return $this->getMock(BambooHTTPRequest::class);
     }
 
     /**
@@ -58,7 +58,7 @@ class TestCase extends PHPUnitTestCase
      */
     protected function createMockBambooHTTPResponse()
     {
-        return $this->createMock(BambooHTTPResponse::class);
+        return $this->getMock(BambooHTTPResponse::class);
     }
 
     /**
@@ -66,6 +66,14 @@ class TestCase extends PHPUnitTestCase
      */
     protected function createMockBambooCurlHTTP()
     {
-        return $this->createMock(BambooCurlHTTP::class);
+        return $this->getMock(BambooCurlHTTP::class);
+    }
+
+    /**
+     * @return BambooHTTP|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected function createMockBambooHTTP()
+    {
+        return $this->getMockForAbstractClass(BambooHTTP::class);
     }
 }
