@@ -467,7 +467,6 @@ class BambooAPI {
         }
         $xml.="</history>";
         $request->content=$xml;
-        echo $xml;
         return $this->httpHandler->sendRequest( $request );
     }
 
