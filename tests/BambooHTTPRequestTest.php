@@ -36,10 +36,6 @@ class BambooHTTPRequestTest extends TestCase
 
         $response->statusCode = 301;
         $this->assertTrue($response->isError());
-
-        // ToDo: This is not an error either
-        $response->statusCode = 2001;
-        $this->assertTrue($response->isError());
     }
 
     /**
