@@ -143,11 +143,10 @@ class BambooAPI {
     private function prepareKeyValues($values) {
         $xml="";
         foreach($values as $key=>$value) {
+            $extraAttr=array();
             if(is_array($value)) {
                 $extraAttr=$value['extra'];
                 $value=$value['value'];
-            } else {
-                $extraAttr=array();
             }
             $xml.=sprintf("<field id=\"%s\" ", htmlspecialchars($key,ENT_COMPAT));
             foreach($extraAttr as $name=>$attValue) {
