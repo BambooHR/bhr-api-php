@@ -40,11 +40,7 @@ class BambooAPI {
      * @param string $baseUrl
      */
     function __construct($companyDomain, BambooHTTP $http=null, $baseUrl=null) {
-        if($http) {
-            $this->httpHandler=$http;
-        } else {
-            $this->httpHandler=new BambooCurlHTTP();
-        }
+        $this->httpHandler = $http ?: new BambooCurlHTTP();
         if($baseUrl) {
             $this->baseUrl=$baseUrl;
         }
