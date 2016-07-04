@@ -101,6 +101,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::requestSecretKey
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testRequestSecretKey()
     {
@@ -111,6 +112,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::login
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testLogin()
     {
@@ -121,6 +123,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getEmployee
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetEmployee()
     {
@@ -131,6 +134,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getReport
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetReport()
     {
@@ -141,6 +145,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::prepareKeyValues
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testPrepareKeyValues()
     {
@@ -176,6 +181,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::updateEmployee
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testUpdateEmployee()
     {
@@ -186,6 +192,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::addEmployee
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testAddEmployee()
     {
@@ -196,6 +203,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getCustomReport
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetCustomReport()
     {
@@ -206,6 +214,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getTable
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetTable()
     {
@@ -226,6 +235,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getMetaData
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetMetaData()
     {
@@ -236,6 +246,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getUsers
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetUsers()
     {
@@ -246,6 +257,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getLists
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetLists()
     {
@@ -256,6 +268,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getFields
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetFields()
     {
@@ -266,6 +279,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getTables
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetTables()
     {
@@ -275,9 +289,10 @@ class BambooAPITest extends TestCase
 
     /**
      * @test
-     * @covers ::getTimeOffBalance
+     * @covers ::getTimeOffBalances
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
-    public function testGetTimeOffBalance()
+    public function testGetTimeOffBalances()
     {
         // ToDo:
         $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
@@ -286,6 +301,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getTimeOffTypes
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetTimeOffTypes()
     {
@@ -296,6 +312,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getTimeOffRequestsArr
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetTimeOffRequestsArr()
     {
@@ -306,6 +323,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getTimeOffRequests
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetTimeOffRequests()
     {
@@ -316,6 +334,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::addTableRow
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testAddTableRow()
     {
@@ -326,6 +345,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::addTimeOffRequest
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testAddTimeOffRequest()
     {
@@ -336,6 +356,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::addTimeOffHistoryFromRequest
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testAddTimeOffHistoryFromRequest()
     {
@@ -346,6 +367,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::recordTimeOffOverride
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testRecordTimeOffOverride()
     {
@@ -356,6 +378,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::updateTableRow
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testUpdateTableRow()
     {
@@ -366,6 +389,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::uploadEmployeeFile
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testUploadEmployeeFile()
     {
@@ -376,6 +400,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::uploadCompanyFile
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testUploadCompanyFile()
     {
@@ -386,6 +411,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::listCompanyFiles
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testListCompanyFiles()
     {
@@ -396,6 +422,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::addEmployeeFileCategory
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testAddEmployeeFileCategory()
     {
@@ -406,6 +433,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::addCompanyFileCategory
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testAddCompanyFileCategory()
     {
@@ -416,6 +444,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::updateEmployeeFile
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testUpdateEmployeeFile()
     {
@@ -426,6 +455,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::updateCompanyFile
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testUpdateCompanyFile()
     {
@@ -436,6 +466,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::downloadCompanyFile
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testDownloadCompanyFile()
     {
@@ -446,6 +477,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::importEmployees
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testImportEmployees()
     {
@@ -456,6 +488,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getDirectory
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetDirectory()
     {
@@ -466,6 +499,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::downloadEmployeePhoto
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testDownloadEmployeePhoto()
     {
@@ -476,6 +510,7 @@ class BambooAPITest extends TestCase
     /**
      * @test
      * @covers ::getChangedEmployeeTable
+     * @uses \BambooHR\API\BambooAPI::__construct
      */
     public function testGetChangedEmployeeTable()
     {
