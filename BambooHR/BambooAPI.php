@@ -260,13 +260,11 @@ class BambooAPI {
     }
 
     /**
-     *
      * @param string $type
-     * @param Array $params
      * @return \BambooHR\API\BambooHTTPResponse
      * @link http://www.bamboohr.com/api/documentation/metadata.php
      */
-    function getMetaData($type, $params=array()) {
+    function getMetaData($type) {
         $request=$this->getBambooHttpRequest();
         $request->method="GET";
         $request->url=$this->baseUrl."/v1/meta/$type/";
