@@ -1613,21 +1613,34 @@ class BambooAPITest extends TestCase
 
         $mockResponse = $this->createMockBambooHTTPResponse();
         $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockRequest
+            ->expects($this->once())
+            ->method('buildMultipart')
+            ->with(
+                '----BambooHR-MultiPart-Mime-Boundary----',
+                $this->callback(function($subject) use ($fileName, $categoryId, $shareWithEmployees) {
+                    $this->assertContains($fileName, $subject);
+                    $this->assertContains($categoryId, $subject);
+                    $this->assertContains($shareWithEmployees, $subject);
+                    return true;
+                }),
+                "file",
+                $fileName,
+                $contentType,
+                $fileData
+            )
+            ->will($this->returnValue(''));
         $mockHandler = $this->createMockBambooCurlHTTP();
         $mockHandler
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function($subject) use (
-                $mockRequest, $employeeId, $categoryId, $fileName, $contentType, $fileData, $shareWithEmployees
+                $mockRequest, $employeeId, $contentType, $fileData
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
                 $this->assertContains('/v1/employees', $subject->url);
                 $this->assertContains((string)$employeeId, $subject->url);
-                $this->assertContains((string)$categoryId, $subject->content);
-                $this->assertContains($fileName, $subject->content);
-                $this->assertContains($contentType, $subject->content);
-                $this->assertContains($shareWithEmployees, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1705,6 +1718,23 @@ class BambooAPITest extends TestCase
 
         $mockResponse = $this->createMockBambooHTTPResponse();
         $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockRequest
+            ->expects($this->once())
+            ->method('buildMultipart')
+            ->with(
+                '----BambooHR-MultiPart-Mime-Boundary----',
+                $this->callback(function($subject) use ($fileName, $categoryId, $shareWithEmployees) {
+                    $this->assertContains($fileName, $subject);
+                    $this->assertContains($categoryId, $subject);
+                    $this->assertContains($shareWithEmployees, $subject);
+                    return true;
+                }),
+                "file",
+                $fileName,
+                $contentType,
+                $fileData
+            )
+            ->will($this->returnValue(''));
         $mockHandler = $this->createMockBambooCurlHTTP();
         $mockHandler
             ->expects($this->once())
@@ -1715,10 +1745,6 @@ class BambooAPITest extends TestCase
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
                 $this->assertContains('/v1/files', $subject->url);
-                $this->assertContains((string)$categoryId, $subject->content);
-                $this->assertContains($fileName, $subject->content);
-                $this->assertContains($contentType, $subject->content);
-                $this->assertContains($shareWithEmployees, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
