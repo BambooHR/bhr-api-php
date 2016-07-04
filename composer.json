@@ -5,7 +5,6 @@
 		"ext-curl": "*"
 	},
 	"autoload": {
-		"classmap": ["BambooHR/API/API.php"],
         "psr-4": {
             "BambooHR\\API\\": "BambooHR",
             "BambooHR\\API\\Tests\\": "tests"
