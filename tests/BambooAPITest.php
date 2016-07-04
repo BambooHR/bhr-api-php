@@ -1599,7 +1599,7 @@ class BambooAPITest extends TestCase
      * @covers ::uploadEmployeeFile
      * @uses \BambooHR\API\BambooAPI::__construct
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
-     * @uses \BambooHR\API\buildMultipart
+     * @uses \BambooHR\API\BambooHTTPRequest::buildMultipart
      */
     public function testUploadEmployeeFile()
     {
@@ -1692,7 +1692,7 @@ class BambooAPITest extends TestCase
      * @covers ::uploadCompanyFile
      * @uses \BambooHR\API\BambooAPI::__construct
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
-     * @uses \BambooHR\API\buildMultipart
+     * @uses \BambooHR\API\BambooHTTPRequest::buildMultipart
      */
     public function testUploadCompanyFile()
     {
