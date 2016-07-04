@@ -132,20 +132,172 @@ class BambooAPITest extends TestCase
      */
     public function testRequestSecretKey()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        // ToDo: Need to find a way of testing "request"
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($mockRequest)
+            ->will($this->returnValue($mockResponse));
+
+        $companyDomain = 'Company Domain';
+        $applicationKey = 'Application Key';
+        $email = 'Email';
+        $password = 'Password';
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $bambooApi->requestSecretKey($applicationKey, $email, $password);
     }
 
     /**
      * @test
      * @covers ::login
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::requestSecretKey
+     * @uses \BambooHR\API\BambooHTTPResponse::isError
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
-    public function testLogin()
+    public function testLoginError()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $applicationKey = 'ApplicationKey';
+        $email = 'Email';
+        $password = 'Password';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockResponse
+            ->expects($this->once())
+            ->method('isError')
+            ->with()
+            ->will($this->returnValue(true));
+
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $applicationKey, $applicationKey, $email, $password
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertFalse(
+            $bambooApi->login($applicationKey, $email, $password)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::login
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::requestSecretKey
+     * @uses \BambooHR\API\BambooHTTPResponse::isError
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testLoginNotAuthenticated()
+    {
+        $companyDomain = 'CompanyDomain';
+        $applicationKey = 'ApplicationKey';
+        $email = 'Email';
+        $password = 'Password';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockResponse
+            ->expects($this->once())
+            ->method('isError')
+            ->with()
+            ->will($this->returnValue(false));
+        $mockResponse->content = "<content><response>nope</response></content>";
+
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $applicationKey, $applicationKey, $email, $password
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertFalse(
+            $bambooApi->login($applicationKey, $email, $password)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::login
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::requestSecretKey
+     * @uses \BambooHR\API\BambooAPI::setSecretKey
+     * @uses \BambooHR\API\BambooHTTPResponse::isError
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testLoginAuthenticated()
+    {
+        $testKey = 'Test Key';
+        $companyDomain = 'CompanyDomain';
+        $applicationKey = 'ApplicationKey';
+        $email = 'Email';
+        $password = 'Password';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockResponse
+            ->expects($this->once())
+            ->method('isError')
+            ->with()
+            ->will($this->returnValue(false));
+        $mockResponse->content = "<content><response>authenticated</response><key>$testKey</key></content>";
+
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $applicationKey, $applicationKey, $email, $password
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+        $mockHandler
+            ->expects($this->once())
+            ->method('setBasicAuth')
+            ->with($testKey, 'x');
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertTrue(
+            $bambooApi->login($applicationKey, $email, $password)
+        );
     }
 
     /**
