@@ -132,20 +132,30 @@ class BambooAPITest extends TestCase
      */
     public function testRequestSecretKey()
     {
-        // ToDo: Need to find a way of testing "request"
+        $companyDomain = 'CompanyDomain';
+        $applicationKey = 'ApplicationKey';
+        $email = 'Email';
+        $password = 'Password';
+
         $mockResponse = $this->createMockBambooHTTPResponse();
         $mockRequest = $this->createMockBambooHTTPRequest();
         $mockHandler = $this->createMockBambooCurlHTTP();
         $mockHandler
             ->expects($this->once())
             ->method('sendRequest')
-            ->with($mockRequest)
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $applicationKey, $applicationKey, $email, $password
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
+                return true;
+            }))
             ->will($this->returnValue($mockResponse));
 
-        $companyDomain = 'Company Domain';
-        $applicationKey = 'Application Key';
-        $email = 'Email';
-        $password = 'Password';
         $bambooApi = new BambooAPI($companyDomain, $mockHandler);
         $bambooApi->setBambooHttpRequest($mockRequest);
         $bambooApi->requestSecretKey($applicationKey, $email, $password);
@@ -308,8 +318,38 @@ class BambooAPITest extends TestCase
      */
     public function testGetEmployee()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 42;
+        $fields = [
+            'field1',
+            'field2'
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $fields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($fields[0], $subject->url);
+                $this->assertContains($fields[1], $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getEmployee($employeeId, $fields)
+        );
     }
 
     /**
@@ -320,8 +360,74 @@ class BambooAPITest extends TestCase
      */
     public function testGetReport()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $reportId = 42;
+        $format = 'Format';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $reportId, $format
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/reports', $subject->url);
+                $this->assertContains((string)$reportId, $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('&fd=no',$subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getReport($reportId, $format)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getReport
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetReportNoFilterDuplicates()
+    {
+        $companyDomain = 'CompanyDomain';
+        $reportId = 42;
+        $format = 'Format';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $reportId, $format
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/reports', $subject->url);
+                $this->assertContains((string)$reportId, $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertContains('&fd=no',$subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getReport($reportId, $format, false)
+        );
     }
 
     /**
@@ -365,24 +471,88 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::updateEmployee
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::prepareKeyValues
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUpdateEmployee()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 42;
+        $fields = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $fields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                foreach($fields as $field => $value) {
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
+                }
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->updateEmployee($employeeId, $fields)
+        );
     }
 
     /**
      * @test
      * @covers ::addEmployee
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::prepareKeyValues
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddEmployee()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $initialFields = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $initialFields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                foreach($initialFields as $field => $value) {
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
+                }
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addEmployee($initialFields)
+        );
     }
 
     /**
@@ -393,8 +563,170 @@ class BambooAPITest extends TestCase
      */
     public function testGetCustomReport()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $format = 'Format';
+        $fields = [
+            'field1',
+            'field2'
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $format, $fields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('filterDuplicates', $subject->content);
+                $this->assertNotContains('title', $subject->content);
+                $this->assertNotContains('lastChanged', $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getCustomReport($format, $fields)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getCustomReport
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetCustomReportNoFilterDuplicates()
+    {
+        $companyDomain = 'CompanyDomain';
+        $format = 'Format';
+        $fields = [
+            'field1',
+            'field2'
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $format, $fields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertContains('filterDuplicates', $subject->content);
+                $this->assertNotContains('title', $subject->content);
+                $this->assertNotContains('lastChanged', $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getCustomReport($format, $fields, false)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getCustomReport
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetCustomReportTitle()
+    {
+        $companyDomain = 'CompanyDomain';
+        $format = 'Format';
+        $fields = [
+            'field1',
+            'field2'
+        ];
+        $title = "Title";
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $format, $fields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('filterDuplicates', $subject->content);
+                $this->assertContains('title', $subject->content);
+                $this->assertNotContains('lastChanged', $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getCustomReport($format, $fields, true, $title)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getCustomReport
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetCustomReportLastChanged()
+    {
+        $companyDomain = 'CompanyDomain';
+        $format = 'Format';
+        $fields = [
+            'field1',
+            'field2'
+        ];
+        $lastChanged = 'Last Changed';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $format, $fields
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('filterDuplicates', $subject->content);
+                $this->assertNotContains('title', $subject->content);
+                $this->assertContains('lastChanged', $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getCustomReport($format, $fields, true, "", $lastChanged)
+        );
     }
 
     /**
@@ -405,18 +737,110 @@ class BambooAPITest extends TestCase
      */
     public function testGetTable()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 42;
+        $tableName = 'TableName';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $tableName
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTable($employeeId, $tableName)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getTable
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetTableAll()
+    {
+        $companyDomain = 'CompanyDomain';
+        $allEmployees = 'all';
+        $tableName = 'TableName';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $allEmployees, $tableName
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains($allEmployees, $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTable($allEmployees, $tableName)
+        );
     }
 
     /**
      * @test
      * @covers ::getChangedEmployees
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testChangedEmployees()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $since = 'Since';
+        $type = 'Type';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $since, $type
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains($since, $subject->url);
+                $this->assertContains($type, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getChangedEmployees($since, $type)
+        );
     }
 
     /**
@@ -427,56 +851,173 @@ class BambooAPITest extends TestCase
      */
     public function testGetMetaData()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $type = 'Type';
+        $params = ['Not Used']; // ToDo: Unused
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $type, $params
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/meta', $subject->url);
+                $this->assertContains($type, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getMetaData($type, $params)
+        );
     }
 
     /**
      * @test
      * @covers ::getUsers
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getMetaData
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetUsers()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/meta/users', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getUsers()
+        );
     }
 
     /**
      * @test
      * @covers ::getLists
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getMetaData
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetLists()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/meta/lists', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getLists()
+        );
     }
 
     /**
      * @test
      * @covers ::getFields
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getMetaData
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetFields()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/meta/fields', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getFields()
+        );
     }
 
     /**
      * @test
      * @covers ::getTables
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getMetaData
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTables()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/meta/tables', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTables()
+        );
     }
 
     /**
@@ -487,20 +1028,71 @@ class BambooAPITest extends TestCase
      */
     public function testGetTimeOffBalances()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 42;
+        $date = 'Date';
+        $precision = 10000;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $date, $precision
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($date, $subject->url);
+                $this->assertContains((string)$precision, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTimeOffBalances($employeeId, $date, $precision)
+        );
     }
 
     /**
      * @test
      * @covers ::getTimeOffTypes
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getMetaData
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTimeOffTypes()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/meta/time_off/types', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTimeOffTypes()
+        );
     }
 
     /**
@@ -511,32 +1103,221 @@ class BambooAPITest extends TestCase
      */
     public function testGetTimeOffRequestsArr()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $arr = [];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertNotContains('id', $subject->url);
+                $this->assertNotContains('action', $subject->url);
+                $this->assertNotContains('type', $subject->url);
+                $this->assertNotContains('status', $subject->url);
+                $this->assertNotContains('start', $subject->url);
+                $this->assertNotContains('end', $subject->url);
+                $this->assertNotContains('employeeId', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTimeOffRequestsArr($arr)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getTimeOffRequestsArr
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetTimeOffRequestsArrAllOptions()
+    {
+        $companyDomain = 'CompanyDomain';
+
+        $arr = [
+            'id'         => 'ID',
+            'action'     => 'Action',
+            'type'       => 'Type',
+            'status'     => 'Status',
+            'start'      => 'Start',
+            'end'        => 'End',
+            'employeeId' => 'EmployeeId',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertContains('id', $subject->url);
+                $this->assertContains('action', $subject->url);
+                $this->assertContains('type', $subject->url);
+                $this->assertContains('status', $subject->url);
+                $this->assertContains('start', $subject->url);
+                $this->assertContains('end', $subject->url);
+                $this->assertContains('employeeId', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTimeOffRequestsArr($arr)
+        );
     }
 
     /**
      * @test
      * @covers ::getTimeOffRequests
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getTimeOffRequestsArr
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testGetTimeOffRequests()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertNotContains('id', $subject->url);
+                $this->assertNotContains('action', $subject->url);
+                $this->assertNotContains('type', $subject->url);
+                $this->assertNotContains('status', $subject->url);
+                $this->assertNotContains('start', $subject->url);
+                $this->assertNotContains('end', $subject->url);
+                $this->assertNotContains('employeeId', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTimeOffRequests()
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::getTimeOffRequests
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::getTimeOffRequestsArr
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testGetTimeOffRequestsAll()
+    {
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertNotContains('id', $subject->url);
+                $this->assertNotContains('action', $subject->url);
+                $this->assertContains('type', $subject->url);
+                $this->assertContains('status', $subject->url);
+                $this->assertContains('start', $subject->url);
+                $this->assertContains('end', $subject->url);
+                $this->assertContains('employeeId', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getTimeOffRequests('Start', 'End', 'Status', 'Type', 10)
+        );
     }
 
     /**
      * @test
      * @covers ::addTableRow
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::prepareKeyValues
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testAddTableRow()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 100;
+        $tableName = 'TableName';
+        $values = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $tableName, $values
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                foreach($values as $field => $value) {
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
+                }
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addTableRow($employeeId, $tableName, $values)
+        );
     }
 
     /**
@@ -547,8 +1328,137 @@ class BambooAPITest extends TestCase
      */
     public function testAddTimeOffRequest()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId= 42;
+        $start= 'start';
+        $end= 'end';
+        $timeOffTypeId= 101;
+        $amount= 'amount';
+        $status= 'status';
+        $employeeNote= 'employeeNote';
+        $managerNote= 'managerNote';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest,
+                $employeeId,
+                $start,
+                $end,
+                $timeOffTypeId,
+                $amount,
+                $status,
+                $employeeNote,
+                $managerNote
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('PUT', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains('/time_off/request', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($start, $subject->content);
+                $this->assertContains($end, $subject->content);
+                $this->assertContains((string)$timeOffTypeId, $subject->content);
+                $this->assertContains($amount, $subject->content);
+                $this->assertContains($status, $subject->content);
+                $this->assertContains($employeeNote, $subject->content);
+                $this->assertContains($managerNote, $subject->content);
+                $this->assertNotContains('previousRequest', $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addTimeOffRequest(
+                $employeeId,
+                $start,
+                $end,
+                $timeOffTypeId,
+                $amount,
+                $status,
+                $employeeNote,
+                $managerNote
+            )
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::addTimeOffRequest
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testAddTimeOffRequestPrevious()
+    {
+        $companyDomain = 'CompanyDomain';
+        $employeeId= 42;
+        $start= 'start';
+        $end= 'end';
+        $timeOffTypeId= 101;
+        $amount= 'amount';
+        $status= 'status';
+        $employeeNote= 'employeeNote';
+        $managerNote= 'managerNote';
+        $previous = 9001;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest,
+                $employeeId,
+                $start,
+                $end,
+                $timeOffTypeId,
+                $amount,
+                $status,
+                $employeeNote,
+                $managerNote,
+                $previous
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('PUT', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains('/time_off/request', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($start, $subject->content);
+                $this->assertContains($end, $subject->content);
+                $this->assertContains((string)$timeOffTypeId, $subject->content);
+                $this->assertContains($amount, $subject->content);
+                $this->assertContains($status, $subject->content);
+                $this->assertContains($employeeNote, $subject->content);
+                $this->assertContains($managerNote, $subject->content);
+                $this->assertContains((string)$previous, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addTimeOffRequest(
+                $employeeId,
+                $start,
+                $end,
+                $timeOffTypeId,
+                $amount,
+                $status,
+                $employeeNote,
+                $managerNote,
+                $previous
+            )
+        );
     }
 
     /**
@@ -559,8 +1469,36 @@ class BambooAPITest extends TestCase
      */
     public function testAddTimeOffHistoryFromRequest()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 101;
+        $ymd = 'Year Month Day';
+        $requestId = 42;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $ymd, $requestId
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('PUT', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($ymd, $subject->content);
+                $this->assertContains((string)$requestId, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addTimeOffHistoryFromRequest($employeeId, $ymd, $requestId)
+        );
     }
 
     /**
@@ -571,20 +1509,89 @@ class BambooAPITest extends TestCase
      */
     public function testRecordTimeOffOverride()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 101;
+        $ymd = 'Year Month Day';
+        $timeOffTypeId = 42;
+        $note = 'Note';
+        $amount = 1.5;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $ymd, $timeOffTypeId, $note, $amount
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('PUT', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($ymd, $subject->content);
+                $this->assertContains((string)$timeOffTypeId, $subject->content);
+                $this->assertContains($note, $subject->content);
+                $this->assertContains((string)$amount, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->recordTimeOffOverride($employeeId, $ymd, $timeOffTypeId, $note, $amount)
+        );
     }
 
     /**
      * @test
      * @covers ::updateTableRow
      * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\BambooAPI::prepareKeyValues
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
      */
     public function testUpdateTableRow()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 100;
+        $rowId = 42;
+        $tableName = 'TableName';
+        $values = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $tableName, $rowId, $values
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                $this->assertContains((string)$rowId, $subject->url);
+                foreach($values as $field => $value) {
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
+                }
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->updateTableRow($employeeId, $tableName, $rowId, $values)
+        );
     }
 
     /**
@@ -592,11 +1599,92 @@ class BambooAPITest extends TestCase
      * @covers ::uploadEmployeeFile
      * @uses \BambooHR\API\BambooAPI::__construct
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     * @uses \BambooHR\API\buildMultipart
      */
     public function testUploadEmployeeFile()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 42;
+        $categoryId = 101;
+        $fileName = 'FileName';
+        $contentType = 'ContentType';
+        $fileData = 'fileData';
+        $shareWithEmployees = 'yes';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $categoryId, $fileName, $contentType, $fileData, $shareWithEmployees
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains((string)$categoryId, $subject->content);
+                $this->assertContains($fileName, $subject->content);
+                $this->assertContains($contentType, $subject->content);
+                $this->assertContains($shareWithEmployees, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->uploadEmployeeFile(
+                $employeeId,
+                $categoryId,
+                $fileName,
+                $contentType,
+                $fileData,
+                $shareWithEmployees
+            )
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::updateTimeOffRequestStatus
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testUpdateTimeOffRequestStatus()
+    {
+        $companyDomain = 'CompanyDomain';
+        $requestId = 101;
+        $status = 'Status';
+        $note = 'Note';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $requestId, $status, $note
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertContains((string)$requestId, $subject->url);
+                $this->assertContains($status, $subject->content);
+                $this->assertContains($note, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->updateTimeOffRequestStatus($requestId, $status, $note)
+        );
     }
 
     /**
@@ -604,11 +1692,80 @@ class BambooAPITest extends TestCase
      * @covers ::uploadCompanyFile
      * @uses \BambooHR\API\BambooAPI::__construct
      * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     * @uses \BambooHR\API\buildMultipart
      */
     public function testUploadCompanyFile()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $categoryId = 101;
+        $fileName = 'FileName';
+        $contentType = 'ContentType';
+        $fileData = 'fileData';
+        $shareWithEmployees = 'yes';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $categoryId, $fileName, $contentType, $fileData, $shareWithEmployees
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/files', $subject->url);
+                $this->assertContains((string)$categoryId, $subject->content);
+                $this->assertContains($fileName, $subject->content);
+                $this->assertContains($contentType, $subject->content);
+                $this->assertContains($shareWithEmployees, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->uploadCompanyFile($categoryId, $fileName, $contentType, $fileData, $shareWithEmployees)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::listEmployeeFiles
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testListEmployeeFiles()
+    {
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 101;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains('files/view', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->listEmployeeFiles($employeeId)
+        );
     }
 
     /**
@@ -619,8 +1776,30 @@ class BambooAPITest extends TestCase
      */
     public function testListCompanyFiles()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/files/view', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->listCompanyFiles()
+        );
     }
 
     /**
@@ -631,8 +1810,32 @@ class BambooAPITest extends TestCase
      */
     public function testAddEmployeeFileCategory()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $categoryName = 'Category Name';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $categoryName
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees/files/categories', $subject->url);
+                $this->assertContains($categoryName, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addEmployeeFileCategory($categoryName)
+        );
     }
 
     /**
@@ -643,8 +1846,32 @@ class BambooAPITest extends TestCase
      */
     public function testAddCompanyFileCategory()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $categoryName = 'Category Name';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $categoryName
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/files/categories', $subject->url);
+                $this->assertContains($categoryName, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->addCompanyFileCategory($categoryName)
+        );
     }
 
     /**
@@ -655,8 +1882,42 @@ class BambooAPITest extends TestCase
      */
     public function testUpdateEmployeeFile()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 42;
+        $fileId = 101;
+        $values = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $fileId, $values
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
+                foreach($values as $field => $value) {
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
+                }
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->updateEmployeeFile($employeeId, $fileId, $values)
+        );
     }
 
     /**
@@ -667,8 +1928,78 @@ class BambooAPITest extends TestCase
      */
     public function testUpdateCompanyFile()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $fileId = 101;
+        $values = [
+            'field1' => 'value1',
+            'field2' => 'value2',
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $fileId, $values
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/files', $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
+                foreach($values as $field => $value) {
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
+                }
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->updateCompanyFile($fileId, $values)
+        );
+    }
+
+    /**
+     * @test
+     * @covers ::downloadEmployeeFile
+     * @uses \BambooHR\API\BambooAPI::__construct
+     * @uses \BambooHR\API\Injector\BambooHTTPRequestInjector
+     */
+    public function testDownloadEmployeeFile()
+    {
+        $companyDomain = 'CompanyDomain';
+        $fileId = 101;
+        $employeeId = 42;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId, $fileId
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->downloadEmployeeFile($employeeId, $fileId)
+        );
     }
 
     /**
@@ -679,8 +2010,32 @@ class BambooAPITest extends TestCase
      */
     public function testDownloadCompanyFile()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $fileId = 101;
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $fileId
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/files', $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->downloadCompanyFile($fileId)
+        );
     }
 
     /**
@@ -691,8 +2046,32 @@ class BambooAPITest extends TestCase
      */
     public function testImportEmployees()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $xml = '<Hello>World</Hello>';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $xml
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('POST', $subject->method);
+                $this->assertContains('/v1/employees/import', $subject->url);
+                $this->assertSame($xml, $subject->content);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->importEmployees($xml)
+        );
     }
 
     /**
@@ -703,8 +2082,30 @@ class BambooAPITest extends TestCase
      */
     public function testGetDirectory()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees/directory', $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getDirectory()
+        );
     }
 
     /**
@@ -715,8 +2116,38 @@ class BambooAPITest extends TestCase
      */
     public function testDownloadEmployeePhoto()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $employeeId = 101;
+        $size = 'small';
+        $params = [
+            'no' => 'checks',
+            'here'
+        ];
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $employeeId ,$size
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($size, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->downloadEmployeePhoto($employeeId, $size, $params)
+        );
     }
 
     /**
@@ -727,7 +2158,33 @@ class BambooAPITest extends TestCase
      */
     public function testGetChangedEmployeeTable()
     {
-        // ToDo:
-        $this->assertTrue((bool)'This can not be tested until BambooHTTPRequest is injected');
+        $companyDomain = 'CompanyDomain';
+        $tableName = 'TableName';
+        $since = 'Since';
+
+        $mockResponse = $this->createMockBambooHTTPResponse();
+        $mockRequest = $this->createMockBambooHTTPRequest();
+        $mockHandler = $this->createMockBambooCurlHTTP();
+        $mockHandler
+            ->expects($this->once())
+            ->method('sendRequest')
+            ->with($this->callback(function($subject) use (
+                $mockRequest, $tableName, $since
+            ) {
+                $this->assertSame($mockRequest, $subject);
+                $this->assertSame('GET', $subject->method);
+                $this->assertContains('/v1/employees/changed/tables', $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                $this->assertContains($since, $subject->url);
+                return true;
+            }))
+            ->will($this->returnValue($mockResponse));
+
+        $bambooApi = new BambooAPI($companyDomain, $mockHandler);
+        $bambooApi->setBambooHttpRequest($mockRequest);
+        $this->assertSame(
+            $mockResponse,
+            $bambooApi->getChangedEmployeeTable($tableName, $since)
+        );
     }
 }
