@@ -30,8 +30,8 @@ class TestCase extends PHPUnitTestCase
         $reflectedMethod = new \ReflectionMethod($object, $method);
         $reflectedMethod->setAccessible(true);
 
-        $callback = function(...$args) use ($reflectedMethod, $object) {
-            return $reflectedMethod->invokeArgs($object, $args);
+        $callback = function() use ($reflectedMethod, $object) {
+            return $reflectedMethod->invokeArgs($object, func_get_args());
         };
 
         return $callback;
