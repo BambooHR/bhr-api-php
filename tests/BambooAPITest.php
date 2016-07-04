@@ -37,7 +37,7 @@ class BambooAPITest extends TestCase
      * @test
      * @covers ::__construct
      */
-    public function testContruct()
+    public function testConstructWithName()
     {
         $companyDomain = 'Company Domain';
         $bambooApi = new BambooAPI($companyDomain);
@@ -53,7 +53,14 @@ class BambooAPITest extends TestCase
             BambooCurlHTTP::class,
             $this->getObjectAttribute($bambooApi, 'httpHandler')
         );
+    }
 
+    /**
+     * @test
+     * @covers ::__construct
+     */
+    public function testConstructWithNameHttp()
+    {
         $companyDomain = 'Company Domain';
         $http = $this->createMock(BambooHTTP::class);
         $bambooApi = new BambooAPI($companyDomain, $http);
@@ -69,7 +76,14 @@ class BambooAPITest extends TestCase
             $http,
             $this->getObjectAttribute($bambooApi, 'httpHandler')
         );
+    }
 
+    /**
+     * @test
+     * @covers ::__construct
+     */
+    public function testConstructWithNameHttpBaseUrl()
+    {
         $companyDomain = 'Company Domain';
         $http = $this->createMock(BambooHTTP::class);
         $baseUrl = 'base url';
