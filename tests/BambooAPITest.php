@@ -853,7 +853,6 @@ class BambooAPITest extends TestCase
     {
         $companyDomain = 'CompanyDomain';
         $type = 'Type';
-        $params = ['Not Used']; // ToDo: Unused
 
         $mockResponse = $this->createMockBambooHTTPResponse();
         $mockRequest = $this->createMockBambooHTTPRequest();
@@ -862,7 +861,7 @@ class BambooAPITest extends TestCase
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function($subject) use (
-                $mockRequest, $type, $params
+                $mockRequest, $type
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
@@ -876,7 +875,7 @@ class BambooAPITest extends TestCase
         $bambooApi->setBambooHttpRequest($mockRequest);
         $this->assertSame(
             $mockResponse,
-            $bambooApi->getMetaData($type, $params)
+            $bambooApi->getMetaData($type)
         );
     }
 
