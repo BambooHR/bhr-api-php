@@ -49,7 +49,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
      */
     protected function createMockBambooHTTPRequest()
     {
-        return $this->getMock(BambooHTTPRequest::class);
+        return $this->createMock(BambooHTTPRequest::class);
     }
 
     /**
@@ -57,7 +57,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
      */
     protected function createMockBambooHTTPResponse()
     {
-        return $this->getMock(BambooHTTPResponse::class);
+        return $this->createMock(BambooHTTPResponse::class);
     }
 
     /**
@@ -65,7 +65,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
      */
     protected function createMockBambooCurlHTTP()
     {
-        return $this->getMock(BambooCurlHTTP::class);
+        return $this->createMock(BambooCurlHTTP::class);
     }
 
     /**
