@@ -20,8 +20,7 @@ use BambooHR\API\Tests\Injector\BambooHTTPRequestInjectorTest;
  * @test
  * @coversDefaultClass \BambooHR\API\BambooAPI
  */
-class BambooAPITest extends TestCase
-{
+class BambooAPITest extends TestCase {
     use BambooHTTPRequestInjectorTest;
 
     /**
@@ -462,7 +461,7 @@ class BambooAPITest extends TestCase
         $prepareKeyValues = $this->getObjectMethod($bambooApi, 'prepareKeyValues');
         $this->assertSame(
             '<field id="firstKey" >firstValue</field><field id="2ndKey" >1</field>'
-            .'<field id="childKey" attribute="value">This makes no sense and there is no documentation</field>',
+            . '<field id="childKey" attribute="value">This makes no sense and there is no documentation</field>',
             $prepareKeyValues($values)
         );
     }

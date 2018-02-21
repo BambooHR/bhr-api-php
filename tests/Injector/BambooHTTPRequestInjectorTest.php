@@ -17,8 +17,7 @@ use BambooHR\API\Injector\BambooHTTPRequestInjector;
  * @package BambooHR
  * @coversDefaultClass \BambooHR\API\Injector\BambooHTTPRequestInjector
  */
-trait BambooHTTPRequestInjectorTest
-{
+trait BambooHTTPRequestInjectorTest {
     /**
      * @return BambooHTTPRequestInjector
      */
