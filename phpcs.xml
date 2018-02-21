@@ -5,5 +5,5 @@
     <file>./src</file>
     <file>./tests</file>
 
-    <rule ref="./vendor/bamboohr/phpcs"/>
+    <rule ref="./vendor/bamboohr/phpcs/BambooHR"/>
 </ruleset>

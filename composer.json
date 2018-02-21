@@ -26,9 +26,9 @@
             "vendor/bin/phpunit --strict-coverage"
         ],
         "quality": [
-            "vendor/bin/phpcpd BambooHR",
-            "vendor/bin/phpcs --standard=phpcs.xml BambooHR",
-            "vendor/bin/phpmd BambooHR text phpmd.xml"
+            "sh vendor/bin/phpcpd BambooHR",
+            "sh vendor/bin/phpcs --standard=phpcs.xml BambooHR",
+            "sh vendor/bin/phpmd BambooHR text phpmd.xml"
         ]
     }
 }
