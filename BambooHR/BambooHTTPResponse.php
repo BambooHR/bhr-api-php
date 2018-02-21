@@ -72,10 +72,11 @@ class BambooHTTPResponse {
      * @return string
      */
     public function getErrorMessage() {
-        if($this->isError())
+        if($this->isError()) {
             return isset($this->headers['X-BambooHR-Error-Messsage'])
                 ? $this->headers['X-BambooHR-Error-Messsage']
                 : $this->getContent();
+        }
         return null;
     }
 }
