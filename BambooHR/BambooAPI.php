@@ -213,14 +213,18 @@ class BambooAPI {
         $request->url=$this->baseUrl . "/v1/reports/custom/?format=" . $format;
         $request->headers=array("Content-type", "text/xml");
         $xml='<report>';
-        if($title!="") $xml.="<title>" . htmlentities($title) . "</title>";
+        if($title!="") {
+            $xml.="<title>" . htmlentities($title) . "</title>";
+        }
 
         if($lastChanged!="") {
             $xml.="<filters><lastChanged includeNull=\"no\" >" . htmlentities($lastChanged) . "</lastChanged></filters>";
         }
 
         $xml.='<fields>';
-        if(!$filterDuplicates) $xml.="<filterDuplicates>no</filterDuplicates>";
+        if(!$filterDuplicates) {
+            $xml.="<filterDuplicates>no</filterDuplicates>";
+        }
         foreach($fields as $field) {
             $xml.=sprintf('<field id="%s" />', $field );
         }
@@ -237,7 +241,9 @@ class BambooAPI {
      * @link http://www.bamboohr.com/api/documentation/tables.php#getTable
      */
     function getTable($employeeId, $tableName) {
-        if($employeeId!="all") $employeeId=intval($employeeId);
+        if($employeeId!="all") {
+            $employeeId=intval($employeeId);
+        }
         $request=$this->getBambooHttpRequest();
         $request->method="GET";
         $request->url=$this->baseUrl . "/v1/employees/" . $employeeId . "/tables/" . urlencode($tableName) . "/";
@@ -340,13 +346,27 @@ class BambooAPI {
         $request=$this->getBambooHttpRequest();
         $request->method="GET";
         $request->url=$this->baseUrl . "/v1/time_off/requests/?";
-        if(isset($arr['id'])) $request->url.="id=" . urlencode($arr['id']) . "&";
-        if(isset($arr['action'])) $request->url.="action=" . urlencode($arr['action']) . "&";
-        if(isset($arr['type'])) $request->url.="type=" . urlencode($arr['type']) . "&";
-        if(isset($arr['status'])) $request->url.="status=" . urlencode($arr['status']) . "&";
-        if(isset($arr['start'])) $request->url.="start=" . urlencode($arr['start']) . "&";
-        if(isset($arr['end'])) $request->url.="end=" . urlencode($arr['end']) . "&";
-        if(isset($arr['employeeId'])) $request->url.="employeeId=" . urlencode($arr['employeeId']) . "&";
+        if(isset($arr['id'])) {
+            $request->url.="id=" . urlencode($arr['id']) . "&";
+        }
+        if(isset($arr['action'])) {
+            $request->url.="action=" . urlencode($arr['action']) . "&";
+        }
+        if(isset($arr['type'])) {
+            $request->url.="type=" . urlencode($arr['type']) . "&";
+        }
+        if(isset($arr['status'])) {
+            $request->url.="status=" . urlencode($arr['status']) . "&";
+        }
+        if(isset($arr['start'])) {
+            $request->url.="start=" . urlencode($arr['start']) . "&";
+        }
+        if(isset($arr['end'])) {
+            $request->url.="end=" . urlencode($arr['end']) . "&";
+        }
+        if(isset($arr['employeeId'])) {
+            $request->url.="employeeId=" . urlencode($arr['employeeId']) . "&";
+        }
         return $this->httpHandler->sendRequest( $request );
     }
 
@@ -363,11 +383,21 @@ class BambooAPI {
      */
     function getTimeOffRequests($start="", $end="", $status="", $type="", $employeeId=0) {
         $arr=array();
-        if($type!="") $arr["type"]=$type;
-        if($status!="") $arr["status"]=$status;
-        if($start!="") $arr["start"]=$start;
-        if($end!="") $arr["end"]=$end;
-        if($employeeId!=0) $arr["employeeId"]=$employeeId;
+        if($type!="") {
+            $arr["type"]=$type;
+        }
+        if($status!="") {
+            $arr["status"]=$status;
+        }
+        if($start!="") {
+            $arr["start"]=$start;
+        }
+        if($end!="") {
+            $arr["end"]=$end;
+        }
+        if($employeeId!=0) {
+            $arr["employeeId"]=$employeeId;
+        }
         return $this->getTimeOffRequestsArr($arr);
     }
 
@@ -417,7 +447,9 @@ class BambooAPI {
             "status"=>$status,
             "amount"=>$amount
         );
-        if($previous!=0) $values["previousRequest"]=intval($previous);
+        if($previous!=0) {
+            $values["previousRequest"]=intval($previous);
+        }
         $xml="<history>\n";
         foreach($values as $tag=>$value) {
             $xml.=sprintf("<%s>%s</%s>\n",$tag, htmlspecialchars($value, ENT_COMPAT),$tag);
