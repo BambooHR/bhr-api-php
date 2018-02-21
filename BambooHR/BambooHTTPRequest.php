@@ -36,13 +36,13 @@ class BambooHTTPRequest {
 
         // populate normal fields first (simpler)
         foreach ($postFields as $key => $content) {
-            $data .= "--".$boundary. "\r\n";
+            $data .= "--" . $boundary . "\r\n";
             $data .= 'Content-Disposition: form-data; name="' . $key . '"';
             // note: double endline
             $data .= "\r\n\r\n";
-            $data.= $content."\r\n";
+            $data.= $content . "\r\n";
         }
-        $data.="--".$boundary."\r\n";
+        $data.="--" . $boundary . "\r\n";
         $data .= 'Content-Disposition: form-data; name="' . $name . '";' .
             ' filename="' . $fileName . '"' . "\r\n";
 

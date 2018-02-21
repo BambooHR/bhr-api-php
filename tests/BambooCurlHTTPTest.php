@@ -17,8 +17,7 @@ use BambooHR\API\BambooHTTP;
  * @test
  * @coversDefaultClass \BambooHR\API\BambooCurlHTTP
  */
-class BambooCurlHTTPTest extends TestCase
-{
+class BambooCurlHTTPTest extends TestCase {
     /**
      * @test
      */

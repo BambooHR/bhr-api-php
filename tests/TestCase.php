@@ -19,8 +19,7 @@ use BambooHR\API\BambooHTTPResponse;
  * This class can be used to add further asserts, etc
  * @package BambooHR
  */
-class TestCase extends \PHPUnit_Framework_TestCase
-{
+class TestCase extends \PHPUnit_Framework_TestCase {
     /**
      * @param $object
      * @param $method

@@ -16,8 +16,7 @@ use BambooHR\API\BambooHTTPResponse;
  * @test
  * @coversDefaultClass \BambooHR\API\BambooHTTPResponse
  */
-class BambooHTTPRequestTest extends TestCase
-{
+class BambooHTTPRequestTest extends TestCase {
 
     /**
      * @test

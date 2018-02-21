@@ -16,8 +16,7 @@ use BambooHR\API\BambooHTTPRequest;
  * Allows injection of BambooHttpRequest with a default to fall back on
  * @package BambooHR
  */
-trait BambooHTTPRequestInjector
-{
+trait BambooHTTPRequestInjector {
     /**
      * @var BambooHTTPRequest
      */

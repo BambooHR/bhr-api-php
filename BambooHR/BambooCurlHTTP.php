@@ -62,7 +62,7 @@ class BambooCurlHTTP implements BambooHTTP {
         curl_setopt($http, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($http, CURLOPT_HTTPAUTH, CURLAUTH_BASIC );
-        curl_setopt($http, CURLOPT_USERPWD, $this->basicAuthUsername.':'.$this->basicAuthPassword);
+        curl_setopt($http, CURLOPT_USERPWD, $this->basicAuthUsername . ':' . $this->basicAuthPassword);
 
         $response->content=curl_exec($http);
 
