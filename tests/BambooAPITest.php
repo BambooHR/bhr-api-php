@@ -144,7 +144,7 @@ class BambooAPITest extends TestCase
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function($subject) use (
-                $mockRequest, $applicationKey, $applicationKey, $email, $password
+                $mockRequest, $applicationKey, $email, $password
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
@@ -189,7 +189,7 @@ class BambooAPITest extends TestCase
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function($subject) use (
-                $mockRequest, $applicationKey, $applicationKey, $email, $password
+                $mockRequest, $applicationKey, $email, $password
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
@@ -237,7 +237,7 @@ class BambooAPITest extends TestCase
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function($subject) use (
-                $mockRequest, $applicationKey, $applicationKey, $email, $password
+                $mockRequest, $applicationKey, $email, $password
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
@@ -287,7 +287,7 @@ class BambooAPITest extends TestCase
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->callback(function($subject) use (
-                $mockRequest, $applicationKey, $applicationKey, $email, $password
+                $mockRequest, $applicationKey, $email, $password
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
