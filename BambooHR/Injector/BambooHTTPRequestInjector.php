@@ -17,27 +17,26 @@ use BambooHR\API\BambooHTTPRequest;
  * @package BambooHR
  */
 trait BambooHTTPRequestInjector {
-    /**
-     * @var BambooHTTPRequest
-     */
-    private $bambooHttpRequest;
+	/**
+	 * @var BambooHTTPRequest
+	 */
+	private $bambooHttpRequest;
 
-    /**
-     * @return BambooHTTPRequest
-     */
-    protected function getBambooHttpRequest()
-    {
-        if(!$this->bambooHttpRequest) {
-            $this->setBambooHttpRequest(new BambooHTTPRequest());
-        }
-        return $this->bambooHttpRequest;
-    }
+	/**
+	 * @return BambooHTTPRequest
+	 */
+	protected function getBambooHttpRequest() {
+		if (!$this->bambooHttpRequest) {
+			$this->setBambooHttpRequest(new BambooHTTPRequest());
+		}
+		return $this->bambooHttpRequest;
+	}
 
-    /**
-     * @param BambooHTTPRequest $bambooHTTPRequest
-     */
-    public function setBambooHttpRequest(BambooHTTPRequest $bambooHTTPRequest)
-    {
-        $this->bambooHttpRequest = $bambooHTTPRequest;
-    }
+	/**
+	 * @param BambooHTTPRequest $bambooHttpRequest the object representing an http request
+	 * @return void
+	 */
+	public function setBambooHttpRequest(BambooHTTPRequest $bambooHttpRequest) {
+		$this->bambooHttpRequest = $bambooHttpRequest;
+	}
 }
