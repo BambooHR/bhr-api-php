@@ -544,10 +544,10 @@ class BambooAPI {
 		$request->method = "GET";
 		$request->url = $this->baseUrl . "/v1/time_off/whos_out/?";
 		if ($start != "") {
-			$request->url .= "start=" . urlencode($arr['start']) . "&";
+			$request->url .= "start=" . urlencode($start) . "&";
 		}
 		if ($end != "") {
-			$request->url .= "end=" . urlencode($arr['end']) . "&";
+			$request->url .= "end=" . urlencode($end) . "&";
 		}
 		return $this->httpHandler->sendRequest( $request );
 	}
