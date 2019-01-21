@@ -533,6 +533,26 @@ class BambooAPI {
 	}
 
 	/**
+	 * 
+	 * @param string $start      format: "YYYY-mm-dd"
+	 * @param string $end        format "YYYY-mm-dd"
+	 * @return \BambooHR\API\BambooHTTPResponse
+	 * @link http://www.bamboohr.com/api/documentation/time_off.php#getWhosOut
+	 */
+	function getWhosOut($start = "", $end = "") {
+		$request = $this->getBambooHttpRequest();
+		$request->method = "GET";
+		$request->url = $this->baseUrl . "/v1/time_off/whos_out/?";
+		if ($start != "") {
+			$request->url .= "start=" . urlencode($start) . "&";
+		}
+		if ($end != "") {
+			$request->url .= "end=" . urlencode($end) . "&";
+		}
+		return $this->httpHandler->sendRequest( $request );
+	}
+
+	/**
 	 *
 	 * @param int    $employeeId employee id
 	 * @param string $tableName  the name of the table to update
