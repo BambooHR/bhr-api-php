@@ -30,3 +30,16 @@ $simplexml = $response->getContent();
 ````
 After that, you may want to explore the employee [api](http://www.bamboohr.com/api/documentation/employees.php), or 
 just look through the wrapper code.
+
+
+JSON
+====
+
+To get JSON output, change the following line :
+``` 
+$bhr = new API("<company_subdomain>");
+```
+to this:
+``` 
+$bhr = new API("<company_subdomain>", new BambooJSONHTTP());
+```
