@@ -175,7 +175,7 @@ class BambooHTTPRequestTest extends TestCase {
         $errorBody = 'Test Body Error';
 
         $response = new BambooHTTPResponse();
-        $response->headers['X-BambooHR-Error-Messsage'] = $errorHeader;
+        $response->headers['X-BambooHR-Error-Message'] = $errorHeader;
         $response->content = $errorBody;
         $response->statusCode = 200;
         $this->assertNull(
@@ -183,7 +183,7 @@ class BambooHTTPRequestTest extends TestCase {
         );
 
         $response = new BambooHTTPResponse();
-        $response->headers['X-BambooHR-Error-Messsage'] = $errorHeader;
+        $response->headers['X-BambooHR-Error-Message'] = $errorHeader;
         $response->content = $errorBody;
         $response->statusCode = 500;
         $this->assertSame(
