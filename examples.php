@@ -39,7 +39,7 @@ $response = $api->getLists();
 $fields = array('lastName', 'firstName', 'employeeNumber');
 $response = $api->getCustomReport('xml',$fields);
 if($response->isError()){
-	//for many errors, Bamboo will add a header "X-BambooHR-Error-Messsage" that describes the error. These messages are meant for debugging purposes.
+	//for many errors, Bamboo will add a header "X-BambooHR-Error-Message" that describes the error. These messages are meant for debugging purposes.
 	trigger_error("Problem with custom report: " . $response->getErrorMessage());
 }
 
