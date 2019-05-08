@@ -1,13 +1,13 @@
 <?php
 
-namespace App\API;
+namespace BambooHR\API;
 
 use BambooHR\API\BambooCurlHTTP;
 use BambooHR\API\BambooHTTPRequest;
 
 /**
  * Class BambooJSONHTTP
- * @package App\API
+ * @package BambooHR\API
  *
  * Use when creating BambooAPI:
  * $api = new BambooHR\API\BambooAPI('company', new BambooJSONHTTP());
