@@ -52,6 +52,7 @@ class BambooCurlHTTP implements BambooHTTP {
 		$response = new BambooHTTPResponse();
 
 		$http = curl_init();
+		curl_setopt($http, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 		curl_setopt($http, CURLOPT_URL, $request->url );
 		curl_setopt($http, CURLOPT_CUSTOMREQUEST, $request->method );
 		curl_setopt($http, CURLOPT_HTTPHEADER, $request->headers );
