@@ -1,10 +1,6 @@
 <?php
 /**
  * BambooHTTPRequest.php
- * @author    Daniel Mason <danielm@moo.com>
- * @copyright 2016 MOO
- * @license   proprietary
- * @see       https://www.moo.com
  */
 
 namespace BambooHR\API\Injector;
