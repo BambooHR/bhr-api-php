@@ -5,6 +5,7 @@
 
 namespace BambooHR\API;
 
+use BambooHR\API\Exception\BambooHTTPResponseException;
 
 /**
  * BambooHTTPResponse
@@ -23,6 +24,42 @@ class BambooHTTPResponse {
 		return $this->statusCode < 200 || $this->statusCode > 299;
 	}
 
+	/**
+	 * Gets the content type of the response.
+	 *
+	 * @throws BambooHTTPResponseException when the content type header is missing
+	 * @return string
+	 */
+	public function getContentType() {
+		if (isset($this->headers['Content-Type'])) {
+			return $this->headers['Content-Type'];
+		}
+
+		if (isset($this->headers['content-type'])) {
+			return $this->headers['content-type'];
+		}
+
+		throw new BambooHTTPResponseException('Content-Type header is missing from the response');
+	}
+
+	/**
+	 * Returns if the response content type is application/json
+	 * 
+	 * @return bool
+	 */
+	public function isJsonResponse() {
+		return strtolower($this->getContentType()) === 'application/json';
+	}
+
+	/**
+	 * Returns if the response content type is text/xml
+	 * 
+	 * @return bool
+	 */
+	public function isXmlResponse() {
+		return strtolower($this->getContentType()) === 'text/xml';
+	}
+
 	// phpcs:disable BambooHR.Functions.CamelCapsFunctionName.ScopeNotCamelCaps
 	/**
 	 * If the request is a success and is xml, return a SimpleXmlElement of the response content.
@@ -30,7 +67,7 @@ class BambooHTTPResponse {
 	 * @return \SimpleXMLElement|null
 	 */
 	public function getContentXML() {
-		if (!$this->isError() && strpos($this->headers['Content-Type'], 'text/xml') !== false) {
+		if (!$this->isError() && $this->isXmlResponse()) {
 			return new \SimpleXMLElement($this->content);
 		}
 		return null;
@@ -44,7 +81,7 @@ class BambooHTTPResponse {
 	 * @return stdclass|null
 	 */
 	public function getContentJSON() {
-		if (!$this->isError() && strpos($this->headers['Content-Type'], 'application/json') !== false) {
+		if (!$this->isError() && $this->isJsonResponse()) {
 			return json_decode($this->content);
 		}
 		return null;
@@ -57,10 +94,10 @@ class BambooHTTPResponse {
 	 * @return \SimpleXMLElement|stdclass|null
 	 */
 	public function getContent() {
-		if (!$this->isError() && strpos($this->headers['Content-Type'], 'application/json') !== false) {
+		if (!$this->isError() && $this->isJsonResponse()) {
 			return $this->getContentJSON();
 		}
-		if (!$this->isError() && strpos($this->headers['Content-Type'], 'text/xml') !== false) {
+		if (!$this->isError() && $this->isXmlResponse()) {
 			return $this->getContentXML();
 		}
 		return $this->content;
