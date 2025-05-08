@@ -39,7 +39,7 @@ class BambooAPI {
 	 * @param BambooHTTP $http          The underlying object used for communicating with the API, defaults to an instance of BambooCurlHTTP
 	 * @param string     $baseUrl       The base API url, defaults to https://api.bamboohr.com/api/gateway.php
 	 */
-	function __construct($companyDomain, BambooHTTP $http=null, $baseUrl=null) {
+	function __construct($companyDomain, ?BambooHTTP $http=null, $baseUrl=null) {
 		$this->httpHandler = $http ?: new BambooCurlHTTP();
 		if ($baseUrl) {
 			$this->baseUrl = $baseUrl;
@@ -278,7 +278,7 @@ class BambooAPI {
 		$request = $this->getBambooHttpRequest();
 		$request->method = "GET";
 		$request->url = $this->baseUrl . "/v1/meta/$type/";
-		return $this->httpHandler->sendRequest( $request );
+		return $this->httpHandler->sendRequest($request);
 	}
 
 	/**
