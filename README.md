@@ -19,7 +19,7 @@ include "BambooHR/API/API.php";
 
 use \BambooHR\API\BambooAPI;
 
-$bhr = new API("<company_subdomain>");
+$bhr = new BambooAPI("<company_subdomain>");
 $bhr->setSecretKey("<bar>");
 $response = $bhr->getDirectory();
 if($response->isError()) {
@@ -29,7 +29,7 @@ $simplexml = $response->getContent();
 ...
 ?>
 ````
-After that, you may want to explore the employee [api](http://www.bamboohr.com/api/documentation/employees.php), or 
+After that, you may want to explore the employee [api](https://documentation.bamboohr.com/reference/get-employees-directory), or 
 just look through the wrapper code.
 
 
@@ -38,9 +38,9 @@ JSON
 
 To get JSON output, change the following line :
 ``` 
-$bhr = new API("<company_subdomain>");
+$bhr = new BambooAPI("<company_subdomain>");
 ```
 to this:
 ``` 
-$bhr = new API("<company_subdomain>", new BambooJSONHTTP());
+$bhr = new BambooAPI("<company_subdomain>", new BambooJSONHTTP());
 ```
