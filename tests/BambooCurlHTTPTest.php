@@ -40,12 +40,12 @@ class BambooCurlHTTPTest extends TestCase {
 
         $this->assertSame(
             $testUsername,
-            $this->getPrivateProperty($bambooCurl, 'basicAuthUsername')
+            $this->getObjectAttribute($bambooCurl, 'basicAuthUsername')
         );
 
         $this->assertSame(
             $testPassword,
-            $this->getPrivateProperty($bambooCurl, 'basicAuthPassword')
+            $this->getObjectAttribute($bambooCurl, 'basicAuthPassword')
         );
     }
 

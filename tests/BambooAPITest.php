@@ -38,15 +38,15 @@ class BambooAPITest extends TestCase {
         $bambooApi = new BambooAPI($companyDomain);
         $this->assertSame(
             $companyDomain,
-            $this->getPrivateProperty($bambooApi, 'companyDomain')
+            $this->getObjectAttribute($bambooApi, 'companyDomain')
         );
-        $this->assertStringContainsString(
+        $this->assertContains(
             $companyDomain,
-            $this->getPrivateProperty($bambooApi, 'baseUrl')
+            $this->getObjectAttribute($bambooApi, 'baseUrl')
         );
         $this->assertInstanceOf(
             BambooCurlHTTP::class,
-            $this->getPrivateProperty($bambooApi, 'httpHandler')
+            $this->getObjectAttribute($bambooApi, 'httpHandler')
         );
     }
 
@@ -61,15 +61,15 @@ class BambooAPITest extends TestCase {
         $bambooApi = new BambooAPI($companyDomain, $http);
         $this->assertSame(
             $companyDomain,
-            $this->getPrivateProperty($bambooApi, 'companyDomain')
+            $this->getObjectAttribute($bambooApi, 'companyDomain')
         );
-        $this->assertStringContainsString(
+        $this->assertContains(
             $companyDomain,
-            $this->getPrivateProperty($bambooApi, 'baseUrl')
+            $this->getObjectAttribute($bambooApi, 'baseUrl')
         );
         $this->assertSame(
             $http,
-            $this->getPrivateProperty($bambooApi, 'httpHandler')
+            $this->getObjectAttribute($bambooApi, 'httpHandler')
         );
     }
 
@@ -85,19 +85,19 @@ class BambooAPITest extends TestCase {
         $bambooApi = new BambooAPI($companyDomain, $http, $baseUrl);
         $this->assertSame(
             $companyDomain,
-            $this->getPrivateProperty($bambooApi, 'companyDomain')
+            $this->getObjectAttribute($bambooApi, 'companyDomain')
         );
-        $this->assertStringContainsString(
+        $this->assertContains(
             $companyDomain,
-            $this->getPrivateProperty($bambooApi, 'baseUrl')
+            $this->getObjectAttribute($bambooApi, 'baseUrl')
         );
-        $this->assertStringContainsString(
+        $this->assertContains(
             $baseUrl,
-            $this->getPrivateProperty($bambooApi, 'baseUrl')
+            $this->getObjectAttribute($bambooApi, 'baseUrl')
         );
         $this->assertSame(
             $http,
-            $this->getPrivateProperty($bambooApi, 'httpHandler')
+            $this->getObjectAttribute($bambooApi, 'httpHandler')
         );
     }
 
@@ -143,10 +143,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString($applicationKey, $subject->content);
-                $this->assertStringContainsString($email, $subject->content);
-                $this->assertStringContainsString($password, $subject->content);
-                $this->assertStringContainsString('/v1/login', $subject->url);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -188,10 +188,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString($applicationKey, $subject->content);
-                $this->assertStringContainsString($email, $subject->content);
-                $this->assertStringContainsString($password, $subject->content);
-                $this->assertStringContainsString('/v1/login', $subject->url);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -236,10 +236,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString($applicationKey, $subject->content);
-                $this->assertStringContainsString($email, $subject->content);
-                $this->assertStringContainsString($password, $subject->content);
-                $this->assertStringContainsString('/v1/login', $subject->url);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -286,10 +286,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString($applicationKey, $subject->content);
-                $this->assertStringContainsString($email, $subject->content);
-                $this->assertStringContainsString($password, $subject->content);
-                $this->assertStringContainsString('/v1/login', $subject->url);
+                $this->assertContains($applicationKey, $subject->content);
+                $this->assertContains($email, $subject->content);
+                $this->assertContains($password, $subject->content);
+                $this->assertContains('/v1/login', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -331,10 +331,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($fields[0], $subject->url);
-                $this->assertStringContainsString($fields[1], $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($fields[0], $subject->url);
+                $this->assertContains($fields[1], $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -370,10 +370,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/reports', $subject->url);
-                $this->assertStringContainsString((string)$reportId, $subject->url);
-                $this->assertStringContainsString($format, $subject->url);
-                $this->assertStringNotContainsString('&fd=no',$subject->url);
+                $this->assertContains('/v1/reports', $subject->url);
+                $this->assertContains((string)$reportId, $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('&fd=no',$subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -409,10 +409,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/reports', $subject->url);
-                $this->assertStringContainsString((string)$reportId, $subject->url);
-                $this->assertStringContainsString($format, $subject->url);
-                $this->assertStringContainsString('&fd=no',$subject->url);
+                $this->assertContains('/v1/reports', $subject->url);
+                $this->assertContains((string)$reportId, $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertContains('&fd=no',$subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -489,11 +489,11 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
                 foreach($fields as $field => $value) {
-                    $this->assertStringContainsString($field, $subject->content);
-                    $this->assertStringContainsString($value, $subject->content);
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
                 }
                 return true;
             }))
@@ -533,10 +533,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
                 foreach($initialFields as $field => $value) {
-                    $this->assertStringContainsString($field, $subject->content);
-                    $this->assertStringContainsString($value, $subject->content);
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
                 }
                 return true;
             }))
@@ -576,11 +576,11 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/reports/custom', $subject->url);
-                $this->assertStringContainsString($format, $subject->url);
-                $this->assertStringNotContainsString('filterDuplicates', $subject->content);
-                $this->assertStringNotContainsString('title', $subject->content);
-                $this->assertStringNotContainsString('lastChanged', $subject->content);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('filterDuplicates', $subject->content);
+                $this->assertNotContains('title', $subject->content);
+                $this->assertNotContains('lastChanged', $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -619,11 +619,11 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/reports/custom', $subject->url);
-                $this->assertStringContainsString($format, $subject->url);
-                $this->assertStringContainsString('filterDuplicates', $subject->content);
-                $this->assertStringNotContainsString('title', $subject->content);
-                $this->assertStringNotContainsString('lastChanged', $subject->content);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertContains('filterDuplicates', $subject->content);
+                $this->assertNotContains('title', $subject->content);
+                $this->assertNotContains('lastChanged', $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -663,11 +663,11 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/reports/custom', $subject->url);
-                $this->assertStringContainsString($format, $subject->url);
-                $this->assertStringNotContainsString('filterDuplicates', $subject->content);
-                $this->assertStringContainsString('title', $subject->content);
-                $this->assertStringNotContainsString('lastChanged', $subject->content);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('filterDuplicates', $subject->content);
+                $this->assertContains('title', $subject->content);
+                $this->assertNotContains('lastChanged', $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -707,11 +707,11 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/reports/custom', $subject->url);
-                $this->assertStringContainsString($format, $subject->url);
-                $this->assertStringNotContainsString('filterDuplicates', $subject->content);
-                $this->assertStringNotContainsString('title', $subject->content);
-                $this->assertStringContainsString('lastChanged', $subject->content);
+                $this->assertContains('/v1/reports/custom', $subject->url);
+                $this->assertContains($format, $subject->url);
+                $this->assertNotContains('filterDuplicates', $subject->content);
+                $this->assertNotContains('title', $subject->content);
+                $this->assertContains('lastChanged', $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -747,9 +747,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($tableName, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($tableName, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -785,9 +785,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString($allEmployees, $subject->url);
-                $this->assertStringContainsString($tableName, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains($allEmployees, $subject->url);
+                $this->assertContains($tableName, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -823,9 +823,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString($since, $subject->url);
-                $this->assertStringContainsString($type, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains($since, $subject->url);
+                $this->assertContains($type, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -860,8 +860,8 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/meta', $subject->url);
-                $this->assertStringContainsString($type, $subject->url);
+                $this->assertContains('/v1/meta', $subject->url);
+                $this->assertContains($type, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -896,7 +896,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/meta/users', $subject->url);
+                $this->assertContains('/v1/meta/users', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -931,7 +931,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/meta/lists', $subject->url);
+                $this->assertContains('/v1/meta/lists', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -966,7 +966,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/meta/fields', $subject->url);
+                $this->assertContains('/v1/meta/fields', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1001,7 +1001,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/meta/tables', $subject->url);
+                $this->assertContains('/v1/meta/tables', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1038,10 +1038,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($date, $subject->url);
-                $this->assertStringContainsString((string)$precision, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($date, $subject->url);
+                $this->assertContains((string)$precision, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1076,7 +1076,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/meta/time_off/types', $subject->url);
+                $this->assertContains('/v1/meta/time_off/types', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1112,14 +1112,14 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/time_off/requests', $subject->url);
-                $this->assertStringNotContainsString('id', $subject->url);
-                $this->assertStringNotContainsString('action', $subject->url);
-                $this->assertStringNotContainsString('type', $subject->url);
-                $this->assertStringNotContainsString('status', $subject->url);
-                $this->assertStringNotContainsString('start', $subject->url);
-                $this->assertStringNotContainsString('end', $subject->url);
-                $this->assertStringNotContainsString('employeeId', $subject->url);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertNotContains('id', $subject->url);
+                $this->assertNotContains('action', $subject->url);
+                $this->assertNotContains('type', $subject->url);
+                $this->assertNotContains('status', $subject->url);
+                $this->assertNotContains('start', $subject->url);
+                $this->assertNotContains('end', $subject->url);
+                $this->assertNotContains('employeeId', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1163,14 +1163,14 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/time_off/requests', $subject->url);
-                $this->assertStringContainsString('id', $subject->url);
-                $this->assertStringContainsString('action', $subject->url);
-                $this->assertStringContainsString('type', $subject->url);
-                $this->assertStringContainsString('status', $subject->url);
-                $this->assertStringContainsString('start', $subject->url);
-                $this->assertStringContainsString('end', $subject->url);
-                $this->assertStringContainsString('employeeId', $subject->url);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertContains('id', $subject->url);
+                $this->assertContains('action', $subject->url);
+                $this->assertContains('type', $subject->url);
+                $this->assertContains('status', $subject->url);
+                $this->assertContains('start', $subject->url);
+                $this->assertContains('end', $subject->url);
+                $this->assertContains('employeeId', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1205,14 +1205,14 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/time_off/requests', $subject->url);
-                $this->assertStringNotContainsString('id', $subject->url);
-                $this->assertStringNotContainsString('action', $subject->url);
-                $this->assertStringNotContainsString('type', $subject->url);
-                $this->assertStringNotContainsString('status', $subject->url);
-                $this->assertStringNotContainsString('start', $subject->url);
-                $this->assertStringNotContainsString('end', $subject->url);
-                $this->assertStringNotContainsString('employeeId', $subject->url);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertNotContains('id', $subject->url);
+                $this->assertNotContains('action', $subject->url);
+                $this->assertNotContains('type', $subject->url);
+                $this->assertNotContains('status', $subject->url);
+                $this->assertNotContains('start', $subject->url);
+                $this->assertNotContains('end', $subject->url);
+                $this->assertNotContains('employeeId', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1247,14 +1247,14 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/time_off/requests', $subject->url);
-                $this->assertStringNotContainsString('id', $subject->url);
-                $this->assertStringNotContainsString('action', $subject->url);
-                $this->assertStringContainsString('type', $subject->url);
-                $this->assertStringContainsString('status', $subject->url);
-                $this->assertStringContainsString('start', $subject->url);
-                $this->assertStringContainsString('end', $subject->url);
-                $this->assertStringContainsString('employeeId', $subject->url);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertNotContains('id', $subject->url);
+                $this->assertNotContains('action', $subject->url);
+                $this->assertContains('type', $subject->url);
+                $this->assertContains('status', $subject->url);
+                $this->assertContains('start', $subject->url);
+                $this->assertContains('end', $subject->url);
+                $this->assertContains('employeeId', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1295,12 +1295,12 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($tableName, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($tableName, $subject->url);
                 foreach($values as $field => $value) {
-                    $this->assertStringContainsString($field, $subject->content);
-                    $this->assertStringContainsString($value, $subject->content);
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
                 }
                 return true;
             }))
@@ -1351,17 +1351,17 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('PUT', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString('/time_off/request', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($start, $subject->content);
-                $this->assertStringContainsString($end, $subject->content);
-                $this->assertStringContainsString((string)$timeOffTypeId, $subject->content);
-                $this->assertStringContainsString($amount, $subject->content);
-                $this->assertStringContainsString($status, $subject->content);
-                $this->assertStringContainsString($employeeNote, $subject->content);
-                $this->assertStringContainsString($managerNote, $subject->content);
-                $this->assertStringNotContainsString('previousRequest', $subject->content);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains('/time_off/request', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($start, $subject->content);
+                $this->assertContains($end, $subject->content);
+                $this->assertContains((string)$timeOffTypeId, $subject->content);
+                $this->assertContains($amount, $subject->content);
+                $this->assertContains($status, $subject->content);
+                $this->assertContains($employeeNote, $subject->content);
+                $this->assertContains($managerNote, $subject->content);
+                $this->assertNotContains('previousRequest', $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1422,17 +1422,17 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('PUT', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString('/time_off/request', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($start, $subject->content);
-                $this->assertStringContainsString($end, $subject->content);
-                $this->assertStringContainsString((string)$timeOffTypeId, $subject->content);
-                $this->assertStringContainsString($amount, $subject->content);
-                $this->assertStringContainsString($status, $subject->content);
-                $this->assertStringContainsString($employeeNote, $subject->content);
-                $this->assertStringContainsString($managerNote, $subject->content);
-                $this->assertStringContainsString((string)$previous, $subject->content);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains('/time_off/request', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($start, $subject->content);
+                $this->assertContains($end, $subject->content);
+                $this->assertContains((string)$timeOffTypeId, $subject->content);
+                $this->assertContains($amount, $subject->content);
+                $this->assertContains($status, $subject->content);
+                $this->assertContains($employeeNote, $subject->content);
+                $this->assertContains($managerNote, $subject->content);
+                $this->assertContains((string)$previous, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1479,10 +1479,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('PUT', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($ymd, $subject->content);
-                $this->assertStringContainsString((string)$requestId, $subject->content);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($ymd, $subject->content);
+                $this->assertContains((string)$requestId, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1521,12 +1521,12 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('PUT', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($ymd, $subject->content);
-                $this->assertStringContainsString((string)$timeOffTypeId, $subject->content);
-                $this->assertStringContainsString($note, $subject->content);
-                $this->assertStringContainsString((string)$amount, $subject->content);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($ymd, $subject->content);
+                $this->assertContains((string)$timeOffTypeId, $subject->content);
+                $this->assertContains($note, $subject->content);
+                $this->assertContains((string)$amount, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1568,13 +1568,13 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($tableName, $subject->url);
-                $this->assertStringContainsString((string)$rowId, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                $this->assertContains((string)$rowId, $subject->url);
                 foreach($values as $field => $value) {
-                    $this->assertStringContainsString($field, $subject->content);
-                    $this->assertStringContainsString($value, $subject->content);
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
                 }
                 return true;
             }))
@@ -1613,17 +1613,9 @@ class BambooAPITest extends TestCase {
             ->with(
                 '----BambooHR-MultiPart-Mime-Boundary----',
                 $this->callback(function($subject) use ($fileName, $categoryId, $shareWithEmployees) {
-                    if (is_array($subject)) {
-                        // Handle array case
-                        $this->assertArrayHasKey('fileName', $subject);
-                        $this->assertArrayHasKey('category', $subject);
-                        $this->assertArrayHasKey('share', $subject);
-                    } else {
-                        // Handle string case
-                        $this->assertStringContainsString($fileName, $subject);
-                        $this->assertStringContainsString($categoryId, $subject);
-                        $this->assertStringContainsString($shareWithEmployees, $subject);
-                    }
+                    $this->assertContains($fileName, $subject);
+                    $this->assertContains($categoryId, $subject);
+                    $this->assertContains($shareWithEmployees, $subject);
                     return true;
                 }),
                 "file",
@@ -1641,8 +1633,8 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1686,10 +1678,10 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/time_off/requests', $subject->url);
-                $this->assertStringContainsString((string)$requestId, $subject->url);
-                $this->assertStringContainsString($status, $subject->content);
-                $this->assertStringContainsString($note, $subject->content);
+                $this->assertContains('/v1/time_off/requests', $subject->url);
+                $this->assertContains((string)$requestId, $subject->url);
+                $this->assertContains($status, $subject->content);
+                $this->assertContains($note, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1726,17 +1718,9 @@ class BambooAPITest extends TestCase {
             ->with(
                 '----BambooHR-MultiPart-Mime-Boundary----',
                 $this->callback(function($subject) use ($fileName, $categoryId, $shareWithEmployees) {
-                    if (is_array($subject)) {
-                        // Handle array case
-                        $this->assertArrayHasKey('fileName', $subject);
-                        $this->assertArrayHasKey('category', $subject);
-                        $this->assertArrayHasKey('share', $subject);
-                    } else {
-                        // Handle string case
-                        $this->assertStringContainsString($fileName, $subject);
-                        $this->assertStringContainsString($categoryId, $subject);
-                        $this->assertStringContainsString($shareWithEmployees, $subject);
-                    }
+                    $this->assertContains($fileName, $subject);
+                    $this->assertContains($categoryId, $subject);
+                    $this->assertContains($shareWithEmployees, $subject);
                     return true;
                 }),
                 "file",
@@ -1754,7 +1738,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/files', $subject->url);
+                $this->assertContains('/v1/files', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1789,9 +1773,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString('files/view', $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains('files/view', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1825,7 +1809,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/files/view', $subject->url);
+                $this->assertContains('/v1/files/view', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1860,8 +1844,8 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees/files/categories', $subject->url);
-                $this->assertStringContainsString($categoryName, $subject->content);
+                $this->assertContains('/v1/employees/files/categories', $subject->url);
+                $this->assertContains($categoryName, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1896,8 +1880,8 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/files/categories', $subject->url);
-                $this->assertStringContainsString($categoryName, $subject->content);
+                $this->assertContains('/v1/files/categories', $subject->url);
+                $this->assertContains($categoryName, $subject->content);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -1937,12 +1921,12 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString((string)$fileId, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
                 foreach($values as $field => $value) {
-                    $this->assertStringContainsString($field, $subject->content);
-                    $this->assertStringContainsString($value, $subject->content);
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
                 }
                 return true;
             }))
@@ -1982,11 +1966,11 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/files', $subject->url);
-                $this->assertStringContainsString((string)$fileId, $subject->url);
+                $this->assertContains('/v1/files', $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
                 foreach($values as $field => $value) {
-                    $this->assertStringContainsString($field, $subject->content);
-                    $this->assertStringContainsString($value, $subject->content);
+                    $this->assertContains($field, $subject->content);
+                    $this->assertContains($value, $subject->content);
                 }
                 return true;
             }))
@@ -2023,9 +2007,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString((string)$fileId, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -2060,8 +2044,8 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/files', $subject->url);
-                $this->assertStringContainsString((string)$fileId, $subject->url);
+                $this->assertContains('/v1/files', $subject->url);
+                $this->assertContains((string)$fileId, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -2096,7 +2080,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('POST', $subject->method);
-                $this->assertStringContainsString('/v1/employees/import', $subject->url);
+                $this->assertContains('/v1/employees/import', $subject->url);
                 $this->assertSame($xml, $subject->content);
                 return true;
             }))
@@ -2131,7 +2115,7 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees/directory', $subject->url);
+                $this->assertContains('/v1/employees/directory', $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -2171,9 +2155,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees', $subject->url);
-                $this->assertStringContainsString((string)$employeeId, $subject->url);
-                $this->assertStringContainsString($size, $subject->url);
+                $this->assertContains('/v1/employees', $subject->url);
+                $this->assertContains((string)$employeeId, $subject->url);
+                $this->assertContains($size, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));
@@ -2209,9 +2193,9 @@ class BambooAPITest extends TestCase {
             ) {
                 $this->assertSame($mockRequest, $subject);
                 $this->assertSame('GET', $subject->method);
-                $this->assertStringContainsString('/v1/employees/changed/tables', $subject->url);
-                $this->assertStringContainsString($tableName, $subject->url);
-                $this->assertStringContainsString($since, $subject->url);
+                $this->assertContains('/v1/employees/changed/tables', $subject->url);
+                $this->assertContains($tableName, $subject->url);
+                $this->assertContains($since, $subject->url);
                 return true;
             }))
             ->will($this->returnValue($mockResponse));

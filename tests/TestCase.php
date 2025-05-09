@@ -15,7 +15,7 @@ use BambooHR\API\BambooHTTPResponse;
  * This class can be used to add further asserts, etc
  * @package BambooHR
  */
-class TestCase extends \PHPUnit\Framework\TestCase {
+class TestCase extends \PHPUnit_Framework_TestCase {
     /**
      * @param $object
      * @param $method
@@ -41,7 +41,7 @@ class TestCase extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @return BambooHTTPRequest|\PHPUnit\Framework\MockObject\MockObject
+     * @return BambooHTTPRequest|\PHPUnit_Framework_MockObject_MockObject
      */
     protected function createMockBambooHTTPRequest()
     {
@@ -49,7 +49,7 @@ class TestCase extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @return BambooHTTPResponse|\PHPUnit\Framework\MockObject\MockObject
+     * @return BambooHTTPResponse|\PHPUnit_Framework_MockObject_MockObject
      */
     protected function createMockBambooHTTPResponse()
     {
@@ -57,7 +57,7 @@ class TestCase extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @return BambooHTTPResponse|\PHPUnit\Framework\MockObject\MockObject
+     * @return BambooHTTPResponse|\PHPUnit_Framework_MockObject_MockObject
      */
     protected function createMockBambooCurlHTTP()
     {
@@ -65,25 +65,10 @@ class TestCase extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @return BambooHTTP|\PHPUnit\Framework\MockObject\MockObject
+     * @return BambooHTTP|\PHPUnit_Framework_MockObject_MockObject
      */
     protected function createMockBambooHTTP()
     {
         return $this->getMockForAbstractClass(BambooHTTP::class);
-    }
-    
-    /**
-     * Gets a private or protected property from an object using reflection
-     * 
-     * @param object $object The object to get the property from
-     * @param string $propertyName The name of the property
-     * @return mixed The value of the property
-     */
-    protected function getPrivateProperty($object, $propertyName)
-    {
-        $reflection = new \ReflectionClass($object);
-        $property = $reflection->getProperty($propertyName);
-        $property->setAccessible(true);
-        return $property->getValue($object);
     }
 }
