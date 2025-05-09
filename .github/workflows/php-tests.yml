@@ -13,7 +13,7 @@ jobs:
     name: PHP ${{ matrix.php-versions }} Test
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -28,7 +28,7 @@ jobs:
     
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
@@ -36,7 +36,9 @@ jobs:
           ${{ runner.os }}-php-
     
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      env:
+        COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{secrets.MAIN_TOKEN}}"} }'
+      run: composer install --prefer-dist --no-interaction
     
     - name: Run lint
       run: composer run-script lint
