@@ -1,5 +1,7 @@
 {
     "name": "bamboohr/api",
+    "description": "BambooHR API PHP client library for accessing and manipulating BambooHR data",
+    "license": "MIT",
     "require": {
         "php": "^5.5 || ^7 || ^8",
         "ext-curl": "*"
