@@ -1,0 +1,50 @@
+name: PHP Tests & Quality Checks
+
+on:
+  push:
+
+jobs:
+  run-units:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['8.1', '8.2', '8.3', '8.4']
+        
+    name: PHP ${{ matrix.php-versions }} Test
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extensions: curl
+        coverage: none
+        tools: composer:v2
+    
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+    
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v4
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    
+    - name: Install dependencies
+      env:
+        COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{secrets.MAIN_TOKEN}}"} }'
+      run: composer install --prefer-dist --no-interaction
+    
+    - name: Run lint
+      run: composer run-script lint
+    
+    - name: Run test suite
+      run: composer run-script test
+      
+    - name: Run code quality checks
+      run: composer run-script quality
