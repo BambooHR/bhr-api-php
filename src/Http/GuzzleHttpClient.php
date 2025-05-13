@@ -53,7 +53,7 @@ class GuzzleHttpClient implements HttpClientInterface {
 			'headers' => [
 				'Accept' => 'application/json',
 				'Content-Type' => 'application/json',
-				'User-Agent' => 'BambooHR-PHP-SDK/1.0'
+				'User-Agent' => 'BambooHR-PHP-SDK/2.0'
 			],
 			'handler' => $handlerStack
 		], $config));
