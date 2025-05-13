@@ -4,6 +4,7 @@ namespace BambooHR\SDK\Tests\Unit\Resources;
 
 use BambooHR\SDK\BambooHRClient;
 use BambooHR\SDK\Resources\DirectoryResource;
+use BambooHR\SDK\Model\DirectoryEntry;
 use PHPUnit\Framework\TestCase;
 
 class DirectoryResourceTest extends TestCase {
@@ -18,7 +19,7 @@ class DirectoryResourceTest extends TestCase {
 
 	public function testGetDirectory() {
 		$expectedEndpoint = 'employees/directory';
-		$expectedResponse = [
+		$apiResponse = [
 			'fields' => [
 				[
 					'id' => 'displayName',
@@ -50,11 +51,29 @@ class DirectoryResourceTest extends TestCase {
 		$this->client->expects($this->once())
 			->method('request')
 			->with('GET', $expectedEndpoint)
-			->willReturn($expectedResponse);
+			->willReturn($apiResponse);
 
 		$result = $this->resource->getDirectory();
 
-		$this->assertEquals($expectedResponse, $result);
+		// Verify fields are returned correctly
+		$this->assertEquals($apiResponse['fields'], $result['fields']);
+
+		// Verify employees are DirectoryEntry objects with correct data
+		$this->assertCount(2, $result['employees']);
+		$this->assertInstanceOf(DirectoryEntry::class, $result['employees'][0]);
+		$this->assertInstanceOf(DirectoryEntry::class, $result['employees'][1]);
+
+		// Verify first employee data
+		$this->assertEquals(123, $result['employees'][0]->id);
+		$this->assertEquals('John Doe', $result['employees'][0]->displayName);
+		$this->assertEquals('John', $result['employees'][0]->firstName);
+		$this->assertEquals('Doe', $result['employees'][0]->lastName);
+
+		// Verify second employee data
+		$this->assertEquals(456, $result['employees'][1]->id);
+		$this->assertEquals('Jane Smith', $result['employees'][1]->displayName);
+		$this->assertEquals('Jane', $result['employees'][1]->firstName);
+		$this->assertEquals('Smith', $result['employees'][1]->lastName);
 	}
 
 	public function testGetDirectoryEmployee() {
@@ -83,13 +102,6 @@ class DirectoryResourceTest extends TestCase {
 			]
 		];
 
-		$expectedEmployee = [
-			'id' => 123,
-			'displayName' => 'John Doe',
-			'firstName' => 'John',
-			'lastName' => 'Doe'
-		];
-
 		$this->client->expects($this->once())
 			->method('request')
 			->with('GET', 'employees/directory')
@@ -97,7 +109,12 @@ class DirectoryResourceTest extends TestCase {
 
 		$result = $this->resource->getDirectoryEmployee($employeeId);
 
-		$this->assertEquals($expectedEmployee, $result);
+		// Verify result is a DirectoryEntry object with correct data
+		$this->assertInstanceOf(DirectoryEntry::class, $result);
+		$this->assertEquals(123, $result->id);
+		$this->assertEquals('John Doe', $result->displayName);
+		$this->assertEquals('John', $result->firstName);
+		$this->assertEquals('Doe', $result->lastName);
 	}
 
 	public function testGetDirectoryEmployeeNotFound() {
@@ -169,30 +186,6 @@ class DirectoryResourceTest extends TestCase {
 			]
 		];
 
-		$expectedResult = [
-			'fields' => [
-				[
-					'id' => 'displayName',
-					'type' => 'text',
-					'name' => 'Display Name'
-				],
-				[
-					'id' => 'firstName',
-					'type' => 'text',
-					'name' => 'First Name'
-				]
-			],
-			'employees' => [
-				[
-					'id' => 123,
-					'displayName' => 'John Doe',
-					'firstName' => 'John',
-					'lastName' => 'Doe',
-					'jobTitle' => 'Developer'
-				]
-			]
-		];
-
 		$this->client->expects($this->once())
 			->method('request')
 			->with('GET', 'employees/directory')
@@ -200,7 +193,19 @@ class DirectoryResourceTest extends TestCase {
 
 		$result = $this->resource->searchDirectory($query);
 
-		$this->assertEquals($expectedResult, $result);
+		// Verify fields are returned correctly
+		$this->assertEquals($directoryData['fields'], $result['fields']);
+
+		// Verify employees are DirectoryEntry objects with correct data
+		$this->assertCount(1, $result['employees']);
+		$this->assertInstanceOf(DirectoryEntry::class, $result['employees'][0]);
+
+		// Verify employee data
+		$this->assertEquals(123, $result['employees'][0]->id);
+		$this->assertEquals('John Doe', $result['employees'][0]->displayName);
+		$this->assertEquals('John', $result['employees'][0]->firstName);
+		$this->assertEquals('Doe', $result['employees'][0]->lastName);
+		$this->assertEquals('Developer', $result['employees'][0]->jobTitle);
 	}
 
 	public function testSearchDirectoryNoResults() {
@@ -229,17 +234,6 @@ class DirectoryResourceTest extends TestCase {
 			]
 		];
 
-		$expectedResult = [
-			'fields' => [
-				[
-					'id' => 'displayName',
-					'type' => 'text',
-					'name' => 'Display Name'
-				]
-			],
-			'employees' => []
-		];
-
 		$this->client->expects($this->once())
 			->method('request')
 			->with('GET', 'employees/directory')
@@ -247,6 +241,11 @@ class DirectoryResourceTest extends TestCase {
 
 		$result = $this->resource->searchDirectory($query);
 
-		$this->assertEquals($expectedResult, $result);
+		// Verify fields are returned correctly
+		$this->assertEquals($directoryData['fields'], $result['fields']);
+
+		// Verify employees array is empty
+		$this->assertCount(0, $result['employees']);
+		$this->assertEmpty($result['employees']);
 	}
 }

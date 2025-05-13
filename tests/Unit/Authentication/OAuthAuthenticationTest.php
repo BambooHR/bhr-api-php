@@ -29,7 +29,7 @@ class OAuthAuthenticationTest extends TestCase {
 		$this->assertStringContainsString('https://test-company.bamboohr.com/authorize.php?request=authorize', $url);
 		$this->assertStringContainsString('client_id=test-client-id', $url);
 		$this->assertStringContainsString('redirect_uri=https%3A%2F%2Fexample.com%2Fcallback', $url);
-		$this->assertStringContainsString('scope=employees%3Aread+offline_access', $url);
+		$this->assertStringContainsString('scope=employees%3Aread', $url);
 		$this->assertStringContainsString('state=test-state', $url);
 	}
 

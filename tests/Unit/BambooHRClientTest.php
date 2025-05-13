@@ -2,7 +2,6 @@
 
 namespace BambooHR\SDK\Tests\Unit;
 
-use BambooHR\SDK\Authentication\AuthenticationInterface;
 use BambooHR\SDK\Authentication\OAuthAuthentication;
 use BambooHR\SDK\BambooHRClient;
 use BambooHR\SDK\Exception\BambooHRException;
@@ -21,7 +20,7 @@ class BambooHRClientTest extends TestCase {
 	private LoggerInterface $logger;
 
 	protected function setUp(): void {
-		$this->authentication = $this->createMock(AuthenticationInterface::class);
+		$this->authentication = $this->createMock(OAuthAuthentication::class);
 		$this->httpClient = $this->createMock(HttpClientInterface::class);
 		$this->logger = $this->createMock(LoggerInterface::class);
 
@@ -132,7 +131,7 @@ class BambooHRClientTest extends TestCase {
 
 	public function testRequestWithTokenRefresh() {
 		// Create a new client with fresh mocks to avoid conflicts
-		$authentication = $this->createMock(AuthenticationInterface::class);
+		$authentication = $this->createMock(OAuthAuthentication::class);
 		$httpClient = $this->createMock(HttpClientInterface::class);
 		$logger = $this->createMock(LoggerInterface::class);
 
@@ -182,7 +181,7 @@ class BambooHRClientTest extends TestCase {
 
 	public function testRequestFailure() {
 		// Create a new client with fresh mocks to avoid conflicts
-		$authentication = $this->createMock(AuthenticationInterface::class);
+		$authentication = $this->createMock(OAuthAuthentication::class);
 		$httpClient = $this->createMock(HttpClientInterface::class);
 		$logger = $this->createMock(LoggerInterface::class);
 

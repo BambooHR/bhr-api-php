@@ -4,6 +4,8 @@ namespace BambooHR\SDK\Tests\Unit\Resources;
 
 use BambooHR\SDK\BambooHRClient;
 use BambooHR\SDK\Resources\ReportResource;
+use BambooHR\SDK\Model\Report;
+use BambooHR\SDK\Model\CustomReport;
 use PHPUnit\Framework\TestCase;
 
 class ReportResourceTest extends TestCase {
@@ -27,7 +29,7 @@ class ReportResourceTest extends TestCase {
 			'Accept' => 'application/json'
 		];
 
-		$expectedResponse = [
+		$apiResponse = [
 			'title' => 'Test Report',
 			'fields' => [
 				['id' => 'firstName', 'name' => 'First Name'],
@@ -60,23 +62,31 @@ class ReportResourceTest extends TestCase {
 						   isset($options['headers']) && $options['headers'] === $expectedHeaders;
 				})
 			)
-			->willReturn($expectedResponse);
+			->willReturn($apiResponse);
 
 		$result = $this->resource->requestCustomReport($reportData);
 
-		$this->assertEquals($expectedResponse, $result);
+		// Verify result is a Report object with correct data
+		$this->assertInstanceOf(Report::class, $result);
+		$this->assertEquals('Test Report', $result->title);
+		
+		// Verify fields
+		$this->assertEquals($apiResponse['fields'], $result->fields);
+		
+		// Verify employees
+		$this->assertEquals($apiResponse['employees'], $result->employees);
 	}
 
 	public function testGetStandardReport() {
-		$reportName = 'EmployeeDirectory';
+		$reportId = '123';
 		$params = ['format' => 'json'];
 
-		$expectedEndpoint = 'reports/EmployeeDirectory?format=json';
+		$expectedEndpoint = 'reports/123?format=json';
 		$expectedHeaders = [
 			'Accept' => 'application/json'
 		];
 
-		$expectedResponse = [
+		$apiResponse = [
 			'title' => 'Employee Directory',
 			'employees' => [
 				[
@@ -101,20 +111,32 @@ class ReportResourceTest extends TestCase {
 					return isset($options['headers']) && $options['headers'] === $expectedHeaders;
 				})
 			)
-			->willReturn($expectedResponse);
+			->willReturn($apiResponse);
 
-		$result = $this->resource->getStandardReport($reportName, $params);
+		$result = $this->resource->getStandardReport($reportId, $params);
 
-		$this->assertEquals($expectedResponse, $result);
+		// Verify result is a Report object with correct data
+		$this->assertInstanceOf(Report::class, $result);
+		$this->assertEquals('Employee Directory', $result->title);
+		
+		// Verify employees data
+		$this->assertEquals($apiResponse['employees'], $result->employees);
 	}
 
 	public function testGetDataFromDataset() {
 		$dataset = 'employees';
 		$params = ['status' => 'active'];
 
-		$expectedEndpoint = 'datasets/employees?status=active';
+		$expectedEndpoint = 'datasets/';
 		$expectedHeaders = [
-			'Accept' => 'application/json'
+			'Accept' => 'application/json',
+			'Content-Type' => 'application/json'
+		];
+
+		// Expected request parameters
+		$expectedParams = [
+			'datasetName' => 'employees',
+			'status' => 'active'
 		];
 
 		$expectedResponse = [
@@ -135,10 +157,11 @@ class ReportResourceTest extends TestCase {
 		$this->client->expects($this->once())
 			->method('request')
 			->with(
-				$this->equalTo('GET'),
+				$this->equalTo('POST'),
 				$this->equalTo($expectedEndpoint),
-				$this->callback(function ($options) use ($expectedHeaders) {
-					return isset($options['headers']) && $options['headers'] === $expectedHeaders;
+				$this->callback(function ($options) use ($expectedHeaders, $expectedParams) {
+					return isset($options['headers']) && $options['headers'] === $expectedHeaders &&
+						   isset($options['json']) && $options['json'] == $expectedParams; // == ignores order
 				})
 			)
 			->willReturn($expectedResponse);
@@ -149,7 +172,7 @@ class ReportResourceTest extends TestCase {
 	}
 
 	public function testGetReports() {
-		$expectedEndpoint = 'meta/reports';
+		$expectedEndpoint = 'reports';
 		$expectedResponse = [
 			'reports' => [
 				[
@@ -174,7 +197,11 @@ class ReportResourceTest extends TestCase {
 	}
 
 	public function testGetDatasets() {
-		$expectedEndpoint = 'meta/datasets';
+		$expectedEndpoint = 'datasets';
+		$expectedHeaders = [
+			'Accept' => 'application/json',
+			'Content-Type' => 'application/json'
+		];
 		$expectedResponse = [
 			'datasets' => [
 				[
@@ -190,7 +217,13 @@ class ReportResourceTest extends TestCase {
 
 		$this->client->expects($this->once())
 			->method('request')
-			->with('GET', $expectedEndpoint)
+			->with(
+				$this->equalTo('GET'),
+				$this->equalTo($expectedEndpoint),
+				$this->callback(function ($options) use ($expectedHeaders) {
+					return isset($options['headers']) && $options['headers'] === $expectedHeaders;
+				})
+			)
 			->willReturn($expectedResponse);
 
 		$result = $this->resource->getDatasets();

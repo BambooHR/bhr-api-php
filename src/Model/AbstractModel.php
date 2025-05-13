@@ -26,10 +26,9 @@ abstract class AbstractModel implements \JsonSerializable {
 	public function jsonSerialize(): array {
 		$data = [];
 		$reflection = new \ReflectionClass($this);
-		$properties = $reflection->getProperties(\ReflectionProperty::IS_PROTECTED | \ReflectionProperty::IS_PRIVATE);
+		$properties = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC);
 
 		foreach ($properties as $property) {
-			$property->setAccessible(true);
 			$name = $property->getName();
 			$value = $property->getValue($this);
 
@@ -38,9 +37,7 @@ abstract class AbstractModel implements \JsonSerializable {
 				continue;
 			}
 
-			// Convert camelCase to snake_case for API
-			$apiName = $this->camelToSnake($name);
-			$data[$apiName] = $value;
+			$data[$name] = $value;
 		}
 
 		return $data;
@@ -57,17 +54,16 @@ abstract class AbstractModel implements \JsonSerializable {
 		$reflection = new \ReflectionClass($model);
 
 		foreach ($data as $key => $value) {
-			// Convert snake_case to camelCase for properties
-			$propertyName = $model->snakeToCamel($key);
-
+			$propertyName = $key;
 			if ($reflection->hasProperty($propertyName)) {
 				$property = $reflection->getProperty($propertyName);
-				$property->setAccessible(true);
-
-				// Validate and convert value if needed
-				$value = $model->validatePropertyValue($property, $value);
-
-				$property->setValue($model, $value);
+				
+				// Only set public properties
+				if ($property->isPublic()) {
+					// Convert value to appropriate type if needed
+					$value = $model->convertValueToType($property, $value);
+					$model->{$propertyName} = $value;
+				}
 			}
 		}
 
@@ -75,13 +71,13 @@ abstract class AbstractModel implements \JsonSerializable {
 	}
 
 	/**
-	 * Validate and convert a property value if needed.
+	 * Convert a value to the property's type if needed.
 	 *
 	 * @param \ReflectionProperty $property
 	 * @param mixed               $value
-	 * @return mixed Validated and possibly converted value
+	 * @return mixed Converted value
 	 */
-	protected function validatePropertyValue(\ReflectionProperty $property, mixed $value): mixed {
+	protected function convertValueToType(\ReflectionProperty $property, mixed $value): mixed {
 		// Skip null values
 		if ($value === null) {
 			return null;
@@ -132,16 +128,6 @@ abstract class AbstractModel implements \JsonSerializable {
 	}
 
 	/**
-	 * Convert camelCase to snake_case.
-	 *
-	 * @param string $input
-	 * @return string
-	 */
-	protected function camelToSnake(string $input): string {
-		return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $input));
-	}
-
-	/**
 	 * Convert snake_case to camelCase.
 	 *
 	 * @param string $input
@@ -149,5 +135,15 @@ abstract class AbstractModel implements \JsonSerializable {
 	 */
 	protected function snakeToCamel(string $input): string {
 		return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $input))));
+	}
+
+	/**
+	 * Convert camelCase to snake_case.
+	 *
+	 * @param string $input
+	 * @return string
+	 */
+	protected function camelToSnake(string $input): string {
+		return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $input));
 	}
 }

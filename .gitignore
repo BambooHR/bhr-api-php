@@ -9,3 +9,4 @@ coverage/
 build/
 .DS_Store
 *.log
+.env

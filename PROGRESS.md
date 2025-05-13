@@ -71,7 +71,6 @@ This project provides a comprehensive PHP SDK for interacting with the BambooHR 
 - Need to add support for API key authentication as fallback
 
 ### Utilities
-- Validator class implemented with methods for input validation
   - positiveInteger - Validates that a value is a positive integer
   - notEmpty - Validates that a value is not empty
   - requiredKeys - Validates that an array contains all required keys

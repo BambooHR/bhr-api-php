@@ -35,9 +35,9 @@ class GuzzleHttpClient implements HttpClientInterface {
 		$this->rateLimitConfig = array_merge([
 			'enabled' => true,
 			'max_retries' => 3,
-			'initial_delay' => 1000, // milliseconds
+			'initial_delay' => 1, // seconds
 			'backoff_factor' => 2,
-			'max_delay' => 30000 // 30 seconds in milliseconds
+			'max_delay' => 30 // seconds
 		], $rateLimitConfig);
 
 		// Create a handler stack with retry middleware for rate limiting
@@ -57,6 +57,15 @@ class GuzzleHttpClient implements HttpClientInterface {
 			],
 			'handler' => $handlerStack
 		], $config));
+	}
+
+	/**
+	 * Get the retry configuration for testing purposes.
+	 *
+	 * @return array Retry configuration
+	 */
+	public function getRetryConfig(): array {
+		return $this->rateLimitConfig;
 	}
 
 	/**
@@ -82,11 +91,6 @@ class GuzzleHttpClient implements HttpClientInterface {
 					return false;
 				}
 
-				// Retry on rate limit (429) responses
-				if ($response && $response->getStatusCode() === 429) {
-					return true;
-				}
-
 				// Retry on server errors (5xx)
 				if ($response && $response->getStatusCode() >= 500) {
 					return true;
@@ -107,7 +111,7 @@ class GuzzleHttpClient implements HttpClientInterface {
 				$jitter = $delay * 0.2 * (mt_rand(0, 1000) / 1000); // Add up to 20% jitter
 				$delay = min($delay + $jitter, $this->rateLimitConfig['max_delay']);
 
-				return $delay / 1000; // Convert to seconds for Guzzle
+				return $delay; // Delay is already in seconds
 			}
 		);
 	}
@@ -117,9 +121,19 @@ class GuzzleHttpClient implements HttpClientInterface {
 	 */
 	public function request(string $method, string $url, array $options = []): array {
 		try {
+			// Set http_errors to true to allow retry middleware to work
+			$options['http_errors'] = true;
+			
 			$response = $this->client->request($method, $url, $options);
 
 			return $this->parseResponse($response);
+		} catch (ServerException $e) {
+			// Let retry middleware handle server errors
+			throw new BambooHRException(
+				'Server error: ' . $this->getErrorMessage($e->getResponse()),
+				$e->getCode(),
+				$e
+			);
 		} catch (ClientException $e) {
 			$response = $e->getResponse();
 			$statusCode = $response->getStatusCode();

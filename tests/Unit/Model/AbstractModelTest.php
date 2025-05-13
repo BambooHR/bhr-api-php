@@ -9,61 +9,61 @@ class AbstractModelTest extends TestCase {
 
 	public function testJsonSerialize() {
 		$model = new TestModel();
-		$model->setTestProperty('test value');
-		$model->setAnotherProperty(123);
-		$model->setCamelCaseProperty('camel value');
+		$model->testProperty = 'test value';
+		$model->anotherProperty = 123;
+		$model->snake_case_property = 'snake value';
 
 		$json = json_encode($model);
 		$data = json_decode($json, true);
 
-		$this->assertArrayHasKey('test_property', $data);
-		$this->assertArrayHasKey('another_property', $data);
-		$this->assertArrayHasKey('camel_case_property', $data);
+		$this->assertArrayHasKey('testProperty', $data);
+		$this->assertArrayHasKey('anotherProperty', $data);
+		$this->assertArrayHasKey('snake_case_property', $data);
 
-		$this->assertEquals('test value', $data['test_property']);
-		$this->assertEquals(123, $data['another_property']);
-		$this->assertEquals('camel value', $data['camel_case_property']);
+		$this->assertEquals('test value', $data['testProperty']);
+		$this->assertEquals(123, $data['anotherProperty']);
+		$this->assertEquals('snake value', $data['snake_case_property']);
 	}
 
 	public function testToArray() {
 		$model = new TestModel();
-		$model->setTestProperty('test value');
-		$model->setAnotherProperty(123);
+		$model->testProperty = 'test value';
+		$model->anotherProperty = 123;
 
 		$array = $model->toArray();
 
-		$this->assertArrayHasKey('test_property', $array);
-		$this->assertArrayHasKey('another_property', $array);
+		$this->assertArrayHasKey('testProperty', $array);
+		$this->assertArrayHasKey('anotherProperty', $array);
 
-		$this->assertEquals('test value', $array['test_property']);
-		$this->assertEquals(123, $array['another_property']);
+		$this->assertEquals('test value', $array['testProperty']);
+		$this->assertEquals(123, $array['anotherProperty']);
 	}
 
 	public function testFromArray() {
 		$data = [
-			'test_property' => 'test value',
-			'another_property' => 123,
-			'camel_case_property' => 'camel value',
+			'testProperty' => 'test value',
+			'anotherProperty' => 123,
+			'snake_case_property' => 'snake value',
 			'unknown_property' => 'should be ignored'
 		];
 
 		$model = TestModel::fromArray($data);
 
-		$this->assertEquals('test value', $model->getTestProperty());
-		$this->assertEquals(123, $model->getAnotherProperty());
-		$this->assertEquals('camel value', $model->getCamelCaseProperty());
+		$this->assertEquals('test value', $model->testProperty);
+		$this->assertEquals(123, $model->anotherProperty);
+		$this->assertEquals('snake value', $model->snake_case_property);
 	}
 
 	public function testNullValuesAreSkippedInJsonSerialize() {
 		$model = new TestModel();
-		$model->setTestProperty('test value');
+		$model->testProperty = 'test value';
 		// Leave other properties as null
 
 		$json = json_encode($model);
 		$data = json_decode($json, true);
 
-		$this->assertArrayHasKey('test_property', $data);
-		$this->assertArrayNotHasKey('another_property', $data);
+		$this->assertArrayHasKey('testProperty', $data);
+		$this->assertArrayNotHasKey('anotherProperty', $data);
 		$this->assertArrayNotHasKey('camel_case_property', $data);
 	}
 }

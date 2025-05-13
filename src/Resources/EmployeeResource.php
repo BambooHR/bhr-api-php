@@ -18,15 +18,21 @@ class EmployeeResource extends AbstractResource {
 	 *
 	 * @param int   $employeeId Employee ID (use 0 for the current user)
 	 * @param array $fields     List of fields to retrieve
-	 * @return array Employee data
+	 * @return Employee Employee data
 	 * @throws BambooHRException If the request fails
 	 * @throws NotFoundException If the employee is not found
 	 */
-	public function getEmployee(int $employeeId, array $fields = []): array {
-		if ($employeeId < 0) {
-			throw new \InvalidArgumentException('Employee ID must be a non-negative integer');
-		}
-
+	/**
+	 * Get employee data by ID.
+	 *
+	 * @param int   $employeeId Employee ID (use 0 for the current user)
+	 * @param array $fields     List of fields to retrieve
+	 * @param bool  $asArray    Whether to return data as an array instead of a model
+	 * @return Employee|array   Employee data as a model or array
+	 * @throws BambooHRException If the request fails
+	 * @throws NotFoundException If the employee is not found
+	 */
+	public function getEmployee(int $employeeId, array $fields = [], bool $asArray = false): Employee|array {
 		if (empty($fields)) {
 			$fields = ['firstName', 'lastName', 'jobTitle', 'workEmail', 'department'];
 		}
@@ -34,63 +40,145 @@ class EmployeeResource extends AbstractResource {
 		$fieldList = implode(',', $fields);
 		$endpoint = "employees/{$employeeId}/?fields={$fieldList}";
 
-		return $this->get($endpoint);
+		$response = $this->get($endpoint);
+		
+		// Return as array if requested
+		if ($asArray) {
+			// Ensure we have an array response
+			if (!is_array($response)) {
+				return ['id' => $employeeId];
+			}
+			return $response;
+		}
+		
+		// Return as model
+		$fallback = new Employee();
+		$fallback->id = $employeeId;
+		return $this->safelyConvertResponseToModel($response, Employee::class, $fallback);
 	}
 
 	/**
 	 * Get all employees with specified fields.
 	 *
 	 * @param array $fields List of fields to retrieve
-	 * @return array List of employees
+	 * @return Employee[] List of employees
 	 * @throws BambooHRException If the request fails
 	 */
-	public function getAllEmployees(array $fields = []): array {
+	/**
+	 * Get all employees with specified fields.
+	 *
+	 * @param array $fields  List of fields to retrieve
+	 * @param bool  $asArray Whether to return data as arrays instead of models
+	 * @return array         List of employees as models or arrays
+	 * @throws BambooHRException If the request fails
+	 */
+	public function getAllEmployees(array $fields = [], bool $asArray = false): array {
 		if (empty($fields)) {
 			$fields = ['id', 'firstName', 'lastName', 'workEmail', 'jobTitle', 'department'];
 		}
 
-		// Using the report API to get all employees is more efficient
-		return $this->client->reports()->requestCustomReport([
-			'title' => 'All Employees',
-			'fields' => $fields
-		]);
+		$fieldList = implode(',', $fields);
+		$endpoint = "employees/directory?fields={$fieldList}";
+
+		$response = $this->get($endpoint);
+
+		if (!is_array($response) || !isset($response['employees']) || !is_array($response['employees'])) {
+			return [];
+		}
+
+		$employeesArray = $response['employees'];
+
+		// Return as array if requested
+		if ($asArray) {
+			return $employeesArray;
+		}
+
+		// Return as models
+		$employees = [];
+		foreach ($employeesArray as $employeeData) {
+			$employees[] = Employee::fromArray($employeeData);
+		}
+
+		return $employees;
 	}
 
 	/**
 	 * Add a new employee.
 	 *
-	 * @param array $employeeData Employee data
-	 * @return array Created employee data
+	 * @param Employee $employee Employee object
+	 * @return Employee Created employee data
 	 * @throws BambooHRException If the request fails
-	 * @throws \InvalidArgumentException If required fields are missing
 	 */
-	public function addEmployee(array $employeeData): array {
-		// Validate required fields
-		$this->validateRequiredParams($employeeData, ['firstName', 'lastName']);
+	/**
+	 * Add a new employee.
+	 *
+	 * @param Employee|array $employee  Employee data as model or array
+	 * @param bool           $asArray   Whether to return data as an array instead of a model
+	 * @return Employee|array           Created employee data as a model or array
+	 * @throws BambooHRException If the request fails
+	 */
+	public function addEmployee(Employee|array $employee, bool $asArray = false): Employee|array {
+		$options = [
+			'headers' => [
+				'Accept' => 'application/json'
+			]
+		];
 
-		return $this->post('employees/', $employeeData);
+		// Convert to array if needed
+		$employeeData = $employee instanceof Employee ? $employee->toArray() : $employee;
+		
+		$response = $this->post('employees', $employeeData, $options);
+		
+		// Return as array if requested
+		if ($asArray) {
+			// Ensure we have an array response
+			if (!is_array($response)) {
+				return $employeeData; // Return original data if API returns a string
+			}
+			return $response;
+		}
+		
+		// Return as model
+		$fallback = $employee instanceof Employee ? $employee : new Employee();
+		return $this->safelyConvertResponseToModel($response, Employee::class, $fallback);
 	}
 
 	/**
 	 * Update an employee.
 	 *
-	 * @param int   $employeeId   Employee ID
-	 * @param array $employeeData Employee data to update
-	 * @return array Updated employee data
+	 * @param int      $employeeId Employee ID
 	 * @throws BambooHRException If the request fails
 	 * @throws NotFoundException If the employee is not found
-	 * @throws \InvalidArgumentException If employee ID is invalid
 	 */
-	public function updateEmployee(int $employeeId, array $employeeData): array {
-		if ($employeeId <= 0) {
-			throw new \InvalidArgumentException('Employee ID must be a positive integer');
-		}
+	public function updateEmployee(int $employeeId, Employee|array $employee, bool $asArray = false): Employee|array {
+		$options = [
+			'headers' => [
+				'Accept' => 'application/json'
+			]
+		];
 
-		if (empty($employeeData)) {
-			throw new \InvalidArgumentException('Employee data cannot be empty');
-		}
+		// Convert to array if needed
+		$employeeData = $employee instanceof Employee ? $employee->toArray() : $employee;
+		
+		$response = $this->post("employees/$employeeId", $employeeData, $options);
 
-		return $this->post("employees/{$employeeId}", $employeeData);
+		// Return as array if requested
+		if ($asArray) {
+			// Ensure we have an array response
+			if (!is_array($response)) {
+				// Add ID to the original data if API returns a string
+				$employeeData['id'] = $employeeId;
+				return $employeeData;
+			}
+			return $response;
+		}
+		
+		// Return as model
+		$fallback = $employee instanceof Employee ? $employee : new Employee();
+		if ($fallback->id === null) {
+			$fallback->id = $employeeId;
+		}
+		return $this->safelyConvertResponseToModel($response, Employee::class, $fallback);
 	}
 
 	/**
@@ -174,29 +262,7 @@ class EmployeeResource extends AbstractResource {
 		return $this->put("employees/{$employeeId}/tables/{$table}/{$rowId}", $rowData);
 	}
 
-	/**
-	 * Get all available employee fields.
-	 *
-	 * @return array List of available fields
-	 * @throws BambooHRException If the request fails
-	 */
-	public function getFields(): array {
-		return $this->get('meta/fields');
-	}
 
-	/**
-	 * Get an employee as a model object.
-	 *
-	 * @param int   $employeeId Employee ID
-	 * @param array $fields     List of fields to retrieve
-	 * @return Employee Employee model
-	 * @throws BambooHRException If the request fails
-	 * @throws NotFoundException If the employee is not found
-	 */
-	public function getEmployeeModel(int $employeeId, array $fields = []): Employee {
-		$data = $this->getEmployee($employeeId, $fields);
-		return Employee::fromArray($data);
-	}
 
 	/**
 	 * Get employee photo.

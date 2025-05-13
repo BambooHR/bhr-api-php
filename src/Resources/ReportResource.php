@@ -7,6 +7,7 @@ namespace BambooHR\SDK\Resources;
 use BambooHR\SDK\Exception\BambooHRException;
 use BambooHR\SDK\Exception\NotFoundException;
 use BambooHR\SDK\Model\CustomReport;
+use BambooHR\SDK\Model\Report;
 
 /**
  * Resource for interacting with report-related endpoints.
@@ -15,81 +16,76 @@ class ReportResource extends AbstractResource {
 
 	/**
 	 * Request a custom report.
+	 * @link https://documentation.bamboohr.com/reference/request-custom-report
 	 *
-	 * @param array $reportData Report configuration
-	 * @return array Report data
+	 * @param array|CustomReport $reportData Report configuration as array or CustomReport model
+	 * @param bool              $asArray    Whether to return data as an array instead of a model
+	 * @return Report|array                 Report data as a model or array
 	 * @throws BambooHRException If the request fails
-	 * @throws \InvalidArgumentException If required fields are missing
 	 */
-	public function requestCustomReport(array $reportData): array {
-		// Validate required fields
-		$this->validateRequiredParams($reportData, ['title', 'fields']);
-
-		// Validate fields is an array
-		if (!is_array($reportData['fields'])) {
-			throw new \InvalidArgumentException('Fields must be an array');
-		}
-
-		// Ensure fields is not empty
-		if (empty($reportData['fields'])) {
-			throw new \InvalidArgumentException('Fields cannot be empty');
-		}
-
+	public function requestCustomReport(array|CustomReport $reportData, bool $asArray = false): Report|array {
 		$options = [
 			'headers' => [
 				'Accept' => 'application/json'
 			]
 		];
 
-		return $this->post('reports/custom', $reportData, $options);
-	}
+		// Convert to array if needed
+		$reportDataArray = $reportData instanceof CustomReport ? $reportData->toArray() : $reportData;
 
-	/**
-	 * Request a custom report using a CustomReport model.
-	 *
-	 * @param CustomReport $report Custom report model
-	 * @return array Report data
-	 * @throws BambooHRException If the request fails
-	 */
-	public function requestCustomReportFromModel(CustomReport $report): array {
-		return $this->requestCustomReport($report->toArray());
+		$response = $this->post('reports/custom', $reportDataArray, $options);
+
+		// Return as array if requested
+		if ($asArray) {
+			// Ensure we have an array response
+			if (!is_array($response)) {
+				return $reportDataArray;
+			}
+			return $response;
+		}
+
+		// Return as model
+		return $this->safelyConvertResponseToModel($response, Report::class);
 	}
 
 	/**
 	 * Get data from a standard report.
 	 *
-	 * @param string $reportName Report name
+	 * @param string $reportId Report name
 	 * @param array  $params     Additional parameters
-	 * @return array Report data
+	 * @param bool   $asArray    Whether to return data as an array instead of a model
+	 * @return Report|array      Report data as a model or array
 	 * @throws BambooHRException If the request fails
 	 * @throws NotFoundException If the report is not found
-	 * @throws \InvalidArgumentException If report name is empty
 	 */
-	public function getStandardReport(string $reportName, array $params = []): array {
-		if (empty(trim($reportName))) {
-			throw new \InvalidArgumentException('Report name cannot be empty');
-		}
-
-		$queryString = !empty($params) ? '?' . http_build_query($params) : '';
-		$endpoint = "reports/{$reportName}{$queryString}";
-
+	public function getStandardReport(string $reportId, array $params = [], bool $asArray = false): Report|array {
 		$options = [
 			'headers' => [
 				'Accept' => 'application/json'
 			]
 		];
 
-		return $this->get($endpoint, $options);
+		$queryString = http_build_query($params);
+		$endpoint = "reports/$reportId" . ($queryString ? "?{$queryString}" : '');
+
+		$response = $this->get($endpoint, $options);
+
+		// Return as array if requested
+		if ($asArray) {
+			return $response;
+		}
+
+		// Return as model
+		return $this->safelyConvertResponseToModel($response, Report::class);
 	}
 
 	/**
 	 * Get data from a dataset.
 	 *
 	 * @param string $dataset Dataset name
-	 * @param array  $params  Additional parameters
+	 * @param array  $params  Request parameters including fields, filters, etc.
 	 * @return array Dataset data
 	 * @throws BambooHRException If the request fails
-	 * @throws NotFoundException If the dataset is not found
 	 * @throws \InvalidArgumentException If dataset name is empty
 	 */
 	public function getDataFromDataset(string $dataset, array $params = []): array {
@@ -97,43 +93,20 @@ class ReportResource extends AbstractResource {
 			throw new \InvalidArgumentException('Dataset name cannot be empty');
 		}
 
-		$queryString = !empty($params) ? '?' . http_build_query($params) : '';
-		$endpoint = "datasets/{$dataset}{$queryString}";
+		// Add the dataset name to the params if not already included
+		if (!isset($params['datasetName'])) {
+			$params['datasetName'] = $dataset;
+		}
 
 		$options = [
 			'headers' => [
-				'Accept' => 'application/json'
-			]
+				'Accept' => 'application/json',
+				'Content-Type' => 'application/json'
+			],
+			'json' => $params
 		];
 
-		return $this->get($endpoint, $options);
-	}
-
-	/**
-	 * Get a list of available reports.
-	 *
-	 * @return array List of available reports
-	 * @throws BambooHRException If the request fails
-	 */
-	public function getReports(): array {
-		return $this->get('meta/reports');
-	}
-
-	/**
-	 * Get a list of available report formats.
-	 *
-	 * @return array List of available report formats
-	 * @throws BambooHRException If the request fails
-	 */
-	public function getReportFormats(): array {
-		$reports = $this->getReports();
-		$formats = [];
-
-		if (isset($reports['formats']) && is_array($reports['formats'])) {
-			$formats = $reports['formats'];
-		}
-
-		return $formats;
+		return $this->post("datasets/", $params, $options);
 	}
 
 	/**
@@ -143,6 +116,29 @@ class ReportResource extends AbstractResource {
 	 * @throws BambooHRException If the request fails
 	 */
 	public function getDatasets(): array {
-		return $this->get('meta/datasets');
+		$options = [
+			'headers' => [
+				'Accept' => 'application/json',
+				'Content-Type' => 'application/json'
+			]
+		];
+		
+		return $this->get('datasets', $options);
+	}
+
+	/**
+	 * Get a list of available reports.
+	 *
+	 * @return array List of available reports
+	 * @throws BambooHRException If the request fails
+	 */
+	public function getReports(): array {
+		$options = [
+			'headers' => [
+				'Accept' => 'application/json'
+			]
+		];
+
+		return $this->get('reports', $options);
 	}
 }
