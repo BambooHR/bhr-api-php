@@ -278,7 +278,7 @@ class BambooAPI {
 		$request = $this->getBambooHttpRequest();
 		$request->method = "GET";
 		$request->url = $this->baseUrl . "/v1/meta/$type/";
-		return $this->httpHandler->sendRequest( $request );
+		return $this->httpHandler->sendRequest($request);
 	}
 
 	/**
