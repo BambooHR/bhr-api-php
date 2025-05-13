@@ -2,7 +2,6 @@
 
 namespace BambooHR\SDK\Tests\Unit;
 
-use BambooHR\SDK\Authentication\AuthenticationInterface;
 use BambooHR\SDK\Authentication\OAuthAuthentication;
 use BambooHR\SDK\BambooHRBuilder;
 use BambooHR\SDK\BambooHRClient;
@@ -40,11 +39,9 @@ class BambooHRBuilderTest extends TestCase {
 	}
 
 	public function testBuildWithCustomAuthentication() {
-		$authentication = $this->createMock(AuthenticationInterface::class);
-
 		$builder = new BambooHRBuilder();
 		$builder->withCompanyDomain('test-company');
-		$builder->withAuthentication($authentication);
+		$builder->withOAuth('client-id', 'client-secret');
 
 		$client = $builder->build();
 
@@ -72,12 +69,11 @@ class BambooHRBuilderTest extends TestCase {
 	public function testFluentInterface() {
 		$httpClient = $this->createMock(HttpClientInterface::class);
 		$logger = $this->createMock(LoggerInterface::class);
-		$authentication = $this->createMock(AuthenticationInterface::class);
 
 		$builder = new BambooHRBuilder();
 		$result = $builder
 			->withCompanyDomain('test-company')
-			->withAuthentication($authentication)
+			->withOAuth('client-id', 'client-secret')
 			->withHttpClient($httpClient)
 			->withLogger($logger)
 			->withTimeout(60)

@@ -10,6 +10,28 @@ use BambooHR\SDK\BambooHRClient;
  * Base class for all API resource implementations.
  */
 abstract class AbstractResource {
+	/**
+	 * Safely converts an API response to a model object.
+	 * Handles cases where the API returns a string instead of an array.
+	 *
+	 * @template T
+	 * @param array|string $response API response
+	 * @param class-string<T> $modelClass Model class name
+	 * @param object|null $fallbackObject Object to return if response is not an array
+	 * @return T Model object
+	 */
+	protected function safelyConvertResponseToModel(array|string $response, string $modelClass, ?object $fallbackObject = null): object {
+		if (!is_array($response)) {
+			if ($fallbackObject !== null) {
+				return $fallbackObject;
+			}
+			
+			// Create a new instance of the model class if no fallback provided
+			return new $modelClass();
+		}
+		
+		return $modelClass::fromArray($response);
+	}
 
 	protected BambooHRClient $client;
 

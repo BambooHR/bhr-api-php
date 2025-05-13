@@ -13,46 +13,45 @@ class EmployeeTest extends TestCase {
 		$this->employee = new Employee();
 	}
 
-	public function testGettersAndSetters() {
-		$this->employee
-			->setId(123)
-			->setFirstName('John')
-			->setLastName('Doe')
-			->setPreferredName('Johnny')
-			->setJobTitle('Developer')
-			->setWorkEmail('john.doe@example.com')
-			->setWorkPhone('555-1234')
-			->setMobilePhone('555-5678')
-			->setDepartment('Engineering')
-			->setLocation('New York')
-			->setDivision('Technology')
-			->setStatus('Active')
-			->setHireDate('2023-01-15')
-			->setTerminationDate(null)
-			->setSupervisor('Jane Smith')
-			->setPhotoUrl('https://example.com/photo.jpg')
-			->setLinkedIn('https://linkedin.com/in/johndoe')
-			->setCustomFields(['customField1' => 'value1']);
+	public function testPublicProperties() {
+		$this->employee->id = 123;
+		$this->employee->firstName = 'John';
+		$this->employee->lastName = 'Doe';
+		$this->employee->preferredName = 'Johnny';
+		$this->employee->jobTitle = 'Developer';
+		$this->employee->workEmail = 'john.doe@example.com';
+		$this->employee->workPhone = '555-1234';
+		$this->employee->mobilePhone = '555-5678';
+		$this->employee->department = 'Engineering';
+		$this->employee->location = 'New York';
+		$this->employee->division = 'Technology';
+		$this->employee->status = 'Active';
+		$this->employee->hireDate = '2023-01-15';
+		$this->employee->terminationDate = null;
+		$this->employee->supervisor = 'Jane Smith';
+		$this->employee->photoUrl = 'https://example.com/photo.jpg';
+		$this->employee->linkedIn = 'https://linkedin.com/in/johndoe';
+		$this->employee->customFields = ['customField1' => 'value1'];
 
-		$this->assertEquals(123, $this->employee->getId());
-		$this->assertEquals('John', $this->employee->getFirstName());
-		$this->assertEquals('Doe', $this->employee->getLastName());
-		$this->assertEquals('Johnny', $this->employee->getPreferredName());
+		$this->assertEquals(123, $this->employee->id);
+		$this->assertEquals('John', $this->employee->firstName);
+		$this->assertEquals('Doe', $this->employee->lastName);
+		$this->assertEquals('Johnny', $this->employee->preferredName);
 		$this->assertEquals('Johnny', $this->employee->getDisplayName());
-		$this->assertEquals('Developer', $this->employee->getJobTitle());
-		$this->assertEquals('john.doe@example.com', $this->employee->getWorkEmail());
-		$this->assertEquals('555-1234', $this->employee->getWorkPhone());
-		$this->assertEquals('555-5678', $this->employee->getMobilePhone());
-		$this->assertEquals('Engineering', $this->employee->getDepartment());
-		$this->assertEquals('New York', $this->employee->getLocation());
-		$this->assertEquals('Technology', $this->employee->getDivision());
-		$this->assertEquals('Active', $this->employee->getStatus());
-		$this->assertEquals('2023-01-15', $this->employee->getHireDate());
-		$this->assertNull($this->employee->getTerminationDate());
-		$this->assertEquals('Jane Smith', $this->employee->getSupervisor());
-		$this->assertEquals('https://example.com/photo.jpg', $this->employee->getPhotoUrl());
-		$this->assertEquals('https://linkedin.com/in/johndoe', $this->employee->getLinkedIn());
-		$this->assertEquals(['customField1' => 'value1'], $this->employee->getCustomFields());
+		$this->assertEquals('Developer', $this->employee->jobTitle);
+		$this->assertEquals('john.doe@example.com', $this->employee->workEmail);
+		$this->assertEquals('555-1234', $this->employee->workPhone);
+		$this->assertEquals('555-5678', $this->employee->mobilePhone);
+		$this->assertEquals('Engineering', $this->employee->department);
+		$this->assertEquals('New York', $this->employee->location);
+		$this->assertEquals('Technology', $this->employee->division);
+		$this->assertEquals('Active', $this->employee->status);
+		$this->assertEquals('2023-01-15', $this->employee->hireDate);
+		$this->assertNull($this->employee->terminationDate);
+		$this->assertEquals('Jane Smith', $this->employee->supervisor);
+		$this->assertEquals('https://example.com/photo.jpg', $this->employee->photoUrl);
+		$this->assertEquals('https://linkedin.com/in/johndoe', $this->employee->linkedIn);
+		$this->assertEquals(['customField1' => 'value1'], $this->employee->customFields);
 	}
 
 	public function testFromArray() {
@@ -67,69 +66,66 @@ class EmployeeTest extends TestCase {
 
 		$employee = Employee::fromArray($data);
 
-		$this->assertEquals(123, $employee->getId());
-		$this->assertEquals('John', $employee->getFirstName());
-		$this->assertEquals('Doe', $employee->getLastName());
-		$this->assertEquals('Developer', $employee->getJobTitle());
-		$this->assertEquals('john.doe@example.com', $employee->getWorkEmail());
-		$this->assertEquals('Engineering', $employee->getDepartment());
+		$this->assertEquals(123, $employee->id);
+		$this->assertEquals('John', $employee->firstName);
+		$this->assertEquals('Doe', $employee->lastName);
+		$this->assertEquals('Developer', $employee->jobTitle);
+		$this->assertEquals('john.doe@example.com', $employee->workEmail);
+		$this->assertEquals('Engineering', $employee->department);
 	}
 
 	public function testToArray() {
-		$this->employee
-			->setId(123)
-			->setFirstName('John')
-			->setLastName('Doe')
-			->setJobTitle('Developer');
+		$this->employee->id = 123;
+		$this->employee->firstName = 'John';
+		$this->employee->lastName = 'Doe';
+		$this->employee->jobTitle = 'Developer';
 
 		$array = $this->employee->toArray();
 
 		$this->assertArrayHasKey('id', $array);
-		$this->assertArrayHasKey('first_name', $array);
-		$this->assertArrayHasKey('last_name', $array);
-		$this->assertArrayHasKey('job_title', $array);
+		$this->assertArrayHasKey('firstName', $array);
+		$this->assertArrayHasKey('lastName', $array);
+		$this->assertArrayHasKey('jobTitle', $array);
 
 		$this->assertEquals(123, $array['id']);
-		$this->assertEquals('John', $array['first_name']);
-		$this->assertEquals('Doe', $array['last_name']);
-		$this->assertEquals('Developer', $array['job_title']);
+		$this->assertEquals('John', $array['firstName']);
+		$this->assertEquals('Doe', $array['lastName']);
+		$this->assertEquals('Developer', $array['jobTitle']);
 	}
 
 	public function testGetFullNameWithDisplayName() {
-		$this->employee
-			->setFirstName('John')
-			->setLastName('Doe')
-			->setPreferredName('Johnny');
+		$this->employee->firstName = 'John';
+		$this->employee->lastName = 'Doe';
+		$this->employee->preferredName = 'Johnny';
 
 		$this->assertEquals('Johnny', $this->employee->getDisplayName());
 		$this->assertEquals('John Doe', $this->employee->getFullName());
 	}
 
 	public function testGetFullNameWithoutDisplayName() {
-		$this->employee
-			->setFirstName('John')
-			->setLastName('Doe');
+		$this->employee->firstName = 'John';
+		$this->employee->lastName = 'Doe';
 
 		$this->assertEquals('John Doe', $this->employee->getFullName());
 	}
 
 	public function testGetFullNameWithOnlyFirstName() {
-		$this->employee->setFirstName('John');
+		$this->employee->firstName = 'John';
 
 		$this->assertNull($this->employee->getFullName());
 	}
 
 	public function testGetFullNameWithOnlyLastName() {
-		$this->employee->setLastName('Doe');
+		$this->employee->lastName = 'Doe';
 
 		$this->assertNull($this->employee->getFullName());
 	}
 
 	public function testGetCustomField() {
-		$this->employee->setCustomFields([
+		$this->employee->customFields = [
 			'customField1' => 'value1',
 			'customField2' => 'value2'
-		]);
+		];
 
 		$this->assertEquals('value1', $this->employee->getCustomField('customField1'));
 		$this->assertEquals('value2', $this->employee->getCustomField('customField2'));
@@ -145,7 +141,7 @@ class EmployeeTest extends TestCase {
 
 		$this->assertEquals(
 			['customField1' => 'value1', 'customField2' => 'value2'],
-			$this->employee->getCustomFields()
+			$this->employee->customFields
 		);
 	}
 }

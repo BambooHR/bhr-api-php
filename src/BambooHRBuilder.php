@@ -64,19 +64,6 @@ class BambooHRBuilder {
 	}
 
 	/**
-	 * Set a custom authentication method.
-	 *
-	 * @param OAuthAuthentication $authentication Authentication implementation
-	 *
-	 * @return self
-	 */
-	public function withAuthentication(OAuthAuthentication $authentication): self {
-		$this->authentication = $authentication;
-
-		return $this;
-	}
-
-	/**
 	 * Set a custom HTTP client.
 	 *
 	 * @param HttpClientInterface $httpClient HTTP client implementation
@@ -184,7 +171,6 @@ class BambooHRBuilder {
 			$this->authentication,
 			$this->httpClient,
 			$this->logger,
-			$this->options,
 			$this->apiVersion,
 			$this->baseDomain
 		);

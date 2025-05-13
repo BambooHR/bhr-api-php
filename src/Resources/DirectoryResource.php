@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BambooHR\SDK\Resources;
 
 use BambooHR\SDK\Exception\BambooHRException;
-use BambooHR\SDK\Exception\NotFoundException;
+use BambooHR\SDK\Model\DirectoryEntry;
 
 /**
  * Resource for interacting with company directory endpoints.
@@ -15,10 +15,11 @@ class DirectoryResource extends AbstractResource {
 	/**
 	 * Get the company directory.
 	 *
+	 * @param bool $asArray Whether to return employees as arrays instead of model objects
 	 * @return array Directory data with 'fields' and 'employees' keys
 	 * @throws BambooHRException If the request fails
 	 */
-	public function getDirectory(): array {
+	public function getDirectory(bool $asArray = false): array {
 		$response = $this->get('employees/directory');
 
 		// Ensure we have a properly formatted response
@@ -26,30 +27,42 @@ class DirectoryResource extends AbstractResource {
 			throw new BambooHRException('Invalid directory response format');
 		}
 
-		return $response;
+		// Return employees as arrays if requested
+		if ($asArray) {
+			return $response;
+		}
+
+		// Convert employees to model objects
+		$employees = [];
+		foreach ($response['employees'] as $employeeData) {
+			$employees[] = DirectoryEntry::fromArray($employeeData);
+		}
+
+		return [
+			'fields' => $response['fields'],
+			'employees' => $employees
+		];
 	}
 
 	/**
 	 * Get a specific employee from the directory.
 	 *
-	 * @param int $employeeId Employee ID
-	 * @return array|null Employee directory data or null if not found
+	 * @param int  $employeeId Employee ID
+	 * @param bool $asArray    Whether to return employee as an array instead of a model object
+	 * @return DirectoryEntry|array|null Employee directory entry, array, or null if not found
 	 * @throws BambooHRException If the request fails
-	 * @throws \InvalidArgumentException If employee ID is invalid
 	 */
-	public function getDirectoryEmployee(int $employeeId): ?array {
-		if ($employeeId <= 0) {
-			throw new \InvalidArgumentException('Employee ID must be a positive integer');
-		}
-
-		$directory = $this->getDirectory();
+	public function getDirectoryEmployee(int $employeeId, bool $asArray = false): DirectoryEntry|array|null {
+		$directory = $this->getDirectory($asArray);
 
 		if (!isset($directory['employees']) || !is_array($directory['employees'])) {
 			return null;
 		}
 
 		foreach ($directory['employees'] as $employee) {
-			if (isset($employee['id']) && $employee['id'] == $employeeId) {
+			// Check ID based on whether we're working with arrays or models
+			$employeeId1 = $asArray ? $employee['id'] : $employee->id;
+			if ($employeeId1 === $employeeId) {
 				return $employee;
 			}
 		}
@@ -58,52 +71,50 @@ class DirectoryResource extends AbstractResource {
 	}
 
 	/**
-	 * Search the company directory.
+	 * Search the company directory for employees matching a query.
 	 *
-	 * @param string $query Search query
-	 * @return array Matching employees with 'fields' and 'employees' keys
+	 * @param string $query    Search query
+	 * @param bool   $asArray  Whether to return employees as arrays instead of model objects
+	 * @return array Filtered directory data
 	 * @throws BambooHRException If the request fails
-	 * @throws \InvalidArgumentException If query is empty
 	 */
-	public function searchDirectory(string $query): array {
-		if (empty(trim($query))) {
-			throw new \InvalidArgumentException('Search query cannot be empty');
-		}
-
-		$directory = $this->getDirectory();
-		$results = [];
-
-		if (!isset($directory['employees']) || !is_array($directory['employees'])) {
-			return [
-				'fields' => $directory['fields'] ?? [],
-				'employees' => []
-			];
-		}
-
+	public function searchDirectory(string $query, bool $asArray = false): array {
+		$directory = $this->getDirectory($asArray);
 		$query = strtolower(trim($query));
 
-		foreach ($directory['employees'] as $employee) {
-			// Search in common fields
-			$searchFields = [
-				'displayName', 'firstName', 'lastName', 'jobTitle',
-				'department', 'workPhone', 'mobilePhone', 'workEmail'
-			];
+		if (empty($query)) {
+			return $directory;
+		}
 
-			foreach ($searchFields as $field) {
-				if (
-					isset($employee[$field]) &&
-					is_string($employee[$field]) &&
-					strpos(strtolower($employee[$field]), $query) !== false
-				) {
-					$results[] = $employee;
-					break; // Found a match, no need to check other fields
-				}
+		$filteredEmployees = [];
+		foreach ($directory['employees'] as $employee) {
+			// Search in various fields based on whether we're working with arrays or models
+			if ($asArray) {
+				$searchableText = strtolower(
+					($employee['display_name'] ?? '') . ' ' .
+					($employee['first_name'] ?? '') . ' ' .
+					($employee['last_name'] ?? '') . ' ' .
+					($employee['job_title'] ?? '') . ' ' .
+					($employee['department'] ?? '')
+				);
+			} else {
+				$searchableText = strtolower(
+					$employee->displayName . ' ' .
+					$employee->firstName . ' ' .
+					$employee->lastName . ' ' .
+					($employee->jobTitle ?? '') . ' ' .
+					($employee->department ?? '')
+				);
+			}
+
+			if (strpos($searchableText, $query) !== false) {
+				$filteredEmployees[] = $employee;
 			}
 		}
 
 		return [
-			'fields' => $directory['fields'] ?? [],
-			'employees' => $results
+			'fields' => $directory['fields'],
+			'employees' => $filteredEmployees
 		];
 	}
 

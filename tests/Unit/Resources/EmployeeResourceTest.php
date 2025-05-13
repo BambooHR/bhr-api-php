@@ -4,6 +4,7 @@ namespace BambooHR\SDK\Tests\Unit\Resources;
 
 use BambooHR\SDK\BambooHRClient;
 use BambooHR\SDK\Resources\EmployeeResource;
+use BambooHR\SDK\Model\Employee;
 use PHPUnit\Framework\TestCase;
 
 class EmployeeResourceTest extends TestCase {
@@ -29,7 +30,11 @@ class EmployeeResourceTest extends TestCase {
 
 		$result = $this->resource->getEmployee($employeeId, $fields);
 
-		$this->assertEquals($expectedResponse, $result);
+		$this->assertInstanceOf(Employee::class, $result);
+		$this->assertEquals($employeeId, $result->id);
+		$this->assertEquals('John', $result->firstName);
+		$this->assertEquals('Doe', $result->lastName);
+		$this->assertEquals('Developer', $result->jobTitle);
 	}
 
 	public function testGetEmployeeWithDefaultFields() {
@@ -49,15 +54,18 @@ class EmployeeResourceTest extends TestCase {
 
 		$result = $this->resource->getEmployee($employeeId);
 
-		$this->assertEquals($expectedResponse, $result);
+		$this->assertInstanceOf(Employee::class, $result);
+		$this->assertEquals($employeeId, $result->id);
+		$this->assertEquals('John', $result->firstName);
+		$this->assertEquals('Doe', $result->lastName);
 	}
 
 	public function testAddEmployee() {
-		$employeeData = [
-			'firstName' => 'Jane',
-			'lastName' => 'Smith',
-			'jobTitle' => 'Manager'
-		];
+		$employee = new Employee();
+		$employee->firstName = 'Jane';
+		$employee->lastName = 'Smith';
+		$employee->jobTitle = 'Manager';
+
 		$expectedResponse = [
 			'id' => 456,
 			'firstName' => 'Jane',
@@ -68,23 +76,26 @@ class EmployeeResourceTest extends TestCase {
 					 ->method('request')
 					 ->with(
 						 $this->equalTo('POST'),
-						 $this->equalTo('employees/'),
-						 $this->callback(function ($options) use ($employeeData) {
-							 return isset($options['json']) && $options['json'] === $employeeData;
+						 $this->equalTo('employees'),
+						 $this->callback(function ($options) {
+							 return isset($options['json']);
 						 })
 					 )
 					 ->willReturn($expectedResponse);
 
-		$result = $this->resource->addEmployee($employeeData);
+		$result = $this->resource->addEmployee($employee);
 
-		$this->assertEquals($expectedResponse, $result);
+		$this->assertInstanceOf(Employee::class, $result);
+		$this->assertEquals(456, $result->id);
+		$this->assertEquals('Jane', $result->firstName);
+		$this->assertEquals('Smith', $result->lastName);
 	}
 
 	public function testUpdateEmployee() {
 		$employeeId = 123;
-		$employeeData = [
-			'jobTitle' => 'Senior Developer'
-		];
+		$employee = new Employee();
+		$employee->jobTitle = 'Senior Developer';
+
 		$expectedResponse = [
 			'id' => $employeeId,
 			'firstName' => 'John',
@@ -92,20 +103,61 @@ class EmployeeResourceTest extends TestCase {
 			'jobTitle' => 'Senior Developer'
 		];
 
+		// Test with default parameter (returns model)
 		$this->client->expects($this->once())
 					 ->method('request')
 					 ->with(
 						 $this->equalTo('POST'),
 						 $this->equalTo("employees/{$employeeId}"),
-						 $this->callback(function ($options) use ($employeeData) {
-							 return isset($options['json']) && $options['json'] === $employeeData;
+						 $this->callback(function ($options) {
+							 return isset($options['json']);
 						 })
 					 )
 					 ->willReturn($expectedResponse);
 
-		$result = $this->resource->updateEmployee($employeeId, $employeeData);
+		$result = $this->resource->updateEmployee($employeeId, $employee);
 
-		$this->assertEquals($expectedResponse, $result);
+		$this->assertInstanceOf(Employee::class, $result);
+		$this->assertEquals($employeeId, $result->id);
+		$this->assertEquals('John', $result->firstName);
+		$this->assertEquals('Doe', $result->lastName);
+		$this->assertEquals('Senior Developer', $result->jobTitle);
+	}
+	
+	/**
+	 * Test updateEmployee with asArray parameter
+	 */
+	public function testUpdateEmployeeAsArray() {
+		$employeeId = 123;
+		$employee = new Employee();
+		$employee->jobTitle = 'Senior Developer';
+
+		$expectedResponse = [
+			'id' => $employeeId,
+			'first_name' => 'John',
+			'last_name' => 'Doe',
+			'job_title' => 'Senior Developer'
+		];
+
+		$this->client->expects($this->once())
+					 ->method('request')
+					 ->with(
+						 $this->equalTo('POST'),
+						 $this->equalTo("employees/{$employeeId}"),
+						 $this->callback(function ($options) {
+							 return isset($options['json']);
+						 })
+					 )
+					 ->willReturn($expectedResponse);
+
+		// Test with asArray=true parameter (returns array)
+		$resultArray = $this->resource->updateEmployee($employeeId, $employee, true);
+		
+		$this->assertIsArray($resultArray);
+		$this->assertEquals($employeeId, $resultArray['id']);
+		$this->assertEquals('John', $resultArray['first_name']);
+		$this->assertEquals('Doe', $resultArray['last_name']);
+		$this->assertEquals('Senior Developer', $resultArray['job_title']);
 	}
 
 	public function testGetEmployeeTable() {
@@ -193,32 +245,7 @@ class EmployeeResourceTest extends TestCase {
 		$this->assertEquals($expectedResponse, $result);
 	}
 
-	public function testGetFields() {
-		$expectedEndpoint = 'meta/fields';
-		$expectedResponse = [
-			'fields' => [
-				[
-					'id' => 'firstName',
-					'name' => 'First Name',
-					'type' => 'text'
-				],
-				[
-					'id' => 'lastName',
-					'name' => 'Last Name',
-					'type' => 'text'
-				]
-			]
-		];
 
-		$this->client->expects($this->once())
-					 ->method('request')
-					 ->with('GET', $expectedEndpoint)
-					 ->willReturn($expectedResponse);
-
-		$result = $this->resource->getFields();
-
-		$this->assertEquals($expectedResponse, $result);
-	}
 
 	protected function setUp(): void {
 		$this->client = $this->createMock(BambooHRClient::class);

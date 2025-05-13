@@ -2,10 +2,6 @@
 
 A modern PHP SDK for the BambooHR API with OAuth support and automatic token refresh.
 
-[![Latest Version](https://img.shields.io/packagist/v/bamboohr/php-sdk.svg)](https://packagist.org/packages/bamboohr/php-sdk)
-[![PHP Version](https://img.shields.io/packagist/php-v/bamboohr/php-sdk.svg)](https://packagist.org/packages/bamboohr/php-sdk)
-[![License](https://img.shields.io/packagist/l/bamboohr/php-sdk.svg)](https://packagist.org/packages/bamboohr/php-sdk)
-
 ## Installation
 
 Install the SDK using Composer:
