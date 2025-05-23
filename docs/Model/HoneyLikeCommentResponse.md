@@ -1,0 +1,11 @@
+# # HoneyLikeCommentResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**success** | **bool** | Whether the like operation was successful | [optional]
+**liked_at** | **\DateTime** | When the comment was liked | [optional]
+**total_likes** | **int** | Total number of likes for the comment | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
