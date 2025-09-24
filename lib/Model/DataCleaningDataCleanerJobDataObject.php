@@ -58,10 +58,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
       */
     protected static $openAPITypes = [
         'job_id' => 'int',
+        'source' => 'string',
         'type' => 'string',
         'file_name' => 'string',
         'file_id' => 'int',
-        'source' => 'string',
         'job_title' => 'string',
         'current_step' => 'string'
     ];
@@ -75,10 +75,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
       */
     protected static $openAPIFormats = [
         'job_id' => null,
+        'source' => null,
         'type' => null,
         'file_name' => null,
         'file_id' => null,
-        'source' => null,
         'job_title' => null,
         'current_step' => null
     ];
@@ -90,10 +90,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
       */
     protected static array $openAPINullables = [
         'job_id' => false,
+        'source' => false,
         'type' => false,
         'file_name' => false,
         'file_id' => false,
-        'source' => false,
         'job_title' => false,
         'current_step' => false
     ];
@@ -185,10 +185,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'job_id' => 'job_id',
+        'source' => 'source',
         'type' => 'type',
         'file_name' => 'file_name',
         'file_id' => 'file_id',
-        'source' => 'source',
         'job_title' => 'job_title',
         'current_step' => 'current_step'
     ];
@@ -200,10 +200,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'job_id' => 'setJobId',
+        'source' => 'setSource',
         'type' => 'setType',
         'file_name' => 'setFileName',
         'file_id' => 'setFileId',
-        'source' => 'setSource',
         'job_title' => 'setJobTitle',
         'current_step' => 'setCurrentStep'
     ];
@@ -215,10 +215,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'job_id' => 'getJobId',
+        'source' => 'getSource',
         'type' => 'getType',
         'file_name' => 'getFileName',
         'file_id' => 'getFileId',
-        'source' => 'getSource',
         'job_title' => 'getJobTitle',
         'current_step' => 'getCurrentStep'
     ];
@@ -281,10 +281,10 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
     public function __construct(?array $data = null)
     {
         $this->setIfExists('job_id', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('file_name', $data ?? [], null);
         $this->setIfExists('file_id', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('job_title', $data ?? [], null);
         $this->setIfExists('current_step', $data ?? [], null);
     }
@@ -354,6 +354,33 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable job_id cannot be null');
         }
         $this->container['job_id'] = $job_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $this->container['source'] = $source;
 
         return $this;
     }
@@ -435,33 +462,6 @@ class DataCleaningDataCleanerJobDataObject implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable file_id cannot be null');
         }
         $this->container['file_id'] = $file_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
-        }
-        $this->container['source'] = $source;
 
         return $this;
     }

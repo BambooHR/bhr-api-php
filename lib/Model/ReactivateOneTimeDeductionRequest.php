@@ -118,19 +118,19 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
         'pay_cycle_id' => false,
         'payroll_pay_cycle_id' => false,
         'core_employee_id' => false,
-        'direct_deposit_disable' => true,
-        'deduction_disable' => true,
-        'note' => true,
-        'pay_period_id' => true,
-        'federal_is_exempt' => true,
-        'federal_withholding_additional' => true,
-        'federal_withholding_additional_type' => true,
-        'state_is_exempt' => true,
-        'state_withholding_additional' => true,
-        'state_withholding_additional_type' => true,
-        'use_federal_custom_override' => true,
-        'federal_override_amount' => true,
-        'federal_override_amount_type' => true,
+        'direct_deposit_disable' => false,
+        'deduction_disable' => false,
+        'note' => false,
+        'pay_period_id' => false,
+        'federal_is_exempt' => false,
+        'federal_withholding_additional' => false,
+        'federal_withholding_additional_type' => false,
+        'state_is_exempt' => false,
+        'state_withholding_additional' => false,
+        'state_withholding_additional_type' => false,
+        'use_federal_custom_override' => false,
+        'federal_override_amount' => false,
+        'federal_override_amount_type' => false,
         'check_id' => false,
         'create' => false
     ];
@@ -544,14 +544,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setDirectDepositDisable($direct_deposit_disable)
     {
         if (is_null($direct_deposit_disable)) {
-            array_push($this->openAPINullablesSetToNull, 'direct_deposit_disable');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('direct_deposit_disable', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable direct_deposit_disable cannot be null');
         }
         $this->container['direct_deposit_disable'] = $direct_deposit_disable;
 
@@ -578,14 +571,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setDeductionDisable($deduction_disable)
     {
         if (is_null($deduction_disable)) {
-            array_push($this->openAPINullablesSetToNull, 'deduction_disable');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deduction_disable', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable deduction_disable cannot be null');
         }
         $this->container['deduction_disable'] = $deduction_disable;
 
@@ -612,14 +598,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setNote($note)
     {
         if (is_null($note)) {
-            array_push($this->openAPINullablesSetToNull, 'note');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('note', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable note cannot be null');
         }
         $this->container['note'] = $note;
 
@@ -646,14 +625,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setPayPeriodId($pay_period_id)
     {
         if (is_null($pay_period_id)) {
-            array_push($this->openAPINullablesSetToNull, 'pay_period_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pay_period_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable pay_period_id cannot be null');
         }
         $this->container['pay_period_id'] = $pay_period_id;
 
@@ -680,14 +652,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setFederalIsExempt($federal_is_exempt)
     {
         if (is_null($federal_is_exempt)) {
-            array_push($this->openAPINullablesSetToNull, 'federal_is_exempt');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('federal_is_exempt', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable federal_is_exempt cannot be null');
         }
         $this->container['federal_is_exempt'] = $federal_is_exempt;
 
@@ -714,14 +679,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setFederalWithholdingAdditional($federal_withholding_additional)
     {
         if (is_null($federal_withholding_additional)) {
-            array_push($this->openAPINullablesSetToNull, 'federal_withholding_additional');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('federal_withholding_additional', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable federal_withholding_additional cannot be null');
         }
         $this->container['federal_withholding_additional'] = $federal_withholding_additional;
 
@@ -748,14 +706,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setFederalWithholdingAdditionalType($federal_withholding_additional_type)
     {
         if (is_null($federal_withholding_additional_type)) {
-            array_push($this->openAPINullablesSetToNull, 'federal_withholding_additional_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('federal_withholding_additional_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable federal_withholding_additional_type cannot be null');
         }
         $this->container['federal_withholding_additional_type'] = $federal_withholding_additional_type;
 
@@ -782,14 +733,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setStateIsExempt($state_is_exempt)
     {
         if (is_null($state_is_exempt)) {
-            array_push($this->openAPINullablesSetToNull, 'state_is_exempt');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('state_is_exempt', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable state_is_exempt cannot be null');
         }
         $this->container['state_is_exempt'] = $state_is_exempt;
 
@@ -816,14 +760,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setStateWithholdingAdditional($state_withholding_additional)
     {
         if (is_null($state_withholding_additional)) {
-            array_push($this->openAPINullablesSetToNull, 'state_withholding_additional');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('state_withholding_additional', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable state_withholding_additional cannot be null');
         }
         $this->container['state_withholding_additional'] = $state_withholding_additional;
 
@@ -850,14 +787,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setStateWithholdingAdditionalType($state_withholding_additional_type)
     {
         if (is_null($state_withholding_additional_type)) {
-            array_push($this->openAPINullablesSetToNull, 'state_withholding_additional_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('state_withholding_additional_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable state_withholding_additional_type cannot be null');
         }
         $this->container['state_withholding_additional_type'] = $state_withholding_additional_type;
 
@@ -884,14 +814,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setUseFederalCustomOverride($use_federal_custom_override)
     {
         if (is_null($use_federal_custom_override)) {
-            array_push($this->openAPINullablesSetToNull, 'use_federal_custom_override');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('use_federal_custom_override', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable use_federal_custom_override cannot be null');
         }
         $this->container['use_federal_custom_override'] = $use_federal_custom_override;
 
@@ -918,14 +841,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setFederalOverrideAmount($federal_override_amount)
     {
         if (is_null($federal_override_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'federal_override_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('federal_override_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable federal_override_amount cannot be null');
         }
         $this->container['federal_override_amount'] = $federal_override_amount;
 
@@ -952,14 +868,7 @@ class ReactivateOneTimeDeductionRequest implements ModelInterface, ArrayAccess, 
     public function setFederalOverrideAmountType($federal_override_amount_type)
     {
         if (is_null($federal_override_amount_type)) {
-            array_push($this->openAPINullablesSetToNull, 'federal_override_amount_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('federal_override_amount_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable federal_override_amount_type cannot be null');
         }
         $this->container['federal_override_amount_type'] = $federal_override_amount_type;
 

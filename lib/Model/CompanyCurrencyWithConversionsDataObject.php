@@ -58,9 +58,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'symbol' => 'string',
-        'conversion_rates' => '\MySdk\Model\ConversionRateDataObject[]'
+        'target_currency_name' => 'string',
+        'target_currency_code' => 'string',
+        'target_currency_conversion_rates' => '\MySdk\Model\ConversionRateDataObject[]'
     ];
 
     /**
@@ -71,9 +71,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'symbol' => null,
-        'conversion_rates' => null
+        'target_currency_name' => null,
+        'target_currency_code' => null,
+        'target_currency_conversion_rates' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'symbol' => false,
-        'conversion_rates' => false
+        'target_currency_name' => false,
+        'target_currency_code' => false,
+        'target_currency_conversion_rates' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'symbol' => 'symbol',
-        'conversion_rates' => 'conversionRates'
+        'target_currency_name' => 'targetCurrencyName',
+        'target_currency_code' => 'targetCurrencyCode',
+        'target_currency_conversion_rates' => 'targetCurrencyConversionRates'
     ];
 
     /**
@@ -184,9 +184,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'symbol' => 'setSymbol',
-        'conversion_rates' => 'setConversionRates'
+        'target_currency_name' => 'setTargetCurrencyName',
+        'target_currency_code' => 'setTargetCurrencyCode',
+        'target_currency_conversion_rates' => 'setTargetCurrencyConversionRates'
     ];
 
     /**
@@ -195,9 +195,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'symbol' => 'getSymbol',
-        'conversion_rates' => 'getConversionRates'
+        'target_currency_name' => 'getTargetCurrencyName',
+        'target_currency_code' => 'getTargetCurrencyCode',
+        'target_currency_conversion_rates' => 'getTargetCurrencyConversionRates'
     ];
 
     /**
@@ -257,9 +257,9 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('symbol', $data ?? [], null);
-        $this->setIfExists('conversion_rates', $data ?? [], null);
+        $this->setIfExists('target_currency_name', $data ?? [], null);
+        $this->setIfExists('target_currency_code', $data ?? [], null);
+        $this->setIfExists('target_currency_conversion_rates', $data ?? [], null);
     }
 
     /**
@@ -305,82 +305,82 @@ class CompanyCurrencyWithConversionsDataObject implements ModelInterface, ArrayA
 
 
     /**
-     * Gets name
+     * Gets target_currency_name
      *
      * @return string|null
      */
-    public function getName()
+    public function getTargetCurrencyName()
     {
-        return $this->container['name'];
+        return $this->container['target_currency_name'];
     }
 
     /**
-     * Sets name
+     * Sets target_currency_name
      *
-     * @param string|null $name The full name of the currency.
+     * @param string|null $target_currency_name The full name of the currency.
      *
      * @return self
      */
-    public function setName($name)
+    public function setTargetCurrencyName($target_currency_name)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($target_currency_name)) {
+            throw new \InvalidArgumentException('non-nullable target_currency_name cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['target_currency_name'] = $target_currency_name;
 
         return $this;
     }
 
     /**
-     * Gets symbol
+     * Gets target_currency_code
      *
      * @return string|null
      */
-    public function getSymbol()
+    public function getTargetCurrencyCode()
     {
-        return $this->container['symbol'];
+        return $this->container['target_currency_code'];
     }
 
     /**
-     * Sets symbol
+     * Sets target_currency_code
      *
-     * @param string|null $symbol The currency symbol (e.g. $, €, ¥).
+     * @param string|null $target_currency_code The currency code (e.g. USD, EUR, JPY).
      *
      * @return self
      */
-    public function setSymbol($symbol)
+    public function setTargetCurrencyCode($target_currency_code)
     {
-        if (is_null($symbol)) {
-            throw new \InvalidArgumentException('non-nullable symbol cannot be null');
+        if (is_null($target_currency_code)) {
+            throw new \InvalidArgumentException('non-nullable target_currency_code cannot be null');
         }
-        $this->container['symbol'] = $symbol;
+        $this->container['target_currency_code'] = $target_currency_code;
 
         return $this;
     }
 
     /**
-     * Gets conversion_rates
+     * Gets target_currency_conversion_rates
      *
      * @return \MySdk\Model\ConversionRateDataObject[]|null
      */
-    public function getConversionRates()
+    public function getTargetCurrencyConversionRates()
     {
-        return $this->container['conversion_rates'];
+        return $this->container['target_currency_conversion_rates'];
     }
 
     /**
-     * Sets conversion_rates
+     * Sets target_currency_conversion_rates
      *
-     * @param \MySdk\Model\ConversionRateDataObject[]|null $conversion_rates Available conversion rates for this currency.
+     * @param \MySdk\Model\ConversionRateDataObject[]|null $target_currency_conversion_rates Available conversion rates for this currency.
      *
      * @return self
      */
-    public function setConversionRates($conversion_rates)
+    public function setTargetCurrencyConversionRates($target_currency_conversion_rates)
     {
-        if (is_null($conversion_rates)) {
-            throw new \InvalidArgumentException('non-nullable conversion_rates cannot be null');
+        if (is_null($target_currency_conversion_rates)) {
+            throw new \InvalidArgumentException('non-nullable target_currency_conversion_rates cannot be null');
         }
-        $this->container['conversion_rates'] = $conversion_rates;
+        $this->container['target_currency_conversion_rates'] = $target_currency_conversion_rates;
 
         return $this;
     }

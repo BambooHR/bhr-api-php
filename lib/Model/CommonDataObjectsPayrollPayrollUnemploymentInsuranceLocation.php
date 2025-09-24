@@ -91,7 +91,7 @@ class CommonDataObjectsPayrollPayrollUnemploymentInsuranceLocation implements Mo
         'display_text' => false,
         'val' => false,
         'selected' => false,
-        'exemptions_val' => true,
+        'exemptions_val' => false,
         'state' => false,
         'optional_fields' => false
     ];
@@ -426,14 +426,7 @@ class CommonDataObjectsPayrollPayrollUnemploymentInsuranceLocation implements Mo
     public function setExemptionsVal($exemptions_val)
     {
         if (is_null($exemptions_val)) {
-            array_push($this->openAPINullablesSetToNull, 'exemptions_val');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('exemptions_val', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable exemptions_val cannot be null');
         }
         $this->container['exemptions_val'] = $exemptions_val;
 
@@ -480,7 +473,7 @@ class CommonDataObjectsPayrollPayrollUnemploymentInsuranceLocation implements Mo
     /**
      * Sets optional_fields
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationOptionalFields|null $optional_fields optional_fields
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationOptionalFields|null $optional_fields Optional fields for the unemployment insurance location
      *
      * @return self
      */

@@ -460,7 +460,7 @@ class CommonDataObjectsPayrollStateTaxLocationDetail implements ModelInterface, 
     /**
      * Sets fields
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationFields|null $fields fields
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationFields|null $fields Fields for the state tax location
      *
      * @return self
      */
@@ -487,7 +487,7 @@ class CommonDataObjectsPayrollStateTaxLocationDetail implements ModelInterface, 
     /**
      * Sets new_fields
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationFields|null $new_fields new_fields
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationFields|null $new_fields New fields for the state tax location
      *
      * @return self
      */

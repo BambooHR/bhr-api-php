@@ -74,6 +74,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'bool',
         'has_attachments' => 'bool',
         'has_comments' => 'bool',
+        'has_employee_files' => 'bool',
         'allow_employee_uploads' => 'bool',
         'require_employee_uploads' => 'bool',
         'created' => 'string',
@@ -111,6 +112,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => null,
         'has_attachments' => null,
         'has_comments' => null,
+        'has_employee_files' => null,
         'allow_employee_uploads' => null,
         'require_employee_uploads' => null,
         'created' => null,
@@ -133,19 +135,20 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'task_template_id' => true,
         'task_type' => false,
         'name' => false,
-        'description' => true,
+        'description' => false,
         'task_list_id' => false,
-        'assigned_user_id' => true,
+        'assigned_user_id' => false,
         'assigned_by_user_id' => false,
         'sort_order' => false,
-        'due_date' => true,
+        'due_date' => false,
         'can_delete' => false,
         'completed' => false,
-        'completed_datetime' => true,
-        'completed_user_id' => true,
+        'completed_datetime' => false,
+        'completed_user_id' => false,
         'archived' => false,
         'has_attachments' => false,
         'has_comments' => false,
+        'has_employee_files' => false,
         'allow_employee_uploads' => false,
         'require_employee_uploads' => false,
         'created' => false,
@@ -261,6 +264,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'archived',
         'has_attachments' => 'hasAttachments',
         'has_comments' => 'hasComments',
+        'has_employee_files' => 'hasEmployeeFiles',
         'allow_employee_uploads' => 'allowEmployeeUploads',
         'require_employee_uploads' => 'requireEmployeeUploads',
         'created' => 'created',
@@ -296,6 +300,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'setArchived',
         'has_attachments' => 'setHasAttachments',
         'has_comments' => 'setHasComments',
+        'has_employee_files' => 'setHasEmployeeFiles',
         'allow_employee_uploads' => 'setAllowEmployeeUploads',
         'require_employee_uploads' => 'setRequireEmployeeUploads',
         'created' => 'setCreated',
@@ -331,6 +336,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'getArchived',
         'has_attachments' => 'getHasAttachments',
         'has_comments' => 'getHasComments',
+        'has_employee_files' => 'getHasEmployeeFiles',
         'allow_employee_uploads' => 'getAllowEmployeeUploads',
         'require_employee_uploads' => 'getRequireEmployeeUploads',
         'created' => 'getCreated',
@@ -436,6 +442,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('archived', $data ?? [], null);
         $this->setIfExists('has_attachments', $data ?? [], null);
         $this->setIfExists('has_comments', $data ?? [], null);
+        $this->setIfExists('has_employee_files', $data ?? [], null);
         $this->setIfExists('allow_employee_uploads', $data ?? [], null);
         $this->setIfExists('require_employee_uploads', $data ?? [], null);
         $this->setIfExists('created', $data ?? [], null);
@@ -644,14 +651,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 
@@ -705,14 +705,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAssignedUserId($assigned_user_id)
     {
         if (is_null($assigned_user_id)) {
-            array_push($this->openAPINullablesSetToNull, 'assigned_user_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('assigned_user_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable assigned_user_id cannot be null');
         }
         $this->container['assigned_user_id'] = $assigned_user_id;
 
@@ -793,14 +786,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDueDate($due_date)
     {
         if (is_null($due_date)) {
-            array_push($this->openAPINullablesSetToNull, 'due_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('due_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable due_date cannot be null');
         }
         $this->container['due_date'] = $due_date;
 
@@ -881,14 +867,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCompletedDatetime($completed_datetime)
     {
         if (is_null($completed_datetime)) {
-            array_push($this->openAPINullablesSetToNull, 'completed_datetime');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('completed_datetime', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable completed_datetime cannot be null');
         }
         $this->container['completed_datetime'] = $completed_datetime;
 
@@ -915,14 +894,7 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCompletedUserId($completed_user_id)
     {
         if (is_null($completed_user_id)) {
-            array_push($this->openAPINullablesSetToNull, 'completed_user_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('completed_user_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable completed_user_id cannot be null');
         }
         $this->container['completed_user_id'] = $completed_user_id;
 
@@ -1006,6 +978,33 @@ class TaskSchema implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable has_comments cannot be null');
         }
         $this->container['has_comments'] = $has_comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_employee_files
+     *
+     * @return bool|null
+     */
+    public function getHasEmployeeFiles()
+    {
+        return $this->container['has_employee_files'];
+    }
+
+    /**
+     * Sets has_employee_files
+     *
+     * @param bool|null $has_employee_files has_employee_files
+     *
+     * @return self
+     */
+    public function setHasEmployeeFiles($has_employee_files)
+    {
+        if (is_null($has_employee_files)) {
+            throw new \InvalidArgumentException('non-nullable has_employee_files cannot be null');
+        }
+        $this->container['has_employee_files'] = $has_employee_files;
 
         return $this;
     }

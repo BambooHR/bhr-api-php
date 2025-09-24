@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **tenant_id** | **string** |  | [optional]
 **key** | **string** |  | [optional]
 **page_id** | **string** |  | [optional]
-**bill_to_contact_address** | **object** |  | [optional]
+**bill_to_contact_address** | [**\MySdk\Model\AchHostedSignatureResponseBillToContactAddress**](AchHostedSignatureResponseBillToContactAddress.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

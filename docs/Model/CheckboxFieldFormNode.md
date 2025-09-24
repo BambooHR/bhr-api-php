@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **label** | **string** | Field label | [optional]
 **required** | **bool** | Whether the field is required | [optional]
 **status** | **string** | Field status | [optional]
-**value** | **string** | Field value | [optional]
+**value** | [**\MySdk\Model\FieldFormNodeAllOfValue**](FieldFormNodeAllOfValue.md) |  | [optional]
 **width** | **int** | Field width | [optional]
 **bi_id** | **string** | Business intelligence ID | [optional]
 **max_length** | **int** | Maximum length of input | [optional]

@@ -62,7 +62,7 @@ class TimeOffSummaryResponseInner implements ModelInterface, ArrayAccess, \JsonS
         'total_categories_count' => 'int',
         'scheduled_events' => '\MySdk\Model\TimeOffEventsResponseInner[]',
         'history_requests' => '\MySdk\Model\TimeOffEventsResponseInner[]',
-        'categories' => '\MySdk\Model\TimeOffSummaryResponseInnerCategoriesInner[]',
+        'categories' => '\MySdk\Model\EmployeeTimeOffCategoryDetailsResponseInnerCategoryInner[]',
         'can_request' => 'bool',
         'can_record' => 'bool',
         'calculable' => 'bool',
@@ -490,7 +490,7 @@ class TimeOffSummaryResponseInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets categories
      *
-     * @return \MySdk\Model\TimeOffSummaryResponseInnerCategoriesInner[]|null
+     * @return \MySdk\Model\EmployeeTimeOffCategoryDetailsResponseInnerCategoryInner[]|null
      */
     public function getCategories()
     {
@@ -500,7 +500,7 @@ class TimeOffSummaryResponseInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets categories
      *
-     * @param \MySdk\Model\TimeOffSummaryResponseInnerCategoriesInner[]|null $categories categories
+     * @param \MySdk\Model\EmployeeTimeOffCategoryDetailsResponseInnerCategoryInner[]|null $categories categories
      *
      * @return self
      */

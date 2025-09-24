@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **employee_id** | **string** |  | [optional]
 **first_name** | **string** |  | [optional]
 **last_name** | **string** |  | [optional]
-**birth_date** | **string** |  | [optional]
+**birth_date** | **\DateTime** |  | [optional]
 **relationship** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

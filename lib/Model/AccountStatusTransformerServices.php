@@ -60,10 +60,10 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     protected static $openAPITypes = [
         'service_type_label' => 'mixed',
         'secondary_label' => 'mixed',
-        'project_manager' => 'mixed',
-        'start_date' => 'mixed',
-        'goal_end_date' => 'mixed',
-        'complete_date' => 'mixed'
+        'project_manager' => 'Null',
+        'start_date' => 'Null',
+        'goal_end_date' => 'Null',
+        'complete_date' => 'Null'
     ];
 
     /**
@@ -90,10 +90,10 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     protected static array $openAPINullables = [
         'service_type_label' => true,
         'secondary_label' => true,
-        'project_manager' => true,
-        'start_date' => true,
-        'goal_end_date' => true,
-        'complete_date' => true
+        'project_manager' => false,
+        'start_date' => false,
+        'goal_end_date' => false,
+        'complete_date' => false
     ];
 
     /**
@@ -396,7 +396,7 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Gets project_manager
      *
-     * @return mixed|null
+     * @return Null|null
      */
     public function getProjectManager()
     {
@@ -406,21 +406,14 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Sets project_manager
      *
-     * @param mixed|null $project_manager Project manager for this service.
+     * @param Null|null $project_manager Project manager for this service.
      *
      * @return self
      */
     public function setProjectManager($project_manager)
     {
         if (is_null($project_manager)) {
-            array_push($this->openAPINullablesSetToNull, 'project_manager');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('project_manager', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable project_manager cannot be null');
         }
         $this->container['project_manager'] = $project_manager;
 
@@ -430,7 +423,7 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Gets start_date
      *
-     * @return mixed|null
+     * @return Null|null
      */
     public function getStartDate()
     {
@@ -440,21 +433,14 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Sets start_date
      *
-     * @param mixed|null $start_date Service start date.
+     * @param Null|null $start_date Service start date.
      *
      * @return self
      */
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
 
@@ -464,7 +450,7 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Gets goal_end_date
      *
-     * @return mixed|null
+     * @return Null|null
      */
     public function getGoalEndDate()
     {
@@ -474,21 +460,14 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Sets goal_end_date
      *
-     * @param mixed|null $goal_end_date Service goal completion date.
+     * @param Null|null $goal_end_date Service goal completion date.
      *
      * @return self
      */
     public function setGoalEndDate($goal_end_date)
     {
         if (is_null($goal_end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'goal_end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('goal_end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable goal_end_date cannot be null');
         }
         $this->container['goal_end_date'] = $goal_end_date;
 
@@ -498,7 +477,7 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Gets complete_date
      *
-     * @return mixed|null
+     * @return Null|null
      */
     public function getCompleteDate()
     {
@@ -508,21 +487,14 @@ class AccountStatusTransformerServices implements ModelInterface, ArrayAccess, \
     /**
      * Sets complete_date
      *
-     * @param mixed|null $complete_date Service complete date.
+     * @param Null|null $complete_date Service complete date.
      *
      * @return self
      */
     public function setCompleteDate($complete_date)
     {
         if (is_null($complete_date)) {
-            array_push($this->openAPINullablesSetToNull, 'complete_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('complete_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable complete_date cannot be null');
         }
         $this->container['complete_date'] = $complete_date;
 

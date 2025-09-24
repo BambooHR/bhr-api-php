@@ -61,7 +61,8 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'int',
         'name' => 'string',
         'list_order' => 'int',
-        'enabled' => 'int'
+        'enabled' => 'int',
+        'type' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         'id' => null,
         'name' => null,
         'list_order' => null,
-        'enabled' => null
+        'enabled' => null,
+        'type' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         'id' => false,
         'name' => false,
         'list_order' => false,
-        'enabled' => false
+        'enabled' => false,
+        'type' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'id',
         'name' => 'name',
         'list_order' => 'listOrder',
-        'enabled' => 'enabled'
+        'enabled' => 'enabled',
+        'type' => 'type'
     ];
 
     /**
@@ -191,7 +195,8 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'setId',
         'name' => 'setName',
         'list_order' => 'setListOrder',
-        'enabled' => 'setEnabled'
+        'enabled' => 'setEnabled',
+        'type' => 'setType'
     ];
 
     /**
@@ -203,7 +208,8 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'getId',
         'name' => 'getName',
         'list_order' => 'getListOrder',
-        'enabled' => 'getEnabled'
+        'enabled' => 'getEnabled',
+        'type' => 'getType'
     ];
 
     /**
@@ -267,6 +273,7 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('list_order', $data ?? [], null);
         $this->setIfExists('enabled', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -415,6 +422,33 @@ class ApplicantSourceDataObject implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Type of the applicant source (system or custom)
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

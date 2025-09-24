@@ -98,12 +98,12 @@ class Coverage implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
         'benefit_coverage_id' => false,
         'name' => false,
-        'employee_amount' => true,
-        'cost_type' => true,
+        'employee_amount' => false,
+        'cost_type' => false,
         'deduction_frequency' => false,
-        'total_amount' => true,
-        'currency_code' => true,
-        'company_amount' => true,
+        'total_amount' => false,
+        'currency_code' => false,
+        'company_amount' => false,
         'is_current' => false
     ];
 
@@ -453,14 +453,7 @@ class Coverage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmployeeAmount($employee_amount)
     {
         if (is_null($employee_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'employee_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employee_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employee_amount cannot be null');
         }
         $this->container['employee_amount'] = $employee_amount;
 
@@ -487,14 +480,7 @@ class Coverage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCostType($cost_type)
     {
         if (is_null($cost_type)) {
-            array_push($this->openAPINullablesSetToNull, 'cost_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cost_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable cost_type cannot be null');
         }
         $this->container['cost_type'] = $cost_type;
 
@@ -548,14 +534,7 @@ class Coverage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'total_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -582,14 +561,7 @@ class Coverage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCurrencyCode($currency_code)
     {
         if (is_null($currency_code)) {
-            array_push($this->openAPINullablesSetToNull, 'currency_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
         $this->container['currency_code'] = $currency_code;
 
@@ -616,14 +588,7 @@ class Coverage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCompanyAmount($company_amount)
     {
         if (is_null($company_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'company_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('company_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable company_amount cannot be null');
         }
         $this->container['company_amount'] = $company_amount;
 

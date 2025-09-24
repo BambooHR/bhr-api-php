@@ -63,6 +63,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         'policy_name' => 'string',
         'type' => 'string',
         'unit' => 'string',
+        'source' => 'string',
         'icon' => 'string',
         'current_balance' => 'float',
         'used_year_to_date' => 'float',
@@ -87,6 +88,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         'policy_name' => null,
         'type' => null,
         'unit' => null,
+        'source' => null,
         'icon' => null,
         'current_balance' => null,
         'used_year_to_date' => null,
@@ -109,6 +111,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         'policy_name' => false,
         'type' => false,
         'unit' => false,
+        'source' => false,
         'icon' => false,
         'current_balance' => false,
         'used_year_to_date' => false,
@@ -211,6 +214,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         'policy_name' => 'policyName',
         'type' => 'type',
         'unit' => 'unit',
+        'source' => 'source',
         'icon' => 'icon',
         'current_balance' => 'currentBalance',
         'used_year_to_date' => 'usedYearToDate',
@@ -233,6 +237,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         'policy_name' => 'setPolicyName',
         'type' => 'setType',
         'unit' => 'setUnit',
+        'source' => 'setSource',
         'icon' => 'setIcon',
         'current_balance' => 'setCurrentBalance',
         'used_year_to_date' => 'setUsedYearToDate',
@@ -255,6 +260,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         'policy_name' => 'getPolicyName',
         'type' => 'getType',
         'unit' => 'getUnit',
+        'source' => 'getSource',
         'icon' => 'getIcon',
         'current_balance' => 'getCurrentBalance',
         'used_year_to_date' => 'getUsedYearToDate',
@@ -306,6 +312,21 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         return self::$openAPIModelName;
     }
 
+    public const SOURCE_INTERNAL = 'internal';
+    public const SOURCE_REMOTE = 'remote';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_INTERNAL,
+            self::SOURCE_REMOTE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -328,6 +349,7 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
         $this->setIfExists('policy_name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('unit', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('current_balance', $data ?? [], null);
         $this->setIfExists('used_year_to_date', $data ?? [], null);
@@ -364,6 +386,15 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'source', must be one of '%s'",
+                $this->container['source'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -538,6 +569,43 @@ class EmployeeTimeOffTabTransformerPoliciesInner implements ModelInterface, Arra
             throw new \InvalidArgumentException('non-nullable unit cannot be null');
         }
         $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'source', must be one of '%s'",
+                    $source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
 
         return $this;
     }

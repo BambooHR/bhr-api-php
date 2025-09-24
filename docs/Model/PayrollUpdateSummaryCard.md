@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**employee_information** | [**\MySdk\Model\PayrollUpdateSummaryCardEmployeeInformation**](PayrollUpdateSummaryCardEmployeeInformation.md) |  | [optional]
+**employee_information** | [**\MySdk\Model\PayrollUpdateSummaryCardEmployeeInformation**](PayrollUpdateSummaryCardEmployeeInformation.md) | Employee information details | [optional]
 **category_label** | **string** | Label for the category of changes | [optional]
 **category_type** | **string** | Type of category (standard, termination, newHire) | [optional]
 **sub_categories** | [**\MySdk\Model\PayrollUpdateSummaryCardSubCategory[]**](PayrollUpdateSummaryCardSubCategory.md) | List of sub-categories containing changes | [optional]

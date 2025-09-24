@@ -49,7 +49,7 @@ class GetCompanyInformation200Response implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Get_Company_Information_200_response';
+    protected static $openAPIModelName = 'get_company_information_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -21,6 +21,6 @@ Name | Type | Description | Notes
 **missing_plan_details** | **bool** |  | [optional]
 **active_future_plan_year_ids** | **string[]** |  | [optional]
 **carrier** | **string** |  | [optional]
-**plan_category_data_options** | **object** |  | [optional]
+**plan_category_data_options** | **object** | Plan category data options | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

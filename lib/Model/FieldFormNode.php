@@ -62,7 +62,7 @@ class FieldFormNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'label' => 'string',
         'required' => 'bool',
         'status' => 'string',
-        'value' => 'string',
+        'value' => '\MySdk\Model\FieldFormNodeAllOfValue',
         'width' => 'int',
         'bi_id' => 'string',
         'max_length' => 'int',
@@ -511,7 +511,7 @@ class FieldFormNode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets value
      *
-     * @return string|null
+     * @return \MySdk\Model\FieldFormNodeAllOfValue|null
      */
     public function getValue()
     {
@@ -521,7 +521,7 @@ class FieldFormNode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value Field value
+     * @param \MySdk\Model\FieldFormNodeAllOfValue|null $value value
      *
      * @return self
      */

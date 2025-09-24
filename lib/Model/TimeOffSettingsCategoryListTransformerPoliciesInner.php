@@ -61,6 +61,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         'name' => 'string',
         'type' => 'string',
         'count_employees_assigned' => 'int',
+        'assigned_employee_ids' => 'string[]',
         'current_version_id' => 'string',
         'current_version_effective_ymd' => '\DateTime',
         'future_version_id' => 'string',
@@ -79,6 +80,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         'name' => null,
         'type' => null,
         'count_employees_assigned' => null,
+        'assigned_employee_ids' => null,
         'current_version_id' => null,
         'current_version_effective_ymd' => 'date',
         'future_version_id' => null,
@@ -95,6 +97,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         'name' => false,
         'type' => false,
         'count_employees_assigned' => false,
+        'assigned_employee_ids' => false,
         'current_version_id' => false,
         'current_version_effective_ymd' => false,
         'future_version_id' => true,
@@ -191,6 +194,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         'name' => 'name',
         'type' => 'type',
         'count_employees_assigned' => 'countEmployeesAssigned',
+        'assigned_employee_ids' => 'assignedEmployeeIds',
         'current_version_id' => 'currentVersionId',
         'current_version_effective_ymd' => 'currentVersionEffectiveYmd',
         'future_version_id' => 'futureVersionId',
@@ -207,6 +211,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         'name' => 'setName',
         'type' => 'setType',
         'count_employees_assigned' => 'setCountEmployeesAssigned',
+        'assigned_employee_ids' => 'setAssignedEmployeeIds',
         'current_version_id' => 'setCurrentVersionId',
         'current_version_effective_ymd' => 'setCurrentVersionEffectiveYmd',
         'future_version_id' => 'setFutureVersionId',
@@ -223,6 +228,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         'name' => 'getName',
         'type' => 'getType',
         'count_employees_assigned' => 'getCountEmployeesAssigned',
+        'assigned_employee_ids' => 'getAssignedEmployeeIds',
         'current_version_id' => 'getCurrentVersionId',
         'current_version_effective_ymd' => 'getCurrentVersionEffectiveYmd',
         'future_version_id' => 'getFutureVersionId',
@@ -290,6 +296,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('count_employees_assigned', $data ?? [], null);
+        $this->setIfExists('assigned_employee_ids', $data ?? [], null);
         $this->setIfExists('current_version_id', $data ?? [], null);
         $this->setIfExists('current_version_effective_ymd', $data ?? [], null);
         $this->setIfExists('future_version_id', $data ?? [], null);
@@ -423,6 +430,7 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
      * Gets count_employees_assigned
      *
      * @return int|null
+     * @deprecated
      */
     public function getCountEmployeesAssigned()
     {
@@ -432,9 +440,10 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
     /**
      * Sets count_employees_assigned
      *
-     * @param int|null $count_employees_assigned count_employees_assigned
+     * @param int|null $count_employees_assigned Deprecated; Use assignedEmployeeIds.
      *
      * @return self
+     * @deprecated
      */
     public function setCountEmployeesAssigned($count_employees_assigned)
     {
@@ -442,6 +451,33 @@ class TimeOffSettingsCategoryListTransformerPoliciesInner implements ModelInterf
             throw new \InvalidArgumentException('non-nullable count_employees_assigned cannot be null');
         }
         $this->container['count_employees_assigned'] = $count_employees_assigned;
+
+        return $this;
+    }
+
+    /**
+     * Gets assigned_employee_ids
+     *
+     * @return string[]|null
+     */
+    public function getAssignedEmployeeIds()
+    {
+        return $this->container['assigned_employee_ids'];
+    }
+
+    /**
+     * Sets assigned_employee_ids
+     *
+     * @param string[]|null $assigned_employee_ids assigned_employee_ids
+     *
+     * @return self
+     */
+    public function setAssignedEmployeeIds($assigned_employee_ids)
+    {
+        if (is_null($assigned_employee_ids)) {
+            throw new \InvalidArgumentException('non-nullable assigned_employee_ids cannot be null');
+        }
+        $this->container['assigned_employee_ids'] = $assigned_employee_ids;
 
         return $this;
     }

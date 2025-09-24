@@ -66,7 +66,8 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         'job_location' => 'string',
         'job_title' => 'string',
         'email' => 'string',
-        'manager_id' => 'int'
+        'manager_id' => 'int',
+        'employee_solutions' => 'string[]'
     ];
 
     /**
@@ -85,7 +86,8 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         'job_location' => null,
         'job_title' => null,
         'email' => null,
-        'manager_id' => null
+        'manager_id' => null,
+        'employee_solutions' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         'job_location' => false,
         'job_title' => false,
         'email' => false,
-        'manager_id' => false
+        'manager_id' => false,
+        'employee_solutions' => false
     ];
 
     /**
@@ -199,7 +202,8 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         'job_location' => 'jobLocation',
         'job_title' => 'jobTitle',
         'email' => 'email',
-        'manager_id' => 'managerId'
+        'manager_id' => 'managerId',
+        'employee_solutions' => 'employeeSolutions'
     ];
 
     /**
@@ -216,7 +220,8 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         'job_location' => 'setJobLocation',
         'job_title' => 'setJobTitle',
         'email' => 'setEmail',
-        'manager_id' => 'setManagerId'
+        'manager_id' => 'setManagerId',
+        'employee_solutions' => 'setEmployeeSolutions'
     ];
 
     /**
@@ -233,7 +238,8 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         'job_location' => 'getJobLocation',
         'job_title' => 'getJobTitle',
         'email' => 'getEmail',
-        'manager_id' => 'getManagerId'
+        'manager_id' => 'getManagerId',
+        'employee_solutions' => 'getEmployeeSolutions'
     ];
 
     /**
@@ -302,6 +308,7 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('job_title', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('manager_id', $data ?? [], null);
+        $this->setIfExists('employee_solutions', $data ?? [], null);
     }
 
     /**
@@ -585,6 +592,33 @@ class NHPNewHirePacketEmployeeData implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable manager_id cannot be null');
         }
         $this->container['manager_id'] = $manager_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_solutions
+     *
+     * @return string[]|null
+     */
+    public function getEmployeeSolutions()
+    {
+        return $this->container['employee_solutions'];
+    }
+
+    /**
+     * Sets employee_solutions
+     *
+     * @param string[]|null $employee_solutions Array of employee solutions
+     *
+     * @return self
+     */
+    public function setEmployeeSolutions($employee_solutions)
+    {
+        if (is_null($employee_solutions)) {
+            throw new \InvalidArgumentException('non-nullable employee_solutions cannot be null');
+        }
+        $this->container['employee_solutions'] = $employee_solutions;
 
         return $this;
     }

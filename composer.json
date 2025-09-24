@@ -9,12 +9,12 @@
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
+    "homepage": "https://www.bamboohr.com/",
     "license": "unlicense",
     "authors": [
         {
             "name": "OpenAPI",
-            "homepage": "https://openapi-generator.tech"
+            "homepage": "https://github.com/BambooHR/bhr-api-php"
         }
     ],
     "require": {

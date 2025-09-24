@@ -70,7 +70,8 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         'multiplier' => 'string',
         'updated_ymdt' => '\DateTime',
         'deleted_ymdt' => '\DateTime',
-        'created_ymdt' => '\DateTime'
+        'created_ymdt' => '\DateTime',
+        'is_public' => 'bool'
     ];
 
     /**
@@ -93,7 +94,8 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         'multiplier' => null,
         'updated_ymdt' => 'date-time',
         'deleted_ymdt' => 'date-time',
-        'created_ymdt' => 'date-time'
+        'created_ymdt' => 'date-time',
+        'is_public' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         'multiplier' => false,
         'updated_ymdt' => false,
         'deleted_ymdt' => true,
-        'created_ymdt' => false
+        'created_ymdt' => false,
+        'is_public' => false
     ];
 
     /**
@@ -215,7 +218,8 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         'multiplier' => 'multiplier',
         'updated_ymdt' => 'updatedYmdt',
         'deleted_ymdt' => 'deletedYmdt',
-        'created_ymdt' => 'createdYmdt'
+        'created_ymdt' => 'createdYmdt',
+        'is_public' => 'isPublic'
     ];
 
     /**
@@ -236,7 +240,8 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         'multiplier' => 'setMultiplier',
         'updated_ymdt' => 'setUpdatedYmdt',
         'deleted_ymdt' => 'setDeletedYmdt',
-        'created_ymdt' => 'setCreatedYmdt'
+        'created_ymdt' => 'setCreatedYmdt',
+        'is_public' => 'setIsPublic'
     ];
 
     /**
@@ -257,7 +262,8 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         'multiplier' => 'getMultiplier',
         'updated_ymdt' => 'getUpdatedYmdt',
         'deleted_ymdt' => 'getDeletedYmdt',
-        'created_ymdt' => 'getCreatedYmdt'
+        'created_ymdt' => 'getCreatedYmdt',
+        'is_public' => 'getIsPublic'
     ];
 
     /**
@@ -360,6 +366,7 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('updated_ymdt', $data ?? [], null);
         $this->setIfExists('deleted_ymdt', $data ?? [], null);
         $this->setIfExists('created_ymdt', $data ?? [], null);
+        $this->setIfExists('is_public', $data ?? [], null);
     }
 
     /**
@@ -810,6 +817,33 @@ class CompanyHolidayDataObject implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable created_ymdt cannot be null');
         }
         $this->container['created_ymdt'] = $created_ymdt;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_public
+     *
+     * @return bool|null
+     */
+    public function getIsPublic()
+    {
+        return $this->container['is_public'];
+    }
+
+    /**
+     * Sets is_public
+     *
+     * @param bool|null $is_public Indicates if the holiday is public
+     *
+     * @return self
+     */
+    public function setIsPublic($is_public)
+    {
+        if (is_null($is_public)) {
+            throw new \InvalidArgumentException('non-nullable is_public cannot be null');
+        }
+        $this->container['is_public'] = $is_public;
 
         return $this;
     }

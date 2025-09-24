@@ -60,7 +60,6 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
         'benefit_plan_id' => 'int',
         'is_enrolled' => 'bool',
         'effective_date' => 'string',
-        'plan_category_data_options' => 'object',
         'selected_coverage_id' => 'int',
         'employee_contribution_amount' => 'float',
         'employee_percent_deduction_type' => 'string',
@@ -84,7 +83,6 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
         'benefit_plan_id' => null,
         'is_enrolled' => null,
         'effective_date' => null,
-        'plan_category_data_options' => null,
         'selected_coverage_id' => null,
         'employee_contribution_amount' => 'float',
         'employee_percent_deduction_type' => null,
@@ -105,18 +103,17 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'benefit_plan_id' => false,
         'is_enrolled' => false,
-        'effective_date' => true,
-        'plan_category_data_options' => false,
-        'selected_coverage_id' => true,
-        'employee_contribution_amount' => true,
-        'employee_percent_deduction_type' => true,
-        'employee_contribution_amount_type' => true,
-        'company_contribution_amount' => true,
-        'company_contribution_amount_type' => true,
-        'company_percent_deduction_type' => true,
-        'currency_code' => true,
-        'dependent_ids' => true,
-        'benefit_group_plan_cost_id' => true
+        'effective_date' => false,
+        'selected_coverage_id' => false,
+        'employee_contribution_amount' => false,
+        'employee_percent_deduction_type' => false,
+        'employee_contribution_amount_type' => false,
+        'company_contribution_amount' => false,
+        'company_contribution_amount_type' => false,
+        'company_percent_deduction_type' => false,
+        'currency_code' => false,
+        'dependent_ids' => false,
+        'benefit_group_plan_cost_id' => false
     ];
 
     /**
@@ -208,7 +205,6 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
         'benefit_plan_id' => 'benefitPlanId',
         'is_enrolled' => 'isEnrolled',
         'effective_date' => 'effectiveDate',
-        'plan_category_data_options' => 'planCategoryDataOptions',
         'selected_coverage_id' => 'selectedCoverageId',
         'employee_contribution_amount' => 'employeeContributionAmount',
         'employee_percent_deduction_type' => 'employeePercentDeductionType',
@@ -230,7 +226,6 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
         'benefit_plan_id' => 'setBenefitPlanId',
         'is_enrolled' => 'setIsEnrolled',
         'effective_date' => 'setEffectiveDate',
-        'plan_category_data_options' => 'setPlanCategoryDataOptions',
         'selected_coverage_id' => 'setSelectedCoverageId',
         'employee_contribution_amount' => 'setEmployeeContributionAmount',
         'employee_percent_deduction_type' => 'setEmployeePercentDeductionType',
@@ -252,7 +247,6 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
         'benefit_plan_id' => 'getBenefitPlanId',
         'is_enrolled' => 'getIsEnrolled',
         'effective_date' => 'getEffectiveDate',
-        'plan_category_data_options' => 'getPlanCategoryDataOptions',
         'selected_coverage_id' => 'getSelectedCoverageId',
         'employee_contribution_amount' => 'getEmployeeContributionAmount',
         'employee_percent_deduction_type' => 'getEmployeePercentDeductionType',
@@ -325,7 +319,6 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('benefit_plan_id', $data ?? [], null);
         $this->setIfExists('is_enrolled', $data ?? [], null);
         $this->setIfExists('effective_date', $data ?? [], null);
-        $this->setIfExists('plan_category_data_options', $data ?? [], null);
         $this->setIfExists('selected_coverage_id', $data ?? [], null);
         $this->setIfExists('employee_contribution_amount', $data ?? [], null);
         $this->setIfExists('employee_percent_deduction_type', $data ?? [], null);
@@ -454,43 +447,9 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setEffectiveDate($effective_date)
     {
         if (is_null($effective_date)) {
-            array_push($this->openAPINullablesSetToNull, 'effective_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('effective_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable effective_date cannot be null');
         }
         $this->container['effective_date'] = $effective_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_category_data_options
-     *
-     * @return object|null
-     */
-    public function getPlanCategoryDataOptions()
-    {
-        return $this->container['plan_category_data_options'];
-    }
-
-    /**
-     * Sets plan_category_data_options
-     *
-     * @param object|null $plan_category_data_options plan_category_data_options
-     *
-     * @return self
-     */
-    public function setPlanCategoryDataOptions($plan_category_data_options)
-    {
-        if (is_null($plan_category_data_options)) {
-            throw new \InvalidArgumentException('non-nullable plan_category_data_options cannot be null');
-        }
-        $this->container['plan_category_data_options'] = $plan_category_data_options;
 
         return $this;
     }
@@ -515,14 +474,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setSelectedCoverageId($selected_coverage_id)
     {
         if (is_null($selected_coverage_id)) {
-            array_push($this->openAPINullablesSetToNull, 'selected_coverage_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('selected_coverage_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable selected_coverage_id cannot be null');
         }
         $this->container['selected_coverage_id'] = $selected_coverage_id;
 
@@ -549,14 +501,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setEmployeeContributionAmount($employee_contribution_amount)
     {
         if (is_null($employee_contribution_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'employee_contribution_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employee_contribution_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employee_contribution_amount cannot be null');
         }
         $this->container['employee_contribution_amount'] = $employee_contribution_amount;
 
@@ -583,14 +528,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setEmployeePercentDeductionType($employee_percent_deduction_type)
     {
         if (is_null($employee_percent_deduction_type)) {
-            array_push($this->openAPINullablesSetToNull, 'employee_percent_deduction_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employee_percent_deduction_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employee_percent_deduction_type cannot be null');
         }
         $this->container['employee_percent_deduction_type'] = $employee_percent_deduction_type;
 
@@ -617,14 +555,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setEmployeeContributionAmountType($employee_contribution_amount_type)
     {
         if (is_null($employee_contribution_amount_type)) {
-            array_push($this->openAPINullablesSetToNull, 'employee_contribution_amount_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employee_contribution_amount_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employee_contribution_amount_type cannot be null');
         }
         $this->container['employee_contribution_amount_type'] = $employee_contribution_amount_type;
 
@@ -651,14 +582,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCompanyContributionAmount($company_contribution_amount)
     {
         if (is_null($company_contribution_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'company_contribution_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('company_contribution_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable company_contribution_amount cannot be null');
         }
         $this->container['company_contribution_amount'] = $company_contribution_amount;
 
@@ -685,14 +609,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCompanyContributionAmountType($company_contribution_amount_type)
     {
         if (is_null($company_contribution_amount_type)) {
-            array_push($this->openAPINullablesSetToNull, 'company_contribution_amount_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('company_contribution_amount_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable company_contribution_amount_type cannot be null');
         }
         $this->container['company_contribution_amount_type'] = $company_contribution_amount_type;
 
@@ -719,14 +636,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCompanyPercentDeductionType($company_percent_deduction_type)
     {
         if (is_null($company_percent_deduction_type)) {
-            array_push($this->openAPINullablesSetToNull, 'company_percent_deduction_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('company_percent_deduction_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable company_percent_deduction_type cannot be null');
         }
         $this->container['company_percent_deduction_type'] = $company_percent_deduction_type;
 
@@ -753,14 +663,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCurrencyCode($currency_code)
     {
         if (is_null($currency_code)) {
-            array_push($this->openAPINullablesSetToNull, 'currency_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
         $this->container['currency_code'] = $currency_code;
 
@@ -787,14 +690,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setDependentIds($dependent_ids)
     {
         if (is_null($dependent_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'dependent_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dependent_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dependent_ids cannot be null');
         }
         $this->container['dependent_ids'] = $dependent_ids;
 
@@ -821,14 +717,7 @@ class EnrollmentElection implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setBenefitGroupPlanCostId($benefit_group_plan_cost_id)
     {
         if (is_null($benefit_group_plan_cost_id)) {
-            array_push($this->openAPINullablesSetToNull, 'benefit_group_plan_cost_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('benefit_group_plan_cost_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable benefit_group_plan_cost_id cannot be null');
         }
         $this->container['benefit_group_plan_cost_id'] = $benefit_group_plan_cost_id;
 

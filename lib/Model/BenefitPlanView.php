@@ -123,8 +123,8 @@ class BenefitPlanView implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_end_date_required' => false,
         'has_had_enrollments' => false,
         'coverages' => false,
-        'start_date' => true,
-        'end_date' => true,
+        'start_date' => false,
+        'end_date' => false,
         'missing_plan_details' => false,
         'active_future_plan_year_ids' => false,
         'carrier' => false,
@@ -752,14 +752,7 @@ class BenefitPlanView implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
 
@@ -786,14 +779,7 @@ class BenefitPlanView implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEndDate($end_date)
     {
         if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
         }
         $this->container['end_date'] = $end_date;
 
@@ -894,7 +880,7 @@ class BenefitPlanView implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets plan_category_data_options
      *
-     * @param object|null $plan_category_data_options plan_category_data_options
+     * @param object|null $plan_category_data_options Plan category data options
      *
      * @return self
      */

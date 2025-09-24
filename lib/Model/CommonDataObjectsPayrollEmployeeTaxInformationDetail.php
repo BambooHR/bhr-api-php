@@ -369,7 +369,7 @@ class CommonDataObjectsPayrollEmployeeTaxInformationDetail implements ModelInter
     /**
      * Sets federal
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollFederalTaxDetail|null $federal federal
+     * @param \MySdk\Model\CommonDataObjectsPayrollFederalTaxDetail|null $federal Federal tax information
      *
      * @return self
      */
@@ -396,7 +396,7 @@ class CommonDataObjectsPayrollEmployeeTaxInformationDetail implements ModelInter
     /**
      * Sets state
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxDetail|null $state state
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxDetail|null $state State tax information
      *
      * @return self
      */
@@ -423,7 +423,7 @@ class CommonDataObjectsPayrollEmployeeTaxInformationDetail implements ModelInter
     /**
      * Sets state_unemployment
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateUnemploymentInsuranceDetail|null $state_unemployment state_unemployment
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateUnemploymentInsuranceDetail|null $state_unemployment State unemployment insurance information
      *
      * @return self
      */
@@ -541,7 +541,7 @@ class CommonDataObjectsPayrollEmployeeTaxInformationDetail implements ModelInter
     /**
      * Sets federal2020
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollFederal2020|null $federal2020 federal2020
+     * @param \MySdk\Model\CommonDataObjectsPayrollFederal2020|null $federal2020 Federal tax information in 2020 W-4 format
      *
      * @return self
      */

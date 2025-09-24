@@ -130,7 +130,6 @@ class LoginApi
      *
      * User Login
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $application_key application_key (optional)
      * @param  string|null $user user (optional)
@@ -140,10 +139,11 @@ class LoginApi
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
+     * @deprecated
      */
-    public function login($company_domain, $accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
+    public function login($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
     {
-        $this->loginWithHttpInfo($company_domain, $accept_header_parameter, $application_key, $user, $password, $contentType);
+        $this->loginWithHttpInfo($accept_header_parameter, $application_key, $user, $password, $contentType);
     }
 
     /**
@@ -151,7 +151,6 @@ class LoginApi
      *
      * User Login
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $application_key (optional)
      * @param  string|null $user (optional)
@@ -161,10 +160,11 @@ class LoginApi
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
-    public function loginWithHttpInfo($company_domain, $accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
+    public function loginWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
     {
-        $request = $this->loginRequest($company_domain, $accept_header_parameter, $application_key, $user, $password, $contentType);
+        $request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -204,7 +204,6 @@ class LoginApi
      *
      * User Login
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $application_key (optional)
      * @param  string|null $user (optional)
@@ -213,10 +212,11 @@ class LoginApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
-    public function loginAsync($company_domain, $accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
+    public function loginAsync($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
     {
-        return $this->loginAsyncWithHttpInfo($company_domain, $accept_header_parameter, $application_key, $user, $password, $contentType)
+        return $this->loginAsyncWithHttpInfo($accept_header_parameter, $application_key, $user, $password, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -229,7 +229,6 @@ class LoginApi
      *
      * User Login
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $application_key (optional)
      * @param  string|null $user (optional)
@@ -238,11 +237,12 @@ class LoginApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
-    public function loginAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
+    public function loginAsyncWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
     {
         $returnType = '';
-        $request = $this->loginRequest($company_domain, $accept_header_parameter, $application_key, $user, $password, $contentType);
+        $request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -270,7 +270,6 @@ class LoginApi
     /**
      * Create request for operation 'login'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $application_key (optional)
      * @param  string|null $user (optional)
@@ -279,23 +278,17 @@ class LoginApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
-    public function loginRequest($company_domain, $accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
+    public function loginRequest($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::contentTypes['login'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling login'
-            );
-        }
 
 
 
 
 
-
-        $resourcePath = '/{companyDomain}/v1/login';
+        $resourcePath = '/api/v1/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -308,14 +301,6 @@ class LoginApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
         // form params
         $formDataProcessor = new FormDataProcessor();

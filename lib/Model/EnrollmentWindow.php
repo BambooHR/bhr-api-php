@@ -59,8 +59,8 @@ class EnrollmentWindow implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'int',
         'type' => 'string',
-        'window_start_date' => 'string',
-        'window_end_date' => 'string'
+        'window_start_date' => '\DateTime',
+        'window_end_date' => '\DateTime'
     ];
 
     /**
@@ -73,8 +73,8 @@ class EnrollmentWindow implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'type' => null,
-        'window_start_date' => null,
-        'window_end_date' => null
+        'window_start_date' => 'date',
+        'window_end_date' => 'date'
     ];
 
     /**
@@ -367,7 +367,7 @@ class EnrollmentWindow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets window_start_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getWindowStartDate()
     {
@@ -377,7 +377,7 @@ class EnrollmentWindow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets window_start_date
      *
-     * @param string|null $window_start_date window_start_date
+     * @param \DateTime|null $window_start_date window_start_date
      *
      * @return self
      */
@@ -394,7 +394,7 @@ class EnrollmentWindow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets window_end_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getWindowEndDate()
     {
@@ -404,7 +404,7 @@ class EnrollmentWindow implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets window_end_date
      *
-     * @param string|null $window_end_date window_end_date
+     * @param \DateTime|null $window_end_date window_end_date
      *
      * @return self
      */

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** | The ID of the application. | [optional]
 **name** | **string** | The name of the application given in the Developer Portal | [optional]
 **scopes** | [**\MySdk\Model\ScopeAccessDescriptionDataObject[]**](ScopeAccessDescriptionDataObject.md) |  | [optional]
 

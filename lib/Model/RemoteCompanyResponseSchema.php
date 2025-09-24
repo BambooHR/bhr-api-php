@@ -63,7 +63,10 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         'owner_user_id' => 'int',
         'created_ymdt' => '\DateTime',
         'updated_ymdt' => '\DateTime',
-        'status' => 'string'
+        'status' => 'string',
+        'integration_status' => 'string',
+        'fraud_risk' => 'bool',
+        'credit_risk' => 'bool'
     ];
 
     /**
@@ -79,7 +82,10 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         'owner_user_id' => null,
         'created_ymdt' => 'date-time',
         'updated_ymdt' => 'date-time',
-        'status' => null
+        'status' => null,
+        'integration_status' => null,
+        'fraud_risk' => null,
+        'credit_risk' => null
     ];
 
     /**
@@ -93,7 +99,10 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         'owner_user_id' => false,
         'created_ymdt' => false,
         'updated_ymdt' => false,
-        'status' => false
+        'status' => false,
+        'integration_status' => true,
+        'fraud_risk' => false,
+        'credit_risk' => true
     ];
 
     /**
@@ -187,7 +196,10 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         'owner_user_id' => 'ownerUserId',
         'created_ymdt' => 'createdYmdt',
         'updated_ymdt' => 'updatedYmdt',
-        'status' => 'status'
+        'status' => 'status',
+        'integration_status' => 'integrationStatus',
+        'fraud_risk' => 'fraudRisk',
+        'credit_risk' => 'creditRisk'
     ];
 
     /**
@@ -201,7 +213,10 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         'owner_user_id' => 'setOwnerUserId',
         'created_ymdt' => 'setCreatedYmdt',
         'updated_ymdt' => 'setUpdatedYmdt',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'integration_status' => 'setIntegrationStatus',
+        'fraud_risk' => 'setFraudRisk',
+        'credit_risk' => 'setCreditRisk'
     ];
 
     /**
@@ -215,7 +230,10 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         'owner_user_id' => 'getOwnerUserId',
         'created_ymdt' => 'getCreatedYmdt',
         'updated_ymdt' => 'getUpdatedYmdt',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'integration_status' => 'getIntegrationStatus',
+        'fraud_risk' => 'getFraudRisk',
+        'credit_risk' => 'getCreditRisk'
     ];
 
     /**
@@ -259,6 +277,23 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
+    public const INTEGRATION_STATUS_PENDING = 'pending';
+    public const INTEGRATION_STATUS_ACTIVE = 'active';
+    public const INTEGRATION_STATUS_ARCHIVED = 'archived';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIntegrationStatusAllowableValues()
+    {
+        return [
+            self::INTEGRATION_STATUS_PENDING,
+            self::INTEGRATION_STATUS_ACTIVE,
+            self::INTEGRATION_STATUS_ARCHIVED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -281,6 +316,9 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('created_ymdt', $data ?? [], null);
         $this->setIfExists('updated_ymdt', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('integration_status', $data ?? [], null);
+        $this->setIfExists('fraud_risk', $data ?? [], null);
+        $this->setIfExists('credit_risk', $data ?? [], null);
     }
 
     /**
@@ -309,6 +347,15 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getIntegrationStatusAllowableValues();
+        if (!is_null($this->container['integration_status']) && !in_array($this->container['integration_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'integration_status', must be one of '%s'",
+                $this->container['integration_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -473,7 +520,7 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets status
      *
-     * @param string|null $status Current status of the remote company
+     * @param string|null $status Current status of the Company in Remote's system
      *
      * @return self
      */
@@ -483,6 +530,111 @@ class RemoteCompanyResponseSchema implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_status
+     *
+     * @return string|null
+     */
+    public function getIntegrationStatus()
+    {
+        return $this->container['integration_status'];
+    }
+
+    /**
+     * Sets integration_status
+     *
+     * @param string|null $integration_status Current status of the Remote integration in BambooHR
+     *
+     * @return self
+     */
+    public function setIntegrationStatus($integration_status)
+    {
+        if (is_null($integration_status)) {
+            array_push($this->openAPINullablesSetToNull, 'integration_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('integration_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getIntegrationStatusAllowableValues();
+        if (!is_null($integration_status) && !in_array($integration_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'integration_status', must be one of '%s'",
+                    $integration_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['integration_status'] = $integration_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets fraud_risk
+     *
+     * @return bool|null
+     */
+    public function getFraudRisk()
+    {
+        return $this->container['fraud_risk'];
+    }
+
+    /**
+     * Sets fraud_risk
+     *
+     * @param bool|null $fraud_risk Current fraud risk state of the Remote company
+     *
+     * @return self
+     */
+    public function setFraudRisk($fraud_risk)
+    {
+        if (is_null($fraud_risk)) {
+            throw new \InvalidArgumentException('non-nullable fraud_risk cannot be null');
+        }
+        $this->container['fraud_risk'] = $fraud_risk;
+
+        return $this;
+    }
+
+    /**
+     * Gets credit_risk
+     *
+     * @return bool|null
+     */
+    public function getCreditRisk()
+    {
+        return $this->container['credit_risk'];
+    }
+
+    /**
+     * Sets credit_risk
+     *
+     * @param bool|null $credit_risk Current credit risk state of the Remote company
+     *
+     * @return self
+     */
+    public function setCreditRisk($credit_risk)
+    {
+        if (is_null($credit_risk)) {
+            array_push($this->openAPINullablesSetToNull, 'credit_risk');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('credit_risk', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['credit_risk'] = $credit_risk;
 
         return $this;
     }

@@ -60,6 +60,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     protected static $openAPITypes = [
         'employee_id' => 'int',
         'ssn' => 'string',
+        'ein' => 'string',
         'employee_number' => 'string',
         'last_name' => 'string',
         'first_name' => 'string',
@@ -99,6 +100,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     protected static $openAPIFormats = [
         'employee_id' => null,
         'ssn' => null,
+        'ein' => null,
         'employee_number' => null,
         'last_name' => null,
         'first_name' => null,
@@ -136,6 +138,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     protected static array $openAPINullables = [
         'employee_id' => false,
         'ssn' => false,
+        'ein' => false,
         'employee_number' => true,
         'last_name' => false,
         'first_name' => false,
@@ -253,6 +256,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     protected static $attributeMap = [
         'employee_id' => 'employeeId',
         'ssn' => 'ssn',
+        'ein' => 'ein',
         'employee_number' => 'employeeNumber',
         'last_name' => 'lastName',
         'first_name' => 'firstName',
@@ -290,6 +294,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     protected static $setters = [
         'employee_id' => 'setEmployeeId',
         'ssn' => 'setSsn',
+        'ein' => 'setEin',
         'employee_number' => 'setEmployeeNumber',
         'last_name' => 'setLastName',
         'first_name' => 'setFirstName',
@@ -327,6 +332,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     protected static $getters = [
         'employee_id' => 'getEmployeeId',
         'ssn' => 'getSsn',
+        'ein' => 'getEin',
         'employee_number' => 'getEmployeeNumber',
         'last_name' => 'getLastName',
         'first_name' => 'getFirstName',
@@ -415,6 +421,7 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
     {
         $this->setIfExists('employee_id', $data ?? [], null);
         $this->setIfExists('ssn', $data ?? [], null);
+        $this->setIfExists('ein', $data ?? [], null);
         $this->setIfExists('employee_number', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
@@ -536,6 +543,33 @@ class PayrollTraxPayrollApiControllerTraxEmployeePersonalInformationDataObject i
             throw new \InvalidArgumentException('non-nullable ssn cannot be null');
         }
         $this->container['ssn'] = $ssn;
+
+        return $this;
+    }
+
+    /**
+     * Gets ein
+     *
+     * @return string|null
+     */
+    public function getEin()
+    {
+        return $this->container['ein'];
+    }
+
+    /**
+     * Sets ein
+     *
+     * @param string|null $ein Employer Identification Number
+     *
+     * @return self
+     */
+    public function setEin($ein)
+    {
+        if (is_null($ein)) {
+            throw new \InvalidArgumentException('non-nullable ein cannot be null');
+        }
+        $this->container['ein'] = $ein;
 
         return $this;
     }

@@ -88,8 +88,8 @@ class PersonJobInfoApiResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'employee_id' => true,
-        'user_id' => true,
+        'employee_id' => false,
+        'user_id' => false,
         'display_first_name' => false,
         'last_name' => false,
         'photo_url' => false,
@@ -345,14 +345,7 @@ class PersonJobInfoApiResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public function setEmployeeId($employee_id)
     {
         if (is_null($employee_id)) {
-            array_push($this->openAPINullablesSetToNull, 'employee_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employee_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employee_id cannot be null');
         }
         $this->container['employee_id'] = $employee_id;
 
@@ -379,14 +372,7 @@ class PersonJobInfoApiResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public function setUserId($user_id)
     {
         if (is_null($user_id)) {
-            array_push($this->openAPINullablesSetToNull, 'user_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('user_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
         }
         $this->container['user_id'] = $user_id;
 

@@ -148,7 +148,6 @@ class BenefitsApi
      *
      * Add an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEmployeeDependent'] to see the possible values for this operation
      *
@@ -156,9 +155,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addEmployeeDependent($company_domain, $employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
+    public function addEmployeeDependent($employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
     {
-        $this->addEmployeeDependentWithHttpInfo($company_domain, $employee_dependent, $contentType);
+        $this->addEmployeeDependentWithHttpInfo($employee_dependent, $contentType);
     }
 
     /**
@@ -166,7 +165,6 @@ class BenefitsApi
      *
      * Add an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEmployeeDependent'] to see the possible values for this operation
      *
@@ -174,9 +172,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addEmployeeDependentWithHttpInfo($company_domain, $employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
+    public function addEmployeeDependentWithHttpInfo($employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
     {
-        $request = $this->addEmployeeDependentRequest($company_domain, $employee_dependent, $contentType);
+        $request = $this->addEmployeeDependentRequest($employee_dependent, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -216,16 +214,15 @@ class BenefitsApi
      *
      * Add an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEmployeeDependent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmployeeDependentAsync($company_domain, $employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
+    public function addEmployeeDependentAsync($employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
     {
-        return $this->addEmployeeDependentAsyncWithHttpInfo($company_domain, $employee_dependent, $contentType)
+        return $this->addEmployeeDependentAsyncWithHttpInfo($employee_dependent, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -238,17 +235,16 @@ class BenefitsApi
      *
      * Add an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEmployeeDependent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmployeeDependentAsyncWithHttpInfo($company_domain, $employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
+    public function addEmployeeDependentAsyncWithHttpInfo($employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
     {
         $returnType = '';
-        $request = $this->addEmployeeDependentRequest($company_domain, $employee_dependent, $contentType);
+        $request = $this->addEmployeeDependentRequest($employee_dependent, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -276,22 +272,14 @@ class BenefitsApi
     /**
      * Create request for operation 'addEmployeeDependent'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEmployeeDependent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addEmployeeDependentRequest($company_domain, $employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
+    public function addEmployeeDependentRequest($employee_dependent, string $contentType = self::contentTypes['addEmployeeDependent'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addEmployeeDependent'
-            );
-        }
 
         // verify the required parameter 'employee_dependent' is set
         if ($employee_dependent === null || (is_array($employee_dependent) && count($employee_dependent) === 0)) {
@@ -301,7 +289,7 @@ class BenefitsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employeedependents';
+        $resourcePath = '/api/v1/employeedependents';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -310,14 +298,6 @@ class BenefitsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -397,7 +377,6 @@ class BenefitsApi
      *
      * Get benefit coverages
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitCoverages'] to see the possible values for this operation
      *
@@ -405,9 +384,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBenefitCoverages($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
+    public function getBenefitCoverages($accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
     {
-        $this->getBenefitCoveragesWithHttpInfo($company_domain, $accept_header_parameter, $contentType);
+        $this->getBenefitCoveragesWithHttpInfo($accept_header_parameter, $contentType);
     }
 
     /**
@@ -415,7 +394,6 @@ class BenefitsApi
      *
      * Get benefit coverages
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitCoverages'] to see the possible values for this operation
      *
@@ -423,9 +401,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBenefitCoveragesWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
+    public function getBenefitCoveragesWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
     {
-        $request = $this->getBenefitCoveragesRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->getBenefitCoveragesRequest($accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -465,16 +443,15 @@ class BenefitsApi
      *
      * Get benefit coverages
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitCoverages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBenefitCoveragesAsync($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
+    public function getBenefitCoveragesAsync($accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
     {
-        return $this->getBenefitCoveragesAsyncWithHttpInfo($company_domain, $accept_header_parameter, $contentType)
+        return $this->getBenefitCoveragesAsyncWithHttpInfo($accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -487,17 +464,16 @@ class BenefitsApi
      *
      * Get benefit coverages
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitCoverages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBenefitCoveragesAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
+    public function getBenefitCoveragesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
     {
         $returnType = '';
-        $request = $this->getBenefitCoveragesRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->getBenefitCoveragesRequest($accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -525,26 +501,18 @@ class BenefitsApi
     /**
      * Create request for operation 'getBenefitCoverages'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitCoverages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBenefitCoveragesRequest($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
+    public function getBenefitCoveragesRequest($accept_header_parameter = null, string $contentType = self::contentTypes['getBenefitCoverages'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getBenefitCoverages'
-            );
-        }
 
 
-
-        $resourcePath = '/{companyDomain}/v1/benefitcoverages';
+        $resourcePath = '/api/v1/benefitcoverages';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -557,14 +525,6 @@ class BenefitsApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -637,16 +597,15 @@ class BenefitsApi
      *
      * Get benefit deduction types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitDeductionTypes'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getBenefitDeductionTypes($company_domain, string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
+    public function getBenefitDeductionTypes(string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
     {
-        $this->getBenefitDeductionTypesWithHttpInfo($company_domain, $contentType);
+        $this->getBenefitDeductionTypesWithHttpInfo($contentType);
     }
 
     /**
@@ -654,16 +613,15 @@ class BenefitsApi
      *
      * Get benefit deduction types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitDeductionTypes'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBenefitDeductionTypesWithHttpInfo($company_domain, string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
+    public function getBenefitDeductionTypesWithHttpInfo(string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
     {
-        $request = $this->getBenefitDeductionTypesRequest($company_domain, $contentType);
+        $request = $this->getBenefitDeductionTypesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -703,15 +661,14 @@ class BenefitsApi
      *
      * Get benefit deduction types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitDeductionTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBenefitDeductionTypesAsync($company_domain, string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
+    public function getBenefitDeductionTypesAsync(string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
     {
-        return $this->getBenefitDeductionTypesAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getBenefitDeductionTypesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -724,16 +681,15 @@ class BenefitsApi
      *
      * Get benefit deduction types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitDeductionTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBenefitDeductionTypesAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
+    public function getBenefitDeductionTypesAsyncWithHttpInfo(string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
     {
         $returnType = '';
-        $request = $this->getBenefitDeductionTypesRequest($company_domain, $contentType);
+        $request = $this->getBenefitDeductionTypesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -761,24 +717,16 @@ class BenefitsApi
     /**
      * Create request for operation 'getBenefitDeductionTypes'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBenefitDeductionTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBenefitDeductionTypesRequest($company_domain, string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
+    public function getBenefitDeductionTypesRequest(string $contentType = self::contentTypes['getBenefitDeductionTypes'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getBenefitDeductionTypes'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/benefits/settings/deduction_types/all';
+        $resourcePath = '/api/v1/benefits/settings/deduction_types/all';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -787,14 +735,6 @@ class BenefitsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -867,7 +807,6 @@ class BenefitsApi
      *
      * Get employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependent'] to see the possible values for this operation
@@ -876,9 +815,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getEmployeeDependent($company_domain, $id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
+    public function getEmployeeDependent($id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
     {
-        $this->getEmployeeDependentWithHttpInfo($company_domain, $id, $accept_header_parameter, $contentType);
+        $this->getEmployeeDependentWithHttpInfo($id, $accept_header_parameter, $contentType);
     }
 
     /**
@@ -886,7 +825,6 @@ class BenefitsApi
      *
      * Get employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependent'] to see the possible values for this operation
@@ -895,9 +833,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeeDependentWithHttpInfo($company_domain, $id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
+    public function getEmployeeDependentWithHttpInfo($id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
     {
-        $request = $this->getEmployeeDependentRequest($company_domain, $id, $accept_header_parameter, $contentType);
+        $request = $this->getEmployeeDependentRequest($id, $accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -937,7 +875,6 @@ class BenefitsApi
      *
      * Get employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependent'] to see the possible values for this operation
@@ -945,9 +882,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeDependentAsync($company_domain, $id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
+    public function getEmployeeDependentAsync($id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
     {
-        return $this->getEmployeeDependentAsyncWithHttpInfo($company_domain, $id, $accept_header_parameter, $contentType)
+        return $this->getEmployeeDependentAsyncWithHttpInfo($id, $accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -960,7 +897,6 @@ class BenefitsApi
      *
      * Get employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependent'] to see the possible values for this operation
@@ -968,10 +904,10 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeDependentAsyncWithHttpInfo($company_domain, $id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
+    public function getEmployeeDependentAsyncWithHttpInfo($id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
     {
         $returnType = '';
-        $request = $this->getEmployeeDependentRequest($company_domain, $id, $accept_header_parameter, $contentType);
+        $request = $this->getEmployeeDependentRequest($id, $accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -999,7 +935,6 @@ class BenefitsApi
     /**
      * Create request for operation 'getEmployeeDependent'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependent'] to see the possible values for this operation
@@ -1007,15 +942,8 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeeDependentRequest($company_domain, $id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
+    public function getEmployeeDependentRequest($id, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependent'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getEmployeeDependent'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1026,7 +954,7 @@ class BenefitsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/employeedependents/{id}';
+        $resourcePath = '/api/v1/employeedependents/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1039,14 +967,6 @@ class BenefitsApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1127,7 +1047,6 @@ class BenefitsApi
      *
      * Get all employee dependents
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependents'] to see the possible values for this operation
@@ -1136,9 +1055,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getEmployeeDependents($company_domain, $employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
+    public function getEmployeeDependents($employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
     {
-        $this->getEmployeeDependentsWithHttpInfo($company_domain, $employeeid, $accept_header_parameter, $contentType);
+        $this->getEmployeeDependentsWithHttpInfo($employeeid, $accept_header_parameter, $contentType);
     }
 
     /**
@@ -1146,7 +1065,6 @@ class BenefitsApi
      *
      * Get all employee dependents
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependents'] to see the possible values for this operation
@@ -1155,9 +1073,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeeDependentsWithHttpInfo($company_domain, $employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
+    public function getEmployeeDependentsWithHttpInfo($employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
     {
-        $request = $this->getEmployeeDependentsRequest($company_domain, $employeeid, $accept_header_parameter, $contentType);
+        $request = $this->getEmployeeDependentsRequest($employeeid, $accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1197,7 +1115,6 @@ class BenefitsApi
      *
      * Get all employee dependents
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependents'] to see the possible values for this operation
@@ -1205,9 +1122,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeDependentsAsync($company_domain, $employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
+    public function getEmployeeDependentsAsync($employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
     {
-        return $this->getEmployeeDependentsAsyncWithHttpInfo($company_domain, $employeeid, $accept_header_parameter, $contentType)
+        return $this->getEmployeeDependentsAsyncWithHttpInfo($employeeid, $accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1220,7 +1137,6 @@ class BenefitsApi
      *
      * Get all employee dependents
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependents'] to see the possible values for this operation
@@ -1228,10 +1144,10 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeDependentsAsyncWithHttpInfo($company_domain, $employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
+    public function getEmployeeDependentsAsyncWithHttpInfo($employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
     {
         $returnType = '';
-        $request = $this->getEmployeeDependentsRequest($company_domain, $employeeid, $accept_header_parameter, $contentType);
+        $request = $this->getEmployeeDependentsRequest($employeeid, $accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1259,7 +1175,6 @@ class BenefitsApi
     /**
      * Create request for operation 'getEmployeeDependents'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeDependents'] to see the possible values for this operation
@@ -1267,15 +1182,8 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeeDependentsRequest($company_domain, $employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
+    public function getEmployeeDependentsRequest($employeeid, $accept_header_parameter = null, string $contentType = self::contentTypes['getEmployeeDependents'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getEmployeeDependents'
-            );
-        }
 
         // verify the required parameter 'employeeid' is set
         if ($employeeid === null || (is_array($employeeid) && count($employeeid) === 0)) {
@@ -1286,7 +1194,7 @@ class BenefitsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/employeedependents';
+        $resourcePath = '/api/v1/employeedependents';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1308,14 +1216,6 @@ class BenefitsApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1388,16 +1288,15 @@ class BenefitsApi
      *
      * Get a list of member benefit events
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMemberBenefit'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\MemberBenefitEvent[]
      */
-    public function getMemberBenefit($company_domain, string $contentType = self::contentTypes['getMemberBenefit'][0])
+    public function getMemberBenefit(string $contentType = self::contentTypes['getMemberBenefit'][0])
     {
-        list($response) = $this->getMemberBenefitWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->getMemberBenefitWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1406,16 +1305,15 @@ class BenefitsApi
      *
      * Get a list of member benefit events
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMemberBenefit'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\MemberBenefitEvent[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMemberBenefitWithHttpInfo($company_domain, string $contentType = self::contentTypes['getMemberBenefit'][0])
+    public function getMemberBenefitWithHttpInfo(string $contentType = self::contentTypes['getMemberBenefit'][0])
     {
-        $request = $this->getMemberBenefitRequest($company_domain, $contentType);
+        $request = $this->getMemberBenefitRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1491,15 +1389,14 @@ class BenefitsApi
      *
      * Get a list of member benefit events
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMemberBenefit'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMemberBenefitAsync($company_domain, string $contentType = self::contentTypes['getMemberBenefit'][0])
+    public function getMemberBenefitAsync(string $contentType = self::contentTypes['getMemberBenefit'][0])
     {
-        return $this->getMemberBenefitAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getMemberBenefitAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1512,16 +1409,15 @@ class BenefitsApi
      *
      * Get a list of member benefit events
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMemberBenefit'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMemberBenefitAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getMemberBenefit'][0])
+    public function getMemberBenefitAsyncWithHttpInfo(string $contentType = self::contentTypes['getMemberBenefit'][0])
     {
         $returnType = '\MySdk\Model\MemberBenefitEvent[]';
-        $request = $this->getMemberBenefitRequest($company_domain, $contentType);
+        $request = $this->getMemberBenefitRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1562,24 +1458,16 @@ class BenefitsApi
     /**
      * Create request for operation 'getMemberBenefit'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMemberBenefit'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMemberBenefitRequest($company_domain, string $contentType = self::contentTypes['getMemberBenefit'][0])
+    public function getMemberBenefitRequest(string $contentType = self::contentTypes['getMemberBenefit'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getMemberBenefit'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/benefit/member_benefit';
+        $resourcePath = '/api/v1/benefit/member_benefit';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1588,14 +1476,6 @@ class BenefitsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1668,7 +1548,6 @@ class BenefitsApi
      *
      * Update an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeDependent'] to see the possible values for this operation
@@ -1677,9 +1556,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateEmployeeDependent($company_domain, $id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
+    public function updateEmployeeDependent($id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
     {
-        $this->updateEmployeeDependentWithHttpInfo($company_domain, $id, $employee_dependent, $contentType);
+        $this->updateEmployeeDependentWithHttpInfo($id, $employee_dependent, $contentType);
     }
 
     /**
@@ -1687,7 +1566,6 @@ class BenefitsApi
      *
      * Update an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeDependent'] to see the possible values for this operation
@@ -1696,9 +1574,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmployeeDependentWithHttpInfo($company_domain, $id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
+    public function updateEmployeeDependentWithHttpInfo($id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
     {
-        $request = $this->updateEmployeeDependentRequest($company_domain, $id, $employee_dependent, $contentType);
+        $request = $this->updateEmployeeDependentRequest($id, $employee_dependent, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1738,7 +1616,6 @@ class BenefitsApi
      *
      * Update an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeDependent'] to see the possible values for this operation
@@ -1746,9 +1623,9 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeDependentAsync($company_domain, $id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
+    public function updateEmployeeDependentAsync($id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
     {
-        return $this->updateEmployeeDependentAsyncWithHttpInfo($company_domain, $id, $employee_dependent, $contentType)
+        return $this->updateEmployeeDependentAsyncWithHttpInfo($id, $employee_dependent, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1761,7 +1638,6 @@ class BenefitsApi
      *
      * Update an employee dependent
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeDependent'] to see the possible values for this operation
@@ -1769,10 +1645,10 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeDependentAsyncWithHttpInfo($company_domain, $id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
+    public function updateEmployeeDependentAsyncWithHttpInfo($id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
     {
         $returnType = '';
-        $request = $this->updateEmployeeDependentRequest($company_domain, $id, $employee_dependent, $contentType);
+        $request = $this->updateEmployeeDependentRequest($id, $employee_dependent, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1800,7 +1676,6 @@ class BenefitsApi
     /**
      * Create request for operation 'updateEmployeeDependent'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee dependent ID. (required)
      * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeDependent'] to see the possible values for this operation
@@ -1808,15 +1683,8 @@ class BenefitsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmployeeDependentRequest($company_domain, $id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
+    public function updateEmployeeDependentRequest($id, $employee_dependent, string $contentType = self::contentTypes['updateEmployeeDependent'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateEmployeeDependent'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1833,7 +1701,7 @@ class BenefitsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employeedependents/{id}';
+        $resourcePath = '/api/v1/employeedependents/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1842,14 +1710,6 @@ class BenefitsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

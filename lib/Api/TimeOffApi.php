@@ -74,10 +74,7 @@ class TimeOffApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'estimateFutureTimeOffBalances' => [
-            'application/json',
-        ],
-        'getAListOfWhosOut' => [
+        'getAListOfWhoIsOut' => [
             'application/json',
         ],
         'getTimeOffPolicies' => [
@@ -98,7 +95,13 @@ class TimeOffApi
         'timeOffAssignTimeOffPoliciesForAnEmployee' => [
             'application/json',
         ],
+        'timeOffAssignTimeOffPoliciesForAnEmployeeV11' => [
+            'application/json',
+        ],
         'timeOffChangeARequestStatus' => [
+            'application/json',
+        ],
+        'timeOffEstimateFutureTimeOffBalances' => [
             'application/json',
         ],
         'timeOffGetTimeOffRequests' => [
@@ -107,10 +110,7 @@ class TimeOffApi
         'timeOffListTimeOffPoliciesForEmployee' => [
             'application/json',
         ],
-        'timeOffV11AssignTimeOffPoliciesForAnEmployee' => [
-            'application/json',
-        ],
-        'timeOffV11ListTimeOffPoliciesForEmployee' => [
+        'timeOffListTimeOffPoliciesForEmployeeV11' => [
             'application/json',
         ],
     ];
@@ -162,43 +162,41 @@ class TimeOffApi
     }
 
     /**
-     * Operation estimateFutureTimeOffBalances
+     * Operation getAListOfWhoIsOut
      *
-     * Estimate Future Time Off Balances
+     * Get a list of Who&#39;s Out
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \DateTime $end end (required)
-     * @param  string $employee_id employee_id (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateFutureTimeOffBalances'] to see the possible values for this operation
+     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhoIsOut'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function estimateFutureTimeOffBalances($company_domain, $end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['estimateFutureTimeOffBalances'][0])
+    public function getAListOfWhoIsOut($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhoIsOut'][0])
     {
-        $this->estimateFutureTimeOffBalancesWithHttpInfo($company_domain, $end, $employee_id, $accept_header_parameter, $contentType);
+        $this->getAListOfWhoIsOutWithHttpInfo($accept_header_parameter, $start, $end, $contentType);
     }
 
     /**
-     * Operation estimateFutureTimeOffBalancesWithHttpInfo
+     * Operation getAListOfWhoIsOutWithHttpInfo
      *
-     * Estimate Future Time Off Balances
+     * Get a list of Who&#39;s Out
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \DateTime $end (required)
-     * @param  string $employee_id (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateFutureTimeOffBalances'] to see the possible values for this operation
+     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhoIsOut'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function estimateFutureTimeOffBalancesWithHttpInfo($company_domain, $end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['estimateFutureTimeOffBalances'][0])
+    public function getAListOfWhoIsOutWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhoIsOut'][0])
     {
-        $request = $this->estimateFutureTimeOffBalancesRequest($company_domain, $end, $employee_id, $accept_header_parameter, $contentType);
+        $request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -234,22 +232,21 @@ class TimeOffApi
     }
 
     /**
-     * Operation estimateFutureTimeOffBalancesAsync
+     * Operation getAListOfWhoIsOutAsync
      *
-     * Estimate Future Time Off Balances
+     * Get a list of Who&#39;s Out
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \DateTime $end (required)
-     * @param  string $employee_id (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateFutureTimeOffBalances'] to see the possible values for this operation
+     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhoIsOut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function estimateFutureTimeOffBalancesAsync($company_domain, $end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['estimateFutureTimeOffBalances'][0])
+    public function getAListOfWhoIsOutAsync($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhoIsOut'][0])
     {
-        return $this->estimateFutureTimeOffBalancesAsyncWithHttpInfo($company_domain, $end, $employee_id, $accept_header_parameter, $contentType)
+        return $this->getAListOfWhoIsOutAsyncWithHttpInfo($accept_header_parameter, $start, $end, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -258,23 +255,22 @@ class TimeOffApi
     }
 
     /**
-     * Operation estimateFutureTimeOffBalancesAsyncWithHttpInfo
+     * Operation getAListOfWhoIsOutAsyncWithHttpInfo
      *
-     * Estimate Future Time Off Balances
+     * Get a list of Who&#39;s Out
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \DateTime $end (required)
-     * @param  string $employee_id (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateFutureTimeOffBalances'] to see the possible values for this operation
+     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhoIsOut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function estimateFutureTimeOffBalancesAsyncWithHttpInfo($company_domain, $end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['estimateFutureTimeOffBalances'][0])
+    public function getAListOfWhoIsOutAsyncWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhoIsOut'][0])
     {
         $returnType = '';
-        $request = $this->estimateFutureTimeOffBalancesRequest($company_domain, $end, $employee_id, $accept_header_parameter, $contentType);
+        $request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,313 +296,24 @@ class TimeOffApi
     }
 
     /**
-     * Create request for operation 'estimateFutureTimeOffBalances'
+     * Create request for operation 'getAListOfWhoIsOut'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \DateTime $end (required)
-     * @param  string $employee_id (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['estimateFutureTimeOffBalances'] to see the possible values for this operation
+     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhoIsOut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function estimateFutureTimeOffBalancesRequest($company_domain, $end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['estimateFutureTimeOffBalances'][0])
+    public function getAListOfWhoIsOutRequest($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhoIsOut'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling estimateFutureTimeOffBalances'
-            );
-        }
-
-        // verify the required parameter 'end' is set
-        if ($end === null || (is_array($end) && count($end) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $end when calling estimateFutureTimeOffBalances'
-            );
-        }
-
-        // verify the required parameter 'employee_id' is set
-        if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $employee_id when calling estimateFutureTimeOffBalances'
-            );
-        }
-
-
-
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/time_off/calculator';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end,
-            'end', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
-
-        // header params
-        if ($accept_header_parameter !== null) {
-            $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-        }
-
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($employee_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'employeeId' . '}',
-                ObjectSerializer::toPathValue($employee_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/xml', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAListOfWhosOut
-     *
-     * Get a list of Who&#39;s Out
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhosOut'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getAListOfWhosOut($company_domain, $accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhosOut'][0])
-    {
-        $this->getAListOfWhosOutWithHttpInfo($company_domain, $accept_header_parameter, $start, $end, $contentType);
-    }
-
-    /**
-     * Operation getAListOfWhosOutWithHttpInfo
-     *
-     * Get a list of Who&#39;s Out
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhosOut'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAListOfWhosOutWithHttpInfo($company_domain, $accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhosOut'][0])
-    {
-        $request = $this->getAListOfWhosOutRequest($company_domain, $accept_header_parameter, $start, $end, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAListOfWhosOutAsync
-     *
-     * Get a list of Who&#39;s Out
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhosOut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAListOfWhosOutAsync($company_domain, $accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhosOut'][0])
-    {
-        return $this->getAListOfWhosOutAsyncWithHttpInfo($company_domain, $accept_header_parameter, $start, $end, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAListOfWhosOutAsyncWithHttpInfo
-     *
-     * Get a list of Who&#39;s Out
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhosOut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAListOfWhosOutAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhosOut'][0])
-    {
-        $returnType = '';
-        $request = $this->getAListOfWhosOutRequest($company_domain, $accept_header_parameter, $start, $end, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAListOfWhosOut'
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-     * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-     * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfWhosOut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getAListOfWhosOutRequest($company_domain, $accept_header_parameter = null, $start = null, $end = null, string $contentType = self::contentTypes['getAListOfWhosOut'][0])
-    {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getAListOfWhosOut'
-            );
-        }
 
 
 
 
-
-        $resourcePath = '/{companyDomain}/v1/time_off/whos_out';
+        $resourcePath = '/api/v1/time_off/whos_out';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -637,14 +344,6 @@ class TimeOffApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -717,7 +416,6 @@ class TimeOffApi
      *
      * Get Time Off Policies
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffPolicies'] to see the possible values for this operation
      *
@@ -725,9 +423,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getTimeOffPolicies($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
+    public function getTimeOffPolicies($accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
     {
-        $this->getTimeOffPoliciesWithHttpInfo($company_domain, $accept_header_parameter, $contentType);
+        $this->getTimeOffPoliciesWithHttpInfo($accept_header_parameter, $contentType);
     }
 
     /**
@@ -735,7 +433,6 @@ class TimeOffApi
      *
      * Get Time Off Policies
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffPolicies'] to see the possible values for this operation
      *
@@ -743,9 +440,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeOffPoliciesWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
+    public function getTimeOffPoliciesWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
     {
-        $request = $this->getTimeOffPoliciesRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -785,16 +482,15 @@ class TimeOffApi
      *
      * Get Time Off Policies
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffPolicies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeOffPoliciesAsync($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
+    public function getTimeOffPoliciesAsync($accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
     {
-        return $this->getTimeOffPoliciesAsyncWithHttpInfo($company_domain, $accept_header_parameter, $contentType)
+        return $this->getTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -807,17 +503,16 @@ class TimeOffApi
      *
      * Get Time Off Policies
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffPolicies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeOffPoliciesAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
+    public function getTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
     {
         $returnType = '';
-        $request = $this->getTimeOffPoliciesRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -845,26 +540,18 @@ class TimeOffApi
     /**
      * Create request for operation 'getTimeOffPolicies'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffPolicies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeOffPoliciesRequest($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
+    public function getTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::contentTypes['getTimeOffPolicies'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getTimeOffPolicies'
-            );
-        }
 
 
-
-        $resourcePath = '/{companyDomain}/v1/meta/time_off/policies';
+        $resourcePath = '/api/v1/meta/time_off/policies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -877,14 +564,6 @@ class TimeOffApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -957,7 +636,6 @@ class TimeOffApi
      *
      * Get Time Off Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffTypes'] to see the possible values for this operation
@@ -966,9 +644,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getTimeOffTypes($company_domain, $accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
+    public function getTimeOffTypes($accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
     {
-        $this->getTimeOffTypesWithHttpInfo($company_domain, $accept_header_parameter, $mode, $contentType);
+        $this->getTimeOffTypesWithHttpInfo($accept_header_parameter, $mode, $contentType);
     }
 
     /**
@@ -976,7 +654,6 @@ class TimeOffApi
      *
      * Get Time Off Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffTypes'] to see the possible values for this operation
@@ -985,9 +662,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeOffTypesWithHttpInfo($company_domain, $accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
+    public function getTimeOffTypesWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
     {
-        $request = $this->getTimeOffTypesRequest($company_domain, $accept_header_parameter, $mode, $contentType);
+        $request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1027,7 +704,6 @@ class TimeOffApi
      *
      * Get Time Off Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffTypes'] to see the possible values for this operation
@@ -1035,9 +711,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeOffTypesAsync($company_domain, $accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
+    public function getTimeOffTypesAsync($accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
     {
-        return $this->getTimeOffTypesAsyncWithHttpInfo($company_domain, $accept_header_parameter, $mode, $contentType)
+        return $this->getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter, $mode, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1050,7 +726,6 @@ class TimeOffApi
      *
      * Get Time Off Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffTypes'] to see the possible values for this operation
@@ -1058,10 +733,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeOffTypesAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
+    public function getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
     {
         $returnType = '';
-        $request = $this->getTimeOffTypesRequest($company_domain, $accept_header_parameter, $mode, $contentType);
+        $request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1089,7 +764,6 @@ class TimeOffApi
     /**
      * Create request for operation 'getTimeOffTypes'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeOffTypes'] to see the possible values for this operation
@@ -1097,20 +771,13 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeOffTypesRequest($company_domain, $accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
+    public function getTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::contentTypes['getTimeOffTypes'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getTimeOffTypes'
-            );
-        }
 
 
 
-
-        $resourcePath = '/{companyDomain}/v1/meta/time_off/types';
+        $resourcePath = '/api/v1/meta/time_off/types';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1132,14 +799,6 @@ class TimeOffApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1212,7 +871,6 @@ class TimeOffApi
      *
      * Add a Time Off History Item For Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\TimeOffHistory $time_off_history time_off_history (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
@@ -1221,9 +879,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffAddATimeOffHistoryItemForTimeOffRequest($company_domain, $employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
+    public function timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
     {
-        $this->timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($company_domain, $employee_id, $time_off_history, $contentType);
+        $this->timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, $contentType);
     }
 
     /**
@@ -1231,7 +889,6 @@ class TimeOffApi
      *
      * Add a Time Off History Item For Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
@@ -1240,9 +897,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($company_domain, $employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
+    public function timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
     {
-        $request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($company_domain, $employee_id, $time_off_history, $contentType);
+        $request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1282,7 +939,6 @@ class TimeOffApi
      *
      * Add a Time Off History Item For Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
@@ -1290,9 +946,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsync($company_domain, $employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
+    public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsync($employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
     {
-        return $this->timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($company_domain, $employee_id, $time_off_history, $contentType)
+        return $this->timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_history, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1305,7 +961,6 @@ class TimeOffApi
      *
      * Add a Time Off History Item For Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
@@ -1313,10 +968,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($company_domain, $employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
+    public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
     {
         $returnType = '';
-        $request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($company_domain, $employee_id, $time_off_history, $contentType);
+        $request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1344,7 +999,6 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
@@ -1352,15 +1006,8 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($company_domain, $employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
+    public function timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, string $contentType = self::contentTypes['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffAddATimeOffHistoryItemForTimeOffRequest'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -1377,7 +1024,7 @@ class TimeOffApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/time_off/history';
+        $resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1386,14 +1033,6 @@ class TimeOffApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -1481,7 +1120,6 @@ class TimeOffApi
      *
      * Add a Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employee_id (required)
      * @param  \MySdk\Model\TimeOffRequest $time_off_request time_off_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffRequest'] to see the possible values for this operation
@@ -1490,9 +1128,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffAddATimeOffRequest($company_domain, $employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
+    public function timeOffAddATimeOffRequest($employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
     {
-        $this->timeOffAddATimeOffRequestWithHttpInfo($company_domain, $employee_id, $time_off_request, $contentType);
+        $this->timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, $contentType);
     }
 
     /**
@@ -1500,7 +1138,6 @@ class TimeOffApi
      *
      * Add a Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffRequest'] to see the possible values for this operation
@@ -1509,9 +1146,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffAddATimeOffRequestWithHttpInfo($company_domain, $employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
+    public function timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
     {
-        $request = $this->timeOffAddATimeOffRequestRequest($company_domain, $employee_id, $time_off_request, $contentType);
+        $request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1551,7 +1188,6 @@ class TimeOffApi
      *
      * Add a Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffRequest'] to see the possible values for this operation
@@ -1559,9 +1195,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAddATimeOffRequestAsync($company_domain, $employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
+    public function timeOffAddATimeOffRequestAsync($employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
     {
-        return $this->timeOffAddATimeOffRequestAsyncWithHttpInfo($company_domain, $employee_id, $time_off_request, $contentType)
+        return $this->timeOffAddATimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1574,7 +1210,6 @@ class TimeOffApi
      *
      * Add a Time Off Request
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffRequest'] to see the possible values for this operation
@@ -1582,10 +1217,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAddATimeOffRequestAsyncWithHttpInfo($company_domain, $employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
+    public function timeOffAddATimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
     {
         $returnType = '';
-        $request = $this->timeOffAddATimeOffRequestRequest($company_domain, $employee_id, $time_off_request, $contentType);
+        $request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1613,7 +1248,6 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffAddATimeOffRequest'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAddATimeOffRequest'] to see the possible values for this operation
@@ -1621,15 +1255,8 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffAddATimeOffRequestRequest($company_domain, $employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
+    public function timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, string $contentType = self::contentTypes['timeOffAddATimeOffRequest'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffAddATimeOffRequest'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -1646,7 +1273,7 @@ class TimeOffApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/time_off/request';
+        $resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1655,14 +1282,6 @@ class TimeOffApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -1750,7 +1369,6 @@ class TimeOffApi
      *
      * Adjust Time Off Balance
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
@@ -1759,9 +1377,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffAdjustTimeOffBalance($company_domain, $employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
+    public function timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
     {
-        $this->timeOffAdjustTimeOffBalanceWithHttpInfo($company_domain, $employee_id, $adjust_time_off_balance, $contentType);
+        $this->timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType);
     }
 
     /**
@@ -1769,7 +1387,6 @@ class TimeOffApi
      *
      * Adjust Time Off Balance
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
@@ -1778,9 +1395,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffAdjustTimeOffBalanceWithHttpInfo($company_domain, $employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
+    public function timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
     {
-        $request = $this->timeOffAdjustTimeOffBalanceRequest($company_domain, $employee_id, $adjust_time_off_balance, $contentType);
+        $request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1820,7 +1437,6 @@ class TimeOffApi
      *
      * Adjust Time Off Balance
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
@@ -1828,9 +1444,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAdjustTimeOffBalanceAsync($company_domain, $employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
+    public function timeOffAdjustTimeOffBalanceAsync($employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
     {
-        return $this->timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($company_domain, $employee_id, $adjust_time_off_balance, $contentType)
+        return $this->timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1843,7 +1459,6 @@ class TimeOffApi
      *
      * Adjust Time Off Balance
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
@@ -1851,10 +1466,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($company_domain, $employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
+    public function timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
     {
         $returnType = '';
-        $request = $this->timeOffAdjustTimeOffBalanceRequest($company_domain, $employee_id, $adjust_time_off_balance, $contentType);
+        $request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1882,7 +1497,6 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffAdjustTimeOffBalance'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee. (required)
      * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
@@ -1890,15 +1504,8 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffAdjustTimeOffBalanceRequest($company_domain, $employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
+    public function timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, string $contentType = self::contentTypes['timeOffAdjustTimeOffBalance'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffAdjustTimeOffBalance'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -1915,7 +1522,7 @@ class TimeOffApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/time_off/balance_adjustment';
+        $resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1924,14 +1531,6 @@ class TimeOffApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -2019,7 +1618,6 @@ class TimeOffApi
      *
      * Assign Time Off Policies for an Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employee_id (required)
      * @param  object[] $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
@@ -2028,9 +1626,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployee($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-        $this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($company_domain, $employee_id, $request_body, $contentType);
+        $this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $request_body, $contentType);
     }
 
     /**
@@ -2038,7 +1636,6 @@ class TimeOffApi
      *
      * Assign Time Off Policies for an Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  object[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
@@ -2047,9 +1644,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($company_domain, $employee_id, $request_body, $contentType);
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $request_body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2089,7 +1686,6 @@ class TimeOffApi
      *
      * Assign Time Off Policies for an Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  object[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
@@ -2097,9 +1693,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsync($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsync($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($company_domain, $employee_id, $request_body, $contentType)
+        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $request_body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,7 +1708,6 @@ class TimeOffApi
      *
      * Assign Time Off Policies for an Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  object[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
@@ -2120,10 +1715,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
         $returnType = '';
-        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($company_domain, $employee_id, $request_body, $contentType);
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $request_body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2151,7 +1746,6 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployee'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  object[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
@@ -2159,15 +1753,8 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeRequest($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffAssignTimeOffPoliciesForAnEmployee'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -2184,7 +1771,7 @@ class TimeOffApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/time_off/policies';
+        $resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2194,13 +1781,254 @@ class TimeOffApi
 
 
         // path params
-        if ($company_domain !== null) {
+        if ($employee_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
+                '{' . 'employeeId' . '}',
+                ObjectSerializer::toPathValue($employee_id),
                 $resourcePath
             );
         }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
+            } else {
+                $httpBody = $request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11
+     *
+     * Assign Time Off Policies for an Employee, Version 1.1
+     *
+     * @param  string $employee_id employee_id (required)
+     * @param  object[] $request_body request_body (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    {
+        $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $request_body, $contentType);
+    }
+
+    /**
+     * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo
+     *
+     * Assign Time Off Policies for an Employee, Version 1.1
+     *
+     * @param  string $employee_id (required)
+     * @param  object[] $request_body (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    {
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11Async
+     *
+     * Assign Time Off Policies for an Employee, Version 1.1
+     *
+     * @param  string $employee_id (required)
+     * @param  object[] $request_body (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Async($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    {
+        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo
+     *
+     * Assign Time Off Policies for an Employee, Version 1.1
+     *
+     * @param  string $employee_id (required)
+     * @param  object[] $request_body (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    {
+        $returnType = '';
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
+     *
+     * @param  string $employee_id (required)
+     * @param  object[] $request_body (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    {
+
+        // verify the required parameter 'employee_id' is set
+        if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $employee_id when calling timeOffAssignTimeOffPoliciesForAnEmployeeV11'
+            );
+        }
+
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $request_body when calling timeOffAssignTimeOffPoliciesForAnEmployeeV11'
+            );
+        }
+
+
+        $resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -2288,7 +2116,6 @@ class TimeOffApi
      *
      * Change a Request Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $request_id request_id (required)
      * @param  \MySdk\Model\Request $request request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffChangeARequestStatus'] to see the possible values for this operation
@@ -2297,9 +2124,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffChangeARequestStatus($company_domain, $request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
+    public function timeOffChangeARequestStatus($request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
     {
-        $this->timeOffChangeARequestStatusWithHttpInfo($company_domain, $request_id, $request, $contentType);
+        $this->timeOffChangeARequestStatusWithHttpInfo($request_id, $request, $contentType);
     }
 
     /**
@@ -2307,7 +2134,6 @@ class TimeOffApi
      *
      * Change a Request Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $request_id (required)
      * @param  \MySdk\Model\Request $request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffChangeARequestStatus'] to see the possible values for this operation
@@ -2316,9 +2142,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffChangeARequestStatusWithHttpInfo($company_domain, $request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
+    public function timeOffChangeARequestStatusWithHttpInfo($request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
     {
-        $request = $this->timeOffChangeARequestStatusRequest($company_domain, $request_id, $request, $contentType);
+        $request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2358,7 +2184,6 @@ class TimeOffApi
      *
      * Change a Request Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $request_id (required)
      * @param  \MySdk\Model\Request $request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffChangeARequestStatus'] to see the possible values for this operation
@@ -2366,9 +2191,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffChangeARequestStatusAsync($company_domain, $request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
+    public function timeOffChangeARequestStatusAsync($request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
     {
-        return $this->timeOffChangeARequestStatusAsyncWithHttpInfo($company_domain, $request_id, $request, $contentType)
+        return $this->timeOffChangeARequestStatusAsyncWithHttpInfo($request_id, $request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2381,7 +2206,6 @@ class TimeOffApi
      *
      * Change a Request Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $request_id (required)
      * @param  \MySdk\Model\Request $request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffChangeARequestStatus'] to see the possible values for this operation
@@ -2389,10 +2213,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffChangeARequestStatusAsyncWithHttpInfo($company_domain, $request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
+    public function timeOffChangeARequestStatusAsyncWithHttpInfo($request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
     {
         $returnType = '';
-        $request = $this->timeOffChangeARequestStatusRequest($company_domain, $request_id, $request, $contentType);
+        $request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2420,7 +2244,6 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffChangeARequestStatus'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $request_id (required)
      * @param  \MySdk\Model\Request $request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffChangeARequestStatus'] to see the possible values for this operation
@@ -2428,15 +2251,8 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffChangeARequestStatusRequest($company_domain, $request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
+    public function timeOffChangeARequestStatusRequest($request_id, $request, string $contentType = self::contentTypes['timeOffChangeARequestStatus'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffChangeARequestStatus'
-            );
-        }
 
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
@@ -2453,7 +2269,7 @@ class TimeOffApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/time_off/requests/{requestId}/status';
+        $resourcePath = '/api/v1/time_off/requests/{requestId}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2462,14 +2278,6 @@ class TimeOffApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($request_id !== null) {
             $resourcePath = str_replace(
@@ -2553,11 +2361,271 @@ class TimeOffApi
     }
 
     /**
+     * Operation timeOffEstimateFutureTimeOffBalances
+     *
+     * Estimate Future Time Off Balances
+     *
+     * @param  \DateTime $end end (required)
+     * @param  string $employee_id employee_id (required)
+     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['timeOffEstimateFutureTimeOffBalances'][0])
+    {
+        $this->timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType);
+    }
+
+    /**
+     * Operation timeOffEstimateFutureTimeOffBalancesWithHttpInfo
+     *
+     * Estimate Future Time Off Balances
+     *
+     * @param  \DateTime $end (required)
+     * @param  string $employee_id (required)
+     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['timeOffEstimateFutureTimeOffBalances'][0])
+    {
+        $request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation timeOffEstimateFutureTimeOffBalancesAsync
+     *
+     * Estimate Future Time Off Balances
+     *
+     * @param  \DateTime $end (required)
+     * @param  string $employee_id (required)
+     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function timeOffEstimateFutureTimeOffBalancesAsync($end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['timeOffEstimateFutureTimeOffBalances'][0])
+    {
+        return $this->timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo
+     *
+     * Estimate Future Time Off Balances
+     *
+     * @param  \DateTime $end (required)
+     * @param  string $employee_id (required)
+     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['timeOffEstimateFutureTimeOffBalances'][0])
+    {
+        $returnType = '';
+        $request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'timeOffEstimateFutureTimeOffBalances'
+     *
+     * @param  \DateTime $end (required)
+     * @param  string $employee_id (required)
+     * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter = null, string $contentType = self::contentTypes['timeOffEstimateFutureTimeOffBalances'][0])
+    {
+
+        // verify the required parameter 'end' is set
+        if ($end === null || (is_array($end) && count($end) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end when calling timeOffEstimateFutureTimeOffBalances'
+            );
+        }
+
+        // verify the required parameter 'employee_id' is set
+        if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $employee_id when calling timeOffEstimateFutureTimeOffBalances'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end,
+            'end', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+        // header params
+        if ($accept_header_parameter !== null) {
+            $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+        }
+
+        // path params
+        if ($employee_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'employeeId' . '}',
+                ObjectSerializer::toPathValue($employee_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation timeOffGetTimeOffRequests
      *
      * Get Time Off Requests
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
      * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -2572,9 +2640,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffGetTimeOffRequests($company_domain, $start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
+    public function timeOffGetTimeOffRequests($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
     {
-        $this->timeOffGetTimeOffRequestsWithHttpInfo($company_domain, $start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
+        $this->timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
     }
 
     /**
@@ -2582,7 +2650,6 @@ class TimeOffApi
      *
      * Get Time Off Requests
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
      * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -2597,9 +2664,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffGetTimeOffRequestsWithHttpInfo($company_domain, $start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
+    public function timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
     {
-        $request = $this->timeOffGetTimeOffRequestsRequest($company_domain, $start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
+        $request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2639,7 +2706,6 @@ class TimeOffApi
      *
      * Get Time Off Requests
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
      * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -2653,9 +2719,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffGetTimeOffRequestsAsync($company_domain, $start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
+    public function timeOffGetTimeOffRequestsAsync($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
     {
-        return $this->timeOffGetTimeOffRequestsAsyncWithHttpInfo($company_domain, $start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType)
+        return $this->timeOffGetTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2668,7 +2734,6 @@ class TimeOffApi
      *
      * Get Time Off Requests
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
      * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -2682,10 +2747,10 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffGetTimeOffRequestsAsyncWithHttpInfo($company_domain, $start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
+    public function timeOffGetTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
     {
         $returnType = '';
-        $request = $this->timeOffGetTimeOffRequestsRequest($company_domain, $start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
+        $request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2713,7 +2778,6 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffGetTimeOffRequests'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
      * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -2727,15 +2791,8 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffGetTimeOffRequestsRequest($company_domain, $start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
+    public function timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::contentTypes['timeOffGetTimeOffRequests'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffGetTimeOffRequests'
-            );
-        }
 
         // verify the required parameter 'start' is set
         if ($start === null || (is_array($start) && count($start) === 0)) {
@@ -2758,7 +2815,7 @@ class TimeOffApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/time_off/requests';
+        $resourcePath = '/api/v1/time_off/requests';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2834,14 +2891,6 @@ class TimeOffApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2914,7 +2963,6 @@ class TimeOffApi
      *
      * List Time Off Policies for Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employee_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
      *
@@ -2922,9 +2970,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffListTimeOffPoliciesForEmployee($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployee($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
     {
-        $this->timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($company_domain, $employee_id, $contentType);
+        $this->timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, $contentType);
     }
 
     /**
@@ -2932,7 +2980,6 @@ class TimeOffApi
      *
      * List Time Off Policies for Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
      *
@@ -2940,9 +2987,9 @@ class TimeOffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
     {
-        $request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($company_domain, $employee_id, $contentType);
+        $request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2982,16 +3029,15 @@ class TimeOffApi
      *
      * List Time Off Policies for Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffListTimeOffPoliciesForEmployeeAsync($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeAsync($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
     {
-        return $this->timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3004,17 +3050,16 @@ class TimeOffApi
      *
      * List Time Off Policies for Employee
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
     {
         $returnType = '';
-        $request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($company_domain, $employee_id, $contentType);
+        $request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3042,22 +3087,14 @@ class TimeOffApi
     /**
      * Create request for operation 'timeOffListTimeOffPoliciesForEmployee'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffListTimeOffPoliciesForEmployeeRequest($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployee'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffListTimeOffPoliciesForEmployee'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -3067,7 +3104,7 @@ class TimeOffApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/time_off/policies';
+        $resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3076,14 +3113,6 @@ class TimeOffApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -3160,41 +3189,37 @@ class TimeOffApi
     }
 
     /**
-     * Operation timeOffV11AssignTimeOffPoliciesForAnEmployee
+     * Operation timeOffListTimeOffPoliciesForEmployeeV11
      *
-     * Assign Time Off Policies for an Employee, Version 1.1
+     * List Time Off Policies for Employee, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employee_id (required)
-     * @param  object[] $request_body request_body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffV11AssignTimeOffPoliciesForAnEmployee($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeV11($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'][0])
     {
-        $this->timeOffV11AssignTimeOffPoliciesForAnEmployeeWithHttpInfo($company_domain, $employee_id, $request_body, $contentType);
+        $this->timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, $contentType);
     }
 
     /**
-     * Operation timeOffV11AssignTimeOffPoliciesForAnEmployeeWithHttpInfo
+     * Operation timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo
      *
-     * Assign Time Off Policies for an Employee, Version 1.1
+     * List Time Off Policies for Employee, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffV11AssignTimeOffPoliciesForAnEmployeeWithHttpInfo($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'][0])
     {
-        $request = $this->timeOffV11AssignTimeOffPoliciesForAnEmployeeRequest($company_domain, $employee_id, $request_body, $contentType);
+        $request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3230,21 +3255,19 @@ class TimeOffApi
     }
 
     /**
-     * Operation timeOffV11AssignTimeOffPoliciesForAnEmployeeAsync
+     * Operation timeOffListTimeOffPoliciesForEmployeeV11Async
      *
-     * Assign Time Off Policies for an Employee, Version 1.1
+     * List Time Off Policies for Employee, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffV11AssignTimeOffPoliciesForAnEmployeeAsync($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeV11Async($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'][0])
     {
-        return $this->timeOffV11AssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($company_domain, $employee_id, $request_body, $contentType)
+        return $this->timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3253,22 +3276,20 @@ class TimeOffApi
     }
 
     /**
-     * Operation timeOffV11AssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo
+     * Operation timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo
      *
-     * Assign Time Off Policies for an Employee, Version 1.1
+     * List Time Off Policies for Employee, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffV11AssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'][0])
     {
         $returnType = '';
-        $request = $this->timeOffV11AssignTimeOffPoliciesForAnEmployeeRequest($company_domain, $employee_id, $request_body, $contentType);
+        $request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3294,42 +3315,26 @@ class TimeOffApi
     }
 
     /**
-     * Create request for operation 'timeOffV11AssignTimeOffPoliciesForAnEmployee'
+     * Create request for operation 'timeOffListTimeOffPoliciesForEmployeeV11'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffV11AssignTimeOffPoliciesForAnEmployeeRequest($company_domain, $employee_id, $request_body, string $contentType = self::contentTypes['timeOffV11AssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, string $contentType = self::contentTypes['timeOffListTimeOffPoliciesForEmployeeV11'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffV11AssignTimeOffPoliciesForAnEmployee'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $employee_id when calling timeOffV11AssignTimeOffPoliciesForAnEmployee'
-            );
-        }
-
-        // verify the required parameter 'request_body' is set
-        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $request_body when calling timeOffV11AssignTimeOffPoliciesForAnEmployee'
+                'Missing the required parameter $employee_id when calling timeOffListTimeOffPoliciesForEmployeeV11'
             );
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_1/employees/{employeeId}/time_off/policies';
+        $resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3338,271 +3343,6 @@ class TimeOffApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($employee_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'employeeId' . '}',
-                ObjectSerializer::toPathValue($employee_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($request_body)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
-            } else {
-                $httpBody = $request_body;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation timeOffV11ListTimeOffPoliciesForEmployee
-     *
-     * List Time Off Policies for Employee, Version 1.1
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $employee_id employee_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function timeOffV11ListTimeOffPoliciesForEmployee($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'][0])
-    {
-        $this->timeOffV11ListTimeOffPoliciesForEmployeeWithHttpInfo($company_domain, $employee_id, $contentType);
-    }
-
-    /**
-     * Operation timeOffV11ListTimeOffPoliciesForEmployeeWithHttpInfo
-     *
-     * List Time Off Policies for Employee, Version 1.1
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $employee_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function timeOffV11ListTimeOffPoliciesForEmployeeWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'][0])
-    {
-        $request = $this->timeOffV11ListTimeOffPoliciesForEmployeeRequest($company_domain, $employee_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation timeOffV11ListTimeOffPoliciesForEmployeeAsync
-     *
-     * List Time Off Policies for Employee, Version 1.1
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $employee_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function timeOffV11ListTimeOffPoliciesForEmployeeAsync($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'][0])
-    {
-        return $this->timeOffV11ListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($company_domain, $employee_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation timeOffV11ListTimeOffPoliciesForEmployeeAsyncWithHttpInfo
-     *
-     * List Time Off Policies for Employee, Version 1.1
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $employee_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function timeOffV11ListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'][0])
-    {
-        $returnType = '';
-        $request = $this->timeOffV11ListTimeOffPoliciesForEmployeeRequest($company_domain, $employee_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'timeOffV11ListTimeOffPoliciesForEmployee'
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $employee_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function timeOffV11ListTimeOffPoliciesForEmployeeRequest($company_domain, $employee_id, string $contentType = self::contentTypes['timeOffV11ListTimeOffPoliciesForEmployee'][0])
-    {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling timeOffV11ListTimeOffPoliciesForEmployee'
-            );
-        }
-
-        // verify the required parameter 'employee_id' is set
-        if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $employee_id when calling timeOffV11ListTimeOffPoliciesForEmployee'
-            );
-        }
-
-
-        $resourcePath = '/{companyDomain}/v1_1/employees/{employeeId}/time_off/policies';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(

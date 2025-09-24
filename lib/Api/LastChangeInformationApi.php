@@ -130,7 +130,6 @@ class LastChangeInformationApi
      *
      * Gets all updated employee IDs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeIds'] to see the possible values for this operation
@@ -139,9 +138,9 @@ class LastChangeInformationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getChangedEmployeeIds($company_domain, $since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
+    public function getChangedEmployeeIds($since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
     {
-        $this->getChangedEmployeeIdsWithHttpInfo($company_domain, $since, $type, $contentType);
+        $this->getChangedEmployeeIdsWithHttpInfo($since, $type, $contentType);
     }
 
     /**
@@ -149,7 +148,6 @@ class LastChangeInformationApi
      *
      * Gets all updated employee IDs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeIds'] to see the possible values for this operation
@@ -158,9 +156,9 @@ class LastChangeInformationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getChangedEmployeeIdsWithHttpInfo($company_domain, $since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
+    public function getChangedEmployeeIdsWithHttpInfo($since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
     {
-        $request = $this->getChangedEmployeeIdsRequest($company_domain, $since, $type, $contentType);
+        $request = $this->getChangedEmployeeIdsRequest($since, $type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -200,7 +198,6 @@ class LastChangeInformationApi
      *
      * Gets all updated employee IDs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeIds'] to see the possible values for this operation
@@ -208,9 +205,9 @@ class LastChangeInformationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChangedEmployeeIdsAsync($company_domain, $since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
+    public function getChangedEmployeeIdsAsync($since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
     {
-        return $this->getChangedEmployeeIdsAsyncWithHttpInfo($company_domain, $since, $type, $contentType)
+        return $this->getChangedEmployeeIdsAsyncWithHttpInfo($since, $type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -223,7 +220,6 @@ class LastChangeInformationApi
      *
      * Gets all updated employee IDs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeIds'] to see the possible values for this operation
@@ -231,10 +227,10 @@ class LastChangeInformationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChangedEmployeeIdsAsyncWithHttpInfo($company_domain, $since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
+    public function getChangedEmployeeIdsAsyncWithHttpInfo($since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
     {
         $returnType = '';
-        $request = $this->getChangedEmployeeIdsRequest($company_domain, $since, $type, $contentType);
+        $request = $this->getChangedEmployeeIdsRequest($since, $type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -262,7 +258,6 @@ class LastChangeInformationApi
     /**
      * Create request for operation 'getChangedEmployeeIds'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeIds'] to see the possible values for this operation
@@ -270,15 +265,8 @@ class LastChangeInformationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getChangedEmployeeIdsRequest($company_domain, $since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
+    public function getChangedEmployeeIdsRequest($since, $type = null, string $contentType = self::contentTypes['getChangedEmployeeIds'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getChangedEmployeeIds'
-            );
-        }
 
         // verify the required parameter 'since' is set
         if ($since === null || (is_array($since) && count($since) === 0)) {
@@ -289,7 +277,7 @@ class LastChangeInformationApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/changed';
+        $resourcePath = '/api/v1/employees/changed';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -316,14 +304,6 @@ class LastChangeInformationApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

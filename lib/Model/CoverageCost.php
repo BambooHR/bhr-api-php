@@ -83,7 +83,7 @@ class CoverageCost implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'link_id' => false,
         'employee_cost_type' => false,
-        'employee_cost' => true
+        'employee_cost' => false
     ];
 
     /**
@@ -377,14 +377,7 @@ class CoverageCost implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmployeeCost($employee_cost)
     {
         if (is_null($employee_cost)) {
-            array_push($this->openAPINullablesSetToNull, 'employee_cost');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employee_cost', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employee_cost cannot be null');
         }
         $this->container['employee_cost'] = $employee_cost;
 

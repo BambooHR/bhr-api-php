@@ -63,7 +63,7 @@ class TimeOffRequestApiResponseInner implements ModelInterface, ArrayAccess, \Js
         'end' => '\DateTime',
         'created' => '\DateTime',
         'status' => '\MySdk\Model\TimeOffRequestApiResponseInnerStatusInner[]',
-        'type' => '\MySdk\Model\InboxDetailsWithPersonsType[]',
+        'type' => '\MySdk\Model\TimeOffRequestApiResponseInnerTypeInner[]',
         'amount' => '\MySdk\Model\TimeOffRequestApiResponseInnerAmountInner[]',
         'notes' => '\MySdk\Model\TimeOffRequestApiResponseInnerNotesInner[]',
         'dates' => '\MySdk\Model\TimeOffRequestApiResponseInnerDatesInner[]',
@@ -573,7 +573,7 @@ class TimeOffRequestApiResponseInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets type
      *
-     * @return \MySdk\Model\InboxDetailsWithPersonsType[]|null
+     * @return \MySdk\Model\TimeOffRequestApiResponseInnerTypeInner[]|null
      */
     public function getType()
     {
@@ -583,7 +583,7 @@ class TimeOffRequestApiResponseInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets type
      *
-     * @param \MySdk\Model\InboxDetailsWithPersonsType[]|null $type type
+     * @param \MySdk\Model\TimeOffRequestApiResponseInnerTypeInner[]|null $type type
      *
      * @return self
      */

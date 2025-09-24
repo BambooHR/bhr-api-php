@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fields** | **string[]** |  | [optional]
+**pivot_fields** | [**\MySdk\Model\TablePanelConfigurationRequestPivotFields**](TablePanelConfigurationRequestPivotFields.md) |  | [optional]
 **group_by** | **string[]** |  | [optional]
 **sort_by** | [**\MySdk\Model\ReportPanelConfigurationSortByInner[]**](ReportPanelConfigurationSortByInner.md) |  | [optional]
 **field_settings** | [**\MySdk\Model\TablePanelConfigurationRequestFieldSettingsInner[]**](TablePanelConfigurationRequestFieldSettingsInner.md) |  | [optional]

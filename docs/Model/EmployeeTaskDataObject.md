@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **employee_id** | **int** | The ID of the employee | [optional]
 **name** | **string** | The name of the task | [optional]
 **description** | **string** | The description of the task | [optional]
-**category** | [**\MySdk\Model\TaskCategoryDataObject**](TaskCategoryDataObject.md) |  | [optional]
+**category** | [**\MySdk\Model\TaskCategoryDataObject**](TaskCategoryDataObject.md) | The category of the task | [optional]
 **assigned_user_id** | **int** | The ID of the assigned user | [optional]
 **assigned_by_user_id** | **int** | The ID of the assigned by user | [optional]
 **sort_order** | **int** | The sort order of the task | [optional]

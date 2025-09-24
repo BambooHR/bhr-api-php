@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metals** | [**\MySdk\Model\AbstractMetal[]**](AbstractMetal.md) |  | [optional]
 **type** | **string** |  | [optional]
 **defaults** | [**\MySdk\Model\PlanTypeMetaDataDefaults**](PlanTypeMetaDataDefaults.md) |  | [optional]
 **vendors** | [**\MySdk\Model\BenefitVendor[]**](BenefitVendor.md) |  | [optional]

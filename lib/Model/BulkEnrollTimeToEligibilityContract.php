@@ -81,9 +81,9 @@ class BulkEnrollTimeToEligibilityContract implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'rule' => true,
-        'wait_time' => true,
-        'wait_period' => true
+        'rule' => false,
+        'wait_time' => false,
+        'wait_period' => false
     ];
 
     /**
@@ -323,14 +323,7 @@ class BulkEnrollTimeToEligibilityContract implements ModelInterface, ArrayAccess
     public function setRule($rule)
     {
         if (is_null($rule)) {
-            array_push($this->openAPINullablesSetToNull, 'rule');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('rule', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable rule cannot be null');
         }
         $this->container['rule'] = $rule;
 
@@ -357,14 +350,7 @@ class BulkEnrollTimeToEligibilityContract implements ModelInterface, ArrayAccess
     public function setWaitTime($wait_time)
     {
         if (is_null($wait_time)) {
-            array_push($this->openAPINullablesSetToNull, 'wait_time');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('wait_time', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable wait_time cannot be null');
         }
         $this->container['wait_time'] = $wait_time;
 
@@ -391,14 +377,7 @@ class BulkEnrollTimeToEligibilityContract implements ModelInterface, ArrayAccess
     public function setWaitPeriod($wait_period)
     {
         if (is_null($wait_period)) {
-            array_push($this->openAPINullablesSetToNull, 'wait_period');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('wait_period', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable wait_period cannot be null');
         }
         $this->container['wait_period'] = $wait_period;
 

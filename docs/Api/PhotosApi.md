@@ -1,17 +1,17 @@
 # MySdk\PhotosApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getEmployeePhoto()**](PhotosApi.md#getEmployeePhoto) | **GET** /{companyDomain}/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
-| [**uploadEmployeePhoto()**](PhotosApi.md#uploadEmployeePhoto) | **POST** /{companyDomain}/v1/employees/{employeeId}/photo | Store a new employee photo |
+| [**getEmployeePhoto()**](PhotosApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
+| [**uploadEmployeePhoto()**](PhotosApi.md#uploadEmployeePhoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo |
 
 
 ## `getEmployeePhoto()`
 
 ```php
-getEmployeePhoto($company_domain, $employee_id, $size)
+getEmployeePhoto($employee_id, $size)
 ```
 
 Get an employee photo
@@ -43,12 +43,11 @@ $apiInstance = new MySdk\Api\PhotosApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | The ID for the employee you are getting the photo for.
 $size = 'size_example'; // string | Photo size
 
 try {
-    $apiInstance->getEmployeePhoto($company_domain, $employee_id, $size);
+    $apiInstance->getEmployeePhoto($employee_id, $size);
 } catch (Exception $e) {
     echo 'Exception when calling PhotosApi->getEmployeePhoto: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,7 +57,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| The ID for the employee you are getting the photo for. | |
 | **size** | **string**| Photo size | |
 
@@ -82,7 +80,7 @@ void (empty response body)
 ## `uploadEmployeePhoto()`
 
 ```php
-uploadEmployeePhoto($company_domain, $employee_id)
+uploadEmployeePhoto($employee_id)
 ```
 
 Store a new employee photo
@@ -114,11 +112,10 @@ $apiInstance = new MySdk\Api\PhotosApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | The ID for the employee you are setting the photo for.
 
 try {
-    $apiInstance->uploadEmployeePhoto($company_domain, $employee_id);
+    $apiInstance->uploadEmployeePhoto($employee_id);
 } catch (Exception $e) {
     echo 'Exception when calling PhotosApi->uploadEmployeePhoto: ', $e->getMessage(), PHP_EOL;
 }
@@ -128,7 +125,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| The ID for the employee you are setting the photo for. | |
 
 ### Return type

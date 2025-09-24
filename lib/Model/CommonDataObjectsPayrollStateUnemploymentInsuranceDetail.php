@@ -303,7 +303,7 @@ class CommonDataObjectsPayrollStateUnemploymentInsuranceDetail implements ModelI
     /**
      * Sets fields
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateUnemploymentInsuranceFields|null $fields fields
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateUnemploymentInsuranceFields|null $fields State unemployment insurance fields information
      *
      * @return self
      */

@@ -392,7 +392,7 @@ class CommonDataObjectsPayrollFederalTaxFields implements ModelInterface, ArrayA
     /**
      * Sets additional_withholding
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding|null $additional_withholding additional_withholding
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding|null $additional_withholding Additional withholding information
      *
      * @return self
      */
@@ -419,7 +419,7 @@ class CommonDataObjectsPayrollFederalTaxFields implements ModelInterface, ArrayA
     /**
      * Sets ignore_status_exemptions
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $ignore_status_exemptions ignore_status_exemptions
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $ignore_status_exemptions Whether to ignore status exemptions
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class CommonDataObjectsPayrollFederalTaxFields implements ModelInterface, ArrayA
     /**
      * Sets fica_exempt
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $fica_exempt fica_exempt
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $fica_exempt FICA exemption status
      *
      * @return self
      */
@@ -473,7 +473,7 @@ class CommonDataObjectsPayrollFederalTaxFields implements ModelInterface, ArrayA
     /**
      * Sets futa_exempt
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $futa_exempt futa_exempt
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $futa_exempt FUTA exemption status
      *
      * @return self
      */

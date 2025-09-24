@@ -84,7 +84,8 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         'pronouns' => 'string',
         'can_upload_photo' => 'bool',
         'photo_uploaded' => 'bool',
-        'timezone' => 'string'
+        'timezone' => 'string',
+        'teams' => 'string[]'
     ];
 
     /**
@@ -121,7 +122,8 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         'pronouns' => null,
         'can_upload_photo' => null,
         'photo_uploaded' => null,
-        'timezone' => null
+        'timezone' => null,
+        'teams' => null
     ];
 
     /**
@@ -156,7 +158,8 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         'pronouns' => true,
         'can_upload_photo' => true,
         'photo_uploaded' => true,
-        'timezone' => true
+        'timezone' => true,
+        'teams' => false
     ];
 
     /**
@@ -271,7 +274,8 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         'pronouns' => 'pronouns',
         'can_upload_photo' => 'canUploadPhoto',
         'photo_uploaded' => 'photoUploaded',
-        'timezone' => 'timezone'
+        'timezone' => 'timezone',
+        'teams' => 'teams'
     ];
 
     /**
@@ -306,7 +310,8 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         'pronouns' => 'setPronouns',
         'can_upload_photo' => 'setCanUploadPhoto',
         'photo_uploaded' => 'setPhotoUploaded',
-        'timezone' => 'setTimezone'
+        'timezone' => 'setTimezone',
+        'teams' => 'setTeams'
     ];
 
     /**
@@ -341,7 +346,8 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         'pronouns' => 'getPronouns',
         'can_upload_photo' => 'getCanUploadPhoto',
         'photo_uploaded' => 'getPhotoUploaded',
-        'timezone' => 'getTimezone'
+        'timezone' => 'getTimezone',
+        'teams' => 'getTeams'
     ];
 
     /**
@@ -428,6 +434,7 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
         $this->setIfExists('can_upload_photo', $data ?? [], null);
         $this->setIfExists('photo_uploaded', $data ?? [], null);
         $this->setIfExists('timezone', $data ?? [], null);
+        $this->setIfExists('teams', $data ?? [], null);
     }
 
     /**
@@ -1351,6 +1358,33 @@ class EmployeeDirectoryEmployeeDataObject implements ModelInterface, ArrayAccess
             }
         }
         $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets teams
+     *
+     * @return string[]|null
+     */
+    public function getTeams()
+    {
+        return $this->container['teams'];
+    }
+
+    /**
+     * Sets teams
+     *
+     * @param string[]|null $teams Employee teams
+     *
+     * @return self
+     */
+    public function setTeams($teams)
+    {
+        if (is_null($teams)) {
+            throw new \InvalidArgumentException('non-nullable teams cannot be null');
+        }
+        $this->container['teams'] = $teams;
 
         return $this;
     }

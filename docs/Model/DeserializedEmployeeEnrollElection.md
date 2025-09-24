@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **currency_code** | **string** |  | [optional]
 **dependent_ids** | **int[]** |  | [optional]
 **employee_contribution_amount** | **float** |  | [optional]
-**plan_category_data_options** | **object** |  | [optional]
 **company_contribution_amount** | **float** |  | [optional]
 **employee_contribution_amount_type** | **string** |  | [optional]
 **employee_percent_deduction_type** | **string** |  | [optional]

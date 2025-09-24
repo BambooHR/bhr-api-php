@@ -85,7 +85,7 @@ class TimeOffDefaultHoursGroupsInner implements ModelInterface, ArrayAccess, \Js
     protected static array $openAPINullables = [
         'name' => true,
         'hours_per_day' => false,
-        'filters' => true,
+        'filters' => false,
         'employee_ids' => true
     ];
 
@@ -391,14 +391,7 @@ class TimeOffDefaultHoursGroupsInner implements ModelInterface, ArrayAccess, \Js
     public function setFilters($filters)
     {
         if (is_null($filters)) {
-            array_push($this->openAPINullablesSetToNull, 'filters');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('filters', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable filters cannot be null');
         }
         $this->container['filters'] = $filters;
 

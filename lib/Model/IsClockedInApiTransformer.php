@@ -86,8 +86,8 @@ class IsClockedInApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'datetime' => true,
-        'timezone' => true,
+        'datetime' => false,
+        'timezone' => false,
         'is_clocked_in' => false,
         'today' => false,
         'clock_time' => false
@@ -338,14 +338,7 @@ class IsClockedInApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
     public function setDatetime($datetime)
     {
         if (is_null($datetime)) {
-            array_push($this->openAPINullablesSetToNull, 'datetime');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('datetime', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable datetime cannot be null');
         }
         $this->container['datetime'] = $datetime;
 
@@ -372,14 +365,7 @@ class IsClockedInApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
     public function setTimezone($timezone)
     {
         if (is_null($timezone)) {
-            array_push($this->openAPINullablesSetToNull, 'timezone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timezone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
         }
         $this->container['timezone'] = $timezone;
 

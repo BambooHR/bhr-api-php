@@ -761,7 +761,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets category
      *
-     * @param \MySdk\Model\TaskCategoryDataObject|null $category category
+     * @param \MySdk\Model\TaskCategoryDataObject|null $category The category of the task
      *
      * @return self
      */

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **total_categories_count** | **int** |  | [optional]
 **scheduled_events** | [**\MySdk\Model\TimeOffEventsResponseInner[]**](TimeOffEventsResponseInner.md) | Time off events response | [optional]
 **history_requests** | [**\MySdk\Model\TimeOffEventsResponseInner[]**](TimeOffEventsResponseInner.md) | Time off events response | [optional]
-**categories** | [**\MySdk\Model\TimeOffSummaryResponseInnerCategoriesInner[]**](TimeOffSummaryResponseInnerCategoriesInner.md) |  | [optional]
+**categories** | [**\MySdk\Model\EmployeeTimeOffCategoryDetailsResponseInnerCategoryInner[]**](EmployeeTimeOffCategoryDetailsResponseInnerCategoryInner.md) |  | [optional]
 **can_request** | **bool** |  | [optional]
 **can_record** | **bool** |  | [optional]
 **calculable** | **bool** |  | [optional]

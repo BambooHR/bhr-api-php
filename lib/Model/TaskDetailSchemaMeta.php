@@ -58,7 +58,7 @@ class TaskDetailSchemaMeta implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'persons' => '\MySdk\Model\TaskDetailSchemaMetaPersonsInner[]',
+        'persons' => '\MySdk\Model\TaskPersonInfo[]',
         'files' => '\MySdk\Model\TaskMetaFileSchema[]',
         'employee_files' => '\MySdk\Model\TaskMetaFileSchema[]'
     ];
@@ -307,7 +307,7 @@ class TaskDetailSchemaMeta implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets persons
      *
-     * @return \MySdk\Model\TaskDetailSchemaMetaPersonsInner[]|null
+     * @return \MySdk\Model\TaskPersonInfo[]|null
      */
     public function getPersons()
     {
@@ -317,7 +317,7 @@ class TaskDetailSchemaMeta implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets persons
      *
-     * @param \MySdk\Model\TaskDetailSchemaMetaPersonsInner[]|null $persons Persons related to the task
+     * @param \MySdk\Model\TaskPersonInfo[]|null $persons Persons related to the task
      *
      * @return self
      */

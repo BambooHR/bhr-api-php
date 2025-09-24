@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **updated_ymdt** | **\DateTime** | Last update timestamp | [optional]
 **deleted_ymdt** | **\DateTime** | Deletion timestamp | [optional]
 **created_ymdt** | **\DateTime** | Creation timestamp | [optional]
+**is_public** | **bool** | Indicates if the holiday is public | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

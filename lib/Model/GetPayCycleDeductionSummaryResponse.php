@@ -58,7 +58,7 @@ class GetPayCycleDeductionSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'deductions' => '\MySdk\Model\DeductionTotals[]',
+        'deductions' => '\MySdk\Model\DeductionTotalsCollection',
         'totals' => '\MySdk\Model\DeductionTotalsSummary',
         'non_calculated_deductions' => '\MySdk\Model\DeductionTotals[]'
     ];
@@ -307,7 +307,7 @@ class GetPayCycleDeductionSummaryResponse implements ModelInterface, ArrayAccess
     /**
      * Gets deductions
      *
-     * @return \MySdk\Model\DeductionTotals[]|null
+     * @return \MySdk\Model\DeductionTotalsCollection|null
      */
     public function getDeductions()
     {
@@ -317,7 +317,7 @@ class GetPayCycleDeductionSummaryResponse implements ModelInterface, ArrayAccess
     /**
      * Sets deductions
      *
-     * @param \MySdk\Model\DeductionTotals[]|null $deductions Collection of DeductionTotals
+     * @param \MySdk\Model\DeductionTotalsCollection|null $deductions deductions
      *
      * @return self
      */

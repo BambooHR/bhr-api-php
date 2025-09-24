@@ -94,8 +94,8 @@ class NavigationMenuItemDataObject implements ModelInterface, ArrayAccess, \Json
         'is_po_enabled' => false,
         'label' => false,
         'nav_group_label' => false,
-        'has_pill' => true,
-        'pill_label' => true
+        'has_pill' => false,
+        'pill_label' => false
     ];
 
     /**
@@ -486,14 +486,7 @@ class NavigationMenuItemDataObject implements ModelInterface, ArrayAccess, \Json
     public function setHasPill($has_pill)
     {
         if (is_null($has_pill)) {
-            array_push($this->openAPINullablesSetToNull, 'has_pill');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('has_pill', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable has_pill cannot be null');
         }
         $this->container['has_pill'] = $has_pill;
 
@@ -520,14 +513,7 @@ class NavigationMenuItemDataObject implements ModelInterface, ArrayAccess, \Json
     public function setPillLabel($pill_label)
     {
         if (is_null($pill_label)) {
-            array_push($this->openAPINullablesSetToNull, 'pill_label');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pill_label', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable pill_label cannot be null');
         }
         $this->container['pill_label'] = $pill_label;
 

@@ -60,6 +60,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     protected static $openAPITypes = [
         'option_value' => 'int',
         'option_text' => 'string',
+        'option_note' => 'string',
         'selected' => 'bool'
     ];
 
@@ -73,6 +74,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     protected static $openAPIFormats = [
         'option_value' => null,
         'option_text' => null,
+        'option_note' => null,
         'selected' => null
     ];
 
@@ -84,6 +86,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     protected static array $openAPINullables = [
         'option_value' => false,
         'option_text' => false,
+        'option_note' => false,
         'selected' => false
     ];
 
@@ -175,6 +178,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     protected static $attributeMap = [
         'option_value' => 'optionValue',
         'option_text' => 'optionText',
+        'option_note' => 'optionNote',
         'selected' => 'selected'
     ];
 
@@ -186,6 +190,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     protected static $setters = [
         'option_value' => 'setOptionValue',
         'option_text' => 'setOptionText',
+        'option_note' => 'setOptionNote',
         'selected' => 'setSelected'
     ];
 
@@ -197,6 +202,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     protected static $getters = [
         'option_value' => 'getOptionValue',
         'option_text' => 'getOptionText',
+        'option_note' => 'getOptionNote',
         'selected' => 'getSelected'
     ];
 
@@ -259,6 +265,7 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
     {
         $this->setIfExists('option_value', $data ?? [], null);
         $this->setIfExists('option_text', $data ?? [], null);
+        $this->setIfExists('option_note', $data ?? [], null);
         $this->setIfExists('selected', $data ?? [], false);
     }
 
@@ -354,6 +361,33 @@ class ControllerPayrollViewObjectEmployeeTaxTypeView implements ModelInterface, 
             throw new \InvalidArgumentException('non-nullable option_text cannot be null');
         }
         $this->container['option_text'] = $option_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets option_note
+     *
+     * @return string|null
+     */
+    public function getOptionNote()
+    {
+        return $this->container['option_note'];
+    }
+
+    /**
+     * Sets option_note
+     *
+     * @param string|null $option_note Display text for the tax type note
+     *
+     * @return self
+     */
+    public function setOptionNote($option_note)
+    {
+        if (is_null($option_note)) {
+            throw new \InvalidArgumentException('non-nullable option_note cannot be null');
+        }
+        $this->container['option_note'] = $option_note;
 
         return $this;
     }

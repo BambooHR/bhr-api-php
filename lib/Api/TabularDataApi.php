@@ -148,7 +148,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
@@ -158,9 +157,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addEmployeeTableRow($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
+    public function addEmployeeTableRow($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
     {
-        $this->addEmployeeTableRowWithHttpInfo($company_domain, $id, $table, $table_row_update, $contentType);
+        $this->addEmployeeTableRowWithHttpInfo($id, $table, $table_row_update, $contentType);
     }
 
     /**
@@ -168,7 +167,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -178,9 +176,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addEmployeeTableRowWithHttpInfo($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
+    public function addEmployeeTableRowWithHttpInfo($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
     {
-        $request = $this->addEmployeeTableRowRequest($company_domain, $id, $table, $table_row_update, $contentType);
+        $request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -220,7 +218,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -229,9 +226,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmployeeTableRowAsync($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
+    public function addEmployeeTableRowAsync($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
     {
-        return $this->addEmployeeTableRowAsyncWithHttpInfo($company_domain, $id, $table, $table_row_update, $contentType)
+        return $this->addEmployeeTableRowAsyncWithHttpInfo($id, $table, $table_row_update, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -244,7 +241,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -253,10 +249,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmployeeTableRowAsyncWithHttpInfo($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
+    public function addEmployeeTableRowAsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
     {
         $returnType = '';
-        $request = $this->addEmployeeTableRowRequest($company_domain, $id, $table, $table_row_update, $contentType);
+        $request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -284,7 +280,6 @@ class TabularDataApi
     /**
      * Create request for operation 'addEmployeeTableRow'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -293,15 +288,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addEmployeeTableRowRequest($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
+    public function addEmployeeTableRowRequest($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRow'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addEmployeeTableRow'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -325,7 +313,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{id}/tables/{table}';
+        $resourcePath = '/api/v1/employees/{id}/tables/{table}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -334,14 +322,6 @@ class TabularDataApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -437,7 +417,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
@@ -447,9 +426,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addEmployeeTableRowV1($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
+    public function addEmployeeTableRowV1($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
     {
-        $this->addEmployeeTableRowV1WithHttpInfo($company_domain, $id, $table, $table_row_update, $contentType);
+        $this->addEmployeeTableRowV1WithHttpInfo($id, $table, $table_row_update, $contentType);
     }
 
     /**
@@ -457,7 +436,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -467,9 +445,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addEmployeeTableRowV1WithHttpInfo($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
+    public function addEmployeeTableRowV1WithHttpInfo($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
     {
-        $request = $this->addEmployeeTableRowV1Request($company_domain, $id, $table, $table_row_update, $contentType);
+        $request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -509,7 +487,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -518,9 +495,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmployeeTableRowV1Async($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
+    public function addEmployeeTableRowV1Async($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
     {
-        return $this->addEmployeeTableRowV1AsyncWithHttpInfo($company_domain, $id, $table, $table_row_update, $contentType)
+        return $this->addEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $table_row_update, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -533,7 +510,6 @@ class TabularDataApi
      *
      * Adds a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -542,10 +518,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmployeeTableRowV1AsyncWithHttpInfo($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
+    public function addEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
     {
         $returnType = '';
-        $request = $this->addEmployeeTableRowV1Request($company_domain, $id, $table, $table_row_update, $contentType);
+        $request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -573,7 +549,6 @@ class TabularDataApi
     /**
      * Create request for operation 'addEmployeeTableRowV1'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
@@ -582,15 +557,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addEmployeeTableRowV1Request($company_domain, $id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
+    public function addEmployeeTableRowV1Request($id, $table, $table_row_update, string $contentType = self::contentTypes['addEmployeeTableRowV1'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addEmployeeTableRowV1'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -614,7 +582,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_1/employees/{id}/tables/{table}';
+        $resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -623,14 +591,6 @@ class TabularDataApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -726,7 +686,6 @@ class TabularDataApi
      *
      * Deletes a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -736,9 +695,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\DeleteEmployeeTableRowV1200Response
      */
-    public function deleteEmployeeTableRowV1($company_domain, $id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
+    public function deleteEmployeeTableRowV1($id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
     {
-        list($response) = $this->deleteEmployeeTableRowV1WithHttpInfo($company_domain, $id, $table, $row_id, $contentType);
+        list($response) = $this->deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, $contentType);
         return $response;
     }
 
@@ -747,7 +706,6 @@ class TabularDataApi
      *
      * Deletes a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -757,9 +715,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\DeleteEmployeeTableRowV1200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEmployeeTableRowV1WithHttpInfo($company_domain, $id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
+    public function deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
     {
-        $request = $this->deleteEmployeeTableRowV1Request($company_domain, $id, $table, $row_id, $contentType);
+        $request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -835,7 +793,6 @@ class TabularDataApi
      *
      * Deletes a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -844,9 +801,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmployeeTableRowV1Async($company_domain, $id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
+    public function deleteEmployeeTableRowV1Async($id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
     {
-        return $this->deleteEmployeeTableRowV1AsyncWithHttpInfo($company_domain, $id, $table, $row_id, $contentType)
+        return $this->deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -859,7 +816,6 @@ class TabularDataApi
      *
      * Deletes a table row
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -868,10 +824,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmployeeTableRowV1AsyncWithHttpInfo($company_domain, $id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
+    public function deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
     {
         $returnType = '\MySdk\Model\DeleteEmployeeTableRowV1200Response';
-        $request = $this->deleteEmployeeTableRowV1Request($company_domain, $id, $table, $row_id, $contentType);
+        $request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -912,7 +868,6 @@ class TabularDataApi
     /**
      * Create request for operation 'deleteEmployeeTableRowV1'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -921,15 +876,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteEmployeeTableRowV1Request($company_domain, $id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
+    public function deleteEmployeeTableRowV1Request($id, $table, $row_id, string $contentType = self::contentTypes['deleteEmployeeTableRowV1'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteEmployeeTableRowV1'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -953,7 +901,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{id}/tables/{table}/{rowId}';
+        $resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -962,14 +910,6 @@ class TabularDataApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1066,7 +1006,6 @@ class TabularDataApi
      *
      * Gets all updated employee table data
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $table Table name (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeTableData'] to see the possible values for this operation
@@ -1075,9 +1014,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getChangedEmployeeTableData($company_domain, $table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
+    public function getChangedEmployeeTableData($table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
     {
-        $this->getChangedEmployeeTableDataWithHttpInfo($company_domain, $table, $since, $contentType);
+        $this->getChangedEmployeeTableDataWithHttpInfo($table, $since, $contentType);
     }
 
     /**
@@ -1085,7 +1024,6 @@ class TabularDataApi
      *
      * Gets all updated employee table data
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $table Table name (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeTableData'] to see the possible values for this operation
@@ -1094,9 +1032,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getChangedEmployeeTableDataWithHttpInfo($company_domain, $table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
+    public function getChangedEmployeeTableDataWithHttpInfo($table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
     {
-        $request = $this->getChangedEmployeeTableDataRequest($company_domain, $table, $since, $contentType);
+        $request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1136,7 +1074,6 @@ class TabularDataApi
      *
      * Gets all updated employee table data
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $table Table name (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeTableData'] to see the possible values for this operation
@@ -1144,9 +1081,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChangedEmployeeTableDataAsync($company_domain, $table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
+    public function getChangedEmployeeTableDataAsync($table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
     {
-        return $this->getChangedEmployeeTableDataAsyncWithHttpInfo($company_domain, $table, $since, $contentType)
+        return $this->getChangedEmployeeTableDataAsyncWithHttpInfo($table, $since, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,7 +1096,6 @@ class TabularDataApi
      *
      * Gets all updated employee table data
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $table Table name (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeTableData'] to see the possible values for this operation
@@ -1167,10 +1103,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChangedEmployeeTableDataAsyncWithHttpInfo($company_domain, $table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
+    public function getChangedEmployeeTableDataAsyncWithHttpInfo($table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
     {
         $returnType = '';
-        $request = $this->getChangedEmployeeTableDataRequest($company_domain, $table, $since, $contentType);
+        $request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1198,7 +1134,6 @@ class TabularDataApi
     /**
      * Create request for operation 'getChangedEmployeeTableData'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $table Table name (required)
      * @param  string $since URL encoded iso8601 timestamp (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChangedEmployeeTableData'] to see the possible values for this operation
@@ -1206,15 +1141,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getChangedEmployeeTableDataRequest($company_domain, $table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
+    public function getChangedEmployeeTableDataRequest($table, $since, string $contentType = self::contentTypes['getChangedEmployeeTableData'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getChangedEmployeeTableData'
-            );
-        }
 
         // verify the required parameter 'table' is set
         if ($table === null || (is_array($table) && count($table) === 0)) {
@@ -1231,7 +1159,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/changed/tables/{table}';
+        $resourcePath = '/api/v1/employees/changed/tables/{table}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1249,14 +1177,6 @@ class TabularDataApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($table !== null) {
             $resourcePath = str_replace(
@@ -1337,7 +1257,6 @@ class TabularDataApi
      *
      * Gets table rows for a given employee and table combination
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeTableRow'] to see the possible values for this operation
@@ -1346,9 +1265,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getEmployeeTableRow($company_domain, $id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
+    public function getEmployeeTableRow($id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
     {
-        $this->getEmployeeTableRowWithHttpInfo($company_domain, $id, $table, $contentType);
+        $this->getEmployeeTableRowWithHttpInfo($id, $table, $contentType);
     }
 
     /**
@@ -1356,7 +1275,6 @@ class TabularDataApi
      *
      * Gets table rows for a given employee and table combination
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeTableRow'] to see the possible values for this operation
@@ -1365,9 +1283,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeeTableRowWithHttpInfo($company_domain, $id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
+    public function getEmployeeTableRowWithHttpInfo($id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
     {
-        $request = $this->getEmployeeTableRowRequest($company_domain, $id, $table, $contentType);
+        $request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1407,7 +1325,6 @@ class TabularDataApi
      *
      * Gets table rows for a given employee and table combination
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeTableRow'] to see the possible values for this operation
@@ -1415,9 +1332,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeTableRowAsync($company_domain, $id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
+    public function getEmployeeTableRowAsync($id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
     {
-        return $this->getEmployeeTableRowAsyncWithHttpInfo($company_domain, $id, $table, $contentType)
+        return $this->getEmployeeTableRowAsyncWithHttpInfo($id, $table, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1430,7 +1347,6 @@ class TabularDataApi
      *
      * Gets table rows for a given employee and table combination
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeTableRow'] to see the possible values for this operation
@@ -1438,10 +1354,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeTableRowAsyncWithHttpInfo($company_domain, $id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
+    public function getEmployeeTableRowAsyncWithHttpInfo($id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
     {
         $returnType = '';
-        $request = $this->getEmployeeTableRowRequest($company_domain, $id, $table, $contentType);
+        $request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1469,7 +1385,6 @@ class TabularDataApi
     /**
      * Create request for operation 'getEmployeeTableRow'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeeTableRow'] to see the possible values for this operation
@@ -1477,15 +1392,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeeTableRowRequest($company_domain, $id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
+    public function getEmployeeTableRowRequest($id, $table, string $contentType = self::contentTypes['getEmployeeTableRow'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getEmployeeTableRow'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1502,7 +1410,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{id}/tables/{table}';
+        $resourcePath = '/api/v1/employees/{id}/tables/{table}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1511,14 +1419,6 @@ class TabularDataApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1607,7 +1507,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1618,9 +1517,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateEmployeeTableRow($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
+    public function updateEmployeeTableRow($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
     {
-        $this->updateEmployeeTableRowWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, $contentType);
+        $this->updateEmployeeTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
     }
 
     /**
@@ -1628,7 +1527,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1639,9 +1537,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmployeeTableRowWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
+    public function updateEmployeeTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
     {
-        $request = $this->updateEmployeeTableRowRequest($company_domain, $id, $table, $row_id, $table_row_update, $contentType);
+        $request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1681,7 +1579,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1691,9 +1588,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeTableRowAsync($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
+    public function updateEmployeeTableRowAsync($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
     {
-        return $this->updateEmployeeTableRowAsyncWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, $contentType)
+        return $this->updateEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1706,7 +1603,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1716,10 +1612,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeTableRowAsyncWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
+    public function updateEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
     {
         $returnType = '';
-        $request = $this->updateEmployeeTableRowRequest($company_domain, $id, $table, $row_id, $table_row_update, $contentType);
+        $request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1747,7 +1643,6 @@ class TabularDataApi
     /**
      * Create request for operation 'updateEmployeeTableRow'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1757,15 +1652,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmployeeTableRowRequest($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
+    public function updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRow'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateEmployeeTableRow'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1796,7 +1684,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{id}/tables/{table}/{rowId}';
+        $resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1805,14 +1693,6 @@ class TabularDataApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1916,7 +1796,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1927,9 +1806,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateEmployeeTableRowV($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
+    public function updateEmployeeTableRowV($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
     {
-        $this->updateEmployeeTableRowVWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, $contentType);
+        $this->updateEmployeeTableRowVWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
     }
 
     /**
@@ -1937,7 +1816,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -1948,9 +1826,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmployeeTableRowVWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
+    public function updateEmployeeTableRowVWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
     {
-        $request = $this->updateEmployeeTableRowVRequest($company_domain, $id, $table, $row_id, $table_row_update, $contentType);
+        $request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1990,7 +1868,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -2000,9 +1877,9 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeTableRowVAsync($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
+    public function updateEmployeeTableRowVAsync($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
     {
-        return $this->updateEmployeeTableRowVAsyncWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, $contentType)
+        return $this->updateEmployeeTableRowVAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2015,7 +1892,6 @@ class TabularDataApi
      *
      * Updates a table row.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -2025,10 +1901,10 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeTableRowVAsyncWithHttpInfo($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
+    public function updateEmployeeTableRowVAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
     {
         $returnType = '';
-        $request = $this->updateEmployeeTableRowVRequest($company_domain, $id, $table, $row_id, $table_row_update, $contentType);
+        $request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2056,7 +1932,6 @@ class TabularDataApi
     /**
      * Create request for operation 'updateEmployeeTableRowV'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is the employee ID. (required)
      * @param  string $table Table name (required)
      * @param  string $row_id Row ID (required)
@@ -2066,15 +1941,8 @@ class TabularDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmployeeTableRowVRequest($company_domain, $id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
+    public function updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, string $contentType = self::contentTypes['updateEmployeeTableRowV'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateEmployeeTableRowV'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2105,7 +1973,7 @@ class TabularDataApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_1/employees/{id}/tables/{table}/{rowId}';
+        $resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2114,14 +1982,6 @@ class TabularDataApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

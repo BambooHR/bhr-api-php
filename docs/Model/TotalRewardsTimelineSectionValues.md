@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comp_summary** | [**\MySdk\Model\TotalRewardsCompSummaryValues**](TotalRewardsCompSummaryValues.md) |  | [optional]
+**comp_summary** | [**\MySdk\Model\TotalRewardsCompSummaryValues**](TotalRewardsCompSummaryValues.md) | Compensation summary | [optional]
 **timeline_data** | [**\MySdk\Model\TotalRewardsTimelineItem[]**](TotalRewardsTimelineItem.md) | Timeline data | [optional]
 **placeholder_text** | **string** | Placeholder text | [optional]
 

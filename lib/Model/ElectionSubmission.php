@@ -60,7 +60,7 @@ class ElectionSubmission implements ModelInterface, ArrayAccess, \JsonSerializab
         'company_enrollment_window_id' => 'string',
         'employee_id' => 'string',
         'id' => 'string',
-        'latest_date_submitted' => 'string',
+        'latest_date_submitted' => '\DateTime',
         'status' => 'string'
     ];
 
@@ -75,7 +75,7 @@ class ElectionSubmission implements ModelInterface, ArrayAccess, \JsonSerializab
         'company_enrollment_window_id' => null,
         'employee_id' => null,
         'id' => null,
-        'latest_date_submitted' => null,
+        'latest_date_submitted' => 'date',
         'status' => null
     ];
 
@@ -408,7 +408,7 @@ class ElectionSubmission implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets latest_date_submitted
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getLatestDateSubmitted()
     {
@@ -418,7 +418,7 @@ class ElectionSubmission implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets latest_date_submitted
      *
-     * @param string|null $latest_date_submitted latest_date_submitted
+     * @param \DateTime|null $latest_date_submitted latest_date_submitted
      *
      * @return self
      */

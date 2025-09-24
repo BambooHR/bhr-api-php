@@ -57,9 +57,9 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filter_options' => 'object',
-        'sort_options' => 'object',
-        'cascading_goals' => 'object'
+        'filter_options' => '\MySdk\Model\CategorizedDropdownOptionViewObject[]',
+        'sort_options' => '\MySdk\Model\DropdownOption[]',
+        'cascading_goals' => '\MySdk\Model\TransformedCascadingGoalsViewObject'
     ];
 
     /**
@@ -306,7 +306,7 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
     /**
      * Gets filter_options
      *
-     * @return object|null
+     * @return \MySdk\Model\CategorizedDropdownOptionViewObject[]|null
      */
     public function getFilterOptions()
     {
@@ -316,7 +316,7 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
     /**
      * Sets filter_options
      *
-     * @param object|null $filter_options Filter options for the cascading goals page
+     * @param \MySdk\Model\CategorizedDropdownOptionViewObject[]|null $filter_options Filter options for the cascading goals page
      *
      * @return self
      */
@@ -333,7 +333,7 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
     /**
      * Gets sort_options
      *
-     * @return object|null
+     * @return \MySdk\Model\DropdownOption[]|null
      */
     public function getSortOptions()
     {
@@ -343,7 +343,7 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
     /**
      * Sets sort_options
      *
-     * @param object|null $sort_options Sort options for the cascading goals page
+     * @param \MySdk\Model\DropdownOption[]|null $sort_options Sort options for the cascading goals page
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
     /**
      * Gets cascading_goals
      *
-     * @return object|null
+     * @return \MySdk\Model\TransformedCascadingGoalsViewObject|null
      */
     public function getCascadingGoals()
     {
@@ -370,7 +370,7 @@ class CascadingGoalsPageDataViewObject implements ModelInterface, ArrayAccess, \
     /**
      * Sets cascading_goals
      *
-     * @param object|null $cascading_goals The cascading goals for the cascading goals page
+     * @param \MySdk\Model\TransformedCascadingGoalsViewObject|null $cascading_goals The cascading goals for the cascading goals page
      *
      * @return self
      */

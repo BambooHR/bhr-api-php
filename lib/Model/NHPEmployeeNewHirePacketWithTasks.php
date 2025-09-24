@@ -317,7 +317,7 @@ class NHPEmployeeNewHirePacketWithTasks implements ModelInterface, ArrayAccess, 
     /**
      * Sets new_hire_packet_data
      *
-     * @param \MySdk\Model\NHPEmployeeNewHirePacketDataObject|null $new_hire_packet_data new_hire_packet_data
+     * @param \MySdk\Model\NHPEmployeeNewHirePacketDataObject|null $new_hire_packet_data New hire packet data
      *
      * @return self
      */

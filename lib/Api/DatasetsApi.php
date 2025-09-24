@@ -136,7 +136,6 @@ class DatasetsApi
      *
      * Get Data from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want data from (required)
      * @param  \MySdk\Model\DataRequest $data_request data_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataFromDataset'] to see the possible values for this operation
@@ -145,9 +144,9 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\EmployeeResponse
      */
-    public function getDataFromDataset($company_domain, $dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
+    public function getDataFromDataset($dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
     {
-        list($response) = $this->getDataFromDatasetWithHttpInfo($company_domain, $dataset_name, $data_request, $contentType);
+        list($response) = $this->getDataFromDatasetWithHttpInfo($dataset_name, $data_request, $contentType);
         return $response;
     }
 
@@ -156,7 +155,6 @@ class DatasetsApi
      *
      * Get Data from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want data from (required)
      * @param  \MySdk\Model\DataRequest $data_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataFromDataset'] to see the possible values for this operation
@@ -165,9 +163,9 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDataFromDatasetWithHttpInfo($company_domain, $dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
+    public function getDataFromDatasetWithHttpInfo($dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
     {
-        $request = $this->getDataFromDatasetRequest($company_domain, $dataset_name, $data_request, $contentType);
+        $request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,7 +241,6 @@ class DatasetsApi
      *
      * Get Data from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want data from (required)
      * @param  \MySdk\Model\DataRequest $data_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataFromDataset'] to see the possible values for this operation
@@ -251,9 +248,9 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataFromDatasetAsync($company_domain, $dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
+    public function getDataFromDatasetAsync($dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
     {
-        return $this->getDataFromDatasetAsyncWithHttpInfo($company_domain, $dataset_name, $data_request, $contentType)
+        return $this->getDataFromDatasetAsyncWithHttpInfo($dataset_name, $data_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -266,7 +263,6 @@ class DatasetsApi
      *
      * Get Data from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want data from (required)
      * @param  \MySdk\Model\DataRequest $data_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataFromDataset'] to see the possible values for this operation
@@ -274,10 +270,10 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataFromDatasetAsyncWithHttpInfo($company_domain, $dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
+    public function getDataFromDatasetAsyncWithHttpInfo($dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
     {
         $returnType = '\MySdk\Model\EmployeeResponse';
-        $request = $this->getDataFromDatasetRequest($company_domain, $dataset_name, $data_request, $contentType);
+        $request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -318,7 +314,6 @@ class DatasetsApi
     /**
      * Create request for operation 'getDataFromDataset'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want data from (required)
      * @param  \MySdk\Model\DataRequest $data_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataFromDataset'] to see the possible values for this operation
@@ -326,15 +321,8 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDataFromDatasetRequest($company_domain, $dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
+    public function getDataFromDatasetRequest($dataset_name, $data_request, string $contentType = self::contentTypes['getDataFromDataset'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getDataFromDataset'
-            );
-        }
 
         // verify the required parameter 'dataset_name' is set
         if ($dataset_name === null || (is_array($dataset_name) && count($dataset_name) === 0)) {
@@ -351,7 +339,7 @@ class DatasetsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/datasets/{datasetName}';
+        $resourcePath = '/api/v1/datasets/{datasetName}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -360,14 +348,6 @@ class DatasetsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($dataset_name !== null) {
             $resourcePath = str_replace(
@@ -455,16 +435,15 @@ class DatasetsApi
      *
      * Get Data Sets
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSets'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\DatasetResponse
      */
-    public function getDataSets($company_domain, string $contentType = self::contentTypes['getDataSets'][0])
+    public function getDataSets(string $contentType = self::contentTypes['getDataSets'][0])
     {
-        list($response) = $this->getDataSetsWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->getDataSetsWithHttpInfo($contentType);
         return $response;
     }
 
@@ -473,16 +452,15 @@ class DatasetsApi
      *
      * Get Data Sets
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSets'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDataSetsWithHttpInfo($company_domain, string $contentType = self::contentTypes['getDataSets'][0])
+    public function getDataSetsWithHttpInfo(string $contentType = self::contentTypes['getDataSets'][0])
     {
-        $request = $this->getDataSetsRequest($company_domain, $contentType);
+        $request = $this->getDataSetsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -558,15 +536,14 @@ class DatasetsApi
      *
      * Get Data Sets
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataSetsAsync($company_domain, string $contentType = self::contentTypes['getDataSets'][0])
+    public function getDataSetsAsync(string $contentType = self::contentTypes['getDataSets'][0])
     {
-        return $this->getDataSetsAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getDataSetsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -579,16 +556,15 @@ class DatasetsApi
      *
      * Get Data Sets
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataSetsAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getDataSets'][0])
+    public function getDataSetsAsyncWithHttpInfo(string $contentType = self::contentTypes['getDataSets'][0])
     {
         $returnType = '\MySdk\Model\DatasetResponse';
-        $request = $this->getDataSetsRequest($company_domain, $contentType);
+        $request = $this->getDataSetsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -629,24 +605,16 @@ class DatasetsApi
     /**
      * Create request for operation 'getDataSets'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDataSetsRequest($company_domain, string $contentType = self::contentTypes['getDataSets'][0])
+    public function getDataSetsRequest(string $contentType = self::contentTypes['getDataSets'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getDataSets'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/datasets';
+        $resourcePath = '/api/v1/datasets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -655,14 +623,6 @@ class DatasetsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -735,7 +695,6 @@ class DatasetsApi
      *
      * Get Fields from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want to see fields for (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -745,9 +704,9 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\DatasetFieldsResponse
      */
-    public function getFieldsFromDataset($company_domain, $dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
+    public function getFieldsFromDataset($dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
     {
-        list($response) = $this->getFieldsFromDatasetWithHttpInfo($company_domain, $dataset_name, $page, $page_size, $contentType);
+        list($response) = $this->getFieldsFromDatasetWithHttpInfo($dataset_name, $page, $page_size, $contentType);
         return $response;
     }
 
@@ -756,7 +715,6 @@ class DatasetsApi
      *
      * Get Fields from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want to see fields for (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -766,9 +724,9 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\DatasetFieldsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFieldsFromDatasetWithHttpInfo($company_domain, $dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
+    public function getFieldsFromDatasetWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
     {
-        $request = $this->getFieldsFromDatasetRequest($company_domain, $dataset_name, $page, $page_size, $contentType);
+        $request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -844,7 +802,6 @@ class DatasetsApi
      *
      * Get Fields from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want to see fields for (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -853,9 +810,9 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFieldsFromDatasetAsync($company_domain, $dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
+    public function getFieldsFromDatasetAsync($dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
     {
-        return $this->getFieldsFromDatasetAsyncWithHttpInfo($company_domain, $dataset_name, $page, $page_size, $contentType)
+        return $this->getFieldsFromDatasetAsyncWithHttpInfo($dataset_name, $page, $page_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -868,7 +825,6 @@ class DatasetsApi
      *
      * Get Fields from Dataset
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want to see fields for (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -877,10 +833,10 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFieldsFromDatasetAsyncWithHttpInfo($company_domain, $dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
+    public function getFieldsFromDatasetAsyncWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
     {
         $returnType = '\MySdk\Model\DatasetFieldsResponse';
-        $request = $this->getFieldsFromDatasetRequest($company_domain, $dataset_name, $page, $page_size, $contentType);
+        $request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -921,7 +877,6 @@ class DatasetsApi
     /**
      * Create request for operation 'getFieldsFromDataset'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $dataset_name The name of the dataset you want to see fields for (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -930,15 +885,8 @@ class DatasetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFieldsFromDatasetRequest($company_domain, $dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
+    public function getFieldsFromDatasetRequest($dataset_name, $page = null, $page_size = null, string $contentType = self::contentTypes['getFieldsFromDataset'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getFieldsFromDataset'
-            );
-        }
 
         // verify the required parameter 'dataset_name' is set
         if ($dataset_name === null || (is_array($dataset_name) && count($dataset_name) === 0)) {
@@ -950,7 +898,7 @@ class DatasetsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/datasets/{datasetName}/fields';
+        $resourcePath = '/api/v1/datasets/{datasetName}/fields';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -977,14 +925,6 @@ class DatasetsApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($dataset_name !== null) {
             $resourcePath = str_replace(

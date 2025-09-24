@@ -1,17 +1,17 @@
 # MySdk\ReportsApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCompanyReport()**](ReportsApi.md#getCompanyReport) | **GET** /{companyDomain}/v1/reports/{id} | Get company report |
-| [**requestCustomReport()**](ReportsApi.md#requestCustomReport) | **POST** /{companyDomain}/v1/reports/custom | Request a custom report |
+| [**getCompanyReport()**](ReportsApi.md#getCompanyReport) | **GET** /api/v1/reports/{id} | Get company report |
+| [**requestCustomReport()**](ReportsApi.md#requestCustomReport) | **POST** /api/v1/reports/custom | Request a custom report |
 
 
 ## `getCompanyReport()`
 
 ```php
-getCompanyReport($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current)
+getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current)
 ```
 
 Get company report
@@ -43,7 +43,6 @@ $apiInstance = new MySdk\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is a report ID.
 $format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
@@ -51,7 +50,7 @@ $fd = 'fd_example'; // string | yes=apply standard duplicate field filtering, no
 $only_current = false; // bool | Setting to false will return future dated values from history table fields.
 
 try {
-    $apiInstance->getCompanyReport($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current);
+    $apiInstance->getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->getCompanyReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -61,7 +60,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is a report ID. | |
 | **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
@@ -88,7 +86,7 @@ void (empty response body)
 ## `requestCustomReport()`
 
 ```php
-requestCustomReport($company_domain, $format, $request_custom_report, $only_current)
+requestCustomReport($format, $request_custom_report, $only_current)
 ```
 
 Request a custom report
@@ -120,13 +118,12 @@ $apiInstance = new MySdk\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
 $request_custom_report = new \MySdk\Model\RequestCustomReport(); // \MySdk\Model\RequestCustomReport
 $only_current = false; // bool | Limits the report to only current employees. Setting to false will include future-dated employees in the report.
 
 try {
-    $apiInstance->requestCustomReport($company_domain, $format, $request_custom_report, $only_current);
+    $apiInstance->requestCustomReport($format, $request_custom_report, $only_current);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->requestCustomReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -136,7 +133,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
 | **request_custom_report** | [**\MySdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
 | **only_current** | **bool**| Limits the report to only current employees. Setting to false will include future-dated employees in the report. | [optional] [default to false] |

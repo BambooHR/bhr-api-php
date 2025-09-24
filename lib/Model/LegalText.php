@@ -79,8 +79,8 @@ class LegalText implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'legal_text_id' => true,
-        'legal_text' => true
+        'legal_text_id' => false,
+        'legal_text' => false
     ];
 
     /**
@@ -316,14 +316,7 @@ class LegalText implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLegalTextId($legal_text_id)
     {
         if (is_null($legal_text_id)) {
-            array_push($this->openAPINullablesSetToNull, 'legal_text_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('legal_text_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable legal_text_id cannot be null');
         }
         $this->container['legal_text_id'] = $legal_text_id;
 
@@ -350,14 +343,7 @@ class LegalText implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLegalText($legal_text)
     {
         if (is_null($legal_text)) {
-            array_push($this->openAPINullablesSetToNull, 'legal_text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('legal_text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable legal_text cannot be null');
         }
         $this->container['legal_text'] = $legal_text;
 

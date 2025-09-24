@@ -344,7 +344,7 @@ class TotalRewardsExtraPaySectionValues implements ModelInterface, ArrayAccess, 
     /**
      * Sets comp_summary
      *
-     * @param \MySdk\Model\TotalRewardsCompSummaryValues|null $comp_summary comp_summary
+     * @param \MySdk\Model\TotalRewardsCompSummaryValues|null $comp_summary Compensation summary values for extra pay
      *
      * @return self
      */

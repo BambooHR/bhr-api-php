@@ -64,6 +64,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         'icon' => 'string',
         'color' => 'string',
         'unit' => 'string',
+        'source' => 'string',
         'still_in_use' => 'bool',
         'share_with_all_on_calendar' => 'bool',
         'paid' => 'bool',
@@ -87,6 +88,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         'icon' => null,
         'color' => null,
         'unit' => null,
+        'source' => null,
         'still_in_use' => null,
         'share_with_all_on_calendar' => null,
         'paid' => null,
@@ -108,6 +110,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         'icon' => false,
         'color' => false,
         'unit' => false,
+        'source' => false,
         'still_in_use' => false,
         'share_with_all_on_calendar' => false,
         'paid' => false,
@@ -209,6 +212,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         'icon' => 'icon',
         'color' => 'color',
         'unit' => 'unit',
+        'source' => 'source',
         'still_in_use' => 'stillInUse',
         'share_with_all_on_calendar' => 'shareWithAllOnCalendar',
         'paid' => 'paid',
@@ -230,6 +234,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         'icon' => 'setIcon',
         'color' => 'setColor',
         'unit' => 'setUnit',
+        'source' => 'setSource',
         'still_in_use' => 'setStillInUse',
         'share_with_all_on_calendar' => 'setShareWithAllOnCalendar',
         'paid' => 'setPaid',
@@ -251,6 +256,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         'icon' => 'getIcon',
         'color' => 'getColor',
         'unit' => 'getUnit',
+        'source' => 'getSource',
         'still_in_use' => 'getStillInUse',
         'share_with_all_on_calendar' => 'getShareWithAllOnCalendar',
         'paid' => 'getPaid',
@@ -300,6 +306,21 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         return self::$openAPIModelName;
     }
 
+    public const SOURCE_INTERNAL = 'internal';
+    public const SOURCE_REMOTE = 'remote';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_INTERNAL,
+            self::SOURCE_REMOTE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -323,6 +344,7 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('unit', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('still_in_use', $data ?? [], null);
         $this->setIfExists('share_with_all_on_calendar', $data ?? [], null);
         $this->setIfExists('paid', $data ?? [], null);
@@ -357,6 +379,15 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'source', must be one of '%s'",
+                $this->container['source'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -558,6 +589,43 @@ class TimeOffSettingsCategoryListTransformerCategoriesInner implements ModelInte
             throw new \InvalidArgumentException('non-nullable unit cannot be null');
         }
         $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'source', must be one of '%s'",
+                    $source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
 
         return $this;
     }

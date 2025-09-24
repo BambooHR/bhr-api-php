@@ -35,7 +35,7 @@ use \MySdk\ObjectSerializer;
  * AchHostedSignatureResponse Class Doc Comment
  *
  * @category Class
- * @description Schema for Zuora ACH hosted page signature and billing contact address.
+ * @description Schema for ACH hosted signature response.
  * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,7 @@ class AchHostedSignatureResponse implements ModelInterface, ArrayAccess, \JsonSe
         'tenant_id' => 'string',
         'key' => 'string',
         'page_id' => 'string',
-        'bill_to_contact_address' => 'object'
+        'bill_to_contact_address' => '\MySdk\Model\AchHostedSignatureResponseBillToContactAddress'
     ];
 
     /**
@@ -531,7 +531,7 @@ class AchHostedSignatureResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets bill_to_contact_address
      *
-     * @return object|null
+     * @return \MySdk\Model\AchHostedSignatureResponseBillToContactAddress|null
      */
     public function getBillToContactAddress()
     {
@@ -541,7 +541,7 @@ class AchHostedSignatureResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets bill_to_contact_address
      *
-     * @param object|null $bill_to_contact_address bill_to_contact_address
+     * @param \MySdk\Model\AchHostedSignatureResponseBillToContactAddress|null $bill_to_contact_address bill_to_contact_address
      *
      * @return self
      */

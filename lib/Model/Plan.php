@@ -65,14 +65,13 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         'deductible_ids' => 'string[]',
         'max_out_of_pocket_ids' => 'string[]',
         'co_insurance' => 'float',
-        'effective_date' => 'string',
+        'effective_date' => '\DateTime',
         'plan_type_id' => 'int',
         'benefit_type' => 'string',
         'auto_enroll_setting' => 'string',
         'auto_enroll_default_employee_contribution_amount' => 'float',
         'is_variable' => 'bool',
         'required_plan_ids' => 'string[]',
-        'plan_category_data_options' => 'object',
         'is_safe_harbor' => 'bool',
         'plan_files' => '\MySdk\Model\BenefitPlanFileViewObject[]',
         'additional_plan_urls' => '\MySdk\Model\NamedPlanUrl[]',
@@ -96,14 +95,13 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         'deductible_ids' => null,
         'max_out_of_pocket_ids' => null,
         'co_insurance' => 'float',
-        'effective_date' => null,
+        'effective_date' => 'date',
         'plan_type_id' => null,
         'benefit_type' => null,
         'auto_enroll_setting' => null,
         'auto_enroll_default_employee_contribution_amount' => 'float',
         'is_variable' => null,
         'required_plan_ids' => null,
-        'plan_category_data_options' => null,
         'is_safe_harbor' => null,
         'plan_files' => null,
         'additional_plan_urls' => null,
@@ -132,7 +130,6 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_enroll_default_employee_contribution_amount' => true,
         'is_variable' => true,
         'required_plan_ids' => false,
-        'plan_category_data_options' => false,
         'is_safe_harbor' => false,
         'plan_files' => false,
         'additional_plan_urls' => false,
@@ -241,7 +238,6 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_enroll_default_employee_contribution_amount' => 'autoEnrollDefaultEmployeeContributionAmount',
         'is_variable' => 'isVariable',
         'required_plan_ids' => 'requiredPlanIds',
-        'plan_category_data_options' => 'planCategoryDataOptions',
         'is_safe_harbor' => 'isSafeHarbor',
         'plan_files' => 'planFiles',
         'additional_plan_urls' => 'additionalPlanUrls',
@@ -270,7 +266,6 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_enroll_default_employee_contribution_amount' => 'setAutoEnrollDefaultEmployeeContributionAmount',
         'is_variable' => 'setIsVariable',
         'required_plan_ids' => 'setRequiredPlanIds',
-        'plan_category_data_options' => 'setPlanCategoryDataOptions',
         'is_safe_harbor' => 'setIsSafeHarbor',
         'plan_files' => 'setPlanFiles',
         'additional_plan_urls' => 'setAdditionalPlanUrls',
@@ -299,7 +294,6 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_enroll_default_employee_contribution_amount' => 'getAutoEnrollDefaultEmployeeContributionAmount',
         'is_variable' => 'getIsVariable',
         'required_plan_ids' => 'getRequiredPlanIds',
-        'plan_category_data_options' => 'getPlanCategoryDataOptions',
         'is_safe_harbor' => 'getIsSafeHarbor',
         'plan_files' => 'getPlanFiles',
         'additional_plan_urls' => 'getAdditionalPlanUrls',
@@ -379,7 +373,6 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('auto_enroll_default_employee_contribution_amount', $data ?? [], null);
         $this->setIfExists('is_variable', $data ?? [], null);
         $this->setIfExists('required_plan_ids', $data ?? [], null);
-        $this->setIfExists('plan_category_data_options', $data ?? [], null);
         $this->setIfExists('is_safe_harbor', $data ?? [], null);
         $this->setIfExists('plan_files', $data ?? [], null);
         $this->setIfExists('additional_plan_urls', $data ?? [], null);
@@ -662,7 +655,7 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets effective_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getEffectiveDate()
     {
@@ -672,7 +665,7 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets effective_date
      *
-     * @param string|null $effective_date effective_date
+     * @param \DateTime|null $effective_date effective_date
      *
      * @return self
      */
@@ -872,33 +865,6 @@ class Plan implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable required_plan_ids cannot be null');
         }
         $this->container['required_plan_ids'] = $required_plan_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_category_data_options
-     *
-     * @return object|null
-     */
-    public function getPlanCategoryDataOptions()
-    {
-        return $this->container['plan_category_data_options'];
-    }
-
-    /**
-     * Sets plan_category_data_options
-     *
-     * @param object|null $plan_category_data_options plan_category_data_options
-     *
-     * @return self
-     */
-    public function setPlanCategoryDataOptions($plan_category_data_options)
-    {
-        if (is_null($plan_category_data_options)) {
-            throw new \InvalidArgumentException('non-nullable plan_category_data_options cannot be null');
-        }
-        $this->container['plan_category_data_options'] = $plan_category_data_options;
 
         return $this;
     }

@@ -79,7 +79,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
+        'id' => false,
         'name' => false
     ];
 
@@ -316,14 +316,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
     public function setId($id)
     {
         if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 

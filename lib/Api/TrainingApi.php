@@ -163,7 +163,6 @@ class TrainingApi
      *
      * Add New Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to add a training record to. (required)
      * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addNewEmployeeTrainingRecord'] to see the possible values for this operation
@@ -172,9 +171,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TrainingRecord
      */
-    public function addNewEmployeeTrainingRecord($company_domain, $employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
+    public function addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
     {
-        list($response) = $this->addNewEmployeeTrainingRecordWithHttpInfo($company_domain, $employee_id, $add_new_employee_training_record_request, $contentType);
+        list($response) = $this->addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, $contentType);
         return $response;
     }
 
@@ -183,7 +182,6 @@ class TrainingApi
      *
      * Add New Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to add a training record to. (required)
      * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addNewEmployeeTrainingRecord'] to see the possible values for this operation
@@ -192,9 +190,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addNewEmployeeTrainingRecordWithHttpInfo($company_domain, $employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
+    public function addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
     {
-        $request = $this->addNewEmployeeTrainingRecordRequest($company_domain, $employee_id, $add_new_employee_training_record_request, $contentType);
+        $request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -270,7 +268,6 @@ class TrainingApi
      *
      * Add New Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to add a training record to. (required)
      * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addNewEmployeeTrainingRecord'] to see the possible values for this operation
@@ -278,9 +275,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNewEmployeeTrainingRecordAsync($company_domain, $employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
+    public function addNewEmployeeTrainingRecordAsync($employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
     {
-        return $this->addNewEmployeeTrainingRecordAsyncWithHttpInfo($company_domain, $employee_id, $add_new_employee_training_record_request, $contentType)
+        return $this->addNewEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $add_new_employee_training_record_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -293,7 +290,6 @@ class TrainingApi
      *
      * Add New Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to add a training record to. (required)
      * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addNewEmployeeTrainingRecord'] to see the possible values for this operation
@@ -301,10 +297,10 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNewEmployeeTrainingRecordAsyncWithHttpInfo($company_domain, $employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
+    public function addNewEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
     {
         $returnType = '\MySdk\Model\TrainingRecord';
-        $request = $this->addNewEmployeeTrainingRecordRequest($company_domain, $employee_id, $add_new_employee_training_record_request, $contentType);
+        $request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -345,7 +341,6 @@ class TrainingApi
     /**
      * Create request for operation 'addNewEmployeeTrainingRecord'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to add a training record to. (required)
      * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addNewEmployeeTrainingRecord'] to see the possible values for this operation
@@ -353,15 +348,8 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addNewEmployeeTrainingRecordRequest($company_domain, $employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
+    public function addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, string $contentType = self::contentTypes['addNewEmployeeTrainingRecord'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addNewEmployeeTrainingRecord'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -378,7 +366,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/record/employee/{employeeId}';
+        $resourcePath = '/api/v1/training/record/employee/{employeeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -387,14 +375,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -482,7 +462,6 @@ class TrainingApi
      *
      * Add Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingCategory'] to see the possible values for this operation
      *
@@ -490,9 +469,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TrainingCategory
      */
-    public function addTrainingCategory($company_domain, $add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
+    public function addTrainingCategory($add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
     {
-        list($response) = $this->addTrainingCategoryWithHttpInfo($company_domain, $add_training_category_request, $contentType);
+        list($response) = $this->addTrainingCategoryWithHttpInfo($add_training_category_request, $contentType);
         return $response;
     }
 
@@ -501,7 +480,6 @@ class TrainingApi
      *
      * Add Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingCategory'] to see the possible values for this operation
      *
@@ -509,9 +487,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addTrainingCategoryWithHttpInfo($company_domain, $add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
+    public function addTrainingCategoryWithHttpInfo($add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
     {
-        $request = $this->addTrainingCategoryRequest($company_domain, $add_training_category_request, $contentType);
+        $request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -587,16 +565,15 @@ class TrainingApi
      *
      * Add Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addTrainingCategoryAsync($company_domain, $add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
+    public function addTrainingCategoryAsync($add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
     {
-        return $this->addTrainingCategoryAsyncWithHttpInfo($company_domain, $add_training_category_request, $contentType)
+        return $this->addTrainingCategoryAsyncWithHttpInfo($add_training_category_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -609,17 +586,16 @@ class TrainingApi
      *
      * Add Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addTrainingCategoryAsyncWithHttpInfo($company_domain, $add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
+    public function addTrainingCategoryAsyncWithHttpInfo($add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
     {
         $returnType = '\MySdk\Model\TrainingCategory';
-        $request = $this->addTrainingCategoryRequest($company_domain, $add_training_category_request, $contentType);
+        $request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -660,22 +636,14 @@ class TrainingApi
     /**
      * Create request for operation 'addTrainingCategory'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addTrainingCategoryRequest($company_domain, $add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
+    public function addTrainingCategoryRequest($add_training_category_request, string $contentType = self::contentTypes['addTrainingCategory'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addTrainingCategory'
-            );
-        }
 
         // verify the required parameter 'add_training_category_request' is set
         if ($add_training_category_request === null || (is_array($add_training_category_request) && count($add_training_category_request) === 0)) {
@@ -685,7 +653,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/category';
+        $resourcePath = '/api/v1/training/category';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -694,14 +662,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -781,7 +741,6 @@ class TrainingApi
      *
      * Add Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingType'] to see the possible values for this operation
      *
@@ -789,9 +748,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TrainingType
      */
-    public function addTrainingType($company_domain, $add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
+    public function addTrainingType($add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
     {
-        list($response) = $this->addTrainingTypeWithHttpInfo($company_domain, $add_training_type_request, $contentType);
+        list($response) = $this->addTrainingTypeWithHttpInfo($add_training_type_request, $contentType);
         return $response;
     }
 
@@ -800,7 +759,6 @@ class TrainingApi
      *
      * Add Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingType'] to see the possible values for this operation
      *
@@ -808,9 +766,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addTrainingTypeWithHttpInfo($company_domain, $add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
+    public function addTrainingTypeWithHttpInfo($add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
     {
-        $request = $this->addTrainingTypeRequest($company_domain, $add_training_type_request, $contentType);
+        $request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -886,16 +844,15 @@ class TrainingApi
      *
      * Add Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addTrainingTypeAsync($company_domain, $add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
+    public function addTrainingTypeAsync($add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
     {
-        return $this->addTrainingTypeAsyncWithHttpInfo($company_domain, $add_training_type_request, $contentType)
+        return $this->addTrainingTypeAsyncWithHttpInfo($add_training_type_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -908,17 +865,16 @@ class TrainingApi
      *
      * Add Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addTrainingTypeAsyncWithHttpInfo($company_domain, $add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
+    public function addTrainingTypeAsyncWithHttpInfo($add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
     {
         $returnType = '\MySdk\Model\TrainingType';
-        $request = $this->addTrainingTypeRequest($company_domain, $add_training_type_request, $contentType);
+        $request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -959,22 +915,14 @@ class TrainingApi
     /**
      * Create request for operation 'addTrainingType'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTrainingType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addTrainingTypeRequest($company_domain, $add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
+    public function addTrainingTypeRequest($add_training_type_request, string $contentType = self::contentTypes['addTrainingType'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addTrainingType'
-            );
-        }
 
         // verify the required parameter 'add_training_type_request' is set
         if ($add_training_type_request === null || (is_array($add_training_type_request) && count($add_training_type_request) === 0)) {
@@ -984,7 +932,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/type';
+        $resourcePath = '/api/v1/training/type';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -993,14 +941,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1080,7 +1020,6 @@ class TrainingApi
      *
      * Delete Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployeeTrainingRecord'] to see the possible values for this operation
      *
@@ -1088,9 +1027,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteEmployeeTrainingRecord($company_domain, $employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
+    public function deleteEmployeeTrainingRecord($employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
     {
-        $this->deleteEmployeeTrainingRecordWithHttpInfo($company_domain, $employee_training_record_id, $contentType);
+        $this->deleteEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $contentType);
     }
 
     /**
@@ -1098,7 +1037,6 @@ class TrainingApi
      *
      * Delete Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployeeTrainingRecord'] to see the possible values for this operation
      *
@@ -1106,9 +1044,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEmployeeTrainingRecordWithHttpInfo($company_domain, $employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
+    public function deleteEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
     {
-        $request = $this->deleteEmployeeTrainingRecordRequest($company_domain, $employee_training_record_id, $contentType);
+        $request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1148,16 +1086,15 @@ class TrainingApi
      *
      * Delete Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployeeTrainingRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmployeeTrainingRecordAsync($company_domain, $employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
+    public function deleteEmployeeTrainingRecordAsync($employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
     {
-        return $this->deleteEmployeeTrainingRecordAsyncWithHttpInfo($company_domain, $employee_training_record_id, $contentType)
+        return $this->deleteEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1170,17 +1107,16 @@ class TrainingApi
      *
      * Delete Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployeeTrainingRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmployeeTrainingRecordAsyncWithHttpInfo($company_domain, $employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
+    public function deleteEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
     {
         $returnType = '';
-        $request = $this->deleteEmployeeTrainingRecordRequest($company_domain, $employee_training_record_id, $contentType);
+        $request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1208,22 +1144,14 @@ class TrainingApi
     /**
      * Create request for operation 'deleteEmployeeTrainingRecord'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEmployeeTrainingRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteEmployeeTrainingRecordRequest($company_domain, $employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
+    public function deleteEmployeeTrainingRecordRequest($employee_training_record_id, string $contentType = self::contentTypes['deleteEmployeeTrainingRecord'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteEmployeeTrainingRecord'
-            );
-        }
 
         // verify the required parameter 'employee_training_record_id' is set
         if ($employee_training_record_id === null || (is_array($employee_training_record_id) && count($employee_training_record_id) === 0)) {
@@ -1233,7 +1161,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/record/{employeeTrainingRecordId}';
+        $resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1242,14 +1170,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_training_record_id !== null) {
             $resourcePath = str_replace(
@@ -1330,7 +1250,6 @@ class TrainingApi
      *
      * Delete Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingCategory'] to see the possible values for this operation
      *
@@ -1338,9 +1257,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteTrainingCategory($company_domain, $training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
+    public function deleteTrainingCategory($training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
     {
-        $this->deleteTrainingCategoryWithHttpInfo($company_domain, $training_category_id, $contentType);
+        $this->deleteTrainingCategoryWithHttpInfo($training_category_id, $contentType);
     }
 
     /**
@@ -1348,7 +1267,6 @@ class TrainingApi
      *
      * Delete Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingCategory'] to see the possible values for this operation
      *
@@ -1356,9 +1274,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTrainingCategoryWithHttpInfo($company_domain, $training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
+    public function deleteTrainingCategoryWithHttpInfo($training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
     {
-        $request = $this->deleteTrainingCategoryRequest($company_domain, $training_category_id, $contentType);
+        $request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1398,16 +1316,15 @@ class TrainingApi
      *
      * Delete Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrainingCategoryAsync($company_domain, $training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
+    public function deleteTrainingCategoryAsync($training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
     {
-        return $this->deleteTrainingCategoryAsyncWithHttpInfo($company_domain, $training_category_id, $contentType)
+        return $this->deleteTrainingCategoryAsyncWithHttpInfo($training_category_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1420,17 +1337,16 @@ class TrainingApi
      *
      * Delete Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrainingCategoryAsyncWithHttpInfo($company_domain, $training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
+    public function deleteTrainingCategoryAsyncWithHttpInfo($training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
     {
         $returnType = '';
-        $request = $this->deleteTrainingCategoryRequest($company_domain, $training_category_id, $contentType);
+        $request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1458,22 +1374,14 @@ class TrainingApi
     /**
      * Create request for operation 'deleteTrainingCategory'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTrainingCategoryRequest($company_domain, $training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
+    public function deleteTrainingCategoryRequest($training_category_id, string $contentType = self::contentTypes['deleteTrainingCategory'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteTrainingCategory'
-            );
-        }
 
         // verify the required parameter 'training_category_id' is set
         if ($training_category_id === null || (is_array($training_category_id) && count($training_category_id) === 0)) {
@@ -1483,7 +1391,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/category/{trainingCategoryId}';
+        $resourcePath = '/api/v1/training/category/{trainingCategoryId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1492,14 +1400,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($training_category_id !== null) {
             $resourcePath = str_replace(
@@ -1580,7 +1480,6 @@ class TrainingApi
      *
      * Delete Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingType'] to see the possible values for this operation
      *
@@ -1588,9 +1487,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteTrainingType($company_domain, $training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
+    public function deleteTrainingType($training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
     {
-        $this->deleteTrainingTypeWithHttpInfo($company_domain, $training_type_id, $contentType);
+        $this->deleteTrainingTypeWithHttpInfo($training_type_id, $contentType);
     }
 
     /**
@@ -1598,7 +1497,6 @@ class TrainingApi
      *
      * Delete Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingType'] to see the possible values for this operation
      *
@@ -1606,9 +1504,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTrainingTypeWithHttpInfo($company_domain, $training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
+    public function deleteTrainingTypeWithHttpInfo($training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
     {
-        $request = $this->deleteTrainingTypeRequest($company_domain, $training_type_id, $contentType);
+        $request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1648,16 +1546,15 @@ class TrainingApi
      *
      * Delete Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrainingTypeAsync($company_domain, $training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
+    public function deleteTrainingTypeAsync($training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
     {
-        return $this->deleteTrainingTypeAsyncWithHttpInfo($company_domain, $training_type_id, $contentType)
+        return $this->deleteTrainingTypeAsyncWithHttpInfo($training_type_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1670,17 +1567,16 @@ class TrainingApi
      *
      * Delete Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrainingTypeAsyncWithHttpInfo($company_domain, $training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
+    public function deleteTrainingTypeAsyncWithHttpInfo($training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
     {
         $returnType = '';
-        $request = $this->deleteTrainingTypeRequest($company_domain, $training_type_id, $contentType);
+        $request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1708,22 +1604,14 @@ class TrainingApi
     /**
      * Create request for operation 'deleteTrainingType'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to delete. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTrainingType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTrainingTypeRequest($company_domain, $training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
+    public function deleteTrainingTypeRequest($training_type_id, string $contentType = self::contentTypes['deleteTrainingType'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteTrainingType'
-            );
-        }
 
         // verify the required parameter 'training_type_id' is set
         if ($training_type_id === null || (is_array($training_type_id) && count($training_type_id) === 0)) {
@@ -1733,7 +1621,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/type/{trainingTypeId}';
+        $resourcePath = '/api/v1/training/type/{trainingTypeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1742,14 +1630,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($training_type_id !== null) {
             $resourcePath = str_replace(
@@ -1830,18 +1710,17 @@ class TrainingApi
      *
      * List Employee Trainings
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional)
+     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listEmployeeTrainings'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\ListEmployeeTrainings200ResponseInner[]
      */
-    public function listEmployeeTrainings($company_domain, $employee_id, $training_type_id = null, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
+    public function listEmployeeTrainings($employee_id, $training_type_id = 0, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
     {
-        list($response) = $this->listEmployeeTrainingsWithHttpInfo($company_domain, $employee_id, $training_type_id, $contentType);
+        list($response) = $this->listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id, $contentType);
         return $response;
     }
 
@@ -1850,18 +1729,17 @@ class TrainingApi
      *
      * List Employee Trainings
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional)
+     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listEmployeeTrainings'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\ListEmployeeTrainings200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listEmployeeTrainingsWithHttpInfo($company_domain, $employee_id, $training_type_id = null, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
+    public function listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
     {
-        $request = $this->listEmployeeTrainingsRequest($company_domain, $employee_id, $training_type_id, $contentType);
+        $request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1937,17 +1815,16 @@ class TrainingApi
      *
      * List Employee Trainings
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional)
+     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listEmployeeTrainings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listEmployeeTrainingsAsync($company_domain, $employee_id, $training_type_id = null, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
+    public function listEmployeeTrainingsAsync($employee_id, $training_type_id = 0, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
     {
-        return $this->listEmployeeTrainingsAsyncWithHttpInfo($company_domain, $employee_id, $training_type_id, $contentType)
+        return $this->listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $training_type_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1960,18 +1837,17 @@ class TrainingApi
      *
      * List Employee Trainings
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional)
+     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listEmployeeTrainings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listEmployeeTrainingsAsyncWithHttpInfo($company_domain, $employee_id, $training_type_id = null, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
+    public function listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
     {
         $returnType = '\MySdk\Model\ListEmployeeTrainings200ResponseInner[]';
-        $request = $this->listEmployeeTrainingsRequest($company_domain, $employee_id, $training_type_id, $contentType);
+        $request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2012,23 +1888,15 @@ class TrainingApi
     /**
      * Create request for operation 'listEmployeeTrainings'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional)
+     * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listEmployeeTrainings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listEmployeeTrainingsRequest($company_domain, $employee_id, $training_type_id = null, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
+    public function listEmployeeTrainingsRequest($employee_id, $training_type_id = 0, string $contentType = self::contentTypes['listEmployeeTrainings'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling listEmployeeTrainings'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -2039,7 +1907,7 @@ class TrainingApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/training/record/employee/{employeeId}';
+        $resourcePath = '/api/v1/training/record/employee/{employeeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2057,14 +1925,6 @@ class TrainingApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -2145,16 +2005,15 @@ class TrainingApi
      *
      * List Training Categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingCategories'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\ListTrainingCategories200ResponseInner[]
      */
-    public function listTrainingCategories($company_domain, string $contentType = self::contentTypes['listTrainingCategories'][0])
+    public function listTrainingCategories(string $contentType = self::contentTypes['listTrainingCategories'][0])
     {
-        list($response) = $this->listTrainingCategoriesWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->listTrainingCategoriesWithHttpInfo($contentType);
         return $response;
     }
 
@@ -2163,16 +2022,15 @@ class TrainingApi
      *
      * List Training Categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingCategories'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\ListTrainingCategories200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTrainingCategoriesWithHttpInfo($company_domain, string $contentType = self::contentTypes['listTrainingCategories'][0])
+    public function listTrainingCategoriesWithHttpInfo(string $contentType = self::contentTypes['listTrainingCategories'][0])
     {
-        $request = $this->listTrainingCategoriesRequest($company_domain, $contentType);
+        $request = $this->listTrainingCategoriesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2248,15 +2106,14 @@ class TrainingApi
      *
      * List Training Categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTrainingCategoriesAsync($company_domain, string $contentType = self::contentTypes['listTrainingCategories'][0])
+    public function listTrainingCategoriesAsync(string $contentType = self::contentTypes['listTrainingCategories'][0])
     {
-        return $this->listTrainingCategoriesAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->listTrainingCategoriesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2269,16 +2126,15 @@ class TrainingApi
      *
      * List Training Categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTrainingCategoriesAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['listTrainingCategories'][0])
+    public function listTrainingCategoriesAsyncWithHttpInfo(string $contentType = self::contentTypes['listTrainingCategories'][0])
     {
         $returnType = '\MySdk\Model\ListTrainingCategories200ResponseInner[]';
-        $request = $this->listTrainingCategoriesRequest($company_domain, $contentType);
+        $request = $this->listTrainingCategoriesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2319,24 +2175,16 @@ class TrainingApi
     /**
      * Create request for operation 'listTrainingCategories'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listTrainingCategoriesRequest($company_domain, string $contentType = self::contentTypes['listTrainingCategories'][0])
+    public function listTrainingCategoriesRequest(string $contentType = self::contentTypes['listTrainingCategories'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling listTrainingCategories'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/training/category';
+        $resourcePath = '/api/v1/training/category';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2345,14 +2193,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2425,16 +2265,15 @@ class TrainingApi
      *
      * List Training Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingTypes'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\ListTrainingTypes200ResponseInner[]
      */
-    public function listTrainingTypes($company_domain, string $contentType = self::contentTypes['listTrainingTypes'][0])
+    public function listTrainingTypes(string $contentType = self::contentTypes['listTrainingTypes'][0])
     {
-        list($response) = $this->listTrainingTypesWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->listTrainingTypesWithHttpInfo($contentType);
         return $response;
     }
 
@@ -2443,16 +2282,15 @@ class TrainingApi
      *
      * List Training Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingTypes'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\ListTrainingTypes200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTrainingTypesWithHttpInfo($company_domain, string $contentType = self::contentTypes['listTrainingTypes'][0])
+    public function listTrainingTypesWithHttpInfo(string $contentType = self::contentTypes['listTrainingTypes'][0])
     {
-        $request = $this->listTrainingTypesRequest($company_domain, $contentType);
+        $request = $this->listTrainingTypesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2528,15 +2366,14 @@ class TrainingApi
      *
      * List Training Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTrainingTypesAsync($company_domain, string $contentType = self::contentTypes['listTrainingTypes'][0])
+    public function listTrainingTypesAsync(string $contentType = self::contentTypes['listTrainingTypes'][0])
     {
-        return $this->listTrainingTypesAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->listTrainingTypesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2549,16 +2386,15 @@ class TrainingApi
      *
      * List Training Types
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTrainingTypesAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['listTrainingTypes'][0])
+    public function listTrainingTypesAsyncWithHttpInfo(string $contentType = self::contentTypes['listTrainingTypes'][0])
     {
         $returnType = '\MySdk\Model\ListTrainingTypes200ResponseInner[]';
-        $request = $this->listTrainingTypesRequest($company_domain, $contentType);
+        $request = $this->listTrainingTypesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2599,24 +2435,16 @@ class TrainingApi
     /**
      * Create request for operation 'listTrainingTypes'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTrainingTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listTrainingTypesRequest($company_domain, string $contentType = self::contentTypes['listTrainingTypes'][0])
+    public function listTrainingTypesRequest(string $contentType = self::contentTypes['listTrainingTypes'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling listTrainingTypes'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/training/type';
+        $resourcePath = '/api/v1/training/type';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2625,14 +2453,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2705,7 +2525,6 @@ class TrainingApi
      *
      * Update Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to update. (required)
      * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeTrainingRecord'] to see the possible values for this operation
@@ -2714,9 +2533,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TrainingRecord
      */
-    public function updateEmployeeTrainingRecord($company_domain, $employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
+    public function updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
     {
-        list($response) = $this->updateEmployeeTrainingRecordWithHttpInfo($company_domain, $employee_training_record_id, $update_employee_training_record_request, $contentType);
+        list($response) = $this->updateEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, $contentType);
         return $response;
     }
 
@@ -2725,7 +2544,6 @@ class TrainingApi
      *
      * Update Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to update. (required)
      * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeTrainingRecord'] to see the possible values for this operation
@@ -2734,9 +2552,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmployeeTrainingRecordWithHttpInfo($company_domain, $employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
+    public function updateEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
     {
-        $request = $this->updateEmployeeTrainingRecordRequest($company_domain, $employee_training_record_id, $update_employee_training_record_request, $contentType);
+        $request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2812,7 +2630,6 @@ class TrainingApi
      *
      * Update Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to update. (required)
      * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeTrainingRecord'] to see the possible values for this operation
@@ -2820,9 +2637,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeTrainingRecordAsync($company_domain, $employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
+    public function updateEmployeeTrainingRecordAsync($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
     {
-        return $this->updateEmployeeTrainingRecordAsyncWithHttpInfo($company_domain, $employee_training_record_id, $update_employee_training_record_request, $contentType)
+        return $this->updateEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2835,7 +2652,6 @@ class TrainingApi
      *
      * Update Employee Training Record
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to update. (required)
      * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeTrainingRecord'] to see the possible values for this operation
@@ -2843,10 +2659,10 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeTrainingRecordAsyncWithHttpInfo($company_domain, $employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
+    public function updateEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
     {
         $returnType = '\MySdk\Model\TrainingRecord';
-        $request = $this->updateEmployeeTrainingRecordRequest($company_domain, $employee_training_record_id, $update_employee_training_record_request, $contentType);
+        $request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2887,7 +2703,6 @@ class TrainingApi
     /**
      * Create request for operation 'updateEmployeeTrainingRecord'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_training_record_id The ID of the training record to update. (required)
      * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateEmployeeTrainingRecord'] to see the possible values for this operation
@@ -2895,15 +2710,8 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmployeeTrainingRecordRequest($company_domain, $employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
+    public function updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::contentTypes['updateEmployeeTrainingRecord'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateEmployeeTrainingRecord'
-            );
-        }
 
         // verify the required parameter 'employee_training_record_id' is set
         if ($employee_training_record_id === null || (is_array($employee_training_record_id) && count($employee_training_record_id) === 0)) {
@@ -2920,7 +2728,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/record/{employeeTrainingRecordId}';
+        $resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2929,14 +2737,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_training_record_id !== null) {
             $resourcePath = str_replace(
@@ -3024,7 +2824,6 @@ class TrainingApi
      *
      * Update Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to update. (required)
      * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingCategory'] to see the possible values for this operation
@@ -3033,9 +2832,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TrainingCategory
      */
-    public function updateTrainingCategory($company_domain, $training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
+    public function updateTrainingCategory($training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
     {
-        list($response) = $this->updateTrainingCategoryWithHttpInfo($company_domain, $training_category_id, $update_training_category_request, $contentType);
+        list($response) = $this->updateTrainingCategoryWithHttpInfo($training_category_id, $update_training_category_request, $contentType);
         return $response;
     }
 
@@ -3044,7 +2843,6 @@ class TrainingApi
      *
      * Update Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to update. (required)
      * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingCategory'] to see the possible values for this operation
@@ -3053,9 +2851,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTrainingCategoryWithHttpInfo($company_domain, $training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
+    public function updateTrainingCategoryWithHttpInfo($training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
     {
-        $request = $this->updateTrainingCategoryRequest($company_domain, $training_category_id, $update_training_category_request, $contentType);
+        $request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3131,7 +2929,6 @@ class TrainingApi
      *
      * Update Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to update. (required)
      * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingCategory'] to see the possible values for this operation
@@ -3139,9 +2936,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTrainingCategoryAsync($company_domain, $training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
+    public function updateTrainingCategoryAsync($training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
     {
-        return $this->updateTrainingCategoryAsyncWithHttpInfo($company_domain, $training_category_id, $update_training_category_request, $contentType)
+        return $this->updateTrainingCategoryAsyncWithHttpInfo($training_category_id, $update_training_category_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3154,7 +2951,6 @@ class TrainingApi
      *
      * Update Training Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to update. (required)
      * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingCategory'] to see the possible values for this operation
@@ -3162,10 +2958,10 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTrainingCategoryAsyncWithHttpInfo($company_domain, $training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
+    public function updateTrainingCategoryAsyncWithHttpInfo($training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
     {
         $returnType = '\MySdk\Model\TrainingCategory';
-        $request = $this->updateTrainingCategoryRequest($company_domain, $training_category_id, $update_training_category_request, $contentType);
+        $request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3206,7 +3002,6 @@ class TrainingApi
     /**
      * Create request for operation 'updateTrainingCategory'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_category_id The ID of the training category to update. (required)
      * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingCategory'] to see the possible values for this operation
@@ -3214,15 +3009,8 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTrainingCategoryRequest($company_domain, $training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
+    public function updateTrainingCategoryRequest($training_category_id, $update_training_category_request, string $contentType = self::contentTypes['updateTrainingCategory'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateTrainingCategory'
-            );
-        }
 
         // verify the required parameter 'training_category_id' is set
         if ($training_category_id === null || (is_array($training_category_id) && count($training_category_id) === 0)) {
@@ -3239,7 +3027,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/category/{trainingCategoryId}';
+        $resourcePath = '/api/v1/training/category/{trainingCategoryId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3248,14 +3036,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($training_category_id !== null) {
             $resourcePath = str_replace(
@@ -3343,7 +3123,6 @@ class TrainingApi
      *
      * Update Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to update. (required)
      * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingType'] to see the possible values for this operation
@@ -3352,9 +3131,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TrainingType
      */
-    public function updateTrainingType($company_domain, $training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
+    public function updateTrainingType($training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
     {
-        list($response) = $this->updateTrainingTypeWithHttpInfo($company_domain, $training_type_id, $update_training_type_request, $contentType);
+        list($response) = $this->updateTrainingTypeWithHttpInfo($training_type_id, $update_training_type_request, $contentType);
         return $response;
     }
 
@@ -3363,7 +3142,6 @@ class TrainingApi
      *
      * Update Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to update. (required)
      * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingType'] to see the possible values for this operation
@@ -3372,9 +3150,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTrainingTypeWithHttpInfo($company_domain, $training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
+    public function updateTrainingTypeWithHttpInfo($training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
     {
-        $request = $this->updateTrainingTypeRequest($company_domain, $training_type_id, $update_training_type_request, $contentType);
+        $request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3450,7 +3228,6 @@ class TrainingApi
      *
      * Update Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to update. (required)
      * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingType'] to see the possible values for this operation
@@ -3458,9 +3235,9 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTrainingTypeAsync($company_domain, $training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
+    public function updateTrainingTypeAsync($training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
     {
-        return $this->updateTrainingTypeAsyncWithHttpInfo($company_domain, $training_type_id, $update_training_type_request, $contentType)
+        return $this->updateTrainingTypeAsyncWithHttpInfo($training_type_id, $update_training_type_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3473,7 +3250,6 @@ class TrainingApi
      *
      * Update Training Type
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to update. (required)
      * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingType'] to see the possible values for this operation
@@ -3481,10 +3257,10 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTrainingTypeAsyncWithHttpInfo($company_domain, $training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
+    public function updateTrainingTypeAsyncWithHttpInfo($training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
     {
         $returnType = '\MySdk\Model\TrainingType';
-        $request = $this->updateTrainingTypeRequest($company_domain, $training_type_id, $update_training_type_request, $contentType);
+        $request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3525,7 +3301,6 @@ class TrainingApi
     /**
      * Create request for operation 'updateTrainingType'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $training_type_id The ID of the training type to update. (required)
      * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTrainingType'] to see the possible values for this operation
@@ -3533,15 +3308,8 @@ class TrainingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTrainingTypeRequest($company_domain, $training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
+    public function updateTrainingTypeRequest($training_type_id, $update_training_type_request, string $contentType = self::contentTypes['updateTrainingType'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateTrainingType'
-            );
-        }
 
         // verify the required parameter 'training_type_id' is set
         if ($training_type_id === null || (is_array($training_type_id) && count($training_type_id) === 0)) {
@@ -3558,7 +3326,7 @@ class TrainingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/training/type/{trainingTypeId}';
+        $resourcePath = '/api/v1/training/type/{trainingTypeId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3567,14 +3335,6 @@ class TrainingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($training_type_id !== null) {
             $resourcePath = str_replace(

@@ -79,8 +79,8 @@ class Aca implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_min_value_standard' => true,
-        'is_min_essential_coverage' => true
+        'is_min_value_standard' => false,
+        'is_min_essential_coverage' => false
     ];
 
     /**
@@ -316,14 +316,7 @@ class Aca implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsMinValueStandard($is_min_value_standard)
     {
         if (is_null($is_min_value_standard)) {
-            array_push($this->openAPINullablesSetToNull, 'is_min_value_standard');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_min_value_standard', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_min_value_standard cannot be null');
         }
         $this->container['is_min_value_standard'] = $is_min_value_standard;
 
@@ -350,14 +343,7 @@ class Aca implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsMinEssentialCoverage($is_min_essential_coverage)
     {
         if (is_null($is_min_essential_coverage)) {
-            array_push($this->openAPINullablesSetToNull, 'is_min_essential_coverage');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_min_essential_coverage', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_min_essential_coverage cannot be null');
         }
         $this->container['is_min_essential_coverage'] = $is_min_essential_coverage;
 

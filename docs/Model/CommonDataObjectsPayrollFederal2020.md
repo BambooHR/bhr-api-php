@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **other_income** | **string** | Other income amount | [optional]
 **dependents_amount** | **string** | Dependents amount | [optional]
 **deductions** | **string** | Deductions amount | [optional]
-**additional_withholding** | [**\MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding**](CommonDataObjectsPayrollPayrollAdditionalWithholding.md) |  | [optional]
+**additional_withholding** | [**\MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding**](CommonDataObjectsPayrollPayrollAdditionalWithholding.md) | Additional withholding information | [optional]
 **ignore_status_exemptions** | **bool** | Whether to ignore status exemptions | [optional]
 **fica_exempt** | **bool** | Whether the employee is exempt from FICA | [optional]
 **futa_exempt** | **bool** | Whether the employee is exempt from FUTA | [optional]

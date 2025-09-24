@@ -79,8 +79,8 @@ class DeductionDateRule implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'number' => true,
-        'direction' => true
+        'number' => false,
+        'direction' => false
     ];
 
     /**
@@ -316,14 +316,7 @@ class DeductionDateRule implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setNumber($number)
     {
         if (is_null($number)) {
-            array_push($this->openAPINullablesSetToNull, 'number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
         $this->container['number'] = $number;
 
@@ -350,14 +343,7 @@ class DeductionDateRule implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setDirection($direction)
     {
         if (is_null($direction)) {
-            array_push($this->openAPINullablesSetToNull, 'direction');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('direction', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable direction cannot be null');
         }
         $this->container['direction'] = $direction;
 

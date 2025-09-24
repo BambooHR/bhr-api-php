@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**employee** | [**\MySdk\Model\NHPNewHirePacketEmployeeData**](NHPNewHirePacketEmployeeData.md) |  | [optional]
-**new_hire_packet** | [**\MySdk\Model\NHPNewHirePacketInstanceDataObject**](NHPNewHirePacketInstanceDataObject.md) |  | [optional]
+**employee** | [**\MySdk\Model\NHPNewHirePacketEmployeeData**](NHPNewHirePacketEmployeeData.md) | The employee data | [optional]
+**new_hire_packet** | [**\MySdk\Model\NHPNewHirePacketInstanceDataObject**](NHPNewHirePacketInstanceDataObject.md) | The new hire packet data | [optional]
 **payroll_fields** | [**\MySdk\Model\NHPPayrollFieldsSchema[]**](NHPPayrollFieldsSchema.md) | The payroll fields data | [optional]
 **questions_and_answers** | [**\MySdk\Model\NHPEmployeeNewHirePacketCompletedQuestionAndResponseSchema[]**](NHPEmployeeNewHirePacketCompletedQuestionAndResponseSchema.md) | The questions and answers data | [optional]
 **recipient_types** | [**\MySdk\Model\NHPEmployeeNewHirePacketRecipientDataObject[]**](NHPEmployeeNewHirePacketRecipientDataObject.md) | The recipient types data | [optional]

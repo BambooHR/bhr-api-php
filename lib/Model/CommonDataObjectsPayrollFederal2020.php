@@ -530,7 +530,7 @@ class CommonDataObjectsPayrollFederal2020 implements ModelInterface, ArrayAccess
     /**
      * Sets additional_withholding
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding|null $additional_withholding additional_withholding
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding|null $additional_withholding Additional withholding information
      *
      * @return self
      */

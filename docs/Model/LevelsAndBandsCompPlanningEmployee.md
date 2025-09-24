@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **current_compensation** | **float** | Employee current compensation | [optional]
 **current_compensation_ratio** | **float** | Employee current compensation ratio | [optional]
 **paid_per** | **string** | Employee paid per | [optional]
-**compensation_level** | [**\MySdk\Model\LevelsAndBandsCompPlanningLevel**](LevelsAndBandsCompPlanningLevel.md) |  | [optional]
+**compensation_level** | [**\MySdk\Model\LevelsAndBandsCompPlanningLevel**](LevelsAndBandsCompPlanningLevel.md) | Employee pay band level | [optional]
 **currency_code** | **string** | Employee currency code | [optional]
 **employment_status** | **string** | Employee employement status | [optional]
 **compensation_effective_date** | **\DateTime** | Employee compensation effective date | [optional]

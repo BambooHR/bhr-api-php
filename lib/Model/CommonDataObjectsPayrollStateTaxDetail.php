@@ -303,7 +303,7 @@ class CommonDataObjectsPayrollStateTaxDetail implements ModelInterface, ArrayAcc
     /**
      * Sets locations
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocation|null $locations locations
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocation|null $locations State tax locations information
      *
      * @return self
      */

@@ -62,7 +62,7 @@ class DateFieldFormNode implements ModelInterface, ArrayAccess, \JsonSerializabl
         'label' => 'string',
         'required' => 'bool',
         'status' => 'string',
-        'value' => 'string',
+        'value' => '\MySdk\Model\FieldFormNodeAllOfValue',
         'width' => 'int',
         'bi_id' => 'string',
         'max_length' => 'int',
@@ -539,7 +539,7 @@ class DateFieldFormNode implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets value
      *
-     * @return string|null
+     * @return \MySdk\Model\FieldFormNodeAllOfValue|null
      */
     public function getValue()
     {
@@ -549,7 +549,7 @@ class DateFieldFormNode implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets value
      *
-     * @param string|null $value Field value
+     * @param \MySdk\Model\FieldFormNodeAllOfValue|null $value value
      *
      * @return self
      */

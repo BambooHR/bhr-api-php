@@ -331,7 +331,7 @@ class TotalRewardsEquitySectionValues implements ModelInterface, ArrayAccess, \J
     /**
      * Sets comp_summary
      *
-     * @param \MySdk\Model\TotalRewardsCompSummaryValues|null $comp_summary comp_summary
+     * @param \MySdk\Model\TotalRewardsCompSummaryValues|null $comp_summary Compensation summary values for equity
      *
      * @return self
      */
@@ -453,7 +453,7 @@ class TotalRewardsEquitySectionValues implements ModelInterface, ArrayAccess, \J
     /**
      * Sets equity_estimated_valuation
      *
-     * @param \MySdk\Model\TotalRewardsEquityEstimatedValuationValues|null $equity_estimated_valuation equity_estimated_valuation
+     * @param \MySdk\Model\TotalRewardsEquityEstimatedValuationValues|null $equity_estimated_valuation Total rewards equity estimated valuation object
      *
      * @return self
      */

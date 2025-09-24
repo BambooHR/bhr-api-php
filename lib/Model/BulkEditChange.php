@@ -117,7 +117,7 @@ class BulkEditChange implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_pays_symbol' => true,
         'employee_pays' => true,
         'cost_frequency' => true,
-        'coverage_data' => true
+        'coverage_data' => false
     ];
 
     /**
@@ -808,14 +808,7 @@ class BulkEditChange implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCoverageData($coverage_data)
     {
         if (is_null($coverage_data)) {
-            array_push($this->openAPINullablesSetToNull, 'coverage_data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('coverage_data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable coverage_data cannot be null');
         }
         $this->container['coverage_data'] = $coverage_data;
 

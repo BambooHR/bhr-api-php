@@ -888,7 +888,7 @@ class TimeOffTabViewModelTransformer implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets pto_session
      *
-     * @param \MySdk\Model\TimeOffSessionViewModelTransformer|null $pto_session pto_session
+     * @param \MySdk\Model\TimeOffSessionViewModelTransformer|null $pto_session Class TimeOffTabViewModelTransformer
      *
      * @return self
      */

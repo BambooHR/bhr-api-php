@@ -66,11 +66,10 @@ $apiInstance = new MySdk\Api\ATSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $application_id = 56; // int | The ID of the application to look up details.
 
 try {
-    $result = $apiInstance->getApplicationDetails($company_domain, $application_id);
+    $result = $apiInstance->getApplicationDetails($application_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ATSApi->getApplicationDetails: ', $e->getMessage(), PHP_EOL;
@@ -80,291 +79,295 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://api.bamboohr.com/api/gateway.php*
+All URIs are relative to *https://example.bamboohr.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ATSApi* | [**getApplicationDetails**](docs/Api/ATSApi.md#getapplicationdetails) | **GET** /{companyDomain}/v1/applicant_tracking/applications/{applicationId} | Get Application Details
-*AccountInformationApi* | [**getAListOfUsers**](docs/Api/AccountInformationApi.md#getalistofusers) | **GET** /{companyDomain}/v1/meta/users | Get a List of Users
-*AccountInformationApi* | [**metadataAddOrUpdateValuesForListFields**](docs/Api/AccountInformationApi.md#metadataaddorupdatevaluesforlistfields) | **PUT** /{companyDomain}/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields
-*AccountInformationApi* | [**metadataGetAListOfFields**](docs/Api/AccountInformationApi.md#metadatagetalistoffields) | **GET** /{companyDomain}/v1/meta/fields | Get a list of fields
-*AccountInformationApi* | [**metadataGetAListOfTabularFields**](docs/Api/AccountInformationApi.md#metadatagetalistoftabularfields) | **GET** /{companyDomain}/v1/meta/tables | Get a list of tabular fields
-*AccountInformationApi* | [**metadataGetDetailsForListFields**](docs/Api/AccountInformationApi.md#metadatagetdetailsforlistfields) | **GET** /{companyDomain}/v1/meta/lists | Get details for list fields
-*ApplicantTrackingApi* | [**addNewCandidate**](docs/Api/ApplicantTrackingApi.md#addnewcandidate) | **POST** /{companyDomain}/v1/applicant_tracking/application | Add New Candidate
-*ApplicantTrackingApi* | [**addNewJobOpening**](docs/Api/ApplicantTrackingApi.md#addnewjobopening) | **POST** /{companyDomain}/v1/applicant_tracking/job_opening | Add New Job Opening
-*ApplicantTrackingApi* | [**getApplications**](docs/Api/ApplicantTrackingApi.md#getapplications) | **GET** /{companyDomain}/v1/applicant_tracking/applications | Get Applications
-*ApplicantTrackingApi* | [**getCompanyLocations**](docs/Api/ApplicantTrackingApi.md#getcompanylocations) | **GET** /{companyDomain}/v1/applicant_tracking/locations | Get Company Locations
-*ApplicantTrackingApi* | [**getHiringLeads**](docs/Api/ApplicantTrackingApi.md#gethiringleads) | **GET** /{companyDomain}/v1/applicant_tracking/hiring_leads | Get Hiring Leads
-*ApplicantTrackingApi* | [**getJobSummaries**](docs/Api/ApplicantTrackingApi.md#getjobsummaries) | **GET** /{companyDomain}/v1/applicant_tracking/jobs | Get Job Summaries
-*ApplicantTrackingApi* | [**getStatuses**](docs/Api/ApplicantTrackingApi.md#getstatuses) | **GET** /{companyDomain}/v1/applicant_tracking/statuses | Get Statuses
-*ApplicantTrackingApi* | [**postApplicantStatus**](docs/Api/ApplicantTrackingApi.md#postapplicantstatus) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status
-*ApplicantTrackingApi* | [**postApplicationComment**](docs/Api/ApplicantTrackingApi.md#postapplicationcomment) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment
-*BenefitsApi* | [**addEmployeeDependent**](docs/Api/BenefitsApi.md#addemployeedependent) | **POST** /{companyDomain}/v1/employeedependents | Add an employee dependent
-*BenefitsApi* | [**getBenefitCoverages**](docs/Api/BenefitsApi.md#getbenefitcoverages) | **GET** /{companyDomain}/v1/benefitcoverages | Get benefit coverages
-*BenefitsApi* | [**getBenefitDeductionTypes**](docs/Api/BenefitsApi.md#getbenefitdeductiontypes) | **GET** /{companyDomain}/v1/benefits/settings/deduction_types/all | Get benefit deduction types
-*BenefitsApi* | [**getEmployeeDependent**](docs/Api/BenefitsApi.md#getemployeedependent) | **GET** /{companyDomain}/v1/employeedependents/{id} | Get employee dependent
-*BenefitsApi* | [**getEmployeeDependents**](docs/Api/BenefitsApi.md#getemployeedependents) | **GET** /{companyDomain}/v1/employeedependents | Get all employee dependents
-*BenefitsApi* | [**getMemberBenefit**](docs/Api/BenefitsApi.md#getmemberbenefit) | **GET** /{companyDomain}/v1/benefit/member_benefit | Get a list of member benefit events
-*BenefitsApi* | [**updateEmployeeDependent**](docs/Api/BenefitsApi.md#updateemployeedependent) | **PUT** /{companyDomain}/v1/employeedependents/{id} | Update an employee dependent
-*CompanyFilesApi* | [**addCompanyFileCategory**](docs/Api/CompanyFilesApi.md#addcompanyfilecategory) | **POST** /{companyDomain}/v1/files/categories | Add Company File Category
-*CompanyFilesApi* | [**deleteCompanyFile**](docs/Api/CompanyFilesApi.md#deletecompanyfile) | **DELETE** /{companyDomain}/v1/files/{fileId} | Delete Company File
-*CompanyFilesApi* | [**getCompanyFile**](docs/Api/CompanyFilesApi.md#getcompanyfile) | **GET** /{companyDomain}/v1/files/{fileId} | Get an Company File
-*CompanyFilesApi* | [**listCompanyFiles**](docs/Api/CompanyFilesApi.md#listcompanyfiles) | **GET** /{companyDomain}/v1/files/view | List company files and categories
-*CompanyFilesApi* | [**updateCompanyFile**](docs/Api/CompanyFilesApi.md#updatecompanyfile) | **POST** /{companyDomain}/v1/files/{fileId} | Update Company File
-*CompanyFilesApi* | [**uploadCompanyFile**](docs/Api/CompanyFilesApi.md#uploadcompanyfile) | **POST** /{companyDomain}/v1/files | Upload Company File
-*CustomReportsApi* | [**getByReportId**](docs/Api/CustomReportsApi.md#getbyreportid) | **GET** /{companyDomain}/v1/custom-reports/{reportId} | Get Report by ID
-*CustomReportsApi* | [**listReports**](docs/Api/CustomReportsApi.md#listreports) | **GET** /{companyDomain}/v1/custom-reports | List Reports
-*DatasetsApi* | [**getDataFromDataset**](docs/Api/DatasetsApi.md#getdatafromdataset) | **POST** /{companyDomain}/v1/datasets/{datasetName} | Get Data from Dataset
-*DatasetsApi* | [**getDataSets**](docs/Api/DatasetsApi.md#getdatasets) | **GET** /{companyDomain}/v1/datasets | Get Data Sets
-*DatasetsApi* | [**getFieldsFromDataset**](docs/Api/DatasetsApi.md#getfieldsfromdataset) | **GET** /{companyDomain}/v1/datasets/{datasetName}/fields | Get Fields from Dataset
-*EmployeeFilesApi* | [**addEmployeeFileCategory**](docs/Api/EmployeeFilesApi.md#addemployeefilecategory) | **POST** /{companyDomain}/v1/employees/files/categories | Add Employee File Category
-*EmployeeFilesApi* | [**deleteEmployeeFile**](docs/Api/EmployeeFilesApi.md#deleteemployeefile) | **DELETE** /{companyDomain}/v1/employees/{id}/files/{fileId} | Delete Employee File
-*EmployeeFilesApi* | [**getEmployeeFile**](docs/Api/EmployeeFilesApi.md#getemployeefile) | **GET** /{companyDomain}/v1/employees/{id}/files/{fileId} | Get an Employee File
-*EmployeeFilesApi* | [**listEmployeeFiles**](docs/Api/EmployeeFilesApi.md#listemployeefiles) | **GET** /{companyDomain}/v1/employees/{id}/files/view | List employee files and categories
-*EmployeeFilesApi* | [**updateEmployeeFile**](docs/Api/EmployeeFilesApi.md#updateemployeefile) | **POST** /{companyDomain}/v1/employees/{id}/files/{fileId} | Update Employee File
-*EmployeeFilesApi* | [**uploadEmployeeFile**](docs/Api/EmployeeFilesApi.md#uploademployeefile) | **POST** /{companyDomain}/v1/employees/{id}/files | Upload Employee File
-*EmployeesApi* | [**addEmployee**](docs/Api/EmployeesApi.md#addemployee) | **POST** /{companyDomain}/v1/employees | Add Employee
-*EmployeesApi* | [**getCompanyEINs**](docs/Api/EmployeesApi.md#getcompanyeins) | **GET** /{companyDomain}/v1/company_eins | Get Company EINs
-*EmployeesApi* | [**getCompanyInformation**](docs/Api/EmployeesApi.md#getcompanyinformation) | **GET** /{companyDomain}/v1/company_information | Get Company Information
-*EmployeesApi* | [**getEmployee**](docs/Api/EmployeesApi.md#getemployee) | **GET** /{companyDomain}/v1/employees/{id} | Get Employee
-*EmployeesApi* | [**getEmployeesDirectory**](docs/Api/EmployeesApi.md#getemployeesdirectory) | **GET** /{companyDomain}/v1/employees/directory | Get Employee Directory
-*EmployeesApi* | [**updateEmployee**](docs/Api/EmployeesApi.md#updateemployee) | **POST** /{companyDomain}/v1/employees/{id} | Update Employee
-*GoalsApi* | [**deleteGoal**](docs/Api/GoalsApi.md#deletegoal) | **DELETE** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
-*GoalsApi* | [**deleteGoalComment**](docs/Api/GoalsApi.md#deletegoalcomment) | **DELETE** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
-*GoalsApi* | [**getCanCreateGoal**](docs/Api/GoalsApi.md#getcancreategoal) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal
-*GoalsApi* | [**getGoalAggregate**](docs/Api/GoalsApi.md#getgoalaggregate) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info
-*GoalsApi* | [**getGoalComments**](docs/Api/GoalsApi.md#getgoalcomments) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments
-*GoalsApi* | [**getGoals**](docs/Api/GoalsApi.md#getgoals) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals | Get Goals
-*GoalsApi* | [**getGoalsAggregateV1**](docs/Api/GoalsApi.md#getgoalsaggregatev1) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info
-*GoalsApi* | [**getGoalsAggregateV11**](docs/Api/GoalsApi.md#getgoalsaggregatev11) | **GET** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1
-*GoalsApi* | [**getGoalsAggregateV12**](docs/Api/GoalsApi.md#getgoalsaggregatev12) | **GET** /{companyDomain}/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2
-*GoalsApi* | [**getGoalsAlignmentOptions**](docs/Api/GoalsApi.md#getgoalsalignmentoptions) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options
-*GoalsApi* | [**getGoalsFiltersV1**](docs/Api/GoalsApi.md#getgoalsfiltersv1) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/filters | 
-*GoalsApi* | [**getGoalsFiltersV11**](docs/Api/GoalsApi.md#getgoalsfiltersv11) | **GET** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/filters | 
-*GoalsApi* | [**getGoalsFiltersV12**](docs/Api/GoalsApi.md#getgoalsfiltersv12) | **GET** /{companyDomain}/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2
-*GoalsApi* | [**getGoalsShareOptions**](docs/Api/GoalsApi.md#getgoalsshareoptions) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options
-*GoalsApi* | [**postCloseGoal**](docs/Api/GoalsApi.md#postclosegoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal
-*GoalsApi* | [**postGoal**](docs/Api/GoalsApi.md#postgoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals | Create Goal
-*GoalsApi* | [**postGoalComment**](docs/Api/GoalsApi.md#postgoalcomment) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment
-*GoalsApi* | [**postReopenGoal**](docs/Api/GoalsApi.md#postreopengoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal
-*GoalsApi* | [**putGoalComment**](docs/Api/GoalsApi.md#putgoalcomment) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment
-*GoalsApi* | [**putGoalMilestoneProgress**](docs/Api/GoalsApi.md#putgoalmilestoneprogress) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress
-*GoalsApi* | [**putGoalProgress**](docs/Api/GoalsApi.md#putgoalprogress) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress
-*GoalsApi* | [**putGoalSharedWith**](docs/Api/GoalsApi.md#putgoalsharedwith) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing
-*GoalsApi* | [**putGoalV1**](docs/Api/GoalsApi.md#putgoalv1) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal
-*GoalsApi* | [**putGoalV11**](docs/Api/GoalsApi.md#putgoalv11) | **PUT** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1
-*HoursApi* | [**call0f428442e53dc46d1e2c8ff5b7a483a8**](docs/Api/HoursApi.md#call0f428442e53dc46d1e2c8ff5b7a483a8) | **POST** /{companyDomain}/v1/timetracking/record | addTimeTrackingBulk
-*HoursApi* | [**call14e73aef978eb81d51fdbd74e0e83823**](docs/Api/HoursApi.md#call14e73aef978eb81d51fdbd74e0e83823) | **PUT** /{companyDomain}/v1/timetracking/adjust | adjustTimeTracking
-*HoursApi* | [**call5e1c5b4ef12e61d1bc975e8b4e00c38d**](docs/Api/HoursApi.md#call5e1c5b4ef12e61d1bc975e8b4e00c38d) | **GET** /{companyDomain}/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId
-*HoursApi* | [**call69c777478f5d52dee1b4f0937dca154f**](docs/Api/HoursApi.md#call69c777478f5d52dee1b4f0937dca154f) | **POST** /{companyDomain}/v1/timetracking/add | addTimeTracking
-*HoursApi* | [**f97efc203b25647724accb9da7dda7db**](docs/Api/HoursApi.md#f97efc203b25647724accb9da7dda7db) | **DELETE** /{companyDomain}/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId
-*LastChangeInformationApi* | [**getChangedEmployeeIds**](docs/Api/LastChangeInformationApi.md#getchangedemployeeids) | **GET** /{companyDomain}/v1/employees/changed | Gets all updated employee IDs
-*LoginApi* | [**login**](docs/Api/LoginApi.md#login) | **POST** /{companyDomain}/v1/login | User Login
-*PhotosApi* | [**getEmployeePhoto**](docs/Api/PhotosApi.md#getemployeephoto) | **GET** /{companyDomain}/v1/employees/{employeeId}/photo/{size} | Get an employee photo
-*PhotosApi* | [**uploadEmployeePhoto**](docs/Api/PhotosApi.md#uploademployeephoto) | **POST** /{companyDomain}/v1/employees/{employeeId}/photo | Store a new employee photo
-*PublicAPIApi* | [**addCompanyFileCategory**](docs/Api/PublicAPIApi.md#addcompanyfilecategory) | **POST** /{companyDomain}/v1/files/categories | Add Company File Category
-*PublicAPIApi* | [**addEmployee**](docs/Api/PublicAPIApi.md#addemployee) | **POST** /{companyDomain}/v1/employees | Add Employee
-*PublicAPIApi* | [**addEmployeeDependent**](docs/Api/PublicAPIApi.md#addemployeedependent) | **POST** /{companyDomain}/v1/employeedependents | Add an employee dependent
-*PublicAPIApi* | [**addEmployeeFileCategory**](docs/Api/PublicAPIApi.md#addemployeefilecategory) | **POST** /{companyDomain}/v1/employees/files/categories | Add Employee File Category
-*PublicAPIApi* | [**addEmployeeTableRow**](docs/Api/PublicAPIApi.md#addemployeetablerow) | **POST** /{companyDomain}/v1/employees/{id}/tables/{table} | Adds a table row
-*PublicAPIApi* | [**addEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#addemployeetablerowv1) | **POST** /{companyDomain}/v1_1/employees/{id}/tables/{table} | Adds a table row
-*PublicAPIApi* | [**addNewCandidate**](docs/Api/PublicAPIApi.md#addnewcandidate) | **POST** /{companyDomain}/v1/applicant_tracking/application | Add New Candidate
-*PublicAPIApi* | [**addNewEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#addnewemployeetrainingrecord) | **POST** /{companyDomain}/v1/training/record/employee/{employeeId} | Add New Employee Training Record
-*PublicAPIApi* | [**addNewJobOpening**](docs/Api/PublicAPIApi.md#addnewjobopening) | **POST** /{companyDomain}/v1/applicant_tracking/job_opening | Add New Job Opening
-*PublicAPIApi* | [**addTrainingCategory**](docs/Api/PublicAPIApi.md#addtrainingcategory) | **POST** /{companyDomain}/v1/training/category | Add Training Category
-*PublicAPIApi* | [**addTrainingType**](docs/Api/PublicAPIApi.md#addtrainingtype) | **POST** /{companyDomain}/v1/training/type | Add Training Type
-*PublicAPIApi* | [**b86bb5db603786dfc98c8f6a7bb1a218**](docs/Api/PublicAPIApi.md#b86bb5db603786dfc98c8f6a7bb1a218) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
-*PublicAPIApi* | [**call0f428442e53dc46d1e2c8ff5b7a483a8**](docs/Api/PublicAPIApi.md#call0f428442e53dc46d1e2c8ff5b7a483a8) | **POST** /{companyDomain}/v1/timetracking/record | addTimeTrackingBulk
-*PublicAPIApi* | [**call149e00955713fb486cd7a81dd6ee31aa**](docs/Api/PublicAPIApi.md#call149e00955713fb486cd7a81dd6ee31aa) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries
-*PublicAPIApi* | [**call14e73aef978eb81d51fdbd74e0e83823**](docs/Api/PublicAPIApi.md#call14e73aef978eb81d51fdbd74e0e83823) | **PUT** /{companyDomain}/v1/timetracking/adjust | adjustTimeTracking
-*PublicAPIApi* | [**call59d25b8c03d013c96fbbf866769b8206**](docs/Api/PublicAPIApi.md#call59d25b8c03d013c96fbbf866769b8206) | **GET** /{companyDomain}/v1/field-options | Get Field Options
-*PublicAPIApi* | [**call5e1c5b4ef12e61d1bc975e8b4e00c38d**](docs/Api/PublicAPIApi.md#call5e1c5b4ef12e61d1bc975e8b4e00c38d) | **GET** /{companyDomain}/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId
-*PublicAPIApi* | [**call69c777478f5d52dee1b4f0937dca154f**](docs/Api/PublicAPIApi.md#call69c777478f5d52dee1b4f0937dca154f) | **POST** /{companyDomain}/v1/timetracking/add | addTimeTracking
-*PublicAPIApi* | [**call88ef63550f43537c6b3bfaa03d51d95d**](docs/Api/PublicAPIApi.md#call88ef63550f43537c6b3bfaa03d51d95d) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
-*PublicAPIApi* | [**call910252128bfbd9d42e50f9dc31bb6120**](docs/Api/PublicAPIApi.md#call910252128bfbd9d42e50f9dc31bb6120) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
-*PublicAPIApi* | [**call9a6d5660f03eadcf705c808a1f44b8c4**](docs/Api/PublicAPIApi.md#call9a6d5660f03eadcf705c808a1f44b8c4) | **GET** /{companyDomain}/v1/time_tracking/timesheet_entries | Get Timesheet Entries
-*PublicAPIApi* | [**db65bacaf29686d9c3b1296f6047a065**](docs/Api/PublicAPIApi.md#db65bacaf29686d9c3b1296f6047a065) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
-*PublicAPIApi* | [**dcb62a5d1780635153b978462f9debd0**](docs/Api/PublicAPIApi.md#dcb62a5d1780635153b978462f9debd0) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/delete | Delete timesheet clock entries.
-*PublicAPIApi* | [**deleteCompanyFile**](docs/Api/PublicAPIApi.md#deletecompanyfile) | **DELETE** /{companyDomain}/v1/files/{fileId} | Delete Company File
-*PublicAPIApi* | [**deleteEmployeeFile**](docs/Api/PublicAPIApi.md#deleteemployeefile) | **DELETE** /{companyDomain}/v1/employees/{id}/files/{fileId} | Delete Employee File
-*PublicAPIApi* | [**deleteEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#deleteemployeetablerowv1) | **DELETE** /{companyDomain}/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row
-*PublicAPIApi* | [**deleteEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#deleteemployeetrainingrecord) | **DELETE** /{companyDomain}/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record
-*PublicAPIApi* | [**deleteGoal**](docs/Api/PublicAPIApi.md#deletegoal) | **DELETE** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
-*PublicAPIApi* | [**deleteGoalComment**](docs/Api/PublicAPIApi.md#deletegoalcomment) | **DELETE** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
-*PublicAPIApi* | [**deleteTrainingCategory**](docs/Api/PublicAPIApi.md#deletetrainingcategory) | **DELETE** /{companyDomain}/v1/training/category/{trainingCategoryId} | Delete Training Category
-*PublicAPIApi* | [**deleteTrainingType**](docs/Api/PublicAPIApi.md#deletetrainingtype) | **DELETE** /{companyDomain}/v1/training/type/{trainingTypeId} | Delete Training Type
-*PublicAPIApi* | [**deleteWebhook**](docs/Api/PublicAPIApi.md#deletewebhook) | **DELETE** /{companyDomain}/v1/webhooks/{id} | Delete Webhook
-*PublicAPIApi* | [**estimateFutureTimeOffBalances**](docs/Api/PublicAPIApi.md#estimatefuturetimeoffbalances) | **GET** /{companyDomain}/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances
-*PublicAPIApi* | [**f97efc203b25647724accb9da7dda7db**](docs/Api/PublicAPIApi.md#f97efc203b25647724accb9da7dda7db) | **DELETE** /{companyDomain}/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId
-*PublicAPIApi* | [**getAListOfUsers**](docs/Api/PublicAPIApi.md#getalistofusers) | **GET** /{companyDomain}/v1/meta/users | Get a List of Users
-*PublicAPIApi* | [**getAListOfWhosOut**](docs/Api/PublicAPIApi.md#getalistofwhosout) | **GET** /{companyDomain}/v1/time_off/whos_out | Get a list of Who&#39;s Out
-*PublicAPIApi* | [**getApplicationDetails**](docs/Api/PublicAPIApi.md#getapplicationdetails) | **GET** /{companyDomain}/v1/applicant_tracking/applications/{applicationId} | Get Application Details
-*PublicAPIApi* | [**getApplications**](docs/Api/PublicAPIApi.md#getapplications) | **GET** /{companyDomain}/v1/applicant_tracking/applications | Get Applications
-*PublicAPIApi* | [**getBenefitCoverages**](docs/Api/PublicAPIApi.md#getbenefitcoverages) | **GET** /{companyDomain}/v1/benefitcoverages | Get benefit coverages
-*PublicAPIApi* | [**getBenefitDeductionTypes**](docs/Api/PublicAPIApi.md#getbenefitdeductiontypes) | **GET** /{companyDomain}/v1/benefits/settings/deduction_types/all | Get benefit deduction types
-*PublicAPIApi* | [**getByReportId**](docs/Api/PublicAPIApi.md#getbyreportid) | **GET** /{companyDomain}/v1/custom-reports/{reportId} | Get Report by ID
-*PublicAPIApi* | [**getCanCreateGoal**](docs/Api/PublicAPIApi.md#getcancreategoal) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal
-*PublicAPIApi* | [**getChangedEmployeeIds**](docs/Api/PublicAPIApi.md#getchangedemployeeids) | **GET** /{companyDomain}/v1/employees/changed | Gets all updated employee IDs
-*PublicAPIApi* | [**getChangedEmployeeTableData**](docs/Api/PublicAPIApi.md#getchangedemployeetabledata) | **GET** /{companyDomain}/v1/employees/changed/tables/{table} | Gets all updated employee table data
-*PublicAPIApi* | [**getCompanyEINs**](docs/Api/PublicAPIApi.md#getcompanyeins) | **GET** /{companyDomain}/v1/company_eins | Get Company EINs
-*PublicAPIApi* | [**getCompanyFile**](docs/Api/PublicAPIApi.md#getcompanyfile) | **GET** /{companyDomain}/v1/files/{fileId} | Get an Company File
-*PublicAPIApi* | [**getCompanyInformation**](docs/Api/PublicAPIApi.md#getcompanyinformation) | **GET** /{companyDomain}/v1/company_information | Get Company Information
-*PublicAPIApi* | [**getCompanyLocations**](docs/Api/PublicAPIApi.md#getcompanylocations) | **GET** /{companyDomain}/v1/applicant_tracking/locations | Get Company Locations
-*PublicAPIApi* | [**getCompanyReport**](docs/Api/PublicAPIApi.md#getcompanyreport) | **GET** /{companyDomain}/v1/reports/{id} | Get company report
-*PublicAPIApi* | [**getDataFromDataset**](docs/Api/PublicAPIApi.md#getdatafromdataset) | **POST** /{companyDomain}/v1/datasets/{datasetName} | Get Data from Dataset
-*PublicAPIApi* | [**getDataSets**](docs/Api/PublicAPIApi.md#getdatasets) | **GET** /{companyDomain}/v1/datasets | Get Data Sets
-*PublicAPIApi* | [**getEmployee**](docs/Api/PublicAPIApi.md#getemployee) | **GET** /{companyDomain}/v1/employees/{id} | Get Employee
-*PublicAPIApi* | [**getEmployeeDependent**](docs/Api/PublicAPIApi.md#getemployeedependent) | **GET** /{companyDomain}/v1/employeedependents/{id} | Get employee dependent
-*PublicAPIApi* | [**getEmployeeDependents**](docs/Api/PublicAPIApi.md#getemployeedependents) | **GET** /{companyDomain}/v1/employeedependents | Get all employee dependents
-*PublicAPIApi* | [**getEmployeeFile**](docs/Api/PublicAPIApi.md#getemployeefile) | **GET** /{companyDomain}/v1/employees/{id}/files/{fileId} | Get an Employee File
-*PublicAPIApi* | [**getEmployeePhoto**](docs/Api/PublicAPIApi.md#getemployeephoto) | **GET** /{companyDomain}/v1/employees/{employeeId}/photo/{size} | Get an employee photo
-*PublicAPIApi* | [**getEmployeeTableRow**](docs/Api/PublicAPIApi.md#getemployeetablerow) | **GET** /{companyDomain}/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination
-*PublicAPIApi* | [**getEmployeesDirectory**](docs/Api/PublicAPIApi.md#getemployeesdirectory) | **GET** /{companyDomain}/v1/employees/directory | Get Employee Directory
-*PublicAPIApi* | [**getFieldsFromDataset**](docs/Api/PublicAPIApi.md#getfieldsfromdataset) | **GET** /{companyDomain}/v1/datasets/{datasetName}/fields | Get Fields from Dataset
-*PublicAPIApi* | [**getGoalAggregate**](docs/Api/PublicAPIApi.md#getgoalaggregate) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info
-*PublicAPIApi* | [**getGoalComments**](docs/Api/PublicAPIApi.md#getgoalcomments) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments
-*PublicAPIApi* | [**getGoals**](docs/Api/PublicAPIApi.md#getgoals) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals | Get Goals
-*PublicAPIApi* | [**getGoalsAggregateV1**](docs/Api/PublicAPIApi.md#getgoalsaggregatev1) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info
-*PublicAPIApi* | [**getGoalsAggregateV11**](docs/Api/PublicAPIApi.md#getgoalsaggregatev11) | **GET** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1
-*PublicAPIApi* | [**getGoalsAggregateV12**](docs/Api/PublicAPIApi.md#getgoalsaggregatev12) | **GET** /{companyDomain}/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2
-*PublicAPIApi* | [**getGoalsAlignmentOptions**](docs/Api/PublicAPIApi.md#getgoalsalignmentoptions) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options
-*PublicAPIApi* | [**getGoalsFiltersV1**](docs/Api/PublicAPIApi.md#getgoalsfiltersv1) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/filters | 
-*PublicAPIApi* | [**getGoalsFiltersV11**](docs/Api/PublicAPIApi.md#getgoalsfiltersv11) | **GET** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/filters | 
-*PublicAPIApi* | [**getGoalsFiltersV12**](docs/Api/PublicAPIApi.md#getgoalsfiltersv12) | **GET** /{companyDomain}/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2
-*PublicAPIApi* | [**getGoalsShareOptions**](docs/Api/PublicAPIApi.md#getgoalsshareoptions) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options
-*PublicAPIApi* | [**getHiringLeads**](docs/Api/PublicAPIApi.md#gethiringleads) | **GET** /{companyDomain}/v1/applicant_tracking/hiring_leads | Get Hiring Leads
-*PublicAPIApi* | [**getJobSummaries**](docs/Api/PublicAPIApi.md#getjobsummaries) | **GET** /{companyDomain}/v1/applicant_tracking/jobs | Get Job Summaries
-*PublicAPIApi* | [**getMemberBenefit**](docs/Api/PublicAPIApi.md#getmemberbenefit) | **GET** /{companyDomain}/v1/benefit/member_benefit | Get a list of member benefit events
-*PublicAPIApi* | [**getMonitorFields**](docs/Api/PublicAPIApi.md#getmonitorfields) | **GET** /{companyDomain}/v1/webhooks/monitor_fields | Get monitor fields
-*PublicAPIApi* | [**getStatuses**](docs/Api/PublicAPIApi.md#getstatuses) | **GET** /{companyDomain}/v1/applicant_tracking/statuses | Get Statuses
-*PublicAPIApi* | [**getTimeOffPolicies**](docs/Api/PublicAPIApi.md#gettimeoffpolicies) | **GET** /{companyDomain}/v1/meta/time_off/policies | Get Time Off Policies
-*PublicAPIApi* | [**getTimeOffTypes**](docs/Api/PublicAPIApi.md#gettimeofftypes) | **GET** /{companyDomain}/v1/meta/time_off/types | Get Time Off Types
-*PublicAPIApi* | [**getWebhook**](docs/Api/PublicAPIApi.md#getwebhook) | **GET** /{companyDomain}/v1/webhooks/{id} | Get Webhook
-*PublicAPIApi* | [**getWebhookList**](docs/Api/PublicAPIApi.md#getwebhooklist) | **GET** /{companyDomain}/v1/webhooks | Gets as list of webhooks for the user API key.
-*PublicAPIApi* | [**getWebhookLogs**](docs/Api/PublicAPIApi.md#getwebhooklogs) | **GET** /{companyDomain}/v1/webhooks/{id}/log | Get Webhook Logs
-*PublicAPIApi* | [**listCompanyFiles**](docs/Api/PublicAPIApi.md#listcompanyfiles) | **GET** /{companyDomain}/v1/files/view | List company files and categories
-*PublicAPIApi* | [**listEmployeeFiles**](docs/Api/PublicAPIApi.md#listemployeefiles) | **GET** /{companyDomain}/v1/employees/{id}/files/view | List employee files and categories
-*PublicAPIApi* | [**listEmployeeTrainings**](docs/Api/PublicAPIApi.md#listemployeetrainings) | **GET** /{companyDomain}/v1/training/record/employee/{employeeId} | List Employee Trainings
-*PublicAPIApi* | [**listReports**](docs/Api/PublicAPIApi.md#listreports) | **GET** /{companyDomain}/v1/custom-reports | List Reports
-*PublicAPIApi* | [**listTrainingCategories**](docs/Api/PublicAPIApi.md#listtrainingcategories) | **GET** /{companyDomain}/v1/training/category | List Training Categories
-*PublicAPIApi* | [**listTrainingTypes**](docs/Api/PublicAPIApi.md#listtrainingtypes) | **GET** /{companyDomain}/v1/training/type | List Training Types
-*PublicAPIApi* | [**login**](docs/Api/PublicAPIApi.md#login) | **POST** /{companyDomain}/v1/login | User Login
-*PublicAPIApi* | [**metadataAddOrUpdateValuesForListFields**](docs/Api/PublicAPIApi.md#metadataaddorupdatevaluesforlistfields) | **PUT** /{companyDomain}/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields
-*PublicAPIApi* | [**metadataGetAListOfFields**](docs/Api/PublicAPIApi.md#metadatagetalistoffields) | **GET** /{companyDomain}/v1/meta/fields | Get a list of fields
-*PublicAPIApi* | [**metadataGetAListOfTabularFields**](docs/Api/PublicAPIApi.md#metadatagetalistoftabularfields) | **GET** /{companyDomain}/v1/meta/tables | Get a list of tabular fields
-*PublicAPIApi* | [**metadataGetDetailsForListFields**](docs/Api/PublicAPIApi.md#metadatagetdetailsforlistfields) | **GET** /{companyDomain}/v1/meta/lists | Get details for list fields
-*PublicAPIApi* | [**postApplicantStatus**](docs/Api/PublicAPIApi.md#postapplicantstatus) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status
-*PublicAPIApi* | [**postApplicationComment**](docs/Api/PublicAPIApi.md#postapplicationcomment) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment
-*PublicAPIApi* | [**postCloseGoal**](docs/Api/PublicAPIApi.md#postclosegoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal
-*PublicAPIApi* | [**postGoal**](docs/Api/PublicAPIApi.md#postgoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals | Create Goal
-*PublicAPIApi* | [**postGoalComment**](docs/Api/PublicAPIApi.md#postgoalcomment) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment
-*PublicAPIApi* | [**postReopenGoal**](docs/Api/PublicAPIApi.md#postreopengoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal
-*PublicAPIApi* | [**postWebhook**](docs/Api/PublicAPIApi.md#postwebhook) | **POST** /{companyDomain}/v1/webhooks | Add Webhook
-*PublicAPIApi* | [**putGoalComment**](docs/Api/PublicAPIApi.md#putgoalcomment) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment
-*PublicAPIApi* | [**putGoalMilestoneProgress**](docs/Api/PublicAPIApi.md#putgoalmilestoneprogress) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress
-*PublicAPIApi* | [**putGoalProgress**](docs/Api/PublicAPIApi.md#putgoalprogress) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress
-*PublicAPIApi* | [**putGoalSharedWith**](docs/Api/PublicAPIApi.md#putgoalsharedwith) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing
-*PublicAPIApi* | [**putGoalV1**](docs/Api/PublicAPIApi.md#putgoalv1) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal
-*PublicAPIApi* | [**putGoalV11**](docs/Api/PublicAPIApi.md#putgoalv11) | **PUT** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1
-*PublicAPIApi* | [**putWebhook**](docs/Api/PublicAPIApi.md#putwebhook) | **PUT** /{companyDomain}/v1/webhooks/{id} | Update Webhook
-*PublicAPIApi* | [**requestCustomReport**](docs/Api/PublicAPIApi.md#requestcustomreport) | **POST** /{companyDomain}/v1/reports/custom | Request a custom report
-*PublicAPIApi* | [**timeOffAddATimeOffHistoryItemForTimeOffRequest**](docs/Api/PublicAPIApi.md#timeoffaddatimeoffhistoryitemfortimeoffrequest) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request
-*PublicAPIApi* | [**timeOffAddATimeOffRequest**](docs/Api/PublicAPIApi.md#timeoffaddatimeoffrequest) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/request | Add a Time Off Request
-*PublicAPIApi* | [**timeOffAdjustTimeOffBalance**](docs/Api/PublicAPIApi.md#timeoffadjusttimeoffbalance) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance
-*PublicAPIApi* | [**timeOffAssignTimeOffPoliciesForAnEmployee**](docs/Api/PublicAPIApi.md#timeoffassigntimeoffpoliciesforanemployee) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee
-*PublicAPIApi* | [**timeOffChangeARequestStatus**](docs/Api/PublicAPIApi.md#timeoffchangearequeststatus) | **PUT** /{companyDomain}/v1/time_off/requests/{requestId}/status | Change a Request Status
-*PublicAPIApi* | [**timeOffGetTimeOffRequests**](docs/Api/PublicAPIApi.md#timeoffgettimeoffrequests) | **GET** /{companyDomain}/v1/time_off/requests | Get Time Off Requests
-*PublicAPIApi* | [**timeOffListTimeOffPoliciesForEmployee**](docs/Api/PublicAPIApi.md#timeofflisttimeoffpoliciesforemployee) | **GET** /{companyDomain}/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee
-*PublicAPIApi* | [**timeOffV11AssignTimeOffPoliciesForAnEmployee**](docs/Api/PublicAPIApi.md#timeoffv11assigntimeoffpoliciesforanemployee) | **PUT** /{companyDomain}/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1
-*PublicAPIApi* | [**timeOffV11ListTimeOffPoliciesForEmployee**](docs/Api/PublicAPIApi.md#timeoffv11listtimeoffpoliciesforemployee) | **GET** /{companyDomain}/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1
-*PublicAPIApi* | [**updateCompanyFile**](docs/Api/PublicAPIApi.md#updatecompanyfile) | **POST** /{companyDomain}/v1/files/{fileId} | Update Company File
-*PublicAPIApi* | [**updateEmployee**](docs/Api/PublicAPIApi.md#updateemployee) | **POST** /{companyDomain}/v1/employees/{id} | Update Employee
-*PublicAPIApi* | [**updateEmployeeDependent**](docs/Api/PublicAPIApi.md#updateemployeedependent) | **PUT** /{companyDomain}/v1/employeedependents/{id} | Update an employee dependent
-*PublicAPIApi* | [**updateEmployeeFile**](docs/Api/PublicAPIApi.md#updateemployeefile) | **POST** /{companyDomain}/v1/employees/{id}/files/{fileId} | Update Employee File
-*PublicAPIApi* | [**updateEmployeeTableRow**](docs/Api/PublicAPIApi.md#updateemployeetablerow) | **POST** /{companyDomain}/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
-*PublicAPIApi* | [**updateEmployeeTableRowV**](docs/Api/PublicAPIApi.md#updateemployeetablerowv) | **POST** /{companyDomain}/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
-*PublicAPIApi* | [**updateEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#updateemployeetrainingrecord) | **PUT** /{companyDomain}/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record
-*PublicAPIApi* | [**updateTrainingCategory**](docs/Api/PublicAPIApi.md#updatetrainingcategory) | **PUT** /{companyDomain}/v1/training/category/{trainingCategoryId} | Update Training Category
-*PublicAPIApi* | [**updateTrainingType**](docs/Api/PublicAPIApi.md#updatetrainingtype) | **PUT** /{companyDomain}/v1/training/type/{trainingTypeId} | Update Training Type
-*PublicAPIApi* | [**uploadCompanyFile**](docs/Api/PublicAPIApi.md#uploadcompanyfile) | **POST** /{companyDomain}/v1/files | Upload Company File
-*PublicAPIApi* | [**uploadEmployeeFile**](docs/Api/PublicAPIApi.md#uploademployeefile) | **POST** /{companyDomain}/v1/employees/{id}/files | Upload Employee File
-*PublicAPIApi* | [**uploadEmployeePhoto**](docs/Api/PublicAPIApi.md#uploademployeephoto) | **POST** /{companyDomain}/v1/employees/{employeeId}/photo | Store a new employee photo
-*ReportsApi* | [**getCompanyReport**](docs/Api/ReportsApi.md#getcompanyreport) | **GET** /{companyDomain}/v1/reports/{id} | Get company report
-*ReportsApi* | [**requestCustomReport**](docs/Api/ReportsApi.md#requestcustomreport) | **POST** /{companyDomain}/v1/reports/custom | Request a custom report
-*TabularDataApi* | [**addEmployeeTableRow**](docs/Api/TabularDataApi.md#addemployeetablerow) | **POST** /{companyDomain}/v1/employees/{id}/tables/{table} | Adds a table row
-*TabularDataApi* | [**addEmployeeTableRowV1**](docs/Api/TabularDataApi.md#addemployeetablerowv1) | **POST** /{companyDomain}/v1_1/employees/{id}/tables/{table} | Adds a table row
-*TabularDataApi* | [**deleteEmployeeTableRowV1**](docs/Api/TabularDataApi.md#deleteemployeetablerowv1) | **DELETE** /{companyDomain}/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row
-*TabularDataApi* | [**getChangedEmployeeTableData**](docs/Api/TabularDataApi.md#getchangedemployeetabledata) | **GET** /{companyDomain}/v1/employees/changed/tables/{table} | Gets all updated employee table data
-*TabularDataApi* | [**getEmployeeTableRow**](docs/Api/TabularDataApi.md#getemployeetablerow) | **GET** /{companyDomain}/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination
-*TabularDataApi* | [**updateEmployeeTableRow**](docs/Api/TabularDataApi.md#updateemployeetablerow) | **POST** /{companyDomain}/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
-*TabularDataApi* | [**updateEmployeeTableRowV**](docs/Api/TabularDataApi.md#updateemployeetablerowv) | **POST** /{companyDomain}/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
-*TimeOffApi* | [**estimateFutureTimeOffBalances**](docs/Api/TimeOffApi.md#estimatefuturetimeoffbalances) | **GET** /{companyDomain}/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances
-*TimeOffApi* | [**getAListOfWhosOut**](docs/Api/TimeOffApi.md#getalistofwhosout) | **GET** /{companyDomain}/v1/time_off/whos_out | Get a list of Who&#39;s Out
-*TimeOffApi* | [**getTimeOffPolicies**](docs/Api/TimeOffApi.md#gettimeoffpolicies) | **GET** /{companyDomain}/v1/meta/time_off/policies | Get Time Off Policies
-*TimeOffApi* | [**getTimeOffTypes**](docs/Api/TimeOffApi.md#gettimeofftypes) | **GET** /{companyDomain}/v1/meta/time_off/types | Get Time Off Types
-*TimeOffApi* | [**timeOffAddATimeOffHistoryItemForTimeOffRequest**](docs/Api/TimeOffApi.md#timeoffaddatimeoffhistoryitemfortimeoffrequest) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request
-*TimeOffApi* | [**timeOffAddATimeOffRequest**](docs/Api/TimeOffApi.md#timeoffaddatimeoffrequest) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/request | Add a Time Off Request
-*TimeOffApi* | [**timeOffAdjustTimeOffBalance**](docs/Api/TimeOffApi.md#timeoffadjusttimeoffbalance) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance
-*TimeOffApi* | [**timeOffAssignTimeOffPoliciesForAnEmployee**](docs/Api/TimeOffApi.md#timeoffassigntimeoffpoliciesforanemployee) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee
-*TimeOffApi* | [**timeOffChangeARequestStatus**](docs/Api/TimeOffApi.md#timeoffchangearequeststatus) | **PUT** /{companyDomain}/v1/time_off/requests/{requestId}/status | Change a Request Status
-*TimeOffApi* | [**timeOffGetTimeOffRequests**](docs/Api/TimeOffApi.md#timeoffgettimeoffrequests) | **GET** /{companyDomain}/v1/time_off/requests | Get Time Off Requests
-*TimeOffApi* | [**timeOffListTimeOffPoliciesForEmployee**](docs/Api/TimeOffApi.md#timeofflisttimeoffpoliciesforemployee) | **GET** /{companyDomain}/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee
-*TimeOffApi* | [**timeOffV11AssignTimeOffPoliciesForAnEmployee**](docs/Api/TimeOffApi.md#timeoffv11assigntimeoffpoliciesforanemployee) | **PUT** /{companyDomain}/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1
-*TimeOffApi* | [**timeOffV11ListTimeOffPoliciesForEmployee**](docs/Api/TimeOffApi.md#timeoffv11listtimeoffpoliciesforemployee) | **GET** /{companyDomain}/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1
-*TimeTrackingApi* | [**b86bb5db603786dfc98c8f6a7bb1a218**](docs/Api/TimeTrackingApi.md#b86bb5db603786dfc98c8f6a7bb1a218) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
-*TimeTrackingApi* | [**call149e00955713fb486cd7a81dd6ee31aa**](docs/Api/TimeTrackingApi.md#call149e00955713fb486cd7a81dd6ee31aa) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries
-*TimeTrackingApi* | [**call88ef63550f43537c6b3bfaa03d51d95d**](docs/Api/TimeTrackingApi.md#call88ef63550f43537c6b3bfaa03d51d95d) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
-*TimeTrackingApi* | [**call910252128bfbd9d42e50f9dc31bb6120**](docs/Api/TimeTrackingApi.md#call910252128bfbd9d42e50f9dc31bb6120) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
-*TimeTrackingApi* | [**call9a6d5660f03eadcf705c808a1f44b8c4**](docs/Api/TimeTrackingApi.md#call9a6d5660f03eadcf705c808a1f44b8c4) | **GET** /{companyDomain}/v1/time_tracking/timesheet_entries | Get Timesheet Entries
-*TimeTrackingApi* | [**db65bacaf29686d9c3b1296f6047a065**](docs/Api/TimeTrackingApi.md#db65bacaf29686d9c3b1296f6047a065) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
-*TimeTrackingApi* | [**dcb62a5d1780635153b978462f9debd0**](docs/Api/TimeTrackingApi.md#dcb62a5d1780635153b978462f9debd0) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/delete | Delete timesheet clock entries.
-*TrainingApi* | [**addNewEmployeeTrainingRecord**](docs/Api/TrainingApi.md#addnewemployeetrainingrecord) | **POST** /{companyDomain}/v1/training/record/employee/{employeeId} | Add New Employee Training Record
-*TrainingApi* | [**addTrainingCategory**](docs/Api/TrainingApi.md#addtrainingcategory) | **POST** /{companyDomain}/v1/training/category | Add Training Category
-*TrainingApi* | [**addTrainingType**](docs/Api/TrainingApi.md#addtrainingtype) | **POST** /{companyDomain}/v1/training/type | Add Training Type
-*TrainingApi* | [**deleteEmployeeTrainingRecord**](docs/Api/TrainingApi.md#deleteemployeetrainingrecord) | **DELETE** /{companyDomain}/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record
-*TrainingApi* | [**deleteTrainingCategory**](docs/Api/TrainingApi.md#deletetrainingcategory) | **DELETE** /{companyDomain}/v1/training/category/{trainingCategoryId} | Delete Training Category
-*TrainingApi* | [**deleteTrainingType**](docs/Api/TrainingApi.md#deletetrainingtype) | **DELETE** /{companyDomain}/v1/training/type/{trainingTypeId} | Delete Training Type
-*TrainingApi* | [**listEmployeeTrainings**](docs/Api/TrainingApi.md#listemployeetrainings) | **GET** /{companyDomain}/v1/training/record/employee/{employeeId} | List Employee Trainings
-*TrainingApi* | [**listTrainingCategories**](docs/Api/TrainingApi.md#listtrainingcategories) | **GET** /{companyDomain}/v1/training/category | List Training Categories
-*TrainingApi* | [**listTrainingTypes**](docs/Api/TrainingApi.md#listtrainingtypes) | **GET** /{companyDomain}/v1/training/type | List Training Types
-*TrainingApi* | [**updateEmployeeTrainingRecord**](docs/Api/TrainingApi.md#updateemployeetrainingrecord) | **PUT** /{companyDomain}/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record
-*TrainingApi* | [**updateTrainingCategory**](docs/Api/TrainingApi.md#updatetrainingcategory) | **PUT** /{companyDomain}/v1/training/category/{trainingCategoryId} | Update Training Category
-*TrainingApi* | [**updateTrainingType**](docs/Api/TrainingApi.md#updatetrainingtype) | **PUT** /{companyDomain}/v1/training/type/{trainingTypeId} | Update Training Type
-*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /{companyDomain}/v1/webhooks/{id} | Delete Webhook
-*WebhooksApi* | [**getMonitorFields**](docs/Api/WebhooksApi.md#getmonitorfields) | **GET** /{companyDomain}/v1/webhooks/monitor_fields | Get monitor fields
-*WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /{companyDomain}/v1/webhooks/{id} | Get Webhook
-*WebhooksApi* | [**getWebhookList**](docs/Api/WebhooksApi.md#getwebhooklist) | **GET** /{companyDomain}/v1/webhooks | Gets as list of webhooks for the user API key.
-*WebhooksApi* | [**getWebhookLogs**](docs/Api/WebhooksApi.md#getwebhooklogs) | **GET** /{companyDomain}/v1/webhooks/{id}/log | Get Webhook Logs
-*WebhooksApi* | [**postWebhook**](docs/Api/WebhooksApi.md#postwebhook) | **POST** /{companyDomain}/v1/webhooks | Add Webhook
-*WebhooksApi* | [**putWebhook**](docs/Api/WebhooksApi.md#putwebhook) | **PUT** /{companyDomain}/v1/webhooks/{id} | Update Webhook
+*ATSApi* | [**getApplicationDetails**](docs/Api/ATSApi.md#getapplicationdetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details
+*AccountInformationApi* | [**getListOfUsers**](docs/Api/AccountInformationApi.md#getlistofusers) | **GET** /api/v1/meta/users | Get a List of Users
+*AccountInformationApi* | [**metadataAddOrUpdateValuesForListFields**](docs/Api/AccountInformationApi.md#metadataaddorupdatevaluesforlistfields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields
+*AccountInformationApi* | [**metadataGetAListOfFields**](docs/Api/AccountInformationApi.md#metadatagetalistoffields) | **GET** /api/v1/meta/fields | Get a list of fields
+*AccountInformationApi* | [**metadataGetAListOfTabularFields**](docs/Api/AccountInformationApi.md#metadatagetalistoftabularfields) | **GET** /api/v1/meta/tables | Get a list of tabular fields
+*AccountInformationApi* | [**metadataGetDetailsForListFields**](docs/Api/AccountInformationApi.md#metadatagetdetailsforlistfields) | **GET** /api/v1/meta/lists | Get details for list fields
+*ApplicantTrackingApi* | [**addNewCandidate**](docs/Api/ApplicantTrackingApi.md#addnewcandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate
+*ApplicantTrackingApi* | [**addNewJobOpening**](docs/Api/ApplicantTrackingApi.md#addnewjobopening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening
+*ApplicantTrackingApi* | [**getApplications**](docs/Api/ApplicantTrackingApi.md#getapplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications
+*ApplicantTrackingApi* | [**getCompanyLocations**](docs/Api/ApplicantTrackingApi.md#getcompanylocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations
+*ApplicantTrackingApi* | [**getHiringLeads**](docs/Api/ApplicantTrackingApi.md#gethiringleads) | **GET** /api/v1/applicant_tracking/hiring_leads | Get Hiring Leads
+*ApplicantTrackingApi* | [**getJobSummaries**](docs/Api/ApplicantTrackingApi.md#getjobsummaries) | **GET** /api/v1/applicant_tracking/jobs | Get Job Summaries
+*ApplicantTrackingApi* | [**getStatuses**](docs/Api/ApplicantTrackingApi.md#getstatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses
+*ApplicantTrackingApi* | [**postApplicantStatus**](docs/Api/ApplicantTrackingApi.md#postapplicantstatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status
+*ApplicantTrackingApi* | [**postApplicationComment**](docs/Api/ApplicantTrackingApi.md#postapplicationcomment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment
+*BenefitsApi* | [**addEmployeeDependent**](docs/Api/BenefitsApi.md#addemployeedependent) | **POST** /api/v1/employeedependents | Add an employee dependent
+*BenefitsApi* | [**getBenefitCoverages**](docs/Api/BenefitsApi.md#getbenefitcoverages) | **GET** /api/v1/benefitcoverages | Get benefit coverages
+*BenefitsApi* | [**getBenefitDeductionTypes**](docs/Api/BenefitsApi.md#getbenefitdeductiontypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get benefit deduction types
+*BenefitsApi* | [**getEmployeeDependent**](docs/Api/BenefitsApi.md#getemployeedependent) | **GET** /api/v1/employeedependents/{id} | Get employee dependent
+*BenefitsApi* | [**getEmployeeDependents**](docs/Api/BenefitsApi.md#getemployeedependents) | **GET** /api/v1/employeedependents | Get all employee dependents
+*BenefitsApi* | [**getMemberBenefit**](docs/Api/BenefitsApi.md#getmemberbenefit) | **GET** /api/v1/benefit/member_benefit | Get a list of member benefit events
+*BenefitsApi* | [**updateEmployeeDependent**](docs/Api/BenefitsApi.md#updateemployeedependent) | **PUT** /api/v1/employeedependents/{id} | Update an employee dependent
+*CompanyFilesApi* | [**addCompanyFileCategory**](docs/Api/CompanyFilesApi.md#addcompanyfilecategory) | **POST** /api/v1/files/categories | Add Company File Category
+*CompanyFilesApi* | [**deleteCompanyFile**](docs/Api/CompanyFilesApi.md#deletecompanyfile) | **DELETE** /api/v1/files/{fileId} | Delete Company File
+*CompanyFilesApi* | [**getCompanyFile**](docs/Api/CompanyFilesApi.md#getcompanyfile) | **GET** /api/v1/files/{fileId} | Get an Company File
+*CompanyFilesApi* | [**listCompanyFiles**](docs/Api/CompanyFilesApi.md#listcompanyfiles) | **GET** /api/v1/files/view | List company files and categories
+*CompanyFilesApi* | [**updateCompanyFile**](docs/Api/CompanyFilesApi.md#updatecompanyfile) | **POST** /api/v1/files/{fileId} | Update Company File
+*CompanyFilesApi* | [**uploadCompanyFile**](docs/Api/CompanyFilesApi.md#uploadcompanyfile) | **POST** /api/v1/files | Upload Company File
+*CustomReportsApi* | [**getByReportId**](docs/Api/CustomReportsApi.md#getbyreportid) | **GET** /api/v1/custom-reports/{reportId} | Get Report by ID
+*CustomReportsApi* | [**listReports**](docs/Api/CustomReportsApi.md#listreports) | **GET** /api/v1/custom-reports | List Reports
+*DatasetsApi* | [**getDataFromDataset**](docs/Api/DatasetsApi.md#getdatafromdataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset
+*DatasetsApi* | [**getDataSets**](docs/Api/DatasetsApi.md#getdatasets) | **GET** /api/v1/datasets | Get Data Sets
+*DatasetsApi* | [**getFieldsFromDataset**](docs/Api/DatasetsApi.md#getfieldsfromdataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset
+*EmployeeFilesApi* | [**addEmployeeFileCategory**](docs/Api/EmployeeFilesApi.md#addemployeefilecategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category
+*EmployeeFilesApi* | [**deleteEmployeeFile**](docs/Api/EmployeeFilesApi.md#deleteemployeefile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File
+*EmployeeFilesApi* | [**getEmployeeFile**](docs/Api/EmployeeFilesApi.md#getemployeefile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get an Employee File
+*EmployeeFilesApi* | [**listEmployeeFiles**](docs/Api/EmployeeFilesApi.md#listemployeefiles) | **GET** /api/v1/employees/{id}/files/view | List employee files and categories
+*EmployeeFilesApi* | [**updateEmployeeFile**](docs/Api/EmployeeFilesApi.md#updateemployeefile) | **POST** /api/v1/employees/{id}/files/{fileId} | Update Employee File
+*EmployeeFilesApi* | [**uploadEmployeeFile**](docs/Api/EmployeeFilesApi.md#uploademployeefile) | **POST** /api/v1/employees/{id}/files | Upload Employee File
+*EmployeesApi* | [**addEmployee**](docs/Api/EmployeesApi.md#addemployee) | **POST** /api/v1/employees | Add Employee
+*EmployeesApi* | [**getCompanyInformation**](docs/Api/EmployeesApi.md#getcompanyinformation) | **GET** /api/v1/company_information | Get Company Information
+*EmployeesApi* | [**getEmployee**](docs/Api/EmployeesApi.md#getemployee) | **GET** /api/v1/employees/{id} | Get Employee
+*EmployeesApi* | [**getEmployeesDirectory**](docs/Api/EmployeesApi.md#getemployeesdirectory) | **GET** /api/v1/employees/directory | Get Employee Directory
+*EmployeesApi* | [**updateEmployee**](docs/Api/EmployeesApi.md#updateemployee) | **POST** /api/v1/employees/{id} | Update Employee
+*GoalsApi* | [**deleteGoal**](docs/Api/GoalsApi.md#deletegoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
+*GoalsApi* | [**deleteGoalComment**](docs/Api/GoalsApi.md#deletegoalcomment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
+*GoalsApi* | [**getCanCreateGoal**](docs/Api/GoalsApi.md#getcancreategoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal
+*GoalsApi* | [**getGoalAggregate**](docs/Api/GoalsApi.md#getgoalaggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info
+*GoalsApi* | [**getGoalComments**](docs/Api/GoalsApi.md#getgoalcomments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments
+*GoalsApi* | [**getGoals**](docs/Api/GoalsApi.md#getgoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | Get Goals
+*GoalsApi* | [**getGoalsAggregateV1**](docs/Api/GoalsApi.md#getgoalsaggregatev1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info
+*GoalsApi* | [**getGoalsAggregateV11**](docs/Api/GoalsApi.md#getgoalsaggregatev11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1
+*GoalsApi* | [**getGoalsAggregateV12**](docs/Api/GoalsApi.md#getgoalsaggregatev12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2
+*GoalsApi* | [**getGoalsAlignmentOptions**](docs/Api/GoalsApi.md#getgoalsalignmentoptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options
+*GoalsApi* | [**getGoalsFiltersV1**](docs/Api/GoalsApi.md#getgoalsfiltersv1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goals Filters
+*GoalsApi* | [**getGoalsFiltersV11**](docs/Api/GoalsApi.md#getgoalsfiltersv11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goals Filters
+*GoalsApi* | [**getGoalsFiltersV12**](docs/Api/GoalsApi.md#getgoalsfiltersv12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2
+*GoalsApi* | [**getGoalsShareOptions**](docs/Api/GoalsApi.md#getgoalsshareoptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options
+*GoalsApi* | [**postCloseGoal**](docs/Api/GoalsApi.md#postclosegoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal
+*GoalsApi* | [**postGoal**](docs/Api/GoalsApi.md#postgoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal
+*GoalsApi* | [**postGoalComment**](docs/Api/GoalsApi.md#postgoalcomment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment
+*GoalsApi* | [**postReopenGoal**](docs/Api/GoalsApi.md#postreopengoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal
+*GoalsApi* | [**putGoalComment**](docs/Api/GoalsApi.md#putgoalcomment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment
+*GoalsApi* | [**putGoalMilestoneProgress**](docs/Api/GoalsApi.md#putgoalmilestoneprogress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress
+*GoalsApi* | [**putGoalProgress**](docs/Api/GoalsApi.md#putgoalprogress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress
+*GoalsApi* | [**putGoalSharedWith**](docs/Api/GoalsApi.md#putgoalsharedwith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing
+*GoalsApi* | [**putGoalV1**](docs/Api/GoalsApi.md#putgoalv1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal
+*GoalsApi* | [**putGoalV11**](docs/Api/GoalsApi.md#putgoalv11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1
+*HoursApi* | [**call22067048cf6eec230a865765a18ad7b8**](docs/Api/HoursApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking
+*HoursApi* | [**call717faf6067928c3497fc9acbf5b91767**](docs/Api/HoursApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId
+*HoursApi* | [**call889a4c2de70a53c5ab8cb32f1c2243f5**](docs/Api/HoursApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId
+*HoursApi* | [**e2ae6e59655aeab2b4e6311967a2809f**](docs/Api/HoursApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking
+*HoursApi* | [**f54bcaec6771b1264671e53f2e557b1f**](docs/Api/HoursApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk
+*LastChangeInformationApi* | [**getChangedEmployeeIds**](docs/Api/LastChangeInformationApi.md#getchangedemployeeids) | **GET** /api/v1/employees/changed | Gets all updated employee IDs
+*LoginApi* | [**login**](docs/Api/LoginApi.md#login) | **POST** /api/v1/login | User Login
+*PhotosApi* | [**getEmployeePhoto**](docs/Api/PhotosApi.md#getemployeephoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo
+*PhotosApi* | [**uploadEmployeePhoto**](docs/Api/PhotosApi.md#uploademployeephoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo
+*PublicAPIApi* | [**addCompanyFileCategory**](docs/Api/PublicAPIApi.md#addcompanyfilecategory) | **POST** /api/v1/files/categories | Add Company File Category
+*PublicAPIApi* | [**addEmployee**](docs/Api/PublicAPIApi.md#addemployee) | **POST** /api/v1/employees | Add Employee
+*PublicAPIApi* | [**addEmployeeDependent**](docs/Api/PublicAPIApi.md#addemployeedependent) | **POST** /api/v1/employeedependents | Add an employee dependent
+*PublicAPIApi* | [**addEmployeeFileCategory**](docs/Api/PublicAPIApi.md#addemployeefilecategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category
+*PublicAPIApi* | [**addEmployeeTableRow**](docs/Api/PublicAPIApi.md#addemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table} | Adds a table row
+*PublicAPIApi* | [**addEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#addemployeetablerowv1) | **POST** /api/v1_1/employees/{id}/tables/{table} | Adds a table row
+*PublicAPIApi* | [**addNewCandidate**](docs/Api/PublicAPIApi.md#addnewcandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate
+*PublicAPIApi* | [**addNewEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#addnewemployeetrainingrecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record
+*PublicAPIApi* | [**addNewJobOpening**](docs/Api/PublicAPIApi.md#addnewjobopening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening
+*PublicAPIApi* | [**addTrainingCategory**](docs/Api/PublicAPIApi.md#addtrainingcategory) | **POST** /api/v1/training/category | Add Training Category
+*PublicAPIApi* | [**addTrainingType**](docs/Api/PublicAPIApi.md#addtrainingtype) | **POST** /api/v1/training/type | Add Training Type
+*PublicAPIApi* | [**ca54fa4c1d42864a2540f7f7600e0d65**](docs/Api/PublicAPIApi.md#ca54fa4c1d42864a2540f7f7600e0d65) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
+*PublicAPIApi* | [**call134f6593587d7195536c151bd65eb6d5**](docs/Api/PublicAPIApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
+*PublicAPIApi* | [**call18e680c918496818b49d593d7ea375a5**](docs/Api/PublicAPIApi.md#call18e680c918496818b49d593d7ea375a5) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options
+*PublicAPIApi* | [**call22067048cf6eec230a865765a18ad7b8**](docs/Api/PublicAPIApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking
+*PublicAPIApi* | [**call3b7487d1d17551f6c3e2567b96089ce1**](docs/Api/PublicAPIApi.md#call3b7487d1d17551f6c3e2567b96089ce1) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries
+*PublicAPIApi* | [**call408a4478cbd2b1b5811ba6228e2898df**](docs/Api/PublicAPIApi.md#call408a4478cbd2b1b5811ba6228e2898df) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries
+*PublicAPIApi* | [**call43c7cc099ca54295a047f449824fc0dd**](docs/Api/PublicAPIApi.md#call43c7cc099ca54295a047f449824fc0dd) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
+*PublicAPIApi* | [**call717faf6067928c3497fc9acbf5b91767**](docs/Api/PublicAPIApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId
+*PublicAPIApi* | [**call7bb9fedfad942b8839bc61a125e7c255**](docs/Api/PublicAPIApi.md#call7bb9fedfad942b8839bc61a125e7c255) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
+*PublicAPIApi* | [**call889a4c2de70a53c5ab8cb32f1c2243f5**](docs/Api/PublicAPIApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId
+*PublicAPIApi* | [**deleteCompanyFile**](docs/Api/PublicAPIApi.md#deletecompanyfile) | **DELETE** /api/v1/files/{fileId} | Delete Company File
+*PublicAPIApi* | [**deleteEmployeeFile**](docs/Api/PublicAPIApi.md#deleteemployeefile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File
+*PublicAPIApi* | [**deleteEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#deleteemployeetablerowv1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row
+*PublicAPIApi* | [**deleteEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#deleteemployeetrainingrecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record
+*PublicAPIApi* | [**deleteGoal**](docs/Api/PublicAPIApi.md#deletegoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
+*PublicAPIApi* | [**deleteGoalComment**](docs/Api/PublicAPIApi.md#deletegoalcomment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
+*PublicAPIApi* | [**deleteTrainingCategory**](docs/Api/PublicAPIApi.md#deletetrainingcategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category
+*PublicAPIApi* | [**deleteTrainingType**](docs/Api/PublicAPIApi.md#deletetrainingtype) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type
+*PublicAPIApi* | [**deleteWebhook**](docs/Api/PublicAPIApi.md#deletewebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook
+*PublicAPIApi* | [**e2ae6e59655aeab2b4e6311967a2809f**](docs/Api/PublicAPIApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking
+*PublicAPIApi* | [**e9a47e93524609b981be6139822d219e**](docs/Api/PublicAPIApi.md#e9a47e93524609b981be6139822d219e) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
+*PublicAPIApi* | [**f54bcaec6771b1264671e53f2e557b1f**](docs/Api/PublicAPIApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk
+*PublicAPIApi* | [**f7dd45b1747b0b72c4b617845b065a07**](docs/Api/PublicAPIApi.md#f7dd45b1747b0b72c4b617845b065a07) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project
+*PublicAPIApi* | [**getAListOfWhoIsOut**](docs/Api/PublicAPIApi.md#getalistofwhoisout) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out
+*PublicAPIApi* | [**getApplicationDetails**](docs/Api/PublicAPIApi.md#getapplicationdetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details
+*PublicAPIApi* | [**getApplications**](docs/Api/PublicAPIApi.md#getapplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications
+*PublicAPIApi* | [**getBenefitCoverages**](docs/Api/PublicAPIApi.md#getbenefitcoverages) | **GET** /api/v1/benefitcoverages | Get benefit coverages
+*PublicAPIApi* | [**getBenefitDeductionTypes**](docs/Api/PublicAPIApi.md#getbenefitdeductiontypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get benefit deduction types
+*PublicAPIApi* | [**getByReportId**](docs/Api/PublicAPIApi.md#getbyreportid) | **GET** /api/v1/custom-reports/{reportId} | Get Report by ID
+*PublicAPIApi* | [**getCanCreateGoal**](docs/Api/PublicAPIApi.md#getcancreategoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal
+*PublicAPIApi* | [**getChangedEmployeeIds**](docs/Api/PublicAPIApi.md#getchangedemployeeids) | **GET** /api/v1/employees/changed | Gets all updated employee IDs
+*PublicAPIApi* | [**getChangedEmployeeTableData**](docs/Api/PublicAPIApi.md#getchangedemployeetabledata) | **GET** /api/v1/employees/changed/tables/{table} | Gets all updated employee table data
+*PublicAPIApi* | [**getCompanyFile**](docs/Api/PublicAPIApi.md#getcompanyfile) | **GET** /api/v1/files/{fileId} | Get an Company File
+*PublicAPIApi* | [**getCompanyInformation**](docs/Api/PublicAPIApi.md#getcompanyinformation) | **GET** /api/v1/company_information | Get Company Information
+*PublicAPIApi* | [**getCompanyLocations**](docs/Api/PublicAPIApi.md#getcompanylocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations
+*PublicAPIApi* | [**getCompanyReport**](docs/Api/PublicAPIApi.md#getcompanyreport) | **GET** /api/v1/reports/{id} | Get company report
+*PublicAPIApi* | [**getDataFromDataset**](docs/Api/PublicAPIApi.md#getdatafromdataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset
+*PublicAPIApi* | [**getDataSets**](docs/Api/PublicAPIApi.md#getdatasets) | **GET** /api/v1/datasets | Get Data Sets
+*PublicAPIApi* | [**getEmployee**](docs/Api/PublicAPIApi.md#getemployee) | **GET** /api/v1/employees/{id} | Get Employee
+*PublicAPIApi* | [**getEmployeeDependent**](docs/Api/PublicAPIApi.md#getemployeedependent) | **GET** /api/v1/employeedependents/{id} | Get employee dependent
+*PublicAPIApi* | [**getEmployeeDependents**](docs/Api/PublicAPIApi.md#getemployeedependents) | **GET** /api/v1/employeedependents | Get all employee dependents
+*PublicAPIApi* | [**getEmployeeFile**](docs/Api/PublicAPIApi.md#getemployeefile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get an Employee File
+*PublicAPIApi* | [**getEmployeePhoto**](docs/Api/PublicAPIApi.md#getemployeephoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo
+*PublicAPIApi* | [**getEmployeeTableRow**](docs/Api/PublicAPIApi.md#getemployeetablerow) | **GET** /api/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination
+*PublicAPIApi* | [**getEmployeesDirectory**](docs/Api/PublicAPIApi.md#getemployeesdirectory) | **GET** /api/v1/employees/directory | Get Employee Directory
+*PublicAPIApi* | [**getFieldsFromDataset**](docs/Api/PublicAPIApi.md#getfieldsfromdataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset
+*PublicAPIApi* | [**getGoalAggregate**](docs/Api/PublicAPIApi.md#getgoalaggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info
+*PublicAPIApi* | [**getGoalComments**](docs/Api/PublicAPIApi.md#getgoalcomments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments
+*PublicAPIApi* | [**getGoals**](docs/Api/PublicAPIApi.md#getgoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | Get Goals
+*PublicAPIApi* | [**getGoalsAggregateV1**](docs/Api/PublicAPIApi.md#getgoalsaggregatev1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info
+*PublicAPIApi* | [**getGoalsAggregateV11**](docs/Api/PublicAPIApi.md#getgoalsaggregatev11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1
+*PublicAPIApi* | [**getGoalsAggregateV12**](docs/Api/PublicAPIApi.md#getgoalsaggregatev12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2
+*PublicAPIApi* | [**getGoalsAlignmentOptions**](docs/Api/PublicAPIApi.md#getgoalsalignmentoptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options
+*PublicAPIApi* | [**getGoalsFiltersV1**](docs/Api/PublicAPIApi.md#getgoalsfiltersv1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goals Filters
+*PublicAPIApi* | [**getGoalsFiltersV11**](docs/Api/PublicAPIApi.md#getgoalsfiltersv11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goals Filters
+*PublicAPIApi* | [**getGoalsFiltersV12**](docs/Api/PublicAPIApi.md#getgoalsfiltersv12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2
+*PublicAPIApi* | [**getGoalsShareOptions**](docs/Api/PublicAPIApi.md#getgoalsshareoptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options
+*PublicAPIApi* | [**getHiringLeads**](docs/Api/PublicAPIApi.md#gethiringleads) | **GET** /api/v1/applicant_tracking/hiring_leads | Get Hiring Leads
+*PublicAPIApi* | [**getJobSummaries**](docs/Api/PublicAPIApi.md#getjobsummaries) | **GET** /api/v1/applicant_tracking/jobs | Get Job Summaries
+*PublicAPIApi* | [**getListOfUsers**](docs/Api/PublicAPIApi.md#getlistofusers) | **GET** /api/v1/meta/users | Get a List of Users
+*PublicAPIApi* | [**getMemberBenefit**](docs/Api/PublicAPIApi.md#getmemberbenefit) | **GET** /api/v1/benefit/member_benefit | Get a list of member benefit events
+*PublicAPIApi* | [**getMonitorFields**](docs/Api/PublicAPIApi.md#getmonitorfields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields
+*PublicAPIApi* | [**getStatuses**](docs/Api/PublicAPIApi.md#getstatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses
+*PublicAPIApi* | [**getTimeOffPolicies**](docs/Api/PublicAPIApi.md#gettimeoffpolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies
+*PublicAPIApi* | [**getTimeOffTypes**](docs/Api/PublicAPIApi.md#gettimeofftypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types
+*PublicAPIApi* | [**getWebhook**](docs/Api/PublicAPIApi.md#getwebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook
+*PublicAPIApi* | [**getWebhookList**](docs/Api/PublicAPIApi.md#getwebhooklist) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key.
+*PublicAPIApi* | [**getWebhookLogs**](docs/Api/PublicAPIApi.md#getwebhooklogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs
+*PublicAPIApi* | [**listCompanyFiles**](docs/Api/PublicAPIApi.md#listcompanyfiles) | **GET** /api/v1/files/view | List company files and categories
+*PublicAPIApi* | [**listEmployeeFiles**](docs/Api/PublicAPIApi.md#listemployeefiles) | **GET** /api/v1/employees/{id}/files/view | List employee files and categories
+*PublicAPIApi* | [**listEmployeeTrainings**](docs/Api/PublicAPIApi.md#listemployeetrainings) | **GET** /api/v1/training/record/employee/{employeeId} | List Employee Trainings
+*PublicAPIApi* | [**listReports**](docs/Api/PublicAPIApi.md#listreports) | **GET** /api/v1/custom-reports | List Reports
+*PublicAPIApi* | [**listTrainingCategories**](docs/Api/PublicAPIApi.md#listtrainingcategories) | **GET** /api/v1/training/category | List Training Categories
+*PublicAPIApi* | [**listTrainingTypes**](docs/Api/PublicAPIApi.md#listtrainingtypes) | **GET** /api/v1/training/type | List Training Types
+*PublicAPIApi* | [**login**](docs/Api/PublicAPIApi.md#login) | **POST** /api/v1/login | User Login
+*PublicAPIApi* | [**metadataAddOrUpdateValuesForListFields**](docs/Api/PublicAPIApi.md#metadataaddorupdatevaluesforlistfields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields
+*PublicAPIApi* | [**metadataGetAListOfFields**](docs/Api/PublicAPIApi.md#metadatagetalistoffields) | **GET** /api/v1/meta/fields | Get a list of fields
+*PublicAPIApi* | [**metadataGetAListOfTabularFields**](docs/Api/PublicAPIApi.md#metadatagetalistoftabularfields) | **GET** /api/v1/meta/tables | Get a list of tabular fields
+*PublicAPIApi* | [**metadataGetDetailsForListFields**](docs/Api/PublicAPIApi.md#metadatagetdetailsforlistfields) | **GET** /api/v1/meta/lists | Get details for list fields
+*PublicAPIApi* | [**postApplicantStatus**](docs/Api/PublicAPIApi.md#postapplicantstatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status
+*PublicAPIApi* | [**postApplicationComment**](docs/Api/PublicAPIApi.md#postapplicationcomment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment
+*PublicAPIApi* | [**postCloseGoal**](docs/Api/PublicAPIApi.md#postclosegoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal
+*PublicAPIApi* | [**postGoal**](docs/Api/PublicAPIApi.md#postgoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal
+*PublicAPIApi* | [**postGoalComment**](docs/Api/PublicAPIApi.md#postgoalcomment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment
+*PublicAPIApi* | [**postReopenGoal**](docs/Api/PublicAPIApi.md#postreopengoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal
+*PublicAPIApi* | [**postWebhook**](docs/Api/PublicAPIApi.md#postwebhook) | **POST** /api/v1/webhooks | Add Webhook
+*PublicAPIApi* | [**putGoalComment**](docs/Api/PublicAPIApi.md#putgoalcomment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment
+*PublicAPIApi* | [**putGoalMilestoneProgress**](docs/Api/PublicAPIApi.md#putgoalmilestoneprogress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress
+*PublicAPIApi* | [**putGoalProgress**](docs/Api/PublicAPIApi.md#putgoalprogress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress
+*PublicAPIApi* | [**putGoalSharedWith**](docs/Api/PublicAPIApi.md#putgoalsharedwith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing
+*PublicAPIApi* | [**putGoalV1**](docs/Api/PublicAPIApi.md#putgoalv1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal
+*PublicAPIApi* | [**putGoalV11**](docs/Api/PublicAPIApi.md#putgoalv11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1
+*PublicAPIApi* | [**putWebhook**](docs/Api/PublicAPIApi.md#putwebhook) | **PUT** /api/v1/webhooks/{id} | Update Webhook
+*PublicAPIApi* | [**requestCustomReport**](docs/Api/PublicAPIApi.md#requestcustomreport) | **POST** /api/v1/reports/custom | Request a custom report
+*PublicAPIApi* | [**timeOffAddATimeOffHistoryItemForTimeOffRequest**](docs/Api/PublicAPIApi.md#timeoffaddatimeoffhistoryitemfortimeoffrequest) | **PUT** /api/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request
+*PublicAPIApi* | [**timeOffAddATimeOffRequest**](docs/Api/PublicAPIApi.md#timeoffaddatimeoffrequest) | **PUT** /api/v1/employees/{employeeId}/time_off/request | Add a Time Off Request
+*PublicAPIApi* | [**timeOffAdjustTimeOffBalance**](docs/Api/PublicAPIApi.md#timeoffadjusttimeoffbalance) | **PUT** /api/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance
+*PublicAPIApi* | [**timeOffAssignTimeOffPoliciesForAnEmployee**](docs/Api/PublicAPIApi.md#timeoffassigntimeoffpoliciesforanemployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee
+*PublicAPIApi* | [**timeOffAssignTimeOffPoliciesForAnEmployeeV11**](docs/Api/PublicAPIApi.md#timeoffassigntimeoffpoliciesforanemployeev11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1
+*PublicAPIApi* | [**timeOffChangeARequestStatus**](docs/Api/PublicAPIApi.md#timeoffchangearequeststatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Change a Request Status
+*PublicAPIApi* | [**timeOffEstimateFutureTimeOffBalances**](docs/Api/PublicAPIApi.md#timeoffestimatefuturetimeoffbalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances
+*PublicAPIApi* | [**timeOffGetTimeOffRequests**](docs/Api/PublicAPIApi.md#timeoffgettimeoffrequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests
+*PublicAPIApi* | [**timeOffListTimeOffPoliciesForEmployee**](docs/Api/PublicAPIApi.md#timeofflisttimeoffpoliciesforemployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee
+*PublicAPIApi* | [**timeOffListTimeOffPoliciesForEmployeeV11**](docs/Api/PublicAPIApi.md#timeofflisttimeoffpoliciesforemployeev11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1
+*PublicAPIApi* | [**updateCompanyFile**](docs/Api/PublicAPIApi.md#updatecompanyfile) | **POST** /api/v1/files/{fileId} | Update Company File
+*PublicAPIApi* | [**updateEmployee**](docs/Api/PublicAPIApi.md#updateemployee) | **POST** /api/v1/employees/{id} | Update Employee
+*PublicAPIApi* | [**updateEmployeeDependent**](docs/Api/PublicAPIApi.md#updateemployeedependent) | **PUT** /api/v1/employeedependents/{id} | Update an employee dependent
+*PublicAPIApi* | [**updateEmployeeFile**](docs/Api/PublicAPIApi.md#updateemployeefile) | **POST** /api/v1/employees/{id}/files/{fileId} | Update Employee File
+*PublicAPIApi* | [**updateEmployeeTableRow**](docs/Api/PublicAPIApi.md#updateemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
+*PublicAPIApi* | [**updateEmployeeTableRowV**](docs/Api/PublicAPIApi.md#updateemployeetablerowv) | **POST** /api/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
+*PublicAPIApi* | [**updateEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#updateemployeetrainingrecord) | **PUT** /api/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record
+*PublicAPIApi* | [**updateTrainingCategory**](docs/Api/PublicAPIApi.md#updatetrainingcategory) | **PUT** /api/v1/training/category/{trainingCategoryId} | Update Training Category
+*PublicAPIApi* | [**updateTrainingType**](docs/Api/PublicAPIApi.md#updatetrainingtype) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type
+*PublicAPIApi* | [**uploadCompanyFile**](docs/Api/PublicAPIApi.md#uploadcompanyfile) | **POST** /api/v1/files | Upload Company File
+*PublicAPIApi* | [**uploadEmployeeFile**](docs/Api/PublicAPIApi.md#uploademployeefile) | **POST** /api/v1/employees/{id}/files | Upload Employee File
+*PublicAPIApi* | [**uploadEmployeePhoto**](docs/Api/PublicAPIApi.md#uploademployeephoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo
+*ReportsApi* | [**getCompanyReport**](docs/Api/ReportsApi.md#getcompanyreport) | **GET** /api/v1/reports/{id} | Get company report
+*ReportsApi* | [**requestCustomReport**](docs/Api/ReportsApi.md#requestcustomreport) | **POST** /api/v1/reports/custom | Request a custom report
+*TabularDataApi* | [**addEmployeeTableRow**](docs/Api/TabularDataApi.md#addemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table} | Adds a table row
+*TabularDataApi* | [**addEmployeeTableRowV1**](docs/Api/TabularDataApi.md#addemployeetablerowv1) | **POST** /api/v1_1/employees/{id}/tables/{table} | Adds a table row
+*TabularDataApi* | [**deleteEmployeeTableRowV1**](docs/Api/TabularDataApi.md#deleteemployeetablerowv1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row
+*TabularDataApi* | [**getChangedEmployeeTableData**](docs/Api/TabularDataApi.md#getchangedemployeetabledata) | **GET** /api/v1/employees/changed/tables/{table} | Gets all updated employee table data
+*TabularDataApi* | [**getEmployeeTableRow**](docs/Api/TabularDataApi.md#getemployeetablerow) | **GET** /api/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination
+*TabularDataApi* | [**updateEmployeeTableRow**](docs/Api/TabularDataApi.md#updateemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
+*TabularDataApi* | [**updateEmployeeTableRowV**](docs/Api/TabularDataApi.md#updateemployeetablerowv) | **POST** /api/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
+*TimeOffApi* | [**getAListOfWhoIsOut**](docs/Api/TimeOffApi.md#getalistofwhoisout) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out
+*TimeOffApi* | [**getTimeOffPolicies**](docs/Api/TimeOffApi.md#gettimeoffpolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies
+*TimeOffApi* | [**getTimeOffTypes**](docs/Api/TimeOffApi.md#gettimeofftypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types
+*TimeOffApi* | [**timeOffAddATimeOffHistoryItemForTimeOffRequest**](docs/Api/TimeOffApi.md#timeoffaddatimeoffhistoryitemfortimeoffrequest) | **PUT** /api/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request
+*TimeOffApi* | [**timeOffAddATimeOffRequest**](docs/Api/TimeOffApi.md#timeoffaddatimeoffrequest) | **PUT** /api/v1/employees/{employeeId}/time_off/request | Add a Time Off Request
+*TimeOffApi* | [**timeOffAdjustTimeOffBalance**](docs/Api/TimeOffApi.md#timeoffadjusttimeoffbalance) | **PUT** /api/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance
+*TimeOffApi* | [**timeOffAssignTimeOffPoliciesForAnEmployee**](docs/Api/TimeOffApi.md#timeoffassigntimeoffpoliciesforanemployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee
+*TimeOffApi* | [**timeOffAssignTimeOffPoliciesForAnEmployeeV11**](docs/Api/TimeOffApi.md#timeoffassigntimeoffpoliciesforanemployeev11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1
+*TimeOffApi* | [**timeOffChangeARequestStatus**](docs/Api/TimeOffApi.md#timeoffchangearequeststatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Change a Request Status
+*TimeOffApi* | [**timeOffEstimateFutureTimeOffBalances**](docs/Api/TimeOffApi.md#timeoffestimatefuturetimeoffbalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances
+*TimeOffApi* | [**timeOffGetTimeOffRequests**](docs/Api/TimeOffApi.md#timeoffgettimeoffrequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests
+*TimeOffApi* | [**timeOffListTimeOffPoliciesForEmployee**](docs/Api/TimeOffApi.md#timeofflisttimeoffpoliciesforemployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee
+*TimeOffApi* | [**timeOffListTimeOffPoliciesForEmployeeV11**](docs/Api/TimeOffApi.md#timeofflisttimeoffpoliciesforemployeev11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1
+*TimeTrackingApi* | [**ca54fa4c1d42864a2540f7f7600e0d65**](docs/Api/TimeTrackingApi.md#ca54fa4c1d42864a2540f7f7600e0d65) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
+*TimeTrackingApi* | [**call134f6593587d7195536c151bd65eb6d5**](docs/Api/TimeTrackingApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
+*TimeTrackingApi* | [**call3b7487d1d17551f6c3e2567b96089ce1**](docs/Api/TimeTrackingApi.md#call3b7487d1d17551f6c3e2567b96089ce1) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries
+*TimeTrackingApi* | [**call408a4478cbd2b1b5811ba6228e2898df**](docs/Api/TimeTrackingApi.md#call408a4478cbd2b1b5811ba6228e2898df) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries
+*TimeTrackingApi* | [**call43c7cc099ca54295a047f449824fc0dd**](docs/Api/TimeTrackingApi.md#call43c7cc099ca54295a047f449824fc0dd) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
+*TimeTrackingApi* | [**call7bb9fedfad942b8839bc61a125e7c255**](docs/Api/TimeTrackingApi.md#call7bb9fedfad942b8839bc61a125e7c255) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
+*TimeTrackingApi* | [**e9a47e93524609b981be6139822d219e**](docs/Api/TimeTrackingApi.md#e9a47e93524609b981be6139822d219e) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
+*TimeTrackingApi* | [**f7dd45b1747b0b72c4b617845b065a07**](docs/Api/TimeTrackingApi.md#f7dd45b1747b0b72c4b617845b065a07) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project
+*TrainingApi* | [**addNewEmployeeTrainingRecord**](docs/Api/TrainingApi.md#addnewemployeetrainingrecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record
+*TrainingApi* | [**addTrainingCategory**](docs/Api/TrainingApi.md#addtrainingcategory) | **POST** /api/v1/training/category | Add Training Category
+*TrainingApi* | [**addTrainingType**](docs/Api/TrainingApi.md#addtrainingtype) | **POST** /api/v1/training/type | Add Training Type
+*TrainingApi* | [**deleteEmployeeTrainingRecord**](docs/Api/TrainingApi.md#deleteemployeetrainingrecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record
+*TrainingApi* | [**deleteTrainingCategory**](docs/Api/TrainingApi.md#deletetrainingcategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category
+*TrainingApi* | [**deleteTrainingType**](docs/Api/TrainingApi.md#deletetrainingtype) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type
+*TrainingApi* | [**listEmployeeTrainings**](docs/Api/TrainingApi.md#listemployeetrainings) | **GET** /api/v1/training/record/employee/{employeeId} | List Employee Trainings
+*TrainingApi* | [**listTrainingCategories**](docs/Api/TrainingApi.md#listtrainingcategories) | **GET** /api/v1/training/category | List Training Categories
+*TrainingApi* | [**listTrainingTypes**](docs/Api/TrainingApi.md#listtrainingtypes) | **GET** /api/v1/training/type | List Training Types
+*TrainingApi* | [**updateEmployeeTrainingRecord**](docs/Api/TrainingApi.md#updateemployeetrainingrecord) | **PUT** /api/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record
+*TrainingApi* | [**updateTrainingCategory**](docs/Api/TrainingApi.md#updatetrainingcategory) | **PUT** /api/v1/training/category/{trainingCategoryId} | Update Training Category
+*TrainingApi* | [**updateTrainingType**](docs/Api/TrainingApi.md#updatetrainingtype) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type
+*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook
+*WebhooksApi* | [**getMonitorFields**](docs/Api/WebhooksApi.md#getmonitorfields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields
+*WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook
+*WebhooksApi* | [**getWebhookList**](docs/Api/WebhooksApi.md#getwebhooklist) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key.
+*WebhooksApi* | [**getWebhookLogs**](docs/Api/WebhooksApi.md#getwebhooklogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs
+*WebhooksApi* | [**postWebhook**](docs/Api/WebhooksApi.md#postwebhook) | **POST** /api/v1/webhooks | Add Webhook
+*WebhooksApi* | [**putWebhook**](docs/Api/WebhooksApi.md#putwebhook) | **PUT** /api/v1/webhooks/{id} | Update Webhook
 
 ## Models
 
-- [0f428442e53dc46d1e2c8ff5b7a483a8201Response](docs/Model/0f428442e53dc46d1e2c8ff5b7a483a8201Response.md)
-- [0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse](docs/Model/0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse.md)
-- [149e00955713fb486cd7a81dd6ee31aaRequest](docs/Model/149e00955713fb486cd7a81dd6ee31aaRequest.md)
-- [149e00955713fb486cd7a81dd6ee31aaRequestEntriesInner](docs/Model/149e00955713fb486cd7a81dd6ee31aaRequestEntriesInner.md)
-- [14e73aef978eb81d51fdbd74e0e83823Request](docs/Model/14e73aef978eb81d51fdbd74e0e83823Request.md)
-- [59d25b8c03d013c96fbbf866769b8206Request](docs/Model/59d25b8c03d013c96fbbf866769b8206Request.md)
-- [5e1c5b4ef12e61d1bc975e8b4e00c38d200Response](docs/Model/5e1c5b4ef12e61d1bc975e8b4e00c38d200Response.md)
-- [69c777478f5d52dee1b4f0937dca154f201Response](docs/Model/69c777478f5d52dee1b4f0937dca154f201Response.md)
-- [88ef63550f43537c6b3bfaa03d51d95dRequest](docs/Model/88ef63550f43537c6b3bfaa03d51d95dRequest.md)
-- [910252128bfbd9d42e50f9dc31bb6120Request](docs/Model/910252128bfbd9d42e50f9dc31bb6120Request.md)
-- [910252128bfbd9d42e50f9dc31bb6120RequestHoursInner](docs/Model/910252128bfbd9d42e50f9dc31bb6120RequestHoursInner.md)
+- [18e680c918496818b49d593d7ea375a5Request](docs/Model/18e680c918496818b49d593d7ea375a5Request.md)
+- [22067048cf6eec230a865765a18ad7b8Request](docs/Model/22067048cf6eec230a865765a18ad7b8Request.md)
+- [3b7487d1d17551f6c3e2567b96089ce1Request](docs/Model/3b7487d1d17551f6c3e2567b96089ce1Request.md)
+- [3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner](docs/Model/3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner.md)
+- [408a4478cbd2b1b5811ba6228e2898dfRequest](docs/Model/408a4478cbd2b1b5811ba6228e2898dfRequest.md)
+- [43c7cc099ca54295a047f449824fc0ddRequest](docs/Model/43c7cc099ca54295a047f449824fc0ddRequest.md)
+- [7bb9fedfad942b8839bc61a125e7c255Request](docs/Model/7bb9fedfad942b8839bc61a125e7c255Request.md)
+- [889a4c2de70a53c5ab8cb32f1c2243f5200Response](docs/Model/889a4c2de70a53c5ab8cb32f1c2243f5200Response.md)
 - [AbstractFormNode](docs/Model/AbstractFormNode.md)
-- [AbstractMetal](docs/Model/AbstractMetal.md)
 - [Aca](docs/Model/Aca.md)
+- [AccountContactsResponse](docs/Model/AccountContactsResponse.md)
+- [AccountContactsResponseAccountsPayableEmails](docs/Model/AccountContactsResponseAccountsPayableEmails.md)
 - [AccountStatusTransformer](docs/Model/AccountStatusTransformer.md)
 - [AccountStatusTransformerBenefits](docs/Model/AccountStatusTransformerBenefits.md)
 - [AccountStatusTransformerDemographics](docs/Model/AccountStatusTransformerDemographics.md)
 - [AccountStatusTransformerEmployees](docs/Model/AccountStatusTransformerEmployees.md)
 - [AccountStatusTransformerServices](docs/Model/AccountStatusTransformerServices.md)
 - [AccountStatusTransformerTimeOff](docs/Model/AccountStatusTransformerTimeOff.md)
+- [AccountSummaryResponse](docs/Model/AccountSummaryResponse.md)
+- [AccountSyncDataObject](docs/Model/AccountSyncDataObject.md)
+- [AccountsPayableEmailsResponse](docs/Model/AccountsPayableEmailsResponse.md)
 - [AchHostedSignatureResponse](docs/Model/AchHostedSignatureResponse.md)
+- [AchHostedSignatureResponseBillToContactAddress](docs/Model/AchHostedSignatureResponseBillToContactAddress.md)
 - [AddNewCustomApplicantStatusResponse](docs/Model/AddNewCustomApplicantStatusResponse.md)
 - [AddNewCustomApplicantStatusResponseOneOf](docs/Model/AddNewCustomApplicantStatusResponseOneOf.md)
 - [AddNewEmployeeTrainingRecordRequest](docs/Model/AddNewEmployeeTrainingRecordRequest.md)
 - [AddNewEmployeeTrainingRecordRequestCost](docs/Model/AddNewEmployeeTrainingRecordRequestCost.md)
+- [AddOnBillingDetailsResponse](docs/Model/AddOnBillingDetailsResponse.md)
+- [AddOnTrialDetailsResponseInner](docs/Model/AddOnTrialDetailsResponseInner.md)
 - [AddTrainingCategoryRequest](docs/Model/AddTrainingCategoryRequest.md)
 - [AddTrainingTypeRequest](docs/Model/AddTrainingTypeRequest.md)
 - [AddTrainingTypeRequestCategory](docs/Model/AddTrainingTypeRequestCategory.md)
@@ -374,14 +377,21 @@ Class | Method | HTTP request | Description
 - [Address](docs/Model/Address.md)
 - [AdjustTimeOffBalance](docs/Model/AdjustTimeOffBalance.md)
 - [AggregateTimeOffRequestWithPersonInfoResponseInner](docs/Model/AggregateTimeOffRequestWithPersonInfoResponseInner.md)
+- [AllFieldOptionsTransformer](docs/Model/AllFieldOptionsTransformer.md)
 - [Answers](docs/Model/Answers.md)
 - [AnswersEmployeeDataViewObject](docs/Model/AnswersEmployeeDataViewObject.md)
 - [AnswersFileViewObject](docs/Model/AnswersFileViewObject.md)
 - [AnswersSettingsFileOptionDataObject](docs/Model/AnswersSettingsFileOptionDataObject.md)
+- [AppSettingsApp](docs/Model/AppSettingsApp.md)
 - [ApplicantSourceDataObject](docs/Model/ApplicantSourceDataObject.md)
 - [ApplicationApprovalRequestDataObject](docs/Model/ApplicationApprovalRequestDataObject.md)
 - [ApplicationFilterSchema](docs/Model/ApplicationFilterSchema.md)
 - [ApprovalClockOutResponseDataObject](docs/Model/ApprovalClockOutResponseDataObject.md)
+- [ApprovalFlowDataObject](docs/Model/ApprovalFlowDataObject.md)
+- [ApprovalFlowPersonInfoDataObject](docs/Model/ApprovalFlowPersonInfoDataObject.md)
+- [ApprovalFlowSummaryDataObject](docs/Model/ApprovalFlowSummaryDataObject.md)
+- [ApprovalGroupDataObject](docs/Model/ApprovalGroupDataObject.md)
+- [ApproverDataObject](docs/Model/ApproverDataObject.md)
 - [AssessmentFileViewObject](docs/Model/AssessmentFileViewObject.md)
 - [AssessmentTabViewObject](docs/Model/AssessmentTabViewObject.md)
 - [AssignEmployeesRequest](docs/Model/AssignEmployeesRequest.md)
@@ -389,7 +399,6 @@ Class | Method | HTTP request | Description
 - [AtsLocation](docs/Model/AtsLocation.md)
 - [AtsPerson](docs/Model/AtsPerson.md)
 - [AvailablePlanType](docs/Model/AvailablePlanType.md)
-- [B86bb5db603786dfc98c8f6a7bb1a218Request](docs/Model/B86bb5db603786dfc98c8f6a7bb1a218Request.md)
 - [BambooHrPayrollDocumentStatusViewObject](docs/Model/BambooHrPayrollDocumentStatusViewObject.md)
 - [BankInformationViewObject](docs/Model/BankInformationViewObject.md)
 - [BankTransformerInner](docs/Model/BankTransformerInner.md)
@@ -409,6 +418,8 @@ Class | Method | HTTP request | Description
 - [BasicTimesheetWithApproverApiTransformerAllOfApprovalApprovedDate](docs/Model/BasicTimesheetWithApproverApiTransformerAllOfApprovalApprovedDate.md)
 - [BasicTimesheetWithApproverApiTransformerAllOfApprovalDueDate](docs/Model/BasicTimesheetWithApproverApiTransformerAllOfApprovalDueDate.md)
 - [BasicTimesheetWithApproverApiTransformerAllOfApprovalUser](docs/Model/BasicTimesheetWithApproverApiTransformerAllOfApprovalUser.md)
+- [BatchEarningsResponseTransformer](docs/Model/BatchEarningsResponseTransformer.md)
+- [BatchEarningsResponseTransformerDeletedInner](docs/Model/BatchEarningsResponseTransformerDeletedInner.md)
 - [BeforeHireDateNewHireAutomationSetting](docs/Model/BeforeHireDateNewHireAutomationSetting.md)
 - [BenefitClass](docs/Model/BenefitClass.md)
 - [BenefitDeductionDataObject](docs/Model/BenefitDeductionDataObject.md)
@@ -420,15 +431,22 @@ Class | Method | HTTP request | Description
 - [BenefitFile](docs/Model/BenefitFile.md)
 - [BenefitGroupEmployee](docs/Model/BenefitGroupEmployee.md)
 - [BenefitOptions](docs/Model/BenefitOptions.md)
+- [BenefitPlanBeneficiaryPostContract](docs/Model/BenefitPlanBeneficiaryPostContract.md)
+- [BenefitPlanBeneficiaryPostContractPlansValueInner](docs/Model/BenefitPlanBeneficiaryPostContractPlansValueInner.md)
+- [BenefitPlanBeneficiaryPostContractPlansValueInnerOneOf](docs/Model/BenefitPlanBeneficiaryPostContractPlansValueInnerOneOf.md)
+- [BenefitPlanBeneficiaryPostContractPlansValueInnerOneOf1](docs/Model/BenefitPlanBeneficiaryPostContractPlansValueInnerOneOf1.md)
 - [BenefitPlanCoverageCoverage](docs/Model/BenefitPlanCoverageCoverage.md)
 - [BenefitPlanDependencyOption](docs/Model/BenefitPlanDependencyOption.md)
 - [BenefitPlanEligibleGroups](docs/Model/BenefitPlanEligibleGroups.md)
 - [BenefitPlanEnrollmentStatuses](docs/Model/BenefitPlanEnrollmentStatuses.md)
 - [BenefitPlanFileViewObject](docs/Model/BenefitPlanFileViewObject.md)
 - [BenefitPlanModel](docs/Model/BenefitPlanModel.md)
+- [BenefitPlanModelEnrollmentInfo](docs/Model/BenefitPlanModelEnrollmentInfo.md)
 - [BenefitPlanView](docs/Model/BenefitPlanView.md)
 - [BenefitPlanWizardById](docs/Model/BenefitPlanWizardById.md)
+- [BenefitPlanWizardByIdMedicalPlans](docs/Model/BenefitPlanWizardByIdMedicalPlans.md)
 - [BenefitPlanWizardByType](docs/Model/BenefitPlanWizardByType.md)
+- [BenefitPlanWizardByTypeMedicalPlans](docs/Model/BenefitPlanWizardByTypeMedicalPlans.md)
 - [BenefitPlanWizardRevision](docs/Model/BenefitPlanWizardRevision.md)
 - [BenefitSimpleEmployee](docs/Model/BenefitSimpleEmployee.md)
 - [BenefitVendor](docs/Model/BenefitVendor.md)
@@ -438,6 +456,14 @@ Class | Method | HTTP request | Description
 - [BenefitsTabPlansViewObjectPlansInnerPlanCategoryInner](docs/Model/BenefitsTabPlansViewObjectPlansInnerPlanCategoryInner.md)
 - [BillableEmployee](docs/Model/BillableEmployee.md)
 - [BillableEmployeesResponse](docs/Model/BillableEmployeesResponse.md)
+- [BillingContactsResponse](docs/Model/BillingContactsResponse.md)
+- [BillingContactsResponseContactsInner](docs/Model/BillingContactsResponseContactsInner.md)
+- [BillingPermsResponse](docs/Model/BillingPermsResponse.md)
+- [BudgetAllocationsView](docs/Model/BudgetAllocationsView.md)
+- [BudgetGuidelinesDataObject](docs/Model/BudgetGuidelinesDataObject.md)
+- [BudgetGuidelinesView](docs/Model/BudgetGuidelinesView.md)
+- [BudgetGuidelinesWarnings](docs/Model/BudgetGuidelinesWarnings.md)
+- [BudgetSummaryDataObject](docs/Model/BudgetSummaryDataObject.md)
 - [BulkEditChange](docs/Model/BulkEditChange.md)
 - [BulkEditChangeCoverageData](docs/Model/BulkEditChangeCoverageData.md)
 - [BulkEditPlanYear](docs/Model/BulkEditPlanYear.md)
@@ -447,15 +473,27 @@ Class | Method | HTTP request | Description
 - [BulkEnrollEmployeeFilterContract](docs/Model/BulkEnrollEmployeeFilterContract.md)
 - [BulkEnrollTimeToEligibilityContract](docs/Model/BulkEnrollTimeToEligibilityContract.md)
 - [BulkEnrollToolsContract](docs/Model/BulkEnrollToolsContract.md)
+- [BusinessStructuresTransformer](docs/Model/BusinessStructuresTransformer.md)
+- [Ca54fa4c1d42864a2540f7f7600e0d65Request](docs/Model/Ca54fa4c1d42864a2540f7f7600e0d65Request.md)
+- [CalculatePayrollErrorTransformer](docs/Model/CalculatePayrollErrorTransformer.md)
+- [CalculatePayrollErrorTransformerErrorObject](docs/Model/CalculatePayrollErrorTransformerErrorObject.md)
+- [CalculatePayrollErrorTransformerErrorObjectEmployeesInner](docs/Model/CalculatePayrollErrorTransformerErrorObjectEmployeesInner.md)
+- [CalculatePayrollErrorTransformerErrorObjectEmployeesInnerEarningsInner](docs/Model/CalculatePayrollErrorTransformerErrorObjectEmployeesInnerEarningsInner.md)
 - [CalculatedPlanCost](docs/Model/CalculatedPlanCost.md)
+- [CalculatedPlanCostMonthly](docs/Model/CalculatedPlanCostMonthly.md)
 - [CalculatedPlanCostsResponse](docs/Model/CalculatedPlanCostsResponse.md)
 - [CalculatorError](docs/Model/CalculatorError.md)
 - [CancellationAddOnCancellationsDataObject](docs/Model/CancellationAddOnCancellationsDataObject.md)
 - [CancellationCancellationRequestDataObject](docs/Model/CancellationCancellationRequestDataObject.md)
 - [CancellationCancellationStatusDataObject](docs/Model/CancellationCancellationStatusDataObject.md)
+- [CascadingGoal](docs/Model/CascadingGoal.md)
 - [CascadingGoalsPageDataViewObject](docs/Model/CascadingGoalsPageDataViewObject.md)
+- [CategorizedDropdownOptionViewObject](docs/Model/CategorizedDropdownOptionViewObject.md)
 - [CelebrationWidgetItem](docs/Model/CelebrationWidgetItem.md)
+- [CelebrationsApiTransformer](docs/Model/CelebrationsApiTransformer.md)
+- [CelebrationsApiTransformerEmployeeId](docs/Model/CelebrationsApiTransformerEmployeeId.md)
 - [CelebrationsWidget](docs/Model/CelebrationsWidget.md)
+- [ChangeCustomFieldListValueRequest](docs/Model/ChangeCustomFieldListValueRequest.md)
 - [ChangeHistoryForDateTransformer](docs/Model/ChangeHistoryForDateTransformer.md)
 - [ChangeHistoryForDateTransformerChangeHistoryEventsInner](docs/Model/ChangeHistoryForDateTransformerChangeHistoryEventsInner.md)
 - [ChangeHistoryForDateTransformerChangeHistoryEventsInnerDetailsInner](docs/Model/ChangeHistoryForDateTransformerChangeHistoryEventsInnerDetailsInner.md)
@@ -465,6 +503,11 @@ Class | Method | HTTP request | Description
 - [CheckboxFieldFormNode](docs/Model/CheckboxFieldFormNode.md)
 - [ClientBankAuthorizationTransformer](docs/Model/ClientBankAuthorizationTransformer.md)
 - [ClientPayCycleTransformer](docs/Model/ClientPayCycleTransformer.md)
+- [ClientPayrollConfigurationDataObjectTransformer](docs/Model/ClientPayrollConfigurationDataObjectTransformer.md)
+- [ClientPayrollConfigurationDataObjectTransformerProjectsInner](docs/Model/ClientPayrollConfigurationDataObjectTransformerProjectsInner.md)
+- [ClientPayrollConfigurationDataObjectTransformerShiftDifferentialsInner](docs/Model/ClientPayrollConfigurationDataObjectTransformerShiftDifferentialsInner.md)
+- [ClientPayrollConfigurationDataObjectTransformerTasksInner](docs/Model/ClientPayrollConfigurationDataObjectTransformerTasksInner.md)
+- [ClientPayrollConfigurationDataObjectTransformerWorkedHolidaysInner](docs/Model/ClientPayrollConfigurationDataObjectTransformerWorkedHolidaysInner.md)
 - [ClockEntryApiTransformer](docs/Model/ClockEntryApiTransformer.md)
 - [ClockEntryApiTransformerClockInLocation](docs/Model/ClockEntryApiTransformerClockInLocation.md)
 - [ClockEntryApiTransformerClockOutLocation](docs/Model/ClockEntryApiTransformerClockOutLocation.md)
@@ -492,6 +535,7 @@ Class | Method | HTTP request | Description
 - [CommonDataObjectsPayrollStateUnemploymentInsuranceDetail](docs/Model/CommonDataObjectsPayrollStateUnemploymentInsuranceDetail.md)
 - [CommonDataObjectsPayrollStateUnemploymentInsuranceFields](docs/Model/CommonDataObjectsPayrollStateUnemploymentInsuranceFields.md)
 - [CommonReportData](docs/Model/CommonReportData.md)
+- [CommunicationsSummaryDataObject](docs/Model/CommunicationsSummaryDataObject.md)
 - [CompanyAlertDataObject](docs/Model/CompanyAlertDataObject.md)
 - [CompanyBankInformationViewObject](docs/Model/CompanyBankInformationViewObject.md)
 - [CompanyBenefitRequest](docs/Model/CompanyBenefitRequest.md)
@@ -503,7 +547,10 @@ Class | Method | HTTP request | Description
 - [CompanyEnrollmentWindow](docs/Model/CompanyEnrollmentWindow.md)
 - [CompanyFileUpdate](docs/Model/CompanyFileUpdate.md)
 - [CompanyHolidayDataObject](docs/Model/CompanyHolidayDataObject.md)
+- [CompanyHolidayWithEmployeesTransformer](docs/Model/CompanyHolidayWithEmployeesTransformer.md)
+- [CompanyHolidayWithEmployeesTransformerEmployeesInner](docs/Model/CompanyHolidayWithEmployeesTransformerEmployeesInner.md)
 - [CompanyIndustryDataObject](docs/Model/CompanyIndustryDataObject.md)
+- [CompanyInformationResponse](docs/Model/CompanyInformationResponse.md)
 - [CompanyInformationTransformer](docs/Model/CompanyInformationTransformer.md)
 - [CompanyInformationViewObject](docs/Model/CompanyInformationViewObject.md)
 - [CompanyLevelDeductionApiViewObject](docs/Model/CompanyLevelDeductionApiViewObject.md)
@@ -514,10 +561,19 @@ Class | Method | HTTP request | Description
 - [CompanyTaxesViewObject](docs/Model/CompanyTaxesViewObject.md)
 - [CompanyTrainingSettingsDataSchema](docs/Model/CompanyTrainingSettingsDataSchema.md)
 - [CompensationBenchmarkingColumnMap](docs/Model/CompensationBenchmarkingColumnMap.md)
+- [CompensationFeatureSummaryDataObject](docs/Model/CompensationFeatureSummaryDataObject.md)
+- [CompensationPeriodsInner](docs/Model/CompensationPeriodsInner.md)
+- [CompensationPlanningBudgetsView](docs/Model/CompensationPlanningBudgetsView.md)
+- [CompensationPlanningCycleCompensationTypes](docs/Model/CompensationPlanningCycleCompensationTypes.md)
+- [CompensationPlanningCycleConfigurationDataObject](docs/Model/CompensationPlanningCycleConfigurationDataObject.md)
+- [CompensationPlanningSummaryResponseDataObject](docs/Model/CompensationPlanningSummaryResponseDataObject.md)
+- [CompensationToolsDataObject](docs/Model/CompensationToolsDataObject.md)
+- [CompensationUpsellData](docs/Model/CompensationUpsellData.md)
 - [CompletedQuestionsAndResponseDataObject](docs/Model/CompletedQuestionsAndResponseDataObject.md)
 - [CompletedSummaryItemDataSchema](docs/Model/CompletedSummaryItemDataSchema.md)
 - [CompletedTrainingDataSchema](docs/Model/CompletedTrainingDataSchema.md)
 - [CompletedTrainingListDataSchema](docs/Model/CompletedTrainingListDataSchema.md)
+- [ConflictExceptionTransformer](docs/Model/ConflictExceptionTransformer.md)
 - [ContactRequestObject](docs/Model/ContactRequestObject.md)
 - [ContactTransformer](docs/Model/ContactTransformer.md)
 - [ControllerPayrollApiMobileTransformerPayStub](docs/Model/ControllerPayrollApiMobileTransformerPayStub.md)
@@ -538,15 +594,23 @@ Class | Method | HTTP request | Description
 - [CreateClientRequest](docs/Model/CreateClientRequest.md)
 - [CreateFullAdminEmployeeRequestObject](docs/Model/CreateFullAdminEmployeeRequestObject.md)
 - [CreateFullAdminEmployeeUserTransformer](docs/Model/CreateFullAdminEmployeeUserTransformer.md)
+- [CreatePayrollContactTransformer](docs/Model/CreatePayrollContactTransformer.md)
 - [CreateTeamRequest](docs/Model/CreateTeamRequest.md)
+- [CurrencyDataObject](docs/Model/CurrencyDataObject.md)
 - [CurrencyFieldFormNode](docs/Model/CurrencyFieldFormNode.md)
 - [CurrencyFieldFormNodeAllOf](docs/Model/CurrencyFieldFormNodeAllOf.md)
 - [CustomCoverageLevel](docs/Model/CustomCoverageLevel.md)
 - [CustomExistingCoverageLevel](docs/Model/CustomExistingCoverageLevel.md)
+- [CustomFieldRequest](docs/Model/CustomFieldRequest.md)
 - [CustomFieldTypeViewObject](docs/Model/CustomFieldTypeViewObject.md)
+- [CustomFieldViewObject](docs/Model/CustomFieldViewObject.md)
 - [CustomNewCoverageLevel](docs/Model/CustomNewCoverageLevel.md)
 - [CustomReportDataObject](docs/Model/CustomReportDataObject.md)
 - [CustomReportRequest](docs/Model/CustomReportRequest.md)
+- [CustomTableFieldRequest](docs/Model/CustomTableFieldRequest.md)
+- [CustomTableFieldViewObject](docs/Model/CustomTableFieldViewObject.md)
+- [CustomTableRequest](docs/Model/CustomTableRequest.md)
+- [CustomTableViewObject](docs/Model/CustomTableViewObject.md)
 - [CustomerAccountValidationReviewAcceptance](docs/Model/CustomerAccountValidationReviewAcceptance.md)
 - [CustomerOnboardingContactOptionsTransformer](docs/Model/CustomerOnboardingContactOptionsTransformer.md)
 - [CustomerOnboardingContactOptionsTransformerContact](docs/Model/CustomerOnboardingContactOptionsTransformerContact.md)
@@ -555,7 +619,7 @@ Class | Method | HTTP request | Description
 - [CustomerOnboardingModulesTransformerInner](docs/Model/CustomerOnboardingModulesTransformerInner.md)
 - [CustomerOnboardingModulesTransformerInnerItemsInner](docs/Model/CustomerOnboardingModulesTransformerInnerItemsInner.md)
 - [CustomerOnboardingUpdateContactRequestObject](docs/Model/CustomerOnboardingUpdateContactRequestObject.md)
-- [CustomerSegmentationSegmentationAttributes](docs/Model/CustomerSegmentationSegmentationAttributes.md)
+- [CycleDetailsSummaryDataObject](docs/Model/CycleDetailsSummaryDataObject.md)
 - [DailyDetailApiTransformer](docs/Model/DailyDetailApiTransformer.md)
 - [DailyDetailApiTransformerHolidaysInner](docs/Model/DailyDetailApiTransformerHolidaysInner.md)
 - [DailyDetailApiTransformerOvertimeSummary](docs/Model/DailyDetailApiTransformerOvertimeSummary.md)
@@ -569,6 +633,8 @@ Class | Method | HTTP request | Description
 - [DataCleaningExistingEmployeesDataObject](docs/Model/DataCleaningExistingEmployeesDataObject.md)
 - [DataCleaningExistingEmployeesSummaryDataObject](docs/Model/DataCleaningExistingEmployeesSummaryDataObject.md)
 - [DataCleaningValueMappingDataObject](docs/Model/DataCleaningValueMappingDataObject.md)
+- [DataProcessingAgreementInfoResponse](docs/Model/DataProcessingAgreementInfoResponse.md)
+- [DataProcessingAgreementInfoResponseUser](docs/Model/DataProcessingAgreementInfoResponseUser.md)
 - [DataRequest](docs/Model/DataRequest.md)
 - [DataRequestAggregationsInner](docs/Model/DataRequestAggregationsInner.md)
 - [DataRequestFilters](docs/Model/DataRequestFilters.md)
@@ -576,12 +642,11 @@ Class | Method | HTTP request | Description
 - [DataRequestSortByInner](docs/Model/DataRequestSortByInner.md)
 - [DataSetConfigurationTransformer](docs/Model/DataSetConfigurationTransformer.md)
 - [DataSetListTransformer](docs/Model/DataSetListTransformer.md)
+- [DataVisualizationPageContextResponse](docs/Model/DataVisualizationPageContextResponse.md)
 - [Dataset](docs/Model/Dataset.md)
 - [DatasetFieldsResponse](docs/Model/DatasetFieldsResponse.md)
 - [DatasetResponse](docs/Model/DatasetResponse.md)
 - [DateFieldFormNode](docs/Model/DateFieldFormNode.md)
-- [Db65bacaf29686d9c3b1296f6047a065Request](docs/Model/Db65bacaf29686d9c3b1296f6047a065Request.md)
-- [Dcb62a5d1780635153b978462f9debd0Request](docs/Model/Dcb62a5d1780635153b978462f9debd0Request.md)
 - [DecisionData](docs/Model/DecisionData.md)
 - [DecisionDataForEdit](docs/Model/DecisionDataForEdit.md)
 - [DeductionDateRule](docs/Model/DeductionDateRule.md)
@@ -600,15 +665,16 @@ Class | Method | HTTP request | Description
 - [DefaultCoverageView](docs/Model/DefaultCoverageView.md)
 - [DeleteEmployeeTableRowV1200Response](docs/Model/DeleteEmployeeTableRowV1200Response.md)
 - [DeleteSharingListRequest](docs/Model/DeleteSharingListRequest.md)
-- [DemoRequestTransmogrifier](docs/Model/DemoRequestTransmogrifier.md)
-- [DemoRequestTransmogrifierRequestedBy](docs/Model/DemoRequestTransmogrifierRequestedBy.md)
+- [DemoRequestTransformerResponse](docs/Model/DemoRequestTransformerResponse.md)
+- [DemoRequestTransformerResponseRequestedBy](docs/Model/DemoRequestTransformerResponseRequestedBy.md)
+- [DemoRequesterResponse](docs/Model/DemoRequesterResponse.md)
 - [DenormalizedElectionWindowSubmissionRequest](docs/Model/DenormalizedElectionWindowSubmissionRequest.md)
 - [Department](docs/Model/Department.md)
 - [Dependent](docs/Model/Dependent.md)
 - [DependentAnswers](docs/Model/DependentAnswers.md)
 - [DependentApprovalResponse](docs/Model/DependentApprovalResponse.md)
 - [DependentQuestion](docs/Model/DependentQuestion.md)
-- [DependentsApprovalDataViewObject](docs/Model/DependentsApprovalDataViewObject.md)
+- [DependentsDataViewObject](docs/Model/DependentsDataViewObject.md)
 - [DeserializedAdminApprovalRequest](docs/Model/DeserializedAdminApprovalRequest.md)
 - [DeserializedAdminEnrollElection](docs/Model/DeserializedAdminEnrollElection.md)
 - [DeserializedAdminWaiveElection](docs/Model/DeserializedAdminWaiveElection.md)
@@ -616,21 +682,41 @@ Class | Method | HTTP request | Description
 - [DeserializedEmployeeEnrollElection](docs/Model/DeserializedEmployeeEnrollElection.md)
 - [DeserializedEmployeeWaiveElection](docs/Model/DeserializedEmployeeWaiveElection.md)
 - [DeserializedRenameRequest](docs/Model/DeserializedRenameRequest.md)
+- [DetailedPaycheckTransformer](docs/Model/DetailedPaycheckTransformer.md)
+- [DetailedPaycheckTransformerBanksInner](docs/Model/DetailedPaycheckTransformerBanksInner.md)
+- [DetailedPaycheckTransformerCompensation](docs/Model/DetailedPaycheckTransformerCompensation.md)
+- [DetailedPaycheckTransformerEarningsInner](docs/Model/DetailedPaycheckTransformerEarningsInner.md)
+- [DetailedPaycheckTransformerTaxes](docs/Model/DetailedPaycheckTransformerTaxes.md)
+- [DetailsAndCurrencyRequestDataObject](docs/Model/DetailsAndCurrencyRequestDataObject.md)
+- [DetailsAndCurrencyResponseDataObject](docs/Model/DetailsAndCurrencyResponseDataObject.md)
+- [DetailsAndCurrencySummaryDataObject](docs/Model/DetailsAndCurrencySummaryDataObject.md)
 - [DirectDepositAccountDataObject](docs/Model/DirectDepositAccountDataObject.md)
 - [DirectReportsFormNode](docs/Model/DirectReportsFormNode.md)
 - [DisableApplicantStatusResponse](docs/Model/DisableApplicantStatusResponse.md)
 - [DisableApplicantStatusResponseOneOf](docs/Model/DisableApplicantStatusResponseOneOf.md)
 - [DisableApplicantStatusResponseOneOf1](docs/Model/DisableApplicantStatusResponseOneOf1.md)
+- [DropdownOption](docs/Model/DropdownOption.md)
+- [DynamicSelectFieldFormNode](docs/Model/DynamicSelectFieldFormNode.md)
+- [E2ae6e59655aeab2b4e6311967a2809f201Response](docs/Model/E2ae6e59655aeab2b4e6311967a2809f201Response.md)
+- [E9a47e93524609b981be6139822d219eRequest](docs/Model/E9a47e93524609b981be6139822d219eRequest.md)
+- [E9a47e93524609b981be6139822d219eRequestHoursInner](docs/Model/E9a47e93524609b981be6139822d219eRequestHoursInner.md)
+- [EOREmployeeSchema](docs/Model/EOREmployeeSchema.md)
+- [EarningTransformer](docs/Model/EarningTransformer.md)
 - [EditCustomApplicantStatusResponse](docs/Model/EditCustomApplicantStatusResponse.md)
 - [EditCustomApplicantStatusResponseOneOf](docs/Model/EditCustomApplicantStatusResponseOneOf.md)
 - [ElectionSubmission](docs/Model/ElectionSubmission.md)
 - [EligibilityBenefitPlan](docs/Model/EligibilityBenefitPlan.md)
 - [EligibilityGroups](docs/Model/EligibilityGroups.md)
 - [EligibilityRule](docs/Model/EligibilityRule.md)
+- [EligibleUnassignedPlan](docs/Model/EligibleUnassignedPlan.md)
 - [EmailTemplateArrayWithLanguage](docs/Model/EmailTemplateArrayWithLanguage.md)
 - [EmailTemplateArrayWithLanguageFilesInner](docs/Model/EmailTemplateArrayWithLanguageFilesInner.md)
 - [EmailTemplateDataObject](docs/Model/EmailTemplateDataObject.md)
 - [EmailTemplateSchema](docs/Model/EmailTemplateSchema.md)
+- [EmergencyContactDataObject](docs/Model/EmergencyContactDataObject.md)
+- [EmergencyContactFormField](docs/Model/EmergencyContactFormField.md)
+- [EmergencyContactFormFieldWithDropdown](docs/Model/EmergencyContactFormFieldWithDropdown.md)
+- [EmergencyContactFormFieldWithDropdownDropdownOptionsInner](docs/Model/EmergencyContactFormFieldWithDropdownDropdownOptionsInner.md)
 - [Employee](docs/Model/Employee.md)
 - [EmployeeApi](docs/Model/EmployeeApi.md)
 - [EmployeeBanksSnapshot](docs/Model/EmployeeBanksSnapshot.md)
@@ -639,6 +725,7 @@ Class | Method | HTTP request | Description
 - [EmployeeBenefitDeductionsDataObject](docs/Model/EmployeeBenefitDeductionsDataObject.md)
 - [EmployeeBenefitFilters](docs/Model/EmployeeBenefitFilters.md)
 - [EmployeeBenefitFiltersFilters](docs/Model/EmployeeBenefitFiltersFilters.md)
+- [EmployeeBudgetAllocationsView](docs/Model/EmployeeBudgetAllocationsView.md)
 - [EmployeeDataTimeOffAvailableDataObject](docs/Model/EmployeeDataTimeOffAvailableDataObject.md)
 - [EmployeeDemographicsTransformer](docs/Model/EmployeeDemographicsTransformer.md)
 - [EmployeeDemographicsTransformerEmployeesValue](docs/Model/EmployeeDemographicsTransformerEmployeesValue.md)
@@ -651,16 +738,30 @@ Class | Method | HTTP request | Description
 - [EmployeeDirectoryInformationDataObjectCurrentUserSelectedFilter](docs/Model/EmployeeDirectoryInformationDataObjectCurrentUserSelectedFilter.md)
 - [EmployeeDirectoryInformationDataObjectFiltersInner](docs/Model/EmployeeDirectoryInformationDataObjectFiltersInner.md)
 - [EmployeeDirectoryInformationDataObjectGroupByOptionsInner](docs/Model/EmployeeDirectoryInformationDataObjectGroupByOptionsInner.md)
+- [EmployeeEarningAdjustmentsInner](docs/Model/EmployeeEarningAdjustmentsInner.md)
 - [EmployeeEarningsInner](docs/Model/EmployeeEarningsInner.md)
 - [EmployeeEnrollmentByPlanDataObject](docs/Model/EmployeeEnrollmentByPlanDataObject.md)
 - [EmployeeEnrollmentByPlanDataObjectCoverageDataInner](docs/Model/EmployeeEnrollmentByPlanDataObjectCoverageDataInner.md)
 - [EmployeeEnrollmentCollectionResponse](docs/Model/EmployeeEnrollmentCollectionResponse.md)
 - [EmployeeFederalTaxWithholdingDataObject](docs/Model/EmployeeFederalTaxWithholdingDataObject.md)
 - [EmployeeFileUpdate](docs/Model/EmployeeFileUpdate.md)
+- [EmployeeFormSaveRequest](docs/Model/EmployeeFormSaveRequest.md)
+- [EmployeeFormValidationErrorResponse](docs/Model/EmployeeFormValidationErrorResponse.md)
+- [EmployeeFormValidationErrorResponseValidationErrors](docs/Model/EmployeeFormValidationErrorResponseValidationErrors.md)
+- [EmployeeFormValidationErrorResponseValidationErrorsFieldsValueInner](docs/Model/EmployeeFormValidationErrorResponseValidationErrorsFieldsValueInner.md)
+- [EmployeeFullCalendarEventsApiTransformer](docs/Model/EmployeeFullCalendarEventsApiTransformer.md)
+- [EmployeeFullCalendarEventsApiTransformerAnniversariesInner](docs/Model/EmployeeFullCalendarEventsApiTransformerAnniversariesInner.md)
+- [EmployeeFullCalendarEventsApiTransformerBirthdaysInner](docs/Model/EmployeeFullCalendarEventsApiTransformerBirthdaysInner.md)
+- [EmployeeFullCalendarEventsApiTransformerHolidaysInner](docs/Model/EmployeeFullCalendarEventsApiTransformerHolidaysInner.md)
+- [EmployeeFullCalendarEventsApiTransformerWhosOutInner](docs/Model/EmployeeFullCalendarEventsApiTransformerWhosOutInner.md)
 - [EmployeeFutureBenefitChangeDataObject](docs/Model/EmployeeFutureBenefitChangeDataObject.md)
 - [EmployeeGoalJsonViewObject](docs/Model/EmployeeGoalJsonViewObject.md)
 - [EmployeeLevelDeductionDataObject](docs/Model/EmployeeLevelDeductionDataObject.md)
 - [EmployeeLevelDeductionViewObject](docs/Model/EmployeeLevelDeductionViewObject.md)
+- [EmployeeListResultTransformer](docs/Model/EmployeeListResultTransformer.md)
+- [EmployeeListResultTransformerColumnsInner](docs/Model/EmployeeListResultTransformerColumnsInner.md)
+- [EmployeeListResultTransformerEmployeeResultsInnerInner](docs/Model/EmployeeListResultTransformerEmployeeResultsInnerInner.md)
+- [EmployeeListResultTransformerPagination](docs/Model/EmployeeListResultTransformerPagination.md)
 - [EmployeeOrgChartDataObject](docs/Model/EmployeeOrgChartDataObject.md)
 - [EmployeePayCycleTagsInner](docs/Model/EmployeePayCycleTagsInner.md)
 - [EmployeePayCycleTogglesInner](docs/Model/EmployeePayCycleTogglesInner.md)
@@ -729,6 +830,7 @@ Class | Method | HTTP request | Description
 - [EmployeeReviewEmployeeTransformerMetadata](docs/Model/EmployeeReviewEmployeeTransformerMetadata.md)
 - [EmployeeSaveRequest](docs/Model/EmployeeSaveRequest.md)
 - [EmployeeSaveRequestValue](docs/Model/EmployeeSaveRequestValue.md)
+- [EmployeeSolutionProviderDeterminatorDataObject](docs/Model/EmployeeSolutionProviderDeterminatorDataObject.md)
 - [EmployeeTableSaveRequest](docs/Model/EmployeeTableSaveRequest.md)
 - [EmployeeTaskDataObject](docs/Model/EmployeeTaskDataObject.md)
 - [EmployeeTaskFileDataObject](docs/Model/EmployeeTaskFileDataObject.md)
@@ -746,6 +848,8 @@ Class | Method | HTTP request | Description
 - [EmployeeTimeOffTabTransformerUserPermissions](docs/Model/EmployeeTimeOffTabTransformerUserPermissions.md)
 - [EmployeeTimesheetEntryTransformer](docs/Model/EmployeeTimesheetEntryTransformer.md)
 - [EmployeeUnpaidPaystub](docs/Model/EmployeeUnpaidPaystub.md)
+- [EmployeeVerificationPersonSchema](docs/Model/EmployeeVerificationPersonSchema.md)
+- [EmployeeVerificationSchema](docs/Model/EmployeeVerificationSchema.md)
 - [EmployeeWithholding](docs/Model/EmployeeWithholding.md)
 - [EmptyNewHireAutomationSetting](docs/Model/EmptyNewHireAutomationSetting.md)
 - [EnableApplicantStatusResponse](docs/Model/EnableApplicantStatusResponse.md)
@@ -756,8 +860,12 @@ Class | Method | HTTP request | Description
 - [EnrollmentWindow](docs/Model/EnrollmentWindow.md)
 - [EnrollmentWindowCreateRequest](docs/Model/EnrollmentWindowCreateRequest.md)
 - [EnrollmentWindowUpdateRequest](docs/Model/EnrollmentWindowUpdateRequest.md)
+- [EntityBeneficiaryInformation](docs/Model/EntityBeneficiaryInformation.md)
+- [ErrorAttributes](docs/Model/ErrorAttributes.md)
+- [ErrorDataContract](docs/Model/ErrorDataContract.md)
 - [ErrorResponse](docs/Model/ErrorResponse.md)
 - [ErrorResponseError](docs/Model/ErrorResponseError.md)
+- [EsignatureActiveEsignatureTemplateSchema](docs/Model/EsignatureActiveEsignatureTemplateSchema.md)
 - [EsignatureCreateEsignatureTemplateFieldSchema](docs/Model/EsignatureCreateEsignatureTemplateFieldSchema.md)
 - [EsignatureCreateEsignatureTemplateStepSchema](docs/Model/EsignatureCreateEsignatureTemplateStepSchema.md)
 - [EsignatureEsignatureAssigneeTransformer](docs/Model/EsignatureEsignatureAssigneeTransformer.md)
@@ -781,12 +889,20 @@ Class | Method | HTTP request | Description
 - [EsignatureInstanceStepSchema](docs/Model/EsignatureInstanceStepSchema.md)
 - [EsignatureInstanceStepSummarySchema](docs/Model/EsignatureInstanceStepSummarySchema.md)
 - [EsignatureInstanceSummarySchema](docs/Model/EsignatureInstanceSummarySchema.md)
+- [ExcludedEmployeeHoursTransformerV2](docs/Model/ExcludedEmployeeHoursTransformerV2.md)
+- [ExcludedEmployeeTransformerV2](docs/Model/ExcludedEmployeeTransformerV2.md)
+- [ExemptedBusinessesTransformer](docs/Model/ExemptedBusinessesTransformer.md)
 - [ExistingEligibilityGroup](docs/Model/ExistingEligibilityGroup.md)
+- [F54bcaec6771b1264671e53f2e557b1f201Response](docs/Model/F54bcaec6771b1264671e53f2e557b1f201Response.md)
+- [F54bcaec6771b1264671e53f2e557b1f201ResponseResponse](docs/Model/F54bcaec6771b1264671e53f2e557b1f201ResponseResponse.md)
+- [F7dd45b1747b0b72c4b617845b065a07Request](docs/Model/F7dd45b1747b0b72c4b617845b065a07Request.md)
+- [F7dd45b1747b0b72c4b617845b065a07RequestTasksInner](docs/Model/F7dd45b1747b0b72c4b617845b065a07RequestTasksInner.md)
 - [FeedDataObject](docs/Model/FeedDataObject.md)
 - [FeedbackAssignmentViewObject](docs/Model/FeedbackAssignmentViewObject.md)
 - [FeedbackSettingsRequestObject](docs/Model/FeedbackSettingsRequestObject.md)
 - [Field](docs/Model/Field.md)
 - [FieldFormNode](docs/Model/FieldFormNode.md)
+- [FieldFormNodeAllOfValue](docs/Model/FieldFormNodeAllOfValue.md)
 - [FieldMetaDataObject](docs/Model/FieldMetaDataObject.md)
 - [FieldOptionsTransformer](docs/Model/FieldOptionsTransformer.md)
 - [FieldSetFormNode](docs/Model/FieldSetFormNode.md)
@@ -794,8 +910,12 @@ Class | Method | HTTP request | Description
 - [FileListGetResponseContract](docs/Model/FileListGetResponseContract.md)
 - [FileSummaryDataObject](docs/Model/FileSummaryDataObject.md)
 - [Filters](docs/Model/Filters.md)
+- [FinalApproverDataObject](docs/Model/FinalApproverDataObject.md)
 - [FirstOfMonthFollowingWaitingPeriodNewHireAutomationSetting](docs/Model/FirstOfMonthFollowingWaitingPeriodNewHireAutomationSetting.md)
 - [FirstPaymentInfoResponse](docs/Model/FirstPaymentInfoResponse.md)
+- [FixedAmountCoverage](docs/Model/FixedAmountCoverage.md)
+- [FixedAmountCoverageEmployee](docs/Model/FixedAmountCoverageEmployee.md)
+- [FixedAmountWrapper](docs/Model/FixedAmountWrapper.md)
 - [FolderReport](docs/Model/FolderReport.md)
 - [FolderReportCollection](docs/Model/FolderReportCollection.md)
 - [FormLayoutNode](docs/Model/FormLayoutNode.md)
@@ -820,7 +940,6 @@ Class | Method | HTTP request | Description
 - [GetApplications200ResponseApplicationsItemsInnerStatus](docs/Model/GetApplications200ResponseApplicationsItemsInnerStatus.md)
 - [GetClientEmployeesResponse](docs/Model/GetClientEmployeesResponse.md)
 - [GetClientEmployeesResponseEmployeesInner](docs/Model/GetClientEmployeesResponseEmployeesInner.md)
-- [GetCompanyEINs200Response](docs/Model/GetCompanyEINs200Response.md)
 - [GetCompanyInformation200Response](docs/Model/GetCompanyInformation200Response.md)
 - [GetCompanyInformation200ResponseAddress](docs/Model/GetCompanyInformation200ResponseAddress.md)
 - [GetCompanyLocations200ResponseInner](docs/Model/GetCompanyLocations200ResponseInner.md)
@@ -847,10 +966,14 @@ Class | Method | HTTP request | Description
 - [GetMonitorFields200Response](docs/Model/GetMonitorFields200Response.md)
 - [GetMonitorFields200ResponseFieldsInner](docs/Model/GetMonitorFields200ResponseFieldsInner.md)
 - [GetPayCycleDeductionSummaryResponse](docs/Model/GetPayCycleDeductionSummaryResponse.md)
+- [GetPayrollContactConfirmedTransformer](docs/Model/GetPayrollContactConfirmedTransformer.md)
+- [GetPayrollContactsTransformerInner](docs/Model/GetPayrollContactsTransformerInner.md)
 - [GetToKnowYouEmailTemplateDataObject](docs/Model/GetToKnowYouEmailTemplateDataObject.md)
 - [GetToKnowYouQuestionsAndResponsesSchema](docs/Model/GetToKnowYouQuestionsAndResponsesSchema.md)
 - [GetWebhookList200Response](docs/Model/GetWebhookList200Response.md)
 - [GetWebhookList200ResponseWebhooksInner](docs/Model/GetWebhookList200ResponseWebhooksInner.md)
+- [GlobalWebHookRequestObject](docs/Model/GlobalWebHookRequestObject.md)
+- [GlobalWebhookDataObject](docs/Model/GlobalWebhookDataObject.md)
 - [Goal](docs/Model/Goal.md)
 - [GoalFiltersV1](docs/Model/GoalFiltersV1.md)
 - [GoalFiltersV11](docs/Model/GoalFiltersV11.md)
@@ -860,6 +983,8 @@ Class | Method | HTTP request | Description
 - [GoalSharedEmployeeViewObject](docs/Model/GoalSharedEmployeeViewObject.md)
 - [GoalsWidget](docs/Model/GoalsWidget.md)
 - [GoalsWidgetItem](docs/Model/GoalsWidgetItem.md)
+- [GroupedApprovalFlowsViewObject](docs/Model/GroupedApprovalFlowsViewObject.md)
+- [GroupedDataCollection](docs/Model/GroupedDataCollection.md)
 - [HighestPriorityCurrentTaxSetupStatusViewObject](docs/Model/HighestPriorityCurrentTaxSetupStatusViewObject.md)
 - [HighestPriorityCurrentTaxSetupStatusViewObjectTaxType](docs/Model/HighestPriorityCurrentTaxSetupStatusViewObjectTaxType.md)
 - [HireDateNewHireAutomationSetting](docs/Model/HireDateNewHireAutomationSetting.md)
@@ -872,6 +997,18 @@ Class | Method | HTTP request | Description
 - [HistoryTableDataTransformer](docs/Model/HistoryTableDataTransformer.md)
 - [HistoryTableJsonData](docs/Model/HistoryTableJsonData.md)
 - [HistoryTableJsonDataRowsInner](docs/Model/HistoryTableJsonDataRowsInner.md)
+- [HolidaysTransformer](docs/Model/HolidaysTransformer.md)
+- [HolidaysTransformerHolidaysInner](docs/Model/HolidaysTransformerHolidaysInner.md)
+- [HomeSummaryCalendarData](docs/Model/HomeSummaryCalendarData.md)
+- [HomeSummaryCalendarDataCalendar](docs/Model/HomeSummaryCalendarDataCalendar.md)
+- [HomeSummaryCalendarDataCalendarAnniversaries](docs/Model/HomeSummaryCalendarDataCalendarAnniversaries.md)
+- [HomeSummaryCalendarDataCalendarAnniversariesEventsInner](docs/Model/HomeSummaryCalendarDataCalendarAnniversariesEventsInner.md)
+- [HomeSummaryCalendarDataCalendarBirthdays](docs/Model/HomeSummaryCalendarDataCalendarBirthdays.md)
+- [HomeSummaryCalendarDataCalendarBirthdaysEventsInner](docs/Model/HomeSummaryCalendarDataCalendarBirthdaysEventsInner.md)
+- [HomeSummaryCalendarDataCalendarHolidays](docs/Model/HomeSummaryCalendarDataCalendarHolidays.md)
+- [HomeSummaryCalendarDataCalendarHolidaysEventsInner](docs/Model/HomeSummaryCalendarDataCalendarHolidaysEventsInner.md)
+- [HomeSummaryCalendarDataCalendarWhosOut](docs/Model/HomeSummaryCalendarDataCalendarWhosOut.md)
+- [HomeSummaryCalendarDataCalendarWhosOutEventsInner](docs/Model/HomeSummaryCalendarDataCalendarWhosOutEventsInner.md)
 - [HoneyDeleteCommentLikeResponse](docs/Model/HoneyDeleteCommentLikeResponse.md)
 - [HoneyDeleteCommentResponse](docs/Model/HoneyDeleteCommentResponse.md)
 - [HoneyDeletePostLikeResponse](docs/Model/HoneyDeletePostLikeResponse.md)
@@ -911,10 +1048,13 @@ Class | Method | HTTP request | Description
 - [InboxDetailsWithPersonsType](docs/Model/InboxDetailsWithPersonsType.md)
 - [InboxLegacyTask](docs/Model/InboxLegacyTask.md)
 - [InboxLegacyTaskUsersInner](docs/Model/InboxLegacyTaskUsersInner.md)
+- [IndividualBeneficiaryInformation](docs/Model/IndividualBeneficiaryInformation.md)
 - [IndustryResponseDataObject](docs/Model/IndustryResponseDataObject.md)
 - [Intervalable](docs/Model/Intervalable.md)
+- [InvoiceResponse](docs/Model/InvoiceResponse.md)
 - [IsClockedInApiTransformer](docs/Model/IsClockedInApiTransformer.md)
 - [IsClockedInApiTransformerAllOfToday](docs/Model/IsClockedInApiTransformerAllOfToday.md)
+- [JsonSchemaFormOutput](docs/Model/JsonSchemaFormOutput.md)
 - [LegalText](docs/Model/LegalText.md)
 - [LevelsAndBandsColumnMap](docs/Model/LevelsAndBandsColumnMap.md)
 - [LevelsAndBandsCompPlanningEmployee](docs/Model/LevelsAndBandsCompPlanningEmployee.md)
@@ -934,16 +1074,25 @@ Class | Method | HTTP request | Description
 - [ListEmployeeTrainings200ResponseInner](docs/Model/ListEmployeeTrainings200ResponseInner.md)
 - [ListFieldValues](docs/Model/ListFieldValues.md)
 - [ListFieldValuesOptionsInner](docs/Model/ListFieldValuesOptionsInner.md)
+- [ListTabsViewObject](docs/Model/ListTabsViewObject.md)
 - [ListTrainingCategories200ResponseInner](docs/Model/ListTrainingCategories200ResponseInner.md)
 - [ListTrainingTypes200ResponseInner](docs/Model/ListTrainingTypes200ResponseInner.md)
 - [ListValueSchema](docs/Model/ListValueSchema.md)
+- [ListValuesCustomFieldSettingsTransformerInner](docs/Model/ListValuesCustomFieldSettingsTransformerInner.md)
 - [Location](docs/Model/Location.md)
+- [LogEmbedLoadTimeRequest](docs/Model/LogEmbedLoadTimeRequest.md)
+- [ManageSubscriptionResponse](docs/Model/ManageSubscriptionResponse.md)
+- [ManageSubscriptionResponseIntegrationExpansionsInner](docs/Model/ManageSubscriptionResponseIntegrationExpansionsInner.md)
+- [ManageSubscriptionResponseIntegrationExpansionsInnerDemoData](docs/Model/ManageSubscriptionResponseIntegrationExpansionsInnerDemoData.md)
+- [ManageSubscriptionResponseIntegrationsInner](docs/Model/ManageSubscriptionResponseIntegrationsInner.md)
 - [ManualNewHireAutomationSetting](docs/Model/ManualNewHireAutomationSetting.md)
 - [ManuallyEligibleGetResponse](docs/Model/ManuallyEligibleGetResponse.md)
 - [MemberBenefitEvent](docs/Model/MemberBenefitEvent.md)
 - [MemberBenefitEventMembersInner](docs/Model/MemberBenefitEventMembersInner.md)
 - [MemberBenefitEventMembersInnerCoveragesInner](docs/Model/MemberBenefitEventMembersInnerCoveragesInner.md)
 - [MemberBenefitEventMembersInnerCoveragesInnerEventsInner](docs/Model/MemberBenefitEventMembersInnerCoveragesInnerEventsInner.md)
+- [MergeWebhookHookDataObject](docs/Model/MergeWebhookHookDataObject.md)
+- [MergeWebhookPayloadDataObject](docs/Model/MergeWebhookPayloadDataObject.md)
 - [MigrationsNeededContract](docs/Model/MigrationsNeededContract.md)
 - [NHPEmployeeNewHirePacketCompletedQuestionAndResponseSchema](docs/Model/NHPEmployeeNewHirePacketCompletedQuestionAndResponseSchema.md)
 - [NHPEmployeeNewHirePacketContactCardDataTransferObject](docs/Model/NHPEmployeeNewHirePacketContactCardDataTransferObject.md)
@@ -978,6 +1127,8 @@ Class | Method | HTTP request | Description
 - [NewHirePacketTemplateGetToKnowYouQuestion](docs/Model/NewHirePacketTemplateGetToKnowYouQuestion.md)
 - [NewHirePacketTemplateGetToKnowYouRecipient](docs/Model/NewHirePacketTemplateGetToKnowYouRecipient.md)
 - [NewWebHook](docs/Model/NewWebHook.md)
+- [NewWebHookFrequency](docs/Model/NewWebHookFrequency.md)
+- [NewWebHookLimit](docs/Model/NewWebHookLimit.md)
 - [OfferLetterTemplateArrayWithLanguage](docs/Model/OfferLetterTemplateArrayWithLanguage.md)
 - [OfferLetterTemplateArrayWithLanguageFilesInner](docs/Model/OfferLetterTemplateArrayWithLanguageFilesInner.md)
 - [OfferLetterTemplateArrayWithLanguageFilesInnerEsignatures](docs/Model/OfferLetterTemplateArrayWithLanguageFilesInnerEsignatures.md)
@@ -1002,6 +1153,16 @@ Class | Method | HTTP request | Description
 - [OneOnOnesConfiguration](docs/Model/OneOnOnesConfiguration.md)
 - [OneOnOnesRequestSecureFileDownloadViewObject](docs/Model/OneOnOnesRequestSecureFileDownloadViewObject.md)
 - [OptionsDeductionDateRule](docs/Model/OptionsDeductionDateRule.md)
+- [PackageInfoResponse](docs/Model/PackageInfoResponse.md)
+- [PackageInfoResponseAddOns](docs/Model/PackageInfoResponseAddOns.md)
+- [PackageInfoResponseAddOnsPayroll](docs/Model/PackageInfoResponseAddOnsPayroll.md)
+- [PackageUpgradeDetailsResponse](docs/Model/PackageUpgradeDetailsResponse.md)
+- [PackageUpgradeDetailsResponseLastInvoice](docs/Model/PackageUpgradeDetailsResponseLastInvoice.md)
+- [PackageUpgradeDetailsResponsePrepaySummary](docs/Model/PackageUpgradeDetailsResponsePrepaySummary.md)
+- [PackageUpgradeDetailsResponseProductEstimationsInner](docs/Model/PackageUpgradeDetailsResponseProductEstimationsInner.md)
+- [PackageUpgradeDetailsResponseProductEstimationsInnerCreditsInner](docs/Model/PackageUpgradeDetailsResponseProductEstimationsInnerCreditsInner.md)
+- [PackageUpgradeEstimateResponse](docs/Model/PackageUpgradeEstimateResponse.md)
+- [PackageUpgradeEstimateResponseProductsInner](docs/Model/PackageUpgradeEstimateResponseProductsInner.md)
 - [PaginatedHistoryRequestsResponseInner](docs/Model/PaginatedHistoryRequestsResponseInner.md)
 - [PaginatedHistoryRequestsResponseInnerPaginationInner](docs/Model/PaginatedHistoryRequestsResponseInnerPaginationInner.md)
 - [PaginatedTableTransformer](docs/Model/PaginatedTableTransformer.md)
@@ -1009,6 +1170,8 @@ Class | Method | HTTP request | Description
 - [PaginatedTableTransformerFieldsInnerContent](docs/Model/PaginatedTableTransformerFieldsInnerContent.md)
 - [Pagination](docs/Model/Pagination.md)
 - [PanelRequest](docs/Model/PanelRequest.md)
+- [PastDueInvoiceListResponse](docs/Model/PastDueInvoiceListResponse.md)
+- [PastDueInvoiceListResponseInvoicesInner](docs/Model/PastDueInvoiceListResponseInvoicesInner.md)
 - [PayCycleDeductionDataObject](docs/Model/PayCycleDeductionDataObject.md)
 - [PayCycleDeductionGlobalOverride](docs/Model/PayCycleDeductionGlobalOverride.md)
 - [PayCycleDeductionGlobalOverrides](docs/Model/PayCycleDeductionGlobalOverrides.md)
@@ -1037,7 +1200,45 @@ Class | Method | HTTP request | Description
 - [PayCycleHolidays](docs/Model/PayCycleHolidays.md)
 - [PayCycleResetEmployeePayrollDataTransformer](docs/Model/PayCycleResetEmployeePayrollDataTransformer.md)
 - [PaySchedule](docs/Model/PaySchedule.md)
+- [PayScheduleDataObject](docs/Model/PayScheduleDataObject.md)
+- [PayScheduleDataObjectExternalCompanyId](docs/Model/PayScheduleDataObjectExternalCompanyId.md)
+- [PayScheduleDataObjectExternalPayScheduleId](docs/Model/PayScheduleDataObjectExternalPayScheduleId.md)
+- [PayScheduleDataObjectIncludeInPayroll](docs/Model/PayScheduleDataObjectIncludeInPayroll.md)
+- [PayStubCheckTransformer](docs/Model/PayStubCheckTransformer.md)
+- [PayStubCheckTransformerEmployeeDeductionsInner](docs/Model/PayStubCheckTransformerEmployeeDeductionsInner.md)
+- [PayStubCheckTransformerFunFact](docs/Model/PayStubCheckTransformerFunFact.md)
+- [PayStubCheckTransformerNotesInner](docs/Model/PayStubCheckTransformerNotesInner.md)
+- [PayStubCheckTransformerPaymentsInner](docs/Model/PayStubCheckTransformerPaymentsInner.md)
+- [PayStubCheckTransformerTaxSettings](docs/Model/PayStubCheckTransformerTaxSettings.md)
+- [PayStubCheckTransformerTaxableWagesInner](docs/Model/PayStubCheckTransformerTaxableWagesInner.md)
+- [PayStubCheckTransformerTaxesInner](docs/Model/PayStubCheckTransformerTaxesInner.md)
+- [PayStubCheckTransformerTimeOffInner](docs/Model/PayStubCheckTransformerTimeOffInner.md)
+- [PayStubEmployeeTransformer](docs/Model/PayStubEmployeeTransformer.md)
+- [PayStubEmployerTransformer](docs/Model/PayStubEmployerTransformer.md)
+- [PayStubPayCycleTransformer](docs/Model/PayStubPayCycleTransformer.md)
+- [PayStubTransformer](docs/Model/PayStubTransformer.md)
+- [PayStubsListTransformerInner](docs/Model/PayStubsListTransformerInner.md)
+- [PaycheckTransformer](docs/Model/PaycheckTransformer.md)
+- [PaycheckTransformerTaxes](docs/Model/PaycheckTransformerTaxes.md)
+- [PaycheckTransformerTaxesFederal](docs/Model/PaycheckTransformerTaxesFederal.md)
+- [PaycheckTransformerTaxesState](docs/Model/PaycheckTransformerTaxesState.md)
+- [PaymentInfoResponse](docs/Model/PaymentInfoResponse.md)
+- [PaymentInfoResponseAch](docs/Model/PaymentInfoResponseAch.md)
+- [PaymentInfoResponseCardOnFile](docs/Model/PaymentInfoResponseCardOnFile.md)
+- [PaymentInfoResponseLastPayment](docs/Model/PaymentInfoResponseLastPayment.md)
+- [PaymentInfoResponsePaymentMethod](docs/Model/PaymentInfoResponsePaymentMethod.md)
+- [PaymentMethodOverviewResponse](docs/Model/PaymentMethodOverviewResponse.md)
+- [PayrollBambooHrPayrollSettings](docs/Model/PayrollBambooHrPayrollSettings.md)
+- [PayrollBeneficialOwnersControllerBeneficialOwnershipResponse](docs/Model/PayrollBeneficialOwnersControllerBeneficialOwnershipResponse.md)
+- [PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBeneficialOwnersInner](docs/Model/PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBeneficialOwnersInner.md)
+- [PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBeneficialOwnersInnerAddress](docs/Model/PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBeneficialOwnersInnerAddress.md)
+- [PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBeneficialOwnersInnerCitizenship](docs/Model/PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBeneficialOwnersInnerCitizenship.md)
+- [PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBusinessStructure](docs/Model/PayrollBeneficialOwnersControllerBeneficialOwnershipResponseBusinessStructure.md)
+- [PayrollBeneficialOwnersControllerBeneficialOwnershipResponseExemptedBusiness](docs/Model/PayrollBeneficialOwnersControllerBeneficialOwnershipResponseExemptedBusiness.md)
+- [PayrollContactOptionTransformerInner](docs/Model/PayrollContactOptionTransformerInner.md)
 - [PayrollContactViewObject](docs/Model/PayrollContactViewObject.md)
+- [PayrollContactsTransformer](docs/Model/PayrollContactsTransformer.md)
+- [PayrollContactsTransformerContactsInner](docs/Model/PayrollContactsTransformerContactsInner.md)
 - [PayrollDirectDepositApiControllerCreatedOrUpdatedEmployeeDirectDepositAccounts](docs/Model/PayrollDirectDepositApiControllerCreatedOrUpdatedEmployeeDirectDepositAccounts.md)
 - [PayrollDirectDepositApiControllerCreatedOrUpdatedEmployeeDirectDepositAccountsAccountsInner](docs/Model/PayrollDirectDepositApiControllerCreatedOrUpdatedEmployeeDirectDepositAccountsAccountsInner.md)
 - [PayrollDirectDepositApiControllerDirectDepositAccountNumber](docs/Model/PayrollDirectDepositApiControllerDirectDepositAccountNumber.md)
@@ -1045,12 +1246,32 @@ Class | Method | HTTP request | Description
 - [PayrollDirectDepositApiControllerDirectDepositValidationErrors](docs/Model/PayrollDirectDepositApiControllerDirectDepositValidationErrors.md)
 - [PayrollDirectDepositApiControllerDirectDepositValidationErrorsAccountErrorsValue](docs/Model/PayrollDirectDepositApiControllerDirectDepositValidationErrorsAccountErrorsValue.md)
 - [PayrollDirectDepositApiControllerEmployeeDirectDepositAccounts](docs/Model/PayrollDirectDepositApiControllerEmployeeDirectDepositAccounts.md)
+- [PayrollDirectDepositImporterApiControllerDirectDepositData](docs/Model/PayrollDirectDepositImporterApiControllerDirectDepositData.md)
+- [PayrollDirectDepositImporterApiControllerDirectDepositDataDataInner](docs/Model/PayrollDirectDepositImporterApiControllerDirectDepositDataDataInner.md)
+- [PayrollDirectDepositImporterApiControllerDirectDepositDataErrorsInner](docs/Model/PayrollDirectDepositImporterApiControllerDirectDepositDataErrorsInner.md)
+- [PayrollDirectDepositImporterApiControllerDirectDepositImporterSubmit](docs/Model/PayrollDirectDepositImporterApiControllerDirectDepositImporterSubmit.md)
+- [PayrollDirectDepositImporterApiControllerDirectDepositImporterSubmitValidationErrorsInner](docs/Model/PayrollDirectDepositImporterApiControllerDirectDepositImporterSubmitValidationErrorsInner.md)
+- [PayrollDirectDepositImporterApiControllerDirectDepositImporterValidation](docs/Model/PayrollDirectDepositImporterApiControllerDirectDepositImporterValidation.md)
+- [PayrollDirectDepositImporterApiControllerSearchEmployees](docs/Model/PayrollDirectDepositImporterApiControllerSearchEmployees.md)
+- [PayrollDirectDepositImporterApiControllerSearchEmployeesEmployeesInner](docs/Model/PayrollDirectDepositImporterApiControllerSearchEmployeesEmployeesInner.md)
+- [PayrollDirectDepositImporterApiControllerUploadDirectDeposit](docs/Model/PayrollDirectDepositImporterApiControllerUploadDirectDeposit.md)
+- [PayrollDirectDepositImporterApiControllerUploadDirectDepositColumnMap](docs/Model/PayrollDirectDepositImporterApiControllerUploadDirectDepositColumnMap.md)
+- [PayrollDirectDepositImporterApiControllerUploadDirectDepositColumnsInner](docs/Model/PayrollDirectDepositImporterApiControllerUploadDirectDepositColumnsInner.md)
+- [PayrollDirectDepositImporterApiControllerUploadDirectDepositErrorCodeResponse](docs/Model/PayrollDirectDepositImporterApiControllerUploadDirectDepositErrorCodeResponse.md)
 - [PayrollDocumentStatusCollectionViewObject](docs/Model/PayrollDocumentStatusCollectionViewObject.md)
 - [PayrollDocumentStatusViewObject](docs/Model/PayrollDocumentStatusViewObject.md)
 - [PayrollEmployeeChangesInnerInner](docs/Model/PayrollEmployeeChangesInnerInner.md)
 - [PayrollEmployeeChangesInnerInnerStatus](docs/Model/PayrollEmployeeChangesInnerInnerStatus.md)
+- [PayrollEmployeeCompensationTransformerV2](docs/Model/PayrollEmployeeCompensationTransformerV2.md)
 - [PayrollEmployeeDataObject](docs/Model/PayrollEmployeeDataObject.md)
+- [PayrollEmployeeTransformerV2](docs/Model/PayrollEmployeeTransformerV2.md)
+- [PayrollEmployeeUpdatedHoursTransformerV2Value](docs/Model/PayrollEmployeeUpdatedHoursTransformerV2Value.md)
+- [PayrollEmployeeUpdatedHoursTransformerV2ValueOneOfInner](docs/Model/PayrollEmployeeUpdatedHoursTransformerV2ValueOneOfInner.md)
 - [PayrollEmployeesFilterData](docs/Model/PayrollEmployeesFilterData.md)
+- [PayrollEmployeesUpdatedHoursTransformerV2Inner](docs/Model/PayrollEmployeesUpdatedHoursTransformerV2Inner.md)
+- [PayrollErrorExceptionTransformer](docs/Model/PayrollErrorExceptionTransformer.md)
+- [PayrollErrorExceptionTransformerData](docs/Model/PayrollErrorExceptionTransformerData.md)
+- [PayrollErrorExceptionTransformerDataEmployeesInner](docs/Model/PayrollErrorExceptionTransformerDataEmployeesInner.md)
 - [PayrollExtraPayControllerEmployeeBasicInfo](docs/Model/PayrollExtraPayControllerEmployeeBasicInfo.md)
 - [PayrollExtraPayControllerEmployeeExtraPayResponse](docs/Model/PayrollExtraPayControllerEmployeeExtraPayResponse.md)
 - [PayrollExtraPayControllerExtraPayEmployee](docs/Model/PayrollExtraPayControllerExtraPayEmployee.md)
@@ -1096,6 +1317,25 @@ Class | Method | HTTP request | Description
 - [PayrollPrePayrollHoursTimesheetDataResponseApproverUserDataValue](docs/Model/PayrollPrePayrollHoursTimesheetDataResponseApproverUserDataValue.md)
 - [PayrollPrePayrollHoursTimesheetDataResponseDataValue](docs/Model/PayrollPrePayrollHoursTimesheetDataResponseDataValue.md)
 - [PayrollPrePayrollHoursTimesheetHourItem](docs/Model/PayrollPrePayrollHoursTimesheetHourItem.md)
+- [PayrollReviewSnapshotTransformer](docs/Model/PayrollReviewSnapshotTransformer.md)
+- [PayrollReviewSnapshotTransformerAllOfEmployees](docs/Model/PayrollReviewSnapshotTransformerAllOfEmployees.md)
+- [PayrollSnapshotTransformer](docs/Model/PayrollSnapshotTransformer.md)
+- [PayrollSnapshotTransformerChecks](docs/Model/PayrollSnapshotTransformerChecks.md)
+- [PayrollSnapshotTransformerChecksByIdValue](docs/Model/PayrollSnapshotTransformerChecksByIdValue.md)
+- [PayrollSnapshotTransformerEarnings](docs/Model/PayrollSnapshotTransformerEarnings.md)
+- [PayrollSnapshotTransformerEarningsByIdValue](docs/Model/PayrollSnapshotTransformerEarningsByIdValue.md)
+- [PayrollSnapshotTransformerEmployeeRates](docs/Model/PayrollSnapshotTransformerEmployeeRates.md)
+- [PayrollSnapshotTransformerEmployeeRatesByIdValue](docs/Model/PayrollSnapshotTransformerEmployeeRatesByIdValue.md)
+- [PayrollSnapshotTransformerEmployees](docs/Model/PayrollSnapshotTransformerEmployees.md)
+- [PayrollSnapshotTransformerEmployeesByIdValue](docs/Model/PayrollSnapshotTransformerEmployeesByIdValue.md)
+- [PayrollSnapshotTransformerEmployeesByIdValueCompensation](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueCompensation.md)
+- [PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner.md)
+- [PayrollSnapshotTransformerEmployeesByIdValueTagsInner](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueTagsInner.md)
+- [PayrollSnapshotTransformerEmployeesByIdValueTagsInnerMetadata](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueTagsInnerMetadata.md)
+- [PayrollSnapshotTransformerTogglesInner](docs/Model/PayrollSnapshotTransformerTogglesInner.md)
+- [PayrollSummaryTransformer](docs/Model/PayrollSummaryTransformer.md)
+- [PayrollSummaryTransformerWireInstructions](docs/Model/PayrollSummaryTransformerWireInstructions.md)
+- [PayrollSummaryTransformerWireInstructionsPayrollsInner](docs/Model/PayrollSummaryTransformerWireInstructionsPayrollsInner.md)
 - [PayrollTraxPayrollApiControllerEmployeeTaxInformationDataObject](docs/Model/PayrollTraxPayrollApiControllerEmployeeTaxInformationDataObject.md)
 - [PayrollTraxPayrollApiControllerEmployeeTaxInformationDataObjectEmployeeTaxStateOptionsInner](docs/Model/PayrollTraxPayrollApiControllerEmployeeTaxInformationDataObjectEmployeeTaxStateOptionsInner.md)
 - [PayrollTraxPayrollApiControllerEmployeeTaxInformationDataObjectEmployeeTaxStateUiOptionsInner](docs/Model/PayrollTraxPayrollApiControllerEmployeeTaxInformationDataObjectEmployeeTaxStateUiOptionsInner.md)
@@ -1111,6 +1351,11 @@ Class | Method | HTTP request | Description
 - [PayrollUpdateSummaryCardEmployeeInformation](docs/Model/PayrollUpdateSummaryCardEmployeeInformation.md)
 - [PayrollUpdateSummaryCardSubCategory](docs/Model/PayrollUpdateSummaryCardSubCategory.md)
 - [PayrollWarningEmployeeTransformer](docs/Model/PayrollWarningEmployeeTransformer.md)
+- [PayrollWarningsTransformerV2](docs/Model/PayrollWarningsTransformerV2.md)
+- [PayrollWarningsTransformerV2WarningsInner](docs/Model/PayrollWarningsTransformerV2WarningsInner.md)
+- [PayrollWarningsTransformerV2WarningsInnerOneOf](docs/Model/PayrollWarningsTransformerV2WarningsInnerOneOf.md)
+- [PayrollWarningsTransformerV2WarningsInnerOneOf1](docs/Model/PayrollWarningsTransformerV2WarningsInnerOneOf1.md)
+- [PayrollWarningsTransformerV2WarningsInnerOneOfEmployeesInner](docs/Model/PayrollWarningsTransformerV2WarningsInnerOneOfEmployeesInner.md)
 - [PayrollWorkersCompWorkersCompCode](docs/Model/PayrollWorkersCompWorkersCompCode.md)
 - [PayrollWorkersCompWorkersCompCodesResponse](docs/Model/PayrollWorkersCompWorkersCompCodesResponse.md)
 - [PayrollWorkersCompWorkersCompRate](docs/Model/PayrollWorkersCompWorkersCompRate.md)
@@ -1130,6 +1375,8 @@ Class | Method | HTTP request | Description
 - [PlanDates](docs/Model/PlanDates.md)
 - [PlanType](docs/Model/PlanType.md)
 - [PlanTypeData](docs/Model/PlanTypeData.md)
+- [PlanTypeDataCoverageLevels](docs/Model/PlanTypeDataCoverageLevels.md)
+- [PlanTypeDataDeductionDateRule](docs/Model/PlanTypeDataDeductionDateRule.md)
 - [PlanTypeMetaData](docs/Model/PlanTypeMetaData.md)
 - [PlanTypeMetaDataDefaults](docs/Model/PlanTypeMetaDataDefaults.md)
 - [PlanYear](docs/Model/PlanYear.md)
@@ -1141,14 +1388,28 @@ Class | Method | HTTP request | Description
 - [PostGoalRequestMilestonesInner](docs/Model/PostGoalRequestMilestonesInner.md)
 - [PostNewEmployee](docs/Model/PostNewEmployee.md)
 - [PostWebhook201Response](docs/Model/PostWebhook201Response.md)
+- [PostWebhook201ResponseFrequency](docs/Model/PostWebhook201ResponseFrequency.md)
+- [PostWebhook201ResponseLimit](docs/Model/PostWebhook201ResponseLimit.md)
 - [PostWebhook403Response](docs/Model/PostWebhook403Response.md)
 - [PostWebhook403ResponseErrorsInner](docs/Model/PostWebhook403ResponseErrorsInner.md)
 - [PotentialAdminApproval](docs/Model/PotentialAdminApproval.md)
+- [PrimaryPaymentMethodResponse](docs/Model/PrimaryPaymentMethodResponse.md)
+- [ProductPricingInfoResponse](docs/Model/ProductPricingInfoResponse.md)
+- [ProhibitedFieldMatchResponse](docs/Model/ProhibitedFieldMatchResponse.md)
+- [ProhibitedFieldMatchResponseDuplicate](docs/Model/ProhibitedFieldMatchResponseDuplicate.md)
+- [ProhibitedFieldMatchResponseDuplicateField](docs/Model/ProhibitedFieldMatchResponseDuplicateField.md)
+- [ProhibitedFieldMatchResponseProhibited](docs/Model/ProhibitedFieldMatchResponseProhibited.md)
 - [ProjectInfoApiTransformer](docs/Model/ProjectInfoApiTransformer.md)
 - [ProjectInfoApiTransformerProject](docs/Model/ProjectInfoApiTransformerProject.md)
 - [ProjectInfoApiTransformerTask](docs/Model/ProjectInfoApiTransformerTask.md)
 - [ProjectWithTasksTransformer](docs/Model/ProjectWithTasksTransformer.md)
 - [ProjectWithTasksTransformerTasksInner](docs/Model/ProjectWithTasksTransformerTasksInner.md)
+- [ProjectedPrepaymentResponse](docs/Model/ProjectedPrepaymentResponse.md)
+- [ProjectedPrepaymentResponseCustomerDetails](docs/Model/ProjectedPrepaymentResponseCustomerDetails.md)
+- [ProjectedPrepaymentResponseDiscountsInner](docs/Model/ProjectedPrepaymentResponseDiscountsInner.md)
+- [ProjectedPrepaymentResponseInvoiceItemsInner](docs/Model/ProjectedPrepaymentResponseInvoiceItemsInner.md)
+- [ProjectedPrepaymentResponsePaymentInformation](docs/Model/ProjectedPrepaymentResponsePaymentInformation.md)
+- [ProrationPeriodInformationDataObjectsInner](docs/Model/ProrationPeriodInformationDataObjectsInner.md)
 - [PtoTabDataTransformer](docs/Model/PtoTabDataTransformer.md)
 - [PutGoalMilestoneProgressRequest](docs/Model/PutGoalMilestoneProgressRequest.md)
 - [PutGoalProgressRequest](docs/Model/PutGoalProgressRequest.md)
@@ -1156,6 +1417,7 @@ Class | Method | HTTP request | Description
 - [PutGoalV11Request](docs/Model/PutGoalV11Request.md)
 - [PutGoalV11RequestMilestonesInner](docs/Model/PutGoalV11RequestMilestonesInner.md)
 - [PutWebhook403Response](docs/Model/PutWebhook403Response.md)
+- [QbopWebhookChangedEntity](docs/Model/QbopWebhookChangedEntity.md)
 - [QualifyingLifeEventRequest](docs/Model/QualifyingLifeEventRequest.md)
 - [QualifyingLifeEventRequestStoreResult](docs/Model/QualifyingLifeEventRequestStoreResult.md)
 - [QuickSearchResponse](docs/Model/QuickSearchResponse.md)
@@ -1165,11 +1427,19 @@ Class | Method | HTTP request | Description
 - [ReactivationRequest](docs/Model/ReactivationRequest.md)
 - [RecentReportListCategory](docs/Model/RecentReportListCategory.md)
 - [RecentReportListCategoryCollection](docs/Model/RecentReportListCategoryCollection.md)
+- [RecommenderDataObject](docs/Model/RecommenderDataObject.md)
+- [RegistrationDataContract](docs/Model/RegistrationDataContract.md)
 - [Reimbursement](docs/Model/Reimbursement.md)
 - [RemoteCompanyResponseSchema](docs/Model/RemoteCompanyResponseSchema.md)
 - [RemoteCompanyWidgetStatusesSchema](docs/Model/RemoteCompanyWidgetStatusesSchema.md)
+- [RemoteEmploymentStatusDataObject](docs/Model/RemoteEmploymentStatusDataObject.md)
+- [RemoteLinkResponseSchema](docs/Model/RemoteLinkResponseSchema.md)
+- [RemoteLinkResponseSchemaData](docs/Model/RemoteLinkResponseSchemaData.md)
 - [RemoteTermsAndConditionsFieldSchema](docs/Model/RemoteTermsAndConditionsFieldSchema.md)
 - [RemoteTermsAndConditionsFieldSchemaXJsfPresentation](docs/Model/RemoteTermsAndConditionsFieldSchemaXJsfPresentation.md)
+- [RemoteUserAdminListSchema](docs/Model/RemoteUserAdminListSchema.md)
+- [RemoteUserListViewSchema](docs/Model/RemoteUserListViewSchema.md)
+- [ReorderCustomTableFieldsRequest](docs/Model/ReorderCustomTableFieldsRequest.md)
 - [RepeatingContainerFormNode](docs/Model/RepeatingContainerFormNode.md)
 - [RepeatingContainerFormNodeAllOfTemplate](docs/Model/RepeatingContainerFormNodeAllOfTemplate.md)
 - [Report](docs/Model/Report.md)
@@ -1206,6 +1476,8 @@ Class | Method | HTTP request | Description
 - [SaveSharingListRequestAllOfSettingsSharingSchedule](docs/Model/SaveSharingListRequestAllOfSettingsSharingSchedule.md)
 - [ScopeAccessDescriptionDataObject](docs/Model/ScopeAccessDescriptionDataObject.md)
 - [ScopeDescriptionDataObject](docs/Model/ScopeDescriptionDataObject.md)
+- [SectionViewObject](docs/Model/SectionViewObject.md)
+- [SelectEmploymentStatusFieldNode](docs/Model/SelectEmploymentStatusFieldNode.md)
 - [SelectFieldFormNode](docs/Model/SelectFieldFormNode.md)
 - [SelectFieldFormNodeAllOfItems](docs/Model/SelectFieldFormNodeAllOfItems.md)
 - [SelectFieldFormNodeAllOfValue](docs/Model/SelectFieldFormNodeAllOfValue.md)
@@ -1230,20 +1502,30 @@ Class | Method | HTTP request | Description
 - [ShiftDifferentialTransformerEmployeesInner](docs/Model/ShiftDifferentialTransformerEmployeesInner.md)
 - [ShowHistorySection](docs/Model/ShowHistorySection.md)
 - [SimpleEmployeeTaskFileMetaSchema](docs/Model/SimpleEmployeeTaskFileMetaSchema.md)
+- [SimplifiedCompanyInfoResponse](docs/Model/SimplifiedCompanyInfoResponse.md)
+- [SimplifiedCompanyInfoResponseOwner](docs/Model/SimplifiedCompanyInfoResponseOwner.md)
 - [SpacingFormNode](docs/Model/SpacingFormNode.md)
+- [StandardApiErrorResponse](docs/Model/StandardApiErrorResponse.md)
 - [State](docs/Model/State.md)
 - [StaticTemplateFormNode](docs/Model/StaticTemplateFormNode.md)
 - [Status](docs/Model/Status.md)
 - [StoredHourEntriesApiTransformerInner](docs/Model/StoredHourEntriesApiTransformerInner.md)
 - [SubNavigationTransformer](docs/Model/SubNavigationTransformer.md)
+- [SubscriptionInfoResponse](docs/Model/SubscriptionInfoResponse.md)
+- [SubscriptionInfoResponsePackageUpgradeRestrictions](docs/Model/SubscriptionInfoResponsePackageUpgradeRestrictions.md)
+- [SubscriptionInfoResponsePackagesInner](docs/Model/SubscriptionInfoResponsePackagesInner.md)
+- [SubscriptionInfoResponsePepmAddOnProductsInner](docs/Model/SubscriptionInfoResponsePepmAddOnProductsInner.md)
+- [SubscriptionInfoResponsePepmAddOnProductsInnerSubproductsInner](docs/Model/SubscriptionInfoResponsePepmAddOnProductsInnerSubproductsInner.md)
 - [SummarizationDataObject](docs/Model/SummarizationDataObject.md)
 - [SurveyQuestionResponse](docs/Model/SurveyQuestionResponse.md)
 - [SurveyQuestionResponseAnswersInner](docs/Model/SurveyQuestionResponseAnswersInner.md)
+- [TabViewObject](docs/Model/TabViewObject.md)
 - [TablePanelConfigurationRequest](docs/Model/TablePanelConfigurationRequest.md)
 - [TablePanelConfigurationRequestFieldSettingsInner](docs/Model/TablePanelConfigurationRequestFieldSettingsInner.md)
 - [TablePanelConfigurationRequestFilters](docs/Model/TablePanelConfigurationRequestFilters.md)
 - [TablePanelConfigurationRequestFiltersFiltersInner](docs/Model/TablePanelConfigurationRequestFiltersFiltersInner.md)
 - [TablePanelConfigurationRequestFiltersFiltersInnerValue](docs/Model/TablePanelConfigurationRequestFiltersFiltersInnerValue.md)
+- [TablePanelConfigurationRequestPivotFields](docs/Model/TablePanelConfigurationRequestPivotFields.md)
 - [TablePanelConfigurationRequestSortByInner](docs/Model/TablePanelConfigurationRequestSortByInner.md)
 - [TableRowDetail](docs/Model/TableRowDetail.md)
 - [TableRowUpdate](docs/Model/TableRowUpdate.md)
@@ -1258,12 +1540,12 @@ Class | Method | HTTP request | Description
 - [TaskCommentSchema](docs/Model/TaskCommentSchema.md)
 - [TaskDetailSchema](docs/Model/TaskDetailSchema.md)
 - [TaskDetailSchemaMeta](docs/Model/TaskDetailSchemaMeta.md)
-- [TaskDetailSchemaMetaPersonsInner](docs/Model/TaskDetailSchemaMetaPersonsInner.md)
 - [TaskEmployeeLegacySchema](docs/Model/TaskEmployeeLegacySchema.md)
 - [TaskLegacySchema](docs/Model/TaskLegacySchema.md)
 - [TaskListSchema](docs/Model/TaskListSchema.md)
 - [TaskLiteSchema](docs/Model/TaskLiteSchema.md)
 - [TaskMetaFileSchema](docs/Model/TaskMetaFileSchema.md)
+- [TaskPersonInfo](docs/Model/TaskPersonInfo.md)
 - [TaskPersonLegacySchema](docs/Model/TaskPersonLegacySchema.md)
 - [TaskPersonSchema](docs/Model/TaskPersonSchema.md)
 - [TaskSchema](docs/Model/TaskSchema.md)
@@ -1275,7 +1557,10 @@ Class | Method | HTTP request | Description
 - [TaskTemplateSchema](docs/Model/TaskTemplateSchema.md)
 - [TaxIdFieldSchema](docs/Model/TaxIdFieldSchema.md)
 - [TaxIdFieldSchemaXJsfPresentation](docs/Model/TaxIdFieldSchemaXJsfPresentation.md)
+- [TemplatePanelDataObject](docs/Model/TemplatePanelDataObject.md)
+- [TemplateReportDataObject](docs/Model/TemplateReportDataObject.md)
 - [TimeAndLaborManagementDataObject](docs/Model/TimeAndLaborManagementDataObject.md)
+- [TimeClockDeviceTransformer](docs/Model/TimeClockDeviceTransformer.md)
 - [TimeOffDefaultHoursGroupsInner](docs/Model/TimeOffDefaultHoursGroupsInner.md)
 - [TimeOffDefaultHoursGroupsInnerFilters](docs/Model/TimeOffDefaultHoursGroupsInnerFilters.md)
 - [TimeOffDefaultHoursGroupsInnerHoursPerDay](docs/Model/TimeOffDefaultHoursGroupsInnerHoursPerDay.md)
@@ -1283,6 +1568,8 @@ Class | Method | HTTP request | Description
 - [TimeOffHistory](docs/Model/TimeOffHistory.md)
 - [TimeOffHistoryItemsTransformer](docs/Model/TimeOffHistoryItemsTransformer.md)
 - [TimeOffHistoryItemsTransformerOverrideUser](docs/Model/TimeOffHistoryItemsTransformerOverrideUser.md)
+- [TimeOffPoliciesAndTypesTransformer](docs/Model/TimeOffPoliciesAndTypesTransformer.md)
+- [TimeOffPoliciesAndTypesTransformerTypesInner](docs/Model/TimeOffPoliciesAndTypesTransformerTypesInner.md)
 - [TimeOffPolicyAccrualOptionsTransformer](docs/Model/TimeOffPolicyAccrualOptionsTransformer.md)
 - [TimeOffPolicyMilestonesTransformer](docs/Model/TimeOffPolicyMilestonesTransformer.md)
 - [TimeOffPolicySettingsTransformer](docs/Model/TimeOffPolicySettingsTransformer.md)
@@ -1290,6 +1577,7 @@ Class | Method | HTTP request | Description
 - [TimeOffPolicySettingsTransformerPolicy](docs/Model/TimeOffPolicySettingsTransformerPolicy.md)
 - [TimeOffPolicySettingsTransformerRatesInner](docs/Model/TimeOffPolicySettingsTransformerRatesInner.md)
 - [TimeOffPolicySettingsTransformerTimeOffTypesInner](docs/Model/TimeOffPolicySettingsTransformerTimeOffTypesInner.md)
+- [TimeOffPolicyTransformer](docs/Model/TimeOffPolicyTransformer.md)
 - [TimeOffPolicyVersionHistoryTransformer](docs/Model/TimeOffPolicyVersionHistoryTransformer.md)
 - [TimeOffPolicyVersionHistoryTransformerCategory](docs/Model/TimeOffPolicyVersionHistoryTransformerCategory.md)
 - [TimeOffPolicyVersionHistoryTransformerPolicyVersionsInner](docs/Model/TimeOffPolicyVersionHistoryTransformerPolicyVersionsInner.md)
@@ -1306,15 +1594,16 @@ Class | Method | HTTP request | Description
 - [TimeOffRequestApiResponseInnerNotesInner](docs/Model/TimeOffRequestApiResponseInnerNotesInner.md)
 - [TimeOffRequestApiResponseInnerOverlappingRequestsInner](docs/Model/TimeOffRequestApiResponseInnerOverlappingRequestsInner.md)
 - [TimeOffRequestApiResponseInnerStatusInner](docs/Model/TimeOffRequestApiResponseInnerStatusInner.md)
+- [TimeOffRequestApiResponseInnerTypeInner](docs/Model/TimeOffRequestApiResponseInnerTypeInner.md)
 - [TimeOffRequestDatesInner](docs/Model/TimeOffRequestDatesInner.md)
 - [TimeOffRequestNotesInner](docs/Model/TimeOffRequestNotesInner.md)
 - [TimeOffSessionViewModelTransformer](docs/Model/TimeOffSessionViewModelTransformer.md)
 - [TimeOffSettingsCategoryListTransformer](docs/Model/TimeOffSettingsCategoryListTransformer.md)
+- [TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner](docs/Model/TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner.md)
 - [TimeOffSettingsCategoryListTransformerCategoriesInner](docs/Model/TimeOffSettingsCategoryListTransformerCategoriesInner.md)
 - [TimeOffSettingsCategoryListTransformerPayrollInformation](docs/Model/TimeOffSettingsCategoryListTransformerPayrollInformation.md)
 - [TimeOffSettingsCategoryListTransformerPoliciesInner](docs/Model/TimeOffSettingsCategoryListTransformerPoliciesInner.md)
 - [TimeOffSummaryResponseInner](docs/Model/TimeOffSummaryResponseInner.md)
-- [TimeOffSummaryResponseInnerCategoriesInner](docs/Model/TimeOffSummaryResponseInnerCategoriesInner.md)
 - [TimeOffSummaryResponseInnerPauseInner](docs/Model/TimeOffSummaryResponseInnerPauseInner.md)
 - [TimeOffTabCardTransformer](docs/Model/TimeOffTabCardTransformer.md)
 - [TimeOffTabViewModelTransformer](docs/Model/TimeOffTabViewModelTransformer.md)
@@ -1324,6 +1613,7 @@ Class | Method | HTTP request | Description
 - [TimeToEligibilityDataModel](docs/Model/TimeToEligibilityDataModel.md)
 - [TimeTrackingConfigurationTransformer](docs/Model/TimeTrackingConfigurationTransformer.md)
 - [TimeTrackingEmployeeDataObject](docs/Model/TimeTrackingEmployeeDataObject.md)
+- [TimeTrackingKioskTransformer](docs/Model/TimeTrackingKioskTransformer.md)
 - [TimeTrackingProjectWithTasks](docs/Model/TimeTrackingProjectWithTasks.md)
 - [TimeTrackingProjectWithTasksAndEmployeeIds](docs/Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 - [TimeTrackingRecord](docs/Model/TimeTrackingRecord.md)
@@ -1371,7 +1661,12 @@ Class | Method | HTTP request | Description
 - [TransformedApiGoalGoal](docs/Model/TransformedApiGoalGoal.md)
 - [TransformedApiGoalGoalActions](docs/Model/TransformedApiGoalGoalActions.md)
 - [TransformedApiGoalGoalMilestonesInner](docs/Model/TransformedApiGoalGoalMilestonesInner.md)
+- [TransformedCascadingGoalOptions](docs/Model/TransformedCascadingGoalOptions.md)
+- [TransformedCascadingGoalOptionsDropdownOptions](docs/Model/TransformedCascadingGoalOptionsDropdownOptions.md)
+- [TransformedCascadingGoalsViewObject](docs/Model/TransformedCascadingGoalsViewObject.md)
 - [TransformedFileWithExtras](docs/Model/TransformedFileWithExtras.md)
+- [TransformedParentGoalDropdownOption](docs/Model/TransformedParentGoalDropdownOption.md)
+- [UnarchiveCustomFieldsRequest](docs/Model/UnarchiveCustomFieldsRequest.md)
 - [UnexpectedlyEnabledEmployee](docs/Model/UnexpectedlyEnabledEmployee.md)
 - [UpcomingTimeOffTransformer](docs/Model/UpcomingTimeOffTransformer.md)
 - [UpcomingTimeOffTransformerActionPermissions](docs/Model/UpcomingTimeOffTransformerActionPermissions.md)
@@ -1381,6 +1676,7 @@ Class | Method | HTTP request | Description
 - [UpdateClientRequest](docs/Model/UpdateClientRequest.md)
 - [UpdateEmployeeTrainingRecordRequest](docs/Model/UpdateEmployeeTrainingRecordRequest.md)
 - [UpdateGlobalOverridesRequest](docs/Model/UpdateGlobalOverridesRequest.md)
+- [UpdatePayrollContactTransformer](docs/Model/UpdatePayrollContactTransformer.md)
 - [UpdateSortOrderApplicantStatusResponse](docs/Model/UpdateSortOrderApplicantStatusResponse.md)
 - [UpdateSortOrderApplicantStatusResponseOneOf](docs/Model/UpdateSortOrderApplicantStatusResponseOneOf.md)
 - [UpdateSortOrderApplicantStatusResponseOneOf0](docs/Model/UpdateSortOrderApplicantStatusResponseOneOf0.md)
@@ -1397,6 +1693,7 @@ Class | Method | HTTP request | Description
 - [UpdateTrainingTypeRequestCategory](docs/Model/UpdateTrainingTypeRequestCategory.md)
 - [UpdatedHoursResponseInner](docs/Model/UpdatedHoursResponseInner.md)
 - [UploadTemporaryFileResponse](docs/Model/UploadTemporaryFileResponse.md)
+- [UserPermissionData](docs/Model/UserPermissionData.md)
 - [UserSignatureDataObject](docs/Model/UserSignatureDataObject.md)
 - [ValidateAddressRequest](docs/Model/ValidateAddressRequest.md)
 - [ViewableOneOnOneDateDataObject](docs/Model/ViewableOneOnOneDateDataObject.md)
@@ -1406,18 +1703,24 @@ Class | Method | HTTP request | Description
 - [WebHookListResponseDataObject](docs/Model/WebHookListResponseDataObject.md)
 - [WebHookListResponseDataObjectFilterListInner](docs/Model/WebHookListResponseDataObjectFilterListInner.md)
 - [WebHookLogResponse](docs/Model/WebHookLogResponse.md)
+- [WebHookPostFieldDataObject](docs/Model/WebHookPostFieldDataObject.md)
+- [WebHookPostFieldPageDataObject](docs/Model/WebHookPostFieldPageDataObject.md)
+- [WebHookPostFieldResponseObject](docs/Model/WebHookPostFieldResponseObject.md)
+- [WebHookPostFieldTableDataObject](docs/Model/WebHookPostFieldTableDataObject.md)
 - [WebHookResponse](docs/Model/WebHookResponse.md)
+- [WebHookResponseFrequency](docs/Model/WebHookResponseFrequency.md)
 - [Webhook400Error](docs/Model/Webhook400Error.md)
 - [WebhookError](docs/Model/WebhookError.md)
 - [WebhookErrorErrors](docs/Model/WebhookErrorErrors.md)
+- [WebhookSelectedPostFieldDataObject](docs/Model/WebhookSelectedPostFieldDataObject.md)
 - [WebhookSubErrorProperty](docs/Model/WebhookSubErrorProperty.md)
-- [WebhookSubErrorPropertyPostFieldsInner](docs/Model/WebhookSubErrorPropertyPostFieldsInner.md)
 - [WebhookSubErrorPropertyUnknownFieldsInner](docs/Model/WebhookSubErrorPropertyUnknownFieldsInner.md)
 - [WelcomeWidget](docs/Model/WelcomeWidget.md)
 - [WhosOutTransformer](docs/Model/WhosOutTransformer.md)
 - [WhosOutTransformerRecordsInner](docs/Model/WhosOutTransformerRecordsInner.md)
 - [WizardSaveRequest](docs/Model/WizardSaveRequest.md)
 - [WorkflowDataObject](docs/Model/WorkflowDataObject.md)
+- [YearSummaryTransformerInner](docs/Model/YearSummaryTransformerInner.md)
 
 ## Authorization
 

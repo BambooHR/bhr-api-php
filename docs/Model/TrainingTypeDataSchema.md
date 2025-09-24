@@ -21,5 +21,7 @@ Name | Type | Description | Notes
 **file_ids** | **int[]** |  | [optional]
 **completion_permission** | **string** |  | [optional]
 **filter_type** | **string** |  | [optional]
+**external_source** | **string** |  | [optional]
+**external_course_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

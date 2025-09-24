@@ -371,7 +371,7 @@ class OneOnOneRecordViewObject implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets notes
      *
-     * @param \MySdk\Model\OneOnOneNotesViewObject|null $notes notes
+     * @param \MySdk\Model\OneOnOneNotesViewObject|null $notes Meeting notes
      *
      * @return self
      */

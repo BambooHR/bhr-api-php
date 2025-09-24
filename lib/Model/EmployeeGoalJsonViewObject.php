@@ -118,14 +118,14 @@ class EmployeeGoalJsonViewObject implements ModelInterface, ArrayAccess, \JsonSe
         'percent_complete' => false,
         'status' => false,
         'alignable_goals' => false,
-        'aligns_with' => true,
-        'alignment' => true,
+        'aligns_with' => false,
+        'alignment' => false,
         'shared_with' => false,
         'due_date' => false,
         'past_due' => false,
         'created_date_time' => false,
-        'completion_date' => true,
-        'closed_date' => true,
+        'completion_date' => false,
+        'closed_date' => false,
         'comments' => false,
         'milestones' => false,
         'files' => false,
@@ -591,14 +591,7 @@ class EmployeeGoalJsonViewObject implements ModelInterface, ArrayAccess, \JsonSe
     public function setAlignsWith($aligns_with)
     {
         if (is_null($aligns_with)) {
-            array_push($this->openAPINullablesSetToNull, 'aligns_with');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('aligns_with', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable aligns_with cannot be null');
         }
         $this->container['aligns_with'] = $aligns_with;
 
@@ -625,14 +618,7 @@ class EmployeeGoalJsonViewObject implements ModelInterface, ArrayAccess, \JsonSe
     public function setAlignment($alignment)
     {
         if (is_null($alignment)) {
-            array_push($this->openAPINullablesSetToNull, 'alignment');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('alignment', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable alignment cannot be null');
         }
         $this->container['alignment'] = $alignment;
 
@@ -767,14 +753,7 @@ class EmployeeGoalJsonViewObject implements ModelInterface, ArrayAccess, \JsonSe
     public function setCompletionDate($completion_date)
     {
         if (is_null($completion_date)) {
-            array_push($this->openAPINullablesSetToNull, 'completion_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('completion_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable completion_date cannot be null');
         }
         $this->container['completion_date'] = $completion_date;
 
@@ -801,14 +780,7 @@ class EmployeeGoalJsonViewObject implements ModelInterface, ArrayAccess, \JsonSe
     public function setClosedDate($closed_date)
     {
         if (is_null($closed_date)) {
-            array_push($this->openAPINullablesSetToNull, 'closed_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('closed_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable closed_date cannot be null');
         }
         $this->container['closed_date'] = $closed_date;
 

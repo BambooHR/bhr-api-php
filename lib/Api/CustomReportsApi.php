@@ -133,7 +133,6 @@ class CustomReportsApi
      *
      * Get Report by ID
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $report_id report_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getByReportId'] to see the possible values for this operation
      *
@@ -141,9 +140,9 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\EmployeeResponse
      */
-    public function getByReportId($company_domain, $report_id, string $contentType = self::contentTypes['getByReportId'][0])
+    public function getByReportId($report_id, string $contentType = self::contentTypes['getByReportId'][0])
     {
-        list($response) = $this->getByReportIdWithHttpInfo($company_domain, $report_id, $contentType);
+        list($response) = $this->getByReportIdWithHttpInfo($report_id, $contentType);
         return $response;
     }
 
@@ -152,7 +151,6 @@ class CustomReportsApi
      *
      * Get Report by ID
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $report_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getByReportId'] to see the possible values for this operation
      *
@@ -160,9 +158,9 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getByReportIdWithHttpInfo($company_domain, $report_id, string $contentType = self::contentTypes['getByReportId'][0])
+    public function getByReportIdWithHttpInfo($report_id, string $contentType = self::contentTypes['getByReportId'][0])
     {
-        $request = $this->getByReportIdRequest($company_domain, $report_id, $contentType);
+        $request = $this->getByReportIdRequest($report_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -238,16 +236,15 @@ class CustomReportsApi
      *
      * Get Report by ID
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $report_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getByReportId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getByReportIdAsync($company_domain, $report_id, string $contentType = self::contentTypes['getByReportId'][0])
+    public function getByReportIdAsync($report_id, string $contentType = self::contentTypes['getByReportId'][0])
     {
-        return $this->getByReportIdAsyncWithHttpInfo($company_domain, $report_id, $contentType)
+        return $this->getByReportIdAsyncWithHttpInfo($report_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -260,17 +257,16 @@ class CustomReportsApi
      *
      * Get Report by ID
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $report_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getByReportId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getByReportIdAsyncWithHttpInfo($company_domain, $report_id, string $contentType = self::contentTypes['getByReportId'][0])
+    public function getByReportIdAsyncWithHttpInfo($report_id, string $contentType = self::contentTypes['getByReportId'][0])
     {
         $returnType = '\MySdk\Model\EmployeeResponse';
-        $request = $this->getByReportIdRequest($company_domain, $report_id, $contentType);
+        $request = $this->getByReportIdRequest($report_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -311,22 +307,14 @@ class CustomReportsApi
     /**
      * Create request for operation 'getByReportId'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $report_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getByReportId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getByReportIdRequest($company_domain, $report_id, string $contentType = self::contentTypes['getByReportId'][0])
+    public function getByReportIdRequest($report_id, string $contentType = self::contentTypes['getByReportId'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getByReportId'
-            );
-        }
 
         // verify the required parameter 'report_id' is set
         if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
@@ -336,7 +324,7 @@ class CustomReportsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/custom-reports/{reportId}';
+        $resourcePath = '/api/v1/custom-reports/{reportId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -345,14 +333,6 @@ class CustomReportsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($report_id !== null) {
             $resourcePath = str_replace(
@@ -433,7 +413,6 @@ class CustomReportsApi
      *
      * List Reports
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listReports'] to see the possible values for this operation
@@ -442,9 +421,9 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\ReportsResponse
      */
-    public function listReports($company_domain, $page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
+    public function listReports($page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
     {
-        list($response) = $this->listReportsWithHttpInfo($company_domain, $page, $page_size, $contentType);
+        list($response) = $this->listReportsWithHttpInfo($page, $page_size, $contentType);
         return $response;
     }
 
@@ -453,7 +432,6 @@ class CustomReportsApi
      *
      * List Reports
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listReports'] to see the possible values for this operation
@@ -462,9 +440,9 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\ReportsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsWithHttpInfo($company_domain, $page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsWithHttpInfo($page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
     {
-        $request = $this->listReportsRequest($company_domain, $page, $page_size, $contentType);
+        $request = $this->listReportsRequest($page, $page_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -540,7 +518,6 @@ class CustomReportsApi
      *
      * List Reports
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listReports'] to see the possible values for this operation
@@ -548,9 +525,9 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsync($company_domain, $page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsAsync($page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
     {
-        return $this->listReportsAsyncWithHttpInfo($company_domain, $page, $page_size, $contentType)
+        return $this->listReportsAsyncWithHttpInfo($page, $page_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -563,7 +540,6 @@ class CustomReportsApi
      *
      * List Reports
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listReports'] to see the possible values for this operation
@@ -571,10 +547,10 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsyncWithHttpInfo($company_domain, $page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsAsyncWithHttpInfo($page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
     {
         $returnType = '\MySdk\Model\ReportsResponse';
-        $request = $this->listReportsRequest($company_domain, $page, $page_size, $contentType);
+        $request = $this->listReportsRequest($page, $page_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -615,7 +591,6 @@ class CustomReportsApi
     /**
      * Create request for operation 'listReports'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number to retrieve (optional)
      * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listReports'] to see the possible values for this operation
@@ -623,20 +598,13 @@ class CustomReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsRequest($company_domain, $page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
+    public function listReportsRequest($page = null, $page_size = null, string $contentType = self::contentTypes['listReports'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling listReports'
-            );
-        }
 
 
 
-
-        $resourcePath = '/{companyDomain}/v1/custom-reports';
+        $resourcePath = '/api/v1/custom-reports';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -663,14 +631,6 @@ class CustomReportsApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

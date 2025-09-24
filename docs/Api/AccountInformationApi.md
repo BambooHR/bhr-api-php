@@ -1,20 +1,20 @@
 # MySdk\AccountInformationApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAListOfUsers()**](AccountInformationApi.md#getAListOfUsers) | **GET** /{companyDomain}/v1/meta/users | Get a List of Users |
-| [**metadataAddOrUpdateValuesForListFields()**](AccountInformationApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /{companyDomain}/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields |
-| [**metadataGetAListOfFields()**](AccountInformationApi.md#metadataGetAListOfFields) | **GET** /{companyDomain}/v1/meta/fields | Get a list of fields |
-| [**metadataGetAListOfTabularFields()**](AccountInformationApi.md#metadataGetAListOfTabularFields) | **GET** /{companyDomain}/v1/meta/tables | Get a list of tabular fields |
-| [**metadataGetDetailsForListFields()**](AccountInformationApi.md#metadataGetDetailsForListFields) | **GET** /{companyDomain}/v1/meta/lists | Get details for list fields |
+| [**getListOfUsers()**](AccountInformationApi.md#getListOfUsers) | **GET** /api/v1/meta/users | Get a List of Users |
+| [**metadataAddOrUpdateValuesForListFields()**](AccountInformationApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields |
+| [**metadataGetAListOfFields()**](AccountInformationApi.md#metadataGetAListOfFields) | **GET** /api/v1/meta/fields | Get a list of fields |
+| [**metadataGetAListOfTabularFields()**](AccountInformationApi.md#metadataGetAListOfTabularFields) | **GET** /api/v1/meta/tables | Get a list of tabular fields |
+| [**metadataGetDetailsForListFields()**](AccountInformationApi.md#metadataGetDetailsForListFields) | **GET** /api/v1/meta/lists | Get details for list fields |
 
 
-## `getAListOfUsers()`
+## `getListOfUsers()`
 
 ```php
-getAListOfUsers($company_domain)
+getListOfUsers()
 ```
 
 Get a List of Users
@@ -46,20 +46,17 @@ $apiInstance = new MySdk\Api\AccountInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $apiInstance->getAListOfUsers($company_domain);
+    $apiInstance->getListOfUsers();
 } catch (Exception $e) {
-    echo 'Exception when calling AccountInformationApi->getAListOfUsers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountInformationApi->getListOfUsers: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -81,7 +78,7 @@ void (empty response body)
 ## `metadataAddOrUpdateValuesForListFields()`
 
 ```php
-metadataAddOrUpdateValuesForListFields($company_domain, $list_field_id, $list_field_values)
+metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values)
 ```
 
 Add or Update Values for List Fields
@@ -113,12 +110,11 @@ $apiInstance = new MySdk\Api\AccountInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $list_field_id = 'list_field_id_example'; // string
 $list_field_values = new \MySdk\Model\ListFieldValues(); // \MySdk\Model\ListFieldValues
 
 try {
-    $apiInstance->metadataAddOrUpdateValuesForListFields($company_domain, $list_field_id, $list_field_values);
+    $apiInstance->metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values);
 } catch (Exception $e) {
     echo 'Exception when calling AccountInformationApi->metadataAddOrUpdateValuesForListFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -128,7 +124,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **list_field_id** | **string**|  | |
 | **list_field_values** | [**\MySdk\Model\ListFieldValues**](../Model/ListFieldValues.md)|  | |
 
@@ -152,7 +147,7 @@ void (empty response body)
 ## `metadataGetAListOfFields()`
 
 ```php
-metadataGetAListOfFields($company_domain, $accept_header_parameter)
+metadataGetAListOfFields($accept_header_parameter)
 ```
 
 Get a list of fields
@@ -184,11 +179,10 @@ $apiInstance = new MySdk\Api\AccountInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->metadataGetAListOfFields($company_domain, $accept_header_parameter);
+    $apiInstance->metadataGetAListOfFields($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling AccountInformationApi->metadataGetAListOfFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -198,7 +192,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -221,7 +214,7 @@ void (empty response body)
 ## `metadataGetAListOfTabularFields()`
 
 ```php
-metadataGetAListOfTabularFields($company_domain, $accept_header_parameter)
+metadataGetAListOfTabularFields($accept_header_parameter)
 ```
 
 Get a list of tabular fields
@@ -253,11 +246,10 @@ $apiInstance = new MySdk\Api\AccountInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->metadataGetAListOfTabularFields($company_domain, $accept_header_parameter);
+    $apiInstance->metadataGetAListOfTabularFields($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling AccountInformationApi->metadataGetAListOfTabularFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -267,7 +259,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -290,7 +281,7 @@ void (empty response body)
 ## `metadataGetDetailsForListFields()`
 
 ```php
-metadataGetDetailsForListFields($company_domain, $accept_header_parameter)
+metadataGetDetailsForListFields($accept_header_parameter)
 ```
 
 Get details for list fields
@@ -322,11 +313,10 @@ $apiInstance = new MySdk\Api\AccountInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->metadataGetDetailsForListFields($company_domain, $accept_header_parameter);
+    $apiInstance->metadataGetDetailsForListFields($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling AccountInformationApi->metadataGetDetailsForListFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -336,7 +326,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type

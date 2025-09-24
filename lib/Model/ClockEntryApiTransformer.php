@@ -102,10 +102,10 @@ class ClockEntryApiTransformer implements ModelInterface, ArrayAccess, \JsonSeri
         'timezone' => false,
         'hours' => true,
         'note' => true,
-        'project_info' => true,
+        'project_info' => false,
         'is_location_set' => false,
-        'clock_in_location' => true,
-        'clock_out_location' => true
+        'clock_in_location' => false,
+        'clock_out_location' => false
     ];
 
     /**
@@ -563,14 +563,7 @@ class ClockEntryApiTransformer implements ModelInterface, ArrayAccess, \JsonSeri
     public function setProjectInfo($project_info)
     {
         if (is_null($project_info)) {
-            array_push($this->openAPINullablesSetToNull, 'project_info');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('project_info', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable project_info cannot be null');
         }
         $this->container['project_info'] = $project_info;
 
@@ -624,14 +617,7 @@ class ClockEntryApiTransformer implements ModelInterface, ArrayAccess, \JsonSeri
     public function setClockInLocation($clock_in_location)
     {
         if (is_null($clock_in_location)) {
-            array_push($this->openAPINullablesSetToNull, 'clock_in_location');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('clock_in_location', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable clock_in_location cannot be null');
         }
         $this->container['clock_in_location'] = $clock_in_location;
 
@@ -658,14 +644,7 @@ class ClockEntryApiTransformer implements ModelInterface, ArrayAccess, \JsonSeri
     public function setClockOutLocation($clock_out_location)
     {
         if (is_null($clock_out_location)) {
-            array_push($this->openAPINullablesSetToNull, 'clock_out_location');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('clock_out_location', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable clock_out_location cannot be null');
         }
         $this->container['clock_out_location'] = $clock_out_location;
 

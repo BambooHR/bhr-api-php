@@ -87,7 +87,7 @@ class ContactRequestObject implements ModelInterface, ArrayAccess, \JsonSerializ
         'user_id' => false,
         'type' => false,
         'task_id' => false,
-        'client_id' => true
+        'client_id' => false
     ];
 
     /**
@@ -477,17 +477,10 @@ class ContactRequestObject implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setClientId($client_id)
     {
         if (is_null($client_id)) {
-            array_push($this->openAPINullablesSetToNull, 'client_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('client_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
 
-        if (!is_null($client_id) && ($client_id < 1)) {
+        if (($client_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $client_id when calling ContactRequestObject., must be bigger than or equal to 1.');
         }
 

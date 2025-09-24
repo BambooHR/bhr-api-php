@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **end** | **\DateTime** |  | [optional]
 **created** | **\DateTime** |  | [optional]
 **status** | [**\MySdk\Model\TimeOffRequestApiResponseInnerStatusInner[]**](TimeOffRequestApiResponseInnerStatusInner.md) |  | [optional]
-**type** | [**\MySdk\Model\InboxDetailsWithPersonsType[]**](InboxDetailsWithPersonsType.md) |  | [optional]
+**type** | [**\MySdk\Model\TimeOffRequestApiResponseInnerTypeInner[]**](TimeOffRequestApiResponseInnerTypeInner.md) |  | [optional]
 **amount** | [**\MySdk\Model\TimeOffRequestApiResponseInnerAmountInner[]**](TimeOffRequestApiResponseInnerAmountInner.md) |  | [optional]
 **notes** | [**\MySdk\Model\TimeOffRequestApiResponseInnerNotesInner[]**](TimeOffRequestApiResponseInnerNotesInner.md) |  | [optional]
 **dates** | [**\MySdk\Model\TimeOffRequestApiResponseInnerDatesInner[]**](TimeOffRequestApiResponseInnerDatesInner.md) |  | [optional]

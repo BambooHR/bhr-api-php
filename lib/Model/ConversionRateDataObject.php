@@ -58,9 +58,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'symbol' => 'string',
-        'rate' => 'float'
+        'currency_name' => 'string',
+        'currency_code' => 'string',
+        'conversion_rate' => 'float'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'symbol' => null,
-        'rate' => 'float'
+        'currency_name' => null,
+        'currency_code' => null,
+        'conversion_rate' => 'float'
     ];
 
     /**
@@ -82,9 +82,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'symbol' => false,
-        'rate' => false
+        'currency_name' => false,
+        'currency_code' => false,
+        'conversion_rate' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'symbol' => 'symbol',
-        'rate' => 'rate'
+        'currency_name' => 'currencyName',
+        'currency_code' => 'currencyCode',
+        'conversion_rate' => 'conversionRate'
     ];
 
     /**
@@ -184,9 +184,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'symbol' => 'setSymbol',
-        'rate' => 'setRate'
+        'currency_name' => 'setCurrencyName',
+        'currency_code' => 'setCurrencyCode',
+        'conversion_rate' => 'setConversionRate'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'symbol' => 'getSymbol',
-        'rate' => 'getRate'
+        'currency_name' => 'getCurrencyName',
+        'currency_code' => 'getCurrencyCode',
+        'conversion_rate' => 'getConversionRate'
     ];
 
     /**
@@ -257,9 +257,9 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('symbol', $data ?? [], null);
-        $this->setIfExists('rate', $data ?? [], null);
+        $this->setIfExists('currency_name', $data ?? [], null);
+        $this->setIfExists('currency_code', $data ?? [], null);
+        $this->setIfExists('conversion_rate', $data ?? [], null);
     }
 
     /**
@@ -305,82 +305,82 @@ class ConversionRateDataObject implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets name
+     * Gets currency_name
      *
      * @return string|null
      */
-    public function getName()
+    public function getCurrencyName()
     {
-        return $this->container['name'];
+        return $this->container['currency_name'];
     }
 
     /**
-     * Sets name
+     * Sets currency_name
      *
-     * @param string|null $name The full name of the target currency.
+     * @param string|null $currency_name The full name of the target currency.
      *
      * @return self
      */
-    public function setName($name)
+    public function setCurrencyName($currency_name)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($currency_name)) {
+            throw new \InvalidArgumentException('non-nullable currency_name cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['currency_name'] = $currency_name;
 
         return $this;
     }
 
     /**
-     * Gets symbol
+     * Gets currency_code
      *
      * @return string|null
      */
-    public function getSymbol()
+    public function getCurrencyCode()
     {
-        return $this->container['symbol'];
+        return $this->container['currency_code'];
     }
 
     /**
-     * Sets symbol
+     * Sets currency_code
      *
-     * @param string|null $symbol The symbol of the target currency (e.g. $, €, ¥).
+     * @param string|null $currency_code The code of the target currency (e.g. USD, EUR, JPY).
      *
      * @return self
      */
-    public function setSymbol($symbol)
+    public function setCurrencyCode($currency_code)
     {
-        if (is_null($symbol)) {
-            throw new \InvalidArgumentException('non-nullable symbol cannot be null');
+        if (is_null($currency_code)) {
+            throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
-        $this->container['symbol'] = $symbol;
+        $this->container['currency_code'] = $currency_code;
 
         return $this;
     }
 
     /**
-     * Gets rate
+     * Gets conversion_rate
      *
      * @return float|null
      */
-    public function getRate()
+    public function getConversionRate()
     {
-        return $this->container['rate'];
+        return $this->container['conversion_rate'];
     }
 
     /**
-     * Sets rate
+     * Sets conversion_rate
      *
-     * @param float|null $rate The numeric conversion rate to the target currency.
+     * @param float|null $conversion_rate The numeric conversion rate to the target currency.
      *
      * @return self
      */
-    public function setRate($rate)
+    public function setConversionRate($conversion_rate)
     {
-        if (is_null($rate)) {
-            throw new \InvalidArgumentException('non-nullable rate cannot be null');
+        if (is_null($conversion_rate)) {
+            throw new \InvalidArgumentException('non-nullable conversion_rate cannot be null');
         }
-        $this->container['rate'] = $rate;
+        $this->container['conversion_rate'] = $conversion_rate;
 
         return $this;
     }

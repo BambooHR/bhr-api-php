@@ -58,6 +58,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'fields' => 'string[]',
+        'pivot_fields' => '\MySdk\Model\TablePanelConfigurationRequestPivotFields',
         'dataset_id' => 'int',
         'group_by' => 'string[]',
         'sort_by' => '\MySdk\Model\TablePanelConfigurationRequestSortByInner[]',
@@ -75,6 +76,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'fields' => null,
+        'pivot_fields' => null,
         'dataset_id' => null,
         'group_by' => null,
         'sort_by' => null,
@@ -90,6 +92,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'fields' => false,
+        'pivot_fields' => false,
         'dataset_id' => false,
         'group_by' => false,
         'sort_by' => false,
@@ -185,6 +188,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'fields' => 'fields',
+        'pivot_fields' => 'pivotFields',
         'dataset_id' => 'datasetId',
         'group_by' => 'groupBy',
         'sort_by' => 'sortBy',
@@ -200,6 +204,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'fields' => 'setFields',
+        'pivot_fields' => 'setPivotFields',
         'dataset_id' => 'setDatasetId',
         'group_by' => 'setGroupBy',
         'sort_by' => 'setSortBy',
@@ -215,6 +220,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'fields' => 'getFields',
+        'pivot_fields' => 'getPivotFields',
         'dataset_id' => 'getDatasetId',
         'group_by' => 'getGroupBy',
         'sort_by' => 'getSortBy',
@@ -281,6 +287,7 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
     public function __construct(?array $data = null)
     {
         $this->setIfExists('fields', $data ?? [], null);
+        $this->setIfExists('pivot_fields', $data ?? [], null);
         $this->setIfExists('dataset_id', $data ?? [], null);
         $this->setIfExists('group_by', $data ?? [], null);
         $this->setIfExists('sort_by', $data ?? [], null);
@@ -357,6 +364,33 @@ class TablePanelConfigurationRequest implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable fields cannot be null');
         }
         $this->container['fields'] = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets pivot_fields
+     *
+     * @return \MySdk\Model\TablePanelConfigurationRequestPivotFields|null
+     */
+    public function getPivotFields()
+    {
+        return $this->container['pivot_fields'];
+    }
+
+    /**
+     * Sets pivot_fields
+     *
+     * @param \MySdk\Model\TablePanelConfigurationRequestPivotFields|null $pivot_fields pivot_fields
+     *
+     * @return self
+     */
+    public function setPivotFields($pivot_fields)
+    {
+        if (is_null($pivot_fields)) {
+            throw new \InvalidArgumentException('non-nullable pivot_fields cannot be null');
+        }
+        $this->container['pivot_fields'] = $pivot_fields;
 
         return $this;
     }

@@ -31,5 +31,6 @@ Name | Type | Description | Notes
 **can_upload_photo** | **bool** | Employee can upload photo | [optional]
 **photo_uploaded** | **bool** | Employee photo uploaded | [optional]
 **timezone** | **string** | Employee timezone | [optional]
+**teams** | **string[]** | Employee teams | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

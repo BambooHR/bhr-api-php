@@ -59,9 +59,9 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'error' => 'string',
         'unknown_fields' => '\MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-        'monitor_fields' => '\MySdk\Model\InboxDetailsWithPersonsType[]',
+        'monitor_fields' => '\MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
         'duplicate_post_string' => 'string[]',
-        'post_fields' => '\MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]'
+        'post_fields' => '\MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]'
     ];
 
     /**
@@ -374,7 +374,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets monitor_fields
      *
-     * @return \MySdk\Model\InboxDetailsWithPersonsType[]|null
+     * @return \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
      */
     public function getMonitorFields()
     {
@@ -384,7 +384,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets monitor_fields
      *
-     * @param \MySdk\Model\InboxDetailsWithPersonsType[]|null $monitor_fields monitor_fields
+     * @param \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $monitor_fields monitor_fields
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets post_fields
      *
-     * @return \MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null
+     * @return \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
      */
     public function getPostFields()
     {
@@ -438,7 +438,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets post_fields
      *
-     * @param \MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null $post_fields post_fields
+     * @param \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $post_fields post_fields
      *
      * @return self
      */

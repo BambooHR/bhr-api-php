@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **archived** | **bool** |  | [optional]
 **has_attachments** | **bool** |  | [optional]
 **has_comments** | **bool** |  | [optional]
+**has_employee_files** | **bool** |  | [optional]
 **allow_employee_uploads** | **bool** |  | [optional]
 **require_employee_uploads** | **bool** |  | [optional]
 **created** | **string** |  | [optional]

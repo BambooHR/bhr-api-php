@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **benefit_plan_id** | **int** | Benefit Plan ID | [optional]
 **is_enrolled** | **bool** | Is Enrolled | [optional]
 **effective_date** | **string** | Effective Date | [optional]
-**plan_category_data_options** | **object** |  | [optional]
 **selected_coverage_id** | **int** | Selected Coverage ID | [optional]
 **employee_contribution_amount** | **float** | Employee Contribution Amount | [optional]
 **employee_percent_deduction_type** | **string** | Employee Percent Deduction Type | [optional]

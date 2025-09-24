@@ -337,7 +337,7 @@ class CommonDataObjectsPayrollStateUnemploymentInsuranceFields implements ModelI
     /**
      * Sets exempt
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $exempt exempt
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $exempt Exemption status for state unemployment insurance
      *
      * @return self
      */

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fields** | **string[]** |  |
+**pivot_fields** | [**\MySdk\Model\TablePanelConfigurationRequestPivotFields**](TablePanelConfigurationRequestPivotFields.md) |  | [optional]
 **dataset_id** | **int** |  | [optional]
 **group_by** | **string[]** |  | [optional]
 **sort_by** | [**\MySdk\Model\TablePanelConfigurationRequestSortByInner[]**](TablePanelConfigurationRequestSortByInner.md) |  | [optional]

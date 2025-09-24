@@ -75,7 +75,7 @@ class CancellationCancellationStatusDataObject implements ModelInterface, ArrayA
       */
     protected static $openAPIFormats = [
         'feature' => null,
-        'pending_cancellation' => 'bool',
+        'pending_cancellation' => null,
         'user_who_requested_cancellation' => null,
         'date_requested' => 'date',
         'cancellation_date' => null,

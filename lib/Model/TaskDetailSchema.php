@@ -336,7 +336,7 @@ class TaskDetailSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets result
      *
-     * @param \MySdk\Model\TaskSchema|null $result result
+     * @param \MySdk\Model\TaskSchema|null $result The task details.
      *
      * @return self
      */

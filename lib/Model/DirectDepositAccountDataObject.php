@@ -114,8 +114,8 @@ class DirectDepositAccountDataObject implements ModelInterface, ArrayAccess, \Js
         'masked_account_number' => false,
         'routing_number' => false,
         'account_type' => false,
-        'bank_logo_url' => false,
-        'bank_name' => false,
+        'bank_logo_url' => true,
+        'bank_name' => true,
         'rule_amount' => false,
         'flat_or_percent_flag' => false,
         'created_at' => false,
@@ -577,7 +577,14 @@ class DirectDepositAccountDataObject implements ModelInterface, ArrayAccess, \Js
     public function setBankLogoUrl($bank_logo_url)
     {
         if (is_null($bank_logo_url)) {
-            throw new \InvalidArgumentException('non-nullable bank_logo_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bank_logo_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank_logo_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bank_logo_url'] = $bank_logo_url;
 
@@ -604,7 +611,14 @@ class DirectDepositAccountDataObject implements ModelInterface, ArrayAccess, \Js
     public function setBankName($bank_name)
     {
         if (is_null($bank_name)) {
-            throw new \InvalidArgumentException('non-nullable bank_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bank_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bank_name'] = $bank_name;
 

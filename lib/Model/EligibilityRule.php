@@ -83,10 +83,10 @@ class EligibilityRule implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'transition_type' => true,
-        'rule_calculation_type' => true,
-        'wait_period' => true,
-        'wait_period_type' => true
+        'transition_type' => false,
+        'rule_calculation_type' => false,
+        'wait_period' => false,
+        'wait_period_type' => false
     ];
 
     /**
@@ -330,14 +330,7 @@ class EligibilityRule implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTransitionType($transition_type)
     {
         if (is_null($transition_type)) {
-            array_push($this->openAPINullablesSetToNull, 'transition_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('transition_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable transition_type cannot be null');
         }
         $this->container['transition_type'] = $transition_type;
 
@@ -364,14 +357,7 @@ class EligibilityRule implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRuleCalculationType($rule_calculation_type)
     {
         if (is_null($rule_calculation_type)) {
-            array_push($this->openAPINullablesSetToNull, 'rule_calculation_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('rule_calculation_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable rule_calculation_type cannot be null');
         }
         $this->container['rule_calculation_type'] = $rule_calculation_type;
 
@@ -398,14 +384,7 @@ class EligibilityRule implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWaitPeriod($wait_period)
     {
         if (is_null($wait_period)) {
-            array_push($this->openAPINullablesSetToNull, 'wait_period');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('wait_period', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable wait_period cannot be null');
         }
         $this->container['wait_period'] = $wait_period;
 
@@ -432,14 +411,7 @@ class EligibilityRule implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWaitPeriodType($wait_period_type)
     {
         if (is_null($wait_period_type)) {
-            array_push($this->openAPINullablesSetToNull, 'wait_period_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('wait_period_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable wait_period_type cannot be null');
         }
         $this->container['wait_period_type'] = $wait_period_type;
 

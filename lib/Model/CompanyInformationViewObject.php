@@ -605,7 +605,7 @@ class CompanyInformationViewObject implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets form8821
      *
-     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form8821 form8821
+     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form8821 Form 8821 document status
      *
      * @return self
      */
@@ -632,7 +632,7 @@ class CompanyInformationViewObject implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets form8655
      *
-     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form8655 form8655
+     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form8655 Form 8655 document status
      *
      * @return self
      */
@@ -659,7 +659,7 @@ class CompanyInformationViewObject implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets beneficial_owner_addendum
      *
-     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $beneficial_owner_addendum beneficial_owner_addendum
+     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $beneficial_owner_addendum Beneficial Owner Addendum document status
      *
      * @return self
      */

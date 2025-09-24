@@ -74,7 +74,7 @@ class AccountInformationApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getAListOfUsers' => [
+        'getListOfUsers' => [
             'application/json',
         ],
         'metadataAddOrUpdateValuesForListFields' => [
@@ -138,37 +138,35 @@ class AccountInformationApi
     }
 
     /**
-     * Operation getAListOfUsers
+     * Operation getListOfUsers
      *
      * Get a List of Users
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfUsers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListOfUsers'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getAListOfUsers($company_domain, string $contentType = self::contentTypes['getAListOfUsers'][0])
+    public function getListOfUsers(string $contentType = self::contentTypes['getListOfUsers'][0])
     {
-        $this->getAListOfUsersWithHttpInfo($company_domain, $contentType);
+        $this->getListOfUsersWithHttpInfo($contentType);
     }
 
     /**
-     * Operation getAListOfUsersWithHttpInfo
+     * Operation getListOfUsersWithHttpInfo
      *
      * Get a List of Users
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfUsers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListOfUsers'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAListOfUsersWithHttpInfo($company_domain, string $contentType = self::contentTypes['getAListOfUsers'][0])
+    public function getListOfUsersWithHttpInfo(string $contentType = self::contentTypes['getListOfUsers'][0])
     {
-        $request = $this->getAListOfUsersRequest($company_domain, $contentType);
+        $request = $this->getListOfUsersRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -204,19 +202,18 @@ class AccountInformationApi
     }
 
     /**
-     * Operation getAListOfUsersAsync
+     * Operation getListOfUsersAsync
      *
      * Get a List of Users
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfUsers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListOfUsers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAListOfUsersAsync($company_domain, string $contentType = self::contentTypes['getAListOfUsers'][0])
+    public function getListOfUsersAsync(string $contentType = self::contentTypes['getListOfUsers'][0])
     {
-        return $this->getAListOfUsersAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getListOfUsersAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -225,20 +222,19 @@ class AccountInformationApi
     }
 
     /**
-     * Operation getAListOfUsersAsyncWithHttpInfo
+     * Operation getListOfUsersAsyncWithHttpInfo
      *
      * Get a List of Users
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfUsers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListOfUsers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAListOfUsersAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getAListOfUsers'][0])
+    public function getListOfUsersAsyncWithHttpInfo(string $contentType = self::contentTypes['getListOfUsers'][0])
     {
         $returnType = '';
-        $request = $this->getAListOfUsersRequest($company_domain, $contentType);
+        $request = $this->getListOfUsersRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -264,26 +260,18 @@ class AccountInformationApi
     }
 
     /**
-     * Create request for operation 'getAListOfUsers'
+     * Create request for operation 'getListOfUsers'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAListOfUsers'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListOfUsers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAListOfUsersRequest($company_domain, string $contentType = self::contentTypes['getAListOfUsers'][0])
+    public function getListOfUsersRequest(string $contentType = self::contentTypes['getListOfUsers'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getAListOfUsers'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/meta/users';
+        $resourcePath = '/api/v1/meta/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -292,14 +280,6 @@ class AccountInformationApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -372,7 +352,6 @@ class AccountInformationApi
      *
      * Add or Update Values for List Fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $list_field_id list_field_id (required)
      * @param  \MySdk\Model\ListFieldValues $list_field_values list_field_values (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
@@ -381,9 +360,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function metadataAddOrUpdateValuesForListFields($company_domain, $list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
+    public function metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
     {
-        $this->metadataAddOrUpdateValuesForListFieldsWithHttpInfo($company_domain, $list_field_id, $list_field_values, $contentType);
+        $this->metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, $contentType);
     }
 
     /**
@@ -391,7 +370,6 @@ class AccountInformationApi
      *
      * Add or Update Values for List Fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $list_field_id (required)
      * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
@@ -400,9 +378,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function metadataAddOrUpdateValuesForListFieldsWithHttpInfo($company_domain, $list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
+    public function metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
     {
-        $request = $this->metadataAddOrUpdateValuesForListFieldsRequest($company_domain, $list_field_id, $list_field_values, $contentType);
+        $request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -442,7 +420,6 @@ class AccountInformationApi
      *
      * Add or Update Values for List Fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $list_field_id (required)
      * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
@@ -450,9 +427,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataAddOrUpdateValuesForListFieldsAsync($company_domain, $list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
+    public function metadataAddOrUpdateValuesForListFieldsAsync($list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
     {
-        return $this->metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($company_domain, $list_field_id, $list_field_values, $contentType)
+        return $this->metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($list_field_id, $list_field_values, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -465,7 +442,6 @@ class AccountInformationApi
      *
      * Add or Update Values for List Fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $list_field_id (required)
      * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
@@ -473,10 +449,10 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($company_domain, $list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
+    public function metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
     {
         $returnType = '';
-        $request = $this->metadataAddOrUpdateValuesForListFieldsRequest($company_domain, $list_field_id, $list_field_values, $contentType);
+        $request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -504,7 +480,6 @@ class AccountInformationApi
     /**
      * Create request for operation 'metadataAddOrUpdateValuesForListFields'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $list_field_id (required)
      * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
@@ -512,15 +487,8 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function metadataAddOrUpdateValuesForListFieldsRequest($company_domain, $list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
+    public function metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, string $contentType = self::contentTypes['metadataAddOrUpdateValuesForListFields'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling metadataAddOrUpdateValuesForListFields'
-            );
-        }
 
         // verify the required parameter 'list_field_id' is set
         if ($list_field_id === null || (is_array($list_field_id) && count($list_field_id) === 0)) {
@@ -537,7 +505,7 @@ class AccountInformationApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/meta/lists/{listFieldId}';
+        $resourcePath = '/api/v1/meta/lists/{listFieldId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -546,14 +514,6 @@ class AccountInformationApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($list_field_id !== null) {
             $resourcePath = str_replace(
@@ -641,7 +601,6 @@ class AccountInformationApi
      *
      * Get a list of fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfFields'] to see the possible values for this operation
      *
@@ -649,9 +608,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function metadataGetAListOfFields($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
+    public function metadataGetAListOfFields($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
     {
-        $this->metadataGetAListOfFieldsWithHttpInfo($company_domain, $accept_header_parameter, $contentType);
+        $this->metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter, $contentType);
     }
 
     /**
@@ -659,7 +618,6 @@ class AccountInformationApi
      *
      * Get a list of fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfFields'] to see the possible values for this operation
      *
@@ -667,9 +625,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function metadataGetAListOfFieldsWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
+    public function metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
     {
-        $request = $this->metadataGetAListOfFieldsRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -709,16 +667,15 @@ class AccountInformationApi
      *
      * Get a list of fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataGetAListOfFieldsAsync($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
+    public function metadataGetAListOfFieldsAsync($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
     {
-        return $this->metadataGetAListOfFieldsAsyncWithHttpInfo($company_domain, $accept_header_parameter, $contentType)
+        return $this->metadataGetAListOfFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -731,17 +688,16 @@ class AccountInformationApi
      *
      * Get a list of fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataGetAListOfFieldsAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
+    public function metadataGetAListOfFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
     {
         $returnType = '';
-        $request = $this->metadataGetAListOfFieldsRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -769,26 +725,18 @@ class AccountInformationApi
     /**
      * Create request for operation 'metadataGetAListOfFields'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function metadataGetAListOfFieldsRequest($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
+    public function metadataGetAListOfFieldsRequest($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfFields'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling metadataGetAListOfFields'
-            );
-        }
 
 
-
-        $resourcePath = '/{companyDomain}/v1/meta/fields';
+        $resourcePath = '/api/v1/meta/fields';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -801,14 +749,6 @@ class AccountInformationApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -881,7 +821,6 @@ class AccountInformationApi
      *
      * Get a list of tabular fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfTabularFields'] to see the possible values for this operation
      *
@@ -889,9 +828,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function metadataGetAListOfTabularFields($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
+    public function metadataGetAListOfTabularFields($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
     {
-        $this->metadataGetAListOfTabularFieldsWithHttpInfo($company_domain, $accept_header_parameter, $contentType);
+        $this->metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter, $contentType);
     }
 
     /**
@@ -899,7 +838,6 @@ class AccountInformationApi
      *
      * Get a list of tabular fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfTabularFields'] to see the possible values for this operation
      *
@@ -907,9 +845,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function metadataGetAListOfTabularFieldsWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
+    public function metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
     {
-        $request = $this->metadataGetAListOfTabularFieldsRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -949,16 +887,15 @@ class AccountInformationApi
      *
      * Get a list of tabular fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfTabularFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataGetAListOfTabularFieldsAsync($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
+    public function metadataGetAListOfTabularFieldsAsync($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
     {
-        return $this->metadataGetAListOfTabularFieldsAsyncWithHttpInfo($company_domain, $accept_header_parameter, $contentType)
+        return $this->metadataGetAListOfTabularFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -971,17 +908,16 @@ class AccountInformationApi
      *
      * Get a list of tabular fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfTabularFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataGetAListOfTabularFieldsAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
+    public function metadataGetAListOfTabularFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
     {
         $returnType = '';
-        $request = $this->metadataGetAListOfTabularFieldsRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1009,26 +945,18 @@ class AccountInformationApi
     /**
      * Create request for operation 'metadataGetAListOfTabularFields'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetAListOfTabularFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function metadataGetAListOfTabularFieldsRequest($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
+    public function metadataGetAListOfTabularFieldsRequest($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetAListOfTabularFields'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling metadataGetAListOfTabularFields'
-            );
-        }
 
 
-
-        $resourcePath = '/{companyDomain}/v1/meta/tables';
+        $resourcePath = '/api/v1/meta/tables';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1041,14 +969,6 @@ class AccountInformationApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1121,7 +1041,6 @@ class AccountInformationApi
      *
      * Get details for list fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetDetailsForListFields'] to see the possible values for this operation
      *
@@ -1129,9 +1048,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function metadataGetDetailsForListFields($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
+    public function metadataGetDetailsForListFields($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
     {
-        $this->metadataGetDetailsForListFieldsWithHttpInfo($company_domain, $accept_header_parameter, $contentType);
+        $this->metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter, $contentType);
     }
 
     /**
@@ -1139,7 +1058,6 @@ class AccountInformationApi
      *
      * Get details for list fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetDetailsForListFields'] to see the possible values for this operation
      *
@@ -1147,9 +1065,9 @@ class AccountInformationApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function metadataGetDetailsForListFieldsWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
+    public function metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
     {
-        $request = $this->metadataGetDetailsForListFieldsRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1189,16 +1107,15 @@ class AccountInformationApi
      *
      * Get details for list fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetDetailsForListFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataGetDetailsForListFieldsAsync($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
+    public function metadataGetDetailsForListFieldsAsync($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
     {
-        return $this->metadataGetDetailsForListFieldsAsyncWithHttpInfo($company_domain, $accept_header_parameter, $contentType)
+        return $this->metadataGetDetailsForListFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1211,17 +1128,16 @@ class AccountInformationApi
      *
      * Get details for list fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetDetailsForListFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataGetDetailsForListFieldsAsyncWithHttpInfo($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
+    public function metadataGetDetailsForListFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
     {
         $returnType = '';
-        $request = $this->metadataGetDetailsForListFieldsRequest($company_domain, $accept_header_parameter, $contentType);
+        $request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1249,26 +1165,18 @@ class AccountInformationApi
     /**
      * Create request for operation 'metadataGetDetailsForListFields'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataGetDetailsForListFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function metadataGetDetailsForListFieldsRequest($company_domain, $accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
+    public function metadataGetDetailsForListFieldsRequest($accept_header_parameter = null, string $contentType = self::contentTypes['metadataGetDetailsForListFields'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling metadataGetDetailsForListFields'
-            );
-        }
 
 
-
-        $resourcePath = '/{companyDomain}/v1/meta/lists';
+        $resourcePath = '/api/v1/meta/lists';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1281,14 +1189,6 @@ class AccountInformationApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -65,9 +65,10 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         'end_date' => 'string',
         'auto_enroll_setting' => 'string',
         'rate_type' => 'string',
-        'plan_category_data_options' => 'object',
         'carrier_id' => 'string',
-        'disabled_reason_keys' => 'string[]'
+        'disabled_reason_keys' => 'string[]',
+        'required_plan_ids' => 'int[]',
+        'plans_dependent_upon_this_plan' => 'int[]'
     ];
 
     /**
@@ -86,9 +87,10 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         'end_date' => null,
         'auto_enroll_setting' => null,
         'rate_type' => null,
-        'plan_category_data_options' => null,
         'carrier_id' => null,
-        'disabled_reason_keys' => null
+        'disabled_reason_keys' => null,
+        'required_plan_ids' => null,
+        'plans_dependent_upon_this_plan' => null
     ];
 
     /**
@@ -100,14 +102,15 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         'id' => false,
         'type' => false,
         'name' => false,
-        'summary' => true,
-        'start_date' => true,
-        'end_date' => true,
-        'auto_enroll_setting' => true,
+        'summary' => false,
+        'start_date' => false,
+        'end_date' => false,
+        'auto_enroll_setting' => false,
         'rate_type' => false,
-        'plan_category_data_options' => false,
-        'carrier_id' => true,
-        'disabled_reason_keys' => false
+        'carrier_id' => false,
+        'disabled_reason_keys' => false,
+        'required_plan_ids' => false,
+        'plans_dependent_upon_this_plan' => false
     ];
 
     /**
@@ -204,9 +207,10 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         'end_date' => 'endDate',
         'auto_enroll_setting' => 'autoEnrollSetting',
         'rate_type' => 'rateType',
-        'plan_category_data_options' => 'planCategoryDataOptions',
         'carrier_id' => 'carrierId',
-        'disabled_reason_keys' => 'disabledReasonKeys'
+        'disabled_reason_keys' => 'disabledReasonKeys',
+        'required_plan_ids' => 'requiredPlanIds',
+        'plans_dependent_upon_this_plan' => 'plansDependentUponThisPlan'
     ];
 
     /**
@@ -223,9 +227,10 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         'end_date' => 'setEndDate',
         'auto_enroll_setting' => 'setAutoEnrollSetting',
         'rate_type' => 'setRateType',
-        'plan_category_data_options' => 'setPlanCategoryDataOptions',
         'carrier_id' => 'setCarrierId',
-        'disabled_reason_keys' => 'setDisabledReasonKeys'
+        'disabled_reason_keys' => 'setDisabledReasonKeys',
+        'required_plan_ids' => 'setRequiredPlanIds',
+        'plans_dependent_upon_this_plan' => 'setPlansDependentUponThisPlan'
     ];
 
     /**
@@ -242,9 +247,10 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         'end_date' => 'getEndDate',
         'auto_enroll_setting' => 'getAutoEnrollSetting',
         'rate_type' => 'getRateType',
-        'plan_category_data_options' => 'getPlanCategoryDataOptions',
         'carrier_id' => 'getCarrierId',
-        'disabled_reason_keys' => 'getDisabledReasonKeys'
+        'disabled_reason_keys' => 'getDisabledReasonKeys',
+        'required_plan_ids' => 'getRequiredPlanIds',
+        'plans_dependent_upon_this_plan' => 'getPlansDependentUponThisPlan'
     ];
 
     /**
@@ -312,9 +318,10 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('auto_enroll_setting', $data ?? [], null);
         $this->setIfExists('rate_type', $data ?? [], null);
-        $this->setIfExists('plan_category_data_options', $data ?? [], null);
         $this->setIfExists('carrier_id', $data ?? [], null);
         $this->setIfExists('disabled_reason_keys', $data ?? [], null);
+        $this->setIfExists('required_plan_ids', $data ?? [], null);
+        $this->setIfExists('plans_dependent_upon_this_plan', $data ?? [], null);
     }
 
     /**
@@ -460,14 +467,7 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
     public function setSummary($summary)
     {
         if (is_null($summary)) {
-            array_push($this->openAPINullablesSetToNull, 'summary');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('summary', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable summary cannot be null');
         }
         $this->container['summary'] = $summary;
 
@@ -494,14 +494,7 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            array_push($this->openAPINullablesSetToNull, 'start_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
 
@@ -528,14 +521,7 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
     public function setEndDate($end_date)
     {
         if (is_null($end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
         }
         $this->container['end_date'] = $end_date;
 
@@ -562,14 +548,7 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
     public function setAutoEnrollSetting($auto_enroll_setting)
     {
         if (is_null($auto_enroll_setting)) {
-            array_push($this->openAPINullablesSetToNull, 'auto_enroll_setting');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('auto_enroll_setting', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable auto_enroll_setting cannot be null');
         }
         $this->container['auto_enroll_setting'] = $auto_enroll_setting;
 
@@ -604,33 +583,6 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets plan_category_data_options
-     *
-     * @return object|null
-     */
-    public function getPlanCategoryDataOptions()
-    {
-        return $this->container['plan_category_data_options'];
-    }
-
-    /**
-     * Sets plan_category_data_options
-     *
-     * @param object|null $plan_category_data_options plan_category_data_options
-     *
-     * @return self
-     */
-    public function setPlanCategoryDataOptions($plan_category_data_options)
-    {
-        if (is_null($plan_category_data_options)) {
-            throw new \InvalidArgumentException('non-nullable plan_category_data_options cannot be null');
-        }
-        $this->container['plan_category_data_options'] = $plan_category_data_options;
-
-        return $this;
-    }
-
-    /**
      * Gets carrier_id
      *
      * @return string|null
@@ -650,14 +602,7 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
     public function setCarrierId($carrier_id)
     {
         if (is_null($carrier_id)) {
-            array_push($this->openAPINullablesSetToNull, 'carrier_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('carrier_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable carrier_id cannot be null');
         }
         $this->container['carrier_id'] = $carrier_id;
 
@@ -687,6 +632,60 @@ class BenefitEnrollmentWindowBenefitPlan implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable disabled_reason_keys cannot be null');
         }
         $this->container['disabled_reason_keys'] = $disabled_reason_keys;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_plan_ids
+     *
+     * @return int[]|null
+     */
+    public function getRequiredPlanIds()
+    {
+        return $this->container['required_plan_ids'];
+    }
+
+    /**
+     * Sets required_plan_ids
+     *
+     * @param int[]|null $required_plan_ids Required Plan IDs
+     *
+     * @return self
+     */
+    public function setRequiredPlanIds($required_plan_ids)
+    {
+        if (is_null($required_plan_ids)) {
+            throw new \InvalidArgumentException('non-nullable required_plan_ids cannot be null');
+        }
+        $this->container['required_plan_ids'] = $required_plan_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets plans_dependent_upon_this_plan
+     *
+     * @return int[]|null
+     */
+    public function getPlansDependentUponThisPlan()
+    {
+        return $this->container['plans_dependent_upon_this_plan'];
+    }
+
+    /**
+     * Sets plans_dependent_upon_this_plan
+     *
+     * @param int[]|null $plans_dependent_upon_this_plan Plans Dependent Upon This Plan
+     *
+     * @return self
+     */
+    public function setPlansDependentUponThisPlan($plans_dependent_upon_this_plan)
+    {
+        if (is_null($plans_dependent_upon_this_plan)) {
+            throw new \InvalidArgumentException('non-nullable plans_dependent_upon_this_plan cannot be null');
+        }
+        $this->container['plans_dependent_upon_this_plan'] = $plans_dependent_upon_this_plan;
 
         return $this;
     }

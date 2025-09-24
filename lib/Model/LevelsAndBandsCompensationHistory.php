@@ -378,7 +378,7 @@ class LevelsAndBandsCompensationHistory implements ModelInterface, ArrayAccess, 
     /**
      * Sets pay_rate
      *
-     * @param \MySdk\Model\TotalRewardsMoney|null $pay_rate pay_rate
+     * @param \MySdk\Model\TotalRewardsMoney|null $pay_rate Pay rate
      *
      * @return self
      */

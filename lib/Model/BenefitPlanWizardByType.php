@@ -60,7 +60,7 @@ class BenefitPlanWizardByType implements ModelInterface, ArrayAccess, \JsonSeria
         'options' => '\MySdk\Model\BenefitOptions',
         'decision_data' => '\MySdk\Model\DecisionData',
         'plan_type' => '\MySdk\Model\PlanTypeMetaData',
-        'medical_plans' => '\MySdk\Model\BenefitPlanDependencyOption[]'
+        'medical_plans' => '\MySdk\Model\BenefitPlanWizardByTypeMedicalPlans'
     ];
 
     /**
@@ -394,7 +394,7 @@ class BenefitPlanWizardByType implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets medical_plans
      *
-     * @return \MySdk\Model\BenefitPlanDependencyOption[]|null
+     * @return \MySdk\Model\BenefitPlanWizardByTypeMedicalPlans|null
      */
     public function getMedicalPlans()
     {
@@ -404,7 +404,7 @@ class BenefitPlanWizardByType implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets medical_plans
      *
-     * @param \MySdk\Model\BenefitPlanDependencyOption[]|null $medical_plans medical_plans
+     * @param \MySdk\Model\BenefitPlanWizardByTypeMedicalPlans|null $medical_plans medical_plans
      *
      * @return self
      */

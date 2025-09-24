@@ -35,7 +35,7 @@ use \MySdk\ObjectSerializer;
  * TaskTemplateFilterReadSchema Class Doc Comment
  *
  * @category Class
- * @description Represents the filters associated with a task template, including departments, locations, divisions, job titles, employment states, and selected values.
+ * @description Represents the filters associated with a task template, including departments, locations, divisions, job titles, employment states, team assignments, and selected values.
  * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,8 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         'divisions' => 'string[]',
         'job_titles' => 'string[]',
         'employment_states' => 'string[]',
-        'selected_values' => 'string[]'
+        'selected_values' => 'string[]',
+        'teams' => 'string[]'
     ];
 
     /**
@@ -79,7 +80,8 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         'divisions' => null,
         'job_titles' => null,
         'employment_states' => null,
-        'selected_values' => null
+        'selected_values' => null,
+        'teams' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         'divisions' => false,
         'job_titles' => false,
         'employment_states' => false,
-        'selected_values' => false
+        'selected_values' => false,
+        'teams' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         'divisions' => 'divisions',
         'job_titles' => 'jobTitles',
         'employment_states' => 'employmentStates',
-        'selected_values' => 'selectedValues'
+        'selected_values' => 'selectedValues',
+        'teams' => 'teams'
     ];
 
     /**
@@ -201,7 +205,8 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         'divisions' => 'setDivisions',
         'job_titles' => 'setJobTitles',
         'employment_states' => 'setEmploymentStates',
-        'selected_values' => 'setSelectedValues'
+        'selected_values' => 'setSelectedValues',
+        'teams' => 'setTeams'
     ];
 
     /**
@@ -215,7 +220,8 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         'divisions' => 'getDivisions',
         'job_titles' => 'getJobTitles',
         'employment_states' => 'getEmploymentStates',
-        'selected_values' => 'getSelectedValues'
+        'selected_values' => 'getSelectedValues',
+        'teams' => 'getTeams'
     ];
 
     /**
@@ -281,6 +287,7 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('job_titles', $data ?? [], null);
         $this->setIfExists('employment_states', $data ?? [], null);
         $this->setIfExists('selected_values', $data ?? [], null);
+        $this->setIfExists('teams', $data ?? [], null);
     }
 
     /**
@@ -483,6 +490,33 @@ class TaskTemplateFilterReadSchema implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable selected_values cannot be null');
         }
         $this->container['selected_values'] = $selected_values;
+
+        return $this;
+    }
+
+    /**
+     * Gets teams
+     *
+     * @return string[]|null
+     */
+    public function getTeams()
+    {
+        return $this->container['teams'];
+    }
+
+    /**
+     * Sets teams
+     *
+     * @param string[]|null $teams List of teams values for the task template filters.
+     *
+     * @return self
+     */
+    public function setTeams($teams)
+    {
+        if (is_null($teams)) {
+            throw new \InvalidArgumentException('non-nullable teams cannot be null');
+        }
+        $this->container['teams'] = $teams;
 
         return $this;
     }

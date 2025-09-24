@@ -62,6 +62,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         'post_fields' => 'object',
         'url' => 'string',
         'format' => 'string',
+        'frequency' => '\MySdk\Model\NewWebHookFrequency',
+        'limit' => '\MySdk\Model\NewWebHookLimit',
         'include_company_domain' => 'bool'
     ];
 
@@ -78,6 +80,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         'post_fields' => null,
         'url' => null,
         'format' => null,
+        'frequency' => null,
+        'limit' => null,
         'include_company_domain' => null
     ];
 
@@ -92,6 +96,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         'post_fields' => false,
         'url' => false,
         'format' => false,
+        'frequency' => false,
+        'limit' => false,
         'include_company_domain' => false
     ];
 
@@ -186,6 +192,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         'post_fields' => 'postFields',
         'url' => 'url',
         'format' => 'format',
+        'frequency' => 'frequency',
+        'limit' => 'limit',
         'include_company_domain' => 'includeCompanyDomain'
     ];
 
@@ -200,6 +208,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         'post_fields' => 'setPostFields',
         'url' => 'setUrl',
         'format' => 'setFormat',
+        'frequency' => 'setFrequency',
+        'limit' => 'setLimit',
         'include_company_domain' => 'setIncludeCompanyDomain'
     ];
 
@@ -214,6 +224,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         'post_fields' => 'getPostFields',
         'url' => 'getUrl',
         'format' => 'getFormat',
+        'frequency' => 'getFrequency',
+        'limit' => 'getLimit',
         'include_company_domain' => 'getIncludeCompanyDomain'
     ];
 
@@ -294,6 +306,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('post_fields', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
         $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('frequency', $data ?? [], null);
+        $this->setIfExists('limit', $data ?? [], null);
         $this->setIfExists('include_company_domain', $data ?? [], null);
     }
 
@@ -501,6 +515,60 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets frequency
+     *
+     * @return \MySdk\Model\NewWebHookFrequency|null
+     */
+    public function getFrequency()
+    {
+        return $this->container['frequency'];
+    }
+
+    /**
+     * Sets frequency
+     *
+     * @param \MySdk\Model\NewWebHookFrequency|null $frequency frequency
+     *
+     * @return self
+     */
+    public function setFrequency($frequency)
+    {
+        if (is_null($frequency)) {
+            throw new \InvalidArgumentException('non-nullable frequency cannot be null');
+        }
+        $this->container['frequency'] = $frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return \MySdk\Model\NewWebHookLimit|null
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param \MySdk\Model\NewWebHookLimit|null $limit limit
+     *
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
+        }
+        $this->container['limit'] = $limit;
 
         return $this;
     }

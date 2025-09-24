@@ -81,7 +81,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'project' => false,
-        'task' => true
+        'task' => false
     ];
 
     /**
@@ -344,14 +344,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
     public function setTask($task)
     {
         if (is_null($task)) {
-            array_push($this->openAPINullablesSetToNull, 'task');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('task', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable task cannot be null');
         }
         $this->container['task'] = $task;
 

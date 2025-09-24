@@ -316,7 +316,7 @@ class OneOnOneNotesViewObjectNotes implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets self
      *
-     * @param \MySdk\Model\OneOnOneNoteViewObject|null $self self
+     * @param \MySdk\Model\OneOnOneNoteViewObject|null $self Note written by the current user
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class OneOnOneNotesViewObjectNotes implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets participant
      *
-     * @param \MySdk\Model\OneOnOneNoteViewObject|null $participant participant
+     * @param \MySdk\Model\OneOnOneNoteViewObject|null $participant Note written by the other participant
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class OneOnOneNotesViewObjectNotes implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets private
      *
-     * @param \MySdk\Model\OneOnOneNoteViewObject|null $private private
+     * @param \MySdk\Model\OneOnOneNoteViewObject|null $private Private note only visible to the current user
      *
      * @return self
      */

@@ -145,7 +145,6 @@ class CompanyFilesApi
      *
      * Add Company File Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string[] $request_body request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addCompanyFileCategory'] to see the possible values for this operation
      *
@@ -153,9 +152,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addCompanyFileCategory($company_domain, $request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
+    public function addCompanyFileCategory($request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
     {
-        $this->addCompanyFileCategoryWithHttpInfo($company_domain, $request_body, $contentType);
+        $this->addCompanyFileCategoryWithHttpInfo($request_body, $contentType);
     }
 
     /**
@@ -163,7 +162,6 @@ class CompanyFilesApi
      *
      * Add Company File Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addCompanyFileCategory'] to see the possible values for this operation
      *
@@ -171,9 +169,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addCompanyFileCategoryWithHttpInfo($company_domain, $request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
+    public function addCompanyFileCategoryWithHttpInfo($request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
     {
-        $request = $this->addCompanyFileCategoryRequest($company_domain, $request_body, $contentType);
+        $request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -213,16 +211,15 @@ class CompanyFilesApi
      *
      * Add Company File Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addCompanyFileCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addCompanyFileCategoryAsync($company_domain, $request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
+    public function addCompanyFileCategoryAsync($request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
     {
-        return $this->addCompanyFileCategoryAsyncWithHttpInfo($company_domain, $request_body, $contentType)
+        return $this->addCompanyFileCategoryAsyncWithHttpInfo($request_body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -235,17 +232,16 @@ class CompanyFilesApi
      *
      * Add Company File Category
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addCompanyFileCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addCompanyFileCategoryAsyncWithHttpInfo($company_domain, $request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
+    public function addCompanyFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
     {
         $returnType = '';
-        $request = $this->addCompanyFileCategoryRequest($company_domain, $request_body, $contentType);
+        $request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -273,22 +269,14 @@ class CompanyFilesApi
     /**
      * Create request for operation 'addCompanyFileCategory'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string[] $request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addCompanyFileCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addCompanyFileCategoryRequest($company_domain, $request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
+    public function addCompanyFileCategoryRequest($request_body, string $contentType = self::contentTypes['addCompanyFileCategory'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addCompanyFileCategory'
-            );
-        }
 
         // verify the required parameter 'request_body' is set
         if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
@@ -298,7 +286,7 @@ class CompanyFilesApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/files/categories';
+        $resourcePath = '/api/v1/files/categories';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -307,14 +295,6 @@ class CompanyFilesApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -394,7 +374,6 @@ class CompanyFilesApi
      *
      * Delete Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCompanyFile'] to see the possible values for this operation
      *
@@ -402,9 +381,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCompanyFile($company_domain, $file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
+    public function deleteCompanyFile($file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
     {
-        $this->deleteCompanyFileWithHttpInfo($company_domain, $file_id, $contentType);
+        $this->deleteCompanyFileWithHttpInfo($file_id, $contentType);
     }
 
     /**
@@ -412,7 +391,6 @@ class CompanyFilesApi
      *
      * Delete Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCompanyFile'] to see the possible values for this operation
      *
@@ -420,9 +398,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCompanyFileWithHttpInfo($company_domain, $file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
+    public function deleteCompanyFileWithHttpInfo($file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
     {
-        $request = $this->deleteCompanyFileRequest($company_domain, $file_id, $contentType);
+        $request = $this->deleteCompanyFileRequest($file_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -462,16 +440,15 @@ class CompanyFilesApi
      *
      * Delete Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCompanyFileAsync($company_domain, $file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
+    public function deleteCompanyFileAsync($file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
     {
-        return $this->deleteCompanyFileAsyncWithHttpInfo($company_domain, $file_id, $contentType)
+        return $this->deleteCompanyFileAsyncWithHttpInfo($file_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -484,17 +461,16 @@ class CompanyFilesApi
      *
      * Delete Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCompanyFileAsyncWithHttpInfo($company_domain, $file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
+    public function deleteCompanyFileAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
     {
         $returnType = '';
-        $request = $this->deleteCompanyFileRequest($company_domain, $file_id, $contentType);
+        $request = $this->deleteCompanyFileRequest($file_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -522,22 +498,14 @@ class CompanyFilesApi
     /**
      * Create request for operation 'deleteCompanyFile'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCompanyFileRequest($company_domain, $file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
+    public function deleteCompanyFileRequest($file_id, string $contentType = self::contentTypes['deleteCompanyFile'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteCompanyFile'
-            );
-        }
 
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
@@ -547,7 +515,7 @@ class CompanyFilesApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/files/{fileId}';
+        $resourcePath = '/api/v1/files/{fileId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -556,14 +524,6 @@ class CompanyFilesApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($file_id !== null) {
             $resourcePath = str_replace(
@@ -644,7 +604,6 @@ class CompanyFilesApi
      *
      * Get an Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyFile'] to see the possible values for this operation
      *
@@ -652,9 +611,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCompanyFile($company_domain, $file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
+    public function getCompanyFile($file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
     {
-        $this->getCompanyFileWithHttpInfo($company_domain, $file_id, $contentType);
+        $this->getCompanyFileWithHttpInfo($file_id, $contentType);
     }
 
     /**
@@ -662,7 +621,6 @@ class CompanyFilesApi
      *
      * Get an Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyFile'] to see the possible values for this operation
      *
@@ -670,9 +628,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCompanyFileWithHttpInfo($company_domain, $file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
+    public function getCompanyFileWithHttpInfo($file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
     {
-        $request = $this->getCompanyFileRequest($company_domain, $file_id, $contentType);
+        $request = $this->getCompanyFileRequest($file_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -712,16 +670,15 @@ class CompanyFilesApi
      *
      * Get an Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyFileAsync($company_domain, $file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
+    public function getCompanyFileAsync($file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
     {
-        return $this->getCompanyFileAsyncWithHttpInfo($company_domain, $file_id, $contentType)
+        return $this->getCompanyFileAsyncWithHttpInfo($file_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -734,17 +691,16 @@ class CompanyFilesApi
      *
      * Get an Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyFileAsyncWithHttpInfo($company_domain, $file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
+    public function getCompanyFileAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
     {
         $returnType = '';
-        $request = $this->getCompanyFileRequest($company_domain, $file_id, $contentType);
+        $request = $this->getCompanyFileRequest($file_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -772,22 +728,14 @@ class CompanyFilesApi
     /**
      * Create request for operation 'getCompanyFile'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCompanyFileRequest($company_domain, $file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
+    public function getCompanyFileRequest($file_id, string $contentType = self::contentTypes['getCompanyFile'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getCompanyFile'
-            );
-        }
 
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
@@ -797,7 +745,7 @@ class CompanyFilesApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/files/{fileId}';
+        $resourcePath = '/api/v1/files/{fileId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -806,14 +754,6 @@ class CompanyFilesApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($file_id !== null) {
             $resourcePath = str_replace(
@@ -894,16 +834,15 @@ class CompanyFilesApi
      *
      * List company files and categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCompanyFiles'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function listCompanyFiles($company_domain, string $contentType = self::contentTypes['listCompanyFiles'][0])
+    public function listCompanyFiles(string $contentType = self::contentTypes['listCompanyFiles'][0])
     {
-        $this->listCompanyFilesWithHttpInfo($company_domain, $contentType);
+        $this->listCompanyFilesWithHttpInfo($contentType);
     }
 
     /**
@@ -911,16 +850,15 @@ class CompanyFilesApi
      *
      * List company files and categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCompanyFiles'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCompanyFilesWithHttpInfo($company_domain, string $contentType = self::contentTypes['listCompanyFiles'][0])
+    public function listCompanyFilesWithHttpInfo(string $contentType = self::contentTypes['listCompanyFiles'][0])
     {
-        $request = $this->listCompanyFilesRequest($company_domain, $contentType);
+        $request = $this->listCompanyFilesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -960,15 +898,14 @@ class CompanyFilesApi
      *
      * List company files and categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCompanyFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCompanyFilesAsync($company_domain, string $contentType = self::contentTypes['listCompanyFiles'][0])
+    public function listCompanyFilesAsync(string $contentType = self::contentTypes['listCompanyFiles'][0])
     {
-        return $this->listCompanyFilesAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->listCompanyFilesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -981,16 +918,15 @@ class CompanyFilesApi
      *
      * List company files and categories
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCompanyFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCompanyFilesAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['listCompanyFiles'][0])
+    public function listCompanyFilesAsyncWithHttpInfo(string $contentType = self::contentTypes['listCompanyFiles'][0])
     {
         $returnType = '';
-        $request = $this->listCompanyFilesRequest($company_domain, $contentType);
+        $request = $this->listCompanyFilesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1018,24 +954,16 @@ class CompanyFilesApi
     /**
      * Create request for operation 'listCompanyFiles'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCompanyFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listCompanyFilesRequest($company_domain, string $contentType = self::contentTypes['listCompanyFiles'][0])
+    public function listCompanyFilesRequest(string $contentType = self::contentTypes['listCompanyFiles'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling listCompanyFiles'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/files/view';
+        $resourcePath = '/api/v1/files/view';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1044,14 +972,6 @@ class CompanyFilesApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1124,7 +1044,6 @@ class CompanyFilesApi
      *
      * Update Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
      * @param  \MySdk\Model\CompanyFileUpdate $company_file_update company_file_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCompanyFile'] to see the possible values for this operation
@@ -1133,9 +1052,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCompanyFile($company_domain, $file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
+    public function updateCompanyFile($file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
     {
-        $this->updateCompanyFileWithHttpInfo($company_domain, $file_id, $company_file_update, $contentType);
+        $this->updateCompanyFileWithHttpInfo($file_id, $company_file_update, $contentType);
     }
 
     /**
@@ -1143,7 +1062,6 @@ class CompanyFilesApi
      *
      * Update Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
      * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCompanyFile'] to see the possible values for this operation
@@ -1152,9 +1070,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCompanyFileWithHttpInfo($company_domain, $file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
+    public function updateCompanyFileWithHttpInfo($file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
     {
-        $request = $this->updateCompanyFileRequest($company_domain, $file_id, $company_file_update, $contentType);
+        $request = $this->updateCompanyFileRequest($file_id, $company_file_update, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1194,7 +1112,6 @@ class CompanyFilesApi
      *
      * Update Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
      * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCompanyFile'] to see the possible values for this operation
@@ -1202,9 +1119,9 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCompanyFileAsync($company_domain, $file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
+    public function updateCompanyFileAsync($file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
     {
-        return $this->updateCompanyFileAsyncWithHttpInfo($company_domain, $file_id, $company_file_update, $contentType)
+        return $this->updateCompanyFileAsyncWithHttpInfo($file_id, $company_file_update, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1217,7 +1134,6 @@ class CompanyFilesApi
      *
      * Update Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
      * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCompanyFile'] to see the possible values for this operation
@@ -1225,10 +1141,10 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCompanyFileAsyncWithHttpInfo($company_domain, $file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
+    public function updateCompanyFileAsyncWithHttpInfo($file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
     {
         $returnType = '';
-        $request = $this->updateCompanyFileRequest($company_domain, $file_id, $company_file_update, $contentType);
+        $request = $this->updateCompanyFileRequest($file_id, $company_file_update, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1256,7 +1172,6 @@ class CompanyFilesApi
     /**
      * Create request for operation 'updateCompanyFile'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
      * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCompanyFile'] to see the possible values for this operation
@@ -1264,15 +1179,8 @@ class CompanyFilesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCompanyFileRequest($company_domain, $file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
+    public function updateCompanyFileRequest($file_id, $company_file_update, string $contentType = self::contentTypes['updateCompanyFile'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling updateCompanyFile'
-            );
-        }
 
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
@@ -1289,7 +1197,7 @@ class CompanyFilesApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/files/{fileId}';
+        $resourcePath = '/api/v1/files/{fileId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1298,14 +1206,6 @@ class CompanyFilesApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($file_id !== null) {
             $resourcePath = str_replace(
@@ -1393,16 +1293,15 @@ class CompanyFilesApi
      *
      * Upload Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadCompanyFile'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function uploadCompanyFile($company_domain, string $contentType = self::contentTypes['uploadCompanyFile'][0])
+    public function uploadCompanyFile(string $contentType = self::contentTypes['uploadCompanyFile'][0])
     {
-        $this->uploadCompanyFileWithHttpInfo($company_domain, $contentType);
+        $this->uploadCompanyFileWithHttpInfo($contentType);
     }
 
     /**
@@ -1410,16 +1309,15 @@ class CompanyFilesApi
      *
      * Upload Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadCompanyFile'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCompanyFileWithHttpInfo($company_domain, string $contentType = self::contentTypes['uploadCompanyFile'][0])
+    public function uploadCompanyFileWithHttpInfo(string $contentType = self::contentTypes['uploadCompanyFile'][0])
     {
-        $request = $this->uploadCompanyFileRequest($company_domain, $contentType);
+        $request = $this->uploadCompanyFileRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1459,15 +1357,14 @@ class CompanyFilesApi
      *
      * Upload Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCompanyFileAsync($company_domain, string $contentType = self::contentTypes['uploadCompanyFile'][0])
+    public function uploadCompanyFileAsync(string $contentType = self::contentTypes['uploadCompanyFile'][0])
     {
-        return $this->uploadCompanyFileAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->uploadCompanyFileAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1480,16 +1377,15 @@ class CompanyFilesApi
      *
      * Upload Company File
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCompanyFileAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['uploadCompanyFile'][0])
+    public function uploadCompanyFileAsyncWithHttpInfo(string $contentType = self::contentTypes['uploadCompanyFile'][0])
     {
         $returnType = '';
-        $request = $this->uploadCompanyFileRequest($company_domain, $contentType);
+        $request = $this->uploadCompanyFileRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1517,24 +1413,16 @@ class CompanyFilesApi
     /**
      * Create request for operation 'uploadCompanyFile'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadCompanyFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadCompanyFileRequest($company_domain, string $contentType = self::contentTypes['uploadCompanyFile'][0])
+    public function uploadCompanyFileRequest(string $contentType = self::contentTypes['uploadCompanyFile'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling uploadCompanyFile'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/files';
+        $resourcePath = '/api/v1/files';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1543,14 +1431,6 @@ class CompanyFilesApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

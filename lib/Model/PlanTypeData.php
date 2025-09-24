@@ -63,9 +63,9 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
         'aca' => '\MySdk\Model\Aca',
         'safe_harbor' => 'bool',
         'reimbursement' => '\MySdk\Model\Reimbursement',
-        'deduction_date_rule' => '\MySdk\Model\DeductionDateRule',
+        'deduction_date_rule' => '\MySdk\Model\PlanTypeDataDeductionDateRule',
         'deduction_frequencies' => '\MySdk\Model\DeductionFrequency[]',
-        'coverage_levels' => '\MySdk\Model\CoverageLevels',
+        'coverage_levels' => '\MySdk\Model\PlanTypeDataCoverageLevels',
         'auto_enroll_setting' => 'string',
         'auto_enroll_default_employee_contribution_amount' => 'float',
         'carrier_id' => 'string',
@@ -105,21 +105,21 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_variable' => true,
-        'deduction_type_id' => true,
-        'reportable_on_w2' => true,
+        'is_variable' => false,
+        'deduction_type_id' => false,
+        'reportable_on_w2' => false,
         'aca' => false,
-        'safe_harbor' => true,
+        'safe_harbor' => false,
         'reimbursement' => false,
-        'deduction_date_rule' => true,
+        'deduction_date_rule' => false,
         'deduction_frequencies' => false,
-        'coverage_levels' => true,
-        'auto_enroll_setting' => true,
-        'auto_enroll_default_employee_contribution_amount' => true,
-        'carrier_id' => true,
+        'coverage_levels' => false,
+        'auto_enroll_setting' => false,
+        'auto_enroll_default_employee_contribution_amount' => false,
+        'carrier_id' => false,
         'plan_category_data_options' => false,
-        'required_plan_ids' => true,
-        'rate_type' => true
+        'required_plan_ids' => false,
+        'rate_type' => false
     ];
 
     /**
@@ -407,14 +407,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsVariable($is_variable)
     {
         if (is_null($is_variable)) {
-            array_push($this->openAPINullablesSetToNull, 'is_variable');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_variable', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_variable cannot be null');
         }
         $this->container['is_variable'] = $is_variable;
 
@@ -441,14 +434,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDeductionTypeId($deduction_type_id)
     {
         if (is_null($deduction_type_id)) {
-            array_push($this->openAPINullablesSetToNull, 'deduction_type_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deduction_type_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable deduction_type_id cannot be null');
         }
         $this->container['deduction_type_id'] = $deduction_type_id;
 
@@ -475,14 +461,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReportableOnW2($reportable_on_w2)
     {
         if (is_null($reportable_on_w2)) {
-            array_push($this->openAPINullablesSetToNull, 'reportable_on_w2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reportable_on_w2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reportable_on_w2 cannot be null');
         }
         $this->container['reportable_on_w2'] = $reportable_on_w2;
 
@@ -536,14 +515,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSafeHarbor($safe_harbor)
     {
         if (is_null($safe_harbor)) {
-            array_push($this->openAPINullablesSetToNull, 'safe_harbor');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('safe_harbor', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable safe_harbor cannot be null');
         }
         $this->container['safe_harbor'] = $safe_harbor;
 
@@ -580,7 +552,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets deduction_date_rule
      *
-     * @return \MySdk\Model\DeductionDateRule|null
+     * @return \MySdk\Model\PlanTypeDataDeductionDateRule|null
      */
     public function getDeductionDateRule()
     {
@@ -590,21 +562,14 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets deduction_date_rule
      *
-     * @param \MySdk\Model\DeductionDateRule|null $deduction_date_rule deduction_date_rule
+     * @param \MySdk\Model\PlanTypeDataDeductionDateRule|null $deduction_date_rule deduction_date_rule
      *
      * @return self
      */
     public function setDeductionDateRule($deduction_date_rule)
     {
         if (is_null($deduction_date_rule)) {
-            array_push($this->openAPINullablesSetToNull, 'deduction_date_rule');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deduction_date_rule', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable deduction_date_rule cannot be null');
         }
         $this->container['deduction_date_rule'] = $deduction_date_rule;
 
@@ -641,7 +606,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets coverage_levels
      *
-     * @return \MySdk\Model\CoverageLevels|null
+     * @return \MySdk\Model\PlanTypeDataCoverageLevels|null
      */
     public function getCoverageLevels()
     {
@@ -651,21 +616,14 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets coverage_levels
      *
-     * @param \MySdk\Model\CoverageLevels|null $coverage_levels coverage_levels
+     * @param \MySdk\Model\PlanTypeDataCoverageLevels|null $coverage_levels coverage_levels
      *
      * @return self
      */
     public function setCoverageLevels($coverage_levels)
     {
         if (is_null($coverage_levels)) {
-            array_push($this->openAPINullablesSetToNull, 'coverage_levels');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('coverage_levels', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable coverage_levels cannot be null');
         }
         $this->container['coverage_levels'] = $coverage_levels;
 
@@ -692,14 +650,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAutoEnrollSetting($auto_enroll_setting)
     {
         if (is_null($auto_enroll_setting)) {
-            array_push($this->openAPINullablesSetToNull, 'auto_enroll_setting');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('auto_enroll_setting', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable auto_enroll_setting cannot be null');
         }
         $this->container['auto_enroll_setting'] = $auto_enroll_setting;
 
@@ -726,14 +677,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAutoEnrollDefaultEmployeeContributionAmount($auto_enroll_default_employee_contribution_amount)
     {
         if (is_null($auto_enroll_default_employee_contribution_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'auto_enroll_default_employee_contribution_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('auto_enroll_default_employee_contribution_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable auto_enroll_default_employee_contribution_amount cannot be null');
         }
         $this->container['auto_enroll_default_employee_contribution_amount'] = $auto_enroll_default_employee_contribution_amount;
 
@@ -760,14 +704,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCarrierId($carrier_id)
     {
         if (is_null($carrier_id)) {
-            array_push($this->openAPINullablesSetToNull, 'carrier_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('carrier_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable carrier_id cannot be null');
         }
         $this->container['carrier_id'] = $carrier_id;
 
@@ -787,7 +724,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets plan_category_data_options
      *
-     * @param object|null $plan_category_data_options plan_category_data_options
+     * @param object|null $plan_category_data_options Plan category data options
      *
      * @return self
      */
@@ -821,14 +758,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRequiredPlanIds($required_plan_ids)
     {
         if (is_null($required_plan_ids)) {
-            array_push($this->openAPINullablesSetToNull, 'required_plan_ids');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('required_plan_ids', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable required_plan_ids cannot be null');
         }
         $this->container['required_plan_ids'] = $required_plan_ids;
 
@@ -855,14 +785,7 @@ class PlanTypeData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRateType($rate_type)
     {
         if (is_null($rate_type)) {
-            array_push($this->openAPINullablesSetToNull, 'rate_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('rate_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable rate_type cannot be null');
         }
         $this->container['rate_type'] = $rate_type;
 

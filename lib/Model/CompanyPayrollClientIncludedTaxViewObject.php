@@ -128,11 +128,11 @@ class CompanyPayrollClientIncludedTaxViewObject implements ModelInterface, Array
         'tax_type_name' => false,
         'employer_tax_id' => false,
         'frequency_of_payment' => false,
-        'pay_frequency_id' => true,
+        'pay_frequency_id' => false,
         'payer' => false,
-        'tax_rate' => true,
+        'tax_rate' => false,
         'tax_start_date' => false,
-        'tax_end_date' => true,
+        'tax_end_date' => false,
         'last_modified_by' => false,
         'last_modified_date' => false,
         'is_editable' => false,
@@ -145,7 +145,7 @@ class CompanyPayrollClientIncludedTaxViewObject implements ModelInterface, Array
         'is_pfml' => false,
         'employee_percent' => false,
         'tax_type_engine' => false,
-        'tax_type_engine_info' => true,
+        'tax_type_engine_info' => false,
         'current_tax_setup_status' => false,
         'tax_type_id' => false
     ];
@@ -579,14 +579,7 @@ class CompanyPayrollClientIncludedTaxViewObject implements ModelInterface, Array
     public function setPayFrequencyId($pay_frequency_id)
     {
         if (is_null($pay_frequency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'pay_frequency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pay_frequency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable pay_frequency_id cannot be null');
         }
         $this->container['pay_frequency_id'] = $pay_frequency_id;
 
@@ -640,14 +633,7 @@ class CompanyPayrollClientIncludedTaxViewObject implements ModelInterface, Array
     public function setTaxRate($tax_rate)
     {
         if (is_null($tax_rate)) {
-            array_push($this->openAPINullablesSetToNull, 'tax_rate');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tax_rate', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable tax_rate cannot be null');
         }
         $this->container['tax_rate'] = $tax_rate;
 
@@ -701,14 +687,7 @@ class CompanyPayrollClientIncludedTaxViewObject implements ModelInterface, Array
     public function setTaxEndDate($tax_end_date)
     {
         if (is_null($tax_end_date)) {
-            array_push($this->openAPINullablesSetToNull, 'tax_end_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tax_end_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable tax_end_date cannot be null');
         }
         $this->container['tax_end_date'] = $tax_end_date;
 
@@ -1059,14 +1038,7 @@ class CompanyPayrollClientIncludedTaxViewObject implements ModelInterface, Array
     public function setTaxTypeEngineInfo($tax_type_engine_info)
     {
         if (is_null($tax_type_engine_info)) {
-            array_push($this->openAPINullablesSetToNull, 'tax_type_engine_info');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tax_type_engine_info', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable tax_type_engine_info cannot be null');
         }
         $this->container['tax_type_engine_info'] = $tax_type_engine_info;
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **categories** | [**\MySdk\Model\TimeOffSettingsCategoryListTransformerCategoriesInner[]**](TimeOffSettingsCategoryListTransformerCategoriesInner.md) |  | [optional]
 **policies** | [**\MySdk\Model\TimeOffSettingsCategoryListTransformerPoliciesInner[]**](TimeOffSettingsCategoryListTransformerPoliciesInner.md) | List of time off policies | [optional]
-**assignable_user_groups** | [**\MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]**](WebhookSubErrorPropertyPostFieldsInner.md) | List of user groups that can be assigned | [optional]
+**assignable_user_groups** | [**\MySdk\Model\TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner[]**](TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner.md) | List of user groups that can be assigned | [optional]
 **payroll_information** | [**\MySdk\Model\TimeOffSettingsCategoryListTransformerPayrollInformation**](TimeOffSettingsCategoryListTransformerPayrollInformation.md) |  | [optional]
 **show_welcome_message** | **bool** |  | [optional]
 **can_assign_policies** | **bool** |  | [optional]

@@ -60,7 +60,7 @@ class TimeOffSettingsCategoryListTransformer implements ModelInterface, ArrayAcc
     protected static $openAPITypes = [
         'categories' => '\MySdk\Model\TimeOffSettingsCategoryListTransformerCategoriesInner[]',
         'policies' => '\MySdk\Model\TimeOffSettingsCategoryListTransformerPoliciesInner[]',
-        'assignable_user_groups' => '\MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]',
+        'assignable_user_groups' => '\MySdk\Model\TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner[]',
         'payroll_information' => '\MySdk\Model\TimeOffSettingsCategoryListTransformerPayrollInformation',
         'show_welcome_message' => 'bool',
         'can_assign_policies' => 'bool',
@@ -389,7 +389,7 @@ class TimeOffSettingsCategoryListTransformer implements ModelInterface, ArrayAcc
     /**
      * Gets assignable_user_groups
      *
-     * @return \MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null
+     * @return \MySdk\Model\TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner[]|null
      */
     public function getAssignableUserGroups()
     {
@@ -399,7 +399,7 @@ class TimeOffSettingsCategoryListTransformer implements ModelInterface, ArrayAcc
     /**
      * Sets assignable_user_groups
      *
-     * @param \MySdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null $assignable_user_groups List of user groups that can be assigned
+     * @param \MySdk\Model\TimeOffSettingsCategoryListTransformerAssignableUserGroupsInner[]|null $assignable_user_groups List of user groups that can be assigned
      *
      * @return self
      */

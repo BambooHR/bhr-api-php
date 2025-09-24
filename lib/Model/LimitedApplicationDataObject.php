@@ -57,6 +57,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'name' => 'string',
         'scopes' => '\MySdk\Model\ScopeAccessDescriptionDataObject[]'
     ];
@@ -69,6 +70,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'name' => null,
         'scopes' => null
     ];
@@ -79,6 +81,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
         'name' => false,
         'scopes' => false
     ];
@@ -169,6 +172,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'name' => 'name',
         'scopes' => 'scopes'
     ];
@@ -179,6 +183,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'name' => 'setName',
         'scopes' => 'setScopes'
     ];
@@ -189,6 +194,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'name' => 'getName',
         'scopes' => 'getScopes'
     ];
@@ -250,6 +256,7 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('scopes', $data ?? [], null);
     }
@@ -295,6 +302,33 @@ class LimitedApplicationDataObject implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The ID of the application.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets name

@@ -1,21 +1,21 @@
 # MySdk\EmployeeFilesApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addEmployeeFileCategory()**](EmployeeFilesApi.md#addEmployeeFileCategory) | **POST** /{companyDomain}/v1/employees/files/categories | Add Employee File Category |
-| [**deleteEmployeeFile()**](EmployeeFilesApi.md#deleteEmployeeFile) | **DELETE** /{companyDomain}/v1/employees/{id}/files/{fileId} | Delete Employee File |
-| [**getEmployeeFile()**](EmployeeFilesApi.md#getEmployeeFile) | **GET** /{companyDomain}/v1/employees/{id}/files/{fileId} | Get an Employee File |
-| [**listEmployeeFiles()**](EmployeeFilesApi.md#listEmployeeFiles) | **GET** /{companyDomain}/v1/employees/{id}/files/view | List employee files and categories |
-| [**updateEmployeeFile()**](EmployeeFilesApi.md#updateEmployeeFile) | **POST** /{companyDomain}/v1/employees/{id}/files/{fileId} | Update Employee File |
-| [**uploadEmployeeFile()**](EmployeeFilesApi.md#uploadEmployeeFile) | **POST** /{companyDomain}/v1/employees/{id}/files | Upload Employee File |
+| [**addEmployeeFileCategory()**](EmployeeFilesApi.md#addEmployeeFileCategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category |
+| [**deleteEmployeeFile()**](EmployeeFilesApi.md#deleteEmployeeFile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File |
+| [**getEmployeeFile()**](EmployeeFilesApi.md#getEmployeeFile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get an Employee File |
+| [**listEmployeeFiles()**](EmployeeFilesApi.md#listEmployeeFiles) | **GET** /api/v1/employees/{id}/files/view | List employee files and categories |
+| [**updateEmployeeFile()**](EmployeeFilesApi.md#updateEmployeeFile) | **POST** /api/v1/employees/{id}/files/{fileId} | Update Employee File |
+| [**uploadEmployeeFile()**](EmployeeFilesApi.md#uploadEmployeeFile) | **POST** /api/v1/employees/{id}/files | Upload Employee File |
 
 
 ## `addEmployeeFileCategory()`
 
 ```php
-addEmployeeFileCategory($company_domain, $request_body)
+addEmployeeFileCategory($request_body)
 ```
 
 Add Employee File Category
@@ -47,11 +47,10 @@ $apiInstance = new MySdk\Api\EmployeeFilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $request_body = array('request_body_example'); // string[]
 
 try {
-    $apiInstance->addEmployeeFileCategory($company_domain, $request_body);
+    $apiInstance->addEmployeeFileCategory($request_body);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeFilesApi->addEmployeeFileCategory: ', $e->getMessage(), PHP_EOL;
 }
@@ -61,7 +60,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 
 ### Return type
@@ -84,7 +82,7 @@ void (empty response body)
 ## `deleteEmployeeFile()`
 
 ```php
-deleteEmployeeFile($company_domain, $id, $file_id)
+deleteEmployeeFile($id, $file_id)
 ```
 
 Delete Employee File
@@ -116,12 +114,11 @@ $apiInstance = new MySdk\Api\EmployeeFilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being deleted.
 
 try {
-    $apiInstance->deleteEmployeeFile($company_domain, $id, $file_id);
+    $apiInstance->deleteEmployeeFile($id, $file_id);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeFilesApi->deleteEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -131,7 +128,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being deleted. | |
 
@@ -155,7 +151,7 @@ void (empty response body)
 ## `getEmployeeFile()`
 
 ```php
-getEmployeeFile($company_domain, $id, $file_id)
+getEmployeeFile($id, $file_id)
 ```
 
 Get an Employee File
@@ -187,12 +183,11 @@ $apiInstance = new MySdk\Api\EmployeeFilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being retrieved.
 
 try {
-    $apiInstance->getEmployeeFile($company_domain, $id, $file_id);
+    $apiInstance->getEmployeeFile($id, $file_id);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeFilesApi->getEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -202,7 +197,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being retrieved. | |
 
@@ -226,7 +220,7 @@ void (empty response body)
 ## `listEmployeeFiles()`
 
 ```php
-listEmployeeFiles($company_domain, $id)
+listEmployeeFiles($id)
 ```
 
 List employee files and categories
@@ -258,11 +252,10 @@ $apiInstance = new MySdk\Api\EmployeeFilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
+$id = 1501; // string | Employee ID is required and needs to be a valid employee ID.
 
 try {
-    $apiInstance->listEmployeeFiles($company_domain, $id);
+    $apiInstance->listEmployeeFiles($id);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeFilesApi->listEmployeeFiles: ', $e->getMessage(), PHP_EOL;
 }
@@ -272,8 +265,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
+| **id** | **string**| Employee ID is required and needs to be a valid employee ID. | |
 
 ### Return type
 
@@ -295,7 +287,7 @@ void (empty response body)
 ## `updateEmployeeFile()`
 
 ```php
-updateEmployeeFile($company_domain, $id, $file_id, $employee_file_update)
+updateEmployeeFile($id, $file_id, $employee_file_update)
 ```
 
 Update Employee File
@@ -327,13 +319,12 @@ $apiInstance = new MySdk\Api\EmployeeFilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being updated.
 $employee_file_update = new \MySdk\Model\EmployeeFileUpdate(); // \MySdk\Model\EmployeeFileUpdate
 
 try {
-    $apiInstance->updateEmployeeFile($company_domain, $id, $file_id, $employee_file_update);
+    $apiInstance->updateEmployeeFile($id, $file_id, $employee_file_update);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeFilesApi->updateEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -343,7 +334,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being updated. | |
 | **employee_file_update** | [**\MySdk\Model\EmployeeFileUpdate**](../Model/EmployeeFileUpdate.md)|  | |
@@ -368,7 +358,7 @@ void (empty response body)
 ## `uploadEmployeeFile()`
 
 ```php
-uploadEmployeeFile($company_domain, $id)
+uploadEmployeeFile($id)
 ```
 
 Upload Employee File
@@ -400,11 +390,10 @@ $apiInstance = new MySdk\Api\EmployeeFilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 
 try {
-    $apiInstance->uploadEmployeeFile($company_domain, $id);
+    $apiInstance->uploadEmployeeFile($id);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeFilesApi->uploadEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -414,7 +403,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 
 ### Return type

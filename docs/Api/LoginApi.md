@@ -1,16 +1,16 @@
 # MySdk\LoginApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**login()**](LoginApi.md#login) | **POST** /{companyDomain}/v1/login | User Login |
+| [**login()**](LoginApi.md#login) | **POST** /api/v1/login | User Login |
 
 
 ## `login()`
 
 ```php
-login($company_domain, $accept_header_parameter, $application_key, $user, $password)
+login($accept_header_parameter, $application_key, $user, $password)
 ```
 
 User Login
@@ -42,14 +42,13 @@ $apiInstance = new MySdk\Api\LoginApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 $application_key = 'application_key_example'; // string
 $user = 'user_example'; // string
 $password = 'password_example'; // string
 
 try {
-    $apiInstance->login($company_domain, $accept_header_parameter, $application_key, $user, $password);
+    $apiInstance->login($accept_header_parameter, $application_key, $user, $password);
 } catch (Exception $e) {
     echo 'Exception when calling LoginApi->login: ', $e->getMessage(), PHP_EOL;
 }
@@ -59,7 +58,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 | **application_key** | **string**|  | [optional] |
 | **user** | **string**|  | [optional] |

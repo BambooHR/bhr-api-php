@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **cards** | [**\MySdk\Model\TimeOffTabCardTransformer[]**](TimeOffTabCardTransformer.md) |  | [optional]
 **upcoming_time_off** | [**\MySdk\Model\UpcomingTimeOffTransformerOld[]**](UpcomingTimeOffTransformerOld.md) |  | [optional]
 **is_previewing_as_another_user** | **bool** |  | [optional]
-**pto_session** | [**\MySdk\Model\TimeOffSessionViewModelTransformer**](TimeOffSessionViewModelTransformer.md) |  | [optional]
+**pto_session** | [**\MySdk\Model\TimeOffSessionViewModelTransformer**](TimeOffSessionViewModelTransformer.md) | Class TimeOffTabViewModelTransformer | [optional]
 **pto_date** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

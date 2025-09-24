@@ -59,6 +59,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     protected static $openAPITypes = [
         'tags' => '\MySdk\Model\EmployeePayCycleTagsInner[]',
         'proration_information' => '\MySdk\Model\SalaryEmployeePayCycleProRationInner[]',
+        'proration_period_information' => '\MySdk\Model\ProrationPeriodInformationDataObjectsInner[]',
         'toggles' => '\MySdk\Model\EmployeePayCycleTogglesInner[]'
     ];
 
@@ -72,6 +73,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     protected static $openAPIFormats = [
         'tags' => null,
         'proration_information' => null,
+        'proration_period_information' => null,
         'toggles' => null
     ];
 
@@ -83,6 +85,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     protected static array $openAPINullables = [
         'tags' => false,
         'proration_information' => false,
+        'proration_period_information' => false,
         'toggles' => false
     ];
 
@@ -174,6 +177,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     protected static $attributeMap = [
         'tags' => 'tags',
         'proration_information' => 'prorationInformation',
+        'proration_period_information' => 'prorationPeriodInformation',
         'toggles' => 'toggles'
     ];
 
@@ -185,6 +189,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     protected static $setters = [
         'tags' => 'setTags',
         'proration_information' => 'setProrationInformation',
+        'proration_period_information' => 'setProrationPeriodInformation',
         'toggles' => 'setToggles'
     ];
 
@@ -196,6 +201,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     protected static $getters = [
         'tags' => 'getTags',
         'proration_information' => 'getProrationInformation',
+        'proration_period_information' => 'getProrationPeriodInformation',
         'toggles' => 'getToggles'
     ];
 
@@ -258,6 +264,7 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
     {
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('proration_information', $data ?? [], null);
+        $this->setIfExists('proration_period_information', $data ?? [], null);
         $this->setIfExists('toggles', $data ?? [], null);
     }
 
@@ -353,6 +360,33 @@ class PayCycleEmployeeDataObjectCollectionInnerEmployeePayCycleMetaData implemen
             throw new \InvalidArgumentException('non-nullable proration_information cannot be null');
         }
         $this->container['proration_information'] = $proration_information;
+
+        return $this;
+    }
+
+    /**
+     * Gets proration_period_information
+     *
+     * @return \MySdk\Model\ProrationPeriodInformationDataObjectsInner[]|null
+     */
+    public function getProrationPeriodInformation()
+    {
+        return $this->container['proration_period_information'];
+    }
+
+    /**
+     * Sets proration_period_information
+     *
+     * @param \MySdk\Model\ProrationPeriodInformationDataObjectsInner[]|null $proration_period_information proration_period_information
+     *
+     * @return self
+     */
+    public function setProrationPeriodInformation($proration_period_information)
+    {
+        if (is_null($proration_period_information)) {
+            throw new \InvalidArgumentException('non-nullable proration_period_information cannot be null');
+        }
+        $this->container['proration_period_information'] = $proration_period_information;
 
         return $this;
     }

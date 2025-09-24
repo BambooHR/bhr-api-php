@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional]
 **plan_state** | **string** |  | [optional]
 **parent_benefit_plan_id** | **string** |  | [optional]
-**enrollment_info** | [**\MySdk\Model\EnrollmentInfo**](EnrollmentInfo.md) |  | [optional]
+**enrollment_info** | [**\MySdk\Model\BenefitPlanModelEnrollmentInfo**](BenefitPlanModelEnrollmentInfo.md) |  | [optional]
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **summary** | **string** |  | [optional]

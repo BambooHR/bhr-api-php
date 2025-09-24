@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deductions** | [**\MySdk\Model\DeductionTotals[]**](DeductionTotals.md) | Collection of DeductionTotals | [optional]
+**deductions** | [**\MySdk\Model\DeductionTotalsCollection**](DeductionTotalsCollection.md) |  | [optional]
 **totals** | [**\MySdk\Model\DeductionTotalsSummary**](DeductionTotalsSummary.md) |  | [optional]
 **non_calculated_deductions** | [**\MySdk\Model\DeductionTotals[]**](DeductionTotals.md) |  | [optional]
 

@@ -331,7 +331,7 @@ class NHPEmployeeNewHirePacketDataObject implements ModelInterface, ArrayAccess,
     /**
      * Sets employee
      *
-     * @param \MySdk\Model\NHPNewHirePacketEmployeeData|null $employee employee
+     * @param \MySdk\Model\NHPNewHirePacketEmployeeData|null $employee The employee data
      *
      * @return self
      */
@@ -358,7 +358,7 @@ class NHPEmployeeNewHirePacketDataObject implements ModelInterface, ArrayAccess,
     /**
      * Sets new_hire_packet
      *
-     * @param \MySdk\Model\NHPNewHirePacketInstanceDataObject|null $new_hire_packet new_hire_packet
+     * @param \MySdk\Model\NHPNewHirePacketInstanceDataObject|null $new_hire_packet The new hire packet data
      *
      * @return self
      */

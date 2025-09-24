@@ -516,7 +516,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets overview_section
      *
-     * @param \MySdk\Model\TotalRewardsOverviewSectionValues|null $overview_section overview_section
+     * @param \MySdk\Model\TotalRewardsOverviewSectionValues|null $overview_section Total Rewards overview section object
      *
      * @return self
      */
@@ -543,7 +543,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets pay_section
      *
-     * @param \MySdk\Model\TotalRewardsTimelineSectionValues|null $pay_section pay_section
+     * @param \MySdk\Model\TotalRewardsTimelineSectionValues|null $pay_section Total Rewards pay timeline object
      *
      * @return self
      */
@@ -577,7 +577,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets bonus_section
      *
-     * @param \MySdk\Model\TotalRewardsTimelineSectionValues|null $bonus_section bonus_section
+     * @param \MySdk\Model\TotalRewardsTimelineSectionValues|null $bonus_section Total Rewards bonus section timeline object
      *
      * @return self
      */
@@ -611,7 +611,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets commission_section
      *
-     * @param \MySdk\Model\TotalRewardsTimelineSectionValues|null $commission_section commission_section
+     * @param \MySdk\Model\TotalRewardsTimelineSectionValues|null $commission_section Total Rewards commission section timeline object
      *
      * @return self
      */
@@ -645,7 +645,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets benefit_section
      *
-     * @param \MySdk\Model\TotalRewardsBenefitSectionValues|null $benefit_section benefit_section
+     * @param \MySdk\Model\TotalRewardsBenefitSectionValues|null $benefit_section Total Rewards benefit section object
      *
      * @return self
      */
@@ -679,7 +679,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets equity_section
      *
-     * @param \MySdk\Model\TotalRewardsEquitySectionValues|null $equity_section equity_section
+     * @param \MySdk\Model\TotalRewardsEquitySectionValues|null $equity_section Total Rewards equity section object
      *
      * @return self
      */
@@ -713,7 +713,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets calendar_section
      *
-     * @param \MySdk\Model\TotalRewardsCalendarSectionValues|null $calendar_section calendar_section
+     * @param \MySdk\Model\TotalRewardsCalendarSectionValues|null $calendar_section Total Rewards equity section object
      *
      * @return self
      */
@@ -747,7 +747,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets extra_pay_section
      *
-     * @param \MySdk\Model\TotalRewardsExtraPaySectionValues|null $extra_pay_section extra_pay_section
+     * @param \MySdk\Model\TotalRewardsExtraPaySectionValues|null $extra_pay_section Total Rewards extra pay section object
      *
      * @return self
      */
@@ -781,7 +781,7 @@ class TotalRewardsEmployeeStatement implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets custom_disclaimer_info
      *
-     * @param \MySdk\Model\TotalRewardsCustomDisclaimerInfo|null $custom_disclaimer_info custom_disclaimer_info
+     * @param \MySdk\Model\TotalRewardsCustomDisclaimerInfo|null $custom_disclaimer_info Total Rewards custom disclaimer object
      *
      * @return self
      */

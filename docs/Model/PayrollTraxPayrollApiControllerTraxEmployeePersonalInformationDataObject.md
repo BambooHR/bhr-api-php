@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **employee_id** | **int** | Employee ID | [optional]
 **ssn** | **string** | Social Security Number | [optional]
+**ein** | **string** | Employer Identification Number | [optional]
 **employee_number** | **string** | Employee number | [optional]
 **last_name** | **string** | Last name | [optional]
 **first_name** | **string** | First name | [optional]

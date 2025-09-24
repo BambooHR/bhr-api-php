@@ -583,7 +583,7 @@ class PayrollPayrollValidationErrorsControllerValidationErrorDataObject implemen
     /**
      * Sets meta_data
      *
-     * @param mixed|null $meta_data Metadata associated with the error.
+     * @param mixed|null $meta_data meta_data
      *
      * @return self
      */

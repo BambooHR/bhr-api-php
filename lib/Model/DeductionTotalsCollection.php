@@ -58,7 +58,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'non_calculated_deductions' => '\MySdk\Model\DeductionTotals[]',
+        'number_of_deductions_starting' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'non_calculated_deductions' => null,
+        'number_of_deductions_starting' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'non_calculated_deductions' => false,
+        'number_of_deductions_starting' => true
     ];
 
     /**
@@ -167,7 +170,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'non_calculated_deductions' => 'nonCalculatedDeductions',
+        'number_of_deductions_starting' => 'numberOfDeductionsStarting'
     ];
 
     /**
@@ -176,7 +180,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        
+        'non_calculated_deductions' => 'setNonCalculatedDeductions',
+        'number_of_deductions_starting' => 'setNumberOfDeductionsStarting'
     ];
 
     /**
@@ -185,7 +190,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        
+        'non_calculated_deductions' => 'getNonCalculatedDeductions',
+        'number_of_deductions_starting' => 'getNumberOfDeductionsStarting'
     ];
 
     /**
@@ -245,6 +251,8 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('non_calculated_deductions', $data ?? [], null);
+        $this->setIfExists('number_of_deductions_starting', $data ?? [], null);
     }
 
     /**
@@ -288,6 +296,67 @@ class DeductionTotalsCollection implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets non_calculated_deductions
+     *
+     * @return \MySdk\Model\DeductionTotals[]|null
+     */
+    public function getNonCalculatedDeductions()
+    {
+        return $this->container['non_calculated_deductions'];
+    }
+
+    /**
+     * Sets non_calculated_deductions
+     *
+     * @param \MySdk\Model\DeductionTotals[]|null $non_calculated_deductions non_calculated_deductions
+     *
+     * @return self
+     */
+    public function setNonCalculatedDeductions($non_calculated_deductions)
+    {
+        if (is_null($non_calculated_deductions)) {
+            throw new \InvalidArgumentException('non-nullable non_calculated_deductions cannot be null');
+        }
+        $this->container['non_calculated_deductions'] = $non_calculated_deductions;
+
+        return $this;
+    }
+
+    /**
+     * Gets number_of_deductions_starting
+     *
+     * @return string|null
+     */
+    public function getNumberOfDeductionsStarting()
+    {
+        return $this->container['number_of_deductions_starting'];
+    }
+
+    /**
+     * Sets number_of_deductions_starting
+     *
+     * @param string|null $number_of_deductions_starting number_of_deductions_starting
+     *
+     * @return self
+     */
+    public function setNumberOfDeductionsStarting($number_of_deductions_starting)
+    {
+        if (is_null($number_of_deductions_starting)) {
+            array_push($this->openAPINullablesSetToNull, 'number_of_deductions_starting');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('number_of_deductions_starting', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['number_of_deductions_starting'] = $number_of_deductions_starting;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

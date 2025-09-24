@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **job_titles** | **string[]** | List of job titles associated with the task template. | [optional]
 **employment_states** | **string[]** | List of employment states associated with the task template. | [optional]
 **selected_values** | **string[]** | List of selected values for the task template filters. | [optional]
+**teams** | **string[]** | List of teams values for the task template filters. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -74,19 +74,19 @@ class HoursApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'call0f428442e53dc46d1e2c8ff5b7a483a8' => [
+        'call22067048cf6eec230a865765a18ad7b8' => [
             'application/json',
         ],
-        'call14e73aef978eb81d51fdbd74e0e83823' => [
+        'call717faf6067928c3497fc9acbf5b91767' => [
             'application/json',
         ],
-        'call5e1c5b4ef12e61d1bc975e8b4e00c38d' => [
+        'call889a4c2de70a53c5ab8cb32f1c2243f5' => [
             'application/json',
         ],
-        'call69c777478f5d52dee1b4f0937dca154f' => [
+        'e2ae6e59655aeab2b4e6311967a2809f' => [
             'application/json',
         ],
-        'f97efc203b25647724accb9da7dda7db' => [
+        'f54bcaec6771b1264671e53f2e557b1f' => [
             'application/json',
         ],
     ];
@@ -138,339 +138,38 @@ class HoursApi
     }
 
     /**
-     * Operation call0f428442e53dc46d1e2c8ff5b7a483a8
-     *
-     * addTimeTrackingBulk
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response
-     */
-    public function call0f428442e53dc46d1e2c8ff5b7a483a8($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'][0])
-    {
-        list($response) = $this->call0f428442e53dc46d1e2c8ff5b7a483a8WithHttpInfo($company_domain, $time_tracking_record, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation call0f428442e53dc46d1e2c8ff5b7a483a8WithHttpInfo
-     *
-     * addTimeTrackingBulk
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function call0f428442e53dc46d1e2c8ff5b7a483a8WithHttpInfo($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'][0])
-    {
-        $request = $this->call0f428442e53dc46d1e2c8ff5b7a483a8Request($company_domain, $time_tracking_record, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation call0f428442e53dc46d1e2c8ff5b7a483a8Async
-     *
-     * addTimeTrackingBulk
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call0f428442e53dc46d1e2c8ff5b7a483a8Async($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'][0])
-    {
-        return $this->call0f428442e53dc46d1e2c8ff5b7a483a8AsyncWithHttpInfo($company_domain, $time_tracking_record, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation call0f428442e53dc46d1e2c8ff5b7a483a8AsyncWithHttpInfo
-     *
-     * addTimeTrackingBulk
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call0f428442e53dc46d1e2c8ff5b7a483a8AsyncWithHttpInfo($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'][0])
-    {
-        $returnType = '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response';
-        $request = $this->call0f428442e53dc46d1e2c8ff5b7a483a8Request($company_domain, $time_tracking_record, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'call0f428442e53dc46d1e2c8ff5b7a483a8'
-     *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function call0f428442e53dc46d1e2c8ff5b7a483a8Request($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call0f428442e53dc46d1e2c8ff5b7a483a8'][0])
-    {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling call0f428442e53dc46d1e2c8ff5b7a483a8'
-            );
-        }
-
-        // verify the required parameter 'time_tracking_record' is set
-        if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $time_tracking_record when calling call0f428442e53dc46d1e2c8ff5b7a483a8'
-            );
-        }
-
-
-        $resourcePath = '/{companyDomain}/v1/timetracking/record';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($time_tracking_record)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
-            } else {
-                $httpBody = $time_tracking_record;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation call14e73aef978eb81d51fdbd74e0e83823
+     * Operation call22067048cf6eec230a865765a18ad7b8
      *
      * adjustTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request $_14e73aef978eb81d51fdbd74e0e83823_request _14e73aef978eb81d51fdbd74e0e83823_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'] to see the possible values for this operation
+     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request _22067048cf6eec230a865765a18ad7b8_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|mixed
      */
-    public function call14e73aef978eb81d51fdbd74e0e83823($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, string $contentType = self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'][0])
+    public function call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
     {
-        list($response) = $this->call14e73aef978eb81d51fdbd74e0e83823WithHttpInfo($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, $contentType);
+        list($response) = $this->call22067048cf6eec230a865765a18ad7b8WithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation call14e73aef978eb81d51fdbd74e0e83823WithHttpInfo
+     * Operation call22067048cf6eec230a865765a18ad7b8WithHttpInfo
      *
      * adjustTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request $_14e73aef978eb81d51fdbd74e0e83823_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'] to see the possible values for this operation
+     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function call14e73aef978eb81d51fdbd74e0e83823WithHttpInfo($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, string $contentType = self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'][0])
+    public function call22067048cf6eec230a865765a18ad7b8WithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
     {
-        $request = $this->call14e73aef978eb81d51fdbd74e0e83823Request($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, $contentType);
+        $request = $this->call22067048cf6eec230a865765a18ad7b8Request($_22067048cf6eec230a865765a18ad7b8_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -556,20 +255,19 @@ class HoursApi
     }
 
     /**
-     * Operation call14e73aef978eb81d51fdbd74e0e83823Async
+     * Operation call22067048cf6eec230a865765a18ad7b8Async
      *
      * adjustTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request $_14e73aef978eb81d51fdbd74e0e83823_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'] to see the possible values for this operation
+     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call14e73aef978eb81d51fdbd74e0e83823Async($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, string $contentType = self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'][0])
+    public function call22067048cf6eec230a865765a18ad7b8Async($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
     {
-        return $this->call14e73aef978eb81d51fdbd74e0e83823AsyncWithHttpInfo($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, $contentType)
+        return $this->call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -578,21 +276,20 @@ class HoursApi
     }
 
     /**
-     * Operation call14e73aef978eb81d51fdbd74e0e83823AsyncWithHttpInfo
+     * Operation call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo
      *
      * adjustTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request $_14e73aef978eb81d51fdbd74e0e83823_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'] to see the possible values for this operation
+     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call14e73aef978eb81d51fdbd74e0e83823AsyncWithHttpInfo($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, string $contentType = self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'][0])
+    public function call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
     {
         $returnType = 'mixed';
-        $request = $this->call14e73aef978eb81d51fdbd74e0e83823Request($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, $contentType);
+        $request = $this->call22067048cf6eec230a865765a18ad7b8Request($_22067048cf6eec230a865765a18ad7b8_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -631,34 +328,26 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'call14e73aef978eb81d51fdbd74e0e83823'
+     * Create request for operation 'call22067048cf6eec230a865765a18ad7b8'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request $_14e73aef978eb81d51fdbd74e0e83823_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'] to see the possible values for this operation
+     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function call14e73aef978eb81d51fdbd74e0e83823Request($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request, string $contentType = self::contentTypes['call14e73aef978eb81d51fdbd74e0e83823'][0])
+    public function call22067048cf6eec230a865765a18ad7b8Request($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
+        // verify the required parameter '_22067048cf6eec230a865765a18ad7b8_request' is set
+        if ($_22067048cf6eec230a865765a18ad7b8_request === null || (is_array($_22067048cf6eec230a865765a18ad7b8_request) && count($_22067048cf6eec230a865765a18ad7b8_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling call14e73aef978eb81d51fdbd74e0e83823'
-            );
-        }
-
-        // verify the required parameter '_14e73aef978eb81d51fdbd74e0e83823_request' is set
-        if ($_14e73aef978eb81d51fdbd74e0e83823_request === null || (is_array($_14e73aef978eb81d51fdbd74e0e83823_request) && count($_14e73aef978eb81d51fdbd74e0e83823_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $_14e73aef978eb81d51fdbd74e0e83823_request when calling call14e73aef978eb81d51fdbd74e0e83823'
+                'Missing the required parameter $_22067048cf6eec230a865765a18ad7b8_request when calling call22067048cf6eec230a865765a18ad7b8'
             );
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/timetracking/adjust';
+        $resourcePath = '/api/v1/timetracking/adjust';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -667,14 +356,6 @@ class HoursApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -684,12 +365,12 @@ class HoursApi
         );
 
         // for model (json/xml)
-        if (isset($_14e73aef978eb81d51fdbd74e0e83823_request)) {
+        if (isset($_22067048cf6eec230a865765a18ad7b8_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_14e73aef978eb81d51fdbd74e0e83823_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_22067048cf6eec230a865765a18ad7b8_request));
             } else {
-                $httpBody = $_14e73aef978eb81d51fdbd74e0e83823_request;
+                $httpBody = $_22067048cf6eec230a865765a18ad7b8_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -750,40 +431,38 @@ class HoursApi
     }
 
     /**
-     * Operation call5e1c5b4ef12e61d1bc975e8b4e00c38d
+     * Operation call717faf6067928c3497fc9acbf5b91767
      *
-     * getTimeTrackingByTimeTrackingId
+     * deleteTimeTrackingByTimeTrackingId
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'] to see the possible values for this operation
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response|mixed
+     * @return \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse|mixed
      */
-    public function call5e1c5b4ef12e61d1bc975e8b4e00c38d($company_domain, $id, string $contentType = self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'][0])
+    public function call717faf6067928c3497fc9acbf5b91767($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
     {
-        list($response) = $this->call5e1c5b4ef12e61d1bc975e8b4e00c38dWithHttpInfo($company_domain, $id, $contentType);
+        list($response) = $this->call717faf6067928c3497fc9acbf5b91767WithHttpInfo($id, $contentType);
         return $response;
     }
 
     /**
-     * Operation call5e1c5b4ef12e61d1bc975e8b4e00c38dWithHttpInfo
+     * Operation call717faf6067928c3497fc9acbf5b91767WithHttpInfo
      *
-     * getTimeTrackingByTimeTrackingId
+     * deleteTimeTrackingByTimeTrackingId
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'] to see the possible values for this operation
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response|mixed, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse|mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function call5e1c5b4ef12e61d1bc975e8b4e00c38dWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'][0])
+    public function call717faf6067928c3497fc9acbf5b91767WithHttpInfo($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
     {
-        $request = $this->call5e1c5b4ef12e61d1bc975e8b4e00c38dRequest($company_domain, $id, $contentType);
+        $request = $this->call717faf6067928c3497fc9acbf5b91767Request($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -809,9 +488,9 @@ class HoursApi
 
 
             switch($statusCode) {
-                case 200:
+                case 201:
                     return $this->handleResponseWithDataType(
-                        '\MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response',
+                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse',
                         $request,
                         $response,
                     );
@@ -839,16 +518,16 @@ class HoursApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response',
+                '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse',
                 $request,
                 $response,
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response',
+                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -869,20 +548,19 @@ class HoursApi
     }
 
     /**
-     * Operation call5e1c5b4ef12e61d1bc975e8b4e00c38dAsync
+     * Operation call717faf6067928c3497fc9acbf5b91767Async
      *
-     * getTimeTrackingByTimeTrackingId
+     * deleteTimeTrackingByTimeTrackingId
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'] to see the possible values for this operation
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call5e1c5b4ef12e61d1bc975e8b4e00c38dAsync($company_domain, $id, string $contentType = self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'][0])
+    public function call717faf6067928c3497fc9acbf5b91767Async($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
     {
-        return $this->call5e1c5b4ef12e61d1bc975e8b4e00c38dAsyncWithHttpInfo($company_domain, $id, $contentType)
+        return $this->call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -891,21 +569,20 @@ class HoursApi
     }
 
     /**
-     * Operation call5e1c5b4ef12e61d1bc975e8b4e00c38dAsyncWithHttpInfo
+     * Operation call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo
      *
-     * getTimeTrackingByTimeTrackingId
+     * deleteTimeTrackingByTimeTrackingId
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'] to see the possible values for this operation
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call5e1c5b4ef12e61d1bc975e8b4e00c38dAsyncWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'][0])
+    public function call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
     {
-        $returnType = '\MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response';
-        $request = $this->call5e1c5b4ef12e61d1bc975e8b4e00c38dRequest($company_domain, $id, $contentType);
+        $returnType = '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse';
+        $request = $this->call717faf6067928c3497fc9acbf5b91767Request($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -944,34 +621,26 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'call5e1c5b4ef12e61d1bc975e8b4e00c38d'
+     * Create request for operation 'call717faf6067928c3497fc9acbf5b91767'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'] to see the possible values for this operation
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function call5e1c5b4ef12e61d1bc975e8b4e00c38dRequest($company_domain, $id, string $contentType = self::contentTypes['call5e1c5b4ef12e61d1bc975e8b4e00c38d'][0])
+    public function call717faf6067928c3497fc9acbf5b91767Request($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling call5e1c5b4ef12e61d1bc975e8b4e00c38d'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling call5e1c5b4ef12e61d1bc975e8b4e00c38d'
+                'Missing the required parameter $id when calling call717faf6067928c3497fc9acbf5b91767'
             );
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/timetracking/record/{id}';
+        $resourcePath = '/api/v1/timetracking/delete/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -981,13 +650,299 @@ class HoursApi
 
 
         // path params
-        if ($company_domain !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5
+     *
+     * getTimeTrackingByTimeTrackingId
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response|mixed
+     */
+    public function call889a4c2de70a53c5ab8cb32f1c2243f5($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    {
+        list($response) = $this->call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo
+     *
+     * getTimeTrackingByTimeTrackingId
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    {
+        $request = $this->call889a4c2de70a53c5ab8cb32f1c2243f5Request($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5Async
+     *
+     * getTimeTrackingByTimeTrackingId
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function call889a4c2de70a53c5ab8cb32f1c2243f5Async($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    {
+        return $this->call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo
+     *
+     * getTimeTrackingByTimeTrackingId
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    {
+        $returnType = '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response';
+        $request = $this->call889a4c2de70a53c5ab8cb32f1c2243f5Request($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'call889a4c2de70a53c5ab8cb32f1c2243f5'
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function call889a4c2de70a53c5ab8cb32f1c2243f5Request($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling call889a4c2de70a53c5ab8cb32f1c2243f5'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/timetracking/record/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1064,40 +1019,38 @@ class HoursApi
     }
 
     /**
-     * Operation call69c777478f5d52dee1b4f0937dca154f
+     * Operation e2ae6e59655aeab2b4e6311967a2809f
      *
      * addTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response|mixed
+     * @return \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response|mixed
      */
-    public function call69c777478f5d52dee1b4f0937dca154f($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'][0])
+    public function e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
     {
-        list($response) = $this->call69c777478f5d52dee1b4f0937dca154fWithHttpInfo($company_domain, $time_tracking_record, $contentType);
+        list($response) = $this->e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo($time_tracking_record, $contentType);
         return $response;
     }
 
     /**
-     * Operation call69c777478f5d52dee1b4f0937dca154fWithHttpInfo
+     * Operation e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo
      *
      * addTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response|mixed, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response|mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function call69c777478f5d52dee1b4f0937dca154fWithHttpInfo($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'][0])
+    public function e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
     {
-        $request = $this->call69c777478f5d52dee1b4f0937dca154fRequest($company_domain, $time_tracking_record, $contentType);
+        $request = $this->e2ae6e59655aeab2b4e6311967a2809fRequest($time_tracking_record, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1125,7 +1078,7 @@ class HoursApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response',
+                        '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response',
                         $request,
                         $response,
                     );
@@ -1153,7 +1106,7 @@ class HoursApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response',
+                '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response',
                 $request,
                 $response,
             );
@@ -1162,7 +1115,7 @@ class HoursApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response',
+                        '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1183,20 +1136,19 @@ class HoursApi
     }
 
     /**
-     * Operation call69c777478f5d52dee1b4f0937dca154fAsync
+     * Operation e2ae6e59655aeab2b4e6311967a2809fAsync
      *
      * addTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call69c777478f5d52dee1b4f0937dca154fAsync($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'][0])
+    public function e2ae6e59655aeab2b4e6311967a2809fAsync($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
     {
-        return $this->call69c777478f5d52dee1b4f0937dca154fAsyncWithHttpInfo($company_domain, $time_tracking_record, $contentType)
+        return $this->e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo($time_tracking_record, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1205,21 +1157,20 @@ class HoursApi
     }
 
     /**
-     * Operation call69c777478f5d52dee1b4f0937dca154fAsyncWithHttpInfo
+     * Operation e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo
      *
      * addTimeTracking
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call69c777478f5d52dee1b4f0937dca154fAsyncWithHttpInfo($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'][0])
+    public function e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
     {
-        $returnType = '\MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response';
-        $request = $this->call69c777478f5d52dee1b4f0937dca154fRequest($company_domain, $time_tracking_record, $contentType);
+        $returnType = '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response';
+        $request = $this->e2ae6e59655aeab2b4e6311967a2809fRequest($time_tracking_record, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1258,34 +1209,26 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'call69c777478f5d52dee1b4f0937dca154f'
+     * Create request for operation 'e2ae6e59655aeab2b4e6311967a2809f'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function call69c777478f5d52dee1b4f0937dca154fRequest($company_domain, $time_tracking_record, string $contentType = self::contentTypes['call69c777478f5d52dee1b4f0937dca154f'][0])
+    public function e2ae6e59655aeab2b4e6311967a2809fRequest($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling call69c777478f5d52dee1b4f0937dca154f'
-            );
-        }
 
         // verify the required parameter 'time_tracking_record' is set
         if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $time_tracking_record when calling call69c777478f5d52dee1b4f0937dca154f'
+                'Missing the required parameter $time_tracking_record when calling e2ae6e59655aeab2b4e6311967a2809f'
             );
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/timetracking/add';
+        $resourcePath = '/api/v1/timetracking/add';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1294,14 +1237,6 @@ class HoursApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1377,40 +1312,38 @@ class HoursApi
     }
 
     /**
-     * Operation f97efc203b25647724accb9da7dda7db
+     * Operation f54bcaec6771b1264671e53f2e557b1f
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * addTimeTrackingBulk
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f97efc203b25647724accb9da7dda7db'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse|mixed
+     * @return \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response
      */
-    public function f97efc203b25647724accb9da7dda7db($company_domain, $id, string $contentType = self::contentTypes['f97efc203b25647724accb9da7dda7db'][0])
+    public function f54bcaec6771b1264671e53f2e557b1f($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
     {
-        list($response) = $this->f97efc203b25647724accb9da7dda7dbWithHttpInfo($company_domain, $id, $contentType);
+        list($response) = $this->f54bcaec6771b1264671e53f2e557b1fWithHttpInfo($time_tracking_record, $contentType);
         return $response;
     }
 
     /**
-     * Operation f97efc203b25647724accb9da7dda7dbWithHttpInfo
+     * Operation f54bcaec6771b1264671e53f2e557b1fWithHttpInfo
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * addTimeTrackingBulk
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f97efc203b25647724accb9da7dda7db'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse|mixed, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function f97efc203b25647724accb9da7dda7dbWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['f97efc203b25647724accb9da7dda7db'][0])
+    public function f54bcaec6771b1264671e53f2e557b1fWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
     {
-        $request = $this->f97efc203b25647724accb9da7dda7dbRequest($company_domain, $id, $contentType);
+        $request = $this->f54bcaec6771b1264671e53f2e557b1fRequest($time_tracking_record, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1438,13 +1371,7 @@ class HoursApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
+                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response',
                         $request,
                         $response,
                     );
@@ -1466,7 +1393,7 @@ class HoursApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse',
+                '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response',
                 $request,
                 $response,
             );
@@ -1475,15 +1402,7 @@ class HoursApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
+                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1496,20 +1415,19 @@ class HoursApi
     }
 
     /**
-     * Operation f97efc203b25647724accb9da7dda7dbAsync
+     * Operation f54bcaec6771b1264671e53f2e557b1fAsync
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * addTimeTrackingBulk
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f97efc203b25647724accb9da7dda7db'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function f97efc203b25647724accb9da7dda7dbAsync($company_domain, $id, string $contentType = self::contentTypes['f97efc203b25647724accb9da7dda7db'][0])
+    public function f54bcaec6771b1264671e53f2e557b1fAsync($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
     {
-        return $this->f97efc203b25647724accb9da7dda7dbAsyncWithHttpInfo($company_domain, $id, $contentType)
+        return $this->f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo($time_tracking_record, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1518,21 +1436,20 @@ class HoursApi
     }
 
     /**
-     * Operation f97efc203b25647724accb9da7dda7dbAsyncWithHttpInfo
+     * Operation f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * addTimeTrackingBulk
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f97efc203b25647724accb9da7dda7db'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function f97efc203b25647724accb9da7dda7dbAsyncWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['f97efc203b25647724accb9da7dda7db'][0])
+    public function f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
     {
-        $returnType = '\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse';
-        $request = $this->f97efc203b25647724accb9da7dda7dbRequest($company_domain, $id, $contentType);
+        $returnType = '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response';
+        $request = $this->f54bcaec6771b1264671e53f2e557b1fRequest($time_tracking_record, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1571,34 +1488,26 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'f97efc203b25647724accb9da7dda7db'
+     * Create request for operation 'f54bcaec6771b1264671e53f2e557b1f'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f97efc203b25647724accb9da7dda7db'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function f97efc203b25647724accb9da7dda7dbRequest($company_domain, $id, string $contentType = self::contentTypes['f97efc203b25647724accb9da7dda7db'][0])
+    public function f54bcaec6771b1264671e53f2e557b1fRequest($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
+        // verify the required parameter 'time_tracking_record' is set
+        if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling f97efc203b25647724accb9da7dda7db'
-            );
-        }
-
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling f97efc203b25647724accb9da7dda7db'
+                'Missing the required parameter $time_tracking_record when calling f54bcaec6771b1264671e53f2e557b1f'
             );
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/timetracking/delete/{id}';
+        $resourcePath = '/api/v1/timetracking/record';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1607,22 +1516,6 @@ class HoursApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1632,7 +1525,14 @@ class HoursApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($time_tracking_record)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
+            } else {
+                $httpBody = $time_tracking_record;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1683,7 +1583,7 @@ class HoursApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'DELETE',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

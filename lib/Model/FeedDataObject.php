@@ -345,7 +345,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param mixed|null $id Unique identifier for the feed
+     * @param mixed|null $id id
      *
      * @return self
      */
@@ -379,7 +379,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets public_id
      *
-     * @param mixed|null $public_id Public identifier used in feed URLs
+     * @param mixed|null $public_id public_id
      *
      * @return self
      */
@@ -413,7 +413,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets user_id
      *
-     * @param mixed|null $user_id User ID that owns this feed
+     * @param mixed|null $user_id user_id
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets definition
      *
-     * @param mixed|null $definition Feed definition type from ICalFeedDefinitions
+     * @param mixed|null $definition definition
      *
      * @return self
      */
@@ -481,7 +481,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets format
      *
-     * @param mixed|null $format Format of the feed (e.g., ical)
+     * @param mixed|null $format format
      *
      * @return self
      */
@@ -515,7 +515,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param mixed|null $url URL to access the feed
+     * @param mixed|null $url url
      *
      * @return self
      */
@@ -549,7 +549,7 @@ class FeedDataObject implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets title
      *
-     * @param mixed|null $title Display title for the feed
+     * @param mixed|null $title title
      *
      * @return self
      */

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **icon** | **string** |  | [optional]
 **color** | **string** |  | [optional]
 **unit** | **string** |  | [optional]
+**source** | **string** |  | [optional]
 **still_in_use** | **bool** |  | [optional]
 **share_with_all_on_calendar** | **bool** |  | [optional]
 **paid** | **bool** |  | [optional]

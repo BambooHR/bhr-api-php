@@ -487,7 +487,7 @@ class CommonDataObjectsPayrollPayrollFieldAmountWithRange implements ModelInterf
     /**
      * Sets range
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollRange|null $range range
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollRange|null $range Range constraints for the field value
      *
      * @return self
      */

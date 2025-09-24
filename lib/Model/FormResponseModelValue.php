@@ -77,6 +77,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'note' => 'string',
         'placeholder' => 'string',
         'name' => 'string',
+        'items' => '\MySdk\Model\SelectFieldFormNodeAllOfItems[]',
+        'multiselect' => 'bool',
+        'add_item_field_id' => 'int',
+        'add_item_label' => 'string',
         'icon' => 'string',
         'field_id' => 'string',
         'can_add_rows' => 'bool',
@@ -96,8 +100,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'can_add' => 'bool',
         'can_delete' => 'bool',
         'template' => 'string',
-        'items' => '\MySdk\Model\SelectFieldFormNodeAllOfItems[]',
-        'multiselect' => 'bool'
+        'aca_statuses' => 'string[]',
+        'aca_status_enabled' => 'bool'
     ];
 
     /**
@@ -128,6 +132,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'note' => null,
         'placeholder' => null,
         'name' => null,
+        'items' => null,
+        'multiselect' => null,
+        'add_item_field_id' => null,
+        'add_item_label' => null,
         'icon' => null,
         'field_id' => null,
         'can_add_rows' => null,
@@ -147,8 +155,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'can_add' => null,
         'can_delete' => null,
         'template' => null,
-        'items' => null,
-        'multiselect' => null
+        'aca_statuses' => null,
+        'aca_status_enabled' => null
     ];
 
     /**
@@ -177,6 +185,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'note' => false,
         'placeholder' => false,
         'name' => false,
+        'items' => false,
+        'multiselect' => false,
+        'add_item_field_id' => false,
+        'add_item_label' => false,
         'icon' => false,
         'field_id' => false,
         'can_add_rows' => false,
@@ -196,8 +208,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'can_add' => false,
         'can_delete' => false,
         'template' => false,
-        'items' => false,
-        'multiselect' => false
+        'aca_statuses' => false,
+        'aca_status_enabled' => false
     ];
 
     /**
@@ -306,6 +318,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'note' => 'note',
         'placeholder' => 'placeholder',
         'name' => 'name',
+        'items' => 'items',
+        'multiselect' => 'multiselect',
+        'add_item_field_id' => 'addItemFieldId',
+        'add_item_label' => 'addItemLabel',
         'icon' => 'icon',
         'field_id' => 'fieldId',
         'can_add_rows' => 'canAddRows',
@@ -325,8 +341,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'can_add' => 'canAdd',
         'can_delete' => 'canDelete',
         'template' => 'template',
-        'items' => 'items',
-        'multiselect' => 'multiselect'
+        'aca_statuses' => 'acaStatuses',
+        'aca_status_enabled' => 'acaStatusEnabled'
     ];
 
     /**
@@ -355,6 +371,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'note' => 'setNote',
         'placeholder' => 'setPlaceholder',
         'name' => 'setName',
+        'items' => 'setItems',
+        'multiselect' => 'setMultiselect',
+        'add_item_field_id' => 'setAddItemFieldId',
+        'add_item_label' => 'setAddItemLabel',
         'icon' => 'setIcon',
         'field_id' => 'setFieldId',
         'can_add_rows' => 'setCanAddRows',
@@ -374,8 +394,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'can_add' => 'setCanAdd',
         'can_delete' => 'setCanDelete',
         'template' => 'setTemplate',
-        'items' => 'setItems',
-        'multiselect' => 'setMultiselect'
+        'aca_statuses' => 'setAcaStatuses',
+        'aca_status_enabled' => 'setAcaStatusEnabled'
     ];
 
     /**
@@ -404,6 +424,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'note' => 'getNote',
         'placeholder' => 'getPlaceholder',
         'name' => 'getName',
+        'items' => 'getItems',
+        'multiselect' => 'getMultiselect',
+        'add_item_field_id' => 'getAddItemFieldId',
+        'add_item_label' => 'getAddItemLabel',
         'icon' => 'getIcon',
         'field_id' => 'getFieldId',
         'can_add_rows' => 'getCanAddRows',
@@ -423,8 +447,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         'can_add' => 'getCanAdd',
         'can_delete' => 'getCanDelete',
         'template' => 'getTemplate',
-        'items' => 'getItems',
-        'multiselect' => 'getMultiselect'
+        'aca_statuses' => 'getAcaStatuses',
+        'aca_status_enabled' => 'getAcaStatusEnabled'
     ];
 
     /**
@@ -519,6 +543,10 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('note', $data ?? [], null);
         $this->setIfExists('placeholder', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('multiselect', $data ?? [], null);
+        $this->setIfExists('add_item_field_id', $data ?? [], null);
+        $this->setIfExists('add_item_label', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('field_id', $data ?? [], null);
         $this->setIfExists('can_add_rows', $data ?? [], null);
@@ -538,8 +566,8 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('can_add', $data ?? [], null);
         $this->setIfExists('can_delete', $data ?? [], null);
         $this->setIfExists('template', $data ?? [], null);
-        $this->setIfExists('items', $data ?? [], null);
-        $this->setIfExists('multiselect', $data ?? [], null);
+        $this->setIfExists('aca_statuses', $data ?? [], null);
+        $this->setIfExists('aca_status_enabled', $data ?? [], null);
     }
 
     /**
@@ -1134,6 +1162,114 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets items
+     *
+     * @return \MySdk\Model\SelectFieldFormNodeAllOfItems[]|null
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \MySdk\Model\SelectFieldFormNodeAllOfItems[]|null $items Available options for selection
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        }
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets multiselect
+     *
+     * @return bool|null
+     */
+    public function getMultiselect()
+    {
+        return $this->container['multiselect'];
+    }
+
+    /**
+     * Sets multiselect
+     *
+     * @param bool|null $multiselect Whether multiple options can be selected
+     *
+     * @return self
+     */
+    public function setMultiselect($multiselect)
+    {
+        if (is_null($multiselect)) {
+            throw new \InvalidArgumentException('non-nullable multiselect cannot be null');
+        }
+        $this->container['multiselect'] = $multiselect;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_item_field_id
+     *
+     * @return int|null
+     */
+    public function getAddItemFieldId()
+    {
+        return $this->container['add_item_field_id'];
+    }
+
+    /**
+     * Sets add_item_field_id
+     *
+     * @param int|null $add_item_field_id Field ID for adding new items
+     *
+     * @return self
+     */
+    public function setAddItemFieldId($add_item_field_id)
+    {
+        if (is_null($add_item_field_id)) {
+            throw new \InvalidArgumentException('non-nullable add_item_field_id cannot be null');
+        }
+        $this->container['add_item_field_id'] = $add_item_field_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_item_label
+     *
+     * @return string|null
+     */
+    public function getAddItemLabel()
+    {
+        return $this->container['add_item_label'];
+    }
+
+    /**
+     * Sets add_item_label
+     *
+     * @param string|null $add_item_label Label for adding new items
+     *
+     * @return self
+     */
+    public function setAddItemLabel($add_item_label)
+    {
+        if (is_null($add_item_label)) {
+            throw new \InvalidArgumentException('non-nullable add_item_label cannot be null');
+        }
+        $this->container['add_item_label'] = $add_item_label;
+
+        return $this;
+    }
+
+    /**
      * Gets icon
      *
      * @return string|null
@@ -1657,55 +1793,55 @@ class FormResponseModelValue implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets items
+     * Gets aca_statuses
      *
-     * @return \MySdk\Model\SelectFieldFormNodeAllOfItems[]|null
+     * @return string[]|null
      */
-    public function getItems()
+    public function getAcaStatuses()
     {
-        return $this->container['items'];
+        return $this->container['aca_statuses'];
     }
 
     /**
-     * Sets items
+     * Sets aca_statuses
      *
-     * @param \MySdk\Model\SelectFieldFormNodeAllOfItems[]|null $items Available options for selection
+     * @param string[]|null $aca_statuses Available aca statuses
      *
      * @return self
      */
-    public function setItems($items)
+    public function setAcaStatuses($aca_statuses)
     {
-        if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        if (is_null($aca_statuses)) {
+            throw new \InvalidArgumentException('non-nullable aca_statuses cannot be null');
         }
-        $this->container['items'] = $items;
+        $this->container['aca_statuses'] = $aca_statuses;
 
         return $this;
     }
 
     /**
-     * Gets multiselect
+     * Gets aca_status_enabled
      *
      * @return bool|null
      */
-    public function getMultiselect()
+    public function getAcaStatusEnabled()
     {
-        return $this->container['multiselect'];
+        return $this->container['aca_status_enabled'];
     }
 
     /**
-     * Sets multiselect
+     * Sets aca_status_enabled
      *
-     * @param bool|null $multiselect Whether multiple options can be selected
+     * @param bool|null $aca_status_enabled Is Aca status enabled
      *
      * @return self
      */
-    public function setMultiselect($multiselect)
+    public function setAcaStatusEnabled($aca_status_enabled)
     {
-        if (is_null($multiselect)) {
-            throw new \InvalidArgumentException('non-nullable multiselect cannot be null');
+        if (is_null($aca_status_enabled)) {
+            throw new \InvalidArgumentException('non-nullable aca_status_enabled cannot be null');
         }
-        $this->container['multiselect'] = $multiselect;
+        $this->container['aca_status_enabled'] = $aca_status_enabled;
 
         return $this;
     }

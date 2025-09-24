@@ -58,7 +58,7 @@ class DependentApprovalResponse implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'enrollment_window_start_date' => '\DateTime',
-        'dependent_data' => '\MySdk\Model\DependentsApprovalDataViewObject[]',
+        'dependent_data' => '\MySdk\Model\DependentsDataViewObject[]',
         'standard_dependent_questions' => '\MySdk\Model\DependentQuestion[]'
     ];
 
@@ -333,7 +333,7 @@ class DependentApprovalResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets dependent_data
      *
-     * @return \MySdk\Model\DependentsApprovalDataViewObject[]|null
+     * @return \MySdk\Model\DependentsDataViewObject[]|null
      */
     public function getDependentData()
     {
@@ -343,7 +343,7 @@ class DependentApprovalResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets dependent_data
      *
-     * @param \MySdk\Model\DependentsApprovalDataViewObject[]|null $dependent_data dependent_data
+     * @param \MySdk\Model\DependentsDataViewObject[]|null $dependent_data dependent_data
      *
      * @return self
      */

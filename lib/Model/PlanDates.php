@@ -79,8 +79,8 @@ class PlanDates implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'start_ymd' => true,
-        'end_ymd' => true
+        'start_ymd' => false,
+        'end_ymd' => false
     ];
 
     /**
@@ -316,14 +316,7 @@ class PlanDates implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStartYmd($start_ymd)
     {
         if (is_null($start_ymd)) {
-            array_push($this->openAPINullablesSetToNull, 'start_ymd');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('start_ymd', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable start_ymd cannot be null');
         }
         $this->container['start_ymd'] = $start_ymd;
 
@@ -350,14 +343,7 @@ class PlanDates implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEndYmd($end_ymd)
     {
         if (is_null($end_ymd)) {
-            array_push($this->openAPINullablesSetToNull, 'end_ymd');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('end_ymd', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable end_ymd cannot be null');
         }
         $this->container['end_ymd'] = $end_ymd;
 

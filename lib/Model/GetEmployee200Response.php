@@ -49,7 +49,7 @@ class GetEmployee200Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Get_Employee_200_response';
+    protected static $openAPIModelName = 'get_employee_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -57,7 +57,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'metals' => '\MySdk\Model\AbstractMetal[]',
         'type' => 'string',
         'defaults' => '\MySdk\Model\PlanTypeMetaDataDefaults',
         'vendors' => '\MySdk\Model\BenefitVendor[]',
@@ -72,7 +71,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'metals' => null,
         'type' => null,
         'defaults' => null,
         'vendors' => null,
@@ -85,7 +83,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'metals' => false,
         'type' => false,
         'defaults' => false,
         'vendors' => false,
@@ -178,7 +175,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'metals' => 'metals',
         'type' => 'type',
         'defaults' => 'defaults',
         'vendors' => 'vendors',
@@ -191,7 +187,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'metals' => 'setMetals',
         'type' => 'setType',
         'defaults' => 'setDefaults',
         'vendors' => 'setVendors',
@@ -204,7 +199,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'metals' => 'getMetals',
         'type' => 'getType',
         'defaults' => 'getDefaults',
         'vendors' => 'getVendors',
@@ -268,7 +262,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('metals', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('defaults', $data ?? [], null);
         $this->setIfExists('vendors', $data ?? [], null);
@@ -316,33 +309,6 @@ class PlanTypeMetaData implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets metals
-     *
-     * @return \MySdk\Model\AbstractMetal[]|null
-     */
-    public function getMetals()
-    {
-        return $this->container['metals'];
-    }
-
-    /**
-     * Sets metals
-     *
-     * @param \MySdk\Model\AbstractMetal[]|null $metals metals
-     *
-     * @return self
-     */
-    public function setMetals($metals)
-    {
-        if (is_null($metals)) {
-            throw new \InvalidArgumentException('non-nullable metals cannot be null');
-        }
-        $this->container['metals'] = $metals;
-
-        return $this;
-    }
 
     /**
      * Gets type

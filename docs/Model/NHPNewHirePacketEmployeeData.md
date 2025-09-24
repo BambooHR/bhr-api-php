@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **job_title** | **string** | Job title of the employee | [optional]
 **email** | **string** | Email address of the employee | [optional]
 **manager_id** | **int** | Unique identifier of the employee&#39;s manager | [optional]
+**employee_solutions** | **string[]** | Array of employee solutions | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -604,7 +604,7 @@ class LevelsAndBandsCompPlanningEmployee implements ModelInterface, ArrayAccess,
     /**
      * Sets compensation_level
      *
-     * @param \MySdk\Model\LevelsAndBandsCompPlanningLevel|null $compensation_level compensation_level
+     * @param \MySdk\Model\LevelsAndBandsCompPlanningLevel|null $compensation_level Employee pay band level
      *
      * @return self
      */

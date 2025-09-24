@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **end_date** | **string** | End Date | [optional]
 **auto_enroll_setting** | **string** | Auto Enroll Setting | [optional]
 **rate_type** | **string** | Rate Type | [optional]
-**plan_category_data_options** | **object** |  | [optional]
 **carrier_id** | **string** | Carrier ID | [optional]
 **disabled_reason_keys** | **string[]** | Disabled Reason Keys | [optional]
+**required_plan_ids** | **int[]** | Required Plan IDs | [optional]
+**plans_dependent_upon_this_plan** | **int[]** | Plans Dependent Upon This Plan | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

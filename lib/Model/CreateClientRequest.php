@@ -125,27 +125,27 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static array $openAPINullables = [
         'client_id' => false,
-        'company_name' => true,
-        'dba_name' => true,
-        'ein' => true,
-        'street1' => true,
-        'street2' => true,
-        'city' => true,
-        'state' => true,
-        'zip' => true,
-        'contact_first_name' => true,
-        'contact_last_name' => true,
-        'contact_email' => true,
-        'contact_phone' => true,
-        'contact_fax' => true,
+        'company_name' => false,
+        'dba_name' => false,
+        'ein' => false,
+        'street1' => false,
+        'street2' => false,
+        'city' => false,
+        'state' => false,
+        'zip' => false,
+        'contact_first_name' => false,
+        'contact_last_name' => false,
+        'contact_email' => false,
+        'contact_phone' => false,
+        'contact_fax' => false,
         'current_user' => false,
-        'domain_name' => true,
-        'trax_user_api_key' => true,
-        'contact_user_id' => true,
+        'domain_name' => false,
+        'trax_user_api_key' => false,
+        'contact_user_id' => false,
         'is_test_client' => false,
         'phone_number' => false,
         'business_type' => false,
-        'website' => true,
+        'website' => false,
         'access_code' => true,
         'is_internal' => false
     ];
@@ -528,14 +528,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setCompanyName($company_name)
     {
         if (is_null($company_name)) {
-            array_push($this->openAPINullablesSetToNull, 'company_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('company_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable company_name cannot be null');
         }
         $this->container['company_name'] = $company_name;
 
@@ -562,14 +555,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDbaName($dba_name)
     {
         if (is_null($dba_name)) {
-            array_push($this->openAPINullablesSetToNull, 'dba_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dba_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dba_name cannot be null');
         }
         $this->container['dba_name'] = $dba_name;
 
@@ -596,14 +582,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setEin($ein)
     {
         if (is_null($ein)) {
-            array_push($this->openAPINullablesSetToNull, 'ein');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ein', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable ein cannot be null');
         }
         $this->container['ein'] = $ein;
 
@@ -630,14 +609,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setStreet1($street1)
     {
         if (is_null($street1)) {
-            array_push($this->openAPINullablesSetToNull, 'street1');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('street1', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable street1 cannot be null');
         }
         $this->container['street1'] = $street1;
 
@@ -664,14 +636,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setStreet2($street2)
     {
         if (is_null($street2)) {
-            array_push($this->openAPINullablesSetToNull, 'street2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('street2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable street2 cannot be null');
         }
         $this->container['street2'] = $street2;
 
@@ -698,14 +663,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setCity($city)
     {
         if (is_null($city)) {
-            array_push($this->openAPINullablesSetToNull, 'city');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('city', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
         $this->container['city'] = $city;
 
@@ -732,14 +690,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setState($state)
     {
         if (is_null($state)) {
-            array_push($this->openAPINullablesSetToNull, 'state');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('state', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
         $this->container['state'] = $state;
 
@@ -766,14 +717,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setZip($zip)
     {
         if (is_null($zip)) {
-            array_push($this->openAPINullablesSetToNull, 'zip');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('zip', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
         $this->container['zip'] = $zip;
 
@@ -800,14 +744,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setContactFirstName($contact_first_name)
     {
         if (is_null($contact_first_name)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_first_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_first_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable contact_first_name cannot be null');
         }
         $this->container['contact_first_name'] = $contact_first_name;
 
@@ -834,14 +771,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setContactLastName($contact_last_name)
     {
         if (is_null($contact_last_name)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_last_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_last_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable contact_last_name cannot be null');
         }
         $this->container['contact_last_name'] = $contact_last_name;
 
@@ -868,14 +798,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setContactEmail($contact_email)
     {
         if (is_null($contact_email)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable contact_email cannot be null');
         }
         $this->container['contact_email'] = $contact_email;
 
@@ -902,14 +825,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setContactPhone($contact_phone)
     {
         if (is_null($contact_phone)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_phone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_phone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable contact_phone cannot be null');
         }
         $this->container['contact_phone'] = $contact_phone;
 
@@ -936,14 +852,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setContactFax($contact_fax)
     {
         if (is_null($contact_fax)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_fax');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_fax', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable contact_fax cannot be null');
         }
         $this->container['contact_fax'] = $contact_fax;
 
@@ -997,14 +906,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDomainName($domain_name)
     {
         if (is_null($domain_name)) {
-            array_push($this->openAPINullablesSetToNull, 'domain_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('domain_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable domain_name cannot be null');
         }
         $this->container['domain_name'] = $domain_name;
 
@@ -1031,14 +933,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setTraxUserApiKey($trax_user_api_key)
     {
         if (is_null($trax_user_api_key)) {
-            array_push($this->openAPINullablesSetToNull, 'trax_user_api_key');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('trax_user_api_key', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable trax_user_api_key cannot be null');
         }
         $this->container['trax_user_api_key'] = $trax_user_api_key;
 
@@ -1065,14 +960,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setContactUserId($contact_user_id)
     {
         if (is_null($contact_user_id)) {
-            array_push($this->openAPINullablesSetToNull, 'contact_user_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contact_user_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable contact_user_id cannot be null');
         }
         $this->container['contact_user_id'] = $contact_user_id;
 
@@ -1180,14 +1068,7 @@ class CreateClientRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setWebsite($website)
     {
         if (is_null($website)) {
-            array_push($this->openAPINullablesSetToNull, 'website');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('website', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable website cannot be null');
         }
         $this->container['website'] = $website;
 

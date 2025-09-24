@@ -81,9 +81,9 @@ class Reimbursement implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => true,
-        'frequency' => true,
-        'currency_code' => true
+        'amount' => false,
+        'frequency' => false,
+        'currency_code' => false
     ];
 
     /**
@@ -323,14 +323,7 @@ class Reimbursement implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            array_push($this->openAPINullablesSetToNull, 'amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
         $this->container['amount'] = $amount;
 
@@ -357,14 +350,7 @@ class Reimbursement implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFrequency($frequency)
     {
         if (is_null($frequency)) {
-            array_push($this->openAPINullablesSetToNull, 'frequency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('frequency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable frequency cannot be null');
         }
         $this->container['frequency'] = $frequency;
 
@@ -391,14 +377,7 @@ class Reimbursement implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCurrencyCode($currency_code)
     {
         if (is_null($currency_code)) {
-            array_push($this->openAPINullablesSetToNull, 'currency_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
         $this->container['currency_code'] = $currency_code;
 

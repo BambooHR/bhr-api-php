@@ -883,7 +883,7 @@ class DailyTimesheetApiTransformer implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets last_clock_entry
      *
-     * @param \MySdk\Model\ClockEntryApiTransformer|null $last_clock_entry last_clock_entry
+     * @param \MySdk\Model\ClockEntryApiTransformer|null $last_clock_entry Last clock entry
      *
      * @return self
      */

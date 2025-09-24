@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **policy_name** | **string** |  | [optional]
 **type** | **string** |  | [optional]
 **unit** | **string** |  | [optional]
+**source** | **string** |  | [optional]
 **icon** | **string** |  | [optional]
 **current_balance** | **float** |  | [optional]
 **used_year_to_date** | **float** |  | [optional]

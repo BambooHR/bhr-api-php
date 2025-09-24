@@ -61,6 +61,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => 'int',
         'file_id' => 'int',
         'is_esignature_template' => 'bool',
+        'esignature_instance_id' => 'int',
+        'esignature_instance_status' => 'string',
+        'is_current_signer' => 'bool',
         'is_required' => 'bool'
     ];
 
@@ -75,6 +78,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => null,
         'file_id' => null,
         'is_esignature_template' => null,
+        'esignature_instance_id' => null,
+        'esignature_instance_status' => null,
+        'is_current_signer' => null,
         'is_required' => null
     ];
 
@@ -87,6 +93,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => true,
         'file_id' => false,
         'is_esignature_template' => false,
+        'esignature_instance_id' => true,
+        'esignature_instance_status' => true,
+        'is_current_signer' => true,
         'is_required' => false
     ];
 
@@ -179,6 +188,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => 'id',
         'file_id' => 'fileId',
         'is_esignature_template' => 'isEsignatureTemplate',
+        'esignature_instance_id' => 'esignatureInstanceId',
+        'esignature_instance_status' => 'esignatureInstanceStatus',
+        'is_current_signer' => 'isCurrentSigner',
         'is_required' => 'isRequired'
     ];
 
@@ -191,6 +203,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => 'setId',
         'file_id' => 'setFileId',
         'is_esignature_template' => 'setIsEsignatureTemplate',
+        'esignature_instance_id' => 'setEsignatureInstanceId',
+        'esignature_instance_status' => 'setEsignatureInstanceStatus',
+        'is_current_signer' => 'setIsCurrentSigner',
         'is_required' => 'setIsRequired'
     ];
 
@@ -203,6 +218,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => 'getId',
         'file_id' => 'getFileId',
         'is_esignature_template' => 'getIsEsignatureTemplate',
+        'esignature_instance_id' => 'getEsignatureInstanceId',
+        'esignature_instance_status' => 'getEsignatureInstanceStatus',
+        'is_current_signer' => 'getIsCurrentSigner',
         'is_required' => 'getIsRequired'
     ];
 
@@ -247,6 +265,29 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const ESIGNATURE_INSTANCE_STATUS_CANCELED = 'Canceled';
+    public const ESIGNATURE_INSTANCE_STATUS_COMPLETED = 'Completed';
+    public const ESIGNATURE_INSTANCE_STATUS_DECLINED = 'Declined';
+    public const ESIGNATURE_INSTANCE_STATUS_FAILED = 'Failed';
+    public const ESIGNATURE_INSTANCE_STATUS_IN_PROGRESS = 'InProgress';
+    public const ESIGNATURE_INSTANCE_STATUS_PENDING = 'Pending';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEsignatureInstanceStatusAllowableValues()
+    {
+        return [
+            self::ESIGNATURE_INSTANCE_STATUS_CANCELED,
+            self::ESIGNATURE_INSTANCE_STATUS_COMPLETED,
+            self::ESIGNATURE_INSTANCE_STATUS_DECLINED,
+            self::ESIGNATURE_INSTANCE_STATUS_FAILED,
+            self::ESIGNATURE_INSTANCE_STATUS_IN_PROGRESS,
+            self::ESIGNATURE_INSTANCE_STATUS_PENDING,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -266,6 +307,9 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('file_id', $data ?? [], null);
         $this->setIfExists('is_esignature_template', $data ?? [], null);
+        $this->setIfExists('esignature_instance_id', $data ?? [], null);
+        $this->setIfExists('esignature_instance_status', $data ?? [], null);
+        $this->setIfExists('is_current_signer', $data ?? [], null);
         $this->setIfExists('is_required', $data ?? [], null);
     }
 
@@ -295,6 +339,15 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEsignatureInstanceStatusAllowableValues();
+        if (!is_null($this->container['esignature_instance_status']) && !in_array($this->container['esignature_instance_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'esignature_instance_status', must be one of '%s'",
+                $this->container['esignature_instance_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -395,6 +448,118 @@ class TaskAttachmentSchema implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable is_esignature_template cannot be null');
         }
         $this->container['is_esignature_template'] = $is_esignature_template;
+
+        return $this;
+    }
+
+    /**
+     * Gets esignature_instance_id
+     *
+     * @return int|null
+     */
+    public function getEsignatureInstanceId()
+    {
+        return $this->container['esignature_instance_id'];
+    }
+
+    /**
+     * Sets esignature_instance_id
+     *
+     * @param int|null $esignature_instance_id The unique identifier of the e-signature instance associated with the attachment if there is one.
+     *
+     * @return self
+     */
+    public function setEsignatureInstanceId($esignature_instance_id)
+    {
+        if (is_null($esignature_instance_id)) {
+            array_push($this->openAPINullablesSetToNull, 'esignature_instance_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('esignature_instance_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['esignature_instance_id'] = $esignature_instance_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets esignature_instance_status
+     *
+     * @return string|null
+     */
+    public function getEsignatureInstanceStatus()
+    {
+        return $this->container['esignature_instance_status'];
+    }
+
+    /**
+     * Sets esignature_instance_status
+     *
+     * @param string|null $esignature_instance_status The status of the e-signature instance associated with the attachment if there is one.
+     *
+     * @return self
+     */
+    public function setEsignatureInstanceStatus($esignature_instance_status)
+    {
+        if (is_null($esignature_instance_status)) {
+            array_push($this->openAPINullablesSetToNull, 'esignature_instance_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('esignature_instance_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getEsignatureInstanceStatusAllowableValues();
+        if (!is_null($esignature_instance_status) && !in_array($esignature_instance_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'esignature_instance_status', must be one of '%s'",
+                    $esignature_instance_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['esignature_instance_status'] = $esignature_instance_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_current_signer
+     *
+     * @return bool|null
+     */
+    public function getIsCurrentSigner()
+    {
+        return $this->container['is_current_signer'];
+    }
+
+    /**
+     * Sets is_current_signer
+     *
+     * @param bool|null $is_current_signer Indicates whether the current user is the signer for the e-signature instance if there is one.
+     *
+     * @return self
+     */
+    public function setIsCurrentSigner($is_current_signer)
+    {
+        if (is_null($is_current_signer)) {
+            array_push($this->openAPINullablesSetToNull, 'is_current_signer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_current_signer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['is_current_signer'] = $is_current_signer;
 
         return $this;
     }

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fields** | [**\MySdk\Model\CommonDataObjectsPayrollFederalTaxFields**](CommonDataObjectsPayrollFederalTaxFields.md) |  | [optional]
+**fields** | [**\MySdk\Model\CommonDataObjectsPayrollFederalTaxFields**](CommonDataObjectsPayrollFederalTaxFields.md) | Federal tax fields information | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

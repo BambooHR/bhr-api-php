@@ -1,16 +1,16 @@
 # MySdk\LastChangeInformationApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getChangedEmployeeIds()**](LastChangeInformationApi.md#getChangedEmployeeIds) | **GET** /{companyDomain}/v1/employees/changed | Gets all updated employee IDs |
+| [**getChangedEmployeeIds()**](LastChangeInformationApi.md#getChangedEmployeeIds) | **GET** /api/v1/employees/changed | Gets all updated employee IDs |
 
 
 ## `getChangedEmployeeIds()`
 
 ```php
-getChangedEmployeeIds($company_domain, $since, $type)
+getChangedEmployeeIds($since, $type)
 ```
 
 Gets all updated employee IDs
@@ -42,12 +42,11 @@ $apiInstance = new MySdk\Api\LastChangeInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $since = 'since_example'; // string | URL encoded iso8601 timestamp
 $type = 'type_example'; // string | Use one of these in the {type} variable in the URL: \"inserted\", \"updated\", \"deleted\"
 
 try {
-    $apiInstance->getChangedEmployeeIds($company_domain, $since, $type);
+    $apiInstance->getChangedEmployeeIds($since, $type);
 } catch (Exception $e) {
     echo 'Exception when calling LastChangeInformationApi->getChangedEmployeeIds: ', $e->getMessage(), PHP_EOL;
 }
@@ -57,7 +56,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **since** | **string**| URL encoded iso8601 timestamp | |
 | **type** | **string**| Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; | [optional] |
 

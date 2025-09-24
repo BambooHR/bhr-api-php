@@ -365,7 +365,7 @@ class CommonDataObjectsPayrollStateTaxLocationFields implements ModelInterface, 
     /**
      * Sets exemptions
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollFieldAmountWithRange|null $exemptions exemptions
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollFieldAmountWithRange|null $exemptions Exemptions information
      *
      * @return self
      */
@@ -392,7 +392,7 @@ class CommonDataObjectsPayrollStateTaxLocationFields implements ModelInterface, 
     /**
      * Sets ignore_status_exemptions
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $ignore_status_exemptions ignore_status_exemptions
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollCheckbox|null $ignore_status_exemptions Whether to ignore status exemptions
      *
      * @return self
      */
@@ -419,7 +419,7 @@ class CommonDataObjectsPayrollStateTaxLocationFields implements ModelInterface, 
     /**
      * Sets additional_withholding
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding|null $additional_withholding additional_withholding
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollAdditionalWithholding|null $additional_withholding Additional withholding information
      *
      * @return self
      */
@@ -446,7 +446,7 @@ class CommonDataObjectsPayrollStateTaxLocationFields implements ModelInterface, 
     /**
      * Sets optional_fields
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationOptionalFields|null $optional_fields optional_fields
+     * @param \MySdk\Model\CommonDataObjectsPayrollStateTaxLocationOptionalFields|null $optional_fields Optional fields for state tax location
      *
      * @return self
      */

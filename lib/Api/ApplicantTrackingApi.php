@@ -154,7 +154,6 @@ class ApplicantTrackingApi
      *
      * Add New Candidate
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $first_name The first name of the candidate. (required)
      * @param  string $last_name The last name of the candidate. (required)
      * @param  int $job_id The id of the job opening for the candidate application. (required)
@@ -182,9 +181,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addNewCandidate($company_domain, $first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
+    public function addNewCandidate($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
     {
-        $this->addNewCandidateWithHttpInfo($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+        $this->addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
     }
 
     /**
@@ -192,7 +191,6 @@ class ApplicantTrackingApi
      *
      * Add New Candidate
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $first_name The first name of the candidate. (required)
      * @param  string $last_name The last name of the candidate. (required)
      * @param  int $job_id The id of the job opening for the candidate application. (required)
@@ -220,9 +218,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addNewCandidateWithHttpInfo($company_domain, $first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
+    public function addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
     {
-        $request = $this->addNewCandidateRequest($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+        $request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -262,7 +260,6 @@ class ApplicantTrackingApi
      *
      * Add New Candidate
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $first_name The first name of the candidate. (required)
      * @param  string $last_name The last name of the candidate. (required)
      * @param  int $job_id The id of the job opening for the candidate application. (required)
@@ -289,9 +286,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNewCandidateAsync($company_domain, $first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
+    public function addNewCandidateAsync($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
     {
-        return $this->addNewCandidateAsyncWithHttpInfo($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType)
+        return $this->addNewCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -304,7 +301,6 @@ class ApplicantTrackingApi
      *
      * Add New Candidate
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $first_name The first name of the candidate. (required)
      * @param  string $last_name The last name of the candidate. (required)
      * @param  int $job_id The id of the job opening for the candidate application. (required)
@@ -331,10 +327,10 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNewCandidateAsyncWithHttpInfo($company_domain, $first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
+    public function addNewCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
     {
         $returnType = '';
-        $request = $this->addNewCandidateRequest($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+        $request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -362,7 +358,6 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'addNewCandidate'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $first_name The first name of the candidate. (required)
      * @param  string $last_name The last name of the candidate. (required)
      * @param  int $job_id The id of the job opening for the candidate application. (required)
@@ -389,15 +384,8 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addNewCandidateRequest($company_domain, $first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
+    public function addNewCandidateRequest($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::contentTypes['addNewCandidate'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addNewCandidate'
-            );
-        }
 
         // verify the required parameter 'first_name' is set
         if ($first_name === null || (is_array($first_name) && count($first_name) === 0)) {
@@ -439,7 +427,7 @@ class ApplicantTrackingApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/application';
+        $resourcePath = '/api/v1/applicant_tracking/application';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -448,14 +436,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
         // form params
         $formDataProcessor = new FormDataProcessor();
@@ -558,7 +538,6 @@ class ApplicantTrackingApi
      *
      * Add New Job Opening
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $posting_title The posting title of the job opening. (required)
      * @param  string $job_status The status of the job opening. (required)
      * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
@@ -586,9 +565,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addNewJobOpening($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
+    public function addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
     {
-        $this->addNewJobOpeningWithHttpInfo($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+        $this->addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
     }
 
     /**
@@ -596,7 +575,6 @@ class ApplicantTrackingApi
      *
      * Add New Job Opening
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $posting_title The posting title of the job opening. (required)
      * @param  string $job_status The status of the job opening. (required)
      * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
@@ -624,9 +602,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addNewJobOpeningWithHttpInfo($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
+    public function addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
     {
-        $request = $this->addNewJobOpeningRequest($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+        $request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -666,7 +644,6 @@ class ApplicantTrackingApi
      *
      * Add New Job Opening
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $posting_title The posting title of the job opening. (required)
      * @param  string $job_status The status of the job opening. (required)
      * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
@@ -693,9 +670,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNewJobOpeningAsync($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
+    public function addNewJobOpeningAsync($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
     {
-        return $this->addNewJobOpeningAsyncWithHttpInfo($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType)
+        return $this->addNewJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -708,7 +685,6 @@ class ApplicantTrackingApi
      *
      * Add New Job Opening
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $posting_title The posting title of the job opening. (required)
      * @param  string $job_status The status of the job opening. (required)
      * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
@@ -735,10 +711,10 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNewJobOpeningAsyncWithHttpInfo($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
+    public function addNewJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
     {
         $returnType = '';
-        $request = $this->addNewJobOpeningRequest($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+        $request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -766,7 +742,6 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'addNewJobOpening'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $posting_title The posting title of the job opening. (required)
      * @param  string $job_status The status of the job opening. (required)
      * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
@@ -793,15 +768,8 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addNewJobOpeningRequest($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
+    public function addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::contentTypes['addNewJobOpening'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling addNewJobOpening'
-            );
-        }
 
         // verify the required parameter 'posting_title' is set
         if ($posting_title === null || (is_array($posting_title) && count($posting_title) === 0)) {
@@ -855,7 +823,7 @@ class ApplicantTrackingApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/job_opening';
+        $resourcePath = '/api/v1/applicant_tracking/job_opening';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -864,14 +832,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
         // form params
         $formDataProcessor = new FormDataProcessor();
@@ -974,7 +934,6 @@ class ApplicantTrackingApi
      *
      * Get Applications
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number (optional)
      * @param  int|null $job_id A Job Id to limit results to (optional)
      * @param  int|null $application_status_id Application status id to filter by. (optional)
@@ -990,9 +949,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetApplications200Response
      */
-    public function getApplications($company_domain, $page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
+    public function getApplications($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
     {
-        list($response) = $this->getApplicationsWithHttpInfo($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
+        list($response) = $this->getApplicationsWithHttpInfo($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
         return $response;
     }
 
@@ -1001,7 +960,6 @@ class ApplicantTrackingApi
      *
      * Get Applications
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number (optional)
      * @param  int|null $job_id A Job Id to limit results to (optional)
      * @param  int|null $application_status_id Application status id to filter by. (optional)
@@ -1017,9 +975,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetApplications200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationsWithHttpInfo($company_domain, $page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
+    public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
     {
-        $request = $this->getApplicationsRequest($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
+        $request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1095,7 +1053,6 @@ class ApplicantTrackingApi
      *
      * Get Applications
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number (optional)
      * @param  int|null $job_id A Job Id to limit results to (optional)
      * @param  int|null $application_status_id Application status id to filter by. (optional)
@@ -1110,9 +1067,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationsAsync($company_domain, $page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
+    public function getApplicationsAsync($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
     {
-        return $this->getApplicationsAsyncWithHttpInfo($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType)
+        return $this->getApplicationsAsyncWithHttpInfo($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1125,7 +1082,6 @@ class ApplicantTrackingApi
      *
      * Get Applications
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number (optional)
      * @param  int|null $job_id A Job Id to limit results to (optional)
      * @param  int|null $application_status_id Application status id to filter by. (optional)
@@ -1140,10 +1096,10 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationsAsyncWithHttpInfo($company_domain, $page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
+    public function getApplicationsAsyncWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
     {
         $returnType = '\MySdk\Model\GetApplications200Response';
-        $request = $this->getApplicationsRequest($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
+        $request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1184,7 +1140,6 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'getApplications'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int|null $page The page number (optional)
      * @param  int|null $job_id A Job Id to limit results to (optional)
      * @param  int|null $application_status_id Application status id to filter by. (optional)
@@ -1199,15 +1154,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationsRequest($company_domain, $page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
+    public function getApplicationsRequest($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::contentTypes['getApplications'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getApplications'
-            );
-        }
 
 
 
@@ -1218,8 +1167,7 @@ class ApplicantTrackingApi
 
 
 
-
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/applications';
+        $resourcePath = '/api/v1/applicant_tracking/applications';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1309,14 +1257,6 @@ class ApplicantTrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1389,16 +1329,15 @@ class ApplicantTrackingApi
      *
      * Get Company Locations
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyLocations'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetCompanyLocations200ResponseInner[]
      */
-    public function getCompanyLocations($company_domain, string $contentType = self::contentTypes['getCompanyLocations'][0])
+    public function getCompanyLocations(string $contentType = self::contentTypes['getCompanyLocations'][0])
     {
-        list($response) = $this->getCompanyLocationsWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->getCompanyLocationsWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1407,16 +1346,15 @@ class ApplicantTrackingApi
      *
      * Get Company Locations
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyLocations'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetCompanyLocations200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCompanyLocationsWithHttpInfo($company_domain, string $contentType = self::contentTypes['getCompanyLocations'][0])
+    public function getCompanyLocationsWithHttpInfo(string $contentType = self::contentTypes['getCompanyLocations'][0])
     {
-        $request = $this->getCompanyLocationsRequest($company_domain, $contentType);
+        $request = $this->getCompanyLocationsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1492,15 +1430,14 @@ class ApplicantTrackingApi
      *
      * Get Company Locations
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyLocations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyLocationsAsync($company_domain, string $contentType = self::contentTypes['getCompanyLocations'][0])
+    public function getCompanyLocationsAsync(string $contentType = self::contentTypes['getCompanyLocations'][0])
     {
-        return $this->getCompanyLocationsAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getCompanyLocationsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1513,16 +1450,15 @@ class ApplicantTrackingApi
      *
      * Get Company Locations
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyLocations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyLocationsAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getCompanyLocations'][0])
+    public function getCompanyLocationsAsyncWithHttpInfo(string $contentType = self::contentTypes['getCompanyLocations'][0])
     {
         $returnType = '\MySdk\Model\GetCompanyLocations200ResponseInner[]';
-        $request = $this->getCompanyLocationsRequest($company_domain, $contentType);
+        $request = $this->getCompanyLocationsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1563,24 +1499,16 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'getCompanyLocations'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCompanyLocations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCompanyLocationsRequest($company_domain, string $contentType = self::contentTypes['getCompanyLocations'][0])
+    public function getCompanyLocationsRequest(string $contentType = self::contentTypes['getCompanyLocations'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getCompanyLocations'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/locations';
+        $resourcePath = '/api/v1/applicant_tracking/locations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1589,14 +1517,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1669,16 +1589,15 @@ class ApplicantTrackingApi
      *
      * Get Hiring Leads
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHiringLeads'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetHiringLeads200ResponseInner[]
      */
-    public function getHiringLeads($company_domain, string $contentType = self::contentTypes['getHiringLeads'][0])
+    public function getHiringLeads(string $contentType = self::contentTypes['getHiringLeads'][0])
     {
-        list($response) = $this->getHiringLeadsWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->getHiringLeadsWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1687,16 +1606,15 @@ class ApplicantTrackingApi
      *
      * Get Hiring Leads
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHiringLeads'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetHiringLeads200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getHiringLeadsWithHttpInfo($company_domain, string $contentType = self::contentTypes['getHiringLeads'][0])
+    public function getHiringLeadsWithHttpInfo(string $contentType = self::contentTypes['getHiringLeads'][0])
     {
-        $request = $this->getHiringLeadsRequest($company_domain, $contentType);
+        $request = $this->getHiringLeadsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1772,15 +1690,14 @@ class ApplicantTrackingApi
      *
      * Get Hiring Leads
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHiringLeads'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHiringLeadsAsync($company_domain, string $contentType = self::contentTypes['getHiringLeads'][0])
+    public function getHiringLeadsAsync(string $contentType = self::contentTypes['getHiringLeads'][0])
     {
-        return $this->getHiringLeadsAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getHiringLeadsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1793,16 +1710,15 @@ class ApplicantTrackingApi
      *
      * Get Hiring Leads
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHiringLeads'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHiringLeadsAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getHiringLeads'][0])
+    public function getHiringLeadsAsyncWithHttpInfo(string $contentType = self::contentTypes['getHiringLeads'][0])
     {
         $returnType = '\MySdk\Model\GetHiringLeads200ResponseInner[]';
-        $request = $this->getHiringLeadsRequest($company_domain, $contentType);
+        $request = $this->getHiringLeadsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1843,24 +1759,16 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'getHiringLeads'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHiringLeads'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getHiringLeadsRequest($company_domain, string $contentType = self::contentTypes['getHiringLeads'][0])
+    public function getHiringLeadsRequest(string $contentType = self::contentTypes['getHiringLeads'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getHiringLeads'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/hiring_leads';
+        $resourcePath = '/api/v1/applicant_tracking/hiring_leads';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1869,14 +1777,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1949,7 +1849,6 @@ class ApplicantTrackingApi
      *
      * Get Job Summaries
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
      * @param  string|null $sort_by A specific field to sort the results by. (optional)
      * @param  string|null $sort_order Order by which to sort results. (optional)
@@ -1959,9 +1858,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getJobSummaries($company_domain, $status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
+    public function getJobSummaries($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
     {
-        $this->getJobSummariesWithHttpInfo($company_domain, $status_groups, $sort_by, $sort_order, $contentType);
+        $this->getJobSummariesWithHttpInfo($status_groups, $sort_by, $sort_order, $contentType);
     }
 
     /**
@@ -1969,7 +1868,6 @@ class ApplicantTrackingApi
      *
      * Get Job Summaries
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
      * @param  string|null $sort_by A specific field to sort the results by. (optional)
      * @param  string|null $sort_order Order by which to sort results. (optional)
@@ -1979,9 +1877,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJobSummariesWithHttpInfo($company_domain, $status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
+    public function getJobSummariesWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
     {
-        $request = $this->getJobSummariesRequest($company_domain, $status_groups, $sort_by, $sort_order, $contentType);
+        $request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2021,7 +1919,6 @@ class ApplicantTrackingApi
      *
      * Get Job Summaries
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
      * @param  string|null $sort_by A specific field to sort the results by. (optional)
      * @param  string|null $sort_order Order by which to sort results. (optional)
@@ -2030,9 +1927,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobSummariesAsync($company_domain, $status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
+    public function getJobSummariesAsync($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
     {
-        return $this->getJobSummariesAsyncWithHttpInfo($company_domain, $status_groups, $sort_by, $sort_order, $contentType)
+        return $this->getJobSummariesAsyncWithHttpInfo($status_groups, $sort_by, $sort_order, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2045,7 +1942,6 @@ class ApplicantTrackingApi
      *
      * Get Job Summaries
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
      * @param  string|null $sort_by A specific field to sort the results by. (optional)
      * @param  string|null $sort_order Order by which to sort results. (optional)
@@ -2054,10 +1950,10 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobSummariesAsyncWithHttpInfo($company_domain, $status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
+    public function getJobSummariesAsyncWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
     {
         $returnType = '';
-        $request = $this->getJobSummariesRequest($company_domain, $status_groups, $sort_by, $sort_order, $contentType);
+        $request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2085,7 +1981,6 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'getJobSummaries'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
      * @param  string|null $sort_by A specific field to sort the results by. (optional)
      * @param  string|null $sort_order Order by which to sort results. (optional)
@@ -2094,21 +1989,14 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJobSummariesRequest($company_domain, $status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
+    public function getJobSummariesRequest($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::contentTypes['getJobSummaries'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getJobSummaries'
-            );
-        }
 
 
 
 
-
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/jobs';
+        $resourcePath = '/api/v1/applicant_tracking/jobs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2144,14 +2032,6 @@ class ApplicantTrackingApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2224,16 +2104,15 @@ class ApplicantTrackingApi
      *
      * Get Statuses
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatuses'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getStatuses($company_domain, string $contentType = self::contentTypes['getStatuses'][0])
+    public function getStatuses(string $contentType = self::contentTypes['getStatuses'][0])
     {
-        $this->getStatusesWithHttpInfo($company_domain, $contentType);
+        $this->getStatusesWithHttpInfo($contentType);
     }
 
     /**
@@ -2241,16 +2120,15 @@ class ApplicantTrackingApi
      *
      * Get Statuses
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatuses'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatusesWithHttpInfo($company_domain, string $contentType = self::contentTypes['getStatuses'][0])
+    public function getStatusesWithHttpInfo(string $contentType = self::contentTypes['getStatuses'][0])
     {
-        $request = $this->getStatusesRequest($company_domain, $contentType);
+        $request = $this->getStatusesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2290,15 +2168,14 @@ class ApplicantTrackingApi
      *
      * Get Statuses
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatuses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatusesAsync($company_domain, string $contentType = self::contentTypes['getStatuses'][0])
+    public function getStatusesAsync(string $contentType = self::contentTypes['getStatuses'][0])
     {
-        return $this->getStatusesAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getStatusesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2311,16 +2188,15 @@ class ApplicantTrackingApi
      *
      * Get Statuses
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatuses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatusesAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getStatuses'][0])
+    public function getStatusesAsyncWithHttpInfo(string $contentType = self::contentTypes['getStatuses'][0])
     {
         $returnType = '';
-        $request = $this->getStatusesRequest($company_domain, $contentType);
+        $request = $this->getStatusesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2348,24 +2224,16 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'getStatuses'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatuses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatusesRequest($company_domain, string $contentType = self::contentTypes['getStatuses'][0])
+    public function getStatusesRequest(string $contentType = self::contentTypes['getStatuses'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getStatuses'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/statuses';
+        $resourcePath = '/api/v1/applicant_tracking/statuses';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2374,14 +2242,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2454,7 +2314,6 @@ class ApplicantTrackingApi
      *
      * Change Applicant&#39;s Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicantStatus'] to see the possible values for this operation
@@ -2463,9 +2322,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function postApplicantStatus($company_domain, $application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
+    public function postApplicantStatus($application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
     {
-        $this->postApplicantStatusWithHttpInfo($company_domain, $application_id, $post_applicant_status_request, $contentType);
+        $this->postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, $contentType);
     }
 
     /**
@@ -2473,7 +2332,6 @@ class ApplicantTrackingApi
      *
      * Change Applicant&#39;s Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicantStatus'] to see the possible values for this operation
@@ -2482,9 +2340,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postApplicantStatusWithHttpInfo($company_domain, $application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
+    public function postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
     {
-        $request = $this->postApplicantStatusRequest($company_domain, $application_id, $post_applicant_status_request, $contentType);
+        $request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2524,7 +2382,6 @@ class ApplicantTrackingApi
      *
      * Change Applicant&#39;s Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicantStatus'] to see the possible values for this operation
@@ -2532,9 +2389,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postApplicantStatusAsync($company_domain, $application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
+    public function postApplicantStatusAsync($application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
     {
-        return $this->postApplicantStatusAsyncWithHttpInfo($company_domain, $application_id, $post_applicant_status_request, $contentType)
+        return $this->postApplicantStatusAsyncWithHttpInfo($application_id, $post_applicant_status_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2547,7 +2404,6 @@ class ApplicantTrackingApi
      *
      * Change Applicant&#39;s Status
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicantStatus'] to see the possible values for this operation
@@ -2555,10 +2411,10 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postApplicantStatusAsyncWithHttpInfo($company_domain, $application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
+    public function postApplicantStatusAsyncWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
     {
         $returnType = '';
-        $request = $this->postApplicantStatusRequest($company_domain, $application_id, $post_applicant_status_request, $contentType);
+        $request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2586,7 +2442,6 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'postApplicantStatus'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicantStatus'] to see the possible values for this operation
@@ -2594,15 +2449,8 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postApplicantStatusRequest($company_domain, $application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
+    public function postApplicantStatusRequest($application_id, $post_applicant_status_request, string $contentType = self::contentTypes['postApplicantStatus'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postApplicantStatus'
-            );
-        }
 
         // verify the required parameter 'application_id' is set
         if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
@@ -2619,7 +2467,7 @@ class ApplicantTrackingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/applications/{applicationId}/status';
+        $resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2628,14 +2476,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($application_id !== null) {
             $resourcePath = str_replace(
@@ -2723,7 +2563,6 @@ class ApplicantTrackingApi
      *
      * Add Application Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicationComment'] to see the possible values for this operation
@@ -2732,9 +2571,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function postApplicationComment($company_domain, $application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
+    public function postApplicationComment($application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
     {
-        $this->postApplicationCommentWithHttpInfo($company_domain, $application_id, $post_application_comment_request, $contentType);
+        $this->postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, $contentType);
     }
 
     /**
@@ -2742,7 +2581,6 @@ class ApplicantTrackingApi
      *
      * Add Application Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicationComment'] to see the possible values for this operation
@@ -2751,9 +2589,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postApplicationCommentWithHttpInfo($company_domain, $application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
+    public function postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
     {
-        $request = $this->postApplicationCommentRequest($company_domain, $application_id, $post_application_comment_request, $contentType);
+        $request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2793,7 +2631,6 @@ class ApplicantTrackingApi
      *
      * Add Application Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicationComment'] to see the possible values for this operation
@@ -2801,9 +2638,9 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postApplicationCommentAsync($company_domain, $application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
+    public function postApplicationCommentAsync($application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
     {
-        return $this->postApplicationCommentAsyncWithHttpInfo($company_domain, $application_id, $post_application_comment_request, $contentType)
+        return $this->postApplicationCommentAsyncWithHttpInfo($application_id, $post_application_comment_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2816,7 +2653,6 @@ class ApplicantTrackingApi
      *
      * Add Application Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicationComment'] to see the possible values for this operation
@@ -2824,10 +2660,10 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postApplicationCommentAsyncWithHttpInfo($company_domain, $application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
+    public function postApplicationCommentAsyncWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
     {
         $returnType = '';
-        $request = $this->postApplicationCommentRequest($company_domain, $application_id, $post_application_comment_request, $contentType);
+        $request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2855,7 +2691,6 @@ class ApplicantTrackingApi
     /**
      * Create request for operation 'postApplicationComment'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to add a comment to. (required)
      * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postApplicationComment'] to see the possible values for this operation
@@ -2863,15 +2698,8 @@ class ApplicantTrackingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postApplicationCommentRequest($company_domain, $application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
+    public function postApplicationCommentRequest($application_id, $post_application_comment_request, string $contentType = self::contentTypes['postApplicationComment'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postApplicationComment'
-            );
-        }
 
         // verify the required parameter 'application_id' is set
         if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
@@ -2888,7 +2716,7 @@ class ApplicantTrackingApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/applications/{applicationId}/comments';
+        $resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2897,14 +2725,6 @@ class ApplicantTrackingApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($application_id !== null) {
             $resourcePath = str_replace(

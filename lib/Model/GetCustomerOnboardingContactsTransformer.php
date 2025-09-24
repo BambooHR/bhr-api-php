@@ -309,7 +309,7 @@ class GetCustomerOnboardingContactsTransformer implements ModelInterface, ArrayA
     /**
      * Sets core_contact
      *
-     * @param \MySdk\Model\GetCustomerOnboardingContact|null $core_contact core_contact
+     * @param \MySdk\Model\GetCustomerOnboardingContact|null $core_contact Core contact information for the customer
      *
      * @return self
      */
@@ -336,7 +336,7 @@ class GetCustomerOnboardingContactsTransformer implements ModelInterface, ArrayA
     /**
      * Sets payroll_contact
      *
-     * @param \MySdk\Model\GetCustomerOnboardingContact|null $payroll_contact payroll_contact
+     * @param \MySdk\Model\GetCustomerOnboardingContact|null $payroll_contact Payroll contact information for the customer
      *
      * @return self
      */

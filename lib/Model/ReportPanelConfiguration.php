@@ -58,6 +58,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'fields' => 'string[]',
+        'pivot_fields' => '\MySdk\Model\TablePanelConfigurationRequestPivotFields',
         'group_by' => 'string[]',
         'sort_by' => '\MySdk\Model\ReportPanelConfigurationSortByInner[]',
         'field_settings' => '\MySdk\Model\TablePanelConfigurationRequestFieldSettingsInner[]',
@@ -75,6 +76,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'fields' => null,
+        'pivot_fields' => null,
         'group_by' => null,
         'sort_by' => null,
         'field_settings' => null,
@@ -90,6 +92,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'fields' => false,
+        'pivot_fields' => false,
         'group_by' => false,
         'sort_by' => false,
         'field_settings' => false,
@@ -185,6 +188,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'fields' => 'fields',
+        'pivot_fields' => 'pivotFields',
         'group_by' => 'groupBy',
         'sort_by' => 'sortBy',
         'field_settings' => 'fieldSettings',
@@ -200,6 +204,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'fields' => 'setFields',
+        'pivot_fields' => 'setPivotFields',
         'group_by' => 'setGroupBy',
         'sort_by' => 'setSortBy',
         'field_settings' => 'setFieldSettings',
@@ -215,6 +220,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'fields' => 'getFields',
+        'pivot_fields' => 'getPivotFields',
         'group_by' => 'getGroupBy',
         'sort_by' => 'getSortBy',
         'field_settings' => 'getFieldSettings',
@@ -281,6 +287,7 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('fields', $data ?? [], null);
+        $this->setIfExists('pivot_fields', $data ?? [], null);
         $this->setIfExists('group_by', $data ?? [], null);
         $this->setIfExists('sort_by', $data ?? [], null);
         $this->setIfExists('field_settings', $data ?? [], null);
@@ -354,6 +361,33 @@ class ReportPanelConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable fields cannot be null');
         }
         $this->container['fields'] = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets pivot_fields
+     *
+     * @return \MySdk\Model\TablePanelConfigurationRequestPivotFields|null
+     */
+    public function getPivotFields()
+    {
+        return $this->container['pivot_fields'];
+    }
+
+    /**
+     * Sets pivot_fields
+     *
+     * @param \MySdk\Model\TablePanelConfigurationRequestPivotFields|null $pivot_fields pivot_fields
+     *
+     * @return self
+     */
+    public function setPivotFields($pivot_fields)
+    {
+        if (is_null($pivot_fields)) {
+            throw new \InvalidArgumentException('non-nullable pivot_fields cannot be null');
+        }
+        $this->container['pivot_fields'] = $pivot_fields;
 
         return $this;
     }

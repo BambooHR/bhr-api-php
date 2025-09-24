@@ -303,7 +303,7 @@ class CommonDataObjectsPayrollFederalTaxDetail implements ModelInterface, ArrayA
     /**
      * Sets fields
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollFederalTaxFields|null $fields fields
+     * @param \MySdk\Model\CommonDataObjectsPayrollFederalTaxFields|null $fields Federal tax fields information
      *
      * @return self
      */

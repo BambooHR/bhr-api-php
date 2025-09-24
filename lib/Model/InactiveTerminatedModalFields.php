@@ -87,7 +87,7 @@ class InactiveTerminatedModalFields implements ModelInterface, ArrayAccess, \Jso
         'term_type' => false,
         'term_reason' => false,
         'rehire' => false,
-        'benetrac_status' => true
+        'benetrac_status' => false
     ];
 
     /**
@@ -412,14 +412,7 @@ class InactiveTerminatedModalFields implements ModelInterface, ArrayAccess, \Jso
     public function setBenetracStatus($benetrac_status)
     {
         if (is_null($benetrac_status)) {
-            array_push($this->openAPINullablesSetToNull, 'benetrac_status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('benetrac_status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable benetrac_status cannot be null');
         }
         $this->container['benetrac_status'] = $benetrac_status;
 

@@ -60,10 +60,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'name' => 'string',
         'deletable' => 'bool',
+        'uuid' => 'string',
         'group_number' => 'string',
         'ein' => 'string',
         'number_of_plans' => 'int',
-        'plan_categories' => 'string[]'
+        'plan_categories' => 'string[]',
+        'plan_ids' => 'string[]'
     ];
 
     /**
@@ -77,10 +79,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'name' => null,
         'deletable' => null,
+        'uuid' => null,
         'group_number' => null,
         'ein' => null,
         'number_of_plans' => null,
-        'plan_categories' => null
+        'plan_categories' => null,
+        'plan_ids' => null
     ];
 
     /**
@@ -92,10 +96,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
         'name' => false,
         'deletable' => false,
+        'uuid' => false,
         'group_number' => false,
         'ein' => false,
         'number_of_plans' => false,
-        'plan_categories' => false
+        'plan_categories' => false,
+        'plan_ids' => false
     ];
 
     /**
@@ -187,10 +193,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'name' => 'name',
         'deletable' => 'deletable',
+        'uuid' => 'uuid',
         'group_number' => 'groupNumber',
         'ein' => 'ein',
         'number_of_plans' => 'numberOfPlans',
-        'plan_categories' => 'planCategories'
+        'plan_categories' => 'planCategories',
+        'plan_ids' => 'planIds'
     ];
 
     /**
@@ -202,10 +210,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'name' => 'setName',
         'deletable' => 'setDeletable',
+        'uuid' => 'setUuid',
         'group_number' => 'setGroupNumber',
         'ein' => 'setEin',
         'number_of_plans' => 'setNumberOfPlans',
-        'plan_categories' => 'setPlanCategories'
+        'plan_categories' => 'setPlanCategories',
+        'plan_ids' => 'setPlanIds'
     ];
 
     /**
@@ -217,10 +227,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'name' => 'getName',
         'deletable' => 'getDeletable',
+        'uuid' => 'getUuid',
         'group_number' => 'getGroupNumber',
         'ein' => 'getEin',
         'number_of_plans' => 'getNumberOfPlans',
-        'plan_categories' => 'getPlanCategories'
+        'plan_categories' => 'getPlanCategories',
+        'plan_ids' => 'getPlanIds'
     ];
 
     /**
@@ -283,10 +295,12 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('deletable', $data ?? [], null);
+        $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('group_number', $data ?? [], null);
         $this->setIfExists('ein', $data ?? [], null);
         $this->setIfExists('number_of_plans', $data ?? [], null);
         $this->setIfExists('plan_categories', $data ?? [], null);
+        $this->setIfExists('plan_ids', $data ?? [], null);
     }
 
     /**
@@ -413,6 +427,33 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets uuid
+     *
+     * @return string|null
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string|null $uuid uuid
+     *
+     * @return self
+     */
+    public function setUuid($uuid)
+    {
+        if (is_null($uuid)) {
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        }
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets group_number
      *
      * @return string|null
@@ -516,6 +557,33 @@ class BenefitVendor implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable plan_categories cannot be null');
         }
         $this->container['plan_categories'] = $plan_categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets plan_ids
+     *
+     * @return string[]|null
+     */
+    public function getPlanIds()
+    {
+        return $this->container['plan_ids'];
+    }
+
+    /**
+     * Sets plan_ids
+     *
+     * @param string[]|null $plan_ids plan_ids
+     *
+     * @return self
+     */
+    public function setPlanIds($plan_ids)
+    {
+        if (is_null($plan_ids)) {
+            throw new \InvalidArgumentException('non-nullable plan_ids cannot be null');
+        }
+        $this->container['plan_ids'] = $plan_ids;
 
         return $this;
     }

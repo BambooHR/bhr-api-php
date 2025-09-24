@@ -74,7 +74,9 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         'filter_ids' => 'int[]',
         'file_ids' => 'int[]',
         'completion_permission' => 'string',
-        'filter_type' => 'string'
+        'filter_type' => 'string',
+        'external_source' => 'string',
+        'external_course_id' => 'string'
     ];
 
     /**
@@ -101,7 +103,9 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         'filter_ids' => null,
         'file_ids' => null,
         'completion_permission' => null,
-        'filter_type' => null
+        'filter_type' => null,
+        'external_source' => null,
+        'external_course_id' => null
     ];
 
     /**
@@ -126,7 +130,9 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         'filter_ids' => false,
         'file_ids' => false,
         'completion_permission' => false,
-        'filter_type' => false
+        'filter_type' => false,
+        'external_source' => false,
+        'external_course_id' => false
     ];
 
     /**
@@ -231,7 +237,9 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         'filter_ids' => 'filterIds',
         'file_ids' => 'fileIds',
         'completion_permission' => 'completionPermission',
-        'filter_type' => 'filterType'
+        'filter_type' => 'filterType',
+        'external_source' => 'externalSource',
+        'external_course_id' => 'externalCourseId'
     ];
 
     /**
@@ -256,7 +264,9 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         'filter_ids' => 'setFilterIds',
         'file_ids' => 'setFileIds',
         'completion_permission' => 'setCompletionPermission',
-        'filter_type' => 'setFilterType'
+        'filter_type' => 'setFilterType',
+        'external_source' => 'setExternalSource',
+        'external_course_id' => 'setExternalCourseId'
     ];
 
     /**
@@ -281,7 +291,9 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         'filter_ids' => 'getFilterIds',
         'file_ids' => 'getFileIds',
         'completion_permission' => 'getCompletionPermission',
-        'filter_type' => 'getFilterType'
+        'filter_type' => 'getFilterType',
+        'external_source' => 'getExternalSource',
+        'external_course_id' => 'getExternalCourseId'
     ];
 
     /**
@@ -358,6 +370,8 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('file_ids', $data ?? [], null);
         $this->setIfExists('completion_permission', $data ?? [], null);
         $this->setIfExists('filter_type', $data ?? [], null);
+        $this->setIfExists('external_source', $data ?? [], null);
+        $this->setIfExists('external_course_id', $data ?? [], null);
     }
 
     /**
@@ -857,6 +871,60 @@ class TrainingTypeDataSchema implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable filter_type cannot be null');
         }
         $this->container['filter_type'] = $filter_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_source
+     *
+     * @return string|null
+     */
+    public function getExternalSource()
+    {
+        return $this->container['external_source'];
+    }
+
+    /**
+     * Sets external_source
+     *
+     * @param string|null $external_source external_source
+     *
+     * @return self
+     */
+    public function setExternalSource($external_source)
+    {
+        if (is_null($external_source)) {
+            throw new \InvalidArgumentException('non-nullable external_source cannot be null');
+        }
+        $this->container['external_source'] = $external_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_course_id
+     *
+     * @return string|null
+     */
+    public function getExternalCourseId()
+    {
+        return $this->container['external_course_id'];
+    }
+
+    /**
+     * Sets external_course_id
+     *
+     * @param string|null $external_course_id external_course_id
+     *
+     * @return self
+     */
+    public function setExternalCourseId($external_course_id)
+    {
+        if (is_null($external_course_id)) {
+            throw new \InvalidArgumentException('non-nullable external_course_id cannot be null');
+        }
+        $this->container['external_course_id'] = $external_course_id;
 
         return $this;
     }

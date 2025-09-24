@@ -62,7 +62,7 @@ class CheckboxFieldFormNode implements ModelInterface, ArrayAccess, \JsonSeriali
         'label' => 'string',
         'required' => 'bool',
         'status' => 'string',
-        'value' => 'string',
+        'value' => '\MySdk\Model\FieldFormNodeAllOfValue',
         'width' => 'int',
         'bi_id' => 'string',
         'max_length' => 'int',
@@ -518,7 +518,7 @@ class CheckboxFieldFormNode implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets value
      *
-     * @return string|null
+     * @return \MySdk\Model\FieldFormNodeAllOfValue|null
      */
     public function getValue()
     {
@@ -528,7 +528,7 @@ class CheckboxFieldFormNode implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets value
      *
-     * @param string|null $value Field value
+     * @param \MySdk\Model\FieldFormNodeAllOfValue|null $value value
      *
      * @return self
      */

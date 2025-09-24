@@ -64,7 +64,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'int',
         'plan_state' => 'string',
         'parent_benefit_plan_id' => 'string',
-        'enrollment_info' => '\MySdk\Model\EnrollmentInfo',
+        'enrollment_info' => '\MySdk\Model\BenefitPlanModelEnrollmentInfo',
         'name' => 'string',
         'description' => 'string',
         'summary' => 'string',
@@ -117,21 +117,21 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'plan_type_data' => false,
         'eligibility_groups' => false,
         'additional_plan_urls' => false,
-        'id' => true,
-        'plan_state' => true,
+        'id' => false,
+        'plan_state' => false,
         'parent_benefit_plan_id' => false,
-        'enrollment_info' => true,
-        'name' => true,
-        'description' => true,
-        'summary' => true,
-        'url' => true,
-        'is_restorable' => true,
-        'type' => true,
+        'enrollment_info' => false,
+        'name' => false,
+        'description' => false,
+        'summary' => false,
+        'url' => false,
+        'is_restorable' => false,
+        'type' => false,
         'employee_questions' => false,
         'dependent_questions' => false,
-        'carrier_plan_id' => true,
+        'carrier_plan_id' => false,
         'plan_files' => false,
-        'legal_text' => true
+        'legal_text' => false
     ];
 
     /**
@@ -543,14 +543,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -577,14 +570,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPlanState($plan_state)
     {
         if (is_null($plan_state)) {
-            array_push($this->openAPINullablesSetToNull, 'plan_state');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('plan_state', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable plan_state cannot be null');
         }
         $this->container['plan_state'] = $plan_state;
 
@@ -621,7 +607,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enrollment_info
      *
-     * @return \MySdk\Model\EnrollmentInfo|null
+     * @return \MySdk\Model\BenefitPlanModelEnrollmentInfo|null
      */
     public function getEnrollmentInfo()
     {
@@ -631,21 +617,14 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enrollment_info
      *
-     * @param \MySdk\Model\EnrollmentInfo|null $enrollment_info enrollment_info
+     * @param \MySdk\Model\BenefitPlanModelEnrollmentInfo|null $enrollment_info enrollment_info
      *
      * @return self
      */
     public function setEnrollmentInfo($enrollment_info)
     {
         if (is_null($enrollment_info)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_info');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_info', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable enrollment_info cannot be null');
         }
         $this->container['enrollment_info'] = $enrollment_info;
 
@@ -672,14 +651,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -706,14 +678,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 
@@ -740,14 +705,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSummary($summary)
     {
         if (is_null($summary)) {
-            array_push($this->openAPINullablesSetToNull, 'summary');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('summary', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable summary cannot be null');
         }
         $this->container['summary'] = $summary;
 
@@ -774,14 +732,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUrl($url)
     {
         if (is_null($url)) {
-            array_push($this->openAPINullablesSetToNull, 'url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
 
@@ -808,14 +759,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsRestorable($is_restorable)
     {
         if (is_null($is_restorable)) {
-            array_push($this->openAPINullablesSetToNull, 'is_restorable');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_restorable', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_restorable cannot be null');
         }
         $this->container['is_restorable'] = $is_restorable;
 
@@ -842,14 +786,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setType($type)
     {
         if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -930,14 +867,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCarrierPlanId($carrier_plan_id)
     {
         if (is_null($carrier_plan_id)) {
-            array_push($this->openAPINullablesSetToNull, 'carrier_plan_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('carrier_plan_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable carrier_plan_id cannot be null');
         }
         $this->container['carrier_plan_id'] = $carrier_plan_id;
 
@@ -991,14 +921,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLegalText($legal_text)
     {
         if (is_null($legal_text)) {
-            array_push($this->openAPINullablesSetToNull, 'legal_text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('legal_text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable legal_text cannot be null');
         }
         $this->container['legal_text'] = $legal_text;
 

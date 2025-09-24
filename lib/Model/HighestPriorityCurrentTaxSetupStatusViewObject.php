@@ -89,7 +89,7 @@ class HighestPriorityCurrentTaxSetupStatusViewObject implements ModelInterface, 
         'future_tax_account_event' => true,
         'tax_setup_status' => false,
         'count' => false,
-        'tax_type' => true
+        'tax_type' => false
     ];
 
     /**
@@ -537,14 +537,7 @@ class HighestPriorityCurrentTaxSetupStatusViewObject implements ModelInterface, 
     public function setTaxType($tax_type)
     {
         if (is_null($tax_type)) {
-            array_push($this->openAPINullablesSetToNull, 'tax_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tax_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable tax_type cannot be null');
         }
         $this->container['tax_type'] = $tax_type;
 

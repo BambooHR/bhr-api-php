@@ -61,7 +61,7 @@ class Dependent implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_id' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
-        'birth_date' => 'string',
+        'birth_date' => '\DateTime',
         'relationship' => 'string'
     ];
 
@@ -77,7 +77,7 @@ class Dependent implements ModelInterface, ArrayAccess, \JsonSerializable
         'employee_id' => null,
         'first_name' => null,
         'last_name' => null,
-        'birth_date' => null,
+        'birth_date' => 'date',
         'relationship' => null
     ];
 
@@ -449,7 +449,7 @@ class Dependent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets birth_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getBirthDate()
     {
@@ -459,7 +459,7 @@ class Dependent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets birth_date
      *
-     * @param string|null $birth_date birth_date
+     * @param \DateTime|null $birth_date birth_date
      *
      * @return self
      */

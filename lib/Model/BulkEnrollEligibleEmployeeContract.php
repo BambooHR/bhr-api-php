@@ -116,17 +116,17 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
         'last_name' => false,
         'display_name' => false,
         'last_name_first_name' => false,
-        'currently_enrolled_in' => true,
-        'eligibility_date' => true,
+        'currently_enrolled_in' => false,
+        'eligibility_date' => false,
         'time_to_eligibility' => false,
         'is_trax_payroll_employee' => false,
         'is_missing_pay_schedule' => false,
-        'employment_status_id' => true,
-        'division_id' => true,
-        'department_id' => true,
-        'location_id' => true,
-        'pay_type' => true,
-        'job_title_id' => true,
+        'employment_status_id' => false,
+        'division_id' => false,
+        'department_id' => false,
+        'location_id' => false,
+        'pay_type' => false,
+        'job_title_id' => false,
         'dependents' => false,
         'is_ben_admin_employee' => false
     ];
@@ -563,14 +563,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setCurrentlyEnrolledIn($currently_enrolled_in)
     {
         if (is_null($currently_enrolled_in)) {
-            array_push($this->openAPINullablesSetToNull, 'currently_enrolled_in');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currently_enrolled_in', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable currently_enrolled_in cannot be null');
         }
         $this->container['currently_enrolled_in'] = $currently_enrolled_in;
 
@@ -597,14 +590,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setEligibilityDate($eligibility_date)
     {
         if (is_null($eligibility_date)) {
-            array_push($this->openAPINullablesSetToNull, 'eligibility_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('eligibility_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable eligibility_date cannot be null');
         }
         $this->container['eligibility_date'] = $eligibility_date;
 
@@ -712,14 +698,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setEmploymentStatusId($employment_status_id)
     {
         if (is_null($employment_status_id)) {
-            array_push($this->openAPINullablesSetToNull, 'employment_status_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('employment_status_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable employment_status_id cannot be null');
         }
         $this->container['employment_status_id'] = $employment_status_id;
 
@@ -746,14 +725,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setDivisionId($division_id)
     {
         if (is_null($division_id)) {
-            array_push($this->openAPINullablesSetToNull, 'division_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('division_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable division_id cannot be null');
         }
         $this->container['division_id'] = $division_id;
 
@@ -780,14 +752,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setDepartmentId($department_id)
     {
         if (is_null($department_id)) {
-            array_push($this->openAPINullablesSetToNull, 'department_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('department_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable department_id cannot be null');
         }
         $this->container['department_id'] = $department_id;
 
@@ -814,14 +779,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setLocationId($location_id)
     {
         if (is_null($location_id)) {
-            array_push($this->openAPINullablesSetToNull, 'location_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('location_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable location_id cannot be null');
         }
         $this->container['location_id'] = $location_id;
 
@@ -848,14 +806,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setPayType($pay_type)
     {
         if (is_null($pay_type)) {
-            array_push($this->openAPINullablesSetToNull, 'pay_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pay_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable pay_type cannot be null');
         }
         $this->container['pay_type'] = $pay_type;
 
@@ -882,14 +833,7 @@ class BulkEnrollEligibleEmployeeContract implements ModelInterface, ArrayAccess,
     public function setJobTitleId($job_title_id)
     {
         if (is_null($job_title_id)) {
-            array_push($this->openAPINullablesSetToNull, 'job_title_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('job_title_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable job_title_id cannot be null');
         }
         $this->container['job_title_id'] = $job_title_id;
 

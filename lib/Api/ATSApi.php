@@ -130,7 +130,6 @@ class ATSApi
      *
      * Get Application Details
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to look up details. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationDetails'] to see the possible values for this operation
      *
@@ -138,9 +137,9 @@ class ATSApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetApplicationDetails200Response
      */
-    public function getApplicationDetails($company_domain, $application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
+    public function getApplicationDetails($application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
     {
-        list($response) = $this->getApplicationDetailsWithHttpInfo($company_domain, $application_id, $contentType);
+        list($response) = $this->getApplicationDetailsWithHttpInfo($application_id, $contentType);
         return $response;
     }
 
@@ -149,7 +148,6 @@ class ATSApi
      *
      * Get Application Details
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to look up details. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationDetails'] to see the possible values for this operation
      *
@@ -157,9 +155,9 @@ class ATSApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetApplicationDetails200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationDetailsWithHttpInfo($company_domain, $application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
+    public function getApplicationDetailsWithHttpInfo($application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
     {
-        $request = $this->getApplicationDetailsRequest($company_domain, $application_id, $contentType);
+        $request = $this->getApplicationDetailsRequest($application_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -235,16 +233,15 @@ class ATSApi
      *
      * Get Application Details
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to look up details. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationDetails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationDetailsAsync($company_domain, $application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
+    public function getApplicationDetailsAsync($application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
     {
-        return $this->getApplicationDetailsAsyncWithHttpInfo($company_domain, $application_id, $contentType)
+        return $this->getApplicationDetailsAsyncWithHttpInfo($application_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -257,17 +254,16 @@ class ATSApi
      *
      * Get Application Details
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to look up details. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationDetails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationDetailsAsyncWithHttpInfo($company_domain, $application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
+    public function getApplicationDetailsAsyncWithHttpInfo($application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
     {
         $returnType = '\MySdk\Model\GetApplicationDetails200Response';
-        $request = $this->getApplicationDetailsRequest($company_domain, $application_id, $contentType);
+        $request = $this->getApplicationDetailsRequest($application_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -308,22 +304,14 @@ class ATSApi
     /**
      * Create request for operation 'getApplicationDetails'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $application_id The ID of the application to look up details. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationDetails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationDetailsRequest($company_domain, $application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
+    public function getApplicationDetailsRequest($application_id, string $contentType = self::contentTypes['getApplicationDetails'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getApplicationDetails'
-            );
-        }
 
         // verify the required parameter 'application_id' is set
         if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
@@ -333,7 +321,7 @@ class ATSApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/applicant_tracking/applications/{applicationId}';
+        $resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -342,14 +330,6 @@ class ATSApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($application_id !== null) {
             $resourcePath = str_replace(

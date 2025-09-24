@@ -148,7 +148,6 @@ class WebhooksApi
      *
      * Delete Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
@@ -156,9 +155,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteWebhook($company_domain, $id, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhook($id, string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-        $this->deleteWebhookWithHttpInfo($company_domain, $id, $contentType);
+        $this->deleteWebhookWithHttpInfo($id, $contentType);
     }
 
     /**
@@ -166,7 +165,6 @@ class WebhooksApi
      *
      * Delete Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
@@ -174,9 +172,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWebhookWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookWithHttpInfo($id, string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-        $request = $this->deleteWebhookRequest($company_domain, $id, $contentType);
+        $request = $this->deleteWebhookRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -240,16 +238,15 @@ class WebhooksApi
      *
      * Delete Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookAsync($company_domain, $id, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookAsync($id, string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-        return $this->deleteWebhookAsyncWithHttpInfo($company_domain, $id, $contentType)
+        return $this->deleteWebhookAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,17 +259,16 @@ class WebhooksApi
      *
      * Delete Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookAsyncWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteWebhook'][0])
     {
         $returnType = '';
-        $request = $this->deleteWebhookRequest($company_domain, $id, $contentType);
+        $request = $this->deleteWebhookRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,22 +296,14 @@ class WebhooksApi
     /**
      * Create request for operation 'deleteWebhook'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWebhookRequest($company_domain, $id, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookRequest($id, string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteWebhook'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -325,7 +313,7 @@ class WebhooksApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/webhooks/{id}';
+        $resourcePath = '/api/v1/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -334,14 +322,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -422,16 +402,15 @@ class WebhooksApi
      *
      * Get monitor fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMonitorFields'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetMonitorFields200Response|\MySdk\Model\WebhookError
      */
-    public function getMonitorFields($company_domain, string $contentType = self::contentTypes['getMonitorFields'][0])
+    public function getMonitorFields(string $contentType = self::contentTypes['getMonitorFields'][0])
     {
-        list($response) = $this->getMonitorFieldsWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->getMonitorFieldsWithHttpInfo($contentType);
         return $response;
     }
 
@@ -440,16 +419,15 @@ class WebhooksApi
      *
      * Get monitor fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMonitorFields'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetMonitorFields200Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMonitorFieldsWithHttpInfo($company_domain, string $contentType = self::contentTypes['getMonitorFields'][0])
+    public function getMonitorFieldsWithHttpInfo(string $contentType = self::contentTypes['getMonitorFields'][0])
     {
-        $request = $this->getMonitorFieldsRequest($company_domain, $contentType);
+        $request = $this->getMonitorFieldsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -539,15 +517,14 @@ class WebhooksApi
      *
      * Get monitor fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMonitorFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMonitorFieldsAsync($company_domain, string $contentType = self::contentTypes['getMonitorFields'][0])
+    public function getMonitorFieldsAsync(string $contentType = self::contentTypes['getMonitorFields'][0])
     {
-        return $this->getMonitorFieldsAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getMonitorFieldsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -560,16 +537,15 @@ class WebhooksApi
      *
      * Get monitor fields
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMonitorFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMonitorFieldsAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getMonitorFields'][0])
+    public function getMonitorFieldsAsyncWithHttpInfo(string $contentType = self::contentTypes['getMonitorFields'][0])
     {
         $returnType = '\MySdk\Model\GetMonitorFields200Response';
-        $request = $this->getMonitorFieldsRequest($company_domain, $contentType);
+        $request = $this->getMonitorFieldsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -610,24 +586,16 @@ class WebhooksApi
     /**
      * Create request for operation 'getMonitorFields'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMonitorFields'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMonitorFieldsRequest($company_domain, string $contentType = self::contentTypes['getMonitorFields'][0])
+    public function getMonitorFieldsRequest(string $contentType = self::contentTypes['getMonitorFields'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getMonitorFields'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/webhooks/monitor_fields';
+        $resourcePath = '/api/v1/webhooks/monitor_fields';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -636,14 +604,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -716,7 +676,6 @@ class WebhooksApi
      *
      * Get Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $id The webhook ID to display details about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
@@ -724,9 +683,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\WebHookResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
      */
-    public function getWebhook($company_domain, $id, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhook($id, string $contentType = self::contentTypes['getWebhook'][0])
     {
-        list($response) = $this->getWebhookWithHttpInfo($company_domain, $id, $contentType);
+        list($response) = $this->getWebhookWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -735,7 +694,6 @@ class WebhooksApi
      *
      * Get Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $id The webhook ID to display details about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
@@ -743,9 +701,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\WebHookResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookWithHttpInfo($id, string $contentType = self::contentTypes['getWebhook'][0])
     {
-        $request = $this->getWebhookRequest($company_domain, $id, $contentType);
+        $request = $this->getWebhookRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -863,16 +821,15 @@ class WebhooksApi
      *
      * Get Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $id The webhook ID to display details about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookAsync($company_domain, $id, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookAsync($id, string $contentType = self::contentTypes['getWebhook'][0])
     {
-        return $this->getWebhookAsyncWithHttpInfo($company_domain, $id, $contentType)
+        return $this->getWebhookAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -885,17 +842,16 @@ class WebhooksApi
      *
      * Get Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $id The webhook ID to display details about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookAsyncWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getWebhook'][0])
     {
         $returnType = '\MySdk\Model\WebHookResponse';
-        $request = $this->getWebhookRequest($company_domain, $id, $contentType);
+        $request = $this->getWebhookRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -936,22 +892,14 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhook'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $id The webhook ID to display details about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookRequest($company_domain, $id, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookRequest($id, string $contentType = self::contentTypes['getWebhook'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getWebhook'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -961,7 +909,7 @@ class WebhooksApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/webhooks/{id}';
+        $resourcePath = '/api/v1/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -970,14 +918,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1058,16 +998,15 @@ class WebhooksApi
      *
      * Gets as list of webhooks for the user API key.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookList'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetWebhookList200Response|\MySdk\Model\WebhookError
      */
-    public function getWebhookList($company_domain, string $contentType = self::contentTypes['getWebhookList'][0])
+    public function getWebhookList(string $contentType = self::contentTypes['getWebhookList'][0])
     {
-        list($response) = $this->getWebhookListWithHttpInfo($company_domain, $contentType);
+        list($response) = $this->getWebhookListWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1076,16 +1015,15 @@ class WebhooksApi
      *
      * Gets as list of webhooks for the user API key.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookList'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetWebhookList200Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookListWithHttpInfo($company_domain, string $contentType = self::contentTypes['getWebhookList'][0])
+    public function getWebhookListWithHttpInfo(string $contentType = self::contentTypes['getWebhookList'][0])
     {
-        $request = $this->getWebhookListRequest($company_domain, $contentType);
+        $request = $this->getWebhookListRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1175,15 +1113,14 @@ class WebhooksApi
      *
      * Gets as list of webhooks for the user API key.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookListAsync($company_domain, string $contentType = self::contentTypes['getWebhookList'][0])
+    public function getWebhookListAsync(string $contentType = self::contentTypes['getWebhookList'][0])
     {
-        return $this->getWebhookListAsyncWithHttpInfo($company_domain, $contentType)
+        return $this->getWebhookListAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1196,16 +1133,15 @@ class WebhooksApi
      *
      * Gets as list of webhooks for the user API key.
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookListAsyncWithHttpInfo($company_domain, string $contentType = self::contentTypes['getWebhookList'][0])
+    public function getWebhookListAsyncWithHttpInfo(string $contentType = self::contentTypes['getWebhookList'][0])
     {
         $returnType = '\MySdk\Model\GetWebhookList200Response';
-        $request = $this->getWebhookListRequest($company_domain, $contentType);
+        $request = $this->getWebhookListRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1246,24 +1182,16 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhookList'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookListRequest($company_domain, string $contentType = self::contentTypes['getWebhookList'][0])
+    public function getWebhookListRequest(string $contentType = self::contentTypes['getWebhookList'][0])
     {
 
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getWebhookList'
-            );
-        }
 
-
-        $resourcePath = '/{companyDomain}/v1/webhooks';
+        $resourcePath = '/api/v1/webhooks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1272,14 +1200,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1352,7 +1272,6 @@ class WebhooksApi
      *
      * Get Webhook Logs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id The webhook ID to get logs about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookLogs'] to see the possible values for this operation
      *
@@ -1360,9 +1279,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\WebHookLogResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
      */
-    public function getWebhookLogs($company_domain, $id, string $contentType = self::contentTypes['getWebhookLogs'][0])
+    public function getWebhookLogs($id, string $contentType = self::contentTypes['getWebhookLogs'][0])
     {
-        list($response) = $this->getWebhookLogsWithHttpInfo($company_domain, $id, $contentType);
+        list($response) = $this->getWebhookLogsWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -1371,7 +1290,6 @@ class WebhooksApi
      *
      * Get Webhook Logs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id The webhook ID to get logs about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookLogs'] to see the possible values for this operation
      *
@@ -1379,9 +1297,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\WebHookLogResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookLogsWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['getWebhookLogs'][0])
+    public function getWebhookLogsWithHttpInfo($id, string $contentType = self::contentTypes['getWebhookLogs'][0])
     {
-        $request = $this->getWebhookLogsRequest($company_domain, $id, $contentType);
+        $request = $this->getWebhookLogsRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1499,16 +1417,15 @@ class WebhooksApi
      *
      * Get Webhook Logs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id The webhook ID to get logs about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsync($company_domain, $id, string $contentType = self::contentTypes['getWebhookLogs'][0])
+    public function getWebhookLogsAsync($id, string $contentType = self::contentTypes['getWebhookLogs'][0])
     {
-        return $this->getWebhookLogsAsyncWithHttpInfo($company_domain, $id, $contentType)
+        return $this->getWebhookLogsAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1521,17 +1438,16 @@ class WebhooksApi
      *
      * Get Webhook Logs
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id The webhook ID to get logs about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsyncWithHttpInfo($company_domain, $id, string $contentType = self::contentTypes['getWebhookLogs'][0])
+    public function getWebhookLogsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getWebhookLogs'][0])
     {
         $returnType = '\MySdk\Model\WebHookLogResponse';
-        $request = $this->getWebhookLogsRequest($company_domain, $id, $contentType);
+        $request = $this->getWebhookLogsRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1572,22 +1488,14 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhookLogs'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id The webhook ID to get logs about. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookLogsRequest($company_domain, $id, string $contentType = self::contentTypes['getWebhookLogs'][0])
+    public function getWebhookLogsRequest($id, string $contentType = self::contentTypes['getWebhookLogs'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getWebhookLogs'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1597,7 +1505,7 @@ class WebhooksApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/webhooks/{id}/log';
+        $resourcePath = '/api/v1/webhooks/{id}/log';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1606,14 +1514,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1694,7 +1594,6 @@ class WebhooksApi
      *
      * Add Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postWebhook'] to see the possible values for this operation
      *
@@ -1702,9 +1601,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\PostWebhook201Response|\MySdk\Model\Webhook400Error|\MySdk\Model\PostWebhook403Response|\MySdk\Model\WebhookError
      */
-    public function postWebhook($company_domain, $new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
+    public function postWebhook($new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
     {
-        list($response) = $this->postWebhookWithHttpInfo($company_domain, $new_web_hook, $contentType);
+        list($response) = $this->postWebhookWithHttpInfo($new_web_hook, $contentType);
         return $response;
     }
 
@@ -1713,7 +1612,6 @@ class WebhooksApi
      *
      * Add Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postWebhook'] to see the possible values for this operation
      *
@@ -1721,9 +1619,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\PostWebhook201Response|\MySdk\Model\Webhook400Error|\MySdk\Model\PostWebhook403Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postWebhookWithHttpInfo($company_domain, $new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
+    public function postWebhookWithHttpInfo($new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
     {
-        $request = $this->postWebhookRequest($company_domain, $new_web_hook, $contentType);
+        $request = $this->postWebhookRequest($new_web_hook, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1841,16 +1739,15 @@ class WebhooksApi
      *
      * Add Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postWebhookAsync($company_domain, $new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
+    public function postWebhookAsync($new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
     {
-        return $this->postWebhookAsyncWithHttpInfo($company_domain, $new_web_hook, $contentType)
+        return $this->postWebhookAsyncWithHttpInfo($new_web_hook, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1863,17 +1760,16 @@ class WebhooksApi
      *
      * Add Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postWebhookAsyncWithHttpInfo($company_domain, $new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
+    public function postWebhookAsyncWithHttpInfo($new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
     {
         $returnType = '\MySdk\Model\PostWebhook201Response';
-        $request = $this->postWebhookRequest($company_domain, $new_web_hook, $contentType);
+        $request = $this->postWebhookRequest($new_web_hook, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1914,22 +1810,14 @@ class WebhooksApi
     /**
      * Create request for operation 'postWebhook'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postWebhookRequest($company_domain, $new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
+    public function postWebhookRequest($new_web_hook, string $contentType = self::contentTypes['postWebhook'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postWebhook'
-            );
-        }
 
         // verify the required parameter 'new_web_hook' is set
         if ($new_web_hook === null || (is_array($new_web_hook) && count($new_web_hook) === 0)) {
@@ -1939,7 +1827,7 @@ class WebhooksApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/webhooks';
+        $resourcePath = '/api/v1/webhooks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1948,14 +1836,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2035,7 +1915,6 @@ class WebhooksApi
      *
      * Update Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a webhook ID. (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putWebhook'] to see the possible values for this operation
@@ -2044,9 +1923,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\WebHookResponse|\MySdk\Model\Webhook400Error|\MySdk\Model\PutWebhook403Response|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
      */
-    public function putWebhook($company_domain, $id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
+    public function putWebhook($id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
     {
-        list($response) = $this->putWebhookWithHttpInfo($company_domain, $id, $new_web_hook, $contentType);
+        list($response) = $this->putWebhookWithHttpInfo($id, $new_web_hook, $contentType);
         return $response;
     }
 
@@ -2055,7 +1934,6 @@ class WebhooksApi
      *
      * Update Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a webhook ID. (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putWebhook'] to see the possible values for this operation
@@ -2064,9 +1942,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\WebHookResponse|\MySdk\Model\Webhook400Error|\MySdk\Model\PutWebhook403Response|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putWebhookWithHttpInfo($company_domain, $id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
+    public function putWebhookWithHttpInfo($id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
     {
-        $request = $this->putWebhookRequest($company_domain, $id, $new_web_hook, $contentType);
+        $request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2198,7 +2076,6 @@ class WebhooksApi
      *
      * Update Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a webhook ID. (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putWebhook'] to see the possible values for this operation
@@ -2206,9 +2083,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putWebhookAsync($company_domain, $id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
+    public function putWebhookAsync($id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
     {
-        return $this->putWebhookAsyncWithHttpInfo($company_domain, $id, $new_web_hook, $contentType)
+        return $this->putWebhookAsyncWithHttpInfo($id, $new_web_hook, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2221,7 +2098,6 @@ class WebhooksApi
      *
      * Update Webhook
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a webhook ID. (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putWebhook'] to see the possible values for this operation
@@ -2229,10 +2105,10 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putWebhookAsyncWithHttpInfo($company_domain, $id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
+    public function putWebhookAsyncWithHttpInfo($id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
     {
         $returnType = '\MySdk\Model\WebHookResponse';
-        $request = $this->putWebhookRequest($company_domain, $id, $new_web_hook, $contentType);
+        $request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2273,7 +2149,6 @@ class WebhooksApi
     /**
      * Create request for operation 'putWebhook'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a webhook ID. (required)
      * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putWebhook'] to see the possible values for this operation
@@ -2281,15 +2156,8 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putWebhookRequest($company_domain, $id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
+    public function putWebhookRequest($id, $new_web_hook, string $contentType = self::contentTypes['putWebhook'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putWebhook'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2306,7 +2174,7 @@ class WebhooksApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/webhooks/{id}';
+        $resourcePath = '/api/v1/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2315,14 +2183,6 @@ class WebhooksApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

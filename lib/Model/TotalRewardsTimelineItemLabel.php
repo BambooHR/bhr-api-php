@@ -35,6 +35,7 @@ use \MySdk\ObjectSerializer;
  * TotalRewardsTimelineItemLabel Class Doc Comment
  *
  * @category Class
+ * @description Label
  * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

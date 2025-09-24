@@ -63,7 +63,10 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         'type' => 'string',
         'icon' => 'string',
         'on_per_hour_worked_level' => 'bool',
-        'total' => 'float'
+        'total' => 'float',
+        'source' => 'string',
+        'balance' => 'float',
+        'used_ytd' => 'float'
     ];
 
     /**
@@ -80,7 +83,10 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         'type' => null,
         'icon' => null,
         'on_per_hour_worked_level' => null,
-        'total' => null
+        'total' => null,
+        'source' => null,
+        'balance' => null,
+        'used_ytd' => null
     ];
 
     /**
@@ -95,7 +101,10 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         'type' => false,
         'icon' => false,
         'on_per_hour_worked_level' => false,
-        'total' => false
+        'total' => false,
+        'source' => false,
+        'balance' => true,
+        'used_ytd' => false
     ];
 
     /**
@@ -190,7 +199,10 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         'type' => 'type',
         'icon' => 'icon',
         'on_per_hour_worked_level' => 'onPerHourWorkedLevel',
-        'total' => 'total'
+        'total' => 'total',
+        'source' => 'source',
+        'balance' => 'balance',
+        'used_ytd' => 'usedYtd'
     ];
 
     /**
@@ -205,7 +217,10 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         'type' => 'setType',
         'icon' => 'setIcon',
         'on_per_hour_worked_level' => 'setOnPerHourWorkedLevel',
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'source' => 'setSource',
+        'balance' => 'setBalance',
+        'used_ytd' => 'setUsedYtd'
     ];
 
     /**
@@ -220,7 +235,10 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         'type' => 'getType',
         'icon' => 'getIcon',
         'on_per_hour_worked_level' => 'getOnPerHourWorkedLevel',
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'source' => 'getSource',
+        'balance' => 'getBalance',
+        'used_ytd' => 'getUsedYtd'
     ];
 
     /**
@@ -269,6 +287,8 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
     public const TYPE_REGULAR = 'regular';
     public const TYPE_UNLIMITED = 'unlimited';
     public const TYPE_MANUAL = 'manual';
+    public const SOURCE_INTERNAL = 'internal';
+    public const SOURCE_REMOTE = 'remote';
 
     /**
      * Gets allowable values of the enum
@@ -298,6 +318,19 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_INTERNAL,
+            self::SOURCE_REMOTE,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -319,6 +352,9 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('on_per_hour_worked_level', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
+        $this->setIfExists('balance', $data ?? [], null);
+        $this->setIfExists('used_ytd', $data ?? [], null);
     }
 
     /**
@@ -362,6 +398,15 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'type', must be one of '%s'",
                 $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'source', must be one of '%s'",
+                $this->container['source'],
                 implode("', '", $allowedValues)
             );
         }
@@ -586,6 +631,104 @@ class TimeOffTypesDataTransformerTimeOffCategoriesInner implements ModelInterfac
             throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'source', must be one of '%s'",
+                    $source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance
+     *
+     * @return float|null
+     */
+    public function getBalance()
+    {
+        return $this->container['balance'];
+    }
+
+    /**
+     * Sets balance
+     *
+     * @param float|null $balance balance
+     *
+     * @return self
+     */
+    public function setBalance($balance)
+    {
+        if (is_null($balance)) {
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['balance'] = $balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_ytd
+     *
+     * @return float|null
+     */
+    public function getUsedYtd()
+    {
+        return $this->container['used_ytd'];
+    }
+
+    /**
+     * Sets used_ytd
+     *
+     * @param float|null $used_ytd used_ytd
+     *
+     * @return self
+     */
+    public function setUsedYtd($used_ytd)
+    {
+        if (is_null($used_ytd)) {
+            throw new \InvalidArgumentException('non-nullable used_ytd cannot be null');
+        }
+        $this->container['used_ytd'] = $used_ytd;
 
         return $this;
     }

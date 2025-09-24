@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **post_fields** | **object** | A list of fields to post to the webhook url. Field ID or alias: external name | [optional]
 **url** | **string** | The url the webhook should send data to. | [optional]
 **format** | **string** | The format the webhook should use (json, form-encoded). | [optional]
+**frequency** | [**\MySdk\Model\PostWebhook201ResponseFrequency**](PostWebhook201ResponseFrequency.md) |  | [optional]
+**limit** | [**\MySdk\Model\PostWebhook201ResponseLimit**](PostWebhook201ResponseLimit.md) |  | [optional]
 **private_key** | **string** | The private key which can be used to verify that the webhook is secure (uses HMAC-SHA256) | [optional]
 **include_company_domain** | **bool** | If set to true, the company domain will be added to the header. | [optional]
 

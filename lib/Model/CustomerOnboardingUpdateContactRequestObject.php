@@ -99,7 +99,7 @@ class CustomerOnboardingUpdateContactRequestObject implements ModelInterface, Ar
         'work_phone' => false,
         'type' => false,
         'task_id' => false,
-        'client_id' => true
+        'client_id' => false
     ];
 
     /**
@@ -625,17 +625,10 @@ class CustomerOnboardingUpdateContactRequestObject implements ModelInterface, Ar
     public function setClientId($client_id)
     {
         if (is_null($client_id)) {
-            array_push($this->openAPINullablesSetToNull, 'client_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('client_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
 
-        if (!is_null($client_id) && ($client_id < 1)) {
+        if (($client_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $client_id when calling CustomerOnboardingUpdateContactRequestObject., must be bigger than or equal to 1.');
         }
 

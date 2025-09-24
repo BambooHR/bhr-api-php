@@ -1,90 +1,20 @@
 # MySdk\HoursApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**call0f428442e53dc46d1e2c8ff5b7a483a8()**](HoursApi.md#call0f428442e53dc46d1e2c8ff5b7a483a8) | **POST** /{companyDomain}/v1/timetracking/record | addTimeTrackingBulk |
-| [**call14e73aef978eb81d51fdbd74e0e83823()**](HoursApi.md#call14e73aef978eb81d51fdbd74e0e83823) | **PUT** /{companyDomain}/v1/timetracking/adjust | adjustTimeTracking |
-| [**call5e1c5b4ef12e61d1bc975e8b4e00c38d()**](HoursApi.md#call5e1c5b4ef12e61d1bc975e8b4e00c38d) | **GET** /{companyDomain}/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId |
-| [**call69c777478f5d52dee1b4f0937dca154f()**](HoursApi.md#call69c777478f5d52dee1b4f0937dca154f) | **POST** /{companyDomain}/v1/timetracking/add | addTimeTracking |
-| [**f97efc203b25647724accb9da7dda7db()**](HoursApi.md#f97efc203b25647724accb9da7dda7db) | **DELETE** /{companyDomain}/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId |
+| [**call22067048cf6eec230a865765a18ad7b8()**](HoursApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking |
+| [**call717faf6067928c3497fc9acbf5b91767()**](HoursApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId |
+| [**call889a4c2de70a53c5ab8cb32f1c2243f5()**](HoursApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId |
+| [**e2ae6e59655aeab2b4e6311967a2809f()**](HoursApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking |
+| [**f54bcaec6771b1264671e53f2e557b1f()**](HoursApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk |
 
 
-## `call0f428442e53dc46d1e2c8ff5b7a483a8()`
-
-```php
-call0f428442e53dc46d1e2c8ff5b7a483a8($company_domain, $time_tracking_record): \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response
-```
-
-addTimeTrackingBulk
-
-Bulk add/edit hour records
-
-### Example
+## `call22067048cf6eec230a865765a18ad7b8()`
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\HoursApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
-
-try {
-    $result = $apiInstance->call0f428442e53dc46d1e2c8ff5b7a483a8($company_domain, $time_tracking_record);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling HoursApi->call0f428442e53dc46d1e2c8ff5b7a483a8: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response**](../Model/0f428442e53dc46d1e2c8ff5b7a483a8201Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call14e73aef978eb81d51fdbd74e0e83823()`
-
-```php
-call14e73aef978eb81d51fdbd74e0e83823($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request): mixed
+call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request): mixed
 ```
 
 adjustTimeTracking
@@ -116,14 +46,13 @@ $apiInstance = new MySdk\Api\HoursApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_14e73aef978eb81d51fdbd74e0e83823_request = new \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request(); // \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request
+$_22067048cf6eec230a865765a18ad7b8_request = new \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request(); // \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request
 
 try {
-    $result = $apiInstance->call14e73aef978eb81d51fdbd74e0e83823($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request);
+    $result = $apiInstance->call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HoursApi->call14e73aef978eb81d51fdbd74e0e83823: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HoursApi->call22067048cf6eec230a865765a18ad7b8: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -131,8 +60,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_14e73aef978eb81d51fdbd74e0e83823_request** | [**\MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request**](../Model/14e73aef978eb81d51fdbd74e0e83823Request.md)|  | |
+| **_22067048cf6eec230a865765a18ad7b8_request** | [**\MySdk\Model\22067048cf6eec230a865765a18ad7b8Request**](../Model/22067048cf6eec230a865765a18ad7b8Request.md)|  | |
 
 ### Return type
 
@@ -151,150 +79,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call5e1c5b4ef12e61d1bc975e8b4e00c38d()`
+## `call717faf6067928c3497fc9acbf5b91767()`
 
 ```php
-call5e1c5b4ef12e61d1bc975e8b4e00c38d($company_domain, $id): \MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response
-```
-
-getTimeTrackingByTimeTrackingId
-
-Get an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\HoursApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$id = 'id_example'; // string | {id} is the time tracking ID used to originally create the record.
-
-try {
-    $result = $apiInstance->call5e1c5b4ef12e61d1bc975e8b4e00c38d($company_domain, $id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling HoursApi->call5e1c5b4ef12e61d1bc975e8b4e00c38d: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **id** | **string**| {id} is the time tracking ID used to originally create the record. | |
-
-### Return type
-
-[**\MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response**](../Model/5e1c5b4ef12e61d1bc975e8b4e00c38d200Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call69c777478f5d52dee1b4f0937dca154f()`
-
-```php
-call69c777478f5d52dee1b4f0937dca154f($company_domain, $time_tracking_record): \MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response
-```
-
-addTimeTracking
-
-Add an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\HoursApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
-
-try {
-    $result = $apiInstance->call69c777478f5d52dee1b4f0937dca154f($company_domain, $time_tracking_record);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling HoursApi->call69c777478f5d52dee1b4f0937dca154f: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response**](../Model/69c777478f5d52dee1b4f0937dca154f201Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `f97efc203b25647724accb9da7dda7db()`
-
-```php
-f97efc203b25647724accb9da7dda7db($company_domain, $id): \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse
+call717faf6067928c3497fc9acbf5b91767($id): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse
 ```
 
 deleteTimeTrackingByTimeTrackingId
@@ -326,14 +114,13 @@ $apiInstance = new MySdk\Api\HoursApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID).
 
 try {
-    $result = $apiInstance->f97efc203b25647724accb9da7dda7db($company_domain, $id);
+    $result = $apiInstance->call717faf6067928c3497fc9acbf5b91767($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HoursApi->f97efc203b25647724accb9da7dda7db: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HoursApi->call717faf6067928c3497fc9acbf5b91767: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -341,12 +128,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). | |
 
 ### Return type
 
-[**\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse**](../Model/0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse.md)
+[**\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse**](../Model/F54bcaec6771b1264671e53f2e557b1f201ResponseResponse.md)
 
 ### Authorization
 
@@ -355,6 +141,210 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `call889a4c2de70a53c5ab8cb32f1c2243f5()`
+
+```php
+call889a4c2de70a53c5ab8cb32f1c2243f5($id): \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response
+```
+
+getTimeTrackingByTimeTrackingId
+
+Get an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\HoursApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | {id} is the time tracking ID used to originally create the record.
+
+try {
+    $result = $apiInstance->call889a4c2de70a53c5ab8cb32f1c2243f5($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling HoursApi->call889a4c2de70a53c5ab8cb32f1c2243f5: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| {id} is the time tracking ID used to originally create the record. | |
+
+### Return type
+
+[**\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response**](../Model/889a4c2de70a53c5ab8cb32f1c2243f5200Response.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `e2ae6e59655aeab2b4e6311967a2809f()`
+
+```php
+e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record): \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response
+```
+
+addTimeTracking
+
+Add an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\HoursApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
+
+try {
+    $result = $apiInstance->e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling HoursApi->e2ae6e59655aeab2b4e6311967a2809f: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
+
+### Return type
+
+[**\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response**](../Model/E2ae6e59655aeab2b4e6311967a2809f201Response.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `f54bcaec6771b1264671e53f2e557b1f()`
+
+```php
+f54bcaec6771b1264671e53f2e557b1f($time_tracking_record): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response
+```
+
+addTimeTrackingBulk
+
+Bulk add/edit hour records
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\HoursApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
+
+try {
+    $result = $apiInstance->f54bcaec6771b1264671e53f2e557b1f($time_tracking_record);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling HoursApi->f54bcaec6771b1264671e53f2e557b1f: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
+
+### Return type
+
+[**\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response**](../Model/F54bcaec6771b1264671e53f2e557b1f201Response.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

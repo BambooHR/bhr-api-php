@@ -1,24 +1,24 @@
 # MySdk\ApplicantTrackingApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addNewCandidate()**](ApplicantTrackingApi.md#addNewCandidate) | **POST** /{companyDomain}/v1/applicant_tracking/application | Add New Candidate |
-| [**addNewJobOpening()**](ApplicantTrackingApi.md#addNewJobOpening) | **POST** /{companyDomain}/v1/applicant_tracking/job_opening | Add New Job Opening |
-| [**getApplications()**](ApplicantTrackingApi.md#getApplications) | **GET** /{companyDomain}/v1/applicant_tracking/applications | Get Applications |
-| [**getCompanyLocations()**](ApplicantTrackingApi.md#getCompanyLocations) | **GET** /{companyDomain}/v1/applicant_tracking/locations | Get Company Locations |
-| [**getHiringLeads()**](ApplicantTrackingApi.md#getHiringLeads) | **GET** /{companyDomain}/v1/applicant_tracking/hiring_leads | Get Hiring Leads |
-| [**getJobSummaries()**](ApplicantTrackingApi.md#getJobSummaries) | **GET** /{companyDomain}/v1/applicant_tracking/jobs | Get Job Summaries |
-| [**getStatuses()**](ApplicantTrackingApi.md#getStatuses) | **GET** /{companyDomain}/v1/applicant_tracking/statuses | Get Statuses |
-| [**postApplicantStatus()**](ApplicantTrackingApi.md#postApplicantStatus) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status |
-| [**postApplicationComment()**](ApplicantTrackingApi.md#postApplicationComment) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment |
+| [**addNewCandidate()**](ApplicantTrackingApi.md#addNewCandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate |
+| [**addNewJobOpening()**](ApplicantTrackingApi.md#addNewJobOpening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening |
+| [**getApplications()**](ApplicantTrackingApi.md#getApplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications |
+| [**getCompanyLocations()**](ApplicantTrackingApi.md#getCompanyLocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations |
+| [**getHiringLeads()**](ApplicantTrackingApi.md#getHiringLeads) | **GET** /api/v1/applicant_tracking/hiring_leads | Get Hiring Leads |
+| [**getJobSummaries()**](ApplicantTrackingApi.md#getJobSummaries) | **GET** /api/v1/applicant_tracking/jobs | Get Job Summaries |
+| [**getStatuses()**](ApplicantTrackingApi.md#getStatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses |
+| [**postApplicantStatus()**](ApplicantTrackingApi.md#postApplicantStatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status |
+| [**postApplicationComment()**](ApplicantTrackingApi.md#postApplicationComment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment |
 
 
 ## `addNewCandidate()`
 
 ```php
-addNewCandidate($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter)
+addNewCandidate($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter)
 ```
 
 Add New Candidate
@@ -50,7 +50,6 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $first_name = 'first_name_example'; // string | The first name of the candidate.
 $last_name = 'last_name_example'; // string | The last name of the candidate.
 $job_id = 56; // int | The id of the job opening for the candidate application.
@@ -74,7 +73,7 @@ $resume = 'resume_example'; // string | Resume of the candidate.
 $cover_letter = 'cover_letter_example'; // string | Cover letter of the candidate.
 
 try {
-    $apiInstance->addNewCandidate($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter);
+    $apiInstance->addNewCandidate($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->addNewCandidate: ', $e->getMessage(), PHP_EOL;
 }
@@ -84,7 +83,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **first_name** | **string**| The first name of the candidate. | |
 | **last_name** | **string**| The last name of the candidate. | |
 | **job_id** | **int**| The id of the job opening for the candidate application. | |
@@ -127,7 +125,7 @@ void (empty response body)
 ## `addNewJobOpening()`
 
 ```php
-addNewJobOpening($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code)
+addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code)
 ```
 
 Add New Job Opening
@@ -159,7 +157,6 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $posting_title = 'posting_title_example'; // string | The posting title of the job opening.
 $job_status = 'job_status_example'; // string | The status of the job opening.
 $hiring_lead = 56; // int | The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening.
@@ -183,7 +180,7 @@ $application_question_references = 'application_question_references_example'; //
 $internal_job_code = 'internal_job_code_example'; // string | The internal job code for the job opening.
 
 try {
-    $apiInstance->addNewJobOpening($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code);
+    $apiInstance->addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->addNewJobOpening: ', $e->getMessage(), PHP_EOL;
 }
@@ -193,7 +190,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **posting_title** | **string**| The posting title of the job opening. | |
 | **job_status** | **string**| The status of the job opening. | |
 | **hiring_lead** | **int**| The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. | |
@@ -236,7 +232,7 @@ void (empty response body)
 ## `getApplications()`
 
 ```php
-getApplications($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \MySdk\Model\GetApplications200Response
+getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \MySdk\Model\GetApplications200Response
 ```
 
 Get Applications
@@ -268,7 +264,6 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $page = 56; // int | The page number
 $job_id = 56; // int | A Job Id to limit results to
 $application_status_id = 56; // int | Application status id to filter by.
@@ -280,7 +275,7 @@ $sort_order = 'sort_order_example'; // string | Order by which to sort results.
 $new_since = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00
 
 try {
-    $result = $apiInstance->getApplications($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since);
+    $result = $apiInstance->getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->getApplications: ', $e->getMessage(), PHP_EOL;
@@ -291,7 +286,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **page** | **int**| The page number | [optional] |
 | **job_id** | **int**| A Job Id to limit results to | [optional] |
 | **application_status_id** | **int**| Application status id to filter by. | [optional] |
@@ -322,7 +316,7 @@ try {
 ## `getCompanyLocations()`
 
 ```php
-getCompanyLocations($company_domain): \MySdk\Model\GetCompanyLocations200ResponseInner[]
+getCompanyLocations(): \MySdk\Model\GetCompanyLocations200ResponseInner[]
 ```
 
 Get Company Locations
@@ -354,10 +348,9 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getCompanyLocations($company_domain);
+    $result = $apiInstance->getCompanyLocations();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->getCompanyLocations: ', $e->getMessage(), PHP_EOL;
@@ -366,9 +359,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -390,7 +381,7 @@ try {
 ## `getHiringLeads()`
 
 ```php
-getHiringLeads($company_domain): \MySdk\Model\GetHiringLeads200ResponseInner[]
+getHiringLeads(): \MySdk\Model\GetHiringLeads200ResponseInner[]
 ```
 
 Get Hiring Leads
@@ -422,10 +413,9 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getHiringLeads($company_domain);
+    $result = $apiInstance->getHiringLeads();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->getHiringLeads: ', $e->getMessage(), PHP_EOL;
@@ -434,9 +424,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -458,7 +446,7 @@ try {
 ## `getJobSummaries()`
 
 ```php
-getJobSummaries($company_domain, $status_groups, $sort_by, $sort_order)
+getJobSummaries($status_groups, $sort_by, $sort_order)
 ```
 
 Get Job Summaries
@@ -490,13 +478,12 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $status_groups = 'status_groups_example'; // string | A list of status groups to filter positions by.
 $sort_by = 'sort_by_example'; // string | A specific field to sort the results by.
 $sort_order = 'sort_order_example'; // string | Order by which to sort results.
 
 try {
-    $apiInstance->getJobSummaries($company_domain, $status_groups, $sort_by, $sort_order);
+    $apiInstance->getJobSummaries($status_groups, $sort_by, $sort_order);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->getJobSummaries: ', $e->getMessage(), PHP_EOL;
 }
@@ -506,7 +493,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **status_groups** | **string**| A list of status groups to filter positions by. | [optional] |
 | **sort_by** | **string**| A specific field to sort the results by. | [optional] |
 | **sort_order** | **string**| Order by which to sort results. | [optional] |
@@ -531,7 +517,7 @@ void (empty response body)
 ## `getStatuses()`
 
 ```php
-getStatuses($company_domain)
+getStatuses()
 ```
 
 Get Statuses
@@ -563,10 +549,9 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $apiInstance->getStatuses($company_domain);
+    $apiInstance->getStatuses();
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->getStatuses: ', $e->getMessage(), PHP_EOL;
 }
@@ -574,9 +559,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -598,7 +581,7 @@ void (empty response body)
 ## `postApplicantStatus()`
 
 ```php
-postApplicantStatus($company_domain, $application_id, $post_applicant_status_request)
+postApplicantStatus($application_id, $post_applicant_status_request)
 ```
 
 Change Applicant's Status
@@ -630,12 +613,11 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$application_id = 56; // int | The ID of the application to add a comment to.
+$application_id = 0; // int | The ID of the application to add a comment to.
 $post_applicant_status_request = new \MySdk\Model\PostApplicantStatusRequest(); // \MySdk\Model\PostApplicantStatusRequest | Sample Post Data.
 
 try {
-    $apiInstance->postApplicantStatus($company_domain, $application_id, $post_applicant_status_request);
+    $apiInstance->postApplicantStatus($application_id, $post_applicant_status_request);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->postApplicantStatus: ', $e->getMessage(), PHP_EOL;
 }
@@ -645,8 +627,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **application_id** | **int**| The ID of the application to add a comment to. | |
+| **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
 | **post_applicant_status_request** | [**\MySdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
 
 ### Return type
@@ -669,7 +650,7 @@ void (empty response body)
 ## `postApplicationComment()`
 
 ```php
-postApplicationComment($company_domain, $application_id, $post_application_comment_request)
+postApplicationComment($application_id, $post_application_comment_request)
 ```
 
 Add Application Comment
@@ -701,12 +682,11 @@ $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$application_id = 56; // int | The ID of the application to add a comment to.
+$application_id = 0; // int | The ID of the application to add a comment to.
 $post_application_comment_request = new \MySdk\Model\PostApplicationCommentRequest(); // \MySdk\Model\PostApplicationCommentRequest | Comment object to post
 
 try {
-    $apiInstance->postApplicationComment($company_domain, $application_id, $post_application_comment_request);
+    $apiInstance->postApplicationComment($application_id, $post_application_comment_request);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicantTrackingApi->postApplicationComment: ', $e->getMessage(), PHP_EOL;
 }
@@ -716,8 +696,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **application_id** | **int**| The ID of the application to add a comment to. | |
+| **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
 | **post_application_comment_request** | [**\MySdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
 
 ### Return type

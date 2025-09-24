@@ -439,7 +439,7 @@ class CommonDataObjectsPayrollPayrollAdditionalWithholding implements ModelInter
     /**
      * Sets range
      *
-     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollRange|null $range range
+     * @param \MySdk\Model\CommonDataObjectsPayrollPayrollRange|null $range The range of allowed values for this withholding
      *
      * @return self
      */

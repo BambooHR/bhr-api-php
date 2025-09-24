@@ -86,7 +86,7 @@ class CompanyPayrollClientIncludedTaxViewObjectCurrentTaxSetupStatus implements 
     protected static array $openAPINullables = [
         'priority' => true,
         'days_until_event' => true,
-        'event' => true,
+        'event' => false,
         'current_status' => false
     ];
 
@@ -457,17 +457,10 @@ class CompanyPayrollClientIncludedTaxViewObjectCurrentTaxSetupStatus implements 
     public function setEvent($event)
     {
         if (is_null($event)) {
-            array_push($this->openAPINullablesSetToNull, 'event');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('event', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable event cannot be null');
         }
         $allowedValues = $this->getEventAllowableValues();
-        if (!is_null($event) && !in_array($event, $allowedValues, true)) {
+        if (!in_array($event, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'event', must be one of '%s'",

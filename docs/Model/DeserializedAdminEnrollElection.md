@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **benefit_plan_id** | **int** |  | [optional]
 **effective_date** | **string** |  | [optional]
-**plan_category_data_options** | **object** |  | [optional]
 **selected_coverage_id** | **int** |  | [optional]
 **employee_contribution_amount** | **float** |  | [optional]
 **employee_percent_deduction_type** | **string** |  | [optional]

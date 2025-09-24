@@ -57,7 +57,7 @@ class BenefitsTabPlansViewObjectPlansInnerPlanCategoryInner implements ModelInte
       * @var string[]
       */
     protected static $openAPITypes = [
-        'plan_id' => 'object[]'
+        'plan_id' => 'array[]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class BenefitsTabPlansViewObjectPlansInnerPlanCategoryInner implements ModelInte
     /**
      * Gets plan_id
      *
-     * @return object[]|null
+     * @return array[]|null
      */
     public function getPlanId()
     {
@@ -302,7 +302,7 @@ class BenefitsTabPlansViewObjectPlansInnerPlanCategoryInner implements ModelInte
     /**
      * Sets plan_id
      *
-     * @param object[]|null $plan_id plan_id
+     * @param array[]|null $plan_id plan_id
      *
      * @return self
      */

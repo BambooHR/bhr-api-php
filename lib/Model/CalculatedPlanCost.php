@@ -60,8 +60,9 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'plan_id' => 'string',
         'employee_id' => 'string',
-        'monthly' => '\MySdk\Model\CostSplit',
-        'per_deduction' => '\MySdk\Model\CostSplit'
+        'monthly' => '\MySdk\Model\CalculatedPlanCostMonthly',
+        'per_deduction' => '\MySdk\Model\CalculatedPlanCostMonthly',
+        'coverage_amounts' => '\MySdk\Model\FixedAmountCoverage'
     ];
 
     /**
@@ -75,7 +76,8 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
         'plan_id' => null,
         'employee_id' => null,
         'monthly' => null,
-        'per_deduction' => null
+        'per_deduction' => null,
+        'coverage_amounts' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
         'plan_id' => false,
         'employee_id' => false,
         'monthly' => false,
-        'per_deduction' => false
+        'per_deduction' => false,
+        'coverage_amounts' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
         'plan_id' => 'planId',
         'employee_id' => 'employeeId',
         'monthly' => 'monthly',
-        'per_deduction' => 'perDeduction'
+        'per_deduction' => 'perDeduction',
+        'coverage_amounts' => 'coverageAmounts'
     ];
 
     /**
@@ -191,7 +195,8 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
         'plan_id' => 'setPlanId',
         'employee_id' => 'setEmployeeId',
         'monthly' => 'setMonthly',
-        'per_deduction' => 'setPerDeduction'
+        'per_deduction' => 'setPerDeduction',
+        'coverage_amounts' => 'setCoverageAmounts'
     ];
 
     /**
@@ -203,7 +208,8 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
         'plan_id' => 'getPlanId',
         'employee_id' => 'getEmployeeId',
         'monthly' => 'getMonthly',
-        'per_deduction' => 'getPerDeduction'
+        'per_deduction' => 'getPerDeduction',
+        'coverage_amounts' => 'getCoverageAmounts'
     ];
 
     /**
@@ -267,6 +273,7 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('employee_id', $data ?? [], null);
         $this->setIfExists('monthly', $data ?? [], null);
         $this->setIfExists('per_deduction', $data ?? [], null);
+        $this->setIfExists('coverage_amounts', $data ?? [], null);
     }
 
     /**
@@ -368,7 +375,7 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets monthly
      *
-     * @return \MySdk\Model\CostSplit|null
+     * @return \MySdk\Model\CalculatedPlanCostMonthly|null
      */
     public function getMonthly()
     {
@@ -378,7 +385,7 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets monthly
      *
-     * @param \MySdk\Model\CostSplit|null $monthly monthly
+     * @param \MySdk\Model\CalculatedPlanCostMonthly|null $monthly monthly
      *
      * @return self
      */
@@ -395,7 +402,7 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets per_deduction
      *
-     * @return \MySdk\Model\CostSplit|null
+     * @return \MySdk\Model\CalculatedPlanCostMonthly|null
      */
     public function getPerDeduction()
     {
@@ -405,7 +412,7 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets per_deduction
      *
-     * @param \MySdk\Model\CostSplit|null $per_deduction per_deduction
+     * @param \MySdk\Model\CalculatedPlanCostMonthly|null $per_deduction per_deduction
      *
      * @return self
      */
@@ -415,6 +422,33 @@ class CalculatedPlanCost implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable per_deduction cannot be null');
         }
         $this->container['per_deduction'] = $per_deduction;
+
+        return $this;
+    }
+
+    /**
+     * Gets coverage_amounts
+     *
+     * @return \MySdk\Model\FixedAmountCoverage|null
+     */
+    public function getCoverageAmounts()
+    {
+        return $this->container['coverage_amounts'];
+    }
+
+    /**
+     * Sets coverage_amounts
+     *
+     * @param \MySdk\Model\FixedAmountCoverage|null $coverage_amounts coverage_amounts
+     *
+     * @return self
+     */
+    public function setCoverageAmounts($coverage_amounts)
+    {
+        if (is_null($coverage_amounts)) {
+            throw new \InvalidArgumentException('non-nullable coverage_amounts cannot be null');
+        }
+        $this->container['coverage_amounts'] = $coverage_amounts;
 
         return $this;
     }

@@ -12,5 +12,7 @@ Name | Type | Description | Notes
 **wage** | [**\MySdk\Model\PayCycleEmployeeDataObjectCollectionInnerWage**](PayCycleEmployeeDataObjectCollectionInnerWage.md) |  | [optional]
 **rates** | [**\MySdk\Model\EmployeeRatesInner[]**](EmployeeRatesInner.md) |  | [optional]
 **earnings** | [**\MySdk\Model\EmployeeEarningsInner[]**](EmployeeEarningsInner.md) |  | [optional]
+**earning_adjustments** | [**\MySdk\Model\EmployeeEarningAdjustmentsInner[]**](EmployeeEarningAdjustmentsInner.md) |  | [optional]
+**compensation_periods** | [**\MySdk\Model\CompensationPeriodsInner[]**](CompensationPeriodsInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

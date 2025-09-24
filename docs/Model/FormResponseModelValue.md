@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **note** | **string** | Additional note for the field | [optional]
 **placeholder** | **string** | Placeholder text | [optional]
 **name** | **string** | Field name | [optional]
+**items** | [**\MySdk\Model\SelectFieldFormNodeAllOfItems[]**](SelectFieldFormNodeAllOfItems.md) | Available options for selection | [optional]
+**multiselect** | **bool** | Whether multiple options can be selected | [optional]
+**add_item_field_id** | **int** | Field ID for adding new items | [optional]
+**add_item_label** | **string** | Label for adding new items | [optional]
 **icon** | **string** | Icon identifier | [optional]
 **field_id** | **string** | Field identifier | [optional]
 **can_add_rows** | **bool** | Whether rows can be added | [optional]
@@ -43,7 +47,7 @@ Name | Type | Description | Notes
 **can_add** | **bool** | Whether new items can be added | [optional]
 **can_delete** | **bool** | Whether items can be deleted | [optional]
 **template** | **string** | Static template content | [optional]
-**items** | [**\MySdk\Model\SelectFieldFormNodeAllOfItems[]**](SelectFieldFormNodeAllOfItems.md) | Available options for selection | [optional]
-**multiselect** | **bool** | Whether multiple options can be selected | [optional]
+**aca_statuses** | **string[]** | Available aca statuses | [optional]
+**aca_status_enabled** | **bool** | Is Aca status enabled | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

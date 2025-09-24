@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **created_at** | **\DateTime** | Creation timestamp | [optional]
 **deleted** | **bool** | Whether the comment is deleted | [optional]
 **like_count** | **int** | Number of likes | [optional]
-**post** | [**\MySdk\Model\HoneyPostDataObject**](HoneyPostDataObject.md) |  | [optional]
+**post** | [**\MySdk\Model\HoneyPostDataObject**](HoneyPostDataObject.md) | Post object | [optional]
 **files** | [**\MySdk\Model\HoneyPostCommentDataObjectFilesInner[]**](HoneyPostCommentDataObjectFilesInner.md) | Files attached to the comment | [optional]
 **liked_at** | **\DateTime** | When the comment was liked | [optional]
 **editable** | **bool** | Whether the comment can be edited | [optional]

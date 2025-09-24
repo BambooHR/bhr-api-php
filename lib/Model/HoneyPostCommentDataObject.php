@@ -630,7 +630,7 @@ class HoneyPostCommentDataObject implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets post
      *
-     * @param \MySdk\Model\HoneyPostDataObject|null $post post
+     * @param \MySdk\Model\HoneyPostDataObject|null $post Post object
      *
      * @return self
      */

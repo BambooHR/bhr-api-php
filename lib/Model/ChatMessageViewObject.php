@@ -64,7 +64,9 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         'feedback' => '\MySdk\Model\ChatMessageFeedbackDataObject',
         'sources' => '\MySdk\Model\ChatMessageSourceDataObject[]',
         'time_created' => 'string',
-        'time_updated' => 'string'
+        'time_updated' => 'string',
+        'result_summary' => 'string',
+        'question_summary' => 'string'
     ];
 
     /**
@@ -81,7 +83,9 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         'feedback' => null,
         'sources' => null,
         'time_created' => null,
-        'time_updated' => null
+        'time_updated' => null,
+        'result_summary' => null,
+        'question_summary' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         'feedback' => true,
         'sources' => false,
         'time_created' => false,
-        'time_updated' => false
+        'time_updated' => false,
+        'result_summary' => false,
+        'question_summary' => false
     ];
 
     /**
@@ -191,7 +197,9 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         'feedback' => 'feedback',
         'sources' => 'sources',
         'time_created' => 'timeCreated',
-        'time_updated' => 'timeUpdated'
+        'time_updated' => 'timeUpdated',
+        'result_summary' => 'resultSummary',
+        'question_summary' => 'questionSummary'
     ];
 
     /**
@@ -206,7 +214,9 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         'feedback' => 'setFeedback',
         'sources' => 'setSources',
         'time_created' => 'setTimeCreated',
-        'time_updated' => 'setTimeUpdated'
+        'time_updated' => 'setTimeUpdated',
+        'result_summary' => 'setResultSummary',
+        'question_summary' => 'setQuestionSummary'
     ];
 
     /**
@@ -221,7 +231,9 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         'feedback' => 'getFeedback',
         'sources' => 'getSources',
         'time_created' => 'getTimeCreated',
-        'time_updated' => 'getTimeUpdated'
+        'time_updated' => 'getTimeUpdated',
+        'result_summary' => 'getResultSummary',
+        'question_summary' => 'getQuestionSummary'
     ];
 
     /**
@@ -288,6 +300,8 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('sources', $data ?? [], null);
         $this->setIfExists('time_created', $data ?? [], null);
         $this->setIfExists('time_updated', $data ?? [], null);
+        $this->setIfExists('result_summary', $data ?? [], null);
+        $this->setIfExists('question_summary', $data ?? [], null);
     }
 
     /**
@@ -433,7 +447,7 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets feedback
      *
-     * @param \MySdk\Model\ChatMessageFeedbackDataObject|null $feedback feedback
+     * @param \MySdk\Model\ChatMessageFeedbackDataObject|null $feedback The attached feedback for this message
      *
      * @return self
      */
@@ -531,6 +545,60 @@ class ChatMessageViewObject implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable time_updated cannot be null');
         }
         $this->container['time_updated'] = $time_updated;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_summary
+     *
+     * @return string|null
+     */
+    public function getResultSummary()
+    {
+        return $this->container['result_summary'];
+    }
+
+    /**
+     * Sets result_summary
+     *
+     * @param string|null $result_summary A summary of the response
+     *
+     * @return self
+     */
+    public function setResultSummary($result_summary)
+    {
+        if (is_null($result_summary)) {
+            throw new \InvalidArgumentException('non-nullable result_summary cannot be null');
+        }
+        $this->container['result_summary'] = $result_summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets question_summary
+     *
+     * @return string|null
+     */
+    public function getQuestionSummary()
+    {
+        return $this->container['question_summary'];
+    }
+
+    /**
+     * Sets question_summary
+     *
+     * @param string|null $question_summary A summary of the question
+     *
+     * @return self
+     */
+    public function setQuestionSummary($question_summary)
+    {
+        if (is_null($question_summary)) {
+            throw new \InvalidArgumentException('non-nullable question_summary cannot be null');
+        }
+        $this->container['question_summary'] = $question_summary;
 
         return $this;
     }

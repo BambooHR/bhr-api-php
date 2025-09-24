@@ -449,7 +449,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
      * Gets goals
      *
      * @return \MySdk\Model\TransformedApiGoal[]|null
-     * @deprecated
      */
     public function getGoals()
     {
@@ -462,7 +461,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
      * @param \MySdk\Model\TransformedApiGoal[]|null $goals All goals in selected filter.
      *
      * @return self
-     * @deprecated
      */
     public function setGoals($goals)
     {
@@ -478,7 +476,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
      * Gets persons
      *
      * @return \MySdk\Model\GetGoalsAggregateV1200ResponsePersonsInner[]|null
-     * @deprecated
      */
     public function getPersons()
     {
@@ -491,7 +488,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
      * @param \MySdk\Model\GetGoalsAggregateV1200ResponsePersonsInner[]|null $persons A list of people with access to the goal.
      *
      * @return self
-     * @deprecated
      */
     public function setPersons($persons)
     {
@@ -507,7 +503,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
      * Gets comments
      *
      * @return \MySdk\Model\GetGoalsAggregateV1200ResponseCommentsInner[]|null
-     * @deprecated
      */
     public function getComments()
     {
@@ -520,7 +515,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
      * @param \MySdk\Model\GetGoalsAggregateV1200ResponseCommentsInner[]|null $comments A list of how many comments belong to each goal.
      *
      * @return self
-     * @deprecated
      */
     public function setComments($comments)
     {

@@ -310,7 +310,7 @@ class TotalRewardsBenefitSectionValues implements ModelInterface, ArrayAccess, \
     /**
      * Sets comp_summary
      *
-     * @param \MySdk\Model\TotalRewardsCompSummaryValues|null $comp_summary comp_summary
+     * @param \MySdk\Model\TotalRewardsCompSummaryValues|null $comp_summary Compensation summary
      *
      * @return self
      */

@@ -303,7 +303,7 @@ class PlanYears implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets 
      *
-     * @param mixed|null $ Collection of plan years
+     * @param mixed|null $ 
      *
      * @return self
      */

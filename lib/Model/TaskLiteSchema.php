@@ -74,6 +74,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'bool',
         'has_attachments' => 'bool',
         'has_comments' => 'bool',
+        'has_employee_files' => 'bool',
         'allow_employee_uploads' => 'bool',
         'require_employee_uploads' => 'bool'
     ];
@@ -103,6 +104,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => null,
         'has_attachments' => null,
         'has_comments' => null,
+        'has_employee_files' => null,
         'allow_employee_uploads' => null,
         'require_employee_uploads' => null
     ];
@@ -120,7 +122,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => true,
         'task_list_id' => false,
         'assigned_user_id' => true,
-        'assigned_by_user_id' => false,
+        'assigned_by_user_id' => true,
         'sort_order' => false,
         'due_date' => true,
         'can_delete' => false,
@@ -130,6 +132,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => false,
         'has_attachments' => false,
         'has_comments' => false,
+        'has_employee_files' => false,
         'allow_employee_uploads' => false,
         'require_employee_uploads' => false
     ];
@@ -237,6 +240,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'archived',
         'has_attachments' => 'hasAttachments',
         'has_comments' => 'hasComments',
+        'has_employee_files' => 'hasEmployeeFiles',
         'allow_employee_uploads' => 'allowEmployeeUploads',
         'require_employee_uploads' => 'requireEmployeeUploads'
     ];
@@ -264,6 +268,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'setArchived',
         'has_attachments' => 'setHasAttachments',
         'has_comments' => 'setHasComments',
+        'has_employee_files' => 'setHasEmployeeFiles',
         'allow_employee_uploads' => 'setAllowEmployeeUploads',
         'require_employee_uploads' => 'setRequireEmployeeUploads'
     ];
@@ -291,6 +296,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'archived' => 'getArchived',
         'has_attachments' => 'getHasAttachments',
         'has_comments' => 'getHasComments',
+        'has_employee_files' => 'getHasEmployeeFiles',
         'allow_employee_uploads' => 'getAllowEmployeeUploads',
         'require_employee_uploads' => 'getRequireEmployeeUploads'
     ];
@@ -388,6 +394,7 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('archived', $data ?? [], null);
         $this->setIfExists('has_attachments', $data ?? [], null);
         $this->setIfExists('has_comments', $data ?? [], null);
+        $this->setIfExists('has_employee_files', $data ?? [], null);
         $this->setIfExists('allow_employee_uploads', $data ?? [], null);
         $this->setIfExists('require_employee_uploads', $data ?? [], null);
     }
@@ -683,7 +690,14 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAssignedByUserId($assigned_by_user_id)
     {
         if (is_null($assigned_by_user_id)) {
-            throw new \InvalidArgumentException('non-nullable assigned_by_user_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'assigned_by_user_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assigned_by_user_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['assigned_by_user_id'] = $assigned_by_user_id;
 
@@ -950,6 +964,33 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable has_comments cannot be null');
         }
         $this->container['has_comments'] = $has_comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_employee_files
+     *
+     * @return bool|null
+     */
+    public function getHasEmployeeFiles()
+    {
+        return $this->container['has_employee_files'];
+    }
+
+    /**
+     * Sets has_employee_files
+     *
+     * @param bool|null $has_employee_files has_employee_files
+     *
+     * @return self
+     */
+    public function setHasEmployeeFiles($has_employee_files)
+    {
+        if (is_null($has_employee_files)) {
+            throw new \InvalidArgumentException('non-nullable has_employee_files cannot be null');
+        }
+        $this->container['has_employee_files'] = $has_employee_files;
 
         return $this;
     }

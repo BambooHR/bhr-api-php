@@ -133,7 +133,6 @@ class ReportsApi
      *
      * Get company report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a report ID. (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -145,9 +144,9 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCompanyReport($company_domain, $id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
+    public function getCompanyReport($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
     {
-        $this->getCompanyReportWithHttpInfo($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
+        $this->getCompanyReportWithHttpInfo($id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
     }
 
     /**
@@ -155,7 +154,6 @@ class ReportsApi
      *
      * Get company report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a report ID. (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -167,9 +165,9 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCompanyReportWithHttpInfo($company_domain, $id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
+    public function getCompanyReportWithHttpInfo($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
     {
-        $request = $this->getCompanyReportRequest($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
+        $request = $this->getCompanyReportRequest($id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -209,7 +207,6 @@ class ReportsApi
      *
      * Get company report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a report ID. (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -220,9 +217,9 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyReportAsync($company_domain, $id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
+    public function getCompanyReportAsync($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
     {
-        return $this->getCompanyReportAsyncWithHttpInfo($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current, $contentType)
+        return $this->getCompanyReportAsyncWithHttpInfo($id, $format, $accept_header_parameter, $fd, $only_current, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -235,7 +232,6 @@ class ReportsApi
      *
      * Get company report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a report ID. (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -246,10 +242,10 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCompanyReportAsyncWithHttpInfo($company_domain, $id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
+    public function getCompanyReportAsyncWithHttpInfo($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
     {
         $returnType = '';
-        $request = $this->getCompanyReportRequest($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
+        $request = $this->getCompanyReportRequest($id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -277,7 +273,6 @@ class ReportsApi
     /**
      * Create request for operation 'getCompanyReport'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $id {id} is a report ID. (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -288,15 +283,8 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCompanyReportRequest($company_domain, $id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
+    public function getCompanyReportRequest($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::contentTypes['getCompanyReport'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getCompanyReport'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -316,7 +304,7 @@ class ReportsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/reports/{id}';
+        $resourcePath = '/api/v1/reports/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -356,14 +344,6 @@ class ReportsApi
             $headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
         }
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -444,7 +424,6 @@ class ReportsApi
      *
      * Request a custom report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  \MySdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
      * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
@@ -454,9 +433,9 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function requestCustomReport($company_domain, $format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
+    public function requestCustomReport($format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
     {
-        $this->requestCustomReportWithHttpInfo($company_domain, $format, $request_custom_report, $only_current, $contentType);
+        $this->requestCustomReportWithHttpInfo($format, $request_custom_report, $only_current, $contentType);
     }
 
     /**
@@ -464,7 +443,6 @@ class ReportsApi
      *
      * Request a custom report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
      * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
@@ -474,9 +452,9 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestCustomReportWithHttpInfo($company_domain, $format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
+    public function requestCustomReportWithHttpInfo($format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
     {
-        $request = $this->requestCustomReportRequest($company_domain, $format, $request_custom_report, $only_current, $contentType);
+        $request = $this->requestCustomReportRequest($format, $request_custom_report, $only_current, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -516,7 +494,6 @@ class ReportsApi
      *
      * Request a custom report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
      * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
@@ -525,9 +502,9 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestCustomReportAsync($company_domain, $format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
+    public function requestCustomReportAsync($format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
     {
-        return $this->requestCustomReportAsyncWithHttpInfo($company_domain, $format, $request_custom_report, $only_current, $contentType)
+        return $this->requestCustomReportAsyncWithHttpInfo($format, $request_custom_report, $only_current, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -540,7 +517,6 @@ class ReportsApi
      *
      * Request a custom report
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
      * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
@@ -549,10 +525,10 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestCustomReportAsyncWithHttpInfo($company_domain, $format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
+    public function requestCustomReportAsyncWithHttpInfo($format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
     {
         $returnType = '';
-        $request = $this->requestCustomReportRequest($company_domain, $format, $request_custom_report, $only_current, $contentType);
+        $request = $this->requestCustomReportRequest($format, $request_custom_report, $only_current, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -580,7 +556,6 @@ class ReportsApi
     /**
      * Create request for operation 'requestCustomReport'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
      * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
      * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
@@ -589,15 +564,8 @@ class ReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function requestCustomReportRequest($company_domain, $format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
+    public function requestCustomReportRequest($format, $request_custom_report, $only_current = false, string $contentType = self::contentTypes['requestCustomReport'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling requestCustomReport'
-            );
-        }
 
         // verify the required parameter 'format' is set
         if ($format === null || (is_array($format) && count($format) === 0)) {
@@ -615,7 +583,7 @@ class ReportsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/reports/custom';
+        $resourcePath = '/api/v1/reports/custom';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -642,14 +610,6 @@ class ReportsApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(

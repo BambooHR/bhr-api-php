@@ -359,7 +359,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets employee_id
      *
-     * @param mixed|null $employee_id Employee ID for whom the widget applies
+     * @param mixed|null $employee_id employee_id
      *
      * @return self
      */
@@ -393,7 +393,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets has_benefits
      *
-     * @param mixed|null $has_benefits Whether the employee has benefits
+     * @param mixed|null $has_benefits has_benefits
      *
      * @return self
      */
@@ -427,7 +427,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets pay_frequency
      *
-     * @param mixed|null $pay_frequency Pay frequency for the employee
+     * @param mixed|null $pay_frequency pay_frequency
      *
      * @return self
      */
@@ -461,7 +461,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets show_company_pays
      *
-     * @param mixed|null $show_company_pays Whether the employee can see company-paid contributions
+     * @param mixed|null $show_company_pays show_company_pays
      *
      * @return self
      */
@@ -495,7 +495,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets benefits_page_id
      *
-     * @param mixed|null $benefits_page_id ID of the benefits page
+     * @param mixed|null $benefits_page_id benefits_page_id
      *
      * @return self
      */
@@ -529,7 +529,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets enrolled_plans
      *
-     * @param mixed|null $enrolled_plans List of enrolled benefit plans
+     * @param mixed|null $enrolled_plans enrolled_plans
      *
      * @return self
      */
@@ -563,7 +563,7 @@ class EnrolledBenefitWidgetDataObject implements ModelInterface, ArrayAccess, \J
     /**
      * Sets enrollment_windows
      *
-     * @param mixed|null $enrollment_windows List of enrollment windows available to the employee
+     * @param mixed|null $enrollment_windows enrollment_windows
      *
      * @return self
      */

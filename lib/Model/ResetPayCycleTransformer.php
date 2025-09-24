@@ -35,6 +35,7 @@ use \MySdk\ObjectSerializer;
  * ResetPayCycleTransformer Class Doc Comment
  *
  * @category Class
+ * @description Transformer for pay cycle reset operations providing external ID information
  * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

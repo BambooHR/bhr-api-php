@@ -199,7 +199,6 @@ class GoalsApi
      *
      * Delete Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGoal'] to see the possible values for this operation
@@ -208,9 +207,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteGoal($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
+    public function deleteGoal($employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
     {
-        $this->deleteGoalWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType);
+        $this->deleteGoalWithHttpInfo($employee_id, $goal_id, $contentType);
     }
 
     /**
@@ -218,7 +217,6 @@ class GoalsApi
      *
      * Delete Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGoal'] to see the possible values for this operation
@@ -227,9 +225,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteGoalWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
+    public function deleteGoalWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
     {
-        $request = $this->deleteGoalRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -269,7 +267,6 @@ class GoalsApi
      *
      * Delete Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGoal'] to see the possible values for this operation
@@ -277,9 +274,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGoalAsync($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
+    public function deleteGoalAsync($employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
     {
-        return $this->deleteGoalAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType)
+        return $this->deleteGoalAsyncWithHttpInfo($employee_id, $goal_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -292,7 +289,6 @@ class GoalsApi
      *
      * Delete Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGoal'] to see the possible values for this operation
@@ -300,10 +296,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGoalAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
+    public function deleteGoalAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
     {
         $returnType = '';
-        $request = $this->deleteGoalRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -331,7 +327,6 @@ class GoalsApi
     /**
      * Create request for operation 'deleteGoal'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteGoal'] to see the possible values for this operation
@@ -339,15 +334,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteGoalRequest($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
+    public function deleteGoalRequest($employee_id, $goal_id, string $contentType = self::contentTypes['deleteGoal'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteGoal'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -364,7 +352,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -373,14 +361,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -469,7 +449,6 @@ class GoalsApi
      *
      * Delete Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
@@ -479,9 +458,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteGoalComment($company_domain, $employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
+    public function deleteGoalComment($employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
     {
-        $this->deleteGoalCommentWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, $contentType);
+        $this->deleteGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $contentType);
     }
 
     /**
@@ -489,7 +468,6 @@ class GoalsApi
      *
      * Delete Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
@@ -499,9 +477,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteGoalCommentWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
+    public function deleteGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
     {
-        $request = $this->deleteGoalCommentRequest($company_domain, $employee_id, $goal_id, $comment_id, $contentType);
+        $request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -541,7 +519,6 @@ class GoalsApi
      *
      * Delete Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
@@ -550,9 +527,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGoalCommentAsync($company_domain, $employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
+    public function deleteGoalCommentAsync($employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
     {
-        return $this->deleteGoalCommentAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, $contentType)
+        return $this->deleteGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -565,7 +542,6 @@ class GoalsApi
      *
      * Delete Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
@@ -574,10 +550,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteGoalCommentAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
+    public function deleteGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
     {
         $returnType = '';
-        $request = $this->deleteGoalCommentRequest($company_domain, $employee_id, $goal_id, $comment_id, $contentType);
+        $request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -605,7 +581,6 @@ class GoalsApi
     /**
      * Create request for operation 'deleteGoalComment'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
@@ -614,15 +589,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteGoalCommentRequest($company_domain, $employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
+    public function deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, string $contentType = self::contentTypes['deleteGoalComment'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling deleteGoalComment'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -646,7 +614,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -655,14 +623,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -759,7 +719,6 @@ class GoalsApi
      *
      * Can Create a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCanCreateGoal'] to see the possible values for this operation
      *
@@ -767,9 +726,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getCanCreateGoal($company_domain, $employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
+    public function getCanCreateGoal($employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
     {
-        $this->getCanCreateGoalWithHttpInfo($company_domain, $employee_id, $contentType);
+        $this->getCanCreateGoalWithHttpInfo($employee_id, $contentType);
     }
 
     /**
@@ -777,7 +736,6 @@ class GoalsApi
      *
      * Can Create a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCanCreateGoal'] to see the possible values for this operation
      *
@@ -785,9 +743,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCanCreateGoalWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
+    public function getCanCreateGoalWithHttpInfo($employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
     {
-        $request = $this->getCanCreateGoalRequest($company_domain, $employee_id, $contentType);
+        $request = $this->getCanCreateGoalRequest($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -827,16 +785,15 @@ class GoalsApi
      *
      * Can Create a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCanCreateGoal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCanCreateGoalAsync($company_domain, $employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
+    public function getCanCreateGoalAsync($employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
     {
-        return $this->getCanCreateGoalAsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getCanCreateGoalAsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -849,17 +806,16 @@ class GoalsApi
      *
      * Can Create a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCanCreateGoal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCanCreateGoalAsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
+    public function getCanCreateGoalAsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
     {
         $returnType = '';
-        $request = $this->getCanCreateGoalRequest($company_domain, $employee_id, $contentType);
+        $request = $this->getCanCreateGoalRequest($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -887,22 +843,14 @@ class GoalsApi
     /**
      * Create request for operation 'getCanCreateGoal'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCanCreateGoal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCanCreateGoalRequest($company_domain, $employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
+    public function getCanCreateGoalRequest($employee_id, string $contentType = self::contentTypes['getCanCreateGoal'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getCanCreateGoal'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -912,7 +860,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/canCreateGoals';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -921,14 +869,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -1009,7 +949,6 @@ class GoalsApi
      *
      * Get Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalAggregate'] to see the possible values for this operation
@@ -1018,9 +957,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetGoalAggregate200Response
      */
-    public function getGoalAggregate($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
+    public function getGoalAggregate($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
     {
-        list($response) = $this->getGoalAggregateWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType);
+        list($response) = $this->getGoalAggregateWithHttpInfo($employee_id, $goal_id, $contentType);
         return $response;
     }
 
@@ -1029,7 +968,6 @@ class GoalsApi
      *
      * Get Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalAggregate'] to see the possible values for this operation
@@ -1038,9 +976,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetGoalAggregate200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalAggregateWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
+    public function getGoalAggregateWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
     {
-        $request = $this->getGoalAggregateRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1116,7 +1054,6 @@ class GoalsApi
      *
      * Get Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalAggregate'] to see the possible values for this operation
@@ -1124,9 +1061,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalAggregateAsync($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
+    public function getGoalAggregateAsync($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
     {
-        return $this->getGoalAggregateAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType)
+        return $this->getGoalAggregateAsyncWithHttpInfo($employee_id, $goal_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1139,7 +1076,6 @@ class GoalsApi
      *
      * Get Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalAggregate'] to see the possible values for this operation
@@ -1147,10 +1083,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalAggregateAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
+    public function getGoalAggregateAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
     {
         $returnType = '\MySdk\Model\GetGoalAggregate200Response';
-        $request = $this->getGoalAggregateRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1191,7 +1127,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalAggregate'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalAggregate'] to see the possible values for this operation
@@ -1199,15 +1134,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalAggregateRequest($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
+    public function getGoalAggregateRequest($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalAggregate'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalAggregate'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -1224,7 +1152,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1233,14 +1161,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -1329,7 +1249,6 @@ class GoalsApi
      *
      * Get Goal Comments
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalComments'] to see the possible values for this operation
@@ -1338,9 +1257,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getGoalComments($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
+    public function getGoalComments($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
     {
-        $this->getGoalCommentsWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType);
+        $this->getGoalCommentsWithHttpInfo($employee_id, $goal_id, $contentType);
     }
 
     /**
@@ -1348,7 +1267,6 @@ class GoalsApi
      *
      * Get Goal Comments
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalComments'] to see the possible values for this operation
@@ -1357,9 +1275,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalCommentsWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
+    public function getGoalCommentsWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
     {
-        $request = $this->getGoalCommentsRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1399,7 +1317,6 @@ class GoalsApi
      *
      * Get Goal Comments
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalComments'] to see the possible values for this operation
@@ -1407,9 +1324,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalCommentsAsync($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
+    public function getGoalCommentsAsync($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
     {
-        return $this->getGoalCommentsAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType)
+        return $this->getGoalCommentsAsyncWithHttpInfo($employee_id, $goal_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1422,7 +1339,6 @@ class GoalsApi
      *
      * Get Goal Comments
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalComments'] to see the possible values for this operation
@@ -1430,10 +1346,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalCommentsAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
+    public function getGoalCommentsAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
     {
         $returnType = '';
-        $request = $this->getGoalCommentsRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1461,7 +1377,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalComments'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalComments'] to see the possible values for this operation
@@ -1469,15 +1384,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalCommentsRequest($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
+    public function getGoalCommentsRequest($employee_id, $goal_id, string $contentType = self::contentTypes['getGoalComments'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalComments'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -1494,7 +1402,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1503,14 +1411,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -1599,7 +1499,6 @@ class GoalsApi
      *
      * Get Goals
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoals'] to see the possible values for this operation
@@ -1608,9 +1507,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetGoals200Response
      */
-    public function getGoals($company_domain, $employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
+    public function getGoals($employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
     {
-        list($response) = $this->getGoalsWithHttpInfo($company_domain, $employee_id, $filter, $contentType);
+        list($response) = $this->getGoalsWithHttpInfo($employee_id, $filter, $contentType);
         return $response;
     }
 
@@ -1619,7 +1518,6 @@ class GoalsApi
      *
      * Get Goals
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoals'] to see the possible values for this operation
@@ -1628,9 +1526,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetGoals200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalsWithHttpInfo($company_domain, $employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
+    public function getGoalsWithHttpInfo($employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
     {
-        $request = $this->getGoalsRequest($company_domain, $employee_id, $filter, $contentType);
+        $request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1706,7 +1604,6 @@ class GoalsApi
      *
      * Get Goals
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoals'] to see the possible values for this operation
@@ -1714,9 +1611,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsAsync($company_domain, $employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
+    public function getGoalsAsync($employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
     {
-        return $this->getGoalsAsyncWithHttpInfo($company_domain, $employee_id, $filter, $contentType)
+        return $this->getGoalsAsyncWithHttpInfo($employee_id, $filter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1729,7 +1626,6 @@ class GoalsApi
      *
      * Get Goals
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoals'] to see the possible values for this operation
@@ -1737,10 +1633,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsAsyncWithHttpInfo($company_domain, $employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
+    public function getGoalsAsyncWithHttpInfo($employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
     {
         $returnType = '\MySdk\Model\GetGoals200Response';
-        $request = $this->getGoalsRequest($company_domain, $employee_id, $filter, $contentType);
+        $request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1781,7 +1677,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoals'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoals'] to see the possible values for this operation
@@ -1789,15 +1684,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalsRequest($company_domain, $employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
+    public function getGoalsRequest($employee_id, $filter = null, string $contentType = self::contentTypes['getGoals'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoals'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -1808,7 +1696,7 @@ class GoalsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1826,14 +1714,6 @@ class GoalsApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -1914,7 +1794,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV1'] to see the possible values for this operation
      *
@@ -1923,9 +1802,9 @@ class GoalsApi
      * @return \MySdk\Model\GetGoalsAggregateV1200Response
      * @deprecated
      */
-    public function getGoalsAggregateV1($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
+    public function getGoalsAggregateV1($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
     {
-        list($response) = $this->getGoalsAggregateV1WithHttpInfo($company_domain, $employee_id, $contentType);
+        list($response) = $this->getGoalsAggregateV1WithHttpInfo($employee_id, $contentType);
         return $response;
     }
 
@@ -1934,7 +1813,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV1'] to see the possible values for this operation
      *
@@ -1943,9 +1821,9 @@ class GoalsApi
      * @return array of \MySdk\Model\GetGoalsAggregateV1200Response, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function getGoalsAggregateV1WithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
+    public function getGoalsAggregateV1WithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
     {
-        $request = $this->getGoalsAggregateV1Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2021,7 +1899,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV1'] to see the possible values for this operation
      *
@@ -2029,9 +1906,9 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsAggregateV1Async($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
+    public function getGoalsAggregateV1Async($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
     {
-        return $this->getGoalsAggregateV1AsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getGoalsAggregateV1AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2044,7 +1921,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV1'] to see the possible values for this operation
      *
@@ -2052,10 +1928,10 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsAggregateV1AsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
+    public function getGoalsAggregateV1AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
     {
         $returnType = '\MySdk\Model\GetGoalsAggregateV1200Response';
-        $request = $this->getGoalsAggregateV1Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2096,7 +1972,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsAggregateV1'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV1'] to see the possible values for this operation
      *
@@ -2104,15 +1979,8 @@ class GoalsApi
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function getGoalsAggregateV1Request($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
+    public function getGoalsAggregateV1Request($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV1'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsAggregateV1'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -2122,7 +1990,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/aggregate';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2131,14 +1999,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -2219,7 +2079,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV11'] to see the possible values for this operation
      *
@@ -2228,9 +2087,9 @@ class GoalsApi
      * @return \MySdk\Model\GetGoalsAggregateV11200Response
      * @deprecated
      */
-    public function getGoalsAggregateV11($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
+    public function getGoalsAggregateV11($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
     {
-        list($response) = $this->getGoalsAggregateV11WithHttpInfo($company_domain, $employee_id, $contentType);
+        list($response) = $this->getGoalsAggregateV11WithHttpInfo($employee_id, $contentType);
         return $response;
     }
 
@@ -2239,7 +2098,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV11'] to see the possible values for this operation
      *
@@ -2248,9 +2106,9 @@ class GoalsApi
      * @return array of \MySdk\Model\GetGoalsAggregateV11200Response, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function getGoalsAggregateV11WithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
+    public function getGoalsAggregateV11WithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
     {
-        $request = $this->getGoalsAggregateV11Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2326,7 +2184,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV11'] to see the possible values for this operation
      *
@@ -2334,9 +2191,9 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsAggregateV11Async($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
+    public function getGoalsAggregateV11Async($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
     {
-        return $this->getGoalsAggregateV11AsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getGoalsAggregateV11AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2349,7 +2206,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV11'] to see the possible values for this operation
      *
@@ -2357,10 +2213,10 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsAggregateV11AsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
+    public function getGoalsAggregateV11AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
     {
         $returnType = '\MySdk\Model\GetGoalsAggregateV11200Response';
-        $request = $this->getGoalsAggregateV11Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2401,7 +2257,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsAggregateV11'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV11'] to see the possible values for this operation
      *
@@ -2409,15 +2264,8 @@ class GoalsApi
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function getGoalsAggregateV11Request($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
+    public function getGoalsAggregateV11Request($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV11'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsAggregateV11'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -2427,7 +2275,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_1/performance/employees/{employeeId}/goals/aggregate';
+        $resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2436,14 +2284,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -2524,7 +2364,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV12'] to see the possible values for this operation
      *
@@ -2532,9 +2371,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GetGoalsAggregateV12200Response
      */
-    public function getGoalsAggregateV12($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
+    public function getGoalsAggregateV12($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
     {
-        list($response) = $this->getGoalsAggregateV12WithHttpInfo($company_domain, $employee_id, $contentType);
+        list($response) = $this->getGoalsAggregateV12WithHttpInfo($employee_id, $contentType);
         return $response;
     }
 
@@ -2543,7 +2382,6 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV12'] to see the possible values for this operation
      *
@@ -2551,9 +2389,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GetGoalsAggregateV12200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalsAggregateV12WithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
+    public function getGoalsAggregateV12WithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
     {
-        $request = $this->getGoalsAggregateV12Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2629,16 +2467,15 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV12'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsAggregateV12Async($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
+    public function getGoalsAggregateV12Async($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
     {
-        return $this->getGoalsAggregateV12AsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getGoalsAggregateV12AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2651,17 +2488,16 @@ class GoalsApi
      *
      * Get All Aggregate Goal Info, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV12'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsAggregateV12AsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
+    public function getGoalsAggregateV12AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
     {
         $returnType = '\MySdk\Model\GetGoalsAggregateV12200Response';
-        $request = $this->getGoalsAggregateV12Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2702,22 +2538,14 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsAggregateV12'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAggregateV12'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalsAggregateV12Request($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
+    public function getGoalsAggregateV12Request($employee_id, string $contentType = self::contentTypes['getGoalsAggregateV12'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsAggregateV12'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -2727,7 +2555,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_2/performance/employees/{employeeId}/goals/aggregate';
+        $resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2736,14 +2564,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -2824,7 +2644,6 @@ class GoalsApi
      *
      * Alignable Goal Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
      * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAlignmentOptions'] to see the possible values for this operation
@@ -2833,9 +2652,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getGoalsAlignmentOptions($company_domain, $employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
+    public function getGoalsAlignmentOptions($employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
     {
-        $this->getGoalsAlignmentOptionsWithHttpInfo($company_domain, $employee_id, $body, $contentType);
+        $this->getGoalsAlignmentOptionsWithHttpInfo($employee_id, $body, $contentType);
     }
 
     /**
@@ -2843,7 +2662,6 @@ class GoalsApi
      *
      * Alignable Goal Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
      * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAlignmentOptions'] to see the possible values for this operation
@@ -2852,9 +2670,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalsAlignmentOptionsWithHttpInfo($company_domain, $employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
+    public function getGoalsAlignmentOptionsWithHttpInfo($employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
     {
-        $request = $this->getGoalsAlignmentOptionsRequest($company_domain, $employee_id, $body, $contentType);
+        $request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2894,7 +2712,6 @@ class GoalsApi
      *
      * Alignable Goal Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
      * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAlignmentOptions'] to see the possible values for this operation
@@ -2902,9 +2719,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsAlignmentOptionsAsync($company_domain, $employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
+    public function getGoalsAlignmentOptionsAsync($employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
     {
-        return $this->getGoalsAlignmentOptionsAsyncWithHttpInfo($company_domain, $employee_id, $body, $contentType)
+        return $this->getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2917,7 +2734,6 @@ class GoalsApi
      *
      * Alignable Goal Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
      * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAlignmentOptions'] to see the possible values for this operation
@@ -2925,10 +2741,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsAlignmentOptionsAsyncWithHttpInfo($company_domain, $employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
+    public function getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
     {
         $returnType = '';
-        $request = $this->getGoalsAlignmentOptionsRequest($company_domain, $employee_id, $body, $contentType);
+        $request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2956,7 +2772,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsAlignmentOptions'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
      * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsAlignmentOptions'] to see the possible values for this operation
@@ -2964,15 +2779,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalsAlignmentOptionsRequest($company_domain, $employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
+    public function getGoalsAlignmentOptionsRequest($employee_id, $body = null, string $contentType = self::contentTypes['getGoalsAlignmentOptions'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsAlignmentOptions'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -2983,7 +2791,7 @@ class GoalsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/alignmentOptions';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/alignmentOptions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2992,14 +2800,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -3085,7 +2885,8 @@ class GoalsApi
     /**
      * Operation getGoalsFiltersV1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV1'] to see the possible values for this operation
      *
@@ -3094,16 +2895,17 @@ class GoalsApi
      * @return \MySdk\Model\GoalFiltersV1
      * @deprecated
      */
-    public function getGoalsFiltersV1($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
+    public function getGoalsFiltersV1($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
     {
-        list($response) = $this->getGoalsFiltersV1WithHttpInfo($company_domain, $employee_id, $contentType);
+        list($response) = $this->getGoalsFiltersV1WithHttpInfo($employee_id, $contentType);
         return $response;
     }
 
     /**
      * Operation getGoalsFiltersV1WithHttpInfo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV1'] to see the possible values for this operation
      *
@@ -3112,9 +2914,9 @@ class GoalsApi
      * @return array of \MySdk\Model\GoalFiltersV1, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function getGoalsFiltersV1WithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
+    public function getGoalsFiltersV1WithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
     {
-        $request = $this->getGoalsFiltersV1Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3188,7 +2990,8 @@ class GoalsApi
     /**
      * Operation getGoalsFiltersV1Async
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV1'] to see the possible values for this operation
      *
@@ -3196,9 +2999,9 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsFiltersV1Async($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
+    public function getGoalsFiltersV1Async($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
     {
-        return $this->getGoalsFiltersV1AsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getGoalsFiltersV1AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3209,7 +3012,8 @@ class GoalsApi
     /**
      * Operation getGoalsFiltersV1AsyncWithHttpInfo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV1'] to see the possible values for this operation
      *
@@ -3217,10 +3021,10 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsFiltersV1AsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
+    public function getGoalsFiltersV1AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
     {
         $returnType = '\MySdk\Model\GoalFiltersV1';
-        $request = $this->getGoalsFiltersV1Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3261,7 +3065,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsFiltersV1'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV1'] to see the possible values for this operation
      *
@@ -3269,15 +3072,8 @@ class GoalsApi
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function getGoalsFiltersV1Request($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
+    public function getGoalsFiltersV1Request($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV1'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsFiltersV1'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -3287,7 +3083,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/filters';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3296,14 +3092,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -3382,7 +3170,8 @@ class GoalsApi
     /**
      * Operation getGoalsFiltersV11
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV11'] to see the possible values for this operation
      *
@@ -3391,16 +3180,17 @@ class GoalsApi
      * @return \MySdk\Model\GoalFiltersV11
      * @deprecated
      */
-    public function getGoalsFiltersV11($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
+    public function getGoalsFiltersV11($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
     {
-        list($response) = $this->getGoalsFiltersV11WithHttpInfo($company_domain, $employee_id, $contentType);
+        list($response) = $this->getGoalsFiltersV11WithHttpInfo($employee_id, $contentType);
         return $response;
     }
 
     /**
      * Operation getGoalsFiltersV11WithHttpInfo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV11'] to see the possible values for this operation
      *
@@ -3409,9 +3199,9 @@ class GoalsApi
      * @return array of \MySdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function getGoalsFiltersV11WithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
+    public function getGoalsFiltersV11WithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
     {
-        $request = $this->getGoalsFiltersV11Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3485,7 +3275,8 @@ class GoalsApi
     /**
      * Operation getGoalsFiltersV11Async
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV11'] to see the possible values for this operation
      *
@@ -3493,9 +3284,9 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsFiltersV11Async($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
+    public function getGoalsFiltersV11Async($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
     {
-        return $this->getGoalsFiltersV11AsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getGoalsFiltersV11AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3506,7 +3297,8 @@ class GoalsApi
     /**
      * Operation getGoalsFiltersV11AsyncWithHttpInfo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
+     * Get Goals Filters
+     *
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV11'] to see the possible values for this operation
      *
@@ -3514,10 +3306,10 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function getGoalsFiltersV11AsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
+    public function getGoalsFiltersV11AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
     {
         $returnType = '\MySdk\Model\GoalFiltersV11';
-        $request = $this->getGoalsFiltersV11Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3558,7 +3350,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsFiltersV11'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV11'] to see the possible values for this operation
      *
@@ -3566,15 +3357,8 @@ class GoalsApi
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function getGoalsFiltersV11Request($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
+    public function getGoalsFiltersV11Request($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV11'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsFiltersV11'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -3584,7 +3368,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_1/performance/employees/{employeeId}/goals/filters';
+        $resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3593,14 +3377,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -3681,7 +3457,6 @@ class GoalsApi
      *
      * Get Goal Status Counts, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV12'] to see the possible values for this operation
      *
@@ -3689,9 +3464,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\GoalFiltersV11
      */
-    public function getGoalsFiltersV12($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
+    public function getGoalsFiltersV12($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
     {
-        list($response) = $this->getGoalsFiltersV12WithHttpInfo($company_domain, $employee_id, $contentType);
+        list($response) = $this->getGoalsFiltersV12WithHttpInfo($employee_id, $contentType);
         return $response;
     }
 
@@ -3700,7 +3475,6 @@ class GoalsApi
      *
      * Get Goal Status Counts, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV12'] to see the possible values for this operation
      *
@@ -3708,9 +3482,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalsFiltersV12WithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
+    public function getGoalsFiltersV12WithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
     {
-        $request = $this->getGoalsFiltersV12Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3786,16 +3560,15 @@ class GoalsApi
      *
      * Get Goal Status Counts, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV12'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsFiltersV12Async($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
+    public function getGoalsFiltersV12Async($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
     {
-        return $this->getGoalsFiltersV12AsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->getGoalsFiltersV12AsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3808,17 +3581,16 @@ class GoalsApi
      *
      * Get Goal Status Counts, Version 1.2
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV12'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsFiltersV12AsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
+    public function getGoalsFiltersV12AsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
     {
         $returnType = '\MySdk\Model\GoalFiltersV11';
-        $request = $this->getGoalsFiltersV12Request($company_domain, $employee_id, $contentType);
+        $request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3859,22 +3631,14 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsFiltersV12'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoalsFiltersV12'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalsFiltersV12Request($company_domain, $employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
+    public function getGoalsFiltersV12Request($employee_id, string $contentType = self::contentTypes['getGoalsFiltersV12'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsFiltersV12'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -3884,7 +3648,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_2/performance/employees/{employeeId}/goals/filters';
+        $resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3893,14 +3657,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -3981,7 +3737,6 @@ class GoalsApi
      *
      * Available Goal Sharing Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
      * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
      * @param  string|null $limit Limit will restrict results to specified number. (optional)
@@ -3991,9 +3746,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getGoalsShareOptions($company_domain, $employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
+    public function getGoalsShareOptions($employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
     {
-        $this->getGoalsShareOptionsWithHttpInfo($company_domain, $employee_id, $search, $limit, $contentType);
+        $this->getGoalsShareOptionsWithHttpInfo($employee_id, $search, $limit, $contentType);
     }
 
     /**
@@ -4001,7 +3756,6 @@ class GoalsApi
      *
      * Available Goal Sharing Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
      * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
      * @param  string|null $limit Limit will restrict results to specified number. (optional)
@@ -4011,9 +3765,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGoalsShareOptionsWithHttpInfo($company_domain, $employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
+    public function getGoalsShareOptionsWithHttpInfo($employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
     {
-        $request = $this->getGoalsShareOptionsRequest($company_domain, $employee_id, $search, $limit, $contentType);
+        $request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4053,7 +3807,6 @@ class GoalsApi
      *
      * Available Goal Sharing Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
      * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
      * @param  string|null $limit Limit will restrict results to specified number. (optional)
@@ -4062,9 +3815,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsShareOptionsAsync($company_domain, $employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
+    public function getGoalsShareOptionsAsync($employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
     {
-        return $this->getGoalsShareOptionsAsyncWithHttpInfo($company_domain, $employee_id, $search, $limit, $contentType)
+        return $this->getGoalsShareOptionsAsyncWithHttpInfo($employee_id, $search, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4077,7 +3830,6 @@ class GoalsApi
      *
      * Available Goal Sharing Options
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
      * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
      * @param  string|null $limit Limit will restrict results to specified number. (optional)
@@ -4086,10 +3838,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGoalsShareOptionsAsyncWithHttpInfo($company_domain, $employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
+    public function getGoalsShareOptionsAsyncWithHttpInfo($employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
     {
         $returnType = '';
-        $request = $this->getGoalsShareOptionsRequest($company_domain, $employee_id, $search, $limit, $contentType);
+        $request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4117,7 +3869,6 @@ class GoalsApi
     /**
      * Create request for operation 'getGoalsShareOptions'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
      * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
      * @param  string|null $limit Limit will restrict results to specified number. (optional)
@@ -4126,15 +3877,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGoalsShareOptionsRequest($company_domain, $employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
+    public function getGoalsShareOptionsRequest($employee_id, $search = null, $limit = null, string $contentType = self::contentTypes['getGoalsShareOptions'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getGoalsShareOptions'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -4146,7 +3890,7 @@ class GoalsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/shareOptions';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/shareOptions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4173,14 +3917,6 @@ class GoalsApi
         ) ?? []);
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -4261,7 +3997,6 @@ class GoalsApi
      *
      * Close Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string|null $body Comment field is optional. (optional)
@@ -4271,9 +4006,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TransformedApiGoal
      */
-    public function postCloseGoal($company_domain, $employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
+    public function postCloseGoal($employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
     {
-        list($response) = $this->postCloseGoalWithHttpInfo($company_domain, $employee_id, $goal_id, $body, $contentType);
+        list($response) = $this->postCloseGoalWithHttpInfo($employee_id, $goal_id, $body, $contentType);
         return $response;
     }
 
@@ -4282,7 +4017,6 @@ class GoalsApi
      *
      * Close Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string|null $body Comment field is optional. (optional)
@@ -4292,9 +4026,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postCloseGoalWithHttpInfo($company_domain, $employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
+    public function postCloseGoalWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
     {
-        $request = $this->postCloseGoalRequest($company_domain, $employee_id, $goal_id, $body, $contentType);
+        $request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4370,7 +4104,6 @@ class GoalsApi
      *
      * Close Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string|null $body Comment field is optional. (optional)
@@ -4379,9 +4112,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postCloseGoalAsync($company_domain, $employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
+    public function postCloseGoalAsync($employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
     {
-        return $this->postCloseGoalAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $body, $contentType)
+        return $this->postCloseGoalAsyncWithHttpInfo($employee_id, $goal_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4394,7 +4127,6 @@ class GoalsApi
      *
      * Close Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string|null $body Comment field is optional. (optional)
@@ -4403,10 +4135,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postCloseGoalAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
+    public function postCloseGoalAsyncWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->postCloseGoalRequest($company_domain, $employee_id, $goal_id, $body, $contentType);
+        $request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4447,7 +4179,6 @@ class GoalsApi
     /**
      * Create request for operation 'postCloseGoal'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string|null $body Comment field is optional. (optional)
@@ -4456,15 +4187,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postCloseGoalRequest($company_domain, $employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
+    public function postCloseGoalRequest($employee_id, $goal_id, $body = null, string $contentType = self::contentTypes['postCloseGoal'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postCloseGoal'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -4482,7 +4206,7 @@ class GoalsApi
 
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/close';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/close';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4491,14 +4215,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -4594,7 +4310,6 @@ class GoalsApi
      *
      * Create Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  \MySdk\Model\PostGoalRequest $post_goal_request post_goal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postGoal'] to see the possible values for this operation
@@ -4603,9 +4318,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TransformedApiGoal
      */
-    public function postGoal($company_domain, $employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
+    public function postGoal($employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
     {
-        list($response) = $this->postGoalWithHttpInfo($company_domain, $employee_id, $post_goal_request, $contentType);
+        list($response) = $this->postGoalWithHttpInfo($employee_id, $post_goal_request, $contentType);
         return $response;
     }
 
@@ -4614,7 +4329,6 @@ class GoalsApi
      *
      * Create Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postGoal'] to see the possible values for this operation
@@ -4623,9 +4337,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postGoalWithHttpInfo($company_domain, $employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
+    public function postGoalWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
     {
-        $request = $this->postGoalRequest($company_domain, $employee_id, $post_goal_request, $contentType);
+        $request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4701,7 +4415,6 @@ class GoalsApi
      *
      * Create Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postGoal'] to see the possible values for this operation
@@ -4709,9 +4422,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postGoalAsync($company_domain, $employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
+    public function postGoalAsync($employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
     {
-        return $this->postGoalAsyncWithHttpInfo($company_domain, $employee_id, $post_goal_request, $contentType)
+        return $this->postGoalAsyncWithHttpInfo($employee_id, $post_goal_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4724,7 +4437,6 @@ class GoalsApi
      *
      * Create Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postGoal'] to see the possible values for this operation
@@ -4732,10 +4444,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postGoalAsyncWithHttpInfo($company_domain, $employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
+    public function postGoalAsyncWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->postGoalRequest($company_domain, $employee_id, $post_goal_request, $contentType);
+        $request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4776,7 +4488,6 @@ class GoalsApi
     /**
      * Create request for operation 'postGoal'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postGoal'] to see the possible values for this operation
@@ -4784,15 +4495,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postGoalRequest($company_domain, $employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
+    public function postGoalRequest($employee_id, $post_goal_request, string $contentType = self::contentTypes['postGoal'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postGoal'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -4809,7 +4513,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4818,14 +4522,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -4913,7 +4609,6 @@ class GoalsApi
      *
      * Create Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $body body (required)
@@ -4923,9 +4618,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function postGoalComment($company_domain, $employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
+    public function postGoalComment($employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
     {
-        $this->postGoalCommentWithHttpInfo($company_domain, $employee_id, $goal_id, $body, $contentType);
+        $this->postGoalCommentWithHttpInfo($employee_id, $goal_id, $body, $contentType);
     }
 
     /**
@@ -4933,7 +4628,6 @@ class GoalsApi
      *
      * Create Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $body (required)
@@ -4943,9 +4637,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postGoalCommentWithHttpInfo($company_domain, $employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
+    public function postGoalCommentWithHttpInfo($employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
     {
-        $request = $this->postGoalCommentRequest($company_domain, $employee_id, $goal_id, $body, $contentType);
+        $request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4985,7 +4679,6 @@ class GoalsApi
      *
      * Create Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $body (required)
@@ -4994,9 +4687,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postGoalCommentAsync($company_domain, $employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
+    public function postGoalCommentAsync($employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
     {
-        return $this->postGoalCommentAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $body, $contentType)
+        return $this->postGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5009,7 +4702,6 @@ class GoalsApi
      *
      * Create Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $body (required)
@@ -5018,10 +4710,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postGoalCommentAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
+    public function postGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
     {
         $returnType = '';
-        $request = $this->postGoalCommentRequest($company_domain, $employee_id, $goal_id, $body, $contentType);
+        $request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5049,7 +4741,6 @@ class GoalsApi
     /**
      * Create request for operation 'postGoalComment'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $body (required)
@@ -5058,15 +4749,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postGoalCommentRequest($company_domain, $employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
+    public function postGoalCommentRequest($employee_id, $goal_id, $body, string $contentType = self::contentTypes['postGoalComment'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postGoalComment'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -5090,7 +4774,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5099,14 +4783,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -5202,7 +4878,6 @@ class GoalsApi
      *
      * Reopen a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postReopenGoal'] to see the possible values for this operation
@@ -5211,9 +4886,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TransformedApiGoal
      */
-    public function postReopenGoal($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
+    public function postReopenGoal($employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
     {
-        list($response) = $this->postReopenGoalWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType);
+        list($response) = $this->postReopenGoalWithHttpInfo($employee_id, $goal_id, $contentType);
         return $response;
     }
 
@@ -5222,7 +4897,6 @@ class GoalsApi
      *
      * Reopen a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postReopenGoal'] to see the possible values for this operation
@@ -5231,9 +4905,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postReopenGoalWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
+    public function postReopenGoalWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
     {
-        $request = $this->postReopenGoalRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5309,7 +4983,6 @@ class GoalsApi
      *
      * Reopen a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postReopenGoal'] to see the possible values for this operation
@@ -5317,9 +4990,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postReopenGoalAsync($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
+    public function postReopenGoalAsync($employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
     {
-        return $this->postReopenGoalAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $contentType)
+        return $this->postReopenGoalAsyncWithHttpInfo($employee_id, $goal_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5332,7 +5005,6 @@ class GoalsApi
      *
      * Reopen a Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postReopenGoal'] to see the possible values for this operation
@@ -5340,10 +5012,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postReopenGoalAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
+    public function postReopenGoalAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->postReopenGoalRequest($company_domain, $employee_id, $goal_id, $contentType);
+        $request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5384,7 +5056,6 @@ class GoalsApi
     /**
      * Create request for operation 'postReopenGoal'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postReopenGoal'] to see the possible values for this operation
@@ -5392,15 +5063,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postReopenGoalRequest($company_domain, $employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
+    public function postReopenGoalRequest($employee_id, $goal_id, string $contentType = self::contentTypes['postReopenGoal'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling postReopenGoal'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -5417,7 +5081,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5426,14 +5090,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -5522,7 +5178,6 @@ class GoalsApi
      *
      * Update Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
@@ -5533,9 +5188,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function putGoalComment($company_domain, $employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
+    public function putGoalComment($employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
     {
-        $this->putGoalCommentWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, $body, $contentType);
+        $this->putGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $body, $contentType);
     }
 
     /**
@@ -5543,7 +5198,6 @@ class GoalsApi
      *
      * Update Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
@@ -5554,9 +5208,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putGoalCommentWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
+    public function putGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
     {
-        $request = $this->putGoalCommentRequest($company_domain, $employee_id, $goal_id, $comment_id, $body, $contentType);
+        $request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5596,7 +5250,6 @@ class GoalsApi
      *
      * Update Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
@@ -5606,9 +5259,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalCommentAsync($company_domain, $employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
+    public function putGoalCommentAsync($employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
     {
-        return $this->putGoalCommentAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, $body, $contentType)
+        return $this->putGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5621,7 +5274,6 @@ class GoalsApi
      *
      * Update Goal Comment
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
@@ -5631,10 +5283,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalCommentAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
+    public function putGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
     {
         $returnType = '';
-        $request = $this->putGoalCommentRequest($company_domain, $employee_id, $goal_id, $comment_id, $body, $contentType);
+        $request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5662,7 +5314,6 @@ class GoalsApi
     /**
      * Create request for operation 'putGoalComment'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
@@ -5672,15 +5323,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putGoalCommentRequest($company_domain, $employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
+    public function putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, string $contentType = self::contentTypes['putGoalComment'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putGoalComment'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -5711,7 +5355,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5720,14 +5364,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -5831,7 +5467,6 @@ class GoalsApi
      *
      * Update Milestone Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
@@ -5842,9 +5477,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function putGoalMilestoneProgress($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
+    public function putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
     {
-        list($response) = $this->putGoalMilestoneProgressWithHttpInfo($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
+        list($response) = $this->putGoalMilestoneProgressWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
         return $response;
     }
 
@@ -5853,7 +5488,6 @@ class GoalsApi
      *
      * Update Milestone Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
@@ -5864,9 +5498,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putGoalMilestoneProgressWithHttpInfo($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
+    public function putGoalMilestoneProgressWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
     {
-        $request = $this->putGoalMilestoneProgressRequest($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
+        $request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5942,7 +5576,6 @@ class GoalsApi
      *
      * Update Milestone Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
@@ -5952,9 +5585,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalMilestoneProgressAsync($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
+    public function putGoalMilestoneProgressAsync($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
     {
-        return $this->putGoalMilestoneProgressAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType)
+        return $this->putGoalMilestoneProgressAsyncWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5967,7 +5600,6 @@ class GoalsApi
      *
      * Update Milestone Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
@@ -5977,10 +5609,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalMilestoneProgressAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
+    public function putGoalMilestoneProgressAsyncWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
     {
         $returnType = 'object';
-        $request = $this->putGoalMilestoneProgressRequest($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
+        $request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6021,7 +5653,6 @@ class GoalsApi
     /**
      * Create request for operation 'putGoalMilestoneProgress'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
@@ -6031,15 +5662,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putGoalMilestoneProgressRequest($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
+    public function putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::contentTypes['putGoalMilestoneProgress'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putGoalMilestoneProgress'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -6070,7 +5694,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6079,14 +5703,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -6190,7 +5806,6 @@ class GoalsApi
      *
      * Update Goal Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6200,9 +5815,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TransformedApiGoal
      */
-    public function putGoalProgress($company_domain, $employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
+    public function putGoalProgress($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
     {
-        list($response) = $this->putGoalProgressWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_progress_request, $contentType);
+        list($response) = $this->putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, $contentType);
         return $response;
     }
 
@@ -6211,7 +5826,6 @@ class GoalsApi
      *
      * Update Goal Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6221,9 +5835,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putGoalProgressWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
+    public function putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
     {
-        $request = $this->putGoalProgressRequest($company_domain, $employee_id, $goal_id, $put_goal_progress_request, $contentType);
+        $request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6299,7 +5913,6 @@ class GoalsApi
      *
      * Update Goal Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6308,9 +5921,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalProgressAsync($company_domain, $employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
+    public function putGoalProgressAsync($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
     {
-        return $this->putGoalProgressAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_progress_request, $contentType)
+        return $this->putGoalProgressAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6323,7 +5936,6 @@ class GoalsApi
      *
      * Update Goal Progress
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6332,10 +5944,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalProgressAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
+    public function putGoalProgressAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->putGoalProgressRequest($company_domain, $employee_id, $goal_id, $put_goal_progress_request, $contentType);
+        $request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6376,7 +5988,6 @@ class GoalsApi
     /**
      * Create request for operation 'putGoalProgress'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6385,15 +5996,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putGoalProgressRequest($company_domain, $employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
+    public function putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::contentTypes['putGoalProgress'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putGoalProgress'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -6417,7 +6021,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6426,14 +6030,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -6529,7 +6125,6 @@ class GoalsApi
      *
      * Update Goal Sharing
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6539,9 +6134,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TransformedApiGoal
      */
-    public function putGoalSharedWith($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
+    public function putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
     {
-        list($response) = $this->putGoalSharedWithWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
+        list($response) = $this->putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
         return $response;
     }
 
@@ -6550,7 +6145,6 @@ class GoalsApi
      *
      * Update Goal Sharing
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6560,9 +6154,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putGoalSharedWithWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
+    public function putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
     {
-        $request = $this->putGoalSharedWithRequest($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
+        $request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6638,7 +6232,6 @@ class GoalsApi
      *
      * Update Goal Sharing
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6647,9 +6240,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalSharedWithAsync($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
+    public function putGoalSharedWithAsync($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
     {
-        return $this->putGoalSharedWithAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, $contentType)
+        return $this->putGoalSharedWithAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6662,7 +6255,6 @@ class GoalsApi
      *
      * Update Goal Sharing
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6671,10 +6263,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalSharedWithAsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
+    public function putGoalSharedWithAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->putGoalSharedWithRequest($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
+        $request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6715,7 +6307,6 @@ class GoalsApi
     /**
      * Create request for operation 'putGoalSharedWith'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
@@ -6724,15 +6315,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putGoalSharedWithRequest($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
+    public function putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::contentTypes['putGoalSharedWith'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putGoalSharedWith'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -6756,7 +6340,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6765,14 +6349,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -6868,7 +6444,6 @@ class GoalsApi
      *
      * Update Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -6879,9 +6454,9 @@ class GoalsApi
      * @return \MySdk\Model\TransformedApiGoal
      * @deprecated
      */
-    public function putGoalV1($company_domain, $employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
+    public function putGoalV1($employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
     {
-        list($response) = $this->putGoalV1WithHttpInfo($company_domain, $employee_id, $goal_id, $goal, $contentType);
+        list($response) = $this->putGoalV1WithHttpInfo($employee_id, $goal_id, $goal, $contentType);
         return $response;
     }
 
@@ -6890,7 +6465,6 @@ class GoalsApi
      *
      * Update Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -6901,9 +6475,9 @@ class GoalsApi
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function putGoalV1WithHttpInfo($company_domain, $employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
+    public function putGoalV1WithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
     {
-        $request = $this->putGoalV1Request($company_domain, $employee_id, $goal_id, $goal, $contentType);
+        $request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6979,7 +6553,6 @@ class GoalsApi
      *
      * Update Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -6989,9 +6562,9 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function putGoalV1Async($company_domain, $employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
+    public function putGoalV1Async($employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
     {
-        return $this->putGoalV1AsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $goal, $contentType)
+        return $this->putGoalV1AsyncWithHttpInfo($employee_id, $goal_id, $goal, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7004,7 +6577,6 @@ class GoalsApi
      *
      * Update Goal
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7014,10 +6586,10 @@ class GoalsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function putGoalV1AsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
+    public function putGoalV1AsyncWithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->putGoalV1Request($company_domain, $employee_id, $goal_id, $goal, $contentType);
+        $request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7058,7 +6630,6 @@ class GoalsApi
     /**
      * Create request for operation 'putGoalV1'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7068,15 +6639,8 @@ class GoalsApi
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function putGoalV1Request($company_domain, $employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
+    public function putGoalV1Request($employee_id, $goal_id, $goal, string $contentType = self::contentTypes['putGoalV1'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putGoalV1'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -7100,7 +6664,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}';
+        $resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7109,14 +6673,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -7212,7 +6768,6 @@ class GoalsApi
      *
      * Update Goal, V1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7222,9 +6777,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TransformedApiGoal
      */
-    public function putGoalV11($company_domain, $employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
+    public function putGoalV11($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
     {
-        list($response) = $this->putGoalV11WithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_v11_request, $contentType);
+        list($response) = $this->putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, $contentType);
         return $response;
     }
 
@@ -7233,7 +6788,6 @@ class GoalsApi
      *
      * Update Goal, V1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7243,9 +6797,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putGoalV11WithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
+    public function putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
     {
-        $request = $this->putGoalV11Request($company_domain, $employee_id, $goal_id, $put_goal_v11_request, $contentType);
+        $request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7321,7 +6875,6 @@ class GoalsApi
      *
      * Update Goal, V1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7330,9 +6883,9 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalV11Async($company_domain, $employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
+    public function putGoalV11Async($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
     {
-        return $this->putGoalV11AsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_v11_request, $contentType)
+        return $this->putGoalV11AsyncWithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7345,7 +6898,6 @@ class GoalsApi
      *
      * Update Goal, V1.1
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7354,10 +6906,10 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putGoalV11AsyncWithHttpInfo($company_domain, $employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
+    public function putGoalV11AsyncWithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
     {
         $returnType = '\MySdk\Model\TransformedApiGoal';
-        $request = $this->putGoalV11Request($company_domain, $employee_id, $goal_id, $put_goal_v11_request, $contentType);
+        $request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7398,7 +6950,6 @@ class GoalsApi
     /**
      * Create request for operation 'putGoalV11'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
      * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
      * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
@@ -7407,15 +6958,8 @@ class GoalsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putGoalV11Request($company_domain, $employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
+    public function putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::contentTypes['putGoalV11'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling putGoalV11'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -7439,7 +6983,7 @@ class GoalsApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1_1/performance/employees/{employeeId}/goals/{goalId}';
+        $resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7448,14 +6992,6 @@ class GoalsApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(

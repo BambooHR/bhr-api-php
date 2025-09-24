@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **total_hours** | **float** | Total hours | [optional]
 **total_hours_worked** | **float** | Total hours worked | [optional]
 **holiday_pay_type** | **string** | Holiday pay type | [optional]
-**last_clock_entry** | [**\MySdk\Model\ClockEntryApiTransformer**](ClockEntryApiTransformer.md) |  | [optional]
+**last_clock_entry** | [**\MySdk\Model\ClockEntryApiTransformer**](ClockEntryApiTransformer.md) | Last clock entry | [optional]
 **current_employee_timezone** | **string** | Current employee timezone | [optional]
 **week_start_date** | **\DateTime** | Start date of the work week | [optional]
 **week_end_date** | **\DateTime** | End date of the work week | [optional]

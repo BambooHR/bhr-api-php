@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**persons** | [**\MySdk\Model\TaskDetailSchemaMetaPersonsInner[]**](TaskDetailSchemaMetaPersonsInner.md) | Persons related to the task | [optional]
+**persons** | [**\MySdk\Model\TaskPersonInfo[]**](TaskPersonInfo.md) | Persons related to the task | [optional]
 **files** | [**\MySdk\Model\TaskMetaFileSchema[]**](TaskMetaFileSchema.md) | Files related to the task | [optional]
 **employee_files** | [**\MySdk\Model\TaskMetaFileSchema[]**](TaskMetaFileSchema.md) | Employee files related to the task | [optional]
 

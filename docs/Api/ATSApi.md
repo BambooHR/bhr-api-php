@@ -1,16 +1,16 @@
 # MySdk\ATSApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getApplicationDetails()**](ATSApi.md#getApplicationDetails) | **GET** /{companyDomain}/v1/applicant_tracking/applications/{applicationId} | Get Application Details |
+| [**getApplicationDetails()**](ATSApi.md#getApplicationDetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details |
 
 
 ## `getApplicationDetails()`
 
 ```php
-getApplicationDetails($company_domain, $application_id): \MySdk\Model\GetApplicationDetails200Response
+getApplicationDetails($application_id): \MySdk\Model\GetApplicationDetails200Response
 ```
 
 Get Application Details
@@ -42,11 +42,10 @@ $apiInstance = new MySdk\Api\ATSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $application_id = 56; // int | The ID of the application to look up details.
 
 try {
-    $result = $apiInstance->getApplicationDetails($company_domain, $application_id);
+    $result = $apiInstance->getApplicationDetails($application_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ATSApi->getApplicationDetails: ', $e->getMessage(), PHP_EOL;
@@ -57,7 +56,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **application_id** | **int**| The ID of the application to look up details. | |
 
 ### Return type

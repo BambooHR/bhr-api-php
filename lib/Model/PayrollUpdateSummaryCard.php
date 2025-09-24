@@ -324,7 +324,7 @@ class PayrollUpdateSummaryCard implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets employee_information
      *
-     * @param \MySdk\Model\PayrollUpdateSummaryCardEmployeeInformation|null $employee_information employee_information
+     * @param \MySdk\Model\PayrollUpdateSummaryCardEmployeeInformation|null $employee_information Employee information details
      *
      * @return self
      */

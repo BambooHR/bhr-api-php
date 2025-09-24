@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **scope** | **string** | Scope of the error. | [optional]
 **error_type_id** | **int** | Error type ID. | [optional]
 **error_type_label** | **string** | Human-readable label for the error type. | [optional]
-**meta_data** | **mixed** | Metadata associated with the error. | [optional]
+**meta_data** | **mixed** |  | [optional]
 **created** | **string** | ISO8601 date/time string when the error was created. | [optional]
 **pay_schedule_id** | **int** | Pay schedule ID, if applicable. | [optional]
 **related_model** | **string** | Related model name, if applicable. | [optional]

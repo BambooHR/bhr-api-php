@@ -94,7 +94,7 @@ class NewEligibilityGroup implements ModelInterface, ArrayAccess, \JsonSerializa
         'filters' => false,
         'specific_employee_ids' => false,
         'coverage_costs' => false,
-        'calculator_settings' => true,
+        'calculator_settings' => false,
         'class' => false
     ];
 
@@ -486,14 +486,7 @@ class NewEligibilityGroup implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setCalculatorSettings($calculator_settings)
     {
         if (is_null($calculator_settings)) {
-            array_push($this->openAPINullablesSetToNull, 'calculator_settings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('calculator_settings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable calculator_settings cannot be null');
         }
         $this->container['calculator_settings'] = $calculator_settings;
 

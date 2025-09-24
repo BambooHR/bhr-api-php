@@ -61,7 +61,8 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         'id' => 'int',
         'name' => 'string',
         'type' => 'string',
-        'suppressed' => 'bool'
+        'suppressed' => 'bool',
+        'deduction_type_id' => 'int'
     ];
 
     /**
@@ -75,7 +76,8 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         'id' => 'int64',
         'name' => null,
         'type' => null,
-        'suppressed' => null
+        'suppressed' => null,
+        'deduction_type_id' => 'int64'
     ];
 
     /**
@@ -87,7 +89,8 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         'id' => false,
         'name' => false,
         'type' => false,
-        'suppressed' => false
+        'suppressed' => false,
+        'deduction_type_id' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         'id' => 'id',
         'name' => 'name',
         'type' => 'type',
-        'suppressed' => 'suppressed'
+        'suppressed' => 'suppressed',
+        'deduction_type_id' => 'deductionTypeId'
     ];
 
     /**
@@ -191,7 +195,8 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         'id' => 'setId',
         'name' => 'setName',
         'type' => 'setType',
-        'suppressed' => 'setSuppressed'
+        'suppressed' => 'setSuppressed',
+        'deduction_type_id' => 'setDeductionTypeId'
     ];
 
     /**
@@ -203,7 +208,8 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         'id' => 'getId',
         'name' => 'getName',
         'type' => 'getType',
-        'suppressed' => 'getSuppressed'
+        'suppressed' => 'getSuppressed',
+        'deduction_type_id' => 'getDeductionTypeId'
     ];
 
     /**
@@ -267,6 +273,7 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('suppressed', $data ?? [], null);
+        $this->setIfExists('deduction_type_id', $data ?? [], null);
     }
 
     /**
@@ -307,6 +314,9 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
         }
         if ($this->container['suppressed'] === null) {
             $invalidProperties[] = "'suppressed' can't be null";
+        }
+        if ($this->container['deduction_type_id'] === null) {
+            $invalidProperties[] = "'deduction_type_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -427,6 +437,33 @@ class PayCycleDeductionGlobalOverride implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable suppressed cannot be null');
         }
         $this->container['suppressed'] = $suppressed;
+
+        return $this;
+    }
+
+    /**
+     * Gets deduction_type_id
+     *
+     * @return int
+     */
+    public function getDeductionTypeId()
+    {
+        return $this->container['deduction_type_id'];
+    }
+
+    /**
+     * Sets deduction_type_id
+     *
+     * @param int $deduction_type_id deduction_type_id
+     *
+     * @return self
+     */
+    public function setDeductionTypeId($deduction_type_id)
+    {
+        if (is_null($deduction_type_id)) {
+            throw new \InvalidArgumentException('non-nullable deduction_type_id cannot be null');
+        }
+        $this->container['deduction_type_id'] = $deduction_type_id;
 
         return $this;
     }

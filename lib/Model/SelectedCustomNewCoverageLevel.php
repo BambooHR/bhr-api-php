@@ -82,7 +82,7 @@ class SelectedCustomNewCoverageLevel implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'link_id' => false,
-        'total_cost' => true,
+        'total_cost' => false,
         'currency_code' => false
     ];
 
@@ -350,14 +350,7 @@ class SelectedCustomNewCoverageLevel implements ModelInterface, ArrayAccess, \Js
     public function setTotalCost($total_cost)
     {
         if (is_null($total_cost)) {
-            array_push($this->openAPINullablesSetToNull, 'total_cost');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_cost', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable total_cost cannot be null');
         }
         $this->container['total_cost'] = $total_cost;
 

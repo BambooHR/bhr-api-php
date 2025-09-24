@@ -777,7 +777,7 @@ class BankInformationViewObject implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets form_ach_authorization
      *
-     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form_ach_authorization form_ach_authorization
+     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form_ach_authorization ACH authorization form status
      *
      * @return self
      */
@@ -804,7 +804,7 @@ class BankInformationViewObject implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets form_bank_authorization
      *
-     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form_bank_authorization form_bank_authorization
+     * @param \MySdk\Model\BambooHrPayrollDocumentStatusViewObject|null $form_bank_authorization Bank authorization form status
      *
      * @return self
      */

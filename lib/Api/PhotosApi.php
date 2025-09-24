@@ -133,7 +133,6 @@ class PhotosApi
      *
      * Get an employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
      * @param  string $size Photo size (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeePhoto'] to see the possible values for this operation
@@ -142,9 +141,9 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getEmployeePhoto($company_domain, $employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
+    public function getEmployeePhoto($employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
     {
-        $this->getEmployeePhotoWithHttpInfo($company_domain, $employee_id, $size, $contentType);
+        $this->getEmployeePhotoWithHttpInfo($employee_id, $size, $contentType);
     }
 
     /**
@@ -152,7 +151,6 @@ class PhotosApi
      *
      * Get an employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
      * @param  string $size Photo size (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeePhoto'] to see the possible values for this operation
@@ -161,9 +159,9 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeePhotoWithHttpInfo($company_domain, $employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
+    public function getEmployeePhotoWithHttpInfo($employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
     {
-        $request = $this->getEmployeePhotoRequest($company_domain, $employee_id, $size, $contentType);
+        $request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -203,7 +201,6 @@ class PhotosApi
      *
      * Get an employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
      * @param  string $size Photo size (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeePhoto'] to see the possible values for this operation
@@ -211,9 +208,9 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeePhotoAsync($company_domain, $employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
+    public function getEmployeePhotoAsync($employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
     {
-        return $this->getEmployeePhotoAsyncWithHttpInfo($company_domain, $employee_id, $size, $contentType)
+        return $this->getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -226,7 +223,6 @@ class PhotosApi
      *
      * Get an employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
      * @param  string $size Photo size (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeePhoto'] to see the possible values for this operation
@@ -234,10 +230,10 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeePhotoAsyncWithHttpInfo($company_domain, $employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
+    public function getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
     {
         $returnType = '';
-        $request = $this->getEmployeePhotoRequest($company_domain, $employee_id, $size, $contentType);
+        $request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -265,7 +261,6 @@ class PhotosApi
     /**
      * Create request for operation 'getEmployeePhoto'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
      * @param  string $size Photo size (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeePhoto'] to see the possible values for this operation
@@ -273,15 +268,8 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeePhotoRequest($company_domain, $employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
+    public function getEmployeePhotoRequest($employee_id, $size, string $contentType = self::contentTypes['getEmployeePhoto'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling getEmployeePhoto'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -298,7 +286,7 @@ class PhotosApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/photo/{size}';
+        $resourcePath = '/api/v1/employees/{employeeId}/photo/{size}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -307,14 +295,6 @@ class PhotosApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -403,7 +383,6 @@ class PhotosApi
      *
      * Store a new employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadEmployeePhoto'] to see the possible values for this operation
      *
@@ -411,9 +390,9 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function uploadEmployeePhoto($company_domain, $employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
+    public function uploadEmployeePhoto($employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
     {
-        $this->uploadEmployeePhotoWithHttpInfo($company_domain, $employee_id, $contentType);
+        $this->uploadEmployeePhotoWithHttpInfo($employee_id, $contentType);
     }
 
     /**
@@ -421,7 +400,6 @@ class PhotosApi
      *
      * Store a new employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadEmployeePhoto'] to see the possible values for this operation
      *
@@ -429,9 +407,9 @@ class PhotosApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadEmployeePhotoWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
+    public function uploadEmployeePhotoWithHttpInfo($employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
     {
-        $request = $this->uploadEmployeePhotoRequest($company_domain, $employee_id, $contentType);
+        $request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -471,16 +449,15 @@ class PhotosApi
      *
      * Store a new employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadEmployeePhoto'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadEmployeePhotoAsync($company_domain, $employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
+    public function uploadEmployeePhotoAsync($employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
     {
-        return $this->uploadEmployeePhotoAsyncWithHttpInfo($company_domain, $employee_id, $contentType)
+        return $this->uploadEmployeePhotoAsyncWithHttpInfo($employee_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -493,17 +470,16 @@ class PhotosApi
      *
      * Store a new employee photo
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadEmployeePhoto'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadEmployeePhotoAsyncWithHttpInfo($company_domain, $employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
+    public function uploadEmployeePhotoAsyncWithHttpInfo($employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
     {
         $returnType = '';
-        $request = $this->uploadEmployeePhotoRequest($company_domain, $employee_id, $contentType);
+        $request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -531,22 +507,14 @@ class PhotosApi
     /**
      * Create request for operation 'uploadEmployeePhoto'
      *
-     * @param  string $company_domain The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; (required)
      * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadEmployeePhoto'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadEmployeePhotoRequest($company_domain, $employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
+    public function uploadEmployeePhotoRequest($employee_id, string $contentType = self::contentTypes['uploadEmployeePhoto'][0])
     {
-
-        // verify the required parameter 'company_domain' is set
-        if ($company_domain === null || (is_array($company_domain) && count($company_domain) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_domain when calling uploadEmployeePhoto'
-            );
-        }
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
@@ -556,7 +524,7 @@ class PhotosApi
         }
 
 
-        $resourcePath = '/{companyDomain}/v1/employees/{employeeId}/photo';
+        $resourcePath = '/api/v1/employees/{employeeId}/photo';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -565,14 +533,6 @@ class PhotosApi
 
 
 
-        // path params
-        if ($company_domain !== null) {
-            $resourcePath = str_replace(
-                '{' . 'companyDomain' . '}',
-                ObjectSerializer::toPathValue($company_domain),
-                $resourcePath
-            );
-        }
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
