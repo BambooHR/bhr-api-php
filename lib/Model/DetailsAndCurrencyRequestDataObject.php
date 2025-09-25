@@ -69,7 +69,8 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         'salary_included' => 'bool',
         'bonus_included' => 'bool',
         'equity_included' => 'bool',
-        'cycle_currency_conversion_rates' => '\MySdk\Model\ConversionRateDataObject[]'
+        'cycle_currency_conversion_rates' => '\MySdk\Model\ConversionRateDataObject[]',
+        'paycheck_date_ymd' => '\DateTime'
     ];
 
     /**
@@ -91,7 +92,8 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         'salary_included' => null,
         'bonus_included' => null,
         'equity_included' => null,
-        'cycle_currency_conversion_rates' => null
+        'cycle_currency_conversion_rates' => null,
+        'paycheck_date_ymd' => 'date'
     ];
 
     /**
@@ -111,7 +113,8 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         'salary_included' => false,
         'bonus_included' => false,
         'equity_included' => false,
-        'cycle_currency_conversion_rates' => false
+        'cycle_currency_conversion_rates' => false,
+        'paycheck_date_ymd' => false
     ];
 
     /**
@@ -211,7 +214,8 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         'salary_included' => 'salaryIncluded',
         'bonus_included' => 'bonusIncluded',
         'equity_included' => 'equityIncluded',
-        'cycle_currency_conversion_rates' => 'cycleCurrencyConversionRates'
+        'cycle_currency_conversion_rates' => 'cycleCurrencyConversionRates',
+        'paycheck_date_ymd' => 'paycheckDateYmd'
     ];
 
     /**
@@ -231,7 +235,8 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         'salary_included' => 'setSalaryIncluded',
         'bonus_included' => 'setBonusIncluded',
         'equity_included' => 'setEquityIncluded',
-        'cycle_currency_conversion_rates' => 'setCycleCurrencyConversionRates'
+        'cycle_currency_conversion_rates' => 'setCycleCurrencyConversionRates',
+        'paycheck_date_ymd' => 'setPaycheckDateYmd'
     ];
 
     /**
@@ -251,7 +256,8 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         'salary_included' => 'getSalaryIncluded',
         'bonus_included' => 'getBonusIncluded',
         'equity_included' => 'getEquityIncluded',
-        'cycle_currency_conversion_rates' => 'getCycleCurrencyConversionRates'
+        'cycle_currency_conversion_rates' => 'getCycleCurrencyConversionRates',
+        'paycheck_date_ymd' => 'getPaycheckDateYmd'
     ];
 
     /**
@@ -323,6 +329,7 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
         $this->setIfExists('bonus_included', $data ?? [], null);
         $this->setIfExists('equity_included', $data ?? [], null);
         $this->setIfExists('cycle_currency_conversion_rates', $data ?? [], null);
+        $this->setIfExists('paycheck_date_ymd', $data ?? [], null);
     }
 
     /**
@@ -694,6 +701,33 @@ class DetailsAndCurrencyRequestDataObject implements ModelInterface, ArrayAccess
             throw new \InvalidArgumentException('non-nullable cycle_currency_conversion_rates cannot be null');
         }
         $this->container['cycle_currency_conversion_rates'] = $cycle_currency_conversion_rates;
+
+        return $this;
+    }
+
+    /**
+     * Gets paycheck_date_ymd
+     *
+     * @return \DateTime|null
+     */
+    public function getPaycheckDateYmd()
+    {
+        return $this->container['paycheck_date_ymd'];
+    }
+
+    /**
+     * Sets paycheck_date_ymd
+     *
+     * @param \DateTime|null $paycheck_date_ymd Date of first paycheck with new compensation updates
+     *
+     * @return self
+     */
+    public function setPaycheckDateYmd($paycheck_date_ymd)
+    {
+        if (is_null($paycheck_date_ymd)) {
+            throw new \InvalidArgumentException('non-nullable paycheck_date_ymd cannot be null');
+        }
+        $this->container['paycheck_date_ymd'] = $paycheck_date_ymd;
 
         return $this;
     }

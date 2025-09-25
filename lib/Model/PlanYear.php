@@ -63,7 +63,8 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_date' => 'string',
         'plan_ids' => 'object[]',
         'open_enrollments' => '\MySdk\Model\BenefitEnrollmentWindowResponse',
-        'new_hire_rule' => '\MySdk\Model\NewHireAutomationSettingLike'
+        'new_hire_rule' => '\MySdk\Model\NewHireAutomationSettingLike',
+        'carrier_ids' => 'string[]'
     ];
 
     /**
@@ -80,7 +81,8 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_date' => null,
         'plan_ids' => null,
         'open_enrollments' => null,
-        'new_hire_rule' => null
+        'new_hire_rule' => null,
+        'carrier_ids' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_date' => false,
         'plan_ids' => false,
         'open_enrollments' => false,
-        'new_hire_rule' => false
+        'new_hire_rule' => false,
+        'carrier_ids' => false
     ];
 
     /**
@@ -190,7 +193,8 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_date' => 'endDate',
         'plan_ids' => 'planIds',
         'open_enrollments' => 'openEnrollments',
-        'new_hire_rule' => 'newHireRule'
+        'new_hire_rule' => 'newHireRule',
+        'carrier_ids' => 'carrierIds'
     ];
 
     /**
@@ -205,7 +209,8 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_date' => 'setEndDate',
         'plan_ids' => 'setPlanIds',
         'open_enrollments' => 'setOpenEnrollments',
-        'new_hire_rule' => 'setNewHireRule'
+        'new_hire_rule' => 'setNewHireRule',
+        'carrier_ids' => 'setCarrierIds'
     ];
 
     /**
@@ -220,7 +225,8 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_date' => 'getEndDate',
         'plan_ids' => 'getPlanIds',
         'open_enrollments' => 'getOpenEnrollments',
-        'new_hire_rule' => 'getNewHireRule'
+        'new_hire_rule' => 'getNewHireRule',
+        'carrier_ids' => 'getCarrierIds'
     ];
 
     /**
@@ -287,6 +293,7 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('plan_ids', $data ?? [], null);
         $this->setIfExists('open_enrollments', $data ?? [], null);
         $this->setIfExists('new_hire_rule', $data ?? [], null);
+        $this->setIfExists('carrier_ids', $data ?? [], null);
     }
 
     /**
@@ -516,6 +523,33 @@ class PlanYear implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable new_hire_rule cannot be null');
         }
         $this->container['new_hire_rule'] = $new_hire_rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets carrier_ids
+     *
+     * @return string[]|null
+     */
+    public function getCarrierIds()
+    {
+        return $this->container['carrier_ids'];
+    }
+
+    /**
+     * Sets carrier_ids
+     *
+     * @param string[]|null $carrier_ids carrier_ids
+     *
+     * @return self
+     */
+    public function setCarrierIds($carrier_ids)
+    {
+        if (is_null($carrier_ids)) {
+            throw new \InvalidArgumentException('non-nullable carrier_ids cannot be null');
+        }
+        $this->container['carrier_ids'] = $carrier_ids;
 
         return $this;
     }

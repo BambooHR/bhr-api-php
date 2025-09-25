@@ -61,7 +61,8 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'string',
         'error_type' => 'string',
         'primary_filter_key' => 'string',
-        'primary_filter_value' => 'string'
+        'primary_filter_value' => 'string',
+        'employee_id' => 'int'
     ];
 
     /**
@@ -75,7 +76,8 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => null,
         'error_type' => null,
         'primary_filter_key' => null,
-        'primary_filter_value' => null
+        'primary_filter_value' => null,
+        'employee_id' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => true,
         'error_type' => true,
         'primary_filter_key' => true,
-        'primary_filter_value' => true
+        'primary_filter_value' => true,
+        'employee_id' => true
     ];
 
     /**
@@ -179,7 +182,8 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'userId',
         'error_type' => 'errorType',
         'primary_filter_key' => 'primaryFilterKey',
-        'primary_filter_value' => 'primaryFilterValue'
+        'primary_filter_value' => 'primaryFilterValue',
+        'employee_id' => 'employeeId'
     ];
 
     /**
@@ -191,7 +195,8 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'setUserId',
         'error_type' => 'setErrorType',
         'primary_filter_key' => 'setPrimaryFilterKey',
-        'primary_filter_value' => 'setPrimaryFilterValue'
+        'primary_filter_value' => 'setPrimaryFilterValue',
+        'employee_id' => 'setEmployeeId'
     ];
 
     /**
@@ -203,7 +208,8 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'getUserId',
         'error_type' => 'getErrorType',
         'primary_filter_key' => 'getPrimaryFilterKey',
-        'primary_filter_value' => 'getPrimaryFilterValue'
+        'primary_filter_value' => 'getPrimaryFilterValue',
+        'employee_id' => 'getEmployeeId'
     ];
 
     /**
@@ -267,6 +273,7 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('error_type', $data ?? [], null);
         $this->setIfExists('primary_filter_key', $data ?? [], null);
         $this->setIfExists('primary_filter_value', $data ?? [], null);
+        $this->setIfExists('employee_id', $data ?? [], null);
     }
 
     /**
@@ -443,6 +450,40 @@ class ErrorAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['primary_filter_value'] = $primary_filter_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_id
+     *
+     * @return int|null
+     */
+    public function getEmployeeId()
+    {
+        return $this->container['employee_id'];
+    }
+
+    /**
+     * Sets employee_id
+     *
+     * @param int|null $employee_id Employee ID associated with the error
+     *
+     * @return self
+     */
+    public function setEmployeeId($employee_id)
+    {
+        if (is_null($employee_id)) {
+            array_push($this->openAPINullablesSetToNull, 'employee_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('employee_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['employee_id'] = $employee_id;
 
         return $this;
     }

@@ -59,6 +59,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'can_create_company_goal' => 'bool',
+        'can_create_cascading_goal' => 'bool',
         'cascading_goals_enabled' => 'bool',
         'dropdown_options' => '\MySdk\Model\TransformedCascadingGoalOptionsDropdownOptions'
     ];
@@ -72,6 +73,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPIFormats = [
         'can_create_company_goal' => null,
+        'can_create_cascading_goal' => null,
         'cascading_goals_enabled' => null,
         'dropdown_options' => null
     ];
@@ -83,6 +85,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'can_create_company_goal' => false,
+        'can_create_cascading_goal' => false,
         'cascading_goals_enabled' => false,
         'dropdown_options' => false
     ];
@@ -174,6 +177,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'can_create_company_goal' => 'canCreateCompanyGoal',
+        'can_create_cascading_goal' => 'canCreateCascadingGoal',
         'cascading_goals_enabled' => 'cascadingGoalsEnabled',
         'dropdown_options' => 'dropdownOptions'
     ];
@@ -185,6 +189,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'can_create_company_goal' => 'setCanCreateCompanyGoal',
+        'can_create_cascading_goal' => 'setCanCreateCascadingGoal',
         'cascading_goals_enabled' => 'setCascadingGoalsEnabled',
         'dropdown_options' => 'setDropdownOptions'
     ];
@@ -196,6 +201,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'can_create_company_goal' => 'getCanCreateCompanyGoal',
+        'can_create_cascading_goal' => 'getCanCreateCascadingGoal',
         'cascading_goals_enabled' => 'getCascadingGoalsEnabled',
         'dropdown_options' => 'getDropdownOptions'
     ];
@@ -258,6 +264,7 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
     public function __construct(?array $data = null)
     {
         $this->setIfExists('can_create_company_goal', $data ?? [], null);
+        $this->setIfExists('can_create_cascading_goal', $data ?? [], null);
         $this->setIfExists('cascading_goals_enabled', $data ?? [], null);
         $this->setIfExists('dropdown_options', $data ?? [], null);
     }
@@ -327,6 +334,33 @@ class TransformedCascadingGoalOptions implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable can_create_company_goal cannot be null');
         }
         $this->container['can_create_company_goal'] = $can_create_company_goal;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_create_cascading_goal
+     *
+     * @return bool|null
+     */
+    public function getCanCreateCascadingGoal()
+    {
+        return $this->container['can_create_cascading_goal'];
+    }
+
+    /**
+     * Sets can_create_cascading_goal
+     *
+     * @param bool|null $can_create_cascading_goal Whether the user can create cascading goals
+     *
+     * @return self
+     */
+    public function setCanCreateCascadingGoal($can_create_cascading_goal)
+    {
+        if (is_null($can_create_cascading_goal)) {
+            throw new \InvalidArgumentException('non-nullable can_create_cascading_goal cannot be null');
+        }
+        $this->container['can_create_cascading_goal'] = $can_create_cascading_goal;
 
         return $this;
     }

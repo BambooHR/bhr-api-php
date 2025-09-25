@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **holiday_id** | **int** | The unique identifier for the holiday | [optional]
 **record_id** | **int** | The unique identifier for the time off | [optional]
 **record_type** | **string** | The record type for the time off | [optional]
+**is_paid** | **bool** | If a time off item, whether it is attached to a paid type | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -106,7 +106,7 @@ class TaskMetaFileSchema implements ModelInterface, ArrayAccess, \JsonSerializab
         'most_recent_file_data_id' => false,
         'most_recent_employee_file_data_id' => false,
         'created' => true,
-        'mime_type' => false,
+        'mime_type' => true,
         'size' => false,
         'ext' => true,
         'can_edit' => false,
@@ -582,7 +582,14 @@ class TaskMetaFileSchema implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setMimeType($mime_type)
     {
         if (is_null($mime_type)) {
-            throw new \InvalidArgumentException('non-nullable mime_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'mime_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mime_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['mime_type'] = $mime_type;
 

@@ -374,6 +374,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets status
      *
      * @return string|null
+     * @deprecated
      */
     public function getStatus()
     {
@@ -386,6 +387,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $status Status of the upload operation
      *
      * @return self
+     * @deprecated
      */
     public function setStatus($status)
     {
@@ -411,6 +413,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets message
      *
      * @return string|null
+     * @deprecated
      */
     public function getMessage()
     {
@@ -423,6 +426,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $message Message describing the result of the operation
      *
      * @return self
+     * @deprecated
      */
     public function setMessage($message)
     {
@@ -438,6 +442,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets error_type
      *
      * @return string|null
+     * @deprecated
      */
     public function getErrorType()
     {
@@ -450,6 +455,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $error_type Type of error if status is ERROR
      *
      * @return self
+     * @deprecated
      */
     public function setErrorType($error_type)
     {
@@ -465,6 +471,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets fid
      *
      * @return string|null
+     * @deprecated
      */
     public function getFid()
     {
@@ -477,6 +484,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $fid File ID if upload was successful
      *
      * @return self
+     * @deprecated
      */
     public function setFid($fid)
     {
@@ -492,6 +500,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets name
      *
      * @return string|null
+     * @deprecated
      */
     public function getName()
     {
@@ -504,6 +513,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $name File name if upload was successful
      *
      * @return self
+     * @deprecated
      */
     public function setName($name)
     {
@@ -519,6 +529,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets type
      *
      * @return string|null
+     * @deprecated
      */
     public function getType()
     {
@@ -531,6 +542,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $type File MIME type if upload was successful
      *
      * @return self
+     * @deprecated
      */
     public function setType($type)
     {
@@ -546,6 +558,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets size
      *
      * @return int|null
+     * @deprecated
      */
     public function getSize()
     {
@@ -558,6 +571,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param int|null $size File size in bytes if upload was successful
      *
      * @return self
+     * @deprecated
      */
     public function setSize($size)
     {
@@ -573,6 +587,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * Gets image
      *
      * @return string|null
+     * @deprecated
      */
     public function getImage()
     {
@@ -585,6 +600,7 @@ class UploadTemporaryFileResponse implements ModelInterface, ArrayAccess, \JsonS
      * @param string|null $image File type image URL if upload was successful
      *
      * @return self
+     * @deprecated
      */
     public function setImage($image)
     {

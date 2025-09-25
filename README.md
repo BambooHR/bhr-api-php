@@ -84,6 +84,8 @@ All URIs are relative to *https://example.bamboohr.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ATSApi* | [**getApplicationDetails**](docs/Api/ATSApi.md#getapplicationdetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details
+*AccountInformationApi* | [**d44e9c43fbca76b93a00a9603ba24ba1**](docs/Api/AccountInformationApi.md#d44e9c43fbca76b93a00a9603ba24ba1) | **GET** /api/v1/meta/countries/options | Get all countries
+*AccountInformationApi* | [**ec09b0a847283ca20b79980249d44b16**](docs/Api/AccountInformationApi.md#ec09b0a847283ca20b79980249d44b16) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID
 *AccountInformationApi* | [**getListOfUsers**](docs/Api/AccountInformationApi.md#getlistofusers) | **GET** /api/v1/meta/users | Get a List of Users
 *AccountInformationApi* | [**metadataAddOrUpdateValuesForListFields**](docs/Api/AccountInformationApi.md#metadataaddorupdatevaluesforlistfields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields
 *AccountInformationApi* | [**metadataGetAListOfFields**](docs/Api/AccountInformationApi.md#metadatagetalistoffields) | **GET** /api/v1/meta/fields | Get a list of fields
@@ -151,11 +153,11 @@ Class | Method | HTTP request | Description
 *GoalsApi* | [**putGoalSharedWith**](docs/Api/GoalsApi.md#putgoalsharedwith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing
 *GoalsApi* | [**putGoalV1**](docs/Api/GoalsApi.md#putgoalv1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal
 *GoalsApi* | [**putGoalV11**](docs/Api/GoalsApi.md#putgoalv11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1
-*HoursApi* | [**call22067048cf6eec230a865765a18ad7b8**](docs/Api/HoursApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking
-*HoursApi* | [**call717faf6067928c3497fc9acbf5b91767**](docs/Api/HoursApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId
-*HoursApi* | [**call889a4c2de70a53c5ab8cb32f1c2243f5**](docs/Api/HoursApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId
-*HoursApi* | [**e2ae6e59655aeab2b4e6311967a2809f**](docs/Api/HoursApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking
-*HoursApi* | [**f54bcaec6771b1264671e53f2e557b1f**](docs/Api/HoursApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk
+*HoursApi* | [**call22067048cf6eec230a865765a18ad7b8**](docs/Api/HoursApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record
+*HoursApi* | [**call717faf6067928c3497fc9acbf5b91767**](docs/Api/HoursApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record
+*HoursApi* | [**call889a4c2de70a53c5ab8cb32f1c2243f5**](docs/Api/HoursApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record
+*HoursApi* | [**e2ae6e59655aeab2b4e6311967a2809f**](docs/Api/HoursApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | Add Hour Record
+*HoursApi* | [**f54bcaec6771b1264671e53f2e557b1f**](docs/Api/HoursApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records
 *LastChangeInformationApi* | [**getChangedEmployeeIds**](docs/Api/LastChangeInformationApi.md#getchangedemployeeids) | **GET** /api/v1/employees/changed | Gets all updated employee IDs
 *LoginApi* | [**login**](docs/Api/LoginApi.md#login) | **POST** /api/v1/login | User Login
 *PhotosApi* | [**getEmployeePhoto**](docs/Api/PhotosApi.md#getemployeephoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo
@@ -174,13 +176,14 @@ Class | Method | HTTP request | Description
 *PublicAPIApi* | [**ca54fa4c1d42864a2540f7f7600e0d65**](docs/Api/PublicAPIApi.md#ca54fa4c1d42864a2540f7f7600e0d65) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
 *PublicAPIApi* | [**call134f6593587d7195536c151bd65eb6d5**](docs/Api/PublicAPIApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
 *PublicAPIApi* | [**call18e680c918496818b49d593d7ea375a5**](docs/Api/PublicAPIApi.md#call18e680c918496818b49d593d7ea375a5) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options
-*PublicAPIApi* | [**call22067048cf6eec230a865765a18ad7b8**](docs/Api/PublicAPIApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking
+*PublicAPIApi* | [**call22067048cf6eec230a865765a18ad7b8**](docs/Api/PublicAPIApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record
 *PublicAPIApi* | [**call3b7487d1d17551f6c3e2567b96089ce1**](docs/Api/PublicAPIApi.md#call3b7487d1d17551f6c3e2567b96089ce1) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries
 *PublicAPIApi* | [**call408a4478cbd2b1b5811ba6228e2898df**](docs/Api/PublicAPIApi.md#call408a4478cbd2b1b5811ba6228e2898df) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries
 *PublicAPIApi* | [**call43c7cc099ca54295a047f449824fc0dd**](docs/Api/PublicAPIApi.md#call43c7cc099ca54295a047f449824fc0dd) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
-*PublicAPIApi* | [**call717faf6067928c3497fc9acbf5b91767**](docs/Api/PublicAPIApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId
+*PublicAPIApi* | [**call717faf6067928c3497fc9acbf5b91767**](docs/Api/PublicAPIApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record
 *PublicAPIApi* | [**call7bb9fedfad942b8839bc61a125e7c255**](docs/Api/PublicAPIApi.md#call7bb9fedfad942b8839bc61a125e7c255) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
-*PublicAPIApi* | [**call889a4c2de70a53c5ab8cb32f1c2243f5**](docs/Api/PublicAPIApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId
+*PublicAPIApi* | [**call889a4c2de70a53c5ab8cb32f1c2243f5**](docs/Api/PublicAPIApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record
+*PublicAPIApi* | [**d44e9c43fbca76b93a00a9603ba24ba1**](docs/Api/PublicAPIApi.md#d44e9c43fbca76b93a00a9603ba24ba1) | **GET** /api/v1/meta/countries/options | Get all countries
 *PublicAPIApi* | [**deleteCompanyFile**](docs/Api/PublicAPIApi.md#deletecompanyfile) | **DELETE** /api/v1/files/{fileId} | Delete Company File
 *PublicAPIApi* | [**deleteEmployeeFile**](docs/Api/PublicAPIApi.md#deleteemployeefile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File
 *PublicAPIApi* | [**deleteEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#deleteemployeetablerowv1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row
@@ -190,9 +193,10 @@ Class | Method | HTTP request | Description
 *PublicAPIApi* | [**deleteTrainingCategory**](docs/Api/PublicAPIApi.md#deletetrainingcategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category
 *PublicAPIApi* | [**deleteTrainingType**](docs/Api/PublicAPIApi.md#deletetrainingtype) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type
 *PublicAPIApi* | [**deleteWebhook**](docs/Api/PublicAPIApi.md#deletewebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook
-*PublicAPIApi* | [**e2ae6e59655aeab2b4e6311967a2809f**](docs/Api/PublicAPIApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking
+*PublicAPIApi* | [**e2ae6e59655aeab2b4e6311967a2809f**](docs/Api/PublicAPIApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | Add Hour Record
 *PublicAPIApi* | [**e9a47e93524609b981be6139822d219e**](docs/Api/PublicAPIApi.md#e9a47e93524609b981be6139822d219e) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
-*PublicAPIApi* | [**f54bcaec6771b1264671e53f2e557b1f**](docs/Api/PublicAPIApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk
+*PublicAPIApi* | [**ec09b0a847283ca20b79980249d44b16**](docs/Api/PublicAPIApi.md#ec09b0a847283ca20b79980249d44b16) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID
+*PublicAPIApi* | [**f54bcaec6771b1264671e53f2e557b1f**](docs/Api/PublicAPIApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records
 *PublicAPIApi* | [**f7dd45b1747b0b72c4b617845b065a07**](docs/Api/PublicAPIApi.md#f7dd45b1747b0b72c4b617845b065a07) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project
 *PublicAPIApi* | [**getAListOfWhoIsOut**](docs/Api/PublicAPIApi.md#getalistofwhoisout) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out
 *PublicAPIApi* | [**getApplicationDetails**](docs/Api/PublicAPIApi.md#getapplicationdetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details
@@ -347,6 +351,8 @@ Class | Method | HTTP request | Description
 - [43c7cc099ca54295a047f449824fc0ddRequest](docs/Model/43c7cc099ca54295a047f449824fc0ddRequest.md)
 - [7bb9fedfad942b8839bc61a125e7c255Request](docs/Model/7bb9fedfad942b8839bc61a125e7c255Request.md)
 - [889a4c2de70a53c5ab8cb32f1c2243f5200Response](docs/Model/889a4c2de70a53c5ab8cb32f1c2243f5200Response.md)
+- [889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProject](docs/Model/889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProject.md)
+- [889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask](docs/Model/889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask.md)
 - [AbstractFormNode](docs/Model/AbstractFormNode.md)
 - [Aca](docs/Model/Aca.md)
 - [AccountContactsResponse](docs/Model/AccountContactsResponse.md)
@@ -376,6 +382,7 @@ Class | Method | HTTP request | Description
 - [AdditionalPayTransformer](docs/Model/AdditionalPayTransformer.md)
 - [Address](docs/Model/Address.md)
 - [AdjustTimeOffBalance](docs/Model/AdjustTimeOffBalance.md)
+- [AdobeTargetActivityResponse](docs/Model/AdobeTargetActivityResponse.md)
 - [AggregateTimeOffRequestWithPersonInfoResponseInner](docs/Model/AggregateTimeOffRequestWithPersonInfoResponseInner.md)
 - [AllFieldOptionsTransformer](docs/Model/AllFieldOptionsTransformer.md)
 - [Answers](docs/Model/Answers.md)
@@ -391,6 +398,7 @@ Class | Method | HTTP request | Description
 - [ApprovalFlowPersonInfoDataObject](docs/Model/ApprovalFlowPersonInfoDataObject.md)
 - [ApprovalFlowSummaryDataObject](docs/Model/ApprovalFlowSummaryDataObject.md)
 - [ApprovalGroupDataObject](docs/Model/ApprovalGroupDataObject.md)
+- [ApprovalTimesheet](docs/Model/ApprovalTimesheet.md)
 - [ApproverDataObject](docs/Model/ApproverDataObject.md)
 - [AssessmentFileViewObject](docs/Model/AssessmentFileViewObject.md)
 - [AssessmentTabViewObject](docs/Model/AssessmentTabViewObject.md)
@@ -547,6 +555,7 @@ Class | Method | HTTP request | Description
 - [CompanyEnrollmentWindow](docs/Model/CompanyEnrollmentWindow.md)
 - [CompanyFileUpdate](docs/Model/CompanyFileUpdate.md)
 - [CompanyHolidayDataObject](docs/Model/CompanyHolidayDataObject.md)
+- [CompanyHolidayTransformer](docs/Model/CompanyHolidayTransformer.md)
 - [CompanyHolidayWithEmployeesTransformer](docs/Model/CompanyHolidayWithEmployeesTransformer.md)
 - [CompanyHolidayWithEmployeesTransformerEmployeesInner](docs/Model/CompanyHolidayWithEmployeesTransformerEmployeesInner.md)
 - [CompanyIndustryDataObject](docs/Model/CompanyIndustryDataObject.md)
@@ -620,10 +629,12 @@ Class | Method | HTTP request | Description
 - [CustomerOnboardingModulesTransformerInnerItemsInner](docs/Model/CustomerOnboardingModulesTransformerInnerItemsInner.md)
 - [CustomerOnboardingUpdateContactRequestObject](docs/Model/CustomerOnboardingUpdateContactRequestObject.md)
 - [CycleDetailsSummaryDataObject](docs/Model/CycleDetailsSummaryDataObject.md)
+- [D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner](docs/Model/D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner.md)
 - [DailyDetailApiTransformer](docs/Model/DailyDetailApiTransformer.md)
 - [DailyDetailApiTransformerHolidaysInner](docs/Model/DailyDetailApiTransformerHolidaysInner.md)
 - [DailyDetailApiTransformerOvertimeSummary](docs/Model/DailyDetailApiTransformerOvertimeSummary.md)
 - [DailyDetailApiTransformerTimeOffInner](docs/Model/DailyDetailApiTransformerTimeOffInner.md)
+- [DailyTimesheet](docs/Model/DailyTimesheet.md)
 - [DailyTimesheetApiTransformer](docs/Model/DailyTimesheetApiTransformer.md)
 - [DailyTimesheetsWithPersonsApiTransformer](docs/Model/DailyTimesheetsWithPersonsApiTransformer.md)
 - [DashboardListItemResponse](docs/Model/DashboardListItemResponse.md)
@@ -642,6 +653,7 @@ Class | Method | HTTP request | Description
 - [DataRequestSortByInner](docs/Model/DataRequestSortByInner.md)
 - [DataSetConfigurationTransformer](docs/Model/DataSetConfigurationTransformer.md)
 - [DataSetListTransformer](docs/Model/DataSetListTransformer.md)
+- [DataVisualizationBenchmarkingPageContextResponse](docs/Model/DataVisualizationBenchmarkingPageContextResponse.md)
 - [DataVisualizationPageContextResponse](docs/Model/DataVisualizationPageContextResponse.md)
 - [Dataset](docs/Model/Dataset.md)
 - [DatasetFieldsResponse](docs/Model/DatasetFieldsResponse.md)
@@ -702,6 +714,8 @@ Class | Method | HTTP request | Description
 - [E9a47e93524609b981be6139822d219eRequestHoursInner](docs/Model/E9a47e93524609b981be6139822d219eRequestHoursInner.md)
 - [EOREmployeeSchema](docs/Model/EOREmployeeSchema.md)
 - [EarningTransformer](docs/Model/EarningTransformer.md)
+- [Ec09b0a847283ca20b79980249d44b16200Response](docs/Model/Ec09b0a847283ca20b79980249d44b16200Response.md)
+- [Ec09b0a847283ca20b79980249d44b16200ResponseOptionsInner](docs/Model/Ec09b0a847283ca20b79980249d44b16200ResponseOptionsInner.md)
 - [EditCustomApplicantStatusResponse](docs/Model/EditCustomApplicantStatusResponse.md)
 - [EditCustomApplicantStatusResponseOneOf](docs/Model/EditCustomApplicantStatusResponseOneOf.md)
 - [ElectionSubmission](docs/Model/ElectionSubmission.md)
@@ -718,6 +732,7 @@ Class | Method | HTTP request | Description
 - [EmergencyContactFormFieldWithDropdown](docs/Model/EmergencyContactFormFieldWithDropdown.md)
 - [EmergencyContactFormFieldWithDropdownDropdownOptionsInner](docs/Model/EmergencyContactFormFieldWithDropdownDropdownOptionsInner.md)
 - [Employee](docs/Model/Employee.md)
+- [EmployeeActiveWindow](docs/Model/EmployeeActiveWindow.md)
 - [EmployeeApi](docs/Model/EmployeeApi.md)
 - [EmployeeBanksSnapshot](docs/Model/EmployeeBanksSnapshot.md)
 - [EmployeeBenefit](docs/Model/EmployeeBenefit.md)
@@ -726,11 +741,14 @@ Class | Method | HTTP request | Description
 - [EmployeeBenefitFilters](docs/Model/EmployeeBenefitFilters.md)
 - [EmployeeBenefitFiltersFilters](docs/Model/EmployeeBenefitFiltersFilters.md)
 - [EmployeeBudgetAllocationsView](docs/Model/EmployeeBudgetAllocationsView.md)
+- [EmployeeClockEntry](docs/Model/EmployeeClockEntry.md)
+- [EmployeeDailyEntry](docs/Model/EmployeeDailyEntry.md)
 - [EmployeeDataTimeOffAvailableDataObject](docs/Model/EmployeeDataTimeOffAvailableDataObject.md)
 - [EmployeeDemographicsTransformer](docs/Model/EmployeeDemographicsTransformer.md)
 - [EmployeeDemographicsTransformerEmployeesValue](docs/Model/EmployeeDemographicsTransformerEmployeesValue.md)
 - [EmployeeDependent](docs/Model/EmployeeDependent.md)
 - [EmployeeDeposit](docs/Model/EmployeeDeposit.md)
+- [EmployeeDetailsDataObject](docs/Model/EmployeeDetailsDataObject.md)
 - [EmployeeDirectDepositStatusTransformer](docs/Model/EmployeeDirectDepositStatusTransformer.md)
 - [EmployeeDirectoryEmployeeDataObject](docs/Model/EmployeeDirectoryEmployeeDataObject.md)
 - [EmployeeDirectoryInformationDataObject](docs/Model/EmployeeDirectoryInformationDataObject.md)
@@ -756,6 +774,11 @@ Class | Method | HTTP request | Description
 - [EmployeeFullCalendarEventsApiTransformerWhosOutInner](docs/Model/EmployeeFullCalendarEventsApiTransformerWhosOutInner.md)
 - [EmployeeFutureBenefitChangeDataObject](docs/Model/EmployeeFutureBenefitChangeDataObject.md)
 - [EmployeeGoalJsonViewObject](docs/Model/EmployeeGoalJsonViewObject.md)
+- [EmployeeHourEntry](docs/Model/EmployeeHourEntry.md)
+- [EmployeeHourSummaryDataObject](docs/Model/EmployeeHourSummaryDataObject.md)
+- [EmployeeHourlyWageAdjustments](docs/Model/EmployeeHourlyWageAdjustments.md)
+- [EmployeeHourlyWageAdjustmentsAdjustmentAmount](docs/Model/EmployeeHourlyWageAdjustmentsAdjustmentAmount.md)
+- [EmployeeHourlyWageAdjustmentsCompensationPeriodChangesInner](docs/Model/EmployeeHourlyWageAdjustmentsCompensationPeriodChangesInner.md)
 - [EmployeeLevelDeductionDataObject](docs/Model/EmployeeLevelDeductionDataObject.md)
 - [EmployeeLevelDeductionViewObject](docs/Model/EmployeeLevelDeductionViewObject.md)
 - [EmployeeListResultTransformer](docs/Model/EmployeeListResultTransformer.md)
@@ -768,6 +791,9 @@ Class | Method | HTTP request | Description
 - [EmployeePayRateTransformer](docs/Model/EmployeePayRateTransformer.md)
 - [EmployeePaySchedule](docs/Model/EmployeePaySchedule.md)
 - [EmployeePaystub](docs/Model/EmployeePaystub.md)
+- [EmployeePickerResponseDataObject](docs/Model/EmployeePickerResponseDataObject.md)
+- [EmployeePickerSummaryDataObject](docs/Model/EmployeePickerSummaryDataObject.md)
+- [EmployeeRateAdjustmentsInner](docs/Model/EmployeeRateAdjustmentsInner.md)
 - [EmployeeRatesInner](docs/Model/EmployeeRatesInner.md)
 - [EmployeeRequest](docs/Model/EmployeeRequest.md)
 - [EmployeeRequests](docs/Model/EmployeeRequests.md)
@@ -846,8 +872,16 @@ Class | Method | HTTP request | Description
 - [EmployeeTimeOffTabTransformerPause](docs/Model/EmployeeTimeOffTabTransformerPause.md)
 - [EmployeeTimeOffTabTransformerPoliciesInner](docs/Model/EmployeeTimeOffTabTransformerPoliciesInner.md)
 - [EmployeeTimeOffTabTransformerUserPermissions](docs/Model/EmployeeTimeOffTabTransformerUserPermissions.md)
+- [EmployeeTimesheetCollection](docs/Model/EmployeeTimesheetCollection.md)
+- [EmployeeTimesheetDailyData](docs/Model/EmployeeTimesheetDailyData.md)
+- [EmployeeTimesheetDailyDataCollection](docs/Model/EmployeeTimesheetDailyDataCollection.md)
+- [EmployeeTimesheetDailyHourCollection](docs/Model/EmployeeTimesheetDailyHourCollection.md)
+- [EmployeeTimesheetDailyHourDataObject](docs/Model/EmployeeTimesheetDailyHourDataObject.md)
+- [EmployeeTimesheetDataObject](docs/Model/EmployeeTimesheetDataObject.md)
 - [EmployeeTimesheetEntryTransformer](docs/Model/EmployeeTimesheetEntryTransformer.md)
+- [EmployeeTimesheetViewDataObject](docs/Model/EmployeeTimesheetViewDataObject.md)
 - [EmployeeUnpaidPaystub](docs/Model/EmployeeUnpaidPaystub.md)
+- [EmployeeVerificationPartnerRoleSchema](docs/Model/EmployeeVerificationPartnerRoleSchema.md)
 - [EmployeeVerificationPersonSchema](docs/Model/EmployeeVerificationPersonSchema.md)
 - [EmployeeVerificationSchema](docs/Model/EmployeeVerificationSchema.md)
 - [EmployeeWithholding](docs/Model/EmployeeWithholding.md)
@@ -972,6 +1006,7 @@ Class | Method | HTTP request | Description
 - [GetToKnowYouQuestionsAndResponsesSchema](docs/Model/GetToKnowYouQuestionsAndResponsesSchema.md)
 - [GetWebhookList200Response](docs/Model/GetWebhookList200Response.md)
 - [GetWebhookList200ResponseWebhooksInner](docs/Model/GetWebhookList200ResponseWebhooksInner.md)
+- [GlobalHolidayTransformer](docs/Model/GlobalHolidayTransformer.md)
 - [GlobalWebHookRequestObject](docs/Model/GlobalWebHookRequestObject.md)
 - [GlobalWebhookDataObject](docs/Model/GlobalWebhookDataObject.md)
 - [Goal](docs/Model/Goal.md)
@@ -997,6 +1032,8 @@ Class | Method | HTTP request | Description
 - [HistoryTableDataTransformer](docs/Model/HistoryTableDataTransformer.md)
 - [HistoryTableJsonData](docs/Model/HistoryTableJsonData.md)
 - [HistoryTableJsonDataRowsInner](docs/Model/HistoryTableJsonDataRowsInner.md)
+- [HolidayEmployeeDescriptorTransformer](docs/Model/HolidayEmployeeDescriptorTransformer.md)
+- [HolidayEmployeeDescriptorTransformerEmployeesValue](docs/Model/HolidayEmployeeDescriptorTransformerEmployeesValue.md)
 - [HolidaysTransformer](docs/Model/HolidaysTransformer.md)
 - [HolidaysTransformerHolidaysInner](docs/Model/HolidaysTransformerHolidaysInner.md)
 - [HomeSummaryCalendarData](docs/Model/HomeSummaryCalendarData.md)
@@ -1045,11 +1082,12 @@ Class | Method | HTTP request | Description
 - [InboxDetailsWithPersonsFilesInner](docs/Model/InboxDetailsWithPersonsFilesInner.md)
 - [InboxDetailsWithPersonsPersonsInner](docs/Model/InboxDetailsWithPersonsPersonsInner.md)
 - [InboxDetailsWithPersonsStatus](docs/Model/InboxDetailsWithPersonsStatus.md)
-- [InboxDetailsWithPersonsType](docs/Model/InboxDetailsWithPersonsType.md)
 - [InboxLegacyTask](docs/Model/InboxLegacyTask.md)
 - [InboxLegacyTaskUsersInner](docs/Model/InboxLegacyTaskUsersInner.md)
 - [IndividualBeneficiaryInformation](docs/Model/IndividualBeneficiaryInformation.md)
 - [IndustryResponseDataObject](docs/Model/IndustryResponseDataObject.md)
+- [IntegrationErrorNotificationRequest](docs/Model/IntegrationErrorNotificationRequest.md)
+- [IntegrationErrorNotificationRequestAttributes](docs/Model/IntegrationErrorNotificationRequestAttributes.md)
 - [Intervalable](docs/Model/Intervalable.md)
 - [InvoiceResponse](docs/Model/InvoiceResponse.md)
 - [IsClockedInApiTransformer](docs/Model/IsClockedInApiTransformer.md)
@@ -1057,13 +1095,9 @@ Class | Method | HTTP request | Description
 - [JsonSchemaFormOutput](docs/Model/JsonSchemaFormOutput.md)
 - [LegalText](docs/Model/LegalText.md)
 - [LevelsAndBandsColumnMap](docs/Model/LevelsAndBandsColumnMap.md)
-- [LevelsAndBandsCompPlanningEmployee](docs/Model/LevelsAndBandsCompPlanningEmployee.md)
-- [LevelsAndBandsCompPlanningLevel](docs/Model/LevelsAndBandsCompPlanningLevel.md)
-- [LevelsAndBandsCompensationHistory](docs/Model/LevelsAndBandsCompensationHistory.md)
 - [LevelsAndBandsCompensationLevel](docs/Model/LevelsAndBandsCompensationLevel.md)
 - [LevelsAndBandsCompensationLevelGroup](docs/Model/LevelsAndBandsCompensationLevelGroup.md)
 - [LevelsAndBandsEmployee](docs/Model/LevelsAndBandsEmployee.md)
-- [LevelsAndBandsEmployeeDetails](docs/Model/LevelsAndBandsEmployeeDetails.md)
 - [LevelsAndBandsGroupStatusCounts](docs/Model/LevelsAndBandsGroupStatusCounts.md)
 - [LevelsAndBandsJobTitle](docs/Model/LevelsAndBandsJobTitle.md)
 - [LevelsAndBandsJobTitleWithEmployees](docs/Model/LevelsAndBandsJobTitleWithEmployees.md)
@@ -1085,6 +1119,7 @@ Class | Method | HTTP request | Description
 - [ManageSubscriptionResponseIntegrationExpansionsInner](docs/Model/ManageSubscriptionResponseIntegrationExpansionsInner.md)
 - [ManageSubscriptionResponseIntegrationExpansionsInnerDemoData](docs/Model/ManageSubscriptionResponseIntegrationExpansionsInnerDemoData.md)
 - [ManageSubscriptionResponseIntegrationsInner](docs/Model/ManageSubscriptionResponseIntegrationsInner.md)
+- [ManageSubscriptionResponsePaidIntegrationsInner](docs/Model/ManageSubscriptionResponsePaidIntegrationsInner.md)
 - [ManualNewHireAutomationSetting](docs/Model/ManualNewHireAutomationSetting.md)
 - [ManuallyEligibleGetResponse](docs/Model/ManuallyEligibleGetResponse.md)
 - [MemberBenefitEvent](docs/Model/MemberBenefitEvent.md)
@@ -1094,6 +1129,7 @@ Class | Method | HTTP request | Description
 - [MergeWebhookHookDataObject](docs/Model/MergeWebhookHookDataObject.md)
 - [MergeWebhookPayloadDataObject](docs/Model/MergeWebhookPayloadDataObject.md)
 - [MigrationsNeededContract](docs/Model/MigrationsNeededContract.md)
+- [MultiplierHoursSummary](docs/Model/MultiplierHoursSummary.md)
 - [NHPEmployeeNewHirePacketCompletedQuestionAndResponseSchema](docs/Model/NHPEmployeeNewHirePacketCompletedQuestionAndResponseSchema.md)
 - [NHPEmployeeNewHirePacketContactCardDataTransferObject](docs/Model/NHPEmployeeNewHirePacketContactCardDataTransferObject.md)
 - [NHPEmployeeNewHirePacketContactCardSocialItemDataTransferObject](docs/Model/NHPEmployeeNewHirePacketContactCardSocialItemDataTransferObject.md)
@@ -1153,6 +1189,7 @@ Class | Method | HTTP request | Description
 - [OneOnOnesConfiguration](docs/Model/OneOnOnesConfiguration.md)
 - [OneOnOnesRequestSecureFileDownloadViewObject](docs/Model/OneOnOnesRequestSecureFileDownloadViewObject.md)
 - [OptionsDeductionDateRule](docs/Model/OptionsDeductionDateRule.md)
+- [OvertimeSummaryInner](docs/Model/OvertimeSummaryInner.md)
 - [PackageInfoResponse](docs/Model/PackageInfoResponse.md)
 - [PackageInfoResponseAddOns](docs/Model/PackageInfoResponseAddOns.md)
 - [PackageInfoResponseAddOnsPayroll](docs/Model/PackageInfoResponseAddOnsPayroll.md)
@@ -1302,6 +1339,7 @@ Class | Method | HTTP request | Description
 - [PayrollPaySchedulesPaySchedule](docs/Model/PayrollPaySchedulesPaySchedule.md)
 - [PayrollPaySchedulesPayScheduleEmployeeCounts](docs/Model/PayrollPaySchedulesPayScheduleEmployeeCounts.md)
 - [PayrollPaySchedulesPaySchedulesListValue](docs/Model/PayrollPaySchedulesPaySchedulesListValue.md)
+- [PayrollPaySchedulesV1PaySchedule](docs/Model/PayrollPaySchedulesV1PaySchedule.md)
 - [PayrollPayrollValidationErrorsControllerValidationErrorDataObject](docs/Model/PayrollPayrollValidationErrorsControllerValidationErrorDataObject.md)
 - [PayrollPrePayrollHoursClientJobCategoryDataValue](docs/Model/PayrollPrePayrollHoursClientJobCategoryDataValue.md)
 - [PayrollPrePayrollHoursClientJobDataValue](docs/Model/PayrollPrePayrollHoursClientJobDataValue.md)
@@ -1322,6 +1360,7 @@ Class | Method | HTTP request | Description
 - [PayrollSnapshotTransformer](docs/Model/PayrollSnapshotTransformer.md)
 - [PayrollSnapshotTransformerChecks](docs/Model/PayrollSnapshotTransformerChecks.md)
 - [PayrollSnapshotTransformerChecksByIdValue](docs/Model/PayrollSnapshotTransformerChecksByIdValue.md)
+- [PayrollSnapshotTransformerChecksByIdValueNotesInner](docs/Model/PayrollSnapshotTransformerChecksByIdValueNotesInner.md)
 - [PayrollSnapshotTransformerEarnings](docs/Model/PayrollSnapshotTransformerEarnings.md)
 - [PayrollSnapshotTransformerEarningsByIdValue](docs/Model/PayrollSnapshotTransformerEarningsByIdValue.md)
 - [PayrollSnapshotTransformerEmployeeRates](docs/Model/PayrollSnapshotTransformerEmployeeRates.md)
@@ -1332,6 +1371,7 @@ Class | Method | HTTP request | Description
 - [PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner.md)
 - [PayrollSnapshotTransformerEmployeesByIdValueTagsInner](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueTagsInner.md)
 - [PayrollSnapshotTransformerEmployeesByIdValueTagsInnerMetadata](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueTagsInnerMetadata.md)
+- [PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments](docs/Model/PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments.md)
 - [PayrollSnapshotTransformerTogglesInner](docs/Model/PayrollSnapshotTransformerTogglesInner.md)
 - [PayrollSummaryTransformer](docs/Model/PayrollSummaryTransformer.md)
 - [PayrollSummaryTransformerWireInstructions](docs/Model/PayrollSummaryTransformerWireInstructions.md)
@@ -1399,6 +1439,9 @@ Class | Method | HTTP request | Description
 - [ProhibitedFieldMatchResponseDuplicate](docs/Model/ProhibitedFieldMatchResponseDuplicate.md)
 - [ProhibitedFieldMatchResponseDuplicateField](docs/Model/ProhibitedFieldMatchResponseDuplicateField.md)
 - [ProhibitedFieldMatchResponseProhibited](docs/Model/ProhibitedFieldMatchResponseProhibited.md)
+- [ProjectAllocationCollection](docs/Model/ProjectAllocationCollection.md)
+- [ProjectAllocationDateRangeDataObject](docs/Model/ProjectAllocationDateRangeDataObject.md)
+- [ProjectAllocationRequestDataObject](docs/Model/ProjectAllocationRequestDataObject.md)
 - [ProjectInfoApiTransformer](docs/Model/ProjectInfoApiTransformer.md)
 - [ProjectInfoApiTransformerProject](docs/Model/ProjectInfoApiTransformerProject.md)
 - [ProjectInfoApiTransformerTask](docs/Model/ProjectInfoApiTransformerTask.md)
@@ -1431,7 +1474,6 @@ Class | Method | HTTP request | Description
 - [RegistrationDataContract](docs/Model/RegistrationDataContract.md)
 - [Reimbursement](docs/Model/Reimbursement.md)
 - [RemoteCompanyResponseSchema](docs/Model/RemoteCompanyResponseSchema.md)
-- [RemoteCompanyWidgetStatusesSchema](docs/Model/RemoteCompanyWidgetStatusesSchema.md)
 - [RemoteEmploymentStatusDataObject](docs/Model/RemoteEmploymentStatusDataObject.md)
 - [RemoteLinkResponseSchema](docs/Model/RemoteLinkResponseSchema.md)
 - [RemoteLinkResponseSchemaData](docs/Model/RemoteLinkResponseSchemaData.md)
@@ -1448,6 +1490,7 @@ Class | Method | HTTP request | Description
 - [ReportFolderCollection](docs/Model/ReportFolderCollection.md)
 - [ReportListCollection](docs/Model/ReportListCollection.md)
 - [ReportListItem](docs/Model/ReportListItem.md)
+- [ReportPageContextResponse](docs/Model/ReportPageContextResponse.md)
 - [ReportPanel](docs/Model/ReportPanel.md)
 - [ReportPanelConfiguration](docs/Model/ReportPanelConfiguration.md)
 - [ReportPanelConfigurationFilters](docs/Model/ReportPanelConfigurationFilters.md)
@@ -1564,6 +1607,7 @@ Class | Method | HTTP request | Description
 - [TimeOffDefaultHoursGroupsInner](docs/Model/TimeOffDefaultHoursGroupsInner.md)
 - [TimeOffDefaultHoursGroupsInnerFilters](docs/Model/TimeOffDefaultHoursGroupsInnerFilters.md)
 - [TimeOffDefaultHoursGroupsInnerHoursPerDay](docs/Model/TimeOffDefaultHoursGroupsInnerHoursPerDay.md)
+- [TimeOffDetailsDataObject](docs/Model/TimeOffDetailsDataObject.md)
 - [TimeOffEventsResponseInner](docs/Model/TimeOffEventsResponseInner.md)
 - [TimeOffHistory](docs/Model/TimeOffHistory.md)
 - [TimeOffHistoryItemsTransformer](docs/Model/TimeOffHistoryItemsTransformer.md)
@@ -1614,13 +1658,19 @@ Class | Method | HTTP request | Description
 - [TimeTrackingConfigurationTransformer](docs/Model/TimeTrackingConfigurationTransformer.md)
 - [TimeTrackingEmployeeDataObject](docs/Model/TimeTrackingEmployeeDataObject.md)
 - [TimeTrackingKioskTransformer](docs/Model/TimeTrackingKioskTransformer.md)
+- [TimeTrackingProjectDataObject](docs/Model/TimeTrackingProjectDataObject.md)
+- [TimeTrackingProjectWithTask](docs/Model/TimeTrackingProjectWithTask.md)
+- [TimeTrackingProjectWithTaskCollection](docs/Model/TimeTrackingProjectWithTaskCollection.md)
 - [TimeTrackingProjectWithTasks](docs/Model/TimeTrackingProjectWithTasks.md)
 - [TimeTrackingProjectWithTasksAndEmployeeIds](docs/Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 - [TimeTrackingRecord](docs/Model/TimeTrackingRecord.md)
 - [TimeTrackingTask](docs/Model/TimeTrackingTask.md)
+- [TimeTrackingTaskDataObject](docs/Model/TimeTrackingTaskDataObject.md)
 - [TimeTrackingWidget](docs/Model/TimeTrackingWidget.md)
+- [Timesheet](docs/Model/Timesheet.md)
 - [TimesheetEntryInfoApiTransformer](docs/Model/TimesheetEntryInfoApiTransformer.md)
 - [TimesheetListApiTransformerInner](docs/Model/TimesheetListApiTransformerInner.md)
+- [TimesheetOptionsDataObject](docs/Model/TimesheetOptionsDataObject.md)
 - [TimesheetSummaryApiTransformer](docs/Model/TimesheetSummaryApiTransformer.md)
 - [TimesheetSummaryApiTransformerAllOfToday](docs/Model/TimesheetSummaryApiTransformerAllOfToday.md)
 - [TotalRewardsBenefitDetailsValues](docs/Model/TotalRewardsBenefitDetailsValues.md)
@@ -1639,7 +1689,6 @@ Class | Method | HTTP request | Description
 - [TotalRewardsExtraPayDetailsValues](docs/Model/TotalRewardsExtraPayDetailsValues.md)
 - [TotalRewardsExtraPaySectionValues](docs/Model/TotalRewardsExtraPaySectionValues.md)
 - [TotalRewardsHolidayValue](docs/Model/TotalRewardsHolidayValue.md)
-- [TotalRewardsMoney](docs/Model/TotalRewardsMoney.md)
 - [TotalRewardsOnboardingStep](docs/Model/TotalRewardsOnboardingStep.md)
 - [TotalRewardsOverviewSectionValues](docs/Model/TotalRewardsOverviewSectionValues.md)
 - [TotalRewardsTimeOffPolicyValue](docs/Model/TotalRewardsTimeOffPolicyValue.md)

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MySdk\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,57 +35,65 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description F7dd45b1747b0b72c4b617845b065a07RequestTasksInner
- * @package     OpenAPI\Client
+ * @package     MySdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class F7dd45b1747b0b72c4b617845b065a07RequestTasksInnerTest extends TestCase {
+class F7dd45b1747b0b72c4b617845b065a07RequestTasksInnerTest extends TestCase
+{
 
-	/**
-	 * Setup before running any test case
-	 */
-	public static function setUpBeforeClass(): void {
-	}
+    /**
+     * Setup before running any test case
+     */
+    public static function setUpBeforeClass(): void
+    {
+    }
 
-	/**
-	 * Setup before running each test case
-	 */
-	public function setUp(): void {
-	}
+    /**
+     * Setup before running each test case
+     */
+    public function setUp(): void
+    {
+    }
 
-	/**
-	 * Clean up after running each test case
-	 */
-	public function tearDown(): void {
-	}
+    /**
+     * Clean up after running each test case
+     */
+    public function tearDown(): void
+    {
+    }
 
-	/**
-	 * Clean up after running all test cases
-	 */
-	public static function tearDownAfterClass(): void {
-	}
+    /**
+     * Clean up after running all test cases
+     */
+    public static function tearDownAfterClass(): void
+    {
+    }
 
-	/**
-	 * Test "F7dd45b1747b0b72c4b617845b065a07RequestTasksInner"
-	 */
-	public function testF7dd45b1747b0b72c4b617845b065a07RequestTasksInner() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test "F7dd45b1747b0b72c4b617845b065a07RequestTasksInner"
+     */
+    public function testF7dd45b1747b0b72c4b617845b065a07RequestTasksInner()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "name"
-	 */
-	public function testPropertyName() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "billable"
-	 */
-	public function testPropertyBillable() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "billable"
+     */
+    public function testPropertyBillable()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

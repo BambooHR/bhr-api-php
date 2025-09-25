@@ -60,6 +60,7 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'int',
         'verification_type' => 'string',
         'verification_status' => 'string',
+        'verification_status_notes' => 'string',
         'remote_access_url' => 'string',
         'e_verify_status' => 'string',
         'start_date_ymdt' => 'string'
@@ -76,6 +77,7 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         'id' => null,
         'verification_type' => null,
         'verification_status' => null,
+        'verification_status_notes' => null,
         'remote_access_url' => null,
         'e_verify_status' => null,
         'start_date_ymdt' => null
@@ -90,9 +92,10 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         'id' => false,
         'verification_type' => false,
         'verification_status' => false,
-        'remote_access_url' => false,
-        'e_verify_status' => false,
-        'start_date_ymdt' => false
+        'verification_status_notes' => true,
+        'remote_access_url' => true,
+        'e_verify_status' => true,
+        'start_date_ymdt' => true
     ];
 
     /**
@@ -184,6 +187,7 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'id',
         'verification_type' => 'verificationType',
         'verification_status' => 'verificationStatus',
+        'verification_status_notes' => 'verificationStatusNotes',
         'remote_access_url' => 'remoteAccessUrl',
         'e_verify_status' => 'eVerifyStatus',
         'start_date_ymdt' => 'startDateYmdt'
@@ -198,6 +202,7 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'setId',
         'verification_type' => 'setVerificationType',
         'verification_status' => 'setVerificationStatus',
+        'verification_status_notes' => 'setVerificationStatusNotes',
         'remote_access_url' => 'setRemoteAccessUrl',
         'e_verify_status' => 'setEVerifyStatus',
         'start_date_ymdt' => 'setStartDateYmdt'
@@ -212,6 +217,7 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'getId',
         'verification_type' => 'getVerificationType',
         'verification_status' => 'getVerificationStatus',
+        'verification_status_notes' => 'getVerificationStatusNotes',
         'remote_access_url' => 'getRemoteAccessUrl',
         'e_verify_status' => 'getEVerifyStatus',
         'start_date_ymdt' => 'getStartDateYmdt'
@@ -277,6 +283,7 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('verification_type', $data ?? [], null);
         $this->setIfExists('verification_status', $data ?? [], null);
+        $this->setIfExists('verification_status_notes', $data ?? [], null);
         $this->setIfExists('remote_access_url', $data ?? [], null);
         $this->setIfExists('e_verify_status', $data ?? [], null);
         $this->setIfExists('start_date_ymdt', $data ?? [], null);
@@ -406,6 +413,40 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
+     * Gets verification_status_notes
+     *
+     * @return string|null
+     */
+    public function getVerificationStatusNotes()
+    {
+        return $this->container['verification_status_notes'];
+    }
+
+    /**
+     * Sets verification_status_notes
+     *
+     * @param string|null $verification_status_notes verification_status_notes
+     *
+     * @return self
+     */
+    public function setVerificationStatusNotes($verification_status_notes)
+    {
+        if (is_null($verification_status_notes)) {
+            array_push($this->openAPINullablesSetToNull, 'verification_status_notes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('verification_status_notes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['verification_status_notes'] = $verification_status_notes;
+
+        return $this;
+    }
+
+    /**
      * Gets remote_access_url
      *
      * @return string|null
@@ -425,7 +466,14 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
     public function setRemoteAccessUrl($remote_access_url)
     {
         if (is_null($remote_access_url)) {
-            throw new \InvalidArgumentException('non-nullable remote_access_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'remote_access_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('remote_access_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['remote_access_url'] = $remote_access_url;
 
@@ -452,7 +500,14 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
     public function setEVerifyStatus($e_verify_status)
     {
         if (is_null($e_verify_status)) {
-            throw new \InvalidArgumentException('non-nullable e_verify_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'e_verify_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('e_verify_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['e_verify_status'] = $e_verify_status;
 
@@ -479,7 +534,14 @@ class EmployeeVerificationSchema implements ModelInterface, ArrayAccess, \JsonSe
     public function setStartDateYmdt($start_date_ymdt)
     {
         if (is_null($start_date_ymdt)) {
-            throw new \InvalidArgumentException('non-nullable start_date_ymdt cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date_ymdt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date_ymdt', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date_ymdt'] = $start_date_ymdt;
 

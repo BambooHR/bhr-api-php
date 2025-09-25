@@ -37,6 +37,5 @@ Name | Type | Description | Notes
 **esignature_instance_id** | **int** | The e-signature instance ID of the task | [optional]
 **type** | **string** | The type of the task | [optional]
 **comments** | [**\MySdk\Model\TaskCommentSchema[]**](TaskCommentSchema.md) | The comments of the task | [optional]
-**is_quick_books_integration** | **int** | Whether the task is a QuickBooks integration | [optional] [default to 0]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

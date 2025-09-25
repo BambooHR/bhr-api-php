@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MySdk\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,105 +35,119 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description 3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner
- * @package     OpenAPI\Client
+ * @package     MySdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class 3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInnerTest extends TestCase {
+class 3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInnerTest extends TestCase
+{
 
-	/**
-	 * Setup before running any test case
-	 */
-	public static function setUpBeforeClass(): void {
-	}
+    /**
+     * Setup before running any test case
+     */
+    public static function setUpBeforeClass(): void
+    {
+    }
 
-	/**
-	 * Setup before running each test case
-	 */
-	public function setUp(): void {
-	}
+    /**
+     * Setup before running each test case
+     */
+    public function setUp(): void
+    {
+    }
 
-	/**
-	 * Clean up after running each test case
-	 */
-	public function tearDown(): void {
-	}
+    /**
+     * Clean up after running each test case
+     */
+    public function tearDown(): void
+    {
+    }
 
-	/**
-	 * Clean up after running all test cases
-	 */
-	public static function tearDownAfterClass(): void {
-	}
+    /**
+     * Clean up after running all test cases
+     */
+    public static function tearDownAfterClass(): void
+    {
+    }
 
-	/**
-	 * Test "3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner"
-	 */
-	public function test3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test "3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner"
+     */
+    public function test3b7487d1d17551f6c3e2567b96089ce1RequestEntriesInner()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "employee_id"
-	 */
-	public function testPropertyEmployeeId() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "employee_id"
+     */
+    public function testPropertyEmployeeId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "date"
-	 */
-	public function testPropertyDate() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "date"
+     */
+    public function testPropertyDate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "start"
-	 */
-	public function testPropertyStart() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "start"
+     */
+    public function testPropertyStart()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "end"
-	 */
-	public function testPropertyEnd() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "end"
+     */
+    public function testPropertyEnd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "id"
-	 */
-	public function testPropertyId() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "project_id"
-	 */
-	public function testPropertyProjectId() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "project_id"
+     */
+    public function testPropertyProjectId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "task_id"
-	 */
-	public function testPropertyTaskId() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "task_id"
+     */
+    public function testPropertyTaskId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "note"
-	 */
-	public function testPropertyNote() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "note"
+     */
+    public function testPropertyNote()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

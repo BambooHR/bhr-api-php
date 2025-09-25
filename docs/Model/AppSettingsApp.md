@@ -23,6 +23,9 @@ Name | Type | Description | Notes
 **is_paid** | **bool** |  | [optional]
 **setting_icon** | **string** |  | [optional]
 **setting_icon_size** | **int** |  | [optional]
+**is_connected** | **bool** |  | [optional]
+**is_set_up_complete** | **bool** |  | [optional]
+**should_render_in_po** | **bool** |  | [optional]
 **is_employee_import_provider** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

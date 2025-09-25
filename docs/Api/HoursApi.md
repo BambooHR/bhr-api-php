@@ -4,11 +4,11 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**call22067048cf6eec230a865765a18ad7b8()**](HoursApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking |
-| [**call717faf6067928c3497fc9acbf5b91767()**](HoursApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId |
-| [**call889a4c2de70a53c5ab8cb32f1c2243f5()**](HoursApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId |
-| [**e2ae6e59655aeab2b4e6311967a2809f()**](HoursApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking |
-| [**f54bcaec6771b1264671e53f2e557b1f()**](HoursApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk |
+| [**call22067048cf6eec230a865765a18ad7b8()**](HoursApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record |
+| [**call717faf6067928c3497fc9acbf5b91767()**](HoursApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record |
+| [**call889a4c2de70a53c5ab8cb32f1c2243f5()**](HoursApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
+| [**e2ae6e59655aeab2b4e6311967a2809f()**](HoursApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | Add Hour Record |
+| [**f54bcaec6771b1264671e53f2e557b1f()**](HoursApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records |
 
 
 ## `call22067048cf6eec230a865765a18ad7b8()`
@@ -17,7 +17,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request): mixed
 ```
 
-adjustTimeTracking
+Edit Hour Record
 
 Edit an hour record
 
@@ -85,7 +85,7 @@ try {
 call717faf6067928c3497fc9acbf5b91767($id): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse
 ```
 
-deleteTimeTrackingByTimeTrackingId
+Delete Hour Record
 
 Delete an hour record
 
@@ -153,7 +153,7 @@ try {
 call889a4c2de70a53c5ab8cb32f1c2243f5($id): \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response
 ```
 
-getTimeTrackingByTimeTrackingId
+Get Hour Record
 
 Get an hour record
 
@@ -221,7 +221,7 @@ try {
 e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record): \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response
 ```
 
-addTimeTracking
+Add Hour Record
 
 Add an hour record
 
@@ -289,7 +289,7 @@ try {
 f54bcaec6771b1264671e53f2e557b1f($time_tracking_record): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response
 ```
 
-addTimeTrackingBulk
+Add/Edit Hour Records
 
 Bulk add/edit hour records
 

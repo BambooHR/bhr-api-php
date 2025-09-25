@@ -91,7 +91,7 @@ class WebHookPostFieldDataObject implements ModelInterface, ArrayAccess, \JsonSe
         'name' => false,
         'type' => true,
         'id' => false,
-        'page_id' => true,
+        'page_id' => false,
         'table_id' => true
     ];
 
@@ -477,21 +477,14 @@ class WebHookPostFieldDataObject implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets page_id
      *
-     * @param int $page_id ID of the page the field belongs to
+     * @param int $page_id ID of the page the field belongs to. This will always be present, as fields without a page id are disabled and not usable in webhooks.
      *
      * @return self
      */
     public function setPageId($page_id)
     {
         if (is_null($page_id)) {
-            array_push($this->openAPINullablesSetToNull, 'page_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('page_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable page_id cannot be null');
         }
         $this->container['page_id'] = $page_id;
 

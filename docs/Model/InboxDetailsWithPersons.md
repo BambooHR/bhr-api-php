@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **details** | [**\MySdk\Model\InboxDetailsWithPersonsDetailsInner[]**](InboxDetailsWithPersonsDetailsInner.md) |  | [optional]
 **created** | **\DateTime** |  | [optional]
 **status** | [**\MySdk\Model\InboxDetailsWithPersonsStatus**](InboxDetailsWithPersonsStatus.md) |  | [optional]
-**type** | [**\MySdk\Model\InboxDetailsWithPersonsType**](InboxDetailsWithPersonsType.md) |  | [optional]
+**type** | [**\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask**](889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask.md) |  | [optional]
 **comments** | [**\MySdk\Model\InboxDetailsWithPersonsCommentsInner[]**](InboxDetailsWithPersonsCommentsInner.md) |  | [optional]
 **files** | [**\MySdk\Model\InboxDetailsWithPersonsFilesInner[]**](InboxDetailsWithPersonsFilesInner.md) |  | [optional]
 **approver_counts** | [**\MySdk\Model\InboxDetailsWithPersonsApproverCounts**](InboxDetailsWithPersonsApproverCounts.md) |  | [optional]

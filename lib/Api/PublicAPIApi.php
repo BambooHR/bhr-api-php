@@ -137,6 +137,9 @@ class PublicAPIApi
         'call889a4c2de70a53c5ab8cb32f1c2243f5' => [
             'application/json',
         ],
+        'd44e9c43fbca76b93a00a9603ba24ba1' => [
+            'application/json',
+        ],
         'deleteCompanyFile' => [
             'application/json',
         ],
@@ -168,6 +171,9 @@ class PublicAPIApi
             'application/json',
         ],
         'e9a47e93524609b981be6139822d219e' => [
+            'application/json',
+        ],
+        'ec09b0a847283ca20b79980249d44b16' => [
             'application/json',
         ],
         'f54bcaec6771b1264671e53f2e557b1f' => [
@@ -4673,7 +4679,7 @@ class PublicAPIApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request _22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -4691,7 +4697,7 @@ class PublicAPIApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8WithHttpInfo
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -4790,7 +4796,7 @@ class PublicAPIApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8Async
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -4811,7 +4817,7 @@ class PublicAPIApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -6049,7 +6055,7 @@ class PublicAPIApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -6067,7 +6073,7 @@ class PublicAPIApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767WithHttpInfo
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -6166,7 +6172,7 @@ class PublicAPIApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767Async
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -6187,7 +6193,7 @@ class PublicAPIApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -6714,7 +6720,7 @@ class PublicAPIApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -6732,7 +6738,7 @@ class PublicAPIApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -6831,7 +6837,7 @@ class PublicAPIApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5Async
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -6852,7 +6858,7 @@ class PublicAPIApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -6938,6 +6944,266 @@ class PublicAPIApi
                 $resourcePath
             );
         }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation d44e9c43fbca76b93a00a9603ba24ba1
+     *
+     * Get all countries
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]
+     */
+    public function d44e9c43fbca76b93a00a9603ba24ba1(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    {
+        list($response) = $this->d44e9c43fbca76b93a00a9603ba24ba1WithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation d44e9c43fbca76b93a00a9603ba24ba1WithHttpInfo
+     *
+     * Get all countries
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function d44e9c43fbca76b93a00a9603ba24ba1WithHttpInfo(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    {
+        $request = $this->d44e9c43fbca76b93a00a9603ba24ba1Request($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation d44e9c43fbca76b93a00a9603ba24ba1Async
+     *
+     * Get all countries
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function d44e9c43fbca76b93a00a9603ba24ba1Async(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    {
+        return $this->d44e9c43fbca76b93a00a9603ba24ba1AsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation d44e9c43fbca76b93a00a9603ba24ba1AsyncWithHttpInfo
+     *
+     * Get all countries
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function d44e9c43fbca76b93a00a9603ba24ba1AsyncWithHttpInfo(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    {
+        $returnType = '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]';
+        $request = $this->d44e9c43fbca76b93a00a9603ba24ba1Request($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'd44e9c43fbca76b93a00a9603ba24ba1'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function d44e9c43fbca76b93a00a9603ba24ba1Request(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    {
+
+
+        $resourcePath = '/api/v1/meta/countries/options';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -9272,7 +9538,7 @@ class PublicAPIApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809f
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -9290,7 +9556,7 @@ class PublicAPIApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -9389,7 +9655,7 @@ class PublicAPIApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809fAsync
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -9410,7 +9676,7 @@ class PublicAPIApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -9920,9 +10186,289 @@ class PublicAPIApi
     }
 
     /**
+     * Operation ec09b0a847283ca20b79980249d44b16
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response
+     */
+    public function ec09b0a847283ca20b79980249d44b16($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
+    {
+        list($response) = $this->ec09b0a847283ca20b79980249d44b16WithHttpInfo($country_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation ec09b0a847283ca20b79980249d44b16WithHttpInfo
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function ec09b0a847283ca20b79980249d44b16WithHttpInfo($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
+    {
+        $request = $this->ec09b0a847283ca20b79980249d44b16Request($country_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation ec09b0a847283ca20b79980249d44b16Async
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function ec09b0a847283ca20b79980249d44b16Async($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
+    {
+        return $this->ec09b0a847283ca20b79980249d44b16AsyncWithHttpInfo($country_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation ec09b0a847283ca20b79980249d44b16AsyncWithHttpInfo
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function ec09b0a847283ca20b79980249d44b16AsyncWithHttpInfo($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
+    {
+        $returnType = '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response';
+        $request = $this->ec09b0a847283ca20b79980249d44b16Request($country_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'ec09b0a847283ca20b79980249d44b16'
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function ec09b0a847283ca20b79980249d44b16Request($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
+    {
+
+        // verify the required parameter 'country_id' is set
+        if ($country_id === null || (is_array($country_id) && count($country_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $country_id when calling ec09b0a847283ca20b79980249d44b16'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/meta/provinces/{countryId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($country_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'countryId' . '}',
+                ObjectSerializer::toPathValue($country_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation f54bcaec6771b1264671e53f2e557b1f
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
@@ -9940,7 +10486,7 @@ class PublicAPIApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1fWithHttpInfo
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
@@ -10025,7 +10571,7 @@ class PublicAPIApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1fAsync
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
@@ -10046,7 +10592,7 @@ class PublicAPIApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation

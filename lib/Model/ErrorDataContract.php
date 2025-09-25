@@ -66,7 +66,11 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
         'error_data' => 'string',
         'error_timestamp' => '\DateTime',
         'request' => 'string',
-        'response' => 'string'
+        'response' => 'string',
+        'silenced' => 'bool',
+        'silenced_by' => 'string',
+        'silenced_by_type' => 'string',
+        'silenced_at' => '\DateTime'
     ];
 
     /**
@@ -85,7 +89,11 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
         'error_data' => 'json',
         'error_timestamp' => 'date-time',
         'request' => 'json',
-        'response' => 'json'
+        'response' => 'json',
+        'silenced' => null,
+        'silenced_by' => null,
+        'silenced_by_type' => null,
+        'silenced_at' => 'date-time'
     ];
 
     /**
@@ -95,14 +103,18 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'id' => false,
-        'company_id' => false,
+        'company_id' => true,
         'application_id' => false,
         'attributes' => false,
         'custom_attributes' => false,
         'error_data' => false,
         'error_timestamp' => false,
         'request' => false,
-        'response' => false
+        'response' => false,
+        'silenced' => false,
+        'silenced_by' => true,
+        'silenced_by_type' => true,
+        'silenced_at' => true
     ];
 
     /**
@@ -199,7 +211,11 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
         'error_data' => 'errorData',
         'error_timestamp' => 'errorTimestamp',
         'request' => 'request',
-        'response' => 'response'
+        'response' => 'response',
+        'silenced' => 'silenced',
+        'silenced_by' => 'silencedBy',
+        'silenced_by_type' => 'silencedByType',
+        'silenced_at' => 'silencedAt'
     ];
 
     /**
@@ -216,7 +232,11 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
         'error_data' => 'setErrorData',
         'error_timestamp' => 'setErrorTimestamp',
         'request' => 'setRequest',
-        'response' => 'setResponse'
+        'response' => 'setResponse',
+        'silenced' => 'setSilenced',
+        'silenced_by' => 'setSilencedBy',
+        'silenced_by_type' => 'setSilencedByType',
+        'silenced_at' => 'setSilencedAt'
     ];
 
     /**
@@ -233,7 +253,11 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
         'error_data' => 'getErrorData',
         'error_timestamp' => 'getErrorTimestamp',
         'request' => 'getRequest',
-        'response' => 'getResponse'
+        'response' => 'getResponse',
+        'silenced' => 'getSilenced',
+        'silenced_by' => 'getSilencedBy',
+        'silenced_by_type' => 'getSilencedByType',
+        'silenced_at' => 'getSilencedAt'
     ];
 
     /**
@@ -302,6 +326,10 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('error_timestamp', $data ?? [], null);
         $this->setIfExists('request', $data ?? [], null);
         $this->setIfExists('response', $data ?? [], null);
+        $this->setIfExists('silenced', $data ?? [], null);
+        $this->setIfExists('silenced_by', $data ?? [], null);
+        $this->setIfExists('silenced_by_type', $data ?? [], null);
+        $this->setIfExists('silenced_at', $data ?? [], null);
     }
 
     /**
@@ -333,9 +361,6 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
         }
         if ($this->container['application_id'] === null) {
             $invalidProperties[] = "'application_id' can't be null";
@@ -388,7 +413,7 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets company_id
      *
-     * @return int
+     * @return int|null
      */
     public function getCompanyId()
     {
@@ -398,14 +423,21 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets company_id
      *
-     * @param int $company_id Identifier for the company
+     * @param int|null $company_id Identifier for the company
      *
      * @return self
      */
     public function setCompanyId($company_id)
     {
         if (is_null($company_id)) {
-            throw new \InvalidArgumentException('non-nullable company_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'company_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('company_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['company_id'] = $company_id;
 
@@ -597,6 +629,135 @@ class ErrorDataContract implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable response cannot be null');
         }
         $this->container['response'] = $response;
+
+        return $this;
+    }
+
+    /**
+     * Gets silenced
+     *
+     * @return bool|null
+     */
+    public function getSilenced()
+    {
+        return $this->container['silenced'];
+    }
+
+    /**
+     * Sets silenced
+     *
+     * @param bool|null $silenced Whether the error has been silenced
+     *
+     * @return self
+     */
+    public function setSilenced($silenced)
+    {
+        if (is_null($silenced)) {
+            throw new \InvalidArgumentException('non-nullable silenced cannot be null');
+        }
+        $this->container['silenced'] = $silenced;
+
+        return $this;
+    }
+
+    /**
+     * Gets silenced_by
+     *
+     * @return string|null
+     */
+    public function getSilencedBy()
+    {
+        return $this->container['silenced_by'];
+    }
+
+    /**
+     * Sets silenced_by
+     *
+     * @param string|null $silenced_by Identifier of the user who silenced the error
+     *
+     * @return self
+     */
+    public function setSilencedBy($silenced_by)
+    {
+        if (is_null($silenced_by)) {
+            array_push($this->openAPINullablesSetToNull, 'silenced_by');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('silenced_by', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['silenced_by'] = $silenced_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets silenced_by_type
+     *
+     * @return string|null
+     */
+    public function getSilencedByType()
+    {
+        return $this->container['silenced_by_type'];
+    }
+
+    /**
+     * Sets silenced_by_type
+     *
+     * @param string|null $silenced_by_type Type of entity that silenced the error (e.g., 'user', 'admin', 'system')
+     *
+     * @return self
+     */
+    public function setSilencedByType($silenced_by_type)
+    {
+        if (is_null($silenced_by_type)) {
+            array_push($this->openAPINullablesSetToNull, 'silenced_by_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('silenced_by_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['silenced_by_type'] = $silenced_by_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets silenced_at
+     *
+     * @return \DateTime|null
+     */
+    public function getSilencedAt()
+    {
+        return $this->container['silenced_at'];
+    }
+
+    /**
+     * Sets silenced_at
+     *
+     * @param \DateTime|null $silenced_at Timestamp when the error was silenced
+     *
+     * @return self
+     */
+    public function setSilencedAt($silenced_at)
+    {
+        if (is_null($silenced_at)) {
+            array_push($this->openAPINullablesSetToNull, 'silenced_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('silenced_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['silenced_at'] = $silenced_at;
 
         return $this;
     }

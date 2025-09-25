@@ -63,13 +63,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         'can_access_standard_reports' => 'bool',
         'can_access_dashboards' => 'bool',
         'can_manage_dashboards' => 'bool',
+        'can_current_user_access_legacy_reports' => 'bool',
+        'can_access_benchmarking_reports' => 'bool',
         'can_access_signed_documents' => 'bool',
-        'can_access_right_signature_application' => 'bool',
         'can_access_payroll_reports' => 'bool',
         'unread_legacy_reports_count' => 'int',
         'unread_reports_count' => 'int',
         'show_report_builder_message' => 'bool',
-        'show_custom_reports_upgrade_message' => 'bool'
+        'show_custom_reports_upgrade_message' => 'bool',
+        'is_report_migration_complete' => 'bool'
     ];
 
     /**
@@ -86,13 +88,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         'can_access_standard_reports' => null,
         'can_access_dashboards' => null,
         'can_manage_dashboards' => null,
+        'can_current_user_access_legacy_reports' => null,
+        'can_access_benchmarking_reports' => null,
         'can_access_signed_documents' => null,
-        'can_access_right_signature_application' => null,
         'can_access_payroll_reports' => null,
         'unread_legacy_reports_count' => null,
         'unread_reports_count' => null,
         'show_report_builder_message' => null,
-        'show_custom_reports_upgrade_message' => null
+        'show_custom_reports_upgrade_message' => null,
+        'is_report_migration_complete' => null
     ];
 
     /**
@@ -107,13 +111,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         'can_access_standard_reports' => false,
         'can_access_dashboards' => false,
         'can_manage_dashboards' => false,
+        'can_current_user_access_legacy_reports' => false,
+        'can_access_benchmarking_reports' => false,
         'can_access_signed_documents' => false,
-        'can_access_right_signature_application' => false,
         'can_access_payroll_reports' => false,
         'unread_legacy_reports_count' => false,
         'unread_reports_count' => false,
         'show_report_builder_message' => false,
-        'show_custom_reports_upgrade_message' => false
+        'show_custom_reports_upgrade_message' => false,
+        'is_report_migration_complete' => false
     ];
 
     /**
@@ -208,13 +214,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         'can_access_standard_reports' => 'canAccessStandardReports',
         'can_access_dashboards' => 'canAccessDashboards',
         'can_manage_dashboards' => 'canManageDashboards',
+        'can_current_user_access_legacy_reports' => 'canCurrentUserAccessLegacyReports',
+        'can_access_benchmarking_reports' => 'canAccessBenchmarkingReports',
         'can_access_signed_documents' => 'canAccessSignedDocuments',
-        'can_access_right_signature_application' => 'canAccessRightSignatureApplication',
         'can_access_payroll_reports' => 'canAccessPayrollReports',
         'unread_legacy_reports_count' => 'unreadLegacyReportsCount',
         'unread_reports_count' => 'unreadReportsCount',
         'show_report_builder_message' => 'showReportBuilderMessage',
-        'show_custom_reports_upgrade_message' => 'showCustomReportsUpgradeMessage'
+        'show_custom_reports_upgrade_message' => 'showCustomReportsUpgradeMessage',
+        'is_report_migration_complete' => 'isReportMigrationComplete'
     ];
 
     /**
@@ -229,13 +237,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         'can_access_standard_reports' => 'setCanAccessStandardReports',
         'can_access_dashboards' => 'setCanAccessDashboards',
         'can_manage_dashboards' => 'setCanManageDashboards',
+        'can_current_user_access_legacy_reports' => 'setCanCurrentUserAccessLegacyReports',
+        'can_access_benchmarking_reports' => 'setCanAccessBenchmarkingReports',
         'can_access_signed_documents' => 'setCanAccessSignedDocuments',
-        'can_access_right_signature_application' => 'setCanAccessRightSignatureApplication',
         'can_access_payroll_reports' => 'setCanAccessPayrollReports',
         'unread_legacy_reports_count' => 'setUnreadLegacyReportsCount',
         'unread_reports_count' => 'setUnreadReportsCount',
         'show_report_builder_message' => 'setShowReportBuilderMessage',
-        'show_custom_reports_upgrade_message' => 'setShowCustomReportsUpgradeMessage'
+        'show_custom_reports_upgrade_message' => 'setShowCustomReportsUpgradeMessage',
+        'is_report_migration_complete' => 'setIsReportMigrationComplete'
     ];
 
     /**
@@ -250,13 +260,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         'can_access_standard_reports' => 'getCanAccessStandardReports',
         'can_access_dashboards' => 'getCanAccessDashboards',
         'can_manage_dashboards' => 'getCanManageDashboards',
+        'can_current_user_access_legacy_reports' => 'getCanCurrentUserAccessLegacyReports',
+        'can_access_benchmarking_reports' => 'getCanAccessBenchmarkingReports',
         'can_access_signed_documents' => 'getCanAccessSignedDocuments',
-        'can_access_right_signature_application' => 'getCanAccessRightSignatureApplication',
         'can_access_payroll_reports' => 'getCanAccessPayrollReports',
         'unread_legacy_reports_count' => 'getUnreadLegacyReportsCount',
         'unread_reports_count' => 'getUnreadReportsCount',
         'show_report_builder_message' => 'getShowReportBuilderMessage',
-        'show_custom_reports_upgrade_message' => 'getShowCustomReportsUpgradeMessage'
+        'show_custom_reports_upgrade_message' => 'getShowCustomReportsUpgradeMessage',
+        'is_report_migration_complete' => 'getIsReportMigrationComplete'
     ];
 
     /**
@@ -322,13 +334,15 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
         $this->setIfExists('can_access_standard_reports', $data ?? [], null);
         $this->setIfExists('can_access_dashboards', $data ?? [], null);
         $this->setIfExists('can_manage_dashboards', $data ?? [], null);
+        $this->setIfExists('can_current_user_access_legacy_reports', $data ?? [], null);
+        $this->setIfExists('can_access_benchmarking_reports', $data ?? [], null);
         $this->setIfExists('can_access_signed_documents', $data ?? [], null);
-        $this->setIfExists('can_access_right_signature_application', $data ?? [], null);
         $this->setIfExists('can_access_payroll_reports', $data ?? [], null);
         $this->setIfExists('unread_legacy_reports_count', $data ?? [], null);
         $this->setIfExists('unread_reports_count', $data ?? [], null);
         $this->setIfExists('show_report_builder_message', $data ?? [], null);
         $this->setIfExists('show_custom_reports_upgrade_message', $data ?? [], null);
+        $this->setIfExists('is_report_migration_complete', $data ?? [], null);
     }
 
     /**
@@ -536,6 +550,60 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets can_current_user_access_legacy_reports
+     *
+     * @return bool|null
+     */
+    public function getCanCurrentUserAccessLegacyReports()
+    {
+        return $this->container['can_current_user_access_legacy_reports'];
+    }
+
+    /**
+     * Sets can_current_user_access_legacy_reports
+     *
+     * @param bool|null $can_current_user_access_legacy_reports can_current_user_access_legacy_reports
+     *
+     * @return self
+     */
+    public function setCanCurrentUserAccessLegacyReports($can_current_user_access_legacy_reports)
+    {
+        if (is_null($can_current_user_access_legacy_reports)) {
+            throw new \InvalidArgumentException('non-nullable can_current_user_access_legacy_reports cannot be null');
+        }
+        $this->container['can_current_user_access_legacy_reports'] = $can_current_user_access_legacy_reports;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_access_benchmarking_reports
+     *
+     * @return bool|null
+     */
+    public function getCanAccessBenchmarkingReports()
+    {
+        return $this->container['can_access_benchmarking_reports'];
+    }
+
+    /**
+     * Sets can_access_benchmarking_reports
+     *
+     * @param bool|null $can_access_benchmarking_reports can_access_benchmarking_reports
+     *
+     * @return self
+     */
+    public function setCanAccessBenchmarkingReports($can_access_benchmarking_reports)
+    {
+        if (is_null($can_access_benchmarking_reports)) {
+            throw new \InvalidArgumentException('non-nullable can_access_benchmarking_reports cannot be null');
+        }
+        $this->container['can_access_benchmarking_reports'] = $can_access_benchmarking_reports;
+
+        return $this;
+    }
+
+    /**
      * Gets can_access_signed_documents
      *
      * @return bool|null
@@ -558,33 +626,6 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable can_access_signed_documents cannot be null');
         }
         $this->container['can_access_signed_documents'] = $can_access_signed_documents;
-
-        return $this;
-    }
-
-    /**
-     * Gets can_access_right_signature_application
-     *
-     * @return bool|null
-     */
-    public function getCanAccessRightSignatureApplication()
-    {
-        return $this->container['can_access_right_signature_application'];
-    }
-
-    /**
-     * Sets can_access_right_signature_application
-     *
-     * @param bool|null $can_access_right_signature_application can_access_right_signature_application
-     *
-     * @return self
-     */
-    public function setCanAccessRightSignatureApplication($can_access_right_signature_application)
-    {
-        if (is_null($can_access_right_signature_application)) {
-            throw new \InvalidArgumentException('non-nullable can_access_right_signature_application cannot be null');
-        }
-        $this->container['can_access_right_signature_application'] = $can_access_right_signature_application;
 
         return $this;
     }
@@ -720,6 +761,33 @@ class DataVisualizationPageContextResponse implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable show_custom_reports_upgrade_message cannot be null');
         }
         $this->container['show_custom_reports_upgrade_message'] = $show_custom_reports_upgrade_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_report_migration_complete
+     *
+     * @return bool|null
+     */
+    public function getIsReportMigrationComplete()
+    {
+        return $this->container['is_report_migration_complete'];
+    }
+
+    /**
+     * Sets is_report_migration_complete
+     *
+     * @param bool|null $is_report_migration_complete is_report_migration_complete
+     *
+     * @return self
+     */
+    public function setIsReportMigrationComplete($is_report_migration_complete)
+    {
+        if (is_null($is_report_migration_complete)) {
+            throw new \InvalidArgumentException('non-nullable is_report_migration_complete cannot be null');
+        }
+        $this->container['is_report_migration_complete'] = $is_report_migration_complete;
 
         return $this;
     }

@@ -77,6 +77,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_paid' => 'bool',
         'setting_icon' => 'string',
         'setting_icon_size' => 'int',
+        'is_connected' => 'bool',
+        'is_set_up_complete' => 'bool',
+        'should_render_in_po' => 'bool',
         'is_employee_import_provider' => 'bool'
     ];
 
@@ -107,6 +110,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_paid' => null,
         'setting_icon' => null,
         'setting_icon_size' => null,
+        'is_connected' => null,
+        'is_set_up_complete' => null,
+        'should_render_in_po' => null,
         'is_employee_import_provider' => null
     ];
 
@@ -135,6 +141,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_paid' => false,
         'setting_icon' => false,
         'setting_icon_size' => false,
+        'is_connected' => false,
+        'is_set_up_complete' => false,
+        'should_render_in_po' => false,
         'is_employee_import_provider' => false
     ];
 
@@ -243,6 +252,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_paid' => 'isPaid',
         'setting_icon' => 'settingIcon',
         'setting_icon_size' => 'settingIconSize',
+        'is_connected' => 'isConnected',
+        'is_set_up_complete' => 'isSetUpComplete',
+        'should_render_in_po' => 'shouldRenderInPo',
         'is_employee_import_provider' => 'isEmployeeImportProvider'
     ];
 
@@ -271,6 +283,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_paid' => 'setIsPaid',
         'setting_icon' => 'setSettingIcon',
         'setting_icon_size' => 'setSettingIconSize',
+        'is_connected' => 'setIsConnected',
+        'is_set_up_complete' => 'setIsSetUpComplete',
+        'should_render_in_po' => 'setShouldRenderInPo',
         'is_employee_import_provider' => 'setIsEmployeeImportProvider'
     ];
 
@@ -299,6 +314,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_paid' => 'getIsPaid',
         'setting_icon' => 'getSettingIcon',
         'setting_icon_size' => 'getSettingIconSize',
+        'is_connected' => 'getIsConnected',
+        'is_set_up_complete' => 'getIsSetUpComplete',
+        'should_render_in_po' => 'getShouldRenderInPo',
         'is_employee_import_provider' => 'getIsEmployeeImportProvider'
     ];
 
@@ -378,6 +396,9 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('is_paid', $data ?? [], null);
         $this->setIfExists('setting_icon', $data ?? [], null);
         $this->setIfExists('setting_icon_size', $data ?? [], null);
+        $this->setIfExists('is_connected', $data ?? [], null);
+        $this->setIfExists('is_set_up_complete', $data ?? [], null);
+        $this->setIfExists('should_render_in_po', $data ?? [], null);
         $this->setIfExists('is_employee_import_provider', $data ?? [], null);
     }
 
@@ -932,6 +953,87 @@ class AppSettingsApp implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable setting_icon_size cannot be null');
         }
         $this->container['setting_icon_size'] = $setting_icon_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_connected
+     *
+     * @return bool|null
+     */
+    public function getIsConnected()
+    {
+        return $this->container['is_connected'];
+    }
+
+    /**
+     * Sets is_connected
+     *
+     * @param bool|null $is_connected is_connected
+     *
+     * @return self
+     */
+    public function setIsConnected($is_connected)
+    {
+        if (is_null($is_connected)) {
+            throw new \InvalidArgumentException('non-nullable is_connected cannot be null');
+        }
+        $this->container['is_connected'] = $is_connected;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_set_up_complete
+     *
+     * @return bool|null
+     */
+    public function getIsSetUpComplete()
+    {
+        return $this->container['is_set_up_complete'];
+    }
+
+    /**
+     * Sets is_set_up_complete
+     *
+     * @param bool|null $is_set_up_complete is_set_up_complete
+     *
+     * @return self
+     */
+    public function setIsSetUpComplete($is_set_up_complete)
+    {
+        if (is_null($is_set_up_complete)) {
+            throw new \InvalidArgumentException('non-nullable is_set_up_complete cannot be null');
+        }
+        $this->container['is_set_up_complete'] = $is_set_up_complete;
+
+        return $this;
+    }
+
+    /**
+     * Gets should_render_in_po
+     *
+     * @return bool|null
+     */
+    public function getShouldRenderInPo()
+    {
+        return $this->container['should_render_in_po'];
+    }
+
+    /**
+     * Sets should_render_in_po
+     *
+     * @param bool|null $should_render_in_po should_render_in_po
+     *
+     * @return self
+     */
+    public function setShouldRenderInPo($should_render_in_po)
+    {
+        if (is_null($should_render_in_po)) {
+            throw new \InvalidArgumentException('non-nullable should_render_in_po cannot be null');
+        }
+        $this->container['should_render_in_po'] = $should_render_in_po;
 
         return $this;
     }

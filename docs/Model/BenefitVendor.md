@@ -12,6 +12,5 @@ Name | Type | Description | Notes
 **ein** | **string** |  | [optional]
 **number_of_plans** | **int** |  | [optional]
 **plan_categories** | **string[]** |  | [optional]
-**plan_ids** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -67,7 +67,8 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         'end_ymd' => 'string',
         'show_pays' => 'bool',
         'carrier_name' => 'string',
-        'plan_years' => '\MySdk\Model\BulkEditPlanYear[]'
+        'plan_years' => '\MySdk\Model\BulkEditPlanYear[]',
+        'currency_code' => 'string'
     ];
 
     /**
@@ -88,7 +89,8 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         'end_ymd' => null,
         'show_pays' => null,
         'carrier_name' => null,
-        'plan_years' => null
+        'plan_years' => null,
+        'currency_code' => null
     ];
 
     /**
@@ -107,7 +109,8 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         'end_ymd' => true,
         'show_pays' => false,
         'carrier_name' => false,
-        'plan_years' => false
+        'plan_years' => false,
+        'currency_code' => false
     ];
 
     /**
@@ -206,7 +209,8 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         'end_ymd' => 'endYmd',
         'show_pays' => 'showPays',
         'carrier_name' => 'carrierName',
-        'plan_years' => 'planYears'
+        'plan_years' => 'planYears',
+        'currency_code' => 'currencyCode'
     ];
 
     /**
@@ -225,7 +229,8 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         'end_ymd' => 'setEndYmd',
         'show_pays' => 'setShowPays',
         'carrier_name' => 'setCarrierName',
-        'plan_years' => 'setPlanYears'
+        'plan_years' => 'setPlanYears',
+        'currency_code' => 'setCurrencyCode'
     ];
 
     /**
@@ -244,7 +249,8 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         'end_ymd' => 'getEndYmd',
         'show_pays' => 'getShowPays',
         'carrier_name' => 'getCarrierName',
-        'plan_years' => 'getPlanYears'
+        'plan_years' => 'getPlanYears',
+        'currency_code' => 'getCurrencyCode'
     ];
 
     /**
@@ -315,6 +321,7 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('show_pays', $data ?? [], null);
         $this->setIfExists('carrier_name', $data ?? [], null);
         $this->setIfExists('plan_years', $data ?? [], null);
+        $this->setIfExists('currency_code', $data ?? [], null);
     }
 
     /**
@@ -680,6 +687,33 @@ class BulkEnrollBenefitPlanContract implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable plan_years cannot be null');
         }
         $this->container['plan_years'] = $plan_years;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_code
+     *
+     * @return string|null
+     */
+    public function getCurrencyCode()
+    {
+        return $this->container['currency_code'];
+    }
+
+    /**
+     * Sets currency_code
+     *
+     * @param string|null $currency_code currency_code
+     *
+     * @return self
+     */
+    public function setCurrencyCode($currency_code)
+    {
+        if (is_null($currency_code)) {
+            throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
+        }
+        $this->container['currency_code'] = $currency_code;
 
         return $this;
     }

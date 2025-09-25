@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **cycle_window_end_ymd** | **\DateTime** | The end date of the cycle window. | [optional]
 **recommendations_due_ymd** | **\DateTime** | The due date for recommendations. | [optional]
 **approvals_due_ymd** | **\DateTime** | The due date for approvals. | [optional]
-**paycheck_ymd** | **\DateTime** | The due date for paycheck. | [optional]
+**paycheck_date_ymd** | **\DateTime** | The due date for paycheck. | [optional]
 **change_communication_subject** | **string** | The subject of the communication. | [optional]
 **change_communication_message_text** | **string** | The message text of the communication. | [optional]
 **budget_guidelines** | [**\MySdk\Model\BudgetGuidelinesDataObject**](BudgetGuidelinesDataObject.md) | The budget guidelines for the cycle. | [optional]

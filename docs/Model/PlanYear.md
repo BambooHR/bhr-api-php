@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **plan_ids** | **object[]** |  | [optional]
 **open_enrollments** | [**\MySdk\Model\BenefitEnrollmentWindowResponse**](BenefitEnrollmentWindowResponse.md) |  | [optional]
 **new_hire_rule** | [**\MySdk\Model\NewHireAutomationSettingLike**](NewHireAutomationSettingLike.md) |  | [optional]
+**carrier_ids** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -345,7 +345,6 @@ class TaskLegacySchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_REGULAR = 'regular';
     public const TYPE_FILE_UPLOAD = 'file_upload';
     public const TYPE_ESIGNATURE = 'esignature';
-    public const TYPE_QUICKBOOKS_PAYROLL = 'quickbooks_payroll';
     public const ALLOW_EMPLOYEE_UPLOADS_YES = 'yes';
     public const ALLOW_EMPLOYEE_UPLOADS_NO = 'no';
     public const ALLOW_EMPLOYEE_UPLOADS_REQUIRED = 'required';
@@ -361,7 +360,6 @@ class TaskLegacySchema implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_REGULAR,
             self::TYPE_FILE_UPLOAD,
             self::TYPE_ESIGNATURE,
-            self::TYPE_QUICKBOOKS_PAYROLL,
         ];
     }
 

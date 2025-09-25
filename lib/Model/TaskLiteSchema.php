@@ -345,7 +345,6 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TASK_TYPE_REGULAR = 'regular';
     public const TASK_TYPE_FILE_UPLOAD = 'file_upload';
     public const TASK_TYPE_ESIGNATURE = 'esignature';
-    public const TASK_TYPE_QUICKBOOKS_PAYROLL = 'quickbooks_payroll';
 
     /**
      * Gets allowable values of the enum
@@ -358,7 +357,6 @@ class TaskLiteSchema implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TASK_TYPE_REGULAR,
             self::TASK_TYPE_FILE_UPLOAD,
             self::TASK_TYPE_ESIGNATURE,
-            self::TASK_TYPE_QUICKBOOKS_PAYROLL,
         ];
     }
 

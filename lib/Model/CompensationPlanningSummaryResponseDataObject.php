@@ -60,6 +60,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     protected static $openAPITypes = [
         'cycle_details' => '\MySdk\Model\CycleDetailsSummaryDataObject',
         'details_and_currency' => '\MySdk\Model\DetailsAndCurrencySummaryDataObject',
+        'employee_picker' => '\MySdk\Model\EmployeePickerSummaryDataObject',
         'approval_flow' => '\MySdk\Model\ApprovalFlowSummaryDataObject',
         'budget' => '\MySdk\Model\BudgetSummaryDataObject',
         'communications' => '\MySdk\Model\CommunicationsSummaryDataObject'
@@ -75,6 +76,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     protected static $openAPIFormats = [
         'cycle_details' => null,
         'details_and_currency' => null,
+        'employee_picker' => null,
         'approval_flow' => null,
         'budget' => null,
         'communications' => null
@@ -88,6 +90,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     protected static array $openAPINullables = [
         'cycle_details' => false,
         'details_and_currency' => false,
+        'employee_picker' => false,
         'approval_flow' => false,
         'budget' => false,
         'communications' => false
@@ -181,6 +184,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     protected static $attributeMap = [
         'cycle_details' => 'cycleDetails',
         'details_and_currency' => 'detailsAndCurrency',
+        'employee_picker' => 'employeePicker',
         'approval_flow' => 'approvalFlow',
         'budget' => 'budget',
         'communications' => 'communications'
@@ -194,6 +198,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     protected static $setters = [
         'cycle_details' => 'setCycleDetails',
         'details_and_currency' => 'setDetailsAndCurrency',
+        'employee_picker' => 'setEmployeePicker',
         'approval_flow' => 'setApprovalFlow',
         'budget' => 'setBudget',
         'communications' => 'setCommunications'
@@ -207,6 +212,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     protected static $getters = [
         'cycle_details' => 'getCycleDetails',
         'details_and_currency' => 'getDetailsAndCurrency',
+        'employee_picker' => 'getEmployeePicker',
         'approval_flow' => 'getApprovalFlow',
         'budget' => 'getBudget',
         'communications' => 'getCommunications'
@@ -271,6 +277,7 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
     {
         $this->setIfExists('cycle_details', $data ?? [], null);
         $this->setIfExists('details_and_currency', $data ?? [], null);
+        $this->setIfExists('employee_picker', $data ?? [], null);
         $this->setIfExists('approval_flow', $data ?? [], null);
         $this->setIfExists('budget', $data ?? [], null);
         $this->setIfExists('communications', $data ?? [], null);
@@ -368,6 +375,33 @@ class CompensationPlanningSummaryResponseDataObject implements ModelInterface, A
             throw new \InvalidArgumentException('non-nullable details_and_currency cannot be null');
         }
         $this->container['details_and_currency'] = $details_and_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets employee_picker
+     *
+     * @return \MySdk\Model\EmployeePickerSummaryDataObject|null
+     */
+    public function getEmployeePicker()
+    {
+        return $this->container['employee_picker'];
+    }
+
+    /**
+     * Sets employee_picker
+     *
+     * @param \MySdk\Model\EmployeePickerSummaryDataObject|null $employee_picker Readiness and errors for the employee picker feature tab.
+     *
+     * @return self
+     */
+    public function setEmployeePicker($employee_picker)
+    {
+        if (is_null($employee_picker)) {
+            throw new \InvalidArgumentException('non-nullable employee_picker cannot be null');
+        }
+        $this->container['employee_picker'] = $employee_picker;
 
         return $this;
     }

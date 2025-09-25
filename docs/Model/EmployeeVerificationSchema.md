@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional]
 **verification_type** | **string** |  | [optional]
 **verification_status** | **string** |  | [optional]
+**verification_status_notes** | **string** |  | [optional]
 **remote_access_url** | **string** |  | [optional]
 **e_verify_status** | **string** |  | [optional]
 **start_date_ymdt** | **string** |  | [optional]

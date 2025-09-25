@@ -71,6 +71,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         'compensation' => '\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueCompensation',
         'available_rate_ids' => 'int[]',
         'checks' => 'int[]',
+        'wage_adjustments' => '\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments',
         'tags' => '\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueTagsInner[]',
         'proration_information' => '\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner[]'
     ];
@@ -97,6 +98,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         'compensation' => null,
         'available_rate_ids' => null,
         'checks' => null,
+        'wage_adjustments' => null,
         'tags' => null,
         'proration_information' => null
     ];
@@ -121,6 +123,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         'compensation' => false,
         'available_rate_ids' => false,
         'checks' => false,
+        'wage_adjustments' => false,
         'tags' => true,
         'proration_information' => true
     ];
@@ -225,6 +228,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         'compensation' => 'compensation',
         'available_rate_ids' => 'availableRateIds',
         'checks' => 'checks',
+        'wage_adjustments' => 'wageAdjustments',
         'tags' => 'tags',
         'proration_information' => 'prorationInformation'
     ];
@@ -249,6 +253,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         'compensation' => 'setCompensation',
         'available_rate_ids' => 'setAvailableRateIds',
         'checks' => 'setChecks',
+        'wage_adjustments' => 'setWageAdjustments',
         'tags' => 'setTags',
         'proration_information' => 'setProrationInformation'
     ];
@@ -273,6 +278,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         'compensation' => 'getCompensation',
         'available_rate_ids' => 'getAvailableRateIds',
         'checks' => 'getChecks',
+        'wage_adjustments' => 'getWageAdjustments',
         'tags' => 'getTags',
         'proration_information' => 'getProrationInformation'
     ];
@@ -348,6 +354,7 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
         $this->setIfExists('compensation', $data ?? [], null);
         $this->setIfExists('available_rate_ids', $data ?? [], null);
         $this->setIfExists('checks', $data ?? [], null);
+        $this->setIfExists('wage_adjustments', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('proration_information', $data ?? [], null);
     }
@@ -768,6 +775,33 @@ class PayrollSnapshotTransformerEmployeesByIdValue implements ModelInterface, Ar
             throw new \InvalidArgumentException('non-nullable checks cannot be null');
         }
         $this->container['checks'] = $checks;
+
+        return $this;
+    }
+
+    /**
+     * Gets wage_adjustments
+     *
+     * @return \MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments|null
+     */
+    public function getWageAdjustments()
+    {
+        return $this->container['wage_adjustments'];
+    }
+
+    /**
+     * Sets wage_adjustments
+     *
+     * @param \MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments|null $wage_adjustments wage_adjustments
+     *
+     * @return self
+     */
+    public function setWageAdjustments($wage_adjustments)
+    {
+        if (is_null($wage_adjustments)) {
+            throw new \InvalidArgumentException('non-nullable wage_adjustments cannot be null');
+        }
+        $this->container['wage_adjustments'] = $wage_adjustments;
 
         return $this;
     }

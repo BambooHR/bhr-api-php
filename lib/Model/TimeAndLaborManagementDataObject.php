@@ -71,7 +71,8 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         'shift_differential_id' => 'int',
         'holiday_id' => 'int',
         'record_id' => 'int',
-        'record_type' => 'string'
+        'record_type' => 'string',
+        'is_paid' => 'bool'
     ];
 
     /**
@@ -95,7 +96,8 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         'shift_differential_id' => null,
         'holiday_id' => null,
         'record_id' => null,
-        'record_type' => null
+        'record_type' => null,
+        'is_paid' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         'shift_differential_id' => false,
         'holiday_id' => false,
         'record_id' => false,
-        'record_type' => false
+        'record_type' => false,
+        'is_paid' => false
     ];
 
     /**
@@ -219,7 +222,8 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         'shift_differential_id' => 'shiftDifferentialId',
         'holiday_id' => 'holidayId',
         'record_id' => 'recordId',
-        'record_type' => 'recordType'
+        'record_type' => 'recordType',
+        'is_paid' => 'isPaid'
     ];
 
     /**
@@ -241,7 +245,8 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         'shift_differential_id' => 'setShiftDifferentialId',
         'holiday_id' => 'setHolidayId',
         'record_id' => 'setRecordId',
-        'record_type' => 'setRecordType'
+        'record_type' => 'setRecordType',
+        'is_paid' => 'setIsPaid'
     ];
 
     /**
@@ -263,7 +268,8 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         'shift_differential_id' => 'getShiftDifferentialId',
         'holiday_id' => 'getHolidayId',
         'record_id' => 'getRecordId',
-        'record_type' => 'getRecordType'
+        'record_type' => 'getRecordType',
+        'is_paid' => 'getIsPaid'
     ];
 
     /**
@@ -337,6 +343,7 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
         $this->setIfExists('holiday_id', $data ?? [], null);
         $this->setIfExists('record_id', $data ?? [], null);
         $this->setIfExists('record_type', $data ?? [], null);
+        $this->setIfExists('is_paid', $data ?? [], null);
     }
 
     /**
@@ -755,6 +762,33 @@ class TimeAndLaborManagementDataObject implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable record_type cannot be null');
         }
         $this->container['record_type'] = $record_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_paid
+     *
+     * @return bool|null
+     */
+    public function getIsPaid()
+    {
+        return $this->container['is_paid'];
+    }
+
+    /**
+     * Sets is_paid
+     *
+     * @param bool|null $is_paid If a time off item, whether it is attached to a paid type
+     *
+     * @return self
+     */
+    public function setIsPaid($is_paid)
+    {
+        if (is_null($is_paid)) {
+            throw new \InvalidArgumentException('non-nullable is_paid cannot be null');
+        }
+        $this->container['is_paid'] = $is_paid;
 
         return $this;
     }

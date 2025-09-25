@@ -66,7 +66,8 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         'rates' => '\MySdk\Model\EmployeeRatesInner[]',
         'earnings' => '\MySdk\Model\EmployeeEarningsInner[]',
         'earning_adjustments' => '\MySdk\Model\EmployeeEarningAdjustmentsInner[]',
-        'compensation_periods' => '\MySdk\Model\CompensationPeriodsInner[]'
+        'compensation_periods' => '\MySdk\Model\CompensationPeriodsInner[]',
+        'rate_adjustments' => '\MySdk\Model\EmployeeRateAdjustmentsInner[]'
     ];
 
     /**
@@ -86,7 +87,8 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         'rates' => null,
         'earnings' => null,
         'earning_adjustments' => null,
-        'compensation_periods' => null
+        'compensation_periods' => null,
+        'rate_adjustments' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         'rates' => false,
         'earnings' => false,
         'earning_adjustments' => false,
-        'compensation_periods' => false
+        'compensation_periods' => false,
+        'rate_adjustments' => false
     ];
 
     /**
@@ -202,7 +205,8 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         'rates' => 'rates',
         'earnings' => 'earnings',
         'earning_adjustments' => 'earningAdjustments',
-        'compensation_periods' => 'compensationPeriods'
+        'compensation_periods' => 'compensationPeriods',
+        'rate_adjustments' => 'rateAdjustments'
     ];
 
     /**
@@ -220,7 +224,8 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         'rates' => 'setRates',
         'earnings' => 'setEarnings',
         'earning_adjustments' => 'setEarningAdjustments',
-        'compensation_periods' => 'setCompensationPeriods'
+        'compensation_periods' => 'setCompensationPeriods',
+        'rate_adjustments' => 'setRateAdjustments'
     ];
 
     /**
@@ -238,7 +243,8 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         'rates' => 'getRates',
         'earnings' => 'getEarnings',
         'earning_adjustments' => 'getEarningAdjustments',
-        'compensation_periods' => 'getCompensationPeriods'
+        'compensation_periods' => 'getCompensationPeriods',
+        'rate_adjustments' => 'getRateAdjustments'
     ];
 
     /**
@@ -308,6 +314,7 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
         $this->setIfExists('earnings', $data ?? [], null);
         $this->setIfExists('earning_adjustments', $data ?? [], null);
         $this->setIfExists('compensation_periods', $data ?? [], null);
+        $this->setIfExists('rate_adjustments', $data ?? [], null);
     }
 
     /**
@@ -618,6 +625,33 @@ class PayCycleEmployeeDataObjectCollectionInner implements ModelInterface, Array
             throw new \InvalidArgumentException('non-nullable compensation_periods cannot be null');
         }
         $this->container['compensation_periods'] = $compensation_periods;
+
+        return $this;
+    }
+
+    /**
+     * Gets rate_adjustments
+     *
+     * @return \MySdk\Model\EmployeeRateAdjustmentsInner[]|null
+     */
+    public function getRateAdjustments()
+    {
+        return $this->container['rate_adjustments'];
+    }
+
+    /**
+     * Sets rate_adjustments
+     *
+     * @param \MySdk\Model\EmployeeRateAdjustmentsInner[]|null $rate_adjustments rate_adjustments
+     *
+     * @return self
+     */
+    public function setRateAdjustments($rate_adjustments)
+    {
+        if (is_null($rate_adjustments)) {
+            throw new \InvalidArgumentException('non-nullable rate_adjustments cannot be null');
+        }
+        $this->container['rate_adjustments'] = $rate_adjustments;
 
         return $this;
     }

@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **cycle_currency_conversion_rates** | [**\MySdk\Model\ConversionRateDataObject[]**](ConversionRateDataObject.md) | Currency conversion rates | [optional]
 **cycle_status** | **string** | Status of the cycle | [optional]
 **needs_v1_migration** | **bool** | Whether the cycle needs migration from v1 | [optional]
+**paycheck_date_ymd** | **string** | Date of first paycheck with new compensation updates | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

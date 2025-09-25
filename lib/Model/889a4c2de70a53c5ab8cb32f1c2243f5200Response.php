@@ -76,8 +76,8 @@ class 889a4c2de70a53c5ab8cb32f1c2243f5200Response implements ModelInterface, Arr
         'task_id' => 'string',
         'shift_differential_id' => 'string',
         'holiday_id' => 'string',
-        'project' => 'string',
-        'shift_differential' => 'string'
+        'project' => '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProject',
+        'shift_differential' => '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask'
     ];
 
     /**
@@ -136,8 +136,8 @@ class 889a4c2de70a53c5ab8cb32f1c2243f5200Response implements ModelInterface, Arr
         'task_id' => true,
         'shift_differential_id' => true,
         'holiday_id' => true,
-        'project' => true,
-        'shift_differential' => true
+        'project' => false,
+        'shift_differential' => false
     ];
 
     /**
@@ -1015,7 +1015,7 @@ class 889a4c2de70a53c5ab8cb32f1c2243f5200Response implements ModelInterface, Arr
     /**
      * Gets project
      *
-     * @return string|null
+     * @return \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProject|null
      */
     public function getProject()
     {
@@ -1025,21 +1025,14 @@ class 889a4c2de70a53c5ab8cb32f1c2243f5200Response implements ModelInterface, Arr
     /**
      * Sets project
      *
-     * @param string|null $project project
+     * @param \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProject|null $project project
      *
      * @return self
      */
     public function setProject($project)
     {
         if (is_null($project)) {
-            array_push($this->openAPINullablesSetToNull, 'project');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('project', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable project cannot be null');
         }
         $this->container['project'] = $project;
 
@@ -1049,7 +1042,7 @@ class 889a4c2de70a53c5ab8cb32f1c2243f5200Response implements ModelInterface, Arr
     /**
      * Gets shift_differential
      *
-     * @return string|null
+     * @return \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask|null
      */
     public function getShiftDifferential()
     {
@@ -1059,21 +1052,14 @@ class 889a4c2de70a53c5ab8cb32f1c2243f5200Response implements ModelInterface, Arr
     /**
      * Sets shift_differential
      *
-     * @param string|null $shift_differential shift_differential
+     * @param \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask|null $shift_differential shift_differential
      *
      * @return self
      */
     public function setShiftDifferential($shift_differential)
     {
         if (is_null($shift_differential)) {
-            array_push($this->openAPINullablesSetToNull, 'shift_differential');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('shift_differential', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable shift_differential cannot be null');
         }
         $this->container['shift_differential'] = $shift_differential;
 

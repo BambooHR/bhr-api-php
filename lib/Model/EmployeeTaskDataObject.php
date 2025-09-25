@@ -89,8 +89,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_instance_id' => 'int',
         'esignature_instance_id' => 'int',
         'type' => 'string',
-        'comments' => '\MySdk\Model\TaskCommentSchema[]',
-        'is_quick_books_integration' => 'int'
+        'comments' => '\MySdk\Model\TaskCommentSchema[]'
     ];
 
     /**
@@ -133,8 +132,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_instance_id' => null,
         'esignature_instance_id' => null,
         'type' => null,
-        'comments' => null,
-        'is_quick_books_integration' => null
+        'comments' => null
     ];
 
     /**
@@ -175,8 +173,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_instance_id' => true,
         'esignature_instance_id' => true,
         'type' => true,
-        'comments' => false,
-        'is_quick_books_integration' => false
+        'comments' => false
     ];
 
     /**
@@ -297,8 +294,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_instance_id' => 'workflowInstanceId',
         'esignature_instance_id' => 'esignatureInstanceId',
         'type' => 'type',
-        'comments' => 'comments',
-        'is_quick_books_integration' => 'isQuickBooksIntegration'
+        'comments' => 'comments'
     ];
 
     /**
@@ -339,8 +335,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_instance_id' => 'setWorkflowInstanceId',
         'esignature_instance_id' => 'setEsignatureInstanceId',
         'type' => 'setType',
-        'comments' => 'setComments',
-        'is_quick_books_integration' => 'setIsQuickBooksIntegration'
+        'comments' => 'setComments'
     ];
 
     /**
@@ -381,8 +376,7 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         'workflow_instance_id' => 'getWorkflowInstanceId',
         'esignature_instance_id' => 'getEsignatureInstanceId',
         'type' => 'getType',
-        'comments' => 'getComments',
-        'is_quick_books_integration' => 'getIsQuickBooksIntegration'
+        'comments' => 'getComments'
     ];
 
     /**
@@ -431,7 +425,6 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
     public const TYPE_REGULAR = 'regular';
     public const TYPE_FILE_UPLOAD = 'file_upload';
     public const TYPE_ESIGNATURE = 'esignature';
-    public const TYPE_QUICKBOOKS_PAYROLL = 'quickbooks_payroll';
 
     /**
      * Gets allowable values of the enum
@@ -457,7 +450,6 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
             self::TYPE_REGULAR,
             self::TYPE_FILE_UPLOAD,
             self::TYPE_ESIGNATURE,
-            self::TYPE_QUICKBOOKS_PAYROLL,
         ];
     }
 
@@ -509,7 +501,6 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('esignature_instance_id', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('comments', $data ?? [], null);
-        $this->setIfExists('is_quick_books_integration', $data ?? [], 0);
     }
 
     /**
@@ -1598,33 +1589,6 @@ class EmployeeTaskDataObject implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable comments cannot be null');
         }
         $this->container['comments'] = $comments;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_quick_books_integration
-     *
-     * @return int|null
-     */
-    public function getIsQuickBooksIntegration()
-    {
-        return $this->container['is_quick_books_integration'];
-    }
-
-    /**
-     * Sets is_quick_books_integration
-     *
-     * @param int|null $is_quick_books_integration Whether the task is a QuickBooks integration
-     *
-     * @return self
-     */
-    public function setIsQuickBooksIntegration($is_quick_books_integration)
-    {
-        if (is_null($is_quick_books_integration)) {
-            throw new \InvalidArgumentException('non-nullable is_quick_books_integration cannot be null');
-        }
-        $this->container['is_quick_books_integration'] = $is_quick_books_integration;
 
         return $this;
     }

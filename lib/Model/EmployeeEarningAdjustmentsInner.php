@@ -60,7 +60,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         'compensation_period_id' => 'int',
         'pay_type_id' => 'string',
         'earnings_type' => 'string',
-        'hour_type' => 'string',
+        'hour_type_id' => 'string',
         'quantity' => 'float',
         'rate' => 'float',
         'client_job_id' => 'string',
@@ -80,7 +80,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         'compensation_period_id' => null,
         'pay_type_id' => null,
         'earnings_type' => null,
-        'hour_type' => null,
+        'hour_type_id' => null,
         'quantity' => null,
         'rate' => null,
         'client_job_id' => null,
@@ -98,7 +98,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         'compensation_period_id' => false,
         'pay_type_id' => false,
         'earnings_type' => false,
-        'hour_type' => false,
+        'hour_type_id' => false,
         'quantity' => false,
         'rate' => false,
         'client_job_id' => false,
@@ -196,7 +196,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         'compensation_period_id' => 'compensationPeriodId',
         'pay_type_id' => 'payTypeId',
         'earnings_type' => 'earningsType',
-        'hour_type' => 'hourType',
+        'hour_type_id' => 'hourTypeId',
         'quantity' => 'quantity',
         'rate' => 'rate',
         'client_job_id' => 'clientJobId',
@@ -214,7 +214,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         'compensation_period_id' => 'setCompensationPeriodId',
         'pay_type_id' => 'setPayTypeId',
         'earnings_type' => 'setEarningsType',
-        'hour_type' => 'setHourType',
+        'hour_type_id' => 'setHourTypeId',
         'quantity' => 'setQuantity',
         'rate' => 'setRate',
         'client_job_id' => 'setClientJobId',
@@ -232,7 +232,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         'compensation_period_id' => 'getCompensationPeriodId',
         'pay_type_id' => 'getPayTypeId',
         'earnings_type' => 'getEarningsType',
-        'hour_type' => 'getHourType',
+        'hour_type_id' => 'getHourTypeId',
         'quantity' => 'getQuantity',
         'rate' => 'getRate',
         'client_job_id' => 'getClientJobId',
@@ -301,7 +301,7 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('compensation_period_id', $data ?? [], null);
         $this->setIfExists('pay_type_id', $data ?? [], null);
         $this->setIfExists('earnings_type', $data ?? [], null);
-        $this->setIfExists('hour_type', $data ?? [], null);
+        $this->setIfExists('hour_type_id', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('rate', $data ?? [], null);
         $this->setIfExists('client_job_id', $data ?? [], null);
@@ -434,28 +434,28 @@ class EmployeeEarningAdjustmentsInner implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets hour_type
+     * Gets hour_type_id
      *
      * @return string|null
      */
-    public function getHourType()
+    public function getHourTypeId()
     {
-        return $this->container['hour_type'];
+        return $this->container['hour_type_id'];
     }
 
     /**
-     * Sets hour_type
+     * Sets hour_type_id
      *
-     * @param string|null $hour_type hour_type
+     * @param string|null $hour_type_id hour_type_id
      *
      * @return self
      */
-    public function setHourType($hour_type)
+    public function setHourTypeId($hour_type_id)
     {
-        if (is_null($hour_type)) {
-            throw new \InvalidArgumentException('non-nullable hour_type cannot be null');
+        if (is_null($hour_type_id)) {
+            throw new \InvalidArgumentException('non-nullable hour_type_id cannot be null');
         }
-        $this->container['hour_type'] = $hour_type;
+        $this->container['hour_type_id'] = $hour_type_id;
 
         return $this;
     }

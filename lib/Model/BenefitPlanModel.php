@@ -75,7 +75,8 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_questions' => 'string[]',
         'carrier_plan_id' => 'string',
         'plan_files' => 'string[]',
-        'legal_text' => 'string'
+        'legal_text' => 'string',
+        'group_number' => 'string'
     ];
 
     /**
@@ -104,7 +105,8 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_questions' => null,
         'carrier_plan_id' => null,
         'plan_files' => null,
-        'legal_text' => null
+        'legal_text' => null,
+        'group_number' => null
     ];
 
     /**
@@ -131,7 +133,8 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_questions' => false,
         'carrier_plan_id' => false,
         'plan_files' => false,
-        'legal_text' => false
+        'legal_text' => false,
+        'group_number' => false
     ];
 
     /**
@@ -238,7 +241,8 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_questions' => 'dependentQuestions',
         'carrier_plan_id' => 'carrierPlanId',
         'plan_files' => 'planFiles',
-        'legal_text' => 'legalText'
+        'legal_text' => 'legalText',
+        'group_number' => 'groupNumber'
     ];
 
     /**
@@ -265,7 +269,8 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_questions' => 'setDependentQuestions',
         'carrier_plan_id' => 'setCarrierPlanId',
         'plan_files' => 'setPlanFiles',
-        'legal_text' => 'setLegalText'
+        'legal_text' => 'setLegalText',
+        'group_number' => 'setGroupNumber'
     ];
 
     /**
@@ -292,7 +297,8 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_questions' => 'getDependentQuestions',
         'carrier_plan_id' => 'getCarrierPlanId',
         'plan_files' => 'getPlanFiles',
-        'legal_text' => 'getLegalText'
+        'legal_text' => 'getLegalText',
+        'group_number' => 'getGroupNumber'
     ];
 
     /**
@@ -371,6 +377,7 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('carrier_plan_id', $data ?? [], null);
         $this->setIfExists('plan_files', $data ?? [], null);
         $this->setIfExists('legal_text', $data ?? [], null);
+        $this->setIfExists('group_number', $data ?? [], null);
     }
 
     /**
@@ -924,6 +931,33 @@ class BenefitPlanModel implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable legal_text cannot be null');
         }
         $this->container['legal_text'] = $legal_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_number
+     *
+     * @return string|null
+     */
+    public function getGroupNumber()
+    {
+        return $this->container['group_number'];
+    }
+
+    /**
+     * Sets group_number
+     *
+     * @param string|null $group_number group_number
+     *
+     * @return self
+     */
+    public function setGroupNumber($group_number)
+    {
+        if (is_null($group_number)) {
+            throw new \InvalidArgumentException('non-nullable group_number cannot be null');
+        }
+        $this->container['group_number'] = $group_number;
 
         return $this;
     }

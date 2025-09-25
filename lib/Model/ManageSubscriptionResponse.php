@@ -69,6 +69,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'is_in_trial' => 'bool',
         'is_in_grace_period' => 'bool',
         'integrations' => '\MySdk\Model\ManageSubscriptionResponseIntegrationsInner[]',
+        'paid_integrations' => '\MySdk\Model\ManageSubscriptionResponsePaidIntegrationsInner[]',
         'integration_expansions' => '\MySdk\Model\ManageSubscriptionResponseIntegrationExpansionsInner[]'
     ];
 
@@ -92,6 +93,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'is_in_trial' => null,
         'is_in_grace_period' => null,
         'integrations' => null,
+        'paid_integrations' => null,
         'integration_expansions' => null
     ];
 
@@ -113,6 +115,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'is_in_trial' => false,
         'is_in_grace_period' => false,
         'integrations' => false,
+        'paid_integrations' => false,
         'integration_expansions' => false
     ];
 
@@ -214,6 +217,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'is_in_trial' => 'isInTrial',
         'is_in_grace_period' => 'isInGracePeriod',
         'integrations' => 'integrations',
+        'paid_integrations' => 'paidIntegrations',
         'integration_expansions' => 'integrationExpansions'
     ];
 
@@ -235,6 +239,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'is_in_trial' => 'setIsInTrial',
         'is_in_grace_period' => 'setIsInGracePeriod',
         'integrations' => 'setIntegrations',
+        'paid_integrations' => 'setPaidIntegrations',
         'integration_expansions' => 'setIntegrationExpansions'
     ];
 
@@ -256,6 +261,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         'is_in_trial' => 'getIsInTrial',
         'is_in_grace_period' => 'getIsInGracePeriod',
         'integrations' => 'getIntegrations',
+        'paid_integrations' => 'getPaidIntegrations',
         'integration_expansions' => 'getIntegrationExpansions'
     ];
 
@@ -328,6 +334,7 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('is_in_trial', $data ?? [], null);
         $this->setIfExists('is_in_grace_period', $data ?? [], null);
         $this->setIfExists('integrations', $data ?? [], null);
+        $this->setIfExists('paid_integrations', $data ?? [], null);
         $this->setIfExists('integration_expansions', $data ?? [], null);
     }
 
@@ -700,6 +707,33 @@ class ManageSubscriptionResponse implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable integrations cannot be null');
         }
         $this->container['integrations'] = $integrations;
+
+        return $this;
+    }
+
+    /**
+     * Gets paid_integrations
+     *
+     * @return \MySdk\Model\ManageSubscriptionResponsePaidIntegrationsInner[]|null
+     */
+    public function getPaidIntegrations()
+    {
+        return $this->container['paid_integrations'];
+    }
+
+    /**
+     * Sets paid_integrations
+     *
+     * @param \MySdk\Model\ManageSubscriptionResponsePaidIntegrationsInner[]|null $paid_integrations A list of active paid integration identifiers. Returned only if there are paid integrations.
+     *
+     * @return self
+     */
+    public function setPaidIntegrations($paid_integrations)
+    {
+        if (is_null($paid_integrations)) {
+            throw new \InvalidArgumentException('non-nullable paid_integrations cannot be null');
+        }
+        $this->container['paid_integrations'] = $paid_integrations;
 
         return $this;
     }

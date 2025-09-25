@@ -62,6 +62,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         'bamboo_employee_id' => 'int',
         'remote_contract_status' => 'string',
         'remote_contract_status_display' => 'string',
+        'origin' => 'string',
         'remote_employment_details' => 'object'
     ];
 
@@ -77,6 +78,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         'bamboo_employee_id' => null,
         'remote_contract_status' => null,
         'remote_contract_status_display' => null,
+        'origin' => null,
         'remote_employment_details' => null
     ];
 
@@ -90,6 +92,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         'bamboo_employee_id' => false,
         'remote_contract_status' => true,
         'remote_contract_status_display' => true,
+        'origin' => true,
         'remote_employment_details' => true
     ];
 
@@ -183,6 +186,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         'bamboo_employee_id' => 'bambooEmployeeId',
         'remote_contract_status' => 'remoteContractStatus',
         'remote_contract_status_display' => 'remoteContractStatusDisplay',
+        'origin' => 'origin',
         'remote_employment_details' => 'remoteEmploymentDetails'
     ];
 
@@ -196,6 +200,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         'bamboo_employee_id' => 'setBambooEmployeeId',
         'remote_contract_status' => 'setRemoteContractStatus',
         'remote_contract_status_display' => 'setRemoteContractStatusDisplay',
+        'origin' => 'setOrigin',
         'remote_employment_details' => 'setRemoteEmploymentDetails'
     ];
 
@@ -209,6 +214,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         'bamboo_employee_id' => 'getBambooEmployeeId',
         'remote_contract_status' => 'getRemoteContractStatus',
         'remote_contract_status_display' => 'getRemoteContractStatusDisplay',
+        'origin' => 'getOrigin',
         'remote_employment_details' => 'getRemoteEmploymentDetails'
     ];
 
@@ -273,6 +279,7 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
         $this->setIfExists('bamboo_employee_id', $data ?? [], null);
         $this->setIfExists('remote_contract_status', $data ?? [], null);
         $this->setIfExists('remote_contract_status_display', $data ?? [], null);
+        $this->setIfExists('origin', $data ?? [], null);
         $this->setIfExists('remote_employment_details', $data ?? [], null);
     }
 
@@ -442,6 +449,40 @@ class RemoteEmploymentStatusDataObject implements ModelInterface, ArrayAccess, \
             }
         }
         $this->container['remote_contract_status_display'] = $remote_contract_status_display;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin
+     *
+     * @return string|null
+     */
+    public function getOrigin()
+    {
+        return $this->container['origin'];
+    }
+
+    /**
+     * Sets origin
+     *
+     * @param string|null $origin Origin of the Remote employee
+     *
+     * @return self
+     */
+    public function setOrigin($origin)
+    {
+        if (is_null($origin)) {
+            array_push($this->openAPINullablesSetToNull, 'origin');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('origin', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['origin'] = $origin;
 
         return $this;
     }

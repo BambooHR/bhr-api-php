@@ -61,7 +61,8 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         'trans_counter' => 'int',
         'snapshot_employee_id' => 'int',
         'core_employee_id' => 'int',
-        'earnings' => 'int[]'
+        'earnings' => 'int[]',
+        'notes' => '\MySdk\Model\PayrollSnapshotTransformerChecksByIdValueNotesInner[]'
     ];
 
     /**
@@ -76,7 +77,8 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         'trans_counter' => null,
         'snapshot_employee_id' => null,
         'core_employee_id' => null,
-        'earnings' => null
+        'earnings' => null,
+        'notes' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         'trans_counter' => false,
         'snapshot_employee_id' => false,
         'core_employee_id' => false,
-        'earnings' => false
+        'earnings' => false,
+        'notes' => false
     ];
 
     /**
@@ -182,7 +185,8 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         'trans_counter' => 'transCounter',
         'snapshot_employee_id' => 'snapshotEmployeeId',
         'core_employee_id' => 'coreEmployeeId',
-        'earnings' => 'earnings'
+        'earnings' => 'earnings',
+        'notes' => 'notes'
     ];
 
     /**
@@ -195,7 +199,8 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         'trans_counter' => 'setTransCounter',
         'snapshot_employee_id' => 'setSnapshotEmployeeId',
         'core_employee_id' => 'setCoreEmployeeId',
-        'earnings' => 'setEarnings'
+        'earnings' => 'setEarnings',
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -208,7 +213,8 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         'trans_counter' => 'getTransCounter',
         'snapshot_employee_id' => 'getSnapshotEmployeeId',
         'core_employee_id' => 'getCoreEmployeeId',
-        'earnings' => 'getEarnings'
+        'earnings' => 'getEarnings',
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -273,6 +279,7 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
         $this->setIfExists('snapshot_employee_id', $data ?? [], null);
         $this->setIfExists('core_employee_id', $data ?? [], null);
         $this->setIfExists('earnings', $data ?? [], null);
+        $this->setIfExists('notes', $data ?? [], null);
     }
 
     /**
@@ -448,6 +455,33 @@ class PayrollSnapshotTransformerChecksByIdValue implements ModelInterface, Array
             throw new \InvalidArgumentException('non-nullable earnings cannot be null');
         }
         $this->container['earnings'] = $earnings;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return \MySdk\Model\PayrollSnapshotTransformerChecksByIdValueNotesInner[]|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param \MySdk\Model\PayrollSnapshotTransformerChecksByIdValueNotesInner[]|null $notes Notes associated with this check
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        if (is_null($notes)) {
+            throw new \InvalidArgumentException('non-nullable notes cannot be null');
+        }
+        $this->container['notes'] = $notes;
 
         return $this;
     }

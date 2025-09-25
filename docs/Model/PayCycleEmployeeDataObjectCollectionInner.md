@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **earnings** | [**\MySdk\Model\EmployeeEarningsInner[]**](EmployeeEarningsInner.md) |  | [optional]
 **earning_adjustments** | [**\MySdk\Model\EmployeeEarningAdjustmentsInner[]**](EmployeeEarningAdjustmentsInner.md) |  | [optional]
 **compensation_periods** | [**\MySdk\Model\CompensationPeriodsInner[]**](CompensationPeriodsInner.md) |  | [optional]
+**rate_adjustments** | [**\MySdk\Model\EmployeeRateAdjustmentsInner[]**](EmployeeRateAdjustmentsInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

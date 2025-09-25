@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **compensation** | [**\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueCompensation**](PayrollSnapshotTransformerEmployeesByIdValueCompensation.md) |  | [optional]
 **available_rate_ids** | **int[]** | IDs of rates available for this employee | [optional]
 **checks** | **int[]** | Check IDs associated with this employee | [optional]
+**wage_adjustments** | [**\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments**](PayrollSnapshotTransformerEmployeesByIdValueWageAdjustments.md) |  | [optional]
 **tags** | [**\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueTagsInner[]**](PayrollSnapshotTransformerEmployeesByIdValueTagsInner.md) | Employee tags for proration | [optional]
 **proration_information** | [**\MySdk\Model\PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner[]**](PayrollSnapshotTransformerEmployeesByIdValueProrationInformationInner.md) | Proration information for the employee | [optional]
 

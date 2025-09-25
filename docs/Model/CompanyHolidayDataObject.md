@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **deleted_ymdt** | **\DateTime** | Deletion timestamp | [optional]
 **created_ymdt** | **\DateTime** | Creation timestamp | [optional]
 **is_public** | **bool** | Indicates if the holiday is public | [optional]
+**global_holiday_uuid** | **string** | Global holiday UUID | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

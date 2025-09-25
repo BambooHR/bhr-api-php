@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **show_pays** | **bool** |  | [optional]
 **carrier_name** | **string** |  | [optional]
 **plan_years** | [**\MySdk\Model\BulkEditPlanYear[]**](BulkEditPlanYear.md) |  | [optional]
+**currency_code** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

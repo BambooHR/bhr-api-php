@@ -58,7 +58,8 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'effective_date' => '\DateTime'
+        'effective_date' => '\DateTime',
+        'dates' => 'string[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'effective_date' => 'date-time'
+        'effective_date' => 'date-time',
+        'dates' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'name' => false,
-        'effective_date' => false
+        'effective_date' => false,
+        'dates' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'effective_date' => 'effectiveDate'
+        'effective_date' => 'effectiveDate',
+        'dates' => 'dates'
     ];
 
     /**
@@ -180,7 +184,8 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'name' => 'setName',
-        'effective_date' => 'setEffectiveDate'
+        'effective_date' => 'setEffectiveDate',
+        'dates' => 'setDates'
     ];
 
     /**
@@ -190,7 +195,8 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'name' => 'getName',
-        'effective_date' => 'getEffectiveDate'
+        'effective_date' => 'getEffectiveDate',
+        'dates' => 'getDates'
     ];
 
     /**
@@ -252,6 +258,7 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('effective_date', $data ?? [], null);
+        $this->setIfExists('dates', $data ?? [], null);
     }
 
     /**
@@ -346,6 +353,33 @@ class EmployeePayCycleTagsInner implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable effective_date cannot be null');
         }
         $this->container['effective_date'] = $effective_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets dates
+     *
+     * @return string[]|null
+     */
+    public function getDates()
+    {
+        return $this->container['dates'];
+    }
+
+    /**
+     * Sets dates
+     *
+     * @param string[]|null $dates dates
+     *
+     * @return self
+     */
+    public function setDates($dates)
+    {
+        if (is_null($dates)) {
+            throw new \InvalidArgumentException('non-nullable dates cannot be null');
+        }
+        $this->container['dates'] = $dates;
 
         return $this;
     }

@@ -18,13 +18,14 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**ca54fa4c1d42864a2540f7f7600e0d65()**](PublicAPIApi.md#ca54fa4c1d42864a2540f7f7600e0d65) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
 | [**call134f6593587d7195536c151bd65eb6d5()**](PublicAPIApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
 | [**call18e680c918496818b49d593d7ea375a5()**](PublicAPIApi.md#call18e680c918496818b49d593d7ea375a5) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options |
-| [**call22067048cf6eec230a865765a18ad7b8()**](PublicAPIApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | adjustTimeTracking |
+| [**call22067048cf6eec230a865765a18ad7b8()**](PublicAPIApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record |
 | [**call3b7487d1d17551f6c3e2567b96089ce1()**](PublicAPIApi.md#call3b7487d1d17551f6c3e2567b96089ce1) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
 | [**call408a4478cbd2b1b5811ba6228e2898df()**](PublicAPIApi.md#call408a4478cbd2b1b5811ba6228e2898df) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries |
 | [**call43c7cc099ca54295a047f449824fc0dd()**](PublicAPIApi.md#call43c7cc099ca54295a047f449824fc0dd) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
-| [**call717faf6067928c3497fc9acbf5b91767()**](PublicAPIApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId |
+| [**call717faf6067928c3497fc9acbf5b91767()**](PublicAPIApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record |
 | [**call7bb9fedfad942b8839bc61a125e7c255()**](PublicAPIApi.md#call7bb9fedfad942b8839bc61a125e7c255) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
-| [**call889a4c2de70a53c5ab8cb32f1c2243f5()**](PublicAPIApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId |
+| [**call889a4c2de70a53c5ab8cb32f1c2243f5()**](PublicAPIApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
+| [**d44e9c43fbca76b93a00a9603ba24ba1()**](PublicAPIApi.md#d44e9c43fbca76b93a00a9603ba24ba1) | **GET** /api/v1/meta/countries/options | Get all countries |
 | [**deleteCompanyFile()**](PublicAPIApi.md#deleteCompanyFile) | **DELETE** /api/v1/files/{fileId} | Delete Company File |
 | [**deleteEmployeeFile()**](PublicAPIApi.md#deleteEmployeeFile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File |
 | [**deleteEmployeeTableRowV1()**](PublicAPIApi.md#deleteEmployeeTableRowV1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row |
@@ -34,9 +35,10 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**deleteTrainingCategory()**](PublicAPIApi.md#deleteTrainingCategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category |
 | [**deleteTrainingType()**](PublicAPIApi.md#deleteTrainingType) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type |
 | [**deleteWebhook()**](PublicAPIApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook |
-| [**e2ae6e59655aeab2b4e6311967a2809f()**](PublicAPIApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | addTimeTracking |
+| [**e2ae6e59655aeab2b4e6311967a2809f()**](PublicAPIApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | Add Hour Record |
 | [**e9a47e93524609b981be6139822d219e()**](PublicAPIApi.md#e9a47e93524609b981be6139822d219e) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
-| [**f54bcaec6771b1264671e53f2e557b1f()**](PublicAPIApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | addTimeTrackingBulk |
+| [**ec09b0a847283ca20b79980249d44b16()**](PublicAPIApi.md#ec09b0a847283ca20b79980249d44b16) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
+| [**f54bcaec6771b1264671e53f2e557b1f()**](PublicAPIApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records |
 | [**f7dd45b1747b0b72c4b617845b065a07()**](PublicAPIApi.md#f7dd45b1747b0b72c4b617845b065a07) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project |
 | [**getAListOfWhoIsOut()**](PublicAPIApi.md#getAListOfWhoIsOut) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out |
 | [**getApplicationDetails()**](PublicAPIApi.md#getApplicationDetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details |
@@ -1176,7 +1178,7 @@ try {
 call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request): mixed
 ```
 
-adjustTimeTracking
+Edit Hour Record
 
 Edit an hour record
 
@@ -1450,7 +1452,7 @@ try {
 call717faf6067928c3497fc9acbf5b91767($id): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse
 ```
 
-deleteTimeTrackingByTimeTrackingId
+Delete Hour Record
 
 Delete an hour record
 
@@ -1586,7 +1588,7 @@ try {
 call889a4c2de70a53c5ab8cb32f1c2243f5($id): \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response
 ```
 
-getTimeTrackingByTimeTrackingId
+Get Hour Record
 
 Get an hour record
 
@@ -1634,6 +1636,71 @@ try {
 ### Return type
 
 [**\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response**](../Model/889a4c2de70a53c5ab8cb32f1c2243f5200Response.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `d44e9c43fbca76b93a00a9603ba24ba1()`
+
+```php
+d44e9c43fbca76b93a00a9603ba24ba1(): \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]
+```
+
+Get all countries
+
+Get all available countries as options. Returns a list of countries with ID and name for use in forms and dropdowns.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->d44e9c43fbca76b93a00a9603ba24ba1();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->d44e9c43fbca76b93a00a9603ba24ba1: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]**](../Model/D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner.md)
 
 ### Authorization
 
@@ -2270,7 +2337,7 @@ void (empty response body)
 e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record): \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response
 ```
 
-addTimeTracking
+Add Hour Record
 
 Add an hour record
 
@@ -2400,13 +2467,81 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `ec09b0a847283ca20b79980249d44b16()`
+
+```php
+ec09b0a847283ca20b79980249d44b16($country_id): \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response
+```
+
+Get states by country ID
+
+Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$country_id = 56; // int | ID of the country to get states/provinces for
+
+try {
+    $result = $apiInstance->ec09b0a847283ca20b79980249d44b16($country_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->ec09b0a847283ca20b79980249d44b16: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country_id** | **int**| ID of the country to get states/provinces for | |
+
+### Return type
+
+[**\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response**](../Model/Ec09b0a847283ca20b79980249d44b16200Response.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `f54bcaec6771b1264671e53f2e557b1f()`
 
 ```php
 f54bcaec6771b1264671e53f2e557b1f($time_tracking_record): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response
 ```
 
-addTimeTrackingBulk
+Add/Edit Hour Records
 
 Bulk add/edit hour records
 

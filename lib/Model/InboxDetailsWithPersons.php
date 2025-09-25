@@ -64,7 +64,7 @@ class InboxDetailsWithPersons implements ModelInterface, ArrayAccess, \JsonSeria
         'details' => '\MySdk\Model\InboxDetailsWithPersonsDetailsInner[]',
         'created' => '\DateTime',
         'status' => '\MySdk\Model\InboxDetailsWithPersonsStatus',
-        'type' => '\MySdk\Model\InboxDetailsWithPersonsType',
+        'type' => '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask',
         'comments' => '\MySdk\Model\InboxDetailsWithPersonsCommentsInner[]',
         'files' => '\MySdk\Model\InboxDetailsWithPersonsFilesInner[]',
         'approver_counts' => '\MySdk\Model\InboxDetailsWithPersonsApproverCounts',
@@ -539,7 +539,7 @@ class InboxDetailsWithPersons implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets type
      *
-     * @return \MySdk\Model\InboxDetailsWithPersonsType|null
+     * @return \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask|null
      */
     public function getType()
     {
@@ -549,7 +549,7 @@ class InboxDetailsWithPersons implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets type
      *
-     * @param \MySdk\Model\InboxDetailsWithPersonsType|null $type type
+     * @param \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200ResponseProjectTask|null $type type
      *
      * @return self
      */

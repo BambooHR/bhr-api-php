@@ -140,7 +140,7 @@ class HoursApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request _22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -158,7 +158,7 @@ class HoursApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8WithHttpInfo
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -257,7 +257,7 @@ class HoursApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8Async
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -278,7 +278,7 @@ class HoursApi
     /**
      * Operation call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo
      *
-     * adjustTimeTracking
+     * Edit Hour Record
      *
      * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
@@ -433,7 +433,7 @@ class HoursApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -451,7 +451,7 @@ class HoursApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767WithHttpInfo
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -550,7 +550,7 @@ class HoursApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767Async
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -571,7 +571,7 @@ class HoursApi
     /**
      * Operation call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo
      *
-     * deleteTimeTrackingByTimeTrackingId
+     * Delete Hour Record
      *
      * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
@@ -727,7 +727,7 @@ class HoursApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -745,7 +745,7 @@ class HoursApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -844,7 +844,7 @@ class HoursApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5Async
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -865,7 +865,7 @@ class HoursApi
     /**
      * Operation call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo
      *
-     * getTimeTrackingByTimeTrackingId
+     * Get Hour Record
      *
      * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
@@ -1021,7 +1021,7 @@ class HoursApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809f
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -1039,7 +1039,7 @@ class HoursApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -1138,7 +1138,7 @@ class HoursApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809fAsync
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -1159,7 +1159,7 @@ class HoursApi
     /**
      * Operation e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo
      *
-     * addTimeTracking
+     * Add Hour Record
      *
      * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
@@ -1314,7 +1314,7 @@ class HoursApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1f
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
@@ -1332,7 +1332,7 @@ class HoursApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1fWithHttpInfo
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
@@ -1417,7 +1417,7 @@ class HoursApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1fAsync
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
@@ -1438,7 +1438,7 @@ class HoursApi
     /**
      * Operation f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo
      *
-     * addTimeTrackingBulk
+     * Add/Edit Hour Records
      *
      * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation

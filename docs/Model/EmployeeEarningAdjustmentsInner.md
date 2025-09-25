@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **compensation_period_id** | **int** |  | [optional]
 **pay_type_id** | **string** |  | [optional]
 **earnings_type** | **string** |  | [optional]
-**hour_type** | **string** |  | [optional]
+**hour_type_id** | **string** |  | [optional]
 **quantity** | **float** |  | [optional]
 **rate** | **float** |  | [optional]
 **client_job_id** | **string** |  | [optional]

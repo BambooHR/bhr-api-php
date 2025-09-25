@@ -610,7 +610,7 @@ class TimeTrackingRecord implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets rate_type
      *
-     * @param string $rate_type The type of hours - regular or overtime. Please use either \"REG\" or \"OT\" here.
+     * @param string $rate_type The type of hours - regular or overtime. Please use either \"REG\", \"OT\", or \"DT\" here.
      *
      * @return self
      */

@@ -72,7 +72,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         'cycle_window_end_ymd' => '\DateTime',
         'recommendations_due_ymd' => '\DateTime',
         'approvals_due_ymd' => '\DateTime',
-        'paycheck_ymd' => '\DateTime',
+        'paycheck_date_ymd' => '\DateTime',
         'change_communication_subject' => 'string',
         'change_communication_message_text' => 'string',
         'budget_guidelines' => '\MySdk\Model\BudgetGuidelinesDataObject',
@@ -101,7 +101,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         'cycle_window_end_ymd' => 'date',
         'recommendations_due_ymd' => 'date',
         'approvals_due_ymd' => 'date',
-        'paycheck_ymd' => 'date',
+        'paycheck_date_ymd' => 'date',
         'change_communication_subject' => null,
         'change_communication_message_text' => null,
         'budget_guidelines' => null,
@@ -128,7 +128,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         'cycle_window_end_ymd' => false,
         'recommendations_due_ymd' => true,
         'approvals_due_ymd' => true,
-        'paycheck_ymd' => true,
+        'paycheck_date_ymd' => true,
         'change_communication_subject' => true,
         'change_communication_message_text' => true,
         'budget_guidelines' => false,
@@ -235,7 +235,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         'cycle_window_end_ymd' => 'cycleWindowEndYmd',
         'recommendations_due_ymd' => 'recommendationsDueYmd',
         'approvals_due_ymd' => 'approvalsDueYmd',
-        'paycheck_ymd' => 'paycheckYmd',
+        'paycheck_date_ymd' => 'paycheckDateYmd',
         'change_communication_subject' => 'changeCommunicationSubject',
         'change_communication_message_text' => 'changeCommunicationMessageText',
         'budget_guidelines' => 'budgetGuidelines',
@@ -262,7 +262,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         'cycle_window_end_ymd' => 'setCycleWindowEndYmd',
         'recommendations_due_ymd' => 'setRecommendationsDueYmd',
         'approvals_due_ymd' => 'setApprovalsDueYmd',
-        'paycheck_ymd' => 'setPaycheckYmd',
+        'paycheck_date_ymd' => 'setPaycheckDateYmd',
         'change_communication_subject' => 'setChangeCommunicationSubject',
         'change_communication_message_text' => 'setChangeCommunicationMessageText',
         'budget_guidelines' => 'setBudgetGuidelines',
@@ -289,7 +289,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         'cycle_window_end_ymd' => 'getCycleWindowEndYmd',
         'recommendations_due_ymd' => 'getRecommendationsDueYmd',
         'approvals_due_ymd' => 'getApprovalsDueYmd',
-        'paycheck_ymd' => 'getPaycheckYmd',
+        'paycheck_date_ymd' => 'getPaycheckDateYmd',
         'change_communication_subject' => 'getChangeCommunicationSubject',
         'change_communication_message_text' => 'getChangeCommunicationMessageText',
         'budget_guidelines' => 'getBudgetGuidelines',
@@ -367,7 +367,7 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
         $this->setIfExists('cycle_window_end_ymd', $data ?? [], null);
         $this->setIfExists('recommendations_due_ymd', $data ?? [], null);
         $this->setIfExists('approvals_due_ymd', $data ?? [], null);
-        $this->setIfExists('paycheck_ymd', $data ?? [], null);
+        $this->setIfExists('paycheck_date_ymd', $data ?? [], null);
         $this->setIfExists('change_communication_subject', $data ?? [], null);
         $this->setIfExists('change_communication_message_text', $data ?? [], null);
         $this->setIfExists('budget_guidelines', $data ?? [], null);
@@ -816,35 +816,35 @@ class CompensationPlanningCycleConfigurationDataObject implements ModelInterface
     }
 
     /**
-     * Gets paycheck_ymd
+     * Gets paycheck_date_ymd
      *
      * @return \DateTime|null
      */
-    public function getPaycheckYmd()
+    public function getPaycheckDateYmd()
     {
-        return $this->container['paycheck_ymd'];
+        return $this->container['paycheck_date_ymd'];
     }
 
     /**
-     * Sets paycheck_ymd
+     * Sets paycheck_date_ymd
      *
-     * @param \DateTime|null $paycheck_ymd The due date for paycheck.
+     * @param \DateTime|null $paycheck_date_ymd The due date for paycheck.
      *
      * @return self
      */
-    public function setPaycheckYmd($paycheck_ymd)
+    public function setPaycheckDateYmd($paycheck_date_ymd)
     {
-        if (is_null($paycheck_ymd)) {
-            array_push($this->openAPINullablesSetToNull, 'paycheck_ymd');
+        if (is_null($paycheck_date_ymd)) {
+            array_push($this->openAPINullablesSetToNull, 'paycheck_date_ymd');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('paycheck_ymd', $nullablesSetToNull);
+            $index = array_search('paycheck_date_ymd', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['paycheck_ymd'] = $paycheck_ymd;
+        $this->container['paycheck_date_ymd'] = $paycheck_date_ymd;
 
         return $this;
     }

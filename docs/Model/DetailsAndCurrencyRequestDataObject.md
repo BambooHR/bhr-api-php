@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **bonus_included** | **bool** | Whether bonus is included in this cycle | [optional]
 **equity_included** | **bool** | Whether equity is included in this cycle | [optional]
 **cycle_currency_conversion_rates** | [**\MySdk\Model\ConversionRateDataObject[]**](ConversionRateDataObject.md) | Currency conversion rates | [optional]
+**paycheck_date_ymd** | **\DateTime** | Date of first paycheck with new compensation updates | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

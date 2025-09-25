@@ -71,7 +71,8 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         'cycle_effective_date' => 'string',
         'cycle_currency_conversion_rates' => '\MySdk\Model\ConversionRateDataObject[]',
         'cycle_status' => 'string',
-        'needs_v1_migration' => 'bool'
+        'needs_v1_migration' => 'bool',
+        'paycheck_date_ymd' => 'string'
     ];
 
     /**
@@ -95,7 +96,8 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         'cycle_effective_date' => null,
         'cycle_currency_conversion_rates' => null,
         'cycle_status' => null,
-        'needs_v1_migration' => null
+        'needs_v1_migration' => null,
+        'paycheck_date_ymd' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         'cycle_effective_date' => false,
         'cycle_currency_conversion_rates' => false,
         'cycle_status' => false,
-        'needs_v1_migration' => false
+        'needs_v1_migration' => false,
+        'paycheck_date_ymd' => true
     ];
 
     /**
@@ -219,7 +222,8 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         'cycle_effective_date' => 'cycleEffectiveDate',
         'cycle_currency_conversion_rates' => 'cycleCurrencyConversionRates',
         'cycle_status' => 'cycleStatus',
-        'needs_v1_migration' => 'needsV1Migration'
+        'needs_v1_migration' => 'needsV1Migration',
+        'paycheck_date_ymd' => 'paycheckDateYmd'
     ];
 
     /**
@@ -241,7 +245,8 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         'cycle_effective_date' => 'setCycleEffectiveDate',
         'cycle_currency_conversion_rates' => 'setCycleCurrencyConversionRates',
         'cycle_status' => 'setCycleStatus',
-        'needs_v1_migration' => 'setNeedsV1Migration'
+        'needs_v1_migration' => 'setNeedsV1Migration',
+        'paycheck_date_ymd' => 'setPaycheckDateYmd'
     ];
 
     /**
@@ -263,7 +268,8 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         'cycle_effective_date' => 'getCycleEffectiveDate',
         'cycle_currency_conversion_rates' => 'getCycleCurrencyConversionRates',
         'cycle_status' => 'getCycleStatus',
-        'needs_v1_migration' => 'getNeedsV1Migration'
+        'needs_v1_migration' => 'getNeedsV1Migration',
+        'paycheck_date_ymd' => 'getPaycheckDateYmd'
     ];
 
     /**
@@ -337,6 +343,7 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
         $this->setIfExists('cycle_currency_conversion_rates', $data ?? [], null);
         $this->setIfExists('cycle_status', $data ?? [], null);
         $this->setIfExists('needs_v1_migration', $data ?? [], null);
+        $this->setIfExists('paycheck_date_ymd', $data ?? [], null);
     }
 
     /**
@@ -769,6 +776,40 @@ class DetailsAndCurrencyResponseDataObject implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable needs_v1_migration cannot be null');
         }
         $this->container['needs_v1_migration'] = $needs_v1_migration;
+
+        return $this;
+    }
+
+    /**
+     * Gets paycheck_date_ymd
+     *
+     * @return string|null
+     */
+    public function getPaycheckDateYmd()
+    {
+        return $this->container['paycheck_date_ymd'];
+    }
+
+    /**
+     * Sets paycheck_date_ymd
+     *
+     * @param string|null $paycheck_date_ymd Date of first paycheck with new compensation updates
+     *
+     * @return self
+     */
+    public function setPaycheckDateYmd($paycheck_date_ymd)
+    {
+        if (is_null($paycheck_date_ymd)) {
+            array_push($this->openAPINullablesSetToNull, 'paycheck_date_ymd');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('paycheck_date_ymd', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['paycheck_date_ymd'] = $paycheck_date_ymd;
 
         return $this;
     }

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  MySdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace MySdk\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,57 +35,65 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description F54bcaec6771b1264671e53f2e557b1f201Response
- * @package     OpenAPI\Client
+ * @package     MySdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class F54bcaec6771b1264671e53f2e557b1f201ResponseTest extends TestCase {
+class F54bcaec6771b1264671e53f2e557b1f201ResponseTest extends TestCase
+{
 
-	/**
-	 * Setup before running any test case
-	 */
-	public static function setUpBeforeClass(): void {
-	}
+    /**
+     * Setup before running any test case
+     */
+    public static function setUpBeforeClass(): void
+    {
+    }
 
-	/**
-	 * Setup before running each test case
-	 */
-	public function setUp(): void {
-	}
+    /**
+     * Setup before running each test case
+     */
+    public function setUp(): void
+    {
+    }
 
-	/**
-	 * Clean up after running each test case
-	 */
-	public function tearDown(): void {
-	}
+    /**
+     * Clean up after running each test case
+     */
+    public function tearDown(): void
+    {
+    }
 
-	/**
-	 * Clean up after running all test cases
-	 */
-	public static function tearDownAfterClass(): void {
-	}
+    /**
+     * Clean up after running all test cases
+     */
+    public static function tearDownAfterClass(): void
+    {
+    }
 
-	/**
-	 * Test "F54bcaec6771b1264671e53f2e557b1f201Response"
-	 */
-	public function testF54bcaec6771b1264671e53f2e557b1f201Response() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test "F54bcaec6771b1264671e53f2e557b1f201Response"
+     */
+    public function testF54bcaec6771b1264671e53f2e557b1f201Response()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "success"
-	 */
-	public function testPropertySuccess() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "success"
+     */
+    public function testPropertySuccess()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 
-	/**
-	 * Test attribute "response"
-	 */
-	public function testPropertyResponse() {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
+    /**
+     * Test attribute "response"
+     */
+    public function testPropertyResponse()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **is_in_trial** | **bool** |  | [optional]
 **is_in_grace_period** | **bool** |  | [optional]
 **integrations** | [**\MySdk\Model\ManageSubscriptionResponseIntegrationsInner[]**](ManageSubscriptionResponseIntegrationsInner.md) | A list of integrations enabled for the company, each with integration details. Returned only if there are integrations enabled. | [optional]
+**paid_integrations** | [**\MySdk\Model\ManageSubscriptionResponsePaidIntegrationsInner[]**](ManageSubscriptionResponsePaidIntegrationsInner.md) | A list of active paid integration identifiers. Returned only if there are paid integrations. | [optional]
 **integration_expansions** | [**\MySdk\Model\ManageSubscriptionResponseIntegrationExpansionsInner[]**](ManageSubscriptionResponseIntegrationExpansionsInner.md) | A list of potential integration expansions available for the company. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
