@@ -1619,16 +1619,16 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee
      *
      * @param  string $employee_id employee_id (required)
-     * @param  object[] $request_body request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-        $this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $request_body, $contentType);
+        $this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
     }
 
     /**
@@ -1637,16 +1637,16 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $request_body, $contentType);
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1687,15 +1687,15 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsync($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsync($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
-        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $request_body, $contentType)
+        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1709,16 +1709,16 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
         $returnType = '';
-        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $request_body, $contentType);
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1747,13 +1747,13 @@ class TimeOffApi
      * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployee'
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployee'][0])
     {
 
         // verify the required parameter 'employee_id' is set
@@ -1763,10 +1763,10 @@ class TimeOffApi
             );
         }
 
-        // verify the required parameter 'request_body' is set
-        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
+        // verify the required parameter 'time_off_assign_time_off_policies_for_an_employee_request_inner' is set
+        if ($time_off_assign_time_off_policies_for_an_employee_request_inner === null || (is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) && count($time_off_assign_time_off_policies_for_an_employee_request_inner) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $request_body when calling timeOffAssignTimeOffPoliciesForAnEmployee'
+                'Missing the required parameter $time_off_assign_time_off_policies_for_an_employee_request_inner when calling timeOffAssignTimeOffPoliciesForAnEmployee'
             );
         }
 
@@ -1797,12 +1797,12 @@ class TimeOffApi
         );
 
         // for model (json/xml)
-        if (isset($request_body)) {
+        if (isset($time_off_assign_time_off_policies_for_an_employee_request_inner)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
             } else {
-                $httpBody = $request_body;
+                $httpBody = $time_off_assign_time_off_policies_for_an_employee_request_inner;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1868,16 +1868,16 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee, Version 1.1
      *
      * @param  string $employee_id employee_id (required)
-     * @param  object[] $request_body request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
     {
-        $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $request_body, $contentType);
+        $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
     }
 
     /**
@@ -1886,16 +1886,16 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee, Version 1.1
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
     {
-        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $request_body, $contentType);
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1936,15 +1936,15 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee, Version 1.1
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Async($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Async($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
     {
-        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $request_body, $contentType)
+        return $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1958,16 +1958,16 @@ class TimeOffApi
      * Assign Time Off Policies for an Employee, Version 1.1
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
     {
         $returnType = '';
-        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $request_body, $contentType);
+        $request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1996,13 +1996,13 @@ class TimeOffApi
      * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
      *
      * @param  string $employee_id (required)
-     * @param  object[] $request_body (required)
+     * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $request_body, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
+    public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::contentTypes['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0])
     {
 
         // verify the required parameter 'employee_id' is set
@@ -2012,10 +2012,10 @@ class TimeOffApi
             );
         }
 
-        // verify the required parameter 'request_body' is set
-        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
+        // verify the required parameter 'time_off_assign_time_off_policies_for_an_employee_request_inner' is set
+        if ($time_off_assign_time_off_policies_for_an_employee_request_inner === null || (is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) && count($time_off_assign_time_off_policies_for_an_employee_request_inner) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $request_body when calling timeOffAssignTimeOffPoliciesForAnEmployeeV11'
+                'Missing the required parameter $time_off_assign_time_off_policies_for_an_employee_request_inner when calling timeOffAssignTimeOffPoliciesForAnEmployeeV11'
             );
         }
 
@@ -2046,12 +2046,12 @@ class TimeOffApi
         );
 
         // for model (json/xml)
-        if (isset($request_body)) {
+        if (isset($time_off_assign_time_off_policies_for_an_employee_request_inner)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
             } else {
-                $httpBody = $request_body;
+                $httpBody = $time_off_assign_time_off_policies_for_an_employee_request_inner;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -74,28 +74,28 @@ class TimeTrackingApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'ca54fa4c1d42864a2540f7f7600e0d65' => [
+        'addEditTimesheetClockEntries' => [
+            'application/json',
+        ],
+        'addEditTimesheetHourEntries' => [
+            'application/json',
+        ],
+        'addTimesheetClockInEntry' => [
+            'application/json',
+        ],
+        'addTimesheetClockOutEntry' => [
             'application/json',
         ],
         'call134f6593587d7195536c151bd65eb6d5' => [
             'application/json',
         ],
-        'call3b7487d1d17551f6c3e2567b96089ce1' => [
+        'createTimeTrackingProject' => [
             'application/json',
         ],
-        'call408a4478cbd2b1b5811ba6228e2898df' => [
+        'deleteTimesheetClockEntriesViaPost' => [
             'application/json',
         ],
-        'call43c7cc099ca54295a047f449824fc0dd' => [
-            'application/json',
-        ],
-        'call7bb9fedfad942b8839bc61a125e7c255' => [
-            'application/json',
-        ],
-        'e9a47e93524609b981be6139822d219e' => [
-            'application/json',
-        ],
-        'f7dd45b1747b0b72c4b617845b065a07' => [
+        'deleteTimesheetHourEntriesViaPost' => [
             'application/json',
         ],
     ];
@@ -147,40 +147,1117 @@ class TimeTrackingApi
     }
 
     /**
-     * Operation ca54fa4c1d42864a2540f7f7600e0d65
+     * Operation addEditTimesheetClockEntries
+     *
+     * Add/Edit Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetClockEntries'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
+     */
+    public function addEditTimesheetClockEntries($clock_entries_schema = null, string $contentType = self::contentTypes['addEditTimesheetClockEntries'][0])
+    {
+        list($response) = $this->addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation addEditTimesheetClockEntriesWithHttpInfo
+     *
+     * Add/Edit Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetClockEntries'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema = null, string $contentType = self::contentTypes['addEditTimesheetClockEntries'][0])
+    {
+        $request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 406:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addEditTimesheetClockEntriesAsync
+     *
+     * Add/Edit Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetClockEntries'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addEditTimesheetClockEntriesAsync($clock_entries_schema = null, string $contentType = self::contentTypes['addEditTimesheetClockEntries'][0])
+    {
+        return $this->addEditTimesheetClockEntriesAsyncWithHttpInfo($clock_entries_schema, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addEditTimesheetClockEntriesAsyncWithHttpInfo
+     *
+     * Add/Edit Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetClockEntries'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addEditTimesheetClockEntriesAsyncWithHttpInfo($clock_entries_schema = null, string $contentType = self::contentTypes['addEditTimesheetClockEntries'][0])
+    {
+        $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
+        $request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addEditTimesheetClockEntries'
+     *
+     * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetClockEntries'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function addEditTimesheetClockEntriesRequest($clock_entries_schema = null, string $contentType = self::contentTypes['addEditTimesheetClockEntries'][0])
+    {
+
+
+
+        $resourcePath = '/api/v1/time_tracking/clock_entries/store';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($clock_entries_schema)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_entries_schema));
+            } else {
+                $httpBody = $clock_entries_schema;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation addEditTimesheetHourEntries
+     *
+     * Add/Edit Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetHourEntries'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
+     */
+    public function addEditTimesheetHourEntries($hour_entries_request_schema = null, string $contentType = self::contentTypes['addEditTimesheetHourEntries'][0])
+    {
+        list($response) = $this->addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation addEditTimesheetHourEntriesWithHttpInfo
+     *
+     * Add/Edit Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetHourEntries'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::contentTypes['addEditTimesheetHourEntries'][0])
+    {
+        $request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 406:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addEditTimesheetHourEntriesAsync
+     *
+     * Add/Edit Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetHourEntries'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addEditTimesheetHourEntriesAsync($hour_entries_request_schema = null, string $contentType = self::contentTypes['addEditTimesheetHourEntries'][0])
+    {
+        return $this->addEditTimesheetHourEntriesAsyncWithHttpInfo($hour_entries_request_schema, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addEditTimesheetHourEntriesAsyncWithHttpInfo
+     *
+     * Add/Edit Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetHourEntries'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addEditTimesheetHourEntriesAsyncWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::contentTypes['addEditTimesheetHourEntries'][0])
+    {
+        $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
+        $request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addEditTimesheetHourEntries'
+     *
+     * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addEditTimesheetHourEntries'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function addEditTimesheetHourEntriesRequest($hour_entries_request_schema = null, string $contentType = self::contentTypes['addEditTimesheetHourEntries'][0])
+    {
+
+
+
+        $resourcePath = '/api/v1/time_tracking/hour_entries/store';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($hour_entries_request_schema)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($hour_entries_request_schema));
+            } else {
+                $httpBody = $hour_entries_request_schema;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation addTimesheetClockInEntry
+     *
+     * Add Timesheet Clock-In Entry
+     *
+     * @param  int $employee_id ID of the employee to clock in. (required)
+     * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockInEntry'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed
+     */
+    public function addTimesheetClockInEntry($employee_id, $clock_in_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockInEntry'][0])
+    {
+        list($response) = $this->addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation addTimesheetClockInEntryWithHttpInfo
+     *
+     * Add Timesheet Clock-In Entry
+     *
+     * @param  int $employee_id ID of the employee to clock in. (required)
+     * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockInEntry'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockInEntry'][0])
+    {
+        $request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\TimesheetEntryInfoApiTransformer',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 406:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\TimesheetEntryInfoApiTransformer',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\TimesheetEntryInfoApiTransformer',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addTimesheetClockInEntryAsync
+     *
+     * Add Timesheet Clock-In Entry
+     *
+     * @param  int $employee_id ID of the employee to clock in. (required)
+     * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockInEntry'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addTimesheetClockInEntryAsync($employee_id, $clock_in_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockInEntry'][0])
+    {
+        return $this->addTimesheetClockInEntryAsyncWithHttpInfo($employee_id, $clock_in_request_schema, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addTimesheetClockInEntryAsyncWithHttpInfo
+     *
+     * Add Timesheet Clock-In Entry
+     *
+     * @param  int $employee_id ID of the employee to clock in. (required)
+     * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockInEntry'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addTimesheetClockInEntryAsyncWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockInEntry'][0])
+    {
+        $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
+        $request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addTimesheetClockInEntry'
+     *
+     * @param  int $employee_id ID of the employee to clock in. (required)
+     * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockInEntry'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockInEntry'][0])
+    {
+
+        // verify the required parameter 'employee_id' is set
+        if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $employee_id when calling addTimesheetClockInEntry'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($employee_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'employeeId' . '}',
+                ObjectSerializer::toPathValue($employee_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($clock_in_request_schema)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_in_request_schema));
+            } else {
+                $httpBody = $clock_in_request_schema;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation addTimesheetClockOutEntry
      *
      * Add Timesheet Clock-Out Entry
      *
      * @param  int $employee_id ID of the employee to clock out. (required)
-     * @param  \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request|null $ca54fa4c1d42864a2540f7f7600e0d65_request ca54fa4c1d42864a2540f7f7600e0d65_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'] to see the possible values for this operation
+     * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockOutEntry'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed
      */
-    public function ca54fa4c1d42864a2540f7f7600e0d65($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request = null, string $contentType = self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'][0])
+    public function addTimesheetClockOutEntry($employee_id, $clock_out_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockOutEntry'][0])
     {
-        list($response) = $this->ca54fa4c1d42864a2540f7f7600e0d65WithHttpInfo($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request, $contentType);
+        list($response) = $this->addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema, $contentType);
         return $response;
     }
 
     /**
-     * Operation ca54fa4c1d42864a2540f7f7600e0d65WithHttpInfo
+     * Operation addTimesheetClockOutEntryWithHttpInfo
      *
      * Add Timesheet Clock-Out Entry
      *
      * @param  int $employee_id ID of the employee to clock out. (required)
-     * @param  \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request|null $ca54fa4c1d42864a2540f7f7600e0d65_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'] to see the possible values for this operation
+     * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockOutEntry'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ca54fa4c1d42864a2540f7f7600e0d65WithHttpInfo($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request = null, string $contentType = self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'][0])
+    public function addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockOutEntry'][0])
     {
-        $request = $this->ca54fa4c1d42864a2540f7f7600e0d65Request($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request, $contentType);
+        $request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -336,20 +1413,20 @@ class TimeTrackingApi
     }
 
     /**
-     * Operation ca54fa4c1d42864a2540f7f7600e0d65Async
+     * Operation addTimesheetClockOutEntryAsync
      *
      * Add Timesheet Clock-Out Entry
      *
      * @param  int $employee_id ID of the employee to clock out. (required)
-     * @param  \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request|null $ca54fa4c1d42864a2540f7f7600e0d65_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'] to see the possible values for this operation
+     * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockOutEntry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ca54fa4c1d42864a2540f7f7600e0d65Async($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request = null, string $contentType = self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'][0])
+    public function addTimesheetClockOutEntryAsync($employee_id, $clock_out_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockOutEntry'][0])
     {
-        return $this->ca54fa4c1d42864a2540f7f7600e0d65AsyncWithHttpInfo($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request, $contentType)
+        return $this->addTimesheetClockOutEntryAsyncWithHttpInfo($employee_id, $clock_out_request_schema, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -358,21 +1435,21 @@ class TimeTrackingApi
     }
 
     /**
-     * Operation ca54fa4c1d42864a2540f7f7600e0d65AsyncWithHttpInfo
+     * Operation addTimesheetClockOutEntryAsyncWithHttpInfo
      *
      * Add Timesheet Clock-Out Entry
      *
      * @param  int $employee_id ID of the employee to clock out. (required)
-     * @param  \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request|null $ca54fa4c1d42864a2540f7f7600e0d65_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'] to see the possible values for this operation
+     * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockOutEntry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ca54fa4c1d42864a2540f7f7600e0d65AsyncWithHttpInfo($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request = null, string $contentType = self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'][0])
+    public function addTimesheetClockOutEntryAsyncWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockOutEntry'][0])
     {
         $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
-        $request = $this->ca54fa4c1d42864a2540f7f7600e0d65Request($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request, $contentType);
+        $request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -411,22 +1488,22 @@ class TimeTrackingApi
     }
 
     /**
-     * Create request for operation 'ca54fa4c1d42864a2540f7f7600e0d65'
+     * Create request for operation 'addTimesheetClockOutEntry'
      *
      * @param  int $employee_id ID of the employee to clock out. (required)
-     * @param  \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request|null $ca54fa4c1d42864a2540f7f7600e0d65_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'] to see the possible values for this operation
+     * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimesheetClockOutEntry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ca54fa4c1d42864a2540f7f7600e0d65Request($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request = null, string $contentType = self::contentTypes['ca54fa4c1d42864a2540f7f7600e0d65'][0])
+    public function addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema = null, string $contentType = self::contentTypes['addTimesheetClockOutEntry'][0])
     {
 
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $employee_id when calling ca54fa4c1d42864a2540f7f7600e0d65'
+                'Missing the required parameter $employee_id when calling addTimesheetClockOutEntry'
             );
         }
 
@@ -458,12 +1535,12 @@ class TimeTrackingApi
         );
 
         // for model (json/xml)
-        if (isset($ca54fa4c1d42864a2540f7f7600e0d65_request)) {
+        if (isset($clock_out_request_schema)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ca54fa4c1d42864a2540f7f7600e0d65_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_out_request_schema));
             } else {
-                $httpBody = $ca54fa4c1d42864a2540f7f7600e0d65_request;
+                $httpBody = $clock_out_request_schema;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -900,1849 +1977,38 @@ class TimeTrackingApi
     }
 
     /**
-     * Operation call3b7487d1d17551f6c3e2567b96089ce1
-     *
-     * Add/Edit Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request|null $_3b7487d1d17551f6c3e2567b96089ce1_request _3b7487d1d17551f6c3e2567b96089ce1_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
-     */
-    public function call3b7487d1d17551f6c3e2567b96089ce1($_3b7487d1d17551f6c3e2567b96089ce1_request = null, string $contentType = self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'][0])
-    {
-        list($response) = $this->call3b7487d1d17551f6c3e2567b96089ce1WithHttpInfo($_3b7487d1d17551f6c3e2567b96089ce1_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation call3b7487d1d17551f6c3e2567b96089ce1WithHttpInfo
-     *
-     * Add/Edit Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request|null $_3b7487d1d17551f6c3e2567b96089ce1_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function call3b7487d1d17551f6c3e2567b96089ce1WithHttpInfo($_3b7487d1d17551f6c3e2567b96089ce1_request = null, string $contentType = self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'][0])
-    {
-        $request = $this->call3b7487d1d17551f6c3e2567b96089ce1Request($_3b7487d1d17551f6c3e2567b96089ce1_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 406:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 409:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation call3b7487d1d17551f6c3e2567b96089ce1Async
-     *
-     * Add/Edit Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request|null $_3b7487d1d17551f6c3e2567b96089ce1_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call3b7487d1d17551f6c3e2567b96089ce1Async($_3b7487d1d17551f6c3e2567b96089ce1_request = null, string $contentType = self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'][0])
-    {
-        return $this->call3b7487d1d17551f6c3e2567b96089ce1AsyncWithHttpInfo($_3b7487d1d17551f6c3e2567b96089ce1_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation call3b7487d1d17551f6c3e2567b96089ce1AsyncWithHttpInfo
-     *
-     * Add/Edit Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request|null $_3b7487d1d17551f6c3e2567b96089ce1_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call3b7487d1d17551f6c3e2567b96089ce1AsyncWithHttpInfo($_3b7487d1d17551f6c3e2567b96089ce1_request = null, string $contentType = self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'][0])
-    {
-        $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
-        $request = $this->call3b7487d1d17551f6c3e2567b96089ce1Request($_3b7487d1d17551f6c3e2567b96089ce1_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'call3b7487d1d17551f6c3e2567b96089ce1'
-     *
-     * @param  \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request|null $_3b7487d1d17551f6c3e2567b96089ce1_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function call3b7487d1d17551f6c3e2567b96089ce1Request($_3b7487d1d17551f6c3e2567b96089ce1_request = null, string $contentType = self::contentTypes['call3b7487d1d17551f6c3e2567b96089ce1'][0])
-    {
-
-
-
-        $resourcePath = '/api/v1/time_tracking/clock_entries/store';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($_3b7487d1d17551f6c3e2567b96089ce1_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_3b7487d1d17551f6c3e2567b96089ce1_request));
-            } else {
-                $httpBody = $_3b7487d1d17551f6c3e2567b96089ce1_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation call408a4478cbd2b1b5811ba6228e2898df
-     *
-     * Delete Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest $_408a4478cbd2b1b5811ba6228e2898df_request _408a4478cbd2b1b5811ba6228e2898df_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed
-     */
-    public function call408a4478cbd2b1b5811ba6228e2898df($_408a4478cbd2b1b5811ba6228e2898df_request, string $contentType = self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'][0])
-    {
-        list($response) = $this->call408a4478cbd2b1b5811ba6228e2898dfWithHttpInfo($_408a4478cbd2b1b5811ba6228e2898df_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation call408a4478cbd2b1b5811ba6228e2898dfWithHttpInfo
-     *
-     * Delete Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest $_408a4478cbd2b1b5811ba6228e2898df_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function call408a4478cbd2b1b5811ba6228e2898dfWithHttpInfo($_408a4478cbd2b1b5811ba6228e2898df_request, string $contentType = self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'][0])
-    {
-        $request = $this->call408a4478cbd2b1b5811ba6228e2898dfRequest($_408a4478cbd2b1b5811ba6228e2898df_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 204:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 409:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 412:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                'mixed',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 204:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 412:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation call408a4478cbd2b1b5811ba6228e2898dfAsync
-     *
-     * Delete Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest $_408a4478cbd2b1b5811ba6228e2898df_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call408a4478cbd2b1b5811ba6228e2898dfAsync($_408a4478cbd2b1b5811ba6228e2898df_request, string $contentType = self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'][0])
-    {
-        return $this->call408a4478cbd2b1b5811ba6228e2898dfAsyncWithHttpInfo($_408a4478cbd2b1b5811ba6228e2898df_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation call408a4478cbd2b1b5811ba6228e2898dfAsyncWithHttpInfo
-     *
-     * Delete Timesheet Clock Entries
-     *
-     * @param  \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest $_408a4478cbd2b1b5811ba6228e2898df_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call408a4478cbd2b1b5811ba6228e2898dfAsyncWithHttpInfo($_408a4478cbd2b1b5811ba6228e2898df_request, string $contentType = self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'][0])
-    {
-        $returnType = 'mixed';
-        $request = $this->call408a4478cbd2b1b5811ba6228e2898dfRequest($_408a4478cbd2b1b5811ba6228e2898df_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'call408a4478cbd2b1b5811ba6228e2898df'
-     *
-     * @param  \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest $_408a4478cbd2b1b5811ba6228e2898df_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function call408a4478cbd2b1b5811ba6228e2898dfRequest($_408a4478cbd2b1b5811ba6228e2898df_request, string $contentType = self::contentTypes['call408a4478cbd2b1b5811ba6228e2898df'][0])
-    {
-
-        // verify the required parameter '_408a4478cbd2b1b5811ba6228e2898df_request' is set
-        if ($_408a4478cbd2b1b5811ba6228e2898df_request === null || (is_array($_408a4478cbd2b1b5811ba6228e2898df_request) && count($_408a4478cbd2b1b5811ba6228e2898df_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $_408a4478cbd2b1b5811ba6228e2898df_request when calling call408a4478cbd2b1b5811ba6228e2898df'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/time_tracking/clock_entries/delete';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($_408a4478cbd2b1b5811ba6228e2898df_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_408a4478cbd2b1b5811ba6228e2898df_request));
-            } else {
-                $httpBody = $_408a4478cbd2b1b5811ba6228e2898df_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation call43c7cc099ca54295a047f449824fc0dd
-     *
-     * Add Timesheet Clock-In Entry
-     *
-     * @param  int $employee_id ID of the employee to clock in. (required)
-     * @param  \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest|null $_43c7cc099ca54295a047f449824fc0dd_request _43c7cc099ca54295a047f449824fc0dd_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed
-     */
-    public function call43c7cc099ca54295a047f449824fc0dd($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request = null, string $contentType = self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'][0])
-    {
-        list($response) = $this->call43c7cc099ca54295a047f449824fc0ddWithHttpInfo($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation call43c7cc099ca54295a047f449824fc0ddWithHttpInfo
-     *
-     * Add Timesheet Clock-In Entry
-     *
-     * @param  int $employee_id ID of the employee to clock in. (required)
-     * @param  \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest|null $_43c7cc099ca54295a047f449824fc0dd_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function call43c7cc099ca54295a047f449824fc0ddWithHttpInfo($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request = null, string $contentType = self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'][0])
-    {
-        $request = $this->call43c7cc099ca54295a047f449824fc0ddRequest($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\TimesheetEntryInfoApiTransformer',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 406:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 409:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\TimesheetEntryInfoApiTransformer',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\TimesheetEntryInfoApiTransformer',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation call43c7cc099ca54295a047f449824fc0ddAsync
-     *
-     * Add Timesheet Clock-In Entry
-     *
-     * @param  int $employee_id ID of the employee to clock in. (required)
-     * @param  \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest|null $_43c7cc099ca54295a047f449824fc0dd_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call43c7cc099ca54295a047f449824fc0ddAsync($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request = null, string $contentType = self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'][0])
-    {
-        return $this->call43c7cc099ca54295a047f449824fc0ddAsyncWithHttpInfo($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation call43c7cc099ca54295a047f449824fc0ddAsyncWithHttpInfo
-     *
-     * Add Timesheet Clock-In Entry
-     *
-     * @param  int $employee_id ID of the employee to clock in. (required)
-     * @param  \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest|null $_43c7cc099ca54295a047f449824fc0dd_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call43c7cc099ca54295a047f449824fc0ddAsyncWithHttpInfo($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request = null, string $contentType = self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'][0])
-    {
-        $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
-        $request = $this->call43c7cc099ca54295a047f449824fc0ddRequest($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'call43c7cc099ca54295a047f449824fc0dd'
-     *
-     * @param  int $employee_id ID of the employee to clock in. (required)
-     * @param  \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest|null $_43c7cc099ca54295a047f449824fc0dd_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function call43c7cc099ca54295a047f449824fc0ddRequest($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request = null, string $contentType = self::contentTypes['call43c7cc099ca54295a047f449824fc0dd'][0])
-    {
-
-        // verify the required parameter 'employee_id' is set
-        if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $employee_id when calling call43c7cc099ca54295a047f449824fc0dd'
-            );
-        }
-
-
-
-        $resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($employee_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'employeeId' . '}',
-                ObjectSerializer::toPathValue($employee_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($_43c7cc099ca54295a047f449824fc0dd_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_43c7cc099ca54295a047f449824fc0dd_request));
-            } else {
-                $httpBody = $_43c7cc099ca54295a047f449824fc0dd_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation call7bb9fedfad942b8839bc61a125e7c255
-     *
-     * Delete Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request|null $_7bb9fedfad942b8839bc61a125e7c255_request _7bb9fedfad942b8839bc61a125e7c255_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed
-     */
-    public function call7bb9fedfad942b8839bc61a125e7c255($_7bb9fedfad942b8839bc61a125e7c255_request = null, string $contentType = self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'][0])
-    {
-        list($response) = $this->call7bb9fedfad942b8839bc61a125e7c255WithHttpInfo($_7bb9fedfad942b8839bc61a125e7c255_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation call7bb9fedfad942b8839bc61a125e7c255WithHttpInfo
-     *
-     * Delete Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request|null $_7bb9fedfad942b8839bc61a125e7c255_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function call7bb9fedfad942b8839bc61a125e7c255WithHttpInfo($_7bb9fedfad942b8839bc61a125e7c255_request = null, string $contentType = self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'][0])
-    {
-        $request = $this->call7bb9fedfad942b8839bc61a125e7c255Request($_7bb9fedfad942b8839bc61a125e7c255_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 204:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 406:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 409:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 412:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                'mixed',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 204:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 412:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation call7bb9fedfad942b8839bc61a125e7c255Async
-     *
-     * Delete Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request|null $_7bb9fedfad942b8839bc61a125e7c255_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call7bb9fedfad942b8839bc61a125e7c255Async($_7bb9fedfad942b8839bc61a125e7c255_request = null, string $contentType = self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'][0])
-    {
-        return $this->call7bb9fedfad942b8839bc61a125e7c255AsyncWithHttpInfo($_7bb9fedfad942b8839bc61a125e7c255_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation call7bb9fedfad942b8839bc61a125e7c255AsyncWithHttpInfo
-     *
-     * Delete Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request|null $_7bb9fedfad942b8839bc61a125e7c255_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function call7bb9fedfad942b8839bc61a125e7c255AsyncWithHttpInfo($_7bb9fedfad942b8839bc61a125e7c255_request = null, string $contentType = self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'][0])
-    {
-        $returnType = 'mixed';
-        $request = $this->call7bb9fedfad942b8839bc61a125e7c255Request($_7bb9fedfad942b8839bc61a125e7c255_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'call7bb9fedfad942b8839bc61a125e7c255'
-     *
-     * @param  \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request|null $_7bb9fedfad942b8839bc61a125e7c255_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function call7bb9fedfad942b8839bc61a125e7c255Request($_7bb9fedfad942b8839bc61a125e7c255_request = null, string $contentType = self::contentTypes['call7bb9fedfad942b8839bc61a125e7c255'][0])
-    {
-
-
-
-        $resourcePath = '/api/v1/time_tracking/hour_entries/delete';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($_7bb9fedfad942b8839bc61a125e7c255_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_7bb9fedfad942b8839bc61a125e7c255_request));
-            } else {
-                $httpBody = $_7bb9fedfad942b8839bc61a125e7c255_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation e9a47e93524609b981be6139822d219e
-     *
-     * Add/Edit Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\E9a47e93524609b981be6139822d219eRequest|null $e9a47e93524609b981be6139822d219e_request e9a47e93524609b981be6139822d219e_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e9a47e93524609b981be6139822d219e'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
-     */
-    public function e9a47e93524609b981be6139822d219e($e9a47e93524609b981be6139822d219e_request = null, string $contentType = self::contentTypes['e9a47e93524609b981be6139822d219e'][0])
-    {
-        list($response) = $this->e9a47e93524609b981be6139822d219eWithHttpInfo($e9a47e93524609b981be6139822d219e_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation e9a47e93524609b981be6139822d219eWithHttpInfo
-     *
-     * Add/Edit Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\E9a47e93524609b981be6139822d219eRequest|null $e9a47e93524609b981be6139822d219e_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e9a47e93524609b981be6139822d219e'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function e9a47e93524609b981be6139822d219eWithHttpInfo($e9a47e93524609b981be6139822d219e_request = null, string $contentType = self::contentTypes['e9a47e93524609b981be6139822d219e'][0])
-    {
-        $request = $this->e9a47e93524609b981be6139822d219eRequest($e9a47e93524609b981be6139822d219e_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 406:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 409:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation e9a47e93524609b981be6139822d219eAsync
-     *
-     * Add/Edit Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\E9a47e93524609b981be6139822d219eRequest|null $e9a47e93524609b981be6139822d219e_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e9a47e93524609b981be6139822d219e'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function e9a47e93524609b981be6139822d219eAsync($e9a47e93524609b981be6139822d219e_request = null, string $contentType = self::contentTypes['e9a47e93524609b981be6139822d219e'][0])
-    {
-        return $this->e9a47e93524609b981be6139822d219eAsyncWithHttpInfo($e9a47e93524609b981be6139822d219e_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation e9a47e93524609b981be6139822d219eAsyncWithHttpInfo
-     *
-     * Add/Edit Timesheet Hour Entries
-     *
-     * @param  \MySdk\Model\E9a47e93524609b981be6139822d219eRequest|null $e9a47e93524609b981be6139822d219e_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e9a47e93524609b981be6139822d219e'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function e9a47e93524609b981be6139822d219eAsyncWithHttpInfo($e9a47e93524609b981be6139822d219e_request = null, string $contentType = self::contentTypes['e9a47e93524609b981be6139822d219e'][0])
-    {
-        $returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
-        $request = $this->e9a47e93524609b981be6139822d219eRequest($e9a47e93524609b981be6139822d219e_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'e9a47e93524609b981be6139822d219e'
-     *
-     * @param  \MySdk\Model\E9a47e93524609b981be6139822d219eRequest|null $e9a47e93524609b981be6139822d219e_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e9a47e93524609b981be6139822d219e'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function e9a47e93524609b981be6139822d219eRequest($e9a47e93524609b981be6139822d219e_request = null, string $contentType = self::contentTypes['e9a47e93524609b981be6139822d219e'][0])
-    {
-
-
-
-        $resourcePath = '/api/v1/time_tracking/hour_entries/store';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($e9a47e93524609b981be6139822d219e_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($e9a47e93524609b981be6139822d219e_request));
-            } else {
-                $httpBody = $e9a47e93524609b981be6139822d219e_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation f7dd45b1747b0b72c4b617845b065a07
+     * Operation createTimeTrackingProject
      *
      * Create Time Tracking Project
      *
-     * @param  \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request|null $f7dd45b1747b0b72c4b617845b065a07_request f7dd45b1747b0b72c4b617845b065a07_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'] to see the possible values for this operation
+     * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema project_create_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeTrackingProject'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
      */
-    public function f7dd45b1747b0b72c4b617845b065a07($f7dd45b1747b0b72c4b617845b065a07_request = null, string $contentType = self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'][0])
+    public function createTimeTrackingProject($project_create_request_schema = null, string $contentType = self::contentTypes['createTimeTrackingProject'][0])
     {
-        list($response) = $this->f7dd45b1747b0b72c4b617845b065a07WithHttpInfo($f7dd45b1747b0b72c4b617845b065a07_request, $contentType);
+        list($response) = $this->createTimeTrackingProjectWithHttpInfo($project_create_request_schema, $contentType);
         return $response;
     }
 
     /**
-     * Operation f7dd45b1747b0b72c4b617845b065a07WithHttpInfo
+     * Operation createTimeTrackingProjectWithHttpInfo
      *
      * Create Time Tracking Project
      *
-     * @param  \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request|null $f7dd45b1747b0b72c4b617845b065a07_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'] to see the possible values for this operation
+     * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeTrackingProject'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds, HTTP status code, HTTP response headers (array of strings)
      */
-    public function f7dd45b1747b0b72c4b617845b065a07WithHttpInfo($f7dd45b1747b0b72c4b617845b065a07_request = null, string $contentType = self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'][0])
+    public function createTimeTrackingProjectWithHttpInfo($project_create_request_schema = null, string $contentType = self::contentTypes['createTimeTrackingProject'][0])
     {
-        $request = $this->f7dd45b1747b0b72c4b617845b065a07Request($f7dd45b1747b0b72c4b617845b065a07_request, $contentType);
+        $request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2814,19 +2080,19 @@ class TimeTrackingApi
     }
 
     /**
-     * Operation f7dd45b1747b0b72c4b617845b065a07Async
+     * Operation createTimeTrackingProjectAsync
      *
      * Create Time Tracking Project
      *
-     * @param  \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request|null $f7dd45b1747b0b72c4b617845b065a07_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'] to see the possible values for this operation
+     * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeTrackingProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function f7dd45b1747b0b72c4b617845b065a07Async($f7dd45b1747b0b72c4b617845b065a07_request = null, string $contentType = self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'][0])
+    public function createTimeTrackingProjectAsync($project_create_request_schema = null, string $contentType = self::contentTypes['createTimeTrackingProject'][0])
     {
-        return $this->f7dd45b1747b0b72c4b617845b065a07AsyncWithHttpInfo($f7dd45b1747b0b72c4b617845b065a07_request, $contentType)
+        return $this->createTimeTrackingProjectAsyncWithHttpInfo($project_create_request_schema, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2835,20 +2101,20 @@ class TimeTrackingApi
     }
 
     /**
-     * Operation f7dd45b1747b0b72c4b617845b065a07AsyncWithHttpInfo
+     * Operation createTimeTrackingProjectAsyncWithHttpInfo
      *
      * Create Time Tracking Project
      *
-     * @param  \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request|null $f7dd45b1747b0b72c4b617845b065a07_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'] to see the possible values for this operation
+     * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeTrackingProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function f7dd45b1747b0b72c4b617845b065a07AsyncWithHttpInfo($f7dd45b1747b0b72c4b617845b065a07_request = null, string $contentType = self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'][0])
+    public function createTimeTrackingProjectAsyncWithHttpInfo($project_create_request_schema = null, string $contentType = self::contentTypes['createTimeTrackingProject'][0])
     {
         $returnType = '\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds';
-        $request = $this->f7dd45b1747b0b72c4b617845b065a07Request($f7dd45b1747b0b72c4b617845b065a07_request, $contentType);
+        $request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2887,15 +2153,15 @@ class TimeTrackingApi
     }
 
     /**
-     * Create request for operation 'f7dd45b1747b0b72c4b617845b065a07'
+     * Create request for operation 'createTimeTrackingProject'
      *
-     * @param  \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request|null $f7dd45b1747b0b72c4b617845b065a07_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'] to see the possible values for this operation
+     * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeTrackingProject'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function f7dd45b1747b0b72c4b617845b065a07Request($f7dd45b1747b0b72c4b617845b065a07_request = null, string $contentType = self::contentTypes['f7dd45b1747b0b72c4b617845b065a07'][0])
+    public function createTimeTrackingProjectRequest($project_create_request_schema = null, string $contentType = self::contentTypes['createTimeTrackingProject'][0])
     {
 
 
@@ -2918,12 +2184,746 @@ class TimeTrackingApi
         );
 
         // for model (json/xml)
-        if (isset($f7dd45b1747b0b72c4b617845b065a07_request)) {
+        if (isset($project_create_request_schema)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($f7dd45b1747b0b72c4b617845b065a07_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_create_request_schema));
             } else {
-                $httpBody = $f7dd45b1747b0b72c4b617845b065a07_request;
+                $httpBody = $project_create_request_schema;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTimesheetClockEntriesViaPost
+     *
+     * Delete Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema clock_entry_ids_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed
+     */
+    public function deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema, string $contentType = self::contentTypes['deleteTimesheetClockEntriesViaPost'][0])
+    {
+        list($response) = $this->deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteTimesheetClockEntriesViaPostWithHttpInfo
+     *
+     * Delete Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, string $contentType = self::contentTypes['deleteTimesheetClockEntriesViaPost'][0])
+    {
+        $request = $this->deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 204:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 412:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 204:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 412:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTimesheetClockEntriesViaPostAsync
+     *
+     * Delete Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTimesheetClockEntriesViaPostAsync($clock_entry_ids_schema, string $contentType = self::contentTypes['deleteTimesheetClockEntriesViaPost'][0])
+    {
+        return $this->deleteTimesheetClockEntriesViaPostAsyncWithHttpInfo($clock_entry_ids_schema, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTimesheetClockEntriesViaPostAsyncWithHttpInfo
+     *
+     * Delete Timesheet Clock Entries
+     *
+     * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTimesheetClockEntriesViaPostAsyncWithHttpInfo($clock_entry_ids_schema, string $contentType = self::contentTypes['deleteTimesheetClockEntriesViaPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTimesheetClockEntriesViaPost'
+     *
+     * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, string $contentType = self::contentTypes['deleteTimesheetClockEntriesViaPost'][0])
+    {
+
+        // verify the required parameter 'clock_entry_ids_schema' is set
+        if ($clock_entry_ids_schema === null || (is_array($clock_entry_ids_schema) && count($clock_entry_ids_schema) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $clock_entry_ids_schema when calling deleteTimesheetClockEntriesViaPost'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/time_tracking/clock_entries/delete';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($clock_entry_ids_schema)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_entry_ids_schema));
+            } else {
+                $httpBody = $clock_entry_ids_schema;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTimesheetHourEntriesViaPost
+     *
+     * Delete Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema hour_entry_ids_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed
+     */
+    public function deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema = null, string $contentType = self::contentTypes['deleteTimesheetHourEntriesViaPost'][0])
+    {
+        list($response) = $this->deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteTimesheetHourEntriesViaPostWithHttpInfo
+     *
+     * Delete Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema = null, string $contentType = self::contentTypes['deleteTimesheetHourEntriesViaPost'][0])
+    {
+        $request = $this->deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 204:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 406:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 412:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'mixed',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 204:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 412:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTimesheetHourEntriesViaPostAsync
+     *
+     * Delete Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTimesheetHourEntriesViaPostAsync($hour_entry_ids_schema = null, string $contentType = self::contentTypes['deleteTimesheetHourEntriesViaPost'][0])
+    {
+        return $this->deleteTimesheetHourEntriesViaPostAsyncWithHttpInfo($hour_entry_ids_schema, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTimesheetHourEntriesViaPostAsyncWithHttpInfo
+     *
+     * Delete Timesheet Hour Entries
+     *
+     * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTimesheetHourEntriesViaPostAsyncWithHttpInfo($hour_entry_ids_schema = null, string $contentType = self::contentTypes['deleteTimesheetHourEntriesViaPost'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTimesheetHourEntriesViaPost'
+     *
+     * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema = null, string $contentType = self::contentTypes['deleteTimesheetHourEntriesViaPost'][0])
+    {
+
+
+
+        $resourcePath = '/api/v1/time_tracking/hour_entries/delete';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($hour_entry_ids_schema)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($hour_entry_ids_schema));
+            } else {
+                $httpBody = $hour_entry_ids_schema;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

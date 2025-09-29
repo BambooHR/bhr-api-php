@@ -141,13 +141,4 @@ class TimeOffRequestTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "previous_request"
-     */
-    public function testPropertyPreviousRequest()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

@@ -84,18 +84,6 @@ class EmployeesApiTest extends TestCase
     }
 
     /**
-     * Test case for getCompanyEINs
-     *
-     * Get Company EINs.
-     *
-     */
-    public function testGetCompanyEINs()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getCompanyInformation
      *
      * Get Company Information.

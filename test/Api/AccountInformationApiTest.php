@@ -72,12 +72,36 @@ class AccountInformationApiTest extends TestCase
     }
 
     /**
-     * Test case for getAListOfUsers
+     * Test case for getCountriesOptions
+     *
+     * Get all countries.
+     *
+     */
+    public function testGetCountriesOptions()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getListOfUsers
      *
      * Get a List of Users.
      *
      */
-    public function testGetAListOfUsers()
+    public function testGetListOfUsers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getStatesByCountryId
+     *
+     * Get states by country ID.
+     *
+     */
+    public function testGetStatesByCountryId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

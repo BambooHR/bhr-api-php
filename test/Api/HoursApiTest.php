@@ -72,60 +72,60 @@ class HoursApiTest extends TestCase
     }
 
     /**
-     * Test case for call0f428442e53dc46d1e2c8ff5b7a483a8
+     * Test case for addTimeTrackingBulk
      *
-     * addTimeTrackingBulk.
+     * Add/Edit Hour Records.
      *
      */
-    public function testCall0f428442e53dc46d1e2c8ff5b7a483a8()
+    public function testAddTimeTrackingBulk()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for call14e73aef978eb81d51fdbd74e0e83823
+     * Test case for addTimeTrackingHourRecord
      *
-     * adjustTimeTracking.
+     * Add Hour Record.
      *
      */
-    public function testCall14e73aef978eb81d51fdbd74e0e83823()
+    public function testAddTimeTrackingHourRecord()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for call5e1c5b4ef12e61d1bc975e8b4e00c38d
+     * Test case for deleteTimeTrackingById
      *
-     * getTimeTrackingByTimeTrackingId.
+     * Delete Hour Record.
      *
      */
-    public function testCall5e1c5b4ef12e61d1bc975e8b4e00c38d()
+    public function testDeleteTimeTrackingById()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for call69c777478f5d52dee1b4f0937dca154f
+     * Test case for editTimeTrackingRecord
      *
-     * addTimeTracking.
+     * Edit Hour Record.
      *
      */
-    public function testCall69c777478f5d52dee1b4f0937dca154f()
+    public function testEditTimeTrackingRecord()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for f97efc203b25647724accb9da7dda7db
+     * Test case for getTimeTrackingRecord
      *
-     * deleteTimeTrackingByTimeTrackingId.
+     * Get Hour Record.
      *
      */
-    public function testF97efc203b25647724accb9da7dda7db()
+    public function testGetTimeTrackingRecord()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

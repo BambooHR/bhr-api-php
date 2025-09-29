@@ -11,6 +11,5 @@ Name | Type | Description | Notes
 **amount** | **int** |  | [optional]
 **notes** | [**\MySdk\Model\TimeOffRequestNotesInner[]**](TimeOffRequestNotesInner.md) |  | [optional]
 **dates** | [**\MySdk\Model\TimeOffRequestDatesInner[]**](TimeOffRequestDatesInner.md) |  | [optional]
-**previous_request** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

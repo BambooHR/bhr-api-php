@@ -194,7 +194,7 @@ class GoalsApiTest extends TestCase
     /**
      * Test case for getGoalsFiltersV1
      *
-     * .
+     * Get Goals Filters.
      *
      */
     public function testGetGoalsFiltersV1()
@@ -206,7 +206,7 @@ class GoalsApiTest extends TestCase
     /**
      * Test case for getGoalsFiltersV11
      *
-     * .
+     * Get Goals Filters.
      *
      */
     public function testGetGoalsFiltersV11()

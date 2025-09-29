@@ -436,7 +436,7 @@ void (empty response body)
 ## `timeOffAssignTimeOffPoliciesForAnEmployee()`
 
 ```php
-timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $request_body)
+timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
 Assign Time Off Policies for an Employee
@@ -469,10 +469,10 @@ $apiInstance = new MySdk\Api\TimeOffApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$request_body = array(new \stdClass); // object[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
-    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $request_body);
+    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffApi->timeOffAssignTimeOffPoliciesForAnEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -483,7 +483,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **request_body** | [**object[]**](../Model/object.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 
@@ -505,7 +505,7 @@ void (empty response body)
 ## `timeOffAssignTimeOffPoliciesForAnEmployeeV11()`
 
 ```php
-timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $request_body)
+timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
 Assign Time Off Policies for an Employee, Version 1.1
@@ -538,10 +538,10 @@ $apiInstance = new MySdk\Api\TimeOffApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$request_body = array(new \stdClass); // object[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
-    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $request_body);
+    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffApi->timeOffAssignTimeOffPoliciesForAnEmployeeV11: ', $e->getMessage(), PHP_EOL;
 }
@@ -552,7 +552,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **request_body** | [**object[]**](../Model/object.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 

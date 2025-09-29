@@ -74,13 +74,13 @@ class AccountInformationApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'd44e9c43fbca76b93a00a9603ba24ba1' => [
-            'application/json',
-        ],
-        'ec09b0a847283ca20b79980249d44b16' => [
+        'getCountriesOptions' => [
             'application/json',
         ],
         'getListOfUsers' => [
+            'application/json',
+        ],
+        'getStatesByCountryId' => [
             'application/json',
         ],
         'metadataAddOrUpdateValuesForListFields' => [
@@ -144,36 +144,36 @@ class AccountInformationApi
     }
 
     /**
-     * Operation d44e9c43fbca76b93a00a9603ba24ba1
+     * Operation getCountriesOptions
      *
      * Get all countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountriesOptions'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]
+     * @return \MySdk\Model\CountrySchema[]
      */
-    public function d44e9c43fbca76b93a00a9603ba24ba1(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    public function getCountriesOptions(string $contentType = self::contentTypes['getCountriesOptions'][0])
     {
-        list($response) = $this->d44e9c43fbca76b93a00a9603ba24ba1WithHttpInfo($contentType);
+        list($response) = $this->getCountriesOptionsWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation d44e9c43fbca76b93a00a9603ba24ba1WithHttpInfo
+     * Operation getCountriesOptionsWithHttpInfo
      *
      * Get all countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountriesOptions'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\CountrySchema[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function d44e9c43fbca76b93a00a9603ba24ba1WithHttpInfo(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    public function getCountriesOptionsWithHttpInfo(string $contentType = self::contentTypes['getCountriesOptions'][0])
     {
-        $request = $this->d44e9c43fbca76b93a00a9603ba24ba1Request($contentType);
+        $request = $this->getCountriesOptionsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -201,7 +201,7 @@ class AccountInformationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]',
+                        '\MySdk\Model\CountrySchema[]',
                         $request,
                         $response,
                     );
@@ -223,7 +223,7 @@ class AccountInformationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]',
+                '\MySdk\Model\CountrySchema[]',
                 $request,
                 $response,
             );
@@ -232,7 +232,7 @@ class AccountInformationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]',
+                        '\MySdk\Model\CountrySchema[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -245,18 +245,18 @@ class AccountInformationApi
     }
 
     /**
-     * Operation d44e9c43fbca76b93a00a9603ba24ba1Async
+     * Operation getCountriesOptionsAsync
      *
      * Get all countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountriesOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function d44e9c43fbca76b93a00a9603ba24ba1Async(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    public function getCountriesOptionsAsync(string $contentType = self::contentTypes['getCountriesOptions'][0])
     {
-        return $this->d44e9c43fbca76b93a00a9603ba24ba1AsyncWithHttpInfo($contentType)
+        return $this->getCountriesOptionsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,19 +265,19 @@ class AccountInformationApi
     }
 
     /**
-     * Operation d44e9c43fbca76b93a00a9603ba24ba1AsyncWithHttpInfo
+     * Operation getCountriesOptionsAsyncWithHttpInfo
      *
      * Get all countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountriesOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function d44e9c43fbca76b93a00a9603ba24ba1AsyncWithHttpInfo(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    public function getCountriesOptionsAsyncWithHttpInfo(string $contentType = self::contentTypes['getCountriesOptions'][0])
     {
-        $returnType = '\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]';
-        $request = $this->d44e9c43fbca76b93a00a9603ba24ba1Request($contentType);
+        $returnType = '\MySdk\Model\CountrySchema[]';
+        $request = $this->getCountriesOptionsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -316,14 +316,14 @@ class AccountInformationApi
     }
 
     /**
-     * Create request for operation 'd44e9c43fbca76b93a00a9603ba24ba1'
+     * Create request for operation 'getCountriesOptions'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountriesOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function d44e9c43fbca76b93a00a9603ba24ba1Request(string $contentType = self::contentTypes['d44e9c43fbca76b93a00a9603ba24ba1'][0])
+    public function getCountriesOptionsRequest(string $contentType = self::contentTypes['getCountriesOptions'][0])
     {
 
 
@@ -336,286 +336,6 @@ class AccountInformationApi
 
 
 
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ec09b0a847283ca20b79980249d44b16
-     *
-     * Get states by country ID
-     *
-     * @param  int $country_id ID of the country to get states/provinces for (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response
-     */
-    public function ec09b0a847283ca20b79980249d44b16($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
-    {
-        list($response) = $this->ec09b0a847283ca20b79980249d44b16WithHttpInfo($country_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation ec09b0a847283ca20b79980249d44b16WithHttpInfo
-     *
-     * Get states by country ID
-     *
-     * @param  int $country_id ID of the country to get states/provinces for (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ec09b0a847283ca20b79980249d44b16WithHttpInfo($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
-    {
-        $request = $this->ec09b0a847283ca20b79980249d44b16Request($country_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ec09b0a847283ca20b79980249d44b16Async
-     *
-     * Get states by country ID
-     *
-     * @param  int $country_id ID of the country to get states/provinces for (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ec09b0a847283ca20b79980249d44b16Async($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
-    {
-        return $this->ec09b0a847283ca20b79980249d44b16AsyncWithHttpInfo($country_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ec09b0a847283ca20b79980249d44b16AsyncWithHttpInfo
-     *
-     * Get states by country ID
-     *
-     * @param  int $country_id ID of the country to get states/provinces for (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ec09b0a847283ca20b79980249d44b16AsyncWithHttpInfo($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
-    {
-        $returnType = '\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response';
-        $request = $this->ec09b0a847283ca20b79980249d44b16Request($country_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ec09b0a847283ca20b79980249d44b16'
-     *
-     * @param  int $country_id ID of the country to get states/provinces for (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ec09b0a847283ca20b79980249d44b16'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ec09b0a847283ca20b79980249d44b16Request($country_id, string $contentType = self::contentTypes['ec09b0a847283ca20b79980249d44b16'][0])
-    {
-
-        // verify the required parameter 'country_id' is set
-        if ($country_id === null || (is_array($country_id) && count($country_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $country_id when calling ec09b0a847283ca20b79980249d44b16'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/meta/provinces/{countryId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($country_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'countryId' . '}',
-                ObjectSerializer::toPathValue($country_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -826,6 +546,286 @@ class AccountInformationApi
 
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getStatesByCountryId
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatesByCountryId'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\StateProvinceResponseSchema
+     */
+    public function getStatesByCountryId($country_id, string $contentType = self::contentTypes['getStatesByCountryId'][0])
+    {
+        list($response) = $this->getStatesByCountryIdWithHttpInfo($country_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getStatesByCountryIdWithHttpInfo
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatesByCountryId'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\StateProvinceResponseSchema, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getStatesByCountryIdWithHttpInfo($country_id, string $contentType = self::contentTypes['getStatesByCountryId'][0])
+    {
+        $request = $this->getStatesByCountryIdRequest($country_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\StateProvinceResponseSchema',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\StateProvinceResponseSchema',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\StateProvinceResponseSchema',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getStatesByCountryIdAsync
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatesByCountryId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getStatesByCountryIdAsync($country_id, string $contentType = self::contentTypes['getStatesByCountryId'][0])
+    {
+        return $this->getStatesByCountryIdAsyncWithHttpInfo($country_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getStatesByCountryIdAsyncWithHttpInfo
+     *
+     * Get states by country ID
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatesByCountryId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getStatesByCountryIdAsyncWithHttpInfo($country_id, string $contentType = self::contentTypes['getStatesByCountryId'][0])
+    {
+        $returnType = '\MySdk\Model\StateProvinceResponseSchema';
+        $request = $this->getStatesByCountryIdRequest($country_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getStatesByCountryId'
+     *
+     * @param  int $country_id ID of the country to get states/provinces for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatesByCountryId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getStatesByCountryIdRequest($country_id, string $contentType = self::contentTypes['getStatesByCountryId'][0])
+    {
+
+        // verify the required parameter 'country_id' is set
+        if ($country_id === null || (is_array($country_id) && count($country_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $country_id when calling getStatesByCountryId'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/meta/provinces/{countryId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($country_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'countryId' . '}',
+                ObjectSerializer::toPathValue($country_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(

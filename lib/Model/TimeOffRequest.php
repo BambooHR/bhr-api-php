@@ -63,8 +63,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'time_off_type_id' => 'int',
         'amount' => 'int',
         'notes' => '\MySdk\Model\TimeOffRequestNotesInner[]',
-        'dates' => '\MySdk\Model\TimeOffRequestDatesInner[]',
-        'previous_request' => 'int'
+        'dates' => '\MySdk\Model\TimeOffRequestDatesInner[]'
     ];
 
     /**
@@ -81,8 +80,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'time_off_type_id' => null,
         'amount' => null,
         'notes' => null,
-        'dates' => null,
-        'previous_request' => null
+        'dates' => null
     ];
 
     /**
@@ -97,8 +95,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'time_off_type_id' => false,
         'amount' => false,
         'notes' => false,
-        'dates' => false,
-        'previous_request' => false
+        'dates' => false
     ];
 
     /**
@@ -193,8 +190,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'time_off_type_id' => 'timeOffTypeId',
         'amount' => 'amount',
         'notes' => 'notes',
-        'dates' => 'dates',
-        'previous_request' => 'previousRequest'
+        'dates' => 'dates'
     ];
 
     /**
@@ -209,8 +205,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'time_off_type_id' => 'setTimeOffTypeId',
         'amount' => 'setAmount',
         'notes' => 'setNotes',
-        'dates' => 'setDates',
-        'previous_request' => 'setPreviousRequest'
+        'dates' => 'setDates'
     ];
 
     /**
@@ -225,8 +220,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'time_off_type_id' => 'getTimeOffTypeId',
         'amount' => 'getAmount',
         'notes' => 'getNotes',
-        'dates' => 'getDates',
-        'previous_request' => 'getPreviousRequest'
+        'dates' => 'getDates'
     ];
 
     /**
@@ -293,7 +287,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('notes', $data ?? [], null);
         $this->setIfExists('dates', $data ?? [], null);
-        $this->setIfExists('previous_request', $data ?? [], null);
     }
 
     /**
@@ -523,33 +516,6 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable dates cannot be null');
         }
         $this->container['dates'] = $dates;
-
-        return $this;
-    }
-
-    /**
-     * Gets previous_request
-     *
-     * @return int|null
-     */
-    public function getPreviousRequest()
-    {
-        return $this->container['previous_request'];
-    }
-
-    /**
-     * Sets previous_request
-     *
-     * @param int|null $previous_request previous_request
-     *
-     * @return self
-     */
-    public function setPreviousRequest($previous_request)
-    {
-        if (is_null($previous_request)) {
-            throw new \InvalidArgumentException('non-nullable previous_request cannot be null');
-        }
-        $this->container['previous_request'] = $previous_request;
 
         return $this;
     }

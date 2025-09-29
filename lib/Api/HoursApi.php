@@ -74,19 +74,19 @@ class HoursApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'call22067048cf6eec230a865765a18ad7b8' => [
+        'addTimeTrackingBulk' => [
             'application/json',
         ],
-        'call717faf6067928c3497fc9acbf5b91767' => [
+        'addTimeTrackingHourRecord' => [
             'application/json',
         ],
-        'call889a4c2de70a53c5ab8cb32f1c2243f5' => [
+        'deleteTimeTrackingById' => [
             'application/json',
         ],
-        'e2ae6e59655aeab2b4e6311967a2809f' => [
+        'editTimeTrackingRecord' => [
             'application/json',
         ],
-        'f54bcaec6771b1264671e53f2e557b1f' => [
+        'getTimeTrackingRecord' => [
             'application/json',
         ],
     ];
@@ -138,38 +138,38 @@ class HoursApi
     }
 
     /**
-     * Operation call22067048cf6eec230a865765a18ad7b8
+     * Operation addTimeTrackingBulk
      *
-     * Edit Hour Record
+     * Add/Edit Hour Records
      *
-     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request _22067048cf6eec230a865765a18ad7b8_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingBulk'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|mixed
+     * @return \MySdk\Model\TimeTrackingBulkResponseSchema
      */
-    public function call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
+    public function addTimeTrackingBulk($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingBulk'][0])
     {
-        list($response) = $this->call22067048cf6eec230a865765a18ad7b8WithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, $contentType);
+        list($response) = $this->addTimeTrackingBulkWithHttpInfo($time_tracking_record, $contentType);
         return $response;
     }
 
     /**
-     * Operation call22067048cf6eec230a865765a18ad7b8WithHttpInfo
+     * Operation addTimeTrackingBulkWithHttpInfo
      *
-     * Edit Hour Record
+     * Add/Edit Hour Records
      *
-     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingBulk'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\TimeTrackingBulkResponseSchema, HTTP status code, HTTP response headers (array of strings)
      */
-    public function call22067048cf6eec230a865765a18ad7b8WithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
+    public function addTimeTrackingBulkWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingBulk'][0])
     {
-        $request = $this->call22067048cf6eec230a865765a18ad7b8Request($_22067048cf6eec230a865765a18ad7b8_request, $contentType);
+        $request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -197,13 +197,7 @@ class HoursApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
+                        '\MySdk\Model\TimeTrackingBulkResponseSchema',
                         $request,
                         $response,
                     );
@@ -225,7 +219,7 @@ class HoursApi
             }
 
             return $this->handleResponseWithDataType(
-                'mixed',
+                '\MySdk\Model\TimeTrackingBulkResponseSchema',
                 $request,
                 $response,
             );
@@ -234,15 +228,7 @@ class HoursApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
+                        '\MySdk\Model\TimeTrackingBulkResponseSchema',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -255,19 +241,19 @@ class HoursApi
     }
 
     /**
-     * Operation call22067048cf6eec230a865765a18ad7b8Async
+     * Operation addTimeTrackingBulkAsync
      *
-     * Edit Hour Record
+     * Add/Edit Hour Records
      *
-     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call22067048cf6eec230a865765a18ad7b8Async($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
+    public function addTimeTrackingBulkAsync($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingBulk'][0])
     {
-        return $this->call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, $contentType)
+        return $this->addTimeTrackingBulkAsyncWithHttpInfo($time_tracking_record, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -276,20 +262,20 @@ class HoursApi
     }
 
     /**
-     * Operation call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo
+     * Operation addTimeTrackingBulkAsyncWithHttpInfo
      *
-     * Edit Hour Record
+     * Add/Edit Hour Records
      *
-     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call22067048cf6eec230a865765a18ad7b8AsyncWithHttpInfo($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
+    public function addTimeTrackingBulkAsyncWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingBulk'][0])
     {
-        $returnType = 'mixed';
-        $request = $this->call22067048cf6eec230a865765a18ad7b8Request($_22067048cf6eec230a865765a18ad7b8_request, $contentType);
+        $returnType = '\MySdk\Model\TimeTrackingBulkResponseSchema';
+        $request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -328,26 +314,26 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'call22067048cf6eec230a865765a18ad7b8'
+     * Create request for operation 'addTimeTrackingBulk'
      *
-     * @param  \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request $_22067048cf6eec230a865765a18ad7b8_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call22067048cf6eec230a865765a18ad7b8'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function call22067048cf6eec230a865765a18ad7b8Request($_22067048cf6eec230a865765a18ad7b8_request, string $contentType = self::contentTypes['call22067048cf6eec230a865765a18ad7b8'][0])
+    public function addTimeTrackingBulkRequest($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingBulk'][0])
     {
 
-        // verify the required parameter '_22067048cf6eec230a865765a18ad7b8_request' is set
-        if ($_22067048cf6eec230a865765a18ad7b8_request === null || (is_array($_22067048cf6eec230a865765a18ad7b8_request) && count($_22067048cf6eec230a865765a18ad7b8_request) === 0)) {
+        // verify the required parameter 'time_tracking_record' is set
+        if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $_22067048cf6eec230a865765a18ad7b8_request when calling call22067048cf6eec230a865765a18ad7b8'
+                'Missing the required parameter $time_tracking_record when calling addTimeTrackingBulk'
             );
         }
 
 
-        $resourcePath = '/api/v1/timetracking/adjust';
+        $resourcePath = '/api/v1/timetracking/record';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -365,12 +351,12 @@ class HoursApi
         );
 
         // for model (json/xml)
-        if (isset($_22067048cf6eec230a865765a18ad7b8_request)) {
+        if (isset($time_tracking_record)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_22067048cf6eec230a865765a18ad7b8_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
             } else {
-                $httpBody = $_22067048cf6eec230a865765a18ad7b8_request;
+                $httpBody = $time_tracking_record;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -423,7 +409,7 @@ class HoursApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PUT',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -431,38 +417,38 @@ class HoursApi
     }
 
     /**
-     * Operation call717faf6067928c3497fc9acbf5b91767
+     * Operation addTimeTrackingHourRecord
      *
-     * Delete Hour Record
+     * Add Hour Record
      *
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingHourRecord'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse|mixed
+     * @return \MySdk\Model\TimeTrackingIdResponseSchema|mixed
      */
-    public function call717faf6067928c3497fc9acbf5b91767($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
+    public function addTimeTrackingHourRecord($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingHourRecord'][0])
     {
-        list($response) = $this->call717faf6067928c3497fc9acbf5b91767WithHttpInfo($id, $contentType);
+        list($response) = $this->addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, $contentType);
         return $response;
     }
 
     /**
-     * Operation call717faf6067928c3497fc9acbf5b91767WithHttpInfo
+     * Operation addTimeTrackingHourRecordWithHttpInfo
      *
-     * Delete Hour Record
+     * Add Hour Record
      *
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingHourRecord'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse|mixed, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function call717faf6067928c3497fc9acbf5b91767WithHttpInfo($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
+    public function addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingHourRecord'][0])
     {
-        $request = $this->call717faf6067928c3497fc9acbf5b91767Request($id, $contentType);
+        $request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -490,7 +476,7 @@ class HoursApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse',
+                        '\MySdk\Model\TimeTrackingIdResponseSchema',
                         $request,
                         $response,
                     );
@@ -518,7 +504,7 @@ class HoursApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse',
+                '\MySdk\Model\TimeTrackingIdResponseSchema',
                 $request,
                 $response,
             );
@@ -527,7 +513,7 @@ class HoursApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse',
+                        '\MySdk\Model\TimeTrackingIdResponseSchema',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -548,19 +534,19 @@ class HoursApi
     }
 
     /**
-     * Operation call717faf6067928c3497fc9acbf5b91767Async
+     * Operation addTimeTrackingHourRecordAsync
      *
-     * Delete Hour Record
+     * Add Hour Record
      *
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingHourRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call717faf6067928c3497fc9acbf5b91767Async($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
+    public function addTimeTrackingHourRecordAsync($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingHourRecord'][0])
     {
-        return $this->call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo($id, $contentType)
+        return $this->addTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -569,20 +555,20 @@ class HoursApi
     }
 
     /**
-     * Operation call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo
+     * Operation addTimeTrackingHourRecordAsyncWithHttpInfo
      *
-     * Delete Hour Record
+     * Add Hour Record
      *
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingHourRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call717faf6067928c3497fc9acbf5b91767AsyncWithHttpInfo($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
+    public function addTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingHourRecord'][0])
     {
-        $returnType = '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse';
-        $request = $this->call717faf6067928c3497fc9acbf5b91767Request($id, $contentType);
+        $returnType = '\MySdk\Model\TimeTrackingIdResponseSchema';
+        $request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -621,21 +607,314 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'call717faf6067928c3497fc9acbf5b91767'
+     * Create request for operation 'addTimeTrackingHourRecord'
      *
-     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call717faf6067928c3497fc9acbf5b91767'] to see the possible values for this operation
+     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addTimeTrackingHourRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function call717faf6067928c3497fc9acbf5b91767Request($id, string $contentType = self::contentTypes['call717faf6067928c3497fc9acbf5b91767'][0])
+    public function addTimeTrackingHourRecordRequest($time_tracking_record, string $contentType = self::contentTypes['addTimeTrackingHourRecord'][0])
+    {
+
+        // verify the required parameter 'time_tracking_record' is set
+        if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $time_tracking_record when calling addTimeTrackingHourRecord'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/timetracking/add';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($time_tracking_record)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
+            } else {
+                $httpBody = $time_tracking_record;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTimeTrackingById
+     *
+     * Delete Hour Record
+     *
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimeTrackingById'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\TimeTrackingDeleteResponseSchema|mixed
+     */
+    public function deleteTimeTrackingById($id, string $contentType = self::contentTypes['deleteTimeTrackingById'][0])
+    {
+        list($response) = $this->deleteTimeTrackingByIdWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteTimeTrackingByIdWithHttpInfo
+     *
+     * Delete Hour Record
+     *
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimeTrackingById'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\TimeTrackingDeleteResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTimeTrackingByIdWithHttpInfo($id, string $contentType = self::contentTypes['deleteTimeTrackingById'][0])
+    {
+        $request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\TimeTrackingDeleteResponseSchema',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\TimeTrackingDeleteResponseSchema',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\TimeTrackingDeleteResponseSchema',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTimeTrackingByIdAsync
+     *
+     * Delete Hour Record
+     *
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimeTrackingById'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTimeTrackingByIdAsync($id, string $contentType = self::contentTypes['deleteTimeTrackingById'][0])
+    {
+        return $this->deleteTimeTrackingByIdAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTimeTrackingByIdAsyncWithHttpInfo
+     *
+     * Delete Hour Record
+     *
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimeTrackingById'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTimeTrackingByIdAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteTimeTrackingById'][0])
+    {
+        $returnType = '\MySdk\Model\TimeTrackingDeleteResponseSchema';
+        $request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTimeTrackingById'
+     *
+     * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTimeTrackingById'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTimeTrackingByIdRequest($id, string $contentType = self::contentTypes['deleteTimeTrackingById'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling call717faf6067928c3497fc9acbf5b91767'
+                'Missing the required parameter $id when calling deleteTimeTrackingById'
             );
         }
 
@@ -725,38 +1004,38 @@ class HoursApi
     }
 
     /**
-     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5
+     * Operation editTimeTrackingRecord
      *
-     * Get Hour Record
+     * Edit Hour Record
      *
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editTimeTrackingRecord'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response|mixed
+     * @return \MySdk\Model\TimeTrackingIdResponseSchema|mixed
      */
-    public function call889a4c2de70a53c5ab8cb32f1c2243f5($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    public function editTimeTrackingRecord($adjust_time_tracking_request_schema, string $contentType = self::contentTypes['editTimeTrackingRecord'][0])
     {
-        list($response) = $this->call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo($id, $contentType);
+        list($response) = $this->editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, $contentType);
         return $response;
     }
 
     /**
-     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo
+     * Operation editTimeTrackingRecordWithHttpInfo
      *
-     * Get Hour Record
+     * Edit Hour Record
      *
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editTimeTrackingRecord'] to see the possible values for this operation
      *
      * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response|mixed, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MySdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function call889a4c2de70a53c5ab8cb32f1c2243f5WithHttpInfo($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    public function editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::contentTypes['editTimeTrackingRecord'][0])
     {
-        $request = $this->call889a4c2de70a53c5ab8cb32f1c2243f5Request($id, $contentType);
+        $request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -782,9 +1061,9 @@ class HoursApi
 
 
             switch($statusCode) {
-                case 200:
+                case 201:
                     return $this->handleResponseWithDataType(
-                        '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response',
+                        '\MySdk\Model\TimeTrackingIdResponseSchema',
                         $request,
                         $response,
                     );
@@ -812,16 +1091,16 @@ class HoursApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response',
+                '\MySdk\Model\TimeTrackingIdResponseSchema',
                 $request,
                 $response,
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response',
+                        '\MySdk\Model\TimeTrackingIdResponseSchema',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -842,19 +1121,19 @@ class HoursApi
     }
 
     /**
-     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5Async
+     * Operation editTimeTrackingRecordAsync
      *
-     * Get Hour Record
+     * Edit Hour Record
      *
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editTimeTrackingRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call889a4c2de70a53c5ab8cb32f1c2243f5Async($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    public function editTimeTrackingRecordAsync($adjust_time_tracking_request_schema, string $contentType = self::contentTypes['editTimeTrackingRecord'][0])
     {
-        return $this->call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo($id, $contentType)
+        return $this->editTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -863,20 +1142,20 @@ class HoursApi
     }
 
     /**
-     * Operation call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo
+     * Operation editTimeTrackingRecordAsyncWithHttpInfo
      *
-     * Get Hour Record
+     * Edit Hour Record
      *
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editTimeTrackingRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function call889a4c2de70a53c5ab8cb32f1c2243f5AsyncWithHttpInfo($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    public function editTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::contentTypes['editTimeTrackingRecord'][0])
     {
-        $returnType = '\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response';
-        $request = $this->call889a4c2de70a53c5ab8cb32f1c2243f5Request($id, $contentType);
+        $returnType = '\MySdk\Model\TimeTrackingIdResponseSchema';
+        $request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -915,21 +1194,314 @@ class HoursApi
     }
 
     /**
-     * Create request for operation 'call889a4c2de70a53c5ab8cb32f1c2243f5'
+     * Create request for operation 'editTimeTrackingRecord'
      *
-     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'] to see the possible values for this operation
+     * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editTimeTrackingRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function call889a4c2de70a53c5ab8cb32f1c2243f5Request($id, string $contentType = self::contentTypes['call889a4c2de70a53c5ab8cb32f1c2243f5'][0])
+    public function editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, string $contentType = self::contentTypes['editTimeTrackingRecord'][0])
+    {
+
+        // verify the required parameter 'adjust_time_tracking_request_schema' is set
+        if ($adjust_time_tracking_request_schema === null || (is_array($adjust_time_tracking_request_schema) && count($adjust_time_tracking_request_schema) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $adjust_time_tracking_request_schema when calling editTimeTrackingRecord'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/timetracking/adjust';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($adjust_time_tracking_request_schema)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_tracking_request_schema));
+            } else {
+                $httpBody = $adjust_time_tracking_request_schema;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTimeTrackingRecord
+     *
+     * Get Hour Record
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeTrackingRecord'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MySdk\Model\TimeTrackingRecordSchema|mixed
+     */
+    public function getTimeTrackingRecord($id, string $contentType = self::contentTypes['getTimeTrackingRecord'][0])
+    {
+        list($response) = $this->getTimeTrackingRecordWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getTimeTrackingRecordWithHttpInfo
+     *
+     * Get Hour Record
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeTrackingRecord'] to see the possible values for this operation
+     *
+     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MySdk\Model\TimeTrackingRecordSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTimeTrackingRecordWithHttpInfo($id, string $contentType = self::contentTypes['getTimeTrackingRecord'][0])
+    {
+        $request = $this->getTimeTrackingRecordRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MySdk\Model\TimeTrackingRecordSchema',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        'mixed',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MySdk\Model\TimeTrackingRecordSchema',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MySdk\Model\TimeTrackingRecordSchema',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTimeTrackingRecordAsync
+     *
+     * Get Hour Record
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeTrackingRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTimeTrackingRecordAsync($id, string $contentType = self::contentTypes['getTimeTrackingRecord'][0])
+    {
+        return $this->getTimeTrackingRecordAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTimeTrackingRecordAsyncWithHttpInfo
+     *
+     * Get Hour Record
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeTrackingRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTimeTrackingRecordAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getTimeTrackingRecord'][0])
+    {
+        $returnType = '\MySdk\Model\TimeTrackingRecordSchema';
+        $request = $this->getTimeTrackingRecordRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTimeTrackingRecord'
+     *
+     * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeTrackingRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTimeTrackingRecordRequest($id, string $contentType = self::contentTypes['getTimeTrackingRecord'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling call889a4c2de70a53c5ab8cb32f1c2243f5'
+                'Missing the required parameter $id when calling getTimeTrackingRecord'
             );
         }
 
@@ -1012,578 +1584,6 @@ class HoursApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation e2ae6e59655aeab2b4e6311967a2809f
-     *
-     * Add Hour Record
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response|mixed
-     */
-    public function e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
-    {
-        list($response) = $this->e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo($time_tracking_record, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo
-     *
-     * Add Hour Record
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response|mixed, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function e2ae6e59655aeab2b4e6311967a2809fWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
-    {
-        $request = $this->e2ae6e59655aeab2b4e6311967a2809fRequest($time_tracking_record, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        'mixed',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation e2ae6e59655aeab2b4e6311967a2809fAsync
-     *
-     * Add Hour Record
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function e2ae6e59655aeab2b4e6311967a2809fAsync($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
-    {
-        return $this->e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo($time_tracking_record, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo
-     *
-     * Add Hour Record
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function e2ae6e59655aeab2b4e6311967a2809fAsyncWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
-    {
-        $returnType = '\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response';
-        $request = $this->e2ae6e59655aeab2b4e6311967a2809fRequest($time_tracking_record, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'e2ae6e59655aeab2b4e6311967a2809f'
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function e2ae6e59655aeab2b4e6311967a2809fRequest($time_tracking_record, string $contentType = self::contentTypes['e2ae6e59655aeab2b4e6311967a2809f'][0])
-    {
-
-        // verify the required parameter 'time_tracking_record' is set
-        if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $time_tracking_record when calling e2ae6e59655aeab2b4e6311967a2809f'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/timetracking/add';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($time_tracking_record)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
-            } else {
-                $httpBody = $time_tracking_record;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation f54bcaec6771b1264671e53f2e557b1f
-     *
-     * Add/Edit Hour Records
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response
-     */
-    public function f54bcaec6771b1264671e53f2e557b1f($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
-    {
-        list($response) = $this->f54bcaec6771b1264671e53f2e557b1fWithHttpInfo($time_tracking_record, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation f54bcaec6771b1264671e53f2e557b1fWithHttpInfo
-     *
-     * Add/Edit Hour Records
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
-     *
-     * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function f54bcaec6771b1264671e53f2e557b1fWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
-    {
-        $request = $this->f54bcaec6771b1264671e53f2e557b1fRequest($time_tracking_record, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation f54bcaec6771b1264671e53f2e557b1fAsync
-     *
-     * Add/Edit Hour Records
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function f54bcaec6771b1264671e53f2e557b1fAsync($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
-    {
-        return $this->f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo($time_tracking_record, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo
-     *
-     * Add/Edit Hour Records
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function f54bcaec6771b1264671e53f2e557b1fAsyncWithHttpInfo($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
-    {
-        $returnType = '\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response';
-        $request = $this->f54bcaec6771b1264671e53f2e557b1fRequest($time_tracking_record, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'f54bcaec6771b1264671e53f2e557b1f'
-     *
-     * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function f54bcaec6771b1264671e53f2e557b1fRequest($time_tracking_record, string $contentType = self::contentTypes['f54bcaec6771b1264671e53f2e557b1f'][0])
-    {
-
-        // verify the required parameter 'time_tracking_record' is set
-        if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $time_tracking_record when calling f54bcaec6771b1264671e53f2e557b1f'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/timetracking/record';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($time_tracking_record)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
-            } else {
-                $httpBody = $time_tracking_record;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

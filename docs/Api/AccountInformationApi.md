@@ -4,19 +4,19 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**d44e9c43fbca76b93a00a9603ba24ba1()**](AccountInformationApi.md#d44e9c43fbca76b93a00a9603ba24ba1) | **GET** /api/v1/meta/countries/options | Get all countries |
-| [**ec09b0a847283ca20b79980249d44b16()**](AccountInformationApi.md#ec09b0a847283ca20b79980249d44b16) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
+| [**getCountriesOptions()**](AccountInformationApi.md#getCountriesOptions) | **GET** /api/v1/meta/countries/options | Get all countries |
 | [**getListOfUsers()**](AccountInformationApi.md#getListOfUsers) | **GET** /api/v1/meta/users | Get a List of Users |
+| [**getStatesByCountryId()**](AccountInformationApi.md#getStatesByCountryId) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
 | [**metadataAddOrUpdateValuesForListFields()**](AccountInformationApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields |
 | [**metadataGetAListOfFields()**](AccountInformationApi.md#metadataGetAListOfFields) | **GET** /api/v1/meta/fields | Get a list of fields |
 | [**metadataGetAListOfTabularFields()**](AccountInformationApi.md#metadataGetAListOfTabularFields) | **GET** /api/v1/meta/tables | Get a list of tabular fields |
 | [**metadataGetDetailsForListFields()**](AccountInformationApi.md#metadataGetDetailsForListFields) | **GET** /api/v1/meta/lists | Get details for list fields |
 
 
-## `d44e9c43fbca76b93a00a9603ba24ba1()`
+## `getCountriesOptions()`
 
 ```php
-d44e9c43fbca76b93a00a9603ba24ba1(): \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]
+getCountriesOptions(): \MySdk\Model\CountrySchema[]
 ```
 
 Get all countries
@@ -50,10 +50,10 @@ $apiInstance = new MySdk\Api\AccountInformationApi(
 );
 
 try {
-    $result = $apiInstance->d44e9c43fbca76b93a00a9603ba24ba1();
+    $result = $apiInstance->getCountriesOptions();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountInformationApi->d44e9c43fbca76b93a00a9603ba24ba1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountInformationApi->getCountriesOptions: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -63,75 +63,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]**](../Model/D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ec09b0a847283ca20b79980249d44b16()`
-
-```php
-ec09b0a847283ca20b79980249d44b16($country_id): \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response
-```
-
-Get states by country ID
-
-Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\AccountInformationApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$country_id = 56; // int | ID of the country to get states/provinces for
-
-try {
-    $result = $apiInstance->ec09b0a847283ca20b79980249d44b16($country_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountInformationApi->ec09b0a847283ca20b79980249d44b16: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **country_id** | **int**| ID of the country to get states/provinces for | |
-
-### Return type
-
-[**\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response**](../Model/Ec09b0a847283ca20b79980249d44b16200Response.md)
+[**\MySdk\Model\CountrySchema[]**](../Model/CountrySchema.md)
 
 ### Authorization
 
@@ -196,6 +128,74 @@ This endpoint does not need any parameter.
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getStatesByCountryId()`
+
+```php
+getStatesByCountryId($country_id): \MySdk\Model\StateProvinceResponseSchema
+```
+
+Get states by country ID
+
+Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\AccountInformationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$country_id = 56; // int | ID of the country to get states/provinces for
+
+try {
+    $result = $apiInstance->getStatesByCountryId($country_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountInformationApi->getStatesByCountryId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country_id** | **int**| ID of the country to get states/provinces for | |
+
+### Return type
+
+[**\MySdk\Model\StateProvinceResponseSchema**](../Model/StateProvinceResponseSchema.md)
 
 ### Authorization
 

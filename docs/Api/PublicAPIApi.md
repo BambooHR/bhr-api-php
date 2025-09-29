@@ -5,6 +5,8 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addCompanyFileCategory()**](PublicAPIApi.md#addCompanyFileCategory) | **POST** /api/v1/files/categories | Add Company File Category |
+| [**addEditTimesheetClockEntries()**](PublicAPIApi.md#addEditTimesheetClockEntries) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
+| [**addEditTimesheetHourEntries()**](PublicAPIApi.md#addEditTimesheetHourEntries) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
 | [**addEmployee()**](PublicAPIApi.md#addEmployee) | **POST** /api/v1/employees | Add Employee |
 | [**addEmployeeDependent()**](PublicAPIApi.md#addEmployeeDependent) | **POST** /api/v1/employeedependents | Add an employee dependent |
 | [**addEmployeeFileCategory()**](PublicAPIApi.md#addEmployeeFileCategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category |
@@ -13,33 +15,27 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**addNewCandidate()**](PublicAPIApi.md#addNewCandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate |
 | [**addNewEmployeeTrainingRecord()**](PublicAPIApi.md#addNewEmployeeTrainingRecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record |
 | [**addNewJobOpening()**](PublicAPIApi.md#addNewJobOpening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening |
+| [**addTimeTrackingBulk()**](PublicAPIApi.md#addTimeTrackingBulk) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records |
+| [**addTimeTrackingHourRecord()**](PublicAPIApi.md#addTimeTrackingHourRecord) | **POST** /api/v1/timetracking/add | Add Hour Record |
+| [**addTimesheetClockInEntry()**](PublicAPIApi.md#addTimesheetClockInEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
+| [**addTimesheetClockOutEntry()**](PublicAPIApi.md#addTimesheetClockOutEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
 | [**addTrainingCategory()**](PublicAPIApi.md#addTrainingCategory) | **POST** /api/v1/training/category | Add Training Category |
 | [**addTrainingType()**](PublicAPIApi.md#addTrainingType) | **POST** /api/v1/training/type | Add Training Type |
-| [**ca54fa4c1d42864a2540f7f7600e0d65()**](PublicAPIApi.md#ca54fa4c1d42864a2540f7f7600e0d65) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
 | [**call134f6593587d7195536c151bd65eb6d5()**](PublicAPIApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
-| [**call18e680c918496818b49d593d7ea375a5()**](PublicAPIApi.md#call18e680c918496818b49d593d7ea375a5) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options |
-| [**call22067048cf6eec230a865765a18ad7b8()**](PublicAPIApi.md#call22067048cf6eec230a865765a18ad7b8) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record |
-| [**call3b7487d1d17551f6c3e2567b96089ce1()**](PublicAPIApi.md#call3b7487d1d17551f6c3e2567b96089ce1) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
-| [**call408a4478cbd2b1b5811ba6228e2898df()**](PublicAPIApi.md#call408a4478cbd2b1b5811ba6228e2898df) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries |
-| [**call43c7cc099ca54295a047f449824fc0dd()**](PublicAPIApi.md#call43c7cc099ca54295a047f449824fc0dd) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
-| [**call717faf6067928c3497fc9acbf5b91767()**](PublicAPIApi.md#call717faf6067928c3497fc9acbf5b91767) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record |
-| [**call7bb9fedfad942b8839bc61a125e7c255()**](PublicAPIApi.md#call7bb9fedfad942b8839bc61a125e7c255) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
-| [**call889a4c2de70a53c5ab8cb32f1c2243f5()**](PublicAPIApi.md#call889a4c2de70a53c5ab8cb32f1c2243f5) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
-| [**d44e9c43fbca76b93a00a9603ba24ba1()**](PublicAPIApi.md#d44e9c43fbca76b93a00a9603ba24ba1) | **GET** /api/v1/meta/countries/options | Get all countries |
+| [**createTimeTrackingProject()**](PublicAPIApi.md#createTimeTrackingProject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project |
 | [**deleteCompanyFile()**](PublicAPIApi.md#deleteCompanyFile) | **DELETE** /api/v1/files/{fileId} | Delete Company File |
 | [**deleteEmployeeFile()**](PublicAPIApi.md#deleteEmployeeFile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File |
 | [**deleteEmployeeTableRowV1()**](PublicAPIApi.md#deleteEmployeeTableRowV1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row |
 | [**deleteEmployeeTrainingRecord()**](PublicAPIApi.md#deleteEmployeeTrainingRecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record |
 | [**deleteGoal()**](PublicAPIApi.md#deleteGoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal |
 | [**deleteGoalComment()**](PublicAPIApi.md#deleteGoalComment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment |
+| [**deleteTimeTrackingById()**](PublicAPIApi.md#deleteTimeTrackingById) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record |
+| [**deleteTimesheetClockEntriesViaPost()**](PublicAPIApi.md#deleteTimesheetClockEntriesViaPost) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries |
+| [**deleteTimesheetHourEntriesViaPost()**](PublicAPIApi.md#deleteTimesheetHourEntriesViaPost) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
 | [**deleteTrainingCategory()**](PublicAPIApi.md#deleteTrainingCategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category |
 | [**deleteTrainingType()**](PublicAPIApi.md#deleteTrainingType) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type |
 | [**deleteWebhook()**](PublicAPIApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook |
-| [**e2ae6e59655aeab2b4e6311967a2809f()**](PublicAPIApi.md#e2ae6e59655aeab2b4e6311967a2809f) | **POST** /api/v1/timetracking/add | Add Hour Record |
-| [**e9a47e93524609b981be6139822d219e()**](PublicAPIApi.md#e9a47e93524609b981be6139822d219e) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
-| [**ec09b0a847283ca20b79980249d44b16()**](PublicAPIApi.md#ec09b0a847283ca20b79980249d44b16) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
-| [**f54bcaec6771b1264671e53f2e557b1f()**](PublicAPIApi.md#f54bcaec6771b1264671e53f2e557b1f) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records |
-| [**f7dd45b1747b0b72c4b617845b065a07()**](PublicAPIApi.md#f7dd45b1747b0b72c4b617845b065a07) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project |
+| [**editTimeTrackingRecord()**](PublicAPIApi.md#editTimeTrackingRecord) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record |
 | [**getAListOfWhoIsOut()**](PublicAPIApi.md#getAListOfWhoIsOut) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out |
 | [**getApplicationDetails()**](PublicAPIApi.md#getApplicationDetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details |
 | [**getApplications()**](PublicAPIApi.md#getApplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications |
@@ -53,6 +49,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**getCompanyInformation()**](PublicAPIApi.md#getCompanyInformation) | **GET** /api/v1/company_information | Get Company Information |
 | [**getCompanyLocations()**](PublicAPIApi.md#getCompanyLocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations |
 | [**getCompanyReport()**](PublicAPIApi.md#getCompanyReport) | **GET** /api/v1/reports/{id} | Get company report |
+| [**getCountriesOptions()**](PublicAPIApi.md#getCountriesOptions) | **GET** /api/v1/meta/countries/options | Get all countries |
 | [**getDataFromDataset()**](PublicAPIApi.md#getDataFromDataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset |
 | [**getDataSets()**](PublicAPIApi.md#getDataSets) | **GET** /api/v1/datasets | Get Data Sets |
 | [**getEmployee()**](PublicAPIApi.md#getEmployee) | **GET** /api/v1/employees/{id} | Get Employee |
@@ -62,6 +59,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**getEmployeePhoto()**](PublicAPIApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
 | [**getEmployeeTableRow()**](PublicAPIApi.md#getEmployeeTableRow) | **GET** /api/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination |
 | [**getEmployeesDirectory()**](PublicAPIApi.md#getEmployeesDirectory) | **GET** /api/v1/employees/directory | Get Employee Directory |
+| [**getFieldOptions()**](PublicAPIApi.md#getFieldOptions) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options |
 | [**getFieldsFromDataset()**](PublicAPIApi.md#getFieldsFromDataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset |
 | [**getGoalAggregate()**](PublicAPIApi.md#getGoalAggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info |
 | [**getGoalComments()**](PublicAPIApi.md#getGoalComments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments |
@@ -79,9 +77,11 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**getListOfUsers()**](PublicAPIApi.md#getListOfUsers) | **GET** /api/v1/meta/users | Get a List of Users |
 | [**getMemberBenefit()**](PublicAPIApi.md#getMemberBenefit) | **GET** /api/v1/benefit/member_benefit | Get a list of member benefit events |
 | [**getMonitorFields()**](PublicAPIApi.md#getMonitorFields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields |
+| [**getStatesByCountryId()**](PublicAPIApi.md#getStatesByCountryId) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
 | [**getStatuses()**](PublicAPIApi.md#getStatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses |
 | [**getTimeOffPolicies()**](PublicAPIApi.md#getTimeOffPolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies |
 | [**getTimeOffTypes()**](PublicAPIApi.md#getTimeOffTypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types |
+| [**getTimeTrackingRecord()**](PublicAPIApi.md#getTimeTrackingRecord) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
 | [**getWebhook()**](PublicAPIApi.md#getWebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook |
 | [**getWebhookList()**](PublicAPIApi.md#getWebhookList) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key. |
 | [**getWebhookLogs()**](PublicAPIApi.md#getWebhookLogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs |
@@ -188,6 +188,142 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addEditTimesheetClockEntries()`
+
+```php
+addEditTimesheetClockEntries($clock_entries_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+```
+
+Add/Edit Timesheet Clock Entries
+
+Add or edit timesheet clock entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$clock_entries_schema = new \MySdk\Model\ClockEntriesSchema(); // \MySdk\Model\ClockEntriesSchema
+
+try {
+    $result = $apiInstance->addEditTimesheetClockEntries($clock_entries_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addEditTimesheetClockEntries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clock_entries_schema** | [**\MySdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
+
+### Return type
+
+[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addEditTimesheetHourEntries()`
+
+```php
+addEditTimesheetHourEntries($hour_entries_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+```
+
+Add/Edit Timesheet Hour Entries
+
+Add or edit timesheet hour entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$hour_entries_request_schema = new \MySdk\Model\HourEntriesRequestSchema(); // \MySdk\Model\HourEntriesRequestSchema
+
+try {
+    $result = $apiInstance->addEditTimesheetHourEntries($hour_entries_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addEditTimesheetHourEntries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hour_entries_request_schema** | [**\MySdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -829,6 +965,282 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `addTimeTrackingBulk()`
+
+```php
+addTimeTrackingBulk($time_tracking_record): \MySdk\Model\TimeTrackingBulkResponseSchema
+```
+
+Add/Edit Hour Records
+
+Bulk add/edit hour records
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
+
+try {
+    $result = $apiInstance->addTimeTrackingBulk($time_tracking_record);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimeTrackingBulk: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
+
+### Return type
+
+[**\MySdk\Model\TimeTrackingBulkResponseSchema**](../Model/TimeTrackingBulkResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addTimeTrackingHourRecord()`
+
+```php
+addTimeTrackingHourRecord($time_tracking_record): \MySdk\Model\TimeTrackingIdResponseSchema
+```
+
+Add Hour Record
+
+Add an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
+
+try {
+    $result = $apiInstance->addTimeTrackingHourRecord($time_tracking_record);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimeTrackingHourRecord: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
+
+### Return type
+
+[**\MySdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addTimesheetClockInEntry()`
+
+```php
+addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer
+```
+
+Add Timesheet Clock-In Entry
+
+Clock in an employee.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 56; // int | ID of the employee to clock in.
+$clock_in_request_schema = new \MySdk\Model\ClockInRequestSchema(); // \MySdk\Model\ClockInRequestSchema
+
+try {
+    $result = $apiInstance->addTimesheetClockInEntry($employee_id, $clock_in_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimesheetClockInEntry: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **int**| ID of the employee to clock in. | |
+| **clock_in_request_schema** | [**\MySdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addTimesheetClockOutEntry()`
+
+```php
+addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer
+```
+
+Add Timesheet Clock-Out Entry
+
+Clock out an employee.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 56; // int | ID of the employee to clock out.
+$clock_out_request_schema = new \MySdk\Model\ClockOutRequestSchema(); // \MySdk\Model\ClockOutRequestSchema
+
+try {
+    $result = $apiInstance->addTimesheetClockOutEntry($employee_id, $clock_out_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimesheetClockOutEntry: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **int**| ID of the employee to clock out. | |
+| **clock_out_request_schema** | [**\MySdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `addTrainingCategory()`
 
 ```php
@@ -965,76 +1377,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ca54fa4c1d42864a2540f7f7600e0d65()`
-
-```php
-ca54fa4c1d42864a2540f7f7600e0d65($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request): \MySdk\Model\TimesheetEntryInfoApiTransformer
-```
-
-Add Timesheet Clock-Out Entry
-
-Clock out an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$employee_id = 56; // int | ID of the employee to clock out.
-$ca54fa4c1d42864a2540f7f7600e0d65_request = new \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request(); // \MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request
-
-try {
-    $result = $apiInstance->ca54fa4c1d42864a2540f7f7600e0d65($employee_id, $ca54fa4c1d42864a2540f7f7600e0d65_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->ca54fa4c1d42864a2540f7f7600e0d65: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **int**| ID of the employee to clock out. | |
-| **ca54fa4c1d42864a2540f7f7600e0d65_request** | [**\MySdk\Model\Ca54fa4c1d42864a2540f7f7600e0d65Request**](../Model/Ca54fa4c1d42864a2540f7f7600e0d65Request.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `call134f6593587d7195536c151bd65eb6d5()`
 
 ```php
@@ -1107,80 +1449,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call18e680c918496818b49d593d7ea375a5()`
+## `createTimeTrackingProject()`
 
 ```php
-call18e680c918496818b49d593d7ea375a5($dataset_name, $_18e680c918496818b49d593d7ea375a5_request): \MySdk\Model\FieldOptionsTransformer[]
+createTimeTrackingProject($project_create_request_schema): \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
 ```
 
-Get Field Options
+Create Time Tracking Project
 
-Use this resource to retrieve a list of possible values for a field.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$dataset_name = 'dataset_name_example'; // string | The name of the dataset you want to see field options for
-$_18e680c918496818b49d593d7ea375a5_request = new \MySdk\Model\18e680c918496818b49d593d7ea375a5Request(); // \MySdk\Model\18e680c918496818b49d593d7ea375a5Request
-
-try {
-    $result = $apiInstance->call18e680c918496818b49d593d7ea375a5($dataset_name, $_18e680c918496818b49d593d7ea375a5_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call18e680c918496818b49d593d7ea375a5: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **dataset_name** | **string**| The name of the dataset you want to see field options for | |
-| **_18e680c918496818b49d593d7ea375a5_request** | [**\MySdk\Model\18e680c918496818b49d593d7ea375a5Request**](../Model/18e680c918496818b49d593d7ea375a5Request.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\FieldOptionsTransformer[]**](../Model/FieldOptionsTransformer.md)
-
-### Authorization
-
-[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call22067048cf6eec230a865765a18ad7b8()`
-
-```php
-call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request): mixed
-```
-
-Edit Hour Record
-
-Edit an hour record
+Create a time tracking project with optional tasks.
 
 ### Example
 
@@ -1207,13 +1484,13 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
     new GuzzleHttp\Client(),
     $config
 );
-$_22067048cf6eec230a865765a18ad7b8_request = new \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request(); // \MySdk\Model\22067048cf6eec230a865765a18ad7b8Request
+$project_create_request_schema = new \MySdk\Model\ProjectCreateRequestSchema(); // \MySdk\Model\ProjectCreateRequestSchema
 
 try {
-    $result = $apiInstance->call22067048cf6eec230a865765a18ad7b8($_22067048cf6eec230a865765a18ad7b8_request);
+    $result = $apiInstance->createTimeTrackingProject($project_create_request_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call22067048cf6eec230a865765a18ad7b8: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PublicAPIApi->createTimeTrackingProject: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1221,11 +1498,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **_22067048cf6eec230a865765a18ad7b8_request** | [**\MySdk\Model\22067048cf6eec230a865765a18ad7b8Request**](../Model/22067048cf6eec230a865765a18ad7b8Request.md)|  | |
+| **project_create_request_schema** | [**\MySdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-**mixed**
+[**\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 
 ### Authorization
 
@@ -1234,481 +1511,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call3b7487d1d17551f6c3e2567b96089ce1()`
-
-```php
-call3b7487d1d17551f6c3e2567b96089ce1($_3b7487d1d17551f6c3e2567b96089ce1_request): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
-```
-
-Add/Edit Timesheet Clock Entries
-
-Add or edit timesheet clock entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$_3b7487d1d17551f6c3e2567b96089ce1_request = new \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request(); // \MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request
-
-try {
-    $result = $apiInstance->call3b7487d1d17551f6c3e2567b96089ce1($_3b7487d1d17551f6c3e2567b96089ce1_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call3b7487d1d17551f6c3e2567b96089ce1: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **_3b7487d1d17551f6c3e2567b96089ce1_request** | [**\MySdk\Model\3b7487d1d17551f6c3e2567b96089ce1Request**](../Model/3b7487d1d17551f6c3e2567b96089ce1Request.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call408a4478cbd2b1b5811ba6228e2898df()`
-
-```php
-call408a4478cbd2b1b5811ba6228e2898df($_408a4478cbd2b1b5811ba6228e2898df_request): mixed
-```
-
-Delete Timesheet Clock Entries
-
-Delete timesheet clock entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$_408a4478cbd2b1b5811ba6228e2898df_request = new \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest(); // \MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest
-
-try {
-    $result = $apiInstance->call408a4478cbd2b1b5811ba6228e2898df($_408a4478cbd2b1b5811ba6228e2898df_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call408a4478cbd2b1b5811ba6228e2898df: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **_408a4478cbd2b1b5811ba6228e2898df_request** | [**\MySdk\Model\408a4478cbd2b1b5811ba6228e2898dfRequest**](../Model/408a4478cbd2b1b5811ba6228e2898dfRequest.md)|  | |
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call43c7cc099ca54295a047f449824fc0dd()`
-
-```php
-call43c7cc099ca54295a047f449824fc0dd($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request): \MySdk\Model\TimesheetEntryInfoApiTransformer
-```
-
-Add Timesheet Clock-In Entry
-
-Clock in an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$employee_id = 56; // int | ID of the employee to clock in.
-$_43c7cc099ca54295a047f449824fc0dd_request = new \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest(); // \MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest
-
-try {
-    $result = $apiInstance->call43c7cc099ca54295a047f449824fc0dd($employee_id, $_43c7cc099ca54295a047f449824fc0dd_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call43c7cc099ca54295a047f449824fc0dd: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **int**| ID of the employee to clock in. | |
-| **_43c7cc099ca54295a047f449824fc0dd_request** | [**\MySdk\Model\43c7cc099ca54295a047f449824fc0ddRequest**](../Model/43c7cc099ca54295a047f449824fc0ddRequest.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call717faf6067928c3497fc9acbf5b91767()`
-
-```php
-call717faf6067928c3497fc9acbf5b91767($id): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse
-```
-
-Delete Hour Record
-
-Delete an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID).
-
-try {
-    $result = $apiInstance->call717faf6067928c3497fc9acbf5b91767($id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call717faf6067928c3497fc9acbf5b91767: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). | |
-
-### Return type
-
-[**\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201ResponseResponse**](../Model/F54bcaec6771b1264671e53f2e557b1f201ResponseResponse.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call7bb9fedfad942b8839bc61a125e7c255()`
-
-```php
-call7bb9fedfad942b8839bc61a125e7c255($_7bb9fedfad942b8839bc61a125e7c255_request): mixed
-```
-
-Delete Timesheet Hour Entries
-
-Delete timesheet hour entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$_7bb9fedfad942b8839bc61a125e7c255_request = new \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request(); // \MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request
-
-try {
-    $result = $apiInstance->call7bb9fedfad942b8839bc61a125e7c255($_7bb9fedfad942b8839bc61a125e7c255_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call7bb9fedfad942b8839bc61a125e7c255: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **_7bb9fedfad942b8839bc61a125e7c255_request** | [**\MySdk\Model\7bb9fedfad942b8839bc61a125e7c255Request**](../Model/7bb9fedfad942b8839bc61a125e7c255Request.md)|  | [optional] |
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call889a4c2de70a53c5ab8cb32f1c2243f5()`
-
-```php
-call889a4c2de70a53c5ab8cb32f1c2243f5($id): \MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response
-```
-
-Get Hour Record
-
-Get an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | {id} is the time tracking ID used to originally create the record.
-
-try {
-    $result = $apiInstance->call889a4c2de70a53c5ab8cb32f1c2243f5($id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call889a4c2de70a53c5ab8cb32f1c2243f5: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| {id} is the time tracking ID used to originally create the record. | |
-
-### Return type
-
-[**\MySdk\Model\Model889a4c2de70a53c5ab8cb32f1c2243f5200Response**](../Model/889a4c2de70a53c5ab8cb32f1c2243f5200Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `d44e9c43fbca76b93a00a9603ba24ba1()`
-
-```php
-d44e9c43fbca76b93a00a9603ba24ba1(): \MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]
-```
-
-Get all countries
-
-Get all available countries as options. Returns a list of countries with ID and name for use in forms and dropdowns.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->d44e9c43fbca76b93a00a9603ba24ba1();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->d44e9c43fbca76b93a00a9603ba24ba1: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\MySdk\Model\D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner[]**](../Model/D44e9c43fbca76b93a00a9603ba24ba1200ResponseInner.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2130,6 +1932,210 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteTimeTrackingById()`
+
+```php
+deleteTimeTrackingById($id): \MySdk\Model\TimeTrackingDeleteResponseSchema
+```
+
+Delete Hour Record
+
+Delete an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID).
+
+try {
+    $result = $apiInstance->deleteTimeTrackingById($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->deleteTimeTrackingById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). | |
+
+### Return type
+
+[**\MySdk\Model\TimeTrackingDeleteResponseSchema**](../Model/TimeTrackingDeleteResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimesheetClockEntriesViaPost()`
+
+```php
+deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema): mixed
+```
+
+Delete Timesheet Clock Entries
+
+Delete timesheet clock entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$clock_entry_ids_schema = new \MySdk\Model\ClockEntryIdsSchema(); // \MySdk\Model\ClockEntryIdsSchema
+
+try {
+    $result = $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->deleteTimesheetClockEntriesViaPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clock_entry_ids_schema** | [**\MySdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimesheetHourEntriesViaPost()`
+
+```php
+deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema): mixed
+```
+
+Delete Timesheet Hour Entries
+
+Delete timesheet hour entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$hour_entry_ids_schema = new \MySdk\Model\HourEntryIdsSchema(); // \MySdk\Model\HourEntryIdsSchema
+
+try {
+    $result = $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->deleteTimesheetHourEntriesViaPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hour_entry_ids_schema** | [**\MySdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteTrainingCategory()`
 
 ```php
@@ -2331,15 +2337,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `e2ae6e59655aeab2b4e6311967a2809f()`
+## `editTimeTrackingRecord()`
 
 ```php
-e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record): \MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response
+editTimeTrackingRecord($adjust_time_tracking_request_schema): \MySdk\Model\TimeTrackingIdResponseSchema
 ```
 
-Add Hour Record
+Edit Hour Record
 
-Add an hour record
+Edit an hour record
 
 ### Example
 
@@ -2366,13 +2372,13 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
     new GuzzleHttp\Client(),
     $config
 );
-$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
+$adjust_time_tracking_request_schema = new \MySdk\Model\AdjustTimeTrackingRequestSchema(); // \MySdk\Model\AdjustTimeTrackingRequestSchema
 
 try {
-    $result = $apiInstance->e2ae6e59655aeab2b4e6311967a2809f($time_tracking_record);
+    $result = $apiInstance->editTimeTrackingRecord($adjust_time_tracking_request_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->e2ae6e59655aeab2b4e6311967a2809f: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PublicAPIApi->editTimeTrackingRecord: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2380,283 +2386,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
+| **adjust_time_tracking_request_schema** | [**\MySdk\Model\AdjustTimeTrackingRequestSchema**](../Model/AdjustTimeTrackingRequestSchema.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\E2ae6e59655aeab2b4e6311967a2809f201Response**](../Model/E2ae6e59655aeab2b4e6311967a2809f201Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `e9a47e93524609b981be6139822d219e()`
-
-```php
-e9a47e93524609b981be6139822d219e($e9a47e93524609b981be6139822d219e_request): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
-```
-
-Add/Edit Timesheet Hour Entries
-
-Add or edit timesheet hour entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$e9a47e93524609b981be6139822d219e_request = new \MySdk\Model\E9a47e93524609b981be6139822d219eRequest(); // \MySdk\Model\E9a47e93524609b981be6139822d219eRequest
-
-try {
-    $result = $apiInstance->e9a47e93524609b981be6139822d219e($e9a47e93524609b981be6139822d219e_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->e9a47e93524609b981be6139822d219e: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **e9a47e93524609b981be6139822d219e_request** | [**\MySdk\Model\E9a47e93524609b981be6139822d219eRequest**](../Model/E9a47e93524609b981be6139822d219eRequest.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ec09b0a847283ca20b79980249d44b16()`
-
-```php
-ec09b0a847283ca20b79980249d44b16($country_id): \MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response
-```
-
-Get states by country ID
-
-Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$country_id = 56; // int | ID of the country to get states/provinces for
-
-try {
-    $result = $apiInstance->ec09b0a847283ca20b79980249d44b16($country_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->ec09b0a847283ca20b79980249d44b16: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **country_id** | **int**| ID of the country to get states/provinces for | |
-
-### Return type
-
-[**\MySdk\Model\Ec09b0a847283ca20b79980249d44b16200Response**](../Model/Ec09b0a847283ca20b79980249d44b16200Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `f54bcaec6771b1264671e53f2e557b1f()`
-
-```php
-f54bcaec6771b1264671e53f2e557b1f($time_tracking_record): \MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response
-```
-
-Add/Edit Hour Records
-
-Bulk add/edit hour records
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
-
-try {
-    $result = $apiInstance->f54bcaec6771b1264671e53f2e557b1f($time_tracking_record);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->f54bcaec6771b1264671e53f2e557b1f: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\F54bcaec6771b1264671e53f2e557b1f201Response**](../Model/F54bcaec6771b1264671e53f2e557b1f201Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `f7dd45b1747b0b72c4b617845b065a07()`
-
-```php
-f7dd45b1747b0b72c4b617845b065a07($f7dd45b1747b0b72c4b617845b065a07_request): \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
-```
-
-Create Time Tracking Project
-
-Create a time tracking project with optional tasks.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$f7dd45b1747b0b72c4b617845b065a07_request = new \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request(); // \MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request
-
-try {
-    $result = $apiInstance->f7dd45b1747b0b72c4b617845b065a07($f7dd45b1747b0b72c4b617845b065a07_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->f7dd45b1747b0b72c4b617845b065a07: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **f7dd45b1747b0b72c4b617845b065a07_request** | [**\MySdk\Model\F7dd45b1747b0b72c4b617845b065a07Request**](../Model/F7dd45b1747b0b72c4b617845b065a07Request.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
+[**\MySdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
 
 ### Authorization
 
@@ -3570,6 +3304,71 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCountriesOptions()`
+
+```php
+getCountriesOptions(): \MySdk\Model\CountrySchema[]
+```
+
+Get all countries
+
+Get all available countries as options. Returns a list of countries with ID and name for use in forms and dropdowns.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getCountriesOptions();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getCountriesOptions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MySdk\Model\CountrySchema[]**](../Model/CountrySchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getDataFromDataset()`
 
 ```php
@@ -4187,6 +3986,71 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getFieldOptions()`
+
+```php
+getFieldOptions($dataset_name, $field_options_request_schema): \MySdk\Model\FieldOptionsTransformer[]
+```
+
+Get Field Options
+
+Use this resource to retrieve a list of possible values for a field.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$dataset_name = 'dataset_name_example'; // string | The name of the dataset you want to see field options for
+$field_options_request_schema = new \MySdk\Model\FieldOptionsRequestSchema(); // \MySdk\Model\FieldOptionsRequestSchema
+
+try {
+    $result = $apiInstance->getFieldOptions($dataset_name, $field_options_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getFieldOptions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dataset_name** | **string**| The name of the dataset you want to see field options for | |
+| **field_options_request_schema** | [**\MySdk\Model\FieldOptionsRequestSchema**](../Model/FieldOptionsRequestSchema.md)|  | |
+
+### Return type
+
+[**\MySdk\Model\FieldOptionsTransformer[]**](../Model/FieldOptionsTransformer.md)
+
+### Authorization
+
+[oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -5351,6 +5215,74 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getStatesByCountryId()`
+
+```php
+getStatesByCountryId($country_id): \MySdk\Model\StateProvinceResponseSchema
+```
+
+Get states by country ID
+
+Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$country_id = 56; // int | ID of the country to get states/provinces for
+
+try {
+    $result = $apiInstance->getStatesByCountryId($country_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getStatesByCountryId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country_id** | **int**| ID of the country to get states/provinces for | |
+
+### Return type
+
+[**\MySdk\Model\StateProvinceResponseSchema**](../Model/StateProvinceResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getStatuses()`
 
 ```php
@@ -5537,6 +5469,74 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTimeTrackingRecord()`
+
+```php
+getTimeTrackingRecord($id): \MySdk\Model\TimeTrackingRecordSchema
+```
+
+Get Hour Record
+
+Get an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | {id} is the time tracking ID used to originally create the record.
+
+try {
+    $result = $apiInstance->getTimeTrackingRecord($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getTimeTrackingRecord: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| {id} is the time tracking ID used to originally create the record. | |
+
+### Return type
+
+[**\MySdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
 
 ### Authorization
 
@@ -7771,7 +7771,7 @@ void (empty response body)
 ## `timeOffAssignTimeOffPoliciesForAnEmployee()`
 
 ```php
-timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $request_body)
+timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
 Assign Time Off Policies for an Employee
@@ -7804,10 +7804,10 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$request_body = array(new \stdClass); // object[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
-    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $request_body);
+    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffAssignTimeOffPoliciesForAnEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -7818,7 +7818,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **request_body** | [**object[]**](../Model/object.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 
@@ -7840,7 +7840,7 @@ void (empty response body)
 ## `timeOffAssignTimeOffPoliciesForAnEmployeeV11()`
 
 ```php
-timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $request_body)
+timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
 Assign Time Off Policies for an Employee, Version 1.1
@@ -7873,10 +7873,10 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$request_body = array(new \stdClass); // object[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
-    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $request_body);
+    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffAssignTimeOffPoliciesForAnEmployeeV11: ', $e->getMessage(), PHP_EOL;
 }
@@ -7887,7 +7887,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **request_body** | [**object[]**](../Model/object.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 
