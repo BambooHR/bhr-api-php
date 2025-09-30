@@ -700,6 +700,7 @@ use {{invokerPackage}}\ObjectSerializer;
 			}
 		}
 
+		// Authentication methods
 		{{#authMethods}}
 		{{#isApiKey}}
 		// this endpoint requires API key authentication
@@ -708,27 +709,17 @@ use {{invokerPackage}}\ObjectSerializer;
 			{{#isKeyInHeader}}$headers['{{keyParamName}}'] = $apiKey;{{/isKeyInHeader}}{{#isKeyInQuery}}$queryParams['{{keyParamName}}'] = $apiKey;{{/isKeyInQuery}}
 		}
 		{{/isApiKey}}
-		{{#isBasic}}
-		{{#isBasicBasic}}
-		// this endpoint requires HTTP basic authentication
+		{{/authMethods}}
+		
+		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
-		{{/isBasicBasic}}
-		{{#isBasicBearer}}
-		// this endpoint requires Bearer{{#bearerFormat}} ({{{.}}}){{/bearerFormat}} authentication (access token)
+		
+		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
-		{{/isBasicBearer}}
-		{{/isBasic}}
-		{{#isOAuth}}
-		// this endpoint requires OAuth (access token)
-		if (!empty($this->config->getAccessToken())) {
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-		{{/isOAuth}}
-		{{/authMethods}}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {

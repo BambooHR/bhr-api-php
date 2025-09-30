@@ -376,15 +376,14 @@ class ReportsApi {
 			}
 		}
 
-		// this endpoint requires HTTP basic authentication
+		// Authentication methods
+		
+		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
-		// this endpoint requires OAuth (access token)
-		if (!empty($this->config->getAccessToken())) {
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-		// this endpoint requires OAuth (access token)
+		
+		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
@@ -636,15 +635,14 @@ class ReportsApi {
 			}
 		}
 
-		// this endpoint requires HTTP basic authentication
+		// Authentication methods
+		
+		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
-		// this endpoint requires OAuth (access token)
-		if (!empty($this->config->getAccessToken())) {
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-		// this endpoint requires OAuth (access token)
+		
+		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
