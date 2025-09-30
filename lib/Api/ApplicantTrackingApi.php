@@ -465,7 +465,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
 		if (count($formParams) > 0) {
 			if ($multipart) {
 				$multipartContents = [];
@@ -855,7 +854,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
 		if (count($formParams) > 0) {
 			if ($multipart) {
 				$multipartContents = [];
@@ -1147,7 +1145,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/applications';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -1244,30 +1242,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
-		if (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
 
 		// Authentication methods
 		
@@ -1482,7 +1456,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/locations';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -1498,30 +1472,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
-		if (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
 
 		// Authentication methods
 		
@@ -1736,7 +1686,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/hiring_leads';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -1752,30 +1702,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
-		if (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
 
 		// Authentication methods
 		
@@ -1958,7 +1884,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/jobs';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -2001,30 +1927,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
-		if (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
 
 		// Authentication methods
 		
@@ -2189,7 +2091,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/statuses';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -2205,30 +2107,6 @@ class ApplicantTrackingApi {
 			$multipart
 		);
 
-		// for model (json/xml)
-		if (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
 
 		// Authentication methods
 		
@@ -2417,7 +2295,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -2449,29 +2327,7 @@ class ApplicantTrackingApi {
 			} else {
 				$httpBody = $post_applicant_status_request;
 			}
-		} elseif (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
+		} 
 
 		// Authentication methods
 		
@@ -2660,7 +2516,7 @@ class ApplicantTrackingApi {
 
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
-		$formParams = [];
+		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -2692,29 +2548,7 @@ class ApplicantTrackingApi {
 			} else {
 				$httpBody = $post_application_comment_request;
 			}
-		} elseif (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
+		} 
 
 		// Authentication methods
 		

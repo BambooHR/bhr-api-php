@@ -311,7 +311,6 @@ class LoginApi {
 			$multipart
 		);
 
-		// for model (json/xml)
 		if (count($formParams) > 0) {
 			if ($multipart) {
 				$multipartContents = [];
