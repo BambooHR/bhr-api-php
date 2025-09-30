@@ -1,6 +1,6 @@
-# MySdk\ReportsApi
+# BhrSdk\ReportsApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -25,13 +25,13 @@ Get company report
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ReportsApi(
+$apiInstance = new BhrSdk\Api\ReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -94,20 +94,20 @@ Request a custom report
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ReportsApi(
+$apiInstance = new BhrSdk\Api\ReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
-$request_custom_report = new \MySdk\Model\RequestCustomReport(); // \MySdk\Model\RequestCustomReport
+$request_custom_report = new \BhrSdk\Model\RequestCustomReport(); // \BhrSdk\Model\RequestCustomReport
 $only_current = false; // bool | Limits the report to only current employees. Setting to false will include future-dated employees in the report.
 
 try {
@@ -122,7 +122,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
-| **request_custom_report** | [**\MySdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
+| **request_custom_report** | [**\BhrSdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
 | **only_current** | **bool**| Limits the report to only current employees. Setting to false will include future-dated employees in the report. | [optional] [default to false] |
 
 ### Return type

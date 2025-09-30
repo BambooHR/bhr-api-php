@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * TimeTrackingApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -147,12 +147,12 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addEditTimesheetClockEntries($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 		list($response) = $this->addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema, $contentType);
@@ -164,12 +164,12 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 		$request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
@@ -200,7 +200,7 @@ class TimeTrackingApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$request,
 						$response,
 					);
@@ -258,7 +258,7 @@ class TimeTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 				$request,
 				$response,
 			);
@@ -267,7 +267,7 @@ class TimeTrackingApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -332,7 +332,7 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -352,14 +352,14 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEditTimesheetClockEntriesAsyncWithHttpInfo($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]';
 		$request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
 
 		return $this->client
@@ -401,7 +401,7 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'addEditTimesheetClockEntries'
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -499,12 +499,12 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addEditTimesheetHourEntries($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 		list($response) = $this->addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema, $contentType);
@@ -516,12 +516,12 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 		$request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
@@ -552,7 +552,7 @@ class TimeTrackingApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$request,
 						$response,
 					);
@@ -610,7 +610,7 @@ class TimeTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 				$request,
 				$response,
 			);
@@ -619,7 +619,7 @@ class TimeTrackingApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -684,7 +684,7 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -704,14 +704,14 @@ class TimeTrackingApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEditTimesheetHourEntriesAsyncWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]';
 		$request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
 
 		return $this->client
@@ -753,7 +753,7 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'addEditTimesheetHourEntries'
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -852,12 +852,12 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addTimesheetClockInEntry($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
 		list($response) = $this->addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema, $contentType);
@@ -870,12 +870,12 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
 		$request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
@@ -906,7 +906,7 @@ class TimeTrackingApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$request,
 						$response,
 					);
@@ -958,7 +958,7 @@ class TimeTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 				$request,
 				$response,
 			);
@@ -967,7 +967,7 @@ class TimeTrackingApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1025,7 +1025,7 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1046,14 +1046,14 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimesheetClockInEntryAsyncWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer';
 		$request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
 
 		return $this->client
@@ -1096,7 +1096,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'addTimesheetClockInEntry'
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1210,12 +1210,12 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addTimesheetClockOutEntry($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
 		list($response) = $this->addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema, $contentType);
@@ -1228,12 +1228,12 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
 		$request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
@@ -1264,7 +1264,7 @@ class TimeTrackingApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$request,
 						$response,
 					);
@@ -1322,7 +1322,7 @@ class TimeTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 				$request,
 				$response,
 			);
@@ -1331,7 +1331,7 @@ class TimeTrackingApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1397,7 +1397,7 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1418,14 +1418,14 @@ class TimeTrackingApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimesheetClockOutEntryAsyncWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer';
 		$request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
 
 		return $this->client
@@ -1468,7 +1468,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'addTimesheetClockOutEntry'
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1581,12 +1581,12 @@ class TimeTrackingApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
+	 * @return \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
 	 */
 	public function createTimeTrackingProject($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 		list($response) = $this->createTimeTrackingProjectWithHttpInfo($project_create_request_schema, $contentType);
@@ -1598,12 +1598,12 @@ class TimeTrackingApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function createTimeTrackingProjectWithHttpInfo($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 		$request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
@@ -1634,7 +1634,7 @@ class TimeTrackingApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+						'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
 						$request,
 						$response,
 					);
@@ -1656,7 +1656,7 @@ class TimeTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+				'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
 				$request,
 				$response,
 			);
@@ -1665,7 +1665,7 @@ class TimeTrackingApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+						'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1682,7 +1682,7 @@ class TimeTrackingApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1702,14 +1702,14 @@ class TimeTrackingApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function createTimeTrackingProjectAsyncWithHttpInfo($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds';
+		$returnType = '\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds';
 		$request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
 
 		return $this->client
@@ -1751,7 +1751,7 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'createTimeTrackingProject'
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1849,10 +1849,10 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
@@ -1866,10 +1866,10 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2034,7 +2034,7 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2054,7 +2054,7 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2103,7 +2103,7 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'deleteTimesheetClockEntriesViaPost'
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2207,10 +2207,10 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
@@ -2224,10 +2224,10 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2406,7 +2406,7 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2426,7 +2426,7 @@ class TimeTrackingApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2475,7 +2475,7 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'deleteTimesheetHourEntriesViaPost'
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2578,9 +2578,9 @@ class TimeTrackingApi {
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed
 	 */
 	public function getTimesheetEntries($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
 		list($response) = $this->getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids, $contentType);
@@ -2597,9 +2597,9 @@ class TimeTrackingApi {
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
 		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
@@ -2630,7 +2630,7 @@ class TimeTrackingApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+						'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
 						$request,
 						$response,
 					);
@@ -2676,7 +2676,7 @@ class TimeTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+				'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
 				$request,
 				$response,
 			);
@@ -2685,7 +2685,7 @@ class TimeTrackingApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+						'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2765,7 +2765,7 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimesheetEntriesAsyncWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
-		$returnType = '\MySdk\Model\EmployeeTimesheetEntryTransformer[]';
+		$returnType = '\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]';
 		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
 
 		return $this->client

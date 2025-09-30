@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * FieldOptionsRequestSchema Class Doc Comment
  *
  * @category Class
  * @description Schema for field options request
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static $openApiTypes = [
 		'fields' => 'string[]',
-		'dependent_fields' => 'array<string,\MySdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>'
+		'dependent_fields' => 'array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>'
 	];
 
 	/**
@@ -312,7 +312,7 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets dependent_fields
 	 *
-	 * @return array<string,\MySdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>|null
+	 * @return array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>|null
 	 */
 	public function getDependentFields() {
 		return $this->container['dependent_fields'];
@@ -321,7 +321,7 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets dependent_fields
 	 *
-	 * @param array<string,\MySdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>|null $dependent_fields Dependent fields and their values that affect the options of the requested fields
+	 * @param array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>|null $dependent_fields Dependent fields and their values that affect the options of the requested fields
 	 *
 	 * @return self
 	 */

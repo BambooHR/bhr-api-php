@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TransformedApiGoal Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'goal' => '\MySdk\Model\TransformedApiGoalGoal'
+		'goal' => '\BhrSdk\Model\TransformedApiGoalGoal'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets goal
 	 *
-	 * @return \MySdk\Model\TransformedApiGoalGoal|null
+	 * @return \BhrSdk\Model\TransformedApiGoalGoal|null
 	 */
 	public function getGoal() {
 		return $this->container['goal'];
@@ -285,7 +285,7 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets goal
 	 *
-	 * @param \MySdk\Model\TransformedApiGoalGoal|null $goal goal
+	 * @param \BhrSdk\Model\TransformedApiGoalGoal|null $goal goal
 	 *
 	 * @return self
 	 */

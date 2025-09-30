@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * PutGoalV11Request Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,7 +65,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'aligns_with_option_id' => 'int',
 		'milestones_enabled' => 'bool',
 		'deleted_milestone_ids' => 'int[]',
-		'milestones' => '\MySdk\Model\PutGoalV11RequestMilestonesInner[]'
+		'milestones' => '\BhrSdk\Model\PutGoalV11RequestMilestonesInner[]'
 	];
 
 	/**
@@ -610,7 +610,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets milestones
 	 *
-	 * @return \MySdk\Model\PutGoalV11RequestMilestonesInner[]|null
+	 * @return \BhrSdk\Model\PutGoalV11RequestMilestonesInner[]|null
 	 */
 	public function getMilestones() {
 		return $this->container['milestones'];
@@ -619,7 +619,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets milestones
 	 *
-	 * @param \MySdk\Model\PutGoalV11RequestMilestonesInner[]|null $milestones List of milestones to add to this goal
+	 * @param \BhrSdk\Model\PutGoalV11RequestMilestonesInner[]|null $milestones List of milestones to add to this goal
 	 *
 	 * @return self
 	 */

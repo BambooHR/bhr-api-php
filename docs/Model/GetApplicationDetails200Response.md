@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Application ID | [optional]
 **applied_date** | **\DateTime** | Date when the application was submitted | [optional]
-**status** | [**\MySdk\Model\GetApplicationDetails200ResponseStatus**](GetApplicationDetails200ResponseStatus.md) |  | [optional]
+**status** | [**\BhrSdk\Model\GetApplicationDetails200ResponseStatus**](GetApplicationDetails200ResponseStatus.md) |  | [optional]
 **rating** | **int** | Applicant rating | [optional]
 **education** | **object** | Applicant education information | [optional]
 **resume_file_id** | **int** | ID of the resume file | [optional]
@@ -20,9 +20,9 @@ Name | Type | Description | Notes
 **comment_count** | **int** | Number of comments on this application | [optional]
 **email_count** | **int** | Number of emails for this application | [optional]
 **event_count** | **int** | Number of events for this application | [optional]
-**questions_and_answers** | [**\MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]**](GetApplicationDetails200ResponseQuestionsAndAnswersInner.md) | Custom questions and answers | [optional]
+**questions_and_answers** | [**\BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]**](GetApplicationDetails200ResponseQuestionsAndAnswersInner.md) | Custom questions and answers | [optional]
 **application_references** | **object[]** | Application references | [optional]
-**applicant** | [**\MySdk\Model\GetApplicationDetails200ResponseApplicant**](GetApplicationDetails200ResponseApplicant.md) |  | [optional]
-**job** | [**\MySdk\Model\GetApplicationDetails200ResponseJob**](GetApplicationDetails200ResponseJob.md) |  | [optional]
+**applicant** | [**\BhrSdk\Model\GetApplicationDetails200ResponseApplicant**](GetApplicationDetails200ResponseApplicant.md) |  | [optional]
+**job** | [**\BhrSdk\Model\GetApplicationDetails200ResponseJob**](GetApplicationDetails200ResponseJob.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

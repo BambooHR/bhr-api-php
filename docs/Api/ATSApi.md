@@ -1,6 +1,6 @@
-# MySdk\ATSApi
+# BhrSdk\ATSApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -10,7 +10,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 ## `getApplicationDetails()`
 
 ```php
-getApplicationDetails($application_id): \MySdk\Model\GetApplicationDetails200Response
+getApplicationDetails($application_id): \BhrSdk\Model\GetApplicationDetails200Response
 ```
 
 Get Application Details
@@ -24,13 +24,13 @@ Get the details of an application. The owner of the API key used must have acces
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ATSApi(
+$apiInstance = new BhrSdk\Api\ATSApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
+[**\BhrSdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
 
 ### Authorization
 

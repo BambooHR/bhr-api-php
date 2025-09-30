@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetApplicationDetails200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	protected static $openApiTypes = [
 		'id' => 'int',
 		'applied_date' => '\DateTime',
-		'status' => '\MySdk\Model\GetApplicationDetails200ResponseStatus',
+		'status' => '\BhrSdk\Model\GetApplicationDetails200ResponseStatus',
 		'rating' => 'int',
 		'education' => 'object',
 		'resume_file_id' => 'int',
@@ -72,10 +72,10 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 		'comment_count' => 'int',
 		'email_count' => 'int',
 		'event_count' => 'int',
-		'questions_and_answers' => '\MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]',
+		'questions_and_answers' => '\BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]',
 		'application_references' => 'object[]',
-		'applicant' => '\MySdk\Model\GetApplicationDetails200ResponseApplicant',
-		'job' => '\MySdk\Model\GetApplicationDetails200ResponseJob'
+		'applicant' => '\BhrSdk\Model\GetApplicationDetails200ResponseApplicant',
+		'job' => '\BhrSdk\Model\GetApplicationDetails200ResponseJob'
 	];
 
 	/**
@@ -459,7 +459,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets status
 	 *
-	 * @return \MySdk\Model\GetApplicationDetails200ResponseStatus|null
+	 * @return \BhrSdk\Model\GetApplicationDetails200ResponseStatus|null
 	 */
 	public function getStatus() {
 		return $this->container['status'];
@@ -468,7 +468,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets status
 	 *
-	 * @param \MySdk\Model\GetApplicationDetails200ResponseStatus|null $status status
+	 * @param \BhrSdk\Model\GetApplicationDetails200ResponseStatus|null $status status
 	 *
 	 * @return self
 	 */
@@ -844,7 +844,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets questions_and_answers
 	 *
-	 * @return \MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]|null
+	 * @return \BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]|null
 	 */
 	public function getQuestionsAndAnswers() {
 		return $this->container['questions_and_answers'];
@@ -853,7 +853,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets questions_and_answers
 	 *
-	 * @param \MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]|null $questions_and_answers Custom questions and answers
+	 * @param \BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInner[]|null $questions_and_answers Custom questions and answers
 	 *
 	 * @return self
 	 */
@@ -894,7 +894,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets applicant
 	 *
-	 * @return \MySdk\Model\GetApplicationDetails200ResponseApplicant|null
+	 * @return \BhrSdk\Model\GetApplicationDetails200ResponseApplicant|null
 	 */
 	public function getApplicant() {
 		return $this->container['applicant'];
@@ -903,7 +903,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets applicant
 	 *
-	 * @param \MySdk\Model\GetApplicationDetails200ResponseApplicant|null $applicant applicant
+	 * @param \BhrSdk\Model\GetApplicationDetails200ResponseApplicant|null $applicant applicant
 	 *
 	 * @return self
 	 */
@@ -919,7 +919,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets job
 	 *
-	 * @return \MySdk\Model\GetApplicationDetails200ResponseJob|null
+	 * @return \BhrSdk\Model\GetApplicationDetails200ResponseJob|null
 	 */
 	public function getJob() {
 		return $this->container['job'];
@@ -928,7 +928,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets job
 	 *
-	 * @param \MySdk\Model\GetApplicationDetails200ResponseJob|null $job job
+	 * @param \BhrSdk\Model\GetApplicationDetails200ResponseJob|null $job job
 	 *
 	 * @return self
 	 */

@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * ApplicantTrackingApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -173,7 +173,7 @@ class ApplicantTrackingApi {
 	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -209,7 +209,7 @@ class ApplicantTrackingApi {
 	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -552,7 +552,7 @@ class ApplicantTrackingApi {
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -588,7 +588,7 @@ class ApplicantTrackingApi {
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -931,9 +931,9 @@ class ApplicantTrackingApi {
 	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetApplications200Response
+	 * @return \BhrSdk\Model\GetApplications200Response
 	 */
 	public function getApplications($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		list($response) = $this->getApplicationsWithHttpInfo($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
@@ -956,9 +956,9 @@ class ApplicantTrackingApi {
 	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetApplications200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetApplications200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
@@ -989,7 +989,7 @@ class ApplicantTrackingApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetApplications200Response',
+						'\BhrSdk\Model\GetApplications200Response',
 						$request,
 						$response,
 					);
@@ -1011,7 +1011,7 @@ class ApplicantTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetApplications200Response',
+				'\BhrSdk\Model\GetApplications200Response',
 				$request,
 				$response,
 			);
@@ -1020,7 +1020,7 @@ class ApplicantTrackingApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetApplications200Response',
+						'\BhrSdk\Model\GetApplications200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1080,7 +1080,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getApplicationsAsyncWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
-		$returnType = '\MySdk\Model\GetApplications200Response';
+		$returnType = '\BhrSdk\Model\GetApplications200Response';
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
 		return $this->client
@@ -1312,9 +1312,9 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyLocations'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetCompanyLocations200ResponseInner[]
+	 * @return \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
 	 */
 	public function getCompanyLocations(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		list($response) = $this->getCompanyLocationsWithHttpInfo($contentType);
@@ -1328,9 +1328,9 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyLocations'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetCompanyLocations200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetCompanyLocations200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
@@ -1361,7 +1361,7 @@ class ApplicantTrackingApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetCompanyLocations200ResponseInner[]',
+						'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -1383,7 +1383,7 @@ class ApplicantTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetCompanyLocations200ResponseInner[]',
+				'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -1392,7 +1392,7 @@ class ApplicantTrackingApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetCompanyLocations200ResponseInner[]',
+						'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1434,7 +1434,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyLocationsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
-		$returnType = '\MySdk\Model\GetCompanyLocations200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\GetCompanyLocations200ResponseInner[]';
 		$request = $this->getCompanyLocationsRequest($contentType);
 
 		return $this->client
@@ -1567,9 +1567,9 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getHiringLeads'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetHiringLeads200ResponseInner[]
+	 * @return \BhrSdk\Model\GetHiringLeads200ResponseInner[]
 	 */
 	public function getHiringLeads(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		list($response) = $this->getHiringLeadsWithHttpInfo($contentType);
@@ -1583,9 +1583,9 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getHiringLeads'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetHiringLeads200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetHiringLeads200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
@@ -1616,7 +1616,7 @@ class ApplicantTrackingApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetHiringLeads200ResponseInner[]',
+						'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -1638,7 +1638,7 @@ class ApplicantTrackingApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetHiringLeads200ResponseInner[]',
+				'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -1647,7 +1647,7 @@ class ApplicantTrackingApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetHiringLeads200ResponseInner[]',
+						'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1689,7 +1689,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getHiringLeadsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
-		$returnType = '\MySdk\Model\GetHiringLeads200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\GetHiringLeads200ResponseInner[]';
 		$request = $this->getHiringLeadsRequest($contentType);
 
 		return $this->client
@@ -1825,7 +1825,7 @@ class ApplicantTrackingApi {
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1843,7 +1843,7 @@ class ApplicantTrackingApi {
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2072,7 +2072,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2087,7 +2087,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2276,10 +2276,10 @@ class ApplicantTrackingApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2293,10 +2293,10 @@ class ApplicantTrackingApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2342,7 +2342,7 @@ class ApplicantTrackingApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2363,7 +2363,7 @@ class ApplicantTrackingApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2400,7 +2400,7 @@ class ApplicantTrackingApi {
 	 * Create request for operation 'postApplicantStatus'
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2520,10 +2520,10 @@ class ApplicantTrackingApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2537,10 +2537,10 @@ class ApplicantTrackingApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2586,7 +2586,7 @@ class ApplicantTrackingApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2607,7 +2607,7 @@ class ApplicantTrackingApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2644,7 +2644,7 @@ class ApplicantTrackingApi {
 	 * Create request for operation 'postApplicationComment'
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

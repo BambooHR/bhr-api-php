@@ -1,6 +1,6 @@
-# MySdk\BenefitsApi
+# BhrSdk\BenefitsApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -30,19 +30,19 @@ Adds an employee dependent
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$employee_dependent = new \MySdk\Model\EmployeeDependent(); // \MySdk\Model\EmployeeDependent
+$employee_dependent = new \BhrSdk\Model\EmployeeDependent(); // \BhrSdk\Model\EmployeeDependent
 
 try {
     $apiInstance->addEmployeeDependent($employee_dependent);
@@ -55,7 +55,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_dependent** | [**\MySdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
+| **employee_dependent** | [**\BhrSdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
 
 ### Return type
 
@@ -91,13 +91,13 @@ Get benefit coverages
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -152,13 +152,13 @@ Get benefit deduction types
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -210,13 +210,13 @@ Get employee dependent
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -273,13 +273,13 @@ Get all employee dependents
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -322,7 +322,7 @@ void (empty response body)
 ## `getMemberBenefit()`
 
 ```php
-getMemberBenefit(): \MySdk\Model\MemberBenefitEvent[]
+getMemberBenefit(): \BhrSdk\Model\MemberBenefitEvent[]
 ```
 
 Get a list of member benefit events
@@ -336,13 +336,13 @@ Get a list of member benefit events
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -363,7 +363,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\MemberBenefitEvent[]**](../Model/MemberBenefitEvent.md)
+[**\BhrSdk\Model\MemberBenefitEvent[]**](../Model/MemberBenefitEvent.md)
 
 ### Authorization
 
@@ -395,20 +395,20 @@ This API allows you to change the information for a given dependent ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\BenefitsApi(
+$apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | {id} is the employee dependent ID.
-$employee_dependent = new \MySdk\Model\EmployeeDependent(); // \MySdk\Model\EmployeeDependent
+$employee_dependent = new \BhrSdk\Model\EmployeeDependent(); // \BhrSdk\Model\EmployeeDependent
 
 try {
     $apiInstance->updateEmployeeDependent($id, $employee_dependent);
@@ -422,7 +422,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is the employee dependent ID. | |
-| **employee_dependent** | [**\MySdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
+| **employee_dependent** | [**\BhrSdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
 
 ### Return type
 

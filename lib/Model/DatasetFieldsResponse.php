@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * DatasetFieldsResponse Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,10 +56,10 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'pagination' => '\MySdk\Model\Pagination',
+		'pagination' => '\BhrSdk\Model\Pagination',
 		'name' => 'string',
 		'label' => 'string',
-		'fields' => '\MySdk\Model\Field[]'
+		'fields' => '\BhrSdk\Model\Field[]'
 	];
 
 	/**
@@ -297,7 +297,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Gets pagination
 	 *
-	 * @return \MySdk\Model\Pagination|null
+	 * @return \BhrSdk\Model\Pagination|null
 	 */
 	public function getPagination() {
 		return $this->container['pagination'];
@@ -306,7 +306,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets pagination
 	 *
-	 * @param \MySdk\Model\Pagination|null $pagination pagination
+	 * @param \BhrSdk\Model\Pagination|null $pagination pagination
 	 *
 	 * @return self
 	 */
@@ -372,7 +372,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Gets fields
 	 *
-	 * @return \MySdk\Model\Field[]|null
+	 * @return \BhrSdk\Model\Field[]|null
 	 */
 	public function getFields() {
 		return $this->container['fields'];
@@ -381,7 +381,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets fields
 	 *
-	 * @param \MySdk\Model\Field[]|null $fields fields
+	 * @param \BhrSdk\Model\Field[]|null $fields fields
 	 *
 	 * @return self
 	 */

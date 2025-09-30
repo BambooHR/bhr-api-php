@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TimeOffRequest Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,8 +61,8 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'end' => 'string',
 		'time_off_type_id' => 'int',
 		'amount' => 'int',
-		'notes' => '\MySdk\Model\TimeOffRequestNotesInner[]',
-		'dates' => '\MySdk\Model\TimeOffRequestDatesInner[]'
+		'notes' => '\BhrSdk\Model\TimeOffRequestNotesInner[]',
+		'dates' => '\BhrSdk\Model\TimeOffRequestDatesInner[]'
 	];
 
 	/**
@@ -443,7 +443,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets notes
 	 *
-	 * @return \MySdk\Model\TimeOffRequestNotesInner[]|null
+	 * @return \BhrSdk\Model\TimeOffRequestNotesInner[]|null
 	 */
 	public function getNotes() {
 		return $this->container['notes'];
@@ -452,7 +452,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets notes
 	 *
-	 * @param \MySdk\Model\TimeOffRequestNotesInner[]|null $notes notes
+	 * @param \BhrSdk\Model\TimeOffRequestNotesInner[]|null $notes notes
 	 *
 	 * @return self
 	 */
@@ -468,7 +468,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets dates
 	 *
-	 * @return \MySdk\Model\TimeOffRequestDatesInner[]|null
+	 * @return \BhrSdk\Model\TimeOffRequestDatesInner[]|null
 	 */
 	public function getDates() {
 		return $this->container['dates'];
@@ -477,7 +477,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets dates
 	 *
-	 * @param \MySdk\Model\TimeOffRequestDatesInner[]|null $dates dates
+	 * @param \BhrSdk\Model\TimeOffRequestDatesInner[]|null $dates dates
 	 *
 	 * @return self
 	 */

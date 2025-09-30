@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * ClockEntriesSchema Class Doc Comment
  *
  * @category Class
  * @description Request body schema for operations involving multiple clock entries
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'entries' => '\MySdk\Model\ClockEntrySchema[]'
+		'entries' => '\BhrSdk\Model\ClockEntrySchema[]'
 	];
 
 	/**
@@ -284,7 +284,7 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets entries
 	 *
-	 * @return \MySdk\Model\ClockEntrySchema[]
+	 * @return \BhrSdk\Model\ClockEntrySchema[]
 	 */
 	public function getEntries() {
 		return $this->container['entries'];
@@ -293,7 +293,7 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets entries
 	 *
-	 * @param \MySdk\Model\ClockEntrySchema[] $entries Array of clock entries
+	 * @param \BhrSdk\Model\ClockEntrySchema[] $entries Array of clock entries
 	 *
 	 * @return self
 	 */

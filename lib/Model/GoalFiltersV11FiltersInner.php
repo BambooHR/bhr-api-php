@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GoalFiltersV11FiltersInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class GoalFiltersV11FiltersInner implements ModelInterface, ArrayAccess, \JsonSe
 		'id' => 'string',
 		'name' => 'string',
 		'count' => 'int',
-		'actions' => '\MySdk\Model\GoalFiltersV11FiltersInnerActions'
+		'actions' => '\BhrSdk\Model\GoalFiltersV11FiltersInnerActions'
 	];
 
 	/**
@@ -442,7 +442,7 @@ class GoalFiltersV11FiltersInner implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Gets actions
 	 *
-	 * @return \MySdk\Model\GoalFiltersV11FiltersInnerActions|null
+	 * @return \BhrSdk\Model\GoalFiltersV11FiltersInnerActions|null
 	 */
 	public function getActions() {
 		return $this->container['actions'];
@@ -451,7 +451,7 @@ class GoalFiltersV11FiltersInner implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets actions
 	 *
-	 * @param \MySdk\Model\GoalFiltersV11FiltersInnerActions|null $actions actions
+	 * @param \BhrSdk\Model\GoalFiltersV11FiltersInnerActions|null $actions actions
 	 *
 	 * @return self
 	 */

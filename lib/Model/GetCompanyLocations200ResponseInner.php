@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetCompanyLocations200ResponseInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class GetCompanyLocations200ResponseInner implements ModelInterface, ArrayAccess
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'location' => '\MySdk\Model\Location'
+		'location' => '\BhrSdk\Model\Location'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class GetCompanyLocations200ResponseInner implements ModelInterface, ArrayAccess
 	/**
 	 * Gets location
 	 *
-	 * @return \MySdk\Model\Location|null
+	 * @return \BhrSdk\Model\Location|null
 	 */
 	public function getLocation() {
 		return $this->container['location'];
@@ -285,7 +285,7 @@ class GetCompanyLocations200ResponseInner implements ModelInterface, ArrayAccess
 	/**
 	 * Sets location
 	 *
-	 * @param \MySdk\Model\Location|null $location location
+	 * @param \BhrSdk\Model\Location|null $location location
 	 *
 	 * @return self
 	 */

@@ -1,6 +1,6 @@
-# MySdk\DatasetsApi
+# BhrSdk\DatasetsApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -12,7 +12,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 ## `getDataFromDataset()`
 
 ```php
-getDataFromDataset($dataset_name, $data_request): \MySdk\Model\EmployeeResponse
+getDataFromDataset($dataset_name, $data_request): \BhrSdk\Model\EmployeeResponse
 ```
 
 Get Data from Dataset
@@ -26,20 +26,20 @@ Use this resource to request data from the specified dataset. You must specify a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\DatasetsApi(
+$apiInstance = new BhrSdk\Api\DatasetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $dataset_name = 'dataset_name_example'; // string | The name of the dataset you want data from
-$data_request = new \MySdk\Model\DataRequest(); // \MySdk\Model\DataRequest
+$data_request = new \BhrSdk\Model\DataRequest(); // \BhrSdk\Model\DataRequest
 
 try {
     $result = $apiInstance->getDataFromDataset($dataset_name, $data_request);
@@ -54,11 +54,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **dataset_name** | **string**| The name of the dataset you want data from | |
-| **data_request** | [**\MySdk\Model\DataRequest**](../Model/DataRequest.md)|  | |
+| **data_request** | [**\BhrSdk\Model\DataRequest**](../Model/DataRequest.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
+[**\BhrSdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `getDataSets()`
 
 ```php
-getDataSets(): \MySdk\Model\DatasetResponse
+getDataSets(): \BhrSdk\Model\DatasetResponse
 ```
 
 Get Data Sets
@@ -90,13 +90,13 @@ Use this resource to retrieve the available datasets to query data from.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\DatasetsApi(
+$apiInstance = new BhrSdk\Api\DatasetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\DatasetResponse**](../Model/DatasetResponse.md)
+[**\BhrSdk\Model\DatasetResponse**](../Model/DatasetResponse.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 ## `getFieldsFromDataset()`
 
 ```php
-getFieldsFromDataset($dataset_name, $page, $page_size): \MySdk\Model\DatasetFieldsResponse
+getFieldsFromDataset($dataset_name, $page, $page_size): \BhrSdk\Model\DatasetFieldsResponse
 ```
 
 Get Fields from Dataset
@@ -149,13 +149,13 @@ Use this resource to request the available fields on a dataset.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\DatasetsApi(
+$apiInstance = new BhrSdk\Api\DatasetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -183,7 +183,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\DatasetFieldsResponse**](../Model/DatasetFieldsResponse.md)
+[**\BhrSdk\Model\DatasetFieldsResponse**](../Model/DatasetFieldsResponse.md)
 
 ### Authorization
 

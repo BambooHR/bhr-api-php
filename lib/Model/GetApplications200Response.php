@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetApplications200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	protected static $openApiTypes = [
 		'pagination_complete' => 'bool',
 		'next_page_url' => 'string',
-		'applications' => '\MySdk\Model\GetApplications200ResponseApplications'
+		'applications' => '\BhrSdk\Model\GetApplications200ResponseApplications'
 	];
 
 	/**
@@ -347,7 +347,7 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Gets applications
 	 *
-	 * @return \MySdk\Model\GetApplications200ResponseApplications|null
+	 * @return \BhrSdk\Model\GetApplications200ResponseApplications|null
 	 */
 	public function getApplications() {
 		return $this->container['applications'];
@@ -356,7 +356,7 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets applications
 	 *
-	 * @param \MySdk\Model\GetApplications200ResponseApplications|null $applications applications
+	 * @param \BhrSdk\Model\GetApplications200ResponseApplications|null $applications applications
 	 *
 	 * @return self
 	 */

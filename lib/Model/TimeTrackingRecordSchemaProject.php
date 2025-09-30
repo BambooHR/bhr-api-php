@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TimeTrackingRecordSchemaProject Class Doc Comment
  *
  * @category Class
  * @description Project information associated with this time tracking record
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class TimeTrackingRecordSchemaProject implements ModelInterface, ArrayAccess, \J
 	protected static $openApiTypes = [
 		'id' => 'int',
 		'name' => 'string',
-		'task' => '\MySdk\Model\TimeTrackingRecordSchemaProjectTask'
+		'task' => '\BhrSdk\Model\TimeTrackingRecordSchemaProjectTask'
 	];
 
 	/**
@@ -341,7 +341,7 @@ class TimeTrackingRecordSchemaProject implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets task
 	 *
-	 * @return \MySdk\Model\TimeTrackingRecordSchemaProjectTask|null
+	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaProjectTask|null
 	 */
 	public function getTask() {
 		return $this->container['task'];
@@ -350,7 +350,7 @@ class TimeTrackingRecordSchemaProject implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets task
 	 *
-	 * @param \MySdk\Model\TimeTrackingRecordSchemaProjectTask|null $task task
+	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaProjectTask|null $task task
 	 *
 	 * @return self
 	 */

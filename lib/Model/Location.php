@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * Location Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,8 +60,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'name' => 'string',
 		'description' => 'string',
 		'city' => 'string',
-		'state' => '\MySdk\Model\State',
-		'country' => '\MySdk\Model\Country',
+		'state' => '\BhrSdk\Model\State',
+		'country' => '\BhrSdk\Model\Country',
 		'zipcode' => 'string',
 		'address_line1' => 'string',
 		'address_line2' => 'string',
@@ -439,7 +439,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets state
 	 *
-	 * @return \MySdk\Model\State|null
+	 * @return \BhrSdk\Model\State|null
 	 */
 	public function getState() {
 		return $this->container['state'];
@@ -448,7 +448,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets state
 	 *
-	 * @param \MySdk\Model\State|null $state state
+	 * @param \BhrSdk\Model\State|null $state state
 	 *
 	 * @return self
 	 */
@@ -464,7 +464,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets country
 	 *
-	 * @return \MySdk\Model\Country|null
+	 * @return \BhrSdk\Model\Country|null
 	 */
 	public function getCountry() {
 		return $this->container['country'];
@@ -473,7 +473,7 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets country
 	 *
-	 * @param \MySdk\Model\Country|null $country country
+	 * @param \BhrSdk\Model\Country|null $country country
 	 *
 	 * @return self
 	 */

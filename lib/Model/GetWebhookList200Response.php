@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetWebhookList200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class GetWebhookList200Response implements ModelInterface, ArrayAccess, \JsonSer
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'webhooks' => '\MySdk\Model\GetWebhookList200ResponseWebhooksInner[]'
+		'webhooks' => '\BhrSdk\Model\GetWebhookList200ResponseWebhooksInner[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class GetWebhookList200Response implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets webhooks
 	 *
-	 * @return \MySdk\Model\GetWebhookList200ResponseWebhooksInner[]|null
+	 * @return \BhrSdk\Model\GetWebhookList200ResponseWebhooksInner[]|null
 	 */
 	public function getWebhooks() {
 		return $this->container['webhooks'];
@@ -285,7 +285,7 @@ class GetWebhookList200Response implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets webhooks
 	 *
-	 * @param \MySdk\Model\GetWebhookList200ResponseWebhooksInner[]|null $webhooks webhooks
+	 * @param \BhrSdk\Model\GetWebhookList200ResponseWebhooksInner[]|null $webhooks webhooks
 	 *
 	 * @return self
 	 */

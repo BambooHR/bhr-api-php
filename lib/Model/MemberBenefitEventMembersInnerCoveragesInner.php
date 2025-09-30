@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * MemberBenefitEventMembersInnerCoveragesInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class MemberBenefitEventMembersInnerCoveragesInner implements ModelInterface, Ar
 	  */
 	protected static $openApiTypes = [
 		'plan_id' => 'string',
-		'events' => '\MySdk\Model\MemberBenefitEventMembersInnerCoveragesInnerEventsInner[]'
+		'events' => '\BhrSdk\Model\MemberBenefitEventMembersInnerCoveragesInnerEventsInner[]'
 	];
 
 	/**
@@ -308,7 +308,7 @@ class MemberBenefitEventMembersInnerCoveragesInner implements ModelInterface, Ar
 	/**
 	 * Gets events
 	 *
-	 * @return \MySdk\Model\MemberBenefitEventMembersInnerCoveragesInnerEventsInner[]|null
+	 * @return \BhrSdk\Model\MemberBenefitEventMembersInnerCoveragesInnerEventsInner[]|null
 	 */
 	public function getEvents() {
 		return $this->container['events'];
@@ -317,7 +317,7 @@ class MemberBenefitEventMembersInnerCoveragesInner implements ModelInterface, Ar
 	/**
 	 * Sets events
 	 *
-	 * @param \MySdk\Model\MemberBenefitEventMembersInnerCoveragesInnerEventsInner[]|null $events Events
+	 * @param \BhrSdk\Model\MemberBenefitEventMembersInnerCoveragesInnerEventsInner[]|null $events Events
 	 *
 	 * @return self
 	 */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk\Model
+ * @package  BhrSdk\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,12 +26,12 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package MySdk\Model
+ * @package BhrSdk\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

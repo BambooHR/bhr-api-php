@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * DatasetResponse Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class DatasetResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'datasets' => '\MySdk\Model\Dataset[]'
+		'datasets' => '\BhrSdk\Model\Dataset[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class DatasetResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets datasets
 	 *
-	 * @return \MySdk\Model\Dataset[]|null
+	 * @return \BhrSdk\Model\Dataset[]|null
 	 */
 	public function getDatasets() {
 		return $this->container['datasets'];
@@ -285,7 +285,7 @@ class DatasetResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets datasets
 	 *
-	 * @param \MySdk\Model\Dataset[]|null $datasets datasets
+	 * @param \BhrSdk\Model\Dataset[]|null $datasets datasets
 	 *
 	 * @return self
 	 */

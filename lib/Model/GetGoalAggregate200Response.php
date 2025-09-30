@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetGoalAggregate200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,12 +56,12 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'goal' => '\MySdk\Model\TransformedApiGoal',
+		'goal' => '\BhrSdk\Model\TransformedApiGoal',
 		'can_align' => 'bool',
 		'can_create_goals' => 'bool',
-		'aligns_with_options' => '\MySdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]',
-		'comments' => '\MySdk\Model\GetGoalAggregate200ResponseCommentsInner[]',
-		'persons' => '\MySdk\Model\GetGoalAggregate200ResponsePersonsInner[]'
+		'aligns_with_options' => '\BhrSdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]',
+		'comments' => '\BhrSdk\Model\GetGoalAggregate200ResponseCommentsInner[]',
+		'persons' => '\BhrSdk\Model\GetGoalAggregate200ResponsePersonsInner[]'
 	];
 
 	/**
@@ -311,7 +311,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets goal
 	 *
-	 * @return \MySdk\Model\TransformedApiGoal|null
+	 * @return \BhrSdk\Model\TransformedApiGoal|null
 	 */
 	public function getGoal() {
 		return $this->container['goal'];
@@ -320,7 +320,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets goal
 	 *
-	 * @param \MySdk\Model\TransformedApiGoal|null $goal goal
+	 * @param \BhrSdk\Model\TransformedApiGoal|null $goal goal
 	 *
 	 * @return self
 	 */
@@ -386,7 +386,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets aligns_with_options
 	 *
-	 * @return \MySdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]|null
+	 * @return \BhrSdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]|null
 	 */
 	public function getAlignsWithOptions() {
 		return $this->container['aligns_with_options'];
@@ -395,7 +395,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets aligns_with_options
 	 *
-	 * @param \MySdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]|null $aligns_with_options All possible goals that this goal could be aligned with.
+	 * @param \BhrSdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]|null $aligns_with_options All possible goals that this goal could be aligned with.
 	 *
 	 * @return self
 	 */
@@ -411,7 +411,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets comments
 	 *
-	 * @return \MySdk\Model\GetGoalAggregate200ResponseCommentsInner[]|null
+	 * @return \BhrSdk\Model\GetGoalAggregate200ResponseCommentsInner[]|null
 	 */
 	public function getComments() {
 		return $this->container['comments'];
@@ -420,7 +420,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets comments
 	 *
-	 * @param \MySdk\Model\GetGoalAggregate200ResponseCommentsInner[]|null $comments Comments linked to selected goal.
+	 * @param \BhrSdk\Model\GetGoalAggregate200ResponseCommentsInner[]|null $comments Comments linked to selected goal.
 	 *
 	 * @return self
 	 */
@@ -436,7 +436,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets persons
 	 *
-	 * @return \MySdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null
+	 * @return \BhrSdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null
 	 */
 	public function getPersons() {
 		return $this->container['persons'];
@@ -445,7 +445,7 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets persons
 	 *
-	 * @param \MySdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null $persons A list of people with access to the goal.
+	 * @param \BhrSdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null $persons A list of people with access to the goal.
 	 *
 	 * @return self
 	 */

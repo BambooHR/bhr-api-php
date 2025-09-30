@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * Webhook400Error Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class Webhook400Error implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'errors' => '\MySdk\Model\PostWebhook403ResponseErrorsInner[]'
+		'errors' => '\BhrSdk\Model\PostWebhook403ResponseErrorsInner[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class Webhook400Error implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets errors
 	 *
-	 * @return \MySdk\Model\PostWebhook403ResponseErrorsInner[]|null
+	 * @return \BhrSdk\Model\PostWebhook403ResponseErrorsInner[]|null
 	 */
 	public function getErrors() {
 		return $this->container['errors'];
@@ -285,7 +285,7 @@ class Webhook400Error implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets errors
 	 *
-	 * @param \MySdk\Model\PostWebhook403ResponseErrorsInner[]|null $errors errors
+	 * @param \BhrSdk\Model\PostWebhook403ResponseErrorsInner[]|null $errors errors
 	 *
 	 * @return self
 	 */

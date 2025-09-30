@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entries** | [**\MySdk\Model\ClockEntrySchema[]**](ClockEntrySchema.md) | Array of clock entries |
+**entries** | [**\BhrSdk\Model\ClockEntrySchema[]**](ClockEntrySchema.md) | Array of clock entries |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

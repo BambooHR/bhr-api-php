@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TrainingType Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,7 +62,7 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'frequency' => 'int',
 		'due_from_hire_date' => 'int',
 		'required' => 'int',
-		'category' => '\MySdk\Model\TrainingCategory',
+		'category' => '\BhrSdk\Model\TrainingCategory',
 		'link_url' => 'string',
 		'description' => 'string',
 		'allow_employees_to_mark_complete' => 'bool'
@@ -489,7 +489,7 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets category
 	 *
-	 * @return \MySdk\Model\TrainingCategory|null
+	 * @return \BhrSdk\Model\TrainingCategory|null
 	 */
 	public function getCategory() {
 		return $this->container['category'];
@@ -498,7 +498,7 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets category
 	 *
-	 * @param \MySdk\Model\TrainingCategory|null $category category
+	 * @param \BhrSdk\Model\TrainingCategory|null $category category
 	 *
 	 * @return self
 	 */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * StateProvinceResponseSchema Class Doc Comment
  *
  * @category Class
  * @description Schema for states/provinces response
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class StateProvinceResponseSchema implements ModelInterface, ArrayAccess, \JsonS
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'options' => '\MySdk\Model\StateProvinceSchema[]'
+		'options' => '\BhrSdk\Model\StateProvinceSchema[]'
 	];
 
 	/**
@@ -277,7 +277,7 @@ class StateProvinceResponseSchema implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets options
 	 *
-	 * @return \MySdk\Model\StateProvinceSchema[]|null
+	 * @return \BhrSdk\Model\StateProvinceSchema[]|null
 	 */
 	public function getOptions() {
 		return $this->container['options'];
@@ -286,7 +286,7 @@ class StateProvinceResponseSchema implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets options
 	 *
-	 * @param \MySdk\Model\StateProvinceSchema[]|null $options Array of state/province options
+	 * @param \BhrSdk\Model\StateProvinceSchema[]|null $options Array of state/province options
 	 *
 	 * @return self
 	 */

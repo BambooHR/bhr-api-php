@@ -1,6 +1,6 @@
-# MySdk\WebhooksApi
+# BhrSdk\WebhooksApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -30,13 +30,13 @@ Delete a webhook that is tied to a specific user API Key.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -77,7 +77,7 @@ void (empty response body)
 ## `getMonitorFields()`
 
 ```php
-getMonitorFields(): \MySdk\Model\GetMonitorFields200Response
+getMonitorFields(): \BhrSdk\Model\GetMonitorFields200Response
 ```
 
 Get monitor fields
@@ -91,13 +91,13 @@ Get a list fields webhooks can monitor monitor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -118,7 +118,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
+[**\BhrSdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ This endpoint does not need any parameter.
 ## `getWebhook()`
 
 ```php
-getWebhook($id): \MySdk\Model\WebHookResponse
+getWebhook($id): \BhrSdk\Model\WebHookResponse
 ```
 
 Get Webhook
@@ -150,13 +150,13 @@ Get webhook data that is tied to a specific user API Key.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -180,7 +180,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ try {
 ## `getWebhookList()`
 
 ```php
-getWebhookList(): \MySdk\Model\GetWebhookList200Response
+getWebhookList(): \BhrSdk\Model\GetWebhookList200Response
 ```
 
 Gets as list of webhooks for the user API key.
@@ -212,13 +212,13 @@ Gets as list of webhooks for the user API key.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -239,7 +239,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
+[**\BhrSdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ This endpoint does not need any parameter.
 ## `getWebhookLogs()`
 
 ```php
-getWebhookLogs($id): \MySdk\Model\WebHookLogResponse
+getWebhookLogs($id): \BhrSdk\Model\WebHookLogResponse
 ```
 
 Get Webhook Logs
@@ -271,13 +271,13 @@ Get webhook logs for specific webhook id that is associated with the user API Ke
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -301,7 +301,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
+[**\BhrSdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ try {
 ## `postWebhook()`
 
 ```php
-postWebhook($new_web_hook): \MySdk\Model\PostWebhook201Response
+postWebhook($new_web_hook): \BhrSdk\Model\PostWebhook201Response
 ```
 
 Add Webhook
@@ -333,19 +333,19 @@ Add a new Webhook. For more details or instructions you can refer to the [webhoo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
     $result = $apiInstance->postWebhook($new_web_hook);
@@ -359,11 +359,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
+[**\BhrSdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ try {
 ## `putWebhook()`
 
 ```php
-putWebhook($id, $new_web_hook): \MySdk\Model\WebHookResponse
+putWebhook($id, $new_web_hook): \BhrSdk\Model\WebHookResponse
 ```
 
 Update Webhook
@@ -395,20 +395,20 @@ Update a webhook, based on webhook ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | {id} is a webhook ID.
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
     $result = $apiInstance->putWebhook($id, $new_web_hook);
@@ -423,11 +423,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is a webhook ID. | |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 

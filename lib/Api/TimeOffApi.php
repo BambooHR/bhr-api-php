@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * TimeOffApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -167,7 +167,7 @@ class TimeOffApi {
 	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -185,7 +185,7 @@ class TimeOffApi {
 	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -410,7 +410,7 @@ class TimeOffApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -426,7 +426,7 @@ class TimeOffApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -626,7 +626,7 @@ class TimeOffApi {
 	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -643,7 +643,7 @@ class TimeOffApi {
 	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -853,10 +853,10 @@ class TimeOffApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -870,10 +870,10 @@ class TimeOffApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -919,7 +919,7 @@ class TimeOffApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -940,7 +940,7 @@ class TimeOffApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -977,7 +977,7 @@ class TimeOffApi {
 	 * Create request for operation 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1097,10 +1097,10 @@ class TimeOffApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1114,10 +1114,10 @@ class TimeOffApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1163,7 +1163,7 @@ class TimeOffApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1184,7 +1184,7 @@ class TimeOffApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1221,7 +1221,7 @@ class TimeOffApi {
 	 * Create request for operation 'timeOffAddATimeOffRequest'
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1341,10 +1341,10 @@ class TimeOffApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1358,10 +1358,10 @@ class TimeOffApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1407,7 +1407,7 @@ class TimeOffApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1428,7 +1428,7 @@ class TimeOffApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1465,7 +1465,7 @@ class TimeOffApi {
 	 * Create request for operation 'timeOffAdjustTimeOffBalance'
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1585,10 +1585,10 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1602,10 +1602,10 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1651,7 +1651,7 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1672,7 +1672,7 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1709,7 +1709,7 @@ class TimeOffApi {
 	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployee'
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1829,10 +1829,10 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1846,10 +1846,10 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1895,7 +1895,7 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1916,7 +1916,7 @@ class TimeOffApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1953,7 +1953,7 @@ class TimeOffApi {
 	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2073,10 +2073,10 @@ class TimeOffApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id request_id (required)
-	 * @param  \MySdk\Model\Request $request request (required)
+	 * @param  \BhrSdk\Model\Request $request request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2090,10 +2090,10 @@ class TimeOffApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2139,7 +2139,7 @@ class TimeOffApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2160,7 +2160,7 @@ class TimeOffApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2197,7 +2197,7 @@ class TimeOffApi {
 	 * Create request for operation 'timeOffChangeARequestStatus'
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2321,7 +2321,7 @@ class TimeOffApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2339,7 +2339,7 @@ class TimeOffApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2582,7 +2582,7 @@ class TimeOffApi {
 	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2605,7 +2605,7 @@ class TimeOffApi {
 	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2907,7 +2907,7 @@ class TimeOffApi {
 	 * @param  string $employee_id employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2923,7 +2923,7 @@ class TimeOffApi {
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -3132,7 +3132,7 @@ class TimeOffApi {
 	 * @param  string $employee_id employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -3148,7 +3148,7 @@ class TimeOffApi {
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */

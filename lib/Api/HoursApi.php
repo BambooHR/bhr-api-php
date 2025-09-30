@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * HoursApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -138,12 +138,12 @@ class HoursApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingBulkResponseSchema
+	 * @return \BhrSdk\Model\TimeTrackingBulkResponseSchema
 	 */
 	public function addTimeTrackingBulk($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
 		list($response) = $this->addTimeTrackingBulkWithHttpInfo($time_tracking_record, $contentType);
@@ -155,12 +155,12 @@ class HoursApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingBulkResponseSchema, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingBulkResponseSchema, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimeTrackingBulkWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
 		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
@@ -191,7 +191,7 @@ class HoursApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingBulkResponseSchema',
+						'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
 						$request,
 						$response,
 					);
@@ -213,7 +213,7 @@ class HoursApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingBulkResponseSchema',
+				'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
 				$request,
 				$response,
 			);
@@ -222,7 +222,7 @@ class HoursApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingBulkResponseSchema',
+						'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -239,7 +239,7 @@ class HoursApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -259,14 +259,14 @@ class HoursApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimeTrackingBulkAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingBulkResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingBulkResponseSchema';
 		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
 
 		return $this->client
@@ -308,7 +308,7 @@ class HoursApi {
 	/**
 	 * Create request for operation 'addTimeTrackingBulk'
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -412,12 +412,12 @@ class HoursApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingIdResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed
 	 */
 	public function addTimeTrackingHourRecord($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
 		list($response) = $this->addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, $contentType);
@@ -429,12 +429,12 @@ class HoursApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
 		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
@@ -465,7 +465,7 @@ class HoursApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$request,
 						$response,
 					);
@@ -493,7 +493,7 @@ class HoursApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingIdResponseSchema',
+				'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 				$request,
 				$response,
 			);
@@ -502,7 +502,7 @@ class HoursApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -527,7 +527,7 @@ class HoursApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -547,14 +547,14 @@ class HoursApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingIdResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
 		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
 
 		return $this->client
@@ -596,7 +596,7 @@ class HoursApi {
 	/**
 	 * Create request for operation 'addTimeTrackingHourRecord'
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -703,9 +703,9 @@ class HoursApi {
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingDeleteResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingDeleteResponseSchema|mixed
 	 */
 	public function deleteTimeTrackingById($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
 		list($response) = $this->deleteTimeTrackingByIdWithHttpInfo($id, $contentType);
@@ -720,9 +720,9 @@ class HoursApi {
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingDeleteResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingDeleteResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteTimeTrackingByIdWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
 		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
@@ -753,7 +753,7 @@ class HoursApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingDeleteResponseSchema',
+						'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 						$request,
 						$response,
 					);
@@ -781,7 +781,7 @@ class HoursApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingDeleteResponseSchema',
+				'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 				$request,
 				$response,
 			);
@@ -790,7 +790,7 @@ class HoursApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingDeleteResponseSchema',
+						'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -842,7 +842,7 @@ class HoursApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTimeTrackingByIdAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingDeleteResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingDeleteResponseSchema';
 		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
 
 		return $this->client
@@ -989,12 +989,12 @@ class HoursApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingIdResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed
 	 */
 	public function editTimeTrackingRecord($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
 		list($response) = $this->editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, $contentType);
@@ -1006,12 +1006,12 @@ class HoursApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
 		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
@@ -1042,7 +1042,7 @@ class HoursApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$request,
 						$response,
 					);
@@ -1070,7 +1070,7 @@ class HoursApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingIdResponseSchema',
+				'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 				$request,
 				$response,
 			);
@@ -1079,7 +1079,7 @@ class HoursApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1104,7 +1104,7 @@ class HoursApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1124,14 +1124,14 @@ class HoursApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function editTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingIdResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
 		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
 
 		return $this->client
@@ -1173,7 +1173,7 @@ class HoursApi {
 	/**
 	 * Create request for operation 'editTimeTrackingRecord'
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1280,9 +1280,9 @@ class HoursApi {
 	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingRecordSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingRecordSchema|mixed
 	 */
 	public function getTimeTrackingRecord($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		list($response) = $this->getTimeTrackingRecordWithHttpInfo($id, $contentType);
@@ -1297,9 +1297,9 @@ class HoursApi {
 	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingRecordSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingRecordSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getTimeTrackingRecordWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		$request = $this->getTimeTrackingRecordRequest($id, $contentType);
@@ -1330,7 +1330,7 @@ class HoursApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingRecordSchema',
+						'\BhrSdk\Model\TimeTrackingRecordSchema',
 						$request,
 						$response,
 					);
@@ -1358,7 +1358,7 @@ class HoursApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingRecordSchema',
+				'\BhrSdk\Model\TimeTrackingRecordSchema',
 				$request,
 				$response,
 			);
@@ -1367,7 +1367,7 @@ class HoursApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingRecordSchema',
+						'\BhrSdk\Model\TimeTrackingRecordSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1419,7 +1419,7 @@ class HoursApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeTrackingRecordAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingRecordSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingRecordSchema';
 		$request = $this->getTimeTrackingRecordRequest($id, $contentType);
 
 		return $this->client

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TimeTrackingRecordSchema Class Doc Comment
  *
  * @category Class
  * @description Schema for time tracking record response
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -76,8 +76,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 		'task_id' => 'string',
 		'shift_differential_id' => 'string',
 		'holiday_id' => 'string',
-		'project' => '\MySdk\Model\TimeTrackingRecordSchemaProject',
-		'shift_differential' => '\MySdk\Model\TimeTrackingRecordSchemaShiftDifferential'
+		'project' => '\BhrSdk\Model\TimeTrackingRecordSchemaProject',
+		'shift_differential' => '\BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential'
 	];
 
 	/**
@@ -962,7 +962,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets project
 	 *
-	 * @return \MySdk\Model\TimeTrackingRecordSchemaProject|null
+	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaProject|null
 	 */
 	public function getProject() {
 		return $this->container['project'];
@@ -971,7 +971,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets project
 	 *
-	 * @param \MySdk\Model\TimeTrackingRecordSchemaProject|null $project project
+	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaProject|null $project project
 	 *
 	 * @return self
 	 */
@@ -987,7 +987,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets shift_differential
 	 *
-	 * @return \MySdk\Model\TimeTrackingRecordSchemaShiftDifferential|null
+	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential|null
 	 */
 	public function getShiftDifferential() {
 		return $this->container['shift_differential'];
@@ -996,7 +996,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets shift_differential
 	 *
-	 * @param \MySdk\Model\TimeTrackingRecordSchemaShiftDifferential|null $shift_differential shift_differential
+	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential|null $shift_differential shift_differential
 	 *
 	 * @return self
 	 */

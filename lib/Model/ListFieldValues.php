@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * ListFieldValues Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class ListFieldValues implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'options' => '\MySdk\Model\ListFieldValuesOptionsInner[]'
+		'options' => '\BhrSdk\Model\ListFieldValuesOptionsInner[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class ListFieldValues implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets options
 	 *
-	 * @return \MySdk\Model\ListFieldValuesOptionsInner[]|null
+	 * @return \BhrSdk\Model\ListFieldValuesOptionsInner[]|null
 	 */
 	public function getOptions() {
 		return $this->container['options'];
@@ -285,7 +285,7 @@ class ListFieldValues implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets options
 	 *
-	 * @param \MySdk\Model\ListFieldValuesOptionsInner[]|null $options options
+	 * @param \BhrSdk\Model\ListFieldValuesOptionsInner[]|null $options options
 	 *
 	 * @return self
 	 */

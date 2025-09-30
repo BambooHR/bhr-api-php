@@ -1,6 +1,6 @@
-# MySdk\CustomReportsApi
+# BhrSdk\CustomReportsApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -11,7 +11,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 ## `getByReportId()`
 
 ```php
-getByReportId($report_id): \MySdk\Model\EmployeeResponse
+getByReportId($report_id): \BhrSdk\Model\EmployeeResponse
 ```
 
 Get Report by ID
@@ -25,13 +25,13 @@ Use this resource to retrieve data for a specific report.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\CustomReportsApi(
+$apiInstance = new BhrSdk\Api\CustomReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -55,7 +55,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
+[**\BhrSdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ try {
 ## `listReports()`
 
 ```php
-listReports($page, $page_size): \MySdk\Model\ReportsResponse
+listReports($page, $page_size): \BhrSdk\Model\ReportsResponse
 ```
 
 List Reports
@@ -87,13 +87,13 @@ Use this resource to retrieve a list of available reports.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\CustomReportsApi(
+$apiInstance = new BhrSdk\Api\CustomReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -119,7 +119,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\ReportsResponse**](../Model/ReportsResponse.md)
+[**\BhrSdk\Model\ReportsResponse**](../Model/ReportsResponse.md)
 
 ### Authorization
 

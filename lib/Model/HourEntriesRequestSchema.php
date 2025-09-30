@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * HourEntriesRequestSchema Class Doc Comment
  *
  * @category Class
  * @description Schema for timesheet hour entries request
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class HourEntriesRequestSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'hours' => '\MySdk\Model\HourEntrySchema[]'
+		'hours' => '\BhrSdk\Model\HourEntrySchema[]'
 	];
 
 	/**
@@ -280,7 +280,7 @@ class HourEntriesRequestSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets hours
 	 *
-	 * @return \MySdk\Model\HourEntrySchema[]
+	 * @return \BhrSdk\Model\HourEntrySchema[]
 	 */
 	public function getHours() {
 		return $this->container['hours'];
@@ -289,7 +289,7 @@ class HourEntriesRequestSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets hours
 	 *
-	 * @param \MySdk\Model\HourEntrySchema[] $hours Array of hour entries to add or update
+	 * @param \BhrSdk\Model\HourEntrySchema[] $hours Array of hour entries to add or update
 	 *
 	 * @return self
 	 */

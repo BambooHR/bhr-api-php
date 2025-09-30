@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetMonitorFields200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class GetMonitorFields200Response implements ModelInterface, ArrayAccess, \JsonS
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'fields' => '\MySdk\Model\GetMonitorFields200ResponseFieldsInner[]'
+		'fields' => '\BhrSdk\Model\GetMonitorFields200ResponseFieldsInner[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class GetMonitorFields200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets fields
 	 *
-	 * @return \MySdk\Model\GetMonitorFields200ResponseFieldsInner[]|null
+	 * @return \BhrSdk\Model\GetMonitorFields200ResponseFieldsInner[]|null
 	 */
 	public function getFields() {
 		return $this->container['fields'];
@@ -285,7 +285,7 @@ class GetMonitorFields200Response implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets fields
 	 *
-	 * @param \MySdk\Model\GetMonitorFields200ResponseFieldsInner[]|null $fields fields
+	 * @param \BhrSdk\Model\GetMonitorFields200ResponseFieldsInner[]|null $fields fields
 	 *
 	 * @return self
 	 */

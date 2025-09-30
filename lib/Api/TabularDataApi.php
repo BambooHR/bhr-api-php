@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * TabularDataApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -146,10 +146,10 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -164,10 +164,10 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -214,7 +214,7 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -236,7 +236,7 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -274,7 +274,7 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -410,10 +410,10 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -428,10 +428,10 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -478,7 +478,7 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -500,7 +500,7 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -538,7 +538,7 @@ class TabularDataApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -677,9 +677,9 @@ class TabularDataApi {
 	 * @param  string $row_id Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\DeleteEmployeeTableRowV1200Response
+	 * @return \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
 	 */
 	public function deleteEmployeeTableRowV1($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
 		list($response) = $this->deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, $contentType);
@@ -696,9 +696,9 @@ class TabularDataApi {
 	 * @param  string $row_id Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\DeleteEmployeeTableRowV1200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DeleteEmployeeTableRowV1200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
@@ -729,7 +729,7 @@ class TabularDataApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\DeleteEmployeeTableRowV1200Response',
+						'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
 						$request,
 						$response,
 					);
@@ -751,7 +751,7 @@ class TabularDataApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\DeleteEmployeeTableRowV1200Response',
+				'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
 				$request,
 				$response,
 			);
@@ -760,7 +760,7 @@ class TabularDataApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\DeleteEmployeeTableRowV1200Response',
+						'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -808,7 +808,7 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
-		$returnType = '\MySdk\Model\DeleteEmployeeTableRowV1200Response';
+		$returnType = '\BhrSdk\Model\DeleteEmployeeTableRowV1200Response';
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
 
 		return $this->client
@@ -991,7 +991,7 @@ class TabularDataApi {
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1008,7 +1008,7 @@ class TabularDataApi {
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1237,7 +1237,7 @@ class TabularDataApi {
 	 * @param  string $table Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1254,7 +1254,7 @@ class TabularDataApi {
 	 * @param  string $table Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1481,10 +1481,10 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1500,10 +1500,10 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1551,7 +1551,7 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1574,7 +1574,7 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1613,7 +1613,7 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1765,10 +1765,10 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1784,10 +1784,10 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1835,7 +1835,7 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1858,7 +1858,7 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1897,7 +1897,7 @@ class TabularDataApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

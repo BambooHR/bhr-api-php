@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetApplications200ResponseApplicationsItemsInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,10 +58,10 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	protected static $openApiTypes = [
 		'id' => 'int',
 		'applied_date' => '\DateTime',
-		'status' => '\MySdk\Model\GetApplications200ResponseApplicationsItemsInnerStatus',
+		'status' => '\BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerStatus',
 		'rating' => 'int',
-		'applicant' => '\MySdk\Model\GetApplications200ResponseApplicationsItemsInnerApplicant',
-		'job' => '\MySdk\Model\GetApplications200ResponseApplicationsItemsInnerJob'
+		'applicant' => '\BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerApplicant',
+		'job' => '\BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerJob'
 	];
 
 	/**
@@ -361,7 +361,7 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	/**
 	 * Gets status
 	 *
-	 * @return \MySdk\Model\GetApplications200ResponseApplicationsItemsInnerStatus|null
+	 * @return \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerStatus|null
 	 */
 	public function getStatus() {
 		return $this->container['status'];
@@ -370,7 +370,7 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	/**
 	 * Sets status
 	 *
-	 * @param \MySdk\Model\GetApplications200ResponseApplicationsItemsInnerStatus|null $status status
+	 * @param \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerStatus|null $status status
 	 *
 	 * @return self
 	 */
@@ -418,7 +418,7 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	/**
 	 * Gets applicant
 	 *
-	 * @return \MySdk\Model\GetApplications200ResponseApplicationsItemsInnerApplicant|null
+	 * @return \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerApplicant|null
 	 */
 	public function getApplicant() {
 		return $this->container['applicant'];
@@ -427,7 +427,7 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	/**
 	 * Sets applicant
 	 *
-	 * @param \MySdk\Model\GetApplications200ResponseApplicationsItemsInnerApplicant|null $applicant applicant
+	 * @param \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerApplicant|null $applicant applicant
 	 *
 	 * @return self
 	 */
@@ -443,7 +443,7 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	/**
 	 * Gets job
 	 *
-	 * @return \MySdk\Model\GetApplications200ResponseApplicationsItemsInnerJob|null
+	 * @return \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerJob|null
 	 */
 	public function getJob() {
 		return $this->container['job'];
@@ -452,7 +452,7 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	/**
 	 * Sets job
 	 *
-	 * @param \MySdk\Model\GetApplications200ResponseApplicationsItemsInnerJob|null $job job
+	 * @param \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInnerJob|null $job job
 	 *
 	 * @return self
 	 */

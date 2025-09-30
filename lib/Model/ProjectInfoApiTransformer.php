@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * ProjectInfoApiTransformer Class Doc Comment
  *
  * @category Class
  * @description Project information data representation
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'project' => '\MySdk\Model\ProjectInfoApiTransformerProject',
-		'task' => '\MySdk\Model\ProjectInfoApiTransformerTask'
+		'project' => '\BhrSdk\Model\ProjectInfoApiTransformerProject',
+		'task' => '\BhrSdk\Model\ProjectInfoApiTransformerTask'
 	];
 
 	/**
@@ -284,7 +284,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets project
 	 *
-	 * @return \MySdk\Model\ProjectInfoApiTransformerProject|null
+	 * @return \BhrSdk\Model\ProjectInfoApiTransformerProject|null
 	 */
 	public function getProject() {
 		return $this->container['project'];
@@ -293,7 +293,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets project
 	 *
-	 * @param \MySdk\Model\ProjectInfoApiTransformerProject|null $project project
+	 * @param \BhrSdk\Model\ProjectInfoApiTransformerProject|null $project project
 	 *
 	 * @return self
 	 */
@@ -309,7 +309,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets task
 	 *
-	 * @return \MySdk\Model\ProjectInfoApiTransformerTask|null
+	 * @return \BhrSdk\Model\ProjectInfoApiTransformerTask|null
 	 */
 	public function getTask() {
 		return $this->container['task'];
@@ -318,7 +318,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets task
 	 *
-	 * @param \MySdk\Model\ProjectInfoApiTransformerTask|null $task task
+	 * @param \BhrSdk\Model\ProjectInfoApiTransformerTask|null $task task
 	 *
 	 * @return self
 	 */

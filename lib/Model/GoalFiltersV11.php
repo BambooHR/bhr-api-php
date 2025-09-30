@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GoalFiltersV11 Class Doc Comment
  *
  * @category Class
  * @description Array containing goal filters, their counts, and actions
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GoalFiltersV11 implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'filters' => '\MySdk\Model\GoalFiltersV11FiltersInner[]'
+		'filters' => '\BhrSdk\Model\GoalFiltersV11FiltersInner[]'
 	];
 
 	/**
@@ -277,7 +277,7 @@ class GoalFiltersV11 implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets filters
 	 *
-	 * @return \MySdk\Model\GoalFiltersV11FiltersInner[]|null
+	 * @return \BhrSdk\Model\GoalFiltersV11FiltersInner[]|null
 	 */
 	public function getFilters() {
 		return $this->container['filters'];
@@ -286,7 +286,7 @@ class GoalFiltersV11 implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets filters
 	 *
-	 * @param \MySdk\Model\GoalFiltersV11FiltersInner[]|null $filters Array of goal filter objects with counts
+	 * @param \BhrSdk\Model\GoalFiltersV11FiltersInner[]|null $filters Array of goal filter objects with counts
 	 *
 	 * @return self
 	 */

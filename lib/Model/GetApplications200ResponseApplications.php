@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetApplications200ResponseApplications Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class GetApplications200ResponseApplications implements ModelInterface, ArrayAcc
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'items' => '\MySdk\Model\GetApplications200ResponseApplicationsItemsInner[]'
+		'items' => '\BhrSdk\Model\GetApplications200ResponseApplicationsItemsInner[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class GetApplications200ResponseApplications implements ModelInterface, ArrayAcc
 	/**
 	 * Gets items
 	 *
-	 * @return \MySdk\Model\GetApplications200ResponseApplicationsItemsInner[]|null
+	 * @return \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInner[]|null
 	 */
 	public function getItems() {
 		return $this->container['items'];
@@ -285,7 +285,7 @@ class GetApplications200ResponseApplications implements ModelInterface, ArrayAcc
 	/**
 	 * Sets items
 	 *
-	 * @param \MySdk\Model\GetApplications200ResponseApplicationsItemsInner[]|null $items List of application objects
+	 * @param \BhrSdk\Model\GetApplications200ResponseApplicationsItemsInner[]|null $items List of application objects
 	 *
 	 * @return self
 	 */

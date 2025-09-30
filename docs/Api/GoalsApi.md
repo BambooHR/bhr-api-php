@@ -1,6 +1,6 @@
-# MySdk\GoalsApi
+# BhrSdk\GoalsApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -47,13 +47,13 @@ Delete a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -110,13 +110,13 @@ Delete a goal comment.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -175,13 +175,13 @@ Determine if the API user has permission to create a goal for this employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -222,7 +222,7 @@ void (empty response body)
 ## `getGoalAggregate()`
 
 ```php
-getGoalAggregate($employee_id, $goal_id): \MySdk\Model\GetGoalAggregate200Response
+getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GetGoalAggregate200Response
 ```
 
 Get Aggregate Goal Info
@@ -236,13 +236,13 @@ Provides goal information, goal comments, and employees shared with goals or who
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -268,7 +268,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
+[**\BhrSdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
 
 ### Authorization
 
@@ -300,13 +300,13 @@ Get comments for a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -349,7 +349,7 @@ void (empty response body)
 ## `getGoals()`
 
 ```php
-getGoals($employee_id, $filter): \MySdk\Model\GetGoals200Response
+getGoals($employee_id, $filter): \BhrSdk\Model\GetGoals200Response
 ```
 
 Get Goals
@@ -363,13 +363,13 @@ Get goals for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -395,7 +395,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
+[**\BhrSdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
 
 ### Authorization
 
@@ -413,7 +413,7 @@ try {
 ## `getGoalsAggregateV1()`
 
 ```php
-getGoalsAggregateV1($employee_id): \MySdk\Model\GetGoalsAggregateV1200Response
+getGoalsAggregateV1($employee_id): \BhrSdk\Model\GetGoalsAggregateV1200Response
 ```
 
 Get All Aggregate Goal Info
@@ -427,13 +427,13 @@ Provides a list of all goals, type counts, goal comment counts, and employees sh
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -457,7 +457,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
 
 ### Authorization
 
@@ -475,7 +475,7 @@ try {
 ## `getGoalsAggregateV11()`
 
 ```php
-getGoalsAggregateV11($employee_id): \MySdk\Model\GetGoalsAggregateV11200Response
+getGoalsAggregateV11($employee_id): \BhrSdk\Model\GetGoalsAggregateV11200Response
 ```
 
 Get All Aggregate Goal Info, Version 1.1
@@ -489,13 +489,13 @@ Provides a list of all goals, type counts, filter actions, goal comment counts, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -519,7 +519,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
 
 ### Authorization
 
@@ -537,7 +537,7 @@ try {
 ## `getGoalsAggregateV12()`
 
 ```php
-getGoalsAggregateV12($employee_id): \MySdk\Model\GetGoalsAggregateV12200Response
+getGoalsAggregateV12($employee_id): \BhrSdk\Model\GetGoalsAggregateV12200Response
 ```
 
 Get All Aggregate Goal Info, Version 1.2
@@ -551,13 +551,13 @@ Provides a list of all goals, type counts, filter actions, goal comment counts, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -581,7 +581,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
 
 ### Authorization
 
@@ -613,13 +613,13 @@ Get alignable goal options for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -662,7 +662,7 @@ void (empty response body)
 ## `getGoalsFiltersV1()`
 
 ```php
-getGoalsFiltersV1($employee_id): \MySdk\Model\GoalFiltersV1
+getGoalsFiltersV1($employee_id): \BhrSdk\Model\GoalFiltersV1
 ```
 
 Get Goals Filters
@@ -676,13 +676,13 @@ Get the number of goals per status for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -706,7 +706,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV1**](../Model/GoalFiltersV1.md)
+[**\BhrSdk\Model\GoalFiltersV1**](../Model/GoalFiltersV1.md)
 
 ### Authorization
 
@@ -724,7 +724,7 @@ try {
 ## `getGoalsFiltersV11()`
 
 ```php
-getGoalsFiltersV11($employee_id): \MySdk\Model\GoalFiltersV11
+getGoalsFiltersV11($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
 Get Goals Filters
@@ -738,13 +738,13 @@ Get the number of goals per status for an employee. Difference from Version 1: I
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -768,7 +768,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
+[**\BhrSdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
 
 ### Authorization
 
@@ -786,7 +786,7 @@ try {
 ## `getGoalsFiltersV12()`
 
 ```php
-getGoalsFiltersV12($employee_id): \MySdk\Model\GoalFiltersV11
+getGoalsFiltersV12($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
 Get Goal Status Counts, Version 1.2
@@ -800,13 +800,13 @@ Get the number of goals per status for an employee. Difference from Version 1_1:
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -830,7 +830,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
+[**\BhrSdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
 
 ### Authorization
 
@@ -862,13 +862,13 @@ Provides a list of employees with whom the specified employee\\'s goals may be s
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -913,7 +913,7 @@ void (empty response body)
 ## `postCloseGoal()`
 
 ```php
-postCloseGoal($employee_id, $goal_id, $body): \MySdk\Model\TransformedApiGoal
+postCloseGoal($employee_id, $goal_id, $body): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Close Goal
@@ -927,13 +927,13 @@ Close a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -961,7 +961,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -979,7 +979,7 @@ try {
 ## `postGoal()`
 
 ```php
-postGoal($employee_id, $post_goal_request): \MySdk\Model\TransformedApiGoal
+postGoal($employee_id, $post_goal_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Create Goal
@@ -993,20 +993,20 @@ Create a new goal for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$post_goal_request = new \MySdk\Model\PostGoalRequest(); // \MySdk\Model\PostGoalRequest
+$post_goal_request = new \BhrSdk\Model\PostGoalRequest(); // \BhrSdk\Model\PostGoalRequest
 
 try {
     $result = $apiInstance->postGoal($employee_id, $post_goal_request);
@@ -1021,11 +1021,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **post_goal_request** | [**\MySdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
+| **post_goal_request** | [**\BhrSdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -1057,13 +1057,13 @@ Create a new goal comment.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1108,7 +1108,7 @@ void (empty response body)
 ## `postReopenGoal()`
 
 ```php
-postReopenGoal($employee_id, $goal_id): \MySdk\Model\TransformedApiGoal
+postReopenGoal($employee_id, $goal_id): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Reopen a Goal
@@ -1122,13 +1122,13 @@ Reopen a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1154,7 +1154,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -1186,13 +1186,13 @@ Update a goal comment.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1253,13 +1253,13 @@ Update the progress of a milestone in a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1268,7 +1268,7 @@ $apiInstance = new MySdk\Api\GoalsApi(
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $milestone_id = 'milestone_id_example'; // string | milestoneId is the milestone ID for the specified goal.
-$put_goal_milestone_progress_request = new \MySdk\Model\PutGoalMilestoneProgressRequest(); // \MySdk\Model\PutGoalMilestoneProgressRequest
+$put_goal_milestone_progress_request = new \BhrSdk\Model\PutGoalMilestoneProgressRequest(); // \BhrSdk\Model\PutGoalMilestoneProgressRequest
 
 try {
     $result = $apiInstance->putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request);
@@ -1285,7 +1285,7 @@ try {
 | **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **milestone_id** | **string**| milestoneId is the milestone ID for the specified goal. | |
-| **put_goal_milestone_progress_request** | [**\MySdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
+| **put_goal_milestone_progress_request** | [**\BhrSdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
 
 ### Return type
 
@@ -1307,7 +1307,7 @@ try {
 ## `putGoalProgress()`
 
 ```php
-putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \MySdk\Model\TransformedApiGoal
+putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal Progress
@@ -1321,13 +1321,13 @@ Update the progress percentage of an individual goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1335,7 +1335,7 @@ $apiInstance = new MySdk\Api\GoalsApi(
 );
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_progress_request = new \MySdk\Model\PutGoalProgressRequest(); // \MySdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$put_goal_progress_request = new \BhrSdk\Model\PutGoalProgressRequest(); // \BhrSdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
     $result = $apiInstance->putGoalProgress($employee_id, $goal_id, $put_goal_progress_request);
@@ -1351,11 +1351,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_progress_request** | [**\MySdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **put_goal_progress_request** | [**\BhrSdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -1373,7 +1373,7 @@ try {
 ## `putGoalSharedWith()`
 
 ```php
-putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request): \MySdk\Model\TransformedApiGoal
+putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal Sharing
@@ -1387,13 +1387,13 @@ Updates which employees this goal is shared with.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1401,7 +1401,7 @@ $apiInstance = new MySdk\Api\GoalsApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$put_goal_shared_with_request = new \MySdk\Model\PutGoalSharedWithRequest(); // \MySdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$put_goal_shared_with_request = new \BhrSdk\Model\PutGoalSharedWithRequest(); // \BhrSdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
     $result = $apiInstance->putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request);
@@ -1417,11 +1417,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **put_goal_shared_with_request** | [**\MySdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **put_goal_shared_with_request** | [**\BhrSdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -1439,7 +1439,7 @@ try {
 ## `putGoalV1()`
 
 ```php
-putGoalV1($employee_id, $goal_id, $goal): \MySdk\Model\TransformedApiGoal
+putGoalV1($employee_id, $goal_id, $goal): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal
@@ -1453,13 +1453,13 @@ Update a goal. This version will not update a goal to contain milestones, that f
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1467,7 +1467,7 @@ $apiInstance = new MySdk\Api\GoalsApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$goal = new \MySdk\Model\Goal(); // \MySdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$goal = new \BhrSdk\Model\Goal(); // \BhrSdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
 
 try {
     $result = $apiInstance->putGoalV1($employee_id, $goal_id, $goal);
@@ -1483,11 +1483,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **goal** | [**\MySdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **goal** | [**\BhrSdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -1505,7 +1505,7 @@ try {
 ## `putGoalV11()`
 
 ```php
-putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \MySdk\Model\TransformedApiGoal
+putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal, V1.1
@@ -1519,13 +1519,13 @@ Update a goal. Version 1.1 allows the updating of the milestones contained withi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\GoalsApi(
+$apiInstance = new BhrSdk\Api\GoalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1533,7 +1533,7 @@ $apiInstance = new MySdk\Api\GoalsApi(
 );
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_v11_request = new \MySdk\Model\PutGoalV11Request(); // \MySdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$put_goal_v11_request = new \BhrSdk\Model\PutGoalV11Request(); // \BhrSdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
 
 try {
     $result = $apiInstance->putGoalV11($employee_id, $goal_id, $put_goal_v11_request);
@@ -1549,11 +1549,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_v11_request** | [**\MySdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **put_goal_v11_request** | [**\BhrSdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * AccountInformationApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -146,9 +146,9 @@ class AccountInformationApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\CountrySchema[]
+	 * @return \BhrSdk\Model\CountrySchema[]
 	 */
 	public function getCountriesOptions(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 		list($response) = $this->getCountriesOptionsWithHttpInfo($contentType);
@@ -162,9 +162,9 @@ class AccountInformationApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\CountrySchema[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\CountrySchema[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCountriesOptionsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 		$request = $this->getCountriesOptionsRequest($contentType);
@@ -195,7 +195,7 @@ class AccountInformationApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\CountrySchema[]',
+						'\BhrSdk\Model\CountrySchema[]',
 						$request,
 						$response,
 					);
@@ -217,7 +217,7 @@ class AccountInformationApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\CountrySchema[]',
+				'\BhrSdk\Model\CountrySchema[]',
 				$request,
 				$response,
 			);
@@ -226,7 +226,7 @@ class AccountInformationApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\CountrySchema[]',
+						'\BhrSdk\Model\CountrySchema[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -268,7 +268,7 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCountriesOptionsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
-		$returnType = '\MySdk\Model\CountrySchema[]';
+		$returnType = '\BhrSdk\Model\CountrySchema[]';
 		$request = $this->getCountriesOptionsRequest($contentType);
 
 		return $this->client
@@ -401,7 +401,7 @@ class AccountInformationApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -416,7 +416,7 @@ class AccountInformationApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -607,9 +607,9 @@ class AccountInformationApi {
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\StateProvinceResponseSchema
+	 * @return \BhrSdk\Model\StateProvinceResponseSchema
 	 */
 	public function getStatesByCountryId($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
 		list($response) = $this->getStatesByCountryIdWithHttpInfo($country_id, $contentType);
@@ -624,9 +624,9 @@ class AccountInformationApi {
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\StateProvinceResponseSchema, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\StateProvinceResponseSchema, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getStatesByCountryIdWithHttpInfo($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
 		$request = $this->getStatesByCountryIdRequest($country_id, $contentType);
@@ -657,7 +657,7 @@ class AccountInformationApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\StateProvinceResponseSchema',
+						'\BhrSdk\Model\StateProvinceResponseSchema',
 						$request,
 						$response,
 					);
@@ -679,7 +679,7 @@ class AccountInformationApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\StateProvinceResponseSchema',
+				'\BhrSdk\Model\StateProvinceResponseSchema',
 				$request,
 				$response,
 			);
@@ -688,7 +688,7 @@ class AccountInformationApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\StateProvinceResponseSchema',
+						'\BhrSdk\Model\StateProvinceResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -732,7 +732,7 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getStatesByCountryIdAsyncWithHttpInfo($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
-		$returnType = '\MySdk\Model\StateProvinceResponseSchema';
+		$returnType = '\BhrSdk\Model\StateProvinceResponseSchema';
 		$request = $this->getStatesByCountryIdRequest($country_id, $contentType);
 
 		return $this->client
@@ -880,10 +880,10 @@ class AccountInformationApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -897,10 +897,10 @@ class AccountInformationApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -946,7 +946,7 @@ class AccountInformationApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -967,7 +967,7 @@ class AccountInformationApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1004,7 +1004,7 @@ class AccountInformationApi {
 	 * Create request for operation 'metadataAddOrUpdateValuesForListFields'
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1126,7 +1126,7 @@ class AccountInformationApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1142,7 +1142,7 @@ class AccountInformationApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1341,7 +1341,7 @@ class AccountInformationApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1357,7 +1357,7 @@ class AccountInformationApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1556,7 +1556,7 @@ class AccountInformationApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1572,7 +1572,7 @@ class AccountInformationApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */

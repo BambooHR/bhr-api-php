@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **task_id** | **string** | ID of the task associated with this time tracking record | [optional]
 **shift_differential_id** | **string** | ID of the shift differential associated with this time tracking record | [optional]
 **holiday_id** | **string** | ID of the holiday associated with this time tracking record | [optional]
-**project** | [**\MySdk\Model\TimeTrackingRecordSchemaProject**](TimeTrackingRecordSchemaProject.md) |  | [optional]
-**shift_differential** | [**\MySdk\Model\TimeTrackingRecordSchemaShiftDifferential**](TimeTrackingRecordSchemaShiftDifferential.md) |  | [optional]
+**project** | [**\BhrSdk\Model\TimeTrackingRecordSchemaProject**](TimeTrackingRecordSchemaProject.md) |  | [optional]
+**shift_differential** | [**\BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential**](TimeTrackingRecordSchemaShiftDifferential.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
-# MySdk\TabularDataApi
+# BhrSdk\TabularDataApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -30,13 +30,13 @@ Adds a table row. If employee is currently on a pay schedule syncing with Trax P
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -44,7 +44,7 @@ $apiInstance = new MySdk\Api\TabularDataApi(
 );
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->addEmployeeTableRow($id, $table, $table_row_update);
@@ -59,7 +59,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -95,13 +95,13 @@ Adds a table row. Fundamentally the same as version 1 so choose a version and st
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -109,7 +109,7 @@ $apiInstance = new MySdk\Api\TabularDataApi(
 );
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->addEmployeeTableRowV1($id, $table, $table_row_update);
@@ -124,7 +124,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -146,7 +146,7 @@ void (empty response body)
 ## `deleteEmployeeTableRowV1()`
 
 ```php
-deleteEmployeeTableRowV1($id, $table, $row_id): \MySdk\Model\DeleteEmployeeTableRowV1200Response
+deleteEmployeeTableRowV1($id, $table, $row_id): \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
 ```
 
 Deletes a table row
@@ -160,13 +160,13 @@ Deletes a table row
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -194,7 +194,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
+[**\BhrSdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
 
 ### Authorization
 
@@ -226,13 +226,13 @@ This API is merely an optimization to avoid downloading all table data for all e
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -289,13 +289,13 @@ Returns a data structure representing all the table rows for a given employee an
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -352,13 +352,13 @@ Updates a table row. If employee is currently on a pay schedule syncing with Tra
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -367,7 +367,7 @@ $apiInstance = new MySdk\Api\TabularDataApi(
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->updateEmployeeTableRow($id, $table, $row_id, $table_row_update);
@@ -383,7 +383,7 @@ try {
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -419,13 +419,13 @@ Updates a table row. Fundamentally the same as version 1 so choose a version and
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TabularDataApi(
+$apiInstance = new BhrSdk\Api\TabularDataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -434,7 +434,7 @@ $apiInstance = new MySdk\Api\TabularDataApi(
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->updateEmployeeTableRowV($id, $table, $row_id, $table_row_update);
@@ -450,7 +450,7 @@ try {
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * DataRequest Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,9 +57,9 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiTypes = [
 		'fields' => 'string[]',
-		'aggregations' => '\MySdk\Model\DataRequestAggregationsInner[]',
-		'sort_by' => '\MySdk\Model\DataRequestSortByInner[]',
-		'filters' => '\MySdk\Model\DataRequestFilters',
+		'aggregations' => '\BhrSdk\Model\DataRequestAggregationsInner[]',
+		'sort_by' => '\BhrSdk\Model\DataRequestSortByInner[]',
+		'filters' => '\BhrSdk\Model\DataRequestFilters',
 		'group_by' => 'string[]'
 	];
 
@@ -332,7 +332,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets aggregations
 	 *
-	 * @return \MySdk\Model\DataRequestAggregationsInner[]|null
+	 * @return \BhrSdk\Model\DataRequestAggregationsInner[]|null
 	 */
 	public function getAggregations() {
 		return $this->container['aggregations'];
@@ -341,7 +341,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets aggregations
 	 *
-	 * @param \MySdk\Model\DataRequestAggregationsInner[]|null $aggregations aggregations
+	 * @param \BhrSdk\Model\DataRequestAggregationsInner[]|null $aggregations aggregations
 	 *
 	 * @return self
 	 */
@@ -357,7 +357,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets sort_by
 	 *
-	 * @return \MySdk\Model\DataRequestSortByInner[]|null
+	 * @return \BhrSdk\Model\DataRequestSortByInner[]|null
 	 */
 	public function getSortBy() {
 		return $this->container['sort_by'];
@@ -366,7 +366,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets sort_by
 	 *
-	 * @param \MySdk\Model\DataRequestSortByInner[]|null $sort_by sort_by
+	 * @param \BhrSdk\Model\DataRequestSortByInner[]|null $sort_by sort_by
 	 *
 	 * @return self
 	 */
@@ -382,7 +382,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets filters
 	 *
-	 * @return \MySdk\Model\DataRequestFilters|null
+	 * @return \BhrSdk\Model\DataRequestFilters|null
 	 */
 	public function getFilters() {
 		return $this->container['filters'];
@@ -391,7 +391,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets filters
 	 *
-	 * @param \MySdk\Model\DataRequestFilters|null $filters filters
+	 * @param \BhrSdk\Model\DataRequestFilters|null $filters filters
 	 *
 	 * @return self
 	 */

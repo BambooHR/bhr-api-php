@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetHiringLeads200ResponseInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class GetHiringLeads200ResponseInner implements ModelInterface, ArrayAccess, \Js
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'hiring_lead' => '\MySdk\Model\HiringLead'
+		'hiring_lead' => '\BhrSdk\Model\HiringLead'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class GetHiringLeads200ResponseInner implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Gets hiring_lead
 	 *
-	 * @return \MySdk\Model\HiringLead|null
+	 * @return \BhrSdk\Model\HiringLead|null
 	 */
 	public function getHiringLead() {
 		return $this->container['hiring_lead'];
@@ -285,7 +285,7 @@ class GetHiringLeads200ResponseInner implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Sets hiring_lead
 	 *
-	 * @param \MySdk\Model\HiringLead|null $hiring_lead hiring_lead
+	 * @param \BhrSdk\Model\HiringLead|null $hiring_lead hiring_lead
 	 *
 	 * @return self
 	 */

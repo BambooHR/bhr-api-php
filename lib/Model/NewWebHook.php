@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * NewWebHook Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,8 +61,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'object',
 		'url' => 'string',
 		'format' => 'string',
-		'frequency' => '\MySdk\Model\NewWebHookFrequency',
-		'limit' => '\MySdk\Model\NewWebHookLimit',
+		'frequency' => '\BhrSdk\Model\NewWebHookFrequency',
+		'limit' => '\BhrSdk\Model\NewWebHookLimit',
 		'include_company_domain' => 'bool'
 	];
 
@@ -495,7 +495,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets frequency
 	 *
-	 * @return \MySdk\Model\NewWebHookFrequency|null
+	 * @return \BhrSdk\Model\NewWebHookFrequency|null
 	 */
 	public function getFrequency() {
 		return $this->container['frequency'];
@@ -504,7 +504,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets frequency
 	 *
-	 * @param \MySdk\Model\NewWebHookFrequency|null $frequency frequency
+	 * @param \BhrSdk\Model\NewWebHookFrequency|null $frequency frequency
 	 *
 	 * @return self
 	 */
@@ -520,7 +520,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets limit
 	 *
-	 * @return \MySdk\Model\NewWebHookLimit|null
+	 * @return \BhrSdk\Model\NewWebHookLimit|null
 	 */
 	public function getLimit() {
 		return $this->container['limit'];
@@ -529,7 +529,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets limit
 	 *
-	 * @param \MySdk\Model\NewWebHookLimit|null $limit limit
+	 * @param \BhrSdk\Model\NewWebHookLimit|null $limit limit
 	 *
 	 * @return self
 	 */

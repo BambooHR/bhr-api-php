@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * EmployeesApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -138,10 +138,10 @@ class EmployeesApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -154,10 +154,10 @@ class EmployeesApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -202,7 +202,7 @@ class EmployeesApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -222,7 +222,7 @@ class EmployeesApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -258,7 +258,7 @@ class EmployeesApi {
 	/**
 	 * Create request for operation 'addEmployee'
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -364,9 +364,9 @@ class EmployeesApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyInformation'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetCompanyInformation200Response
+	 * @return \BhrSdk\Model\GetCompanyInformation200Response
 	 */
 	public function getCompanyInformation(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
 		list($response) = $this->getCompanyInformationWithHttpInfo($contentType);
@@ -380,9 +380,9 @@ class EmployeesApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyInformation'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetCompanyInformation200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetCompanyInformation200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCompanyInformationWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
 		$request = $this->getCompanyInformationRequest($contentType);
@@ -413,7 +413,7 @@ class EmployeesApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetCompanyInformation200Response',
+						'\BhrSdk\Model\GetCompanyInformation200Response',
 						$request,
 						$response,
 					);
@@ -435,7 +435,7 @@ class EmployeesApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetCompanyInformation200Response',
+				'\BhrSdk\Model\GetCompanyInformation200Response',
 				$request,
 				$response,
 			);
@@ -444,7 +444,7 @@ class EmployeesApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetCompanyInformation200Response',
+						'\BhrSdk\Model\GetCompanyInformation200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -486,7 +486,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyInformationAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
-		$returnType = '\MySdk\Model\GetCompanyInformation200Response';
+		$returnType = '\BhrSdk\Model\GetCompanyInformation200Response';
 		$request = $this->getCompanyInformationRequest($contentType);
 
 		return $this->client
@@ -623,9 +623,9 @@ class EmployeesApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetEmployee200Response
+	 * @return \BhrSdk\Model\GetEmployee200Response
 	 */
 	public function getEmployee($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		list($response) = $this->getEmployeeWithHttpInfo($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -643,9 +643,9 @@ class EmployeesApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeeWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -676,7 +676,7 @@ class EmployeesApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$request,
 						$response,
 					);
@@ -698,7 +698,7 @@ class EmployeesApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetEmployee200Response',
+				'\BhrSdk\Model\GetEmployee200Response',
 				$request,
 				$response,
 			);
@@ -707,7 +707,7 @@ class EmployeesApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -757,7 +757,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeAsyncWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
-		$returnType = '\MySdk\Model\GetEmployee200Response';
+		$returnType = '\BhrSdk\Model\GetEmployee200Response';
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
 
 		return $this->client
@@ -941,9 +941,9 @@ class EmployeesApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetEmployee200Response
+	 * @return \BhrSdk\Model\GetEmployee200Response
 	 */
 	public function getEmployeesDirectory($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		list($response) = $this->getEmployeesDirectoryWithHttpInfo($accept_header_parameter, $contentType);
@@ -958,9 +958,9 @@ class EmployeesApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeesDirectoryWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
@@ -991,7 +991,7 @@ class EmployeesApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$request,
 						$response,
 					);
@@ -1013,7 +1013,7 @@ class EmployeesApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetEmployee200Response',
+				'\BhrSdk\Model\GetEmployee200Response',
 				$request,
 				$response,
 			);
@@ -1022,7 +1022,7 @@ class EmployeesApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1066,7 +1066,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeesDirectoryAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
-		$returnType = '\MySdk\Model\GetEmployee200Response';
+		$returnType = '\BhrSdk\Model\GetEmployee200Response';
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
 
 		return $this->client
@@ -1204,10 +1204,10 @@ class EmployeesApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1221,10 +1221,10 @@ class EmployeesApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1270,7 +1270,7 @@ class EmployeesApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1291,7 +1291,7 @@ class EmployeesApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1328,7 +1328,7 @@ class EmployeesApi {
 	 * Create request for operation 'updateEmployee'
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

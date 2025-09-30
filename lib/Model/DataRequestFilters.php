@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * DataRequestFilters Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 	  */
 	protected static $openApiTypes = [
 		'match' => 'string',
-		'filters' => '\MySdk\Model\DataRequestFiltersFiltersInner[]'
+		'filters' => '\BhrSdk\Model\DataRequestFiltersFiltersInner[]'
 	];
 
 	/**
@@ -308,7 +308,7 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets filters
 	 *
-	 * @return \MySdk\Model\DataRequestFiltersFiltersInner[]|null
+	 * @return \BhrSdk\Model\DataRequestFiltersFiltersInner[]|null
 	 */
 	public function getFilters() {
 		return $this->container['filters'];
@@ -317,7 +317,7 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets filters
 	 *
-	 * @param \MySdk\Model\DataRequestFiltersFiltersInner[]|null $filters filters
+	 * @param \BhrSdk\Model\DataRequestFiltersFiltersInner[]|null $filters filters
 	 *
 	 * @return self
 	 */

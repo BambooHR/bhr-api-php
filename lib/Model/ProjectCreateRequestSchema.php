@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * ProjectCreateRequestSchema Class Doc Comment
  *
  * @category Class
  * @description Schema for creating a new time tracking project with optional tasks
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,7 +62,7 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 		'allow_all_employees' => 'bool',
 		'employee_ids' => 'int[]',
 		'has_tasks' => 'bool',
-		'tasks' => '\MySdk\Model\TaskCreateSchema[]'
+		'tasks' => '\BhrSdk\Model\TaskCreateSchema[]'
 	];
 
 	/**
@@ -440,7 +440,7 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Gets tasks
 	 *
-	 * @return \MySdk\Model\TaskCreateSchema[]|null
+	 * @return \BhrSdk\Model\TaskCreateSchema[]|null
 	 */
 	public function getTasks() {
 		return $this->container['tasks'];
@@ -449,7 +449,7 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets tasks
 	 *
-	 * @param \MySdk\Model\TaskCreateSchema[]|null $tasks List of tasks to create and associate with the project.
+	 * @param \BhrSdk\Model\TaskCreateSchema[]|null $tasks List of tasks to create and associate with the project.
 	 *
 	 * @return self
 	 */

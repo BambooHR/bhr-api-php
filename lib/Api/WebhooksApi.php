@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * WebhooksApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -147,7 +147,7 @@ class WebhooksApi {
 	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -163,7 +163,7 @@ class WebhooksApi {
 	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -199,7 +199,7 @@ class WebhooksApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -207,7 +207,7 @@ class WebhooksApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -215,7 +215,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -395,9 +395,9 @@ class WebhooksApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetMonitorFields200Response|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\GetMonitorFields200Response|\BhrSdk\Model\WebhookError
 	 */
 	public function getMonitorFields(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		list($response) = $this->getMonitorFieldsWithHttpInfo($contentType);
@@ -411,9 +411,9 @@ class WebhooksApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetMonitorFields200Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetMonitorFields200Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getMonitorFieldsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		$request = $this->getMonitorFieldsRequest($contentType);
@@ -444,13 +444,13 @@ class WebhooksApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetMonitorFields200Response',
+						'\BhrSdk\Model\GetMonitorFields200Response',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -472,7 +472,7 @@ class WebhooksApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetMonitorFields200Response',
+				'\BhrSdk\Model\GetMonitorFields200Response',
 				$request,
 				$response,
 			);
@@ -481,7 +481,7 @@ class WebhooksApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetMonitorFields200Response',
+						'\BhrSdk\Model\GetMonitorFields200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -489,7 +489,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -531,7 +531,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getMonitorFieldsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
-		$returnType = '\MySdk\Model\GetMonitorFields200Response';
+		$returnType = '\BhrSdk\Model\GetMonitorFields200Response';
 		$request = $this->getMonitorFieldsRequest($contentType);
 
 		return $this->client
@@ -665,9 +665,9 @@ class WebhooksApi {
 	 * @param  int $id The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\WebHookResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhook($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
 		list($response) = $this->getWebhookWithHttpInfo($id, $contentType);
@@ -682,9 +682,9 @@ class WebhooksApi {
 	 * @param  int $id The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\WebHookResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
 		$request = $this->getWebhookRequest($id, $contentType);
@@ -715,25 +715,25 @@ class WebhooksApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 404:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -755,7 +755,7 @@ class WebhooksApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\WebHookResponse',
+				'\BhrSdk\Model\WebHookResponse',
 				$request,
 				$response,
 			);
@@ -764,7 +764,7 @@ class WebhooksApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -772,7 +772,7 @@ class WebhooksApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -780,7 +780,7 @@ class WebhooksApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -788,7 +788,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -832,7 +832,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
-		$returnType = '\MySdk\Model\WebHookResponse';
+		$returnType = '\BhrSdk\Model\WebHookResponse';
 		$request = $this->getWebhookRequest($id, $contentType);
 
 		return $this->client
@@ -981,9 +981,9 @@ class WebhooksApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetWebhookList200Response|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\GetWebhookList200Response|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhookList(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		list($response) = $this->getWebhookListWithHttpInfo($contentType);
@@ -997,9 +997,9 @@ class WebhooksApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetWebhookList200Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetWebhookList200Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookListWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		$request = $this->getWebhookListRequest($contentType);
@@ -1030,13 +1030,13 @@ class WebhooksApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetWebhookList200Response',
+						'\BhrSdk\Model\GetWebhookList200Response',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -1058,7 +1058,7 @@ class WebhooksApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetWebhookList200Response',
+				'\BhrSdk\Model\GetWebhookList200Response',
 				$request,
 				$response,
 			);
@@ -1067,7 +1067,7 @@ class WebhooksApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetWebhookList200Response',
+						'\BhrSdk\Model\GetWebhookList200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1075,7 +1075,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1117,7 +1117,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookListAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
-		$returnType = '\MySdk\Model\GetWebhookList200Response';
+		$returnType = '\BhrSdk\Model\GetWebhookList200Response';
 		$request = $this->getWebhookListRequest($contentType);
 
 		return $this->client
@@ -1251,9 +1251,9 @@ class WebhooksApi {
 	 * @param  string $id The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\WebHookLogResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhookLogs($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		list($response) = $this->getWebhookLogsWithHttpInfo($id, $contentType);
@@ -1268,9 +1268,9 @@ class WebhooksApi {
 	 * @param  string $id The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\WebHookLogResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookLogsWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		$request = $this->getWebhookLogsRequest($id, $contentType);
@@ -1301,25 +1301,25 @@ class WebhooksApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebHookLogResponse',
+						'\BhrSdk\Model\WebHookLogResponse',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 404:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -1341,7 +1341,7 @@ class WebhooksApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\WebHookLogResponse',
+				'\BhrSdk\Model\WebHookLogResponse',
 				$request,
 				$response,
 			);
@@ -1350,7 +1350,7 @@ class WebhooksApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebHookLogResponse',
+						'\BhrSdk\Model\WebHookLogResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1358,7 +1358,7 @@ class WebhooksApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1366,7 +1366,7 @@ class WebhooksApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1374,7 +1374,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1418,7 +1418,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookLogsAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
-		$returnType = '\MySdk\Model\WebHookLogResponse';
+		$returnType = '\BhrSdk\Model\WebHookLogResponse';
 		$request = $this->getWebhookLogsRequest($id, $contentType);
 
 		return $this->client
@@ -1565,12 +1565,12 @@ class WebhooksApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\PostWebhook201Response|\MySdk\Model\Webhook400Error|\MySdk\Model\PostWebhook403Response|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\PostWebhook201Response|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PostWebhook403Response|\BhrSdk\Model\WebhookError
 	 */
 	public function postWebhook($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		list($response) = $this->postWebhookWithHttpInfo($new_web_hook, $contentType);
@@ -1582,12 +1582,12 @@ class WebhooksApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\PostWebhook201Response|\MySdk\Model\Webhook400Error|\MySdk\Model\PostWebhook403Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\PostWebhook201Response|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PostWebhook403Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postWebhookWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
@@ -1618,25 +1618,25 @@ class WebhooksApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PostWebhook201Response',
+						'\BhrSdk\Model\PostWebhook201Response',
 						$request,
 						$response,
 					);
 				case 400:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PostWebhook403Response',
+						'\BhrSdk\Model\PostWebhook403Response',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -1658,7 +1658,7 @@ class WebhooksApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\PostWebhook201Response',
+				'\BhrSdk\Model\PostWebhook201Response',
 				$request,
 				$response,
 			);
@@ -1667,7 +1667,7 @@ class WebhooksApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PostWebhook201Response',
+						'\BhrSdk\Model\PostWebhook201Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1675,7 +1675,7 @@ class WebhooksApi {
 				case 400:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1683,7 +1683,7 @@ class WebhooksApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PostWebhook403Response',
+						'\BhrSdk\Model\PostWebhook403Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1691,7 +1691,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1708,7 +1708,7 @@ class WebhooksApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1728,14 +1728,14 @@ class WebhooksApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postWebhookAsyncWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
-		$returnType = '\MySdk\Model\PostWebhook201Response';
+		$returnType = '\BhrSdk\Model\PostWebhook201Response';
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
 
 		return $this->client
@@ -1777,7 +1777,7 @@ class WebhooksApi {
 	/**
 	 * Create request for operation 'postWebhook'
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1882,12 +1882,12 @@ class WebhooksApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\WebHookResponse|\MySdk\Model\Webhook400Error|\MySdk\Model\PutWebhook403Response|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PutWebhook403Response|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function putWebhook($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		list($response) = $this->putWebhookWithHttpInfo($id, $new_web_hook, $contentType);
@@ -1900,12 +1900,12 @@ class WebhooksApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\WebHookResponse|\MySdk\Model\Webhook400Error|\MySdk\Model\PutWebhook403Response|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PutWebhook403Response|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putWebhookWithHttpInfo($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
@@ -1936,31 +1936,31 @@ class WebhooksApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$request,
 						$response,
 					);
 				case 400:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PutWebhook403Response',
+						'\BhrSdk\Model\PutWebhook403Response',
 						$request,
 						$response,
 					);
 				case 404:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -1982,7 +1982,7 @@ class WebhooksApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\WebHookResponse',
+				'\BhrSdk\Model\WebHookResponse',
 				$request,
 				$response,
 			);
@@ -1991,7 +1991,7 @@ class WebhooksApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1999,7 +1999,7 @@ class WebhooksApi {
 				case 400:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2007,7 +2007,7 @@ class WebhooksApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PutWebhook403Response',
+						'\BhrSdk\Model\PutWebhook403Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2015,7 +2015,7 @@ class WebhooksApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2023,7 +2023,7 @@ class WebhooksApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2041,7 +2041,7 @@ class WebhooksApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2062,14 +2062,14 @@ class WebhooksApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putWebhookAsyncWithHttpInfo($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
-		$returnType = '\MySdk\Model\WebHookResponse';
+		$returnType = '\BhrSdk\Model\WebHookResponse';
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
 
 		return $this->client
@@ -2112,7 +2112,7 @@ class WebhooksApi {
 	 * Create request for operation 'putWebhook'
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

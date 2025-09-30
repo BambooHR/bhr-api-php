@@ -1,6 +1,6 @@
-# MySdk\ApplicantTrackingApi
+# BhrSdk\ApplicantTrackingApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -32,13 +32,13 @@ Add a new candidate application to a job opening. The owner of the API key used 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -133,13 +133,13 @@ Add a new job opening. The owner of the API key used must have access to ATS set
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -220,7 +220,7 @@ void (empty response body)
 ## `getApplications()`
 
 ```php
-getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \MySdk\Model\GetApplications200Response
+getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \BhrSdk\Model\GetApplications200Response
 ```
 
 Get Applications
@@ -234,13 +234,13 @@ Get a list of applications. The owner of the API key used must have access to AT
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -280,7 +280,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
+[**\BhrSdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ try {
 ## `getCompanyLocations()`
 
 ```php
-getCompanyLocations(): \MySdk\Model\GetCompanyLocations200ResponseInner[]
+getCompanyLocations(): \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
 ```
 
 Get Company Locations
@@ -312,13 +312,13 @@ Get company locations for use in creating a new job opening. The owner of the AP
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -339,7 +339,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
+[**\BhrSdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ This endpoint does not need any parameter.
 ## `getHiringLeads()`
 
 ```php
-getHiringLeads(): \MySdk\Model\GetHiringLeads200ResponseInner[]
+getHiringLeads(): \BhrSdk\Model\GetHiringLeads200ResponseInner[]
 ```
 
 Get Hiring Leads
@@ -371,13 +371,13 @@ Get potential hiring leads for use in creating a new job opening. The owner of t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -398,7 +398,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
+[**\BhrSdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
 
 ### Authorization
 
@@ -430,13 +430,13 @@ Get a list of job summaries. The owner of the API key used must have access to A
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -495,13 +495,13 @@ Get a list of statuses for a company. The owner of the API key used must have ac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -553,20 +553,20 @@ Change applicant\\'s status. The owner of the API key used must have access to A
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 0; // int | The ID of the application to add a comment to.
-$post_applicant_status_request = new \MySdk\Model\PostApplicantStatusRequest(); // \MySdk\Model\PostApplicantStatusRequest | Sample Post Data.
+$post_applicant_status_request = new \BhrSdk\Model\PostApplicantStatusRequest(); // \BhrSdk\Model\PostApplicantStatusRequest | Sample Post Data.
 
 try {
     $apiInstance->postApplicantStatus($application_id, $post_applicant_status_request);
@@ -580,7 +580,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
-| **post_applicant_status_request** | [**\MySdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
+| **post_applicant_status_request** | [**\BhrSdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
 
 ### Return type
 
@@ -616,20 +616,20 @@ Add a comment to an application. The owner of the API key used must have access 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\ApplicantTrackingApi(
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 0; // int | The ID of the application to add a comment to.
-$post_application_comment_request = new \MySdk\Model\PostApplicationCommentRequest(); // \MySdk\Model\PostApplicationCommentRequest | Comment object to post
+$post_application_comment_request = new \BhrSdk\Model\PostApplicationCommentRequest(); // \BhrSdk\Model\PostApplicationCommentRequest | Comment object to post
 
 try {
     $apiInstance->postApplicationComment($application_id, $post_application_comment_request);
@@ -643,7 +643,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
-| **post_application_comment_request** | [**\MySdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
+| **post_application_comment_request** | [**\BhrSdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
 
 ### Return type
 

@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * ATSApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -129,9 +129,9 @@ class ATSApi {
 	 * @param  int $application_id The ID of the application to look up details. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetApplicationDetails200Response
+	 * @return \BhrSdk\Model\GetApplicationDetails200Response
 	 */
 	public function getApplicationDetails($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
 		list($response) = $this->getApplicationDetailsWithHttpInfo($application_id, $contentType);
@@ -146,9 +146,9 @@ class ATSApi {
 	 * @param  int $application_id The ID of the application to look up details. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetApplicationDetails200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetApplicationDetails200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getApplicationDetailsWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
 		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
@@ -179,7 +179,7 @@ class ATSApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetApplicationDetails200Response',
+						'\BhrSdk\Model\GetApplicationDetails200Response',
 						$request,
 						$response,
 					);
@@ -201,7 +201,7 @@ class ATSApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetApplicationDetails200Response',
+				'\BhrSdk\Model\GetApplicationDetails200Response',
 				$request,
 				$response,
 			);
@@ -210,7 +210,7 @@ class ATSApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetApplicationDetails200Response',
+						'\BhrSdk\Model\GetApplicationDetails200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -254,7 +254,7 @@ class ATSApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getApplicationDetailsAsyncWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
-		$returnType = '\MySdk\Model\GetApplicationDetails200Response';
+		$returnType = '\BhrSdk\Model\GetApplicationDetails200Response';
 		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
 
 		return $this->client

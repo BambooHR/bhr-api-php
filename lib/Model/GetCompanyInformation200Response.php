@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetCompanyInformation200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class GetCompanyInformation200Response implements ModelInterface, ArrayAccess, \
 	protected static $openApiTypes = [
 		'legal_name' => 'string',
 		'display_name' => 'string',
-		'address' => '\MySdk\Model\GetCompanyInformation200ResponseAddress',
+		'address' => '\BhrSdk\Model\GetCompanyInformation200ResponseAddress',
 		'phone' => 'string'
 	];
 
@@ -347,7 +347,7 @@ class GetCompanyInformation200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets address
 	 *
-	 * @return \MySdk\Model\GetCompanyInformation200ResponseAddress|null
+	 * @return \BhrSdk\Model\GetCompanyInformation200ResponseAddress|null
 	 */
 	public function getAddress() {
 		return $this->container['address'];
@@ -356,7 +356,7 @@ class GetCompanyInformation200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets address
 	 *
-	 * @param \MySdk\Model\GetCompanyInformation200ResponseAddress|null $address address
+	 * @param \BhrSdk\Model\GetCompanyInformation200ResponseAddress|null $address address
 	 *
 	 * @return self
 	 */

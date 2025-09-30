@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * WebhookErrorErrors Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,10 +57,10 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  */
 	protected static $openApiTypes = [
 		'error' => 'string',
-		'unknown_fields' => '\MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'monitor_fields' => '\MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
+		'unknown_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
+		'monitor_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
 		'duplicate_post_string' => 'string[]',
-		'post_fields' => '\MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]'
+		'post_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]'
 	];
 
 	/**
@@ -329,7 +329,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets unknown_fields
 	 *
-	 * @return \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
+	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
 	 */
 	public function getUnknownFields() {
 		return $this->container['unknown_fields'];
@@ -338,7 +338,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets unknown_fields
 	 *
-	 * @param \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $unknown_fields unknown_fields
+	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $unknown_fields unknown_fields
 	 *
 	 * @return self
 	 */
@@ -354,7 +354,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets monitor_fields
 	 *
-	 * @return \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
+	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
 	 */
 	public function getMonitorFields() {
 		return $this->container['monitor_fields'];
@@ -363,7 +363,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets monitor_fields
 	 *
-	 * @param \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $monitor_fields monitor_fields
+	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $monitor_fields monitor_fields
 	 *
 	 * @return self
 	 */
@@ -404,7 +404,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets post_fields
 	 *
-	 * @return \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
+	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
 	 */
 	public function getPostFields() {
 		return $this->container['post_fields'];
@@ -413,7 +413,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets post_fields
 	 *
-	 * @param \MySdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $post_fields post_fields
+	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $post_fields post_fields
 	 *
 	 * @return self
 	 */

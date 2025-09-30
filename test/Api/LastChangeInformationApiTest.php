@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace MySdk\Test\Api;
+namespace BhrSdk\Test\Api;
 
-use \MySdk\Configuration;
-use \MySdk\ApiException;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\Configuration;
+use \BhrSdk\ApiException;
+use \BhrSdk\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * LastChangeInformationApiTest Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

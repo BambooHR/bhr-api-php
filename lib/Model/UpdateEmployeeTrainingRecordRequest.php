@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * UpdateEmployeeTrainingRecordRequest Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	  */
 	protected static $openApiTypes = [
 		'completed' => 'string',
-		'cost' => '\MySdk\Model\AddNewEmployeeTrainingRecordRequestCost',
+		'cost' => '\BhrSdk\Model\AddNewEmployeeTrainingRecordRequestCost',
 		'instructor' => 'string',
 		'hours' => 'float',
 		'credits' => 'float',
@@ -339,7 +339,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Gets cost
 	 *
-	 * @return \MySdk\Model\AddNewEmployeeTrainingRecordRequestCost|null
+	 * @return \BhrSdk\Model\AddNewEmployeeTrainingRecordRequestCost|null
 	 */
 	public function getCost() {
 		return $this->container['cost'];
@@ -348,7 +348,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Sets cost
 	 *
-	 * @param \MySdk\Model\AddNewEmployeeTrainingRecordRequestCost|null $cost cost
+	 * @param \BhrSdk\Model\AddNewEmployeeTrainingRecordRequestCost|null $cost cost
 	 *
 	 * @return self
 	 */

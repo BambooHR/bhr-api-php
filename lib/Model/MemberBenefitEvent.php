@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * MemberBenefitEvent Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'members' => '\MySdk\Model\MemberBenefitEventMembersInner[]'
+		'members' => '\BhrSdk\Model\MemberBenefitEventMembersInner[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets members
 	 *
-	 * @return \MySdk\Model\MemberBenefitEventMembersInner[]|null
+	 * @return \BhrSdk\Model\MemberBenefitEventMembersInner[]|null
 	 */
 	public function getMembers() {
 		return $this->container['members'];
@@ -285,7 +285,7 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets members
 	 *
-	 * @param \MySdk\Model\MemberBenefitEventMembersInner[]|null $members Members
+	 * @param \BhrSdk\Model\MemberBenefitEventMembersInner[]|null $members Members
 	 *
 	 * @return self
 	 */

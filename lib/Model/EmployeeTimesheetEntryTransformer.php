@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * EmployeeTimesheetEntryTransformer Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,7 +65,7 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'timezone' => 'string',
 		'hours' => 'float',
 		'note' => 'string',
-		'project_info' => '\MySdk\Model\ProjectInfoApiTransformer',
+		'project_info' => '\BhrSdk\Model\ProjectInfoApiTransformer',
 		'approved_at' => '\DateTime',
 		'approved' => 'bool'
 	];
@@ -613,7 +613,7 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 	/**
 	 * Gets project_info
 	 *
-	 * @return \MySdk\Model\ProjectInfoApiTransformer|null
+	 * @return \BhrSdk\Model\ProjectInfoApiTransformer|null
 	 */
 	public function getProjectInfo() {
 		return $this->container['project_info'];
@@ -622,7 +622,7 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 	/**
 	 * Sets project_info
 	 *
-	 * @param \MySdk\Model\ProjectInfoApiTransformer|null $project_info project_info
+	 * @param \BhrSdk\Model\ProjectInfoApiTransformer|null $project_info project_info
 	 *
 	 * @return self
 	 */

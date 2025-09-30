@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * ListTrainingTypes200ResponseInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class ListTrainingTypes200ResponseInner implements ModelInterface, ArrayAccess, 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'training_id' => '\MySdk\Model\TrainingType'
+		'training_id' => '\BhrSdk\Model\TrainingType'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class ListTrainingTypes200ResponseInner implements ModelInterface, ArrayAccess, 
 	/**
 	 * Gets training_id
 	 *
-	 * @return \MySdk\Model\TrainingType|null
+	 * @return \BhrSdk\Model\TrainingType|null
 	 */
 	public function getTrainingId() {
 		return $this->container['training_id'];
@@ -285,7 +285,7 @@ class ListTrainingTypes200ResponseInner implements ModelInterface, ArrayAccess, 
 	/**
 	 * Sets training_id
 	 *
-	 * @param \MySdk\Model\TrainingType|null $training_id training_id
+	 * @param \BhrSdk\Model\TrainingType|null $training_id training_id
 	 *
 	 * @return self
 	 */

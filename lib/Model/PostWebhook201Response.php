@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * PostWebhook201Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -64,8 +64,8 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => 'object',
 		'url' => 'string',
 		'format' => 'string',
-		'frequency' => '\MySdk\Model\PostWebhook201ResponseFrequency',
-		'limit' => '\MySdk\Model\PostWebhook201ResponseLimit',
+		'frequency' => '\BhrSdk\Model\PostWebhook201ResponseFrequency',
+		'limit' => '\BhrSdk\Model\PostWebhook201ResponseLimit',
 		'private_key' => 'string',
 		'include_company_domain' => 'bool'
 	];
@@ -553,7 +553,7 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Gets frequency
 	 *
-	 * @return \MySdk\Model\PostWebhook201ResponseFrequency|null
+	 * @return \BhrSdk\Model\PostWebhook201ResponseFrequency|null
 	 */
 	public function getFrequency() {
 		return $this->container['frequency'];
@@ -562,7 +562,7 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Sets frequency
 	 *
-	 * @param \MySdk\Model\PostWebhook201ResponseFrequency|null $frequency frequency
+	 * @param \BhrSdk\Model\PostWebhook201ResponseFrequency|null $frequency frequency
 	 *
 	 * @return self
 	 */
@@ -578,7 +578,7 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Gets limit
 	 *
-	 * @return \MySdk\Model\PostWebhook201ResponseLimit|null
+	 * @return \BhrSdk\Model\PostWebhook201ResponseLimit|null
 	 */
 	public function getLimit() {
 		return $this->container['limit'];
@@ -587,7 +587,7 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Sets limit
 	 *
-	 * @param \MySdk\Model\PostWebhook201ResponseLimit|null $limit limit
+	 * @param \BhrSdk\Model\PostWebhook201ResponseLimit|null $limit limit
 	 *
 	 * @return self
 	 */

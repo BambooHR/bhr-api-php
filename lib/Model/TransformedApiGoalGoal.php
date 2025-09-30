@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TransformedApiGoalGoal Class Doc Comment
  *
  * @category Class
  * @description An individual goal
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -66,8 +66,8 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 		'due_date' => 'string',
 		'completion_date' => 'string',
 		'status' => 'string',
-		'milestones' => '\MySdk\Model\TransformedApiGoalGoalMilestonesInner[]',
-		'actions' => '\MySdk\Model\TransformedApiGoalGoalActions'
+		'milestones' => '\BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]',
+		'actions' => '\BhrSdk\Model\TransformedApiGoalGoalActions'
 	];
 
 	/**
@@ -621,7 +621,7 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Gets milestones
 	 *
-	 * @return \MySdk\Model\TransformedApiGoalGoalMilestonesInner[]|null
+	 * @return \BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]|null
 	 */
 	public function getMilestones() {
 		return $this->container['milestones'];
@@ -630,7 +630,7 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Sets milestones
 	 *
-	 * @param \MySdk\Model\TransformedApiGoalGoalMilestonesInner[]|null $milestones All milestones for the individual goal. This array will not exist if milestones are not selected for this goal.
+	 * @param \BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]|null $milestones All milestones for the individual goal. This array will not exist if milestones are not selected for this goal.
 	 *
 	 * @return self
 	 */
@@ -653,7 +653,7 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Gets actions
 	 *
-	 * @return \MySdk\Model\TransformedApiGoalGoalActions|null
+	 * @return \BhrSdk\Model\TransformedApiGoalGoalActions|null
 	 */
 	public function getActions() {
 		return $this->container['actions'];
@@ -662,7 +662,7 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Sets actions
 	 *
-	 * @param \MySdk\Model\TransformedApiGoalGoalActions|null $actions actions
+	 * @param \BhrSdk\Model\TransformedApiGoalGoalActions|null $actions actions
 	 *
 	 * @return self
 	 */

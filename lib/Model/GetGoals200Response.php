@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetGoals200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class GetGoals200Response implements ModelInterface, ArrayAccess, \JsonSerializa
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'goals' => '\MySdk\Model\TransformedApiGoal[]'
+		'goals' => '\BhrSdk\Model\TransformedApiGoal[]'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class GetGoals200Response implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Gets goals
 	 *
-	 * @return \MySdk\Model\TransformedApiGoal[]|null
+	 * @return \BhrSdk\Model\TransformedApiGoal[]|null
 	 */
 	public function getGoals() {
 		return $this->container['goals'];
@@ -285,7 +285,7 @@ class GetGoals200Response implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets goals
 	 *
-	 * @param \MySdk\Model\TransformedApiGoal[]|null $goals All goals of the selected employee
+	 * @param \BhrSdk\Model\TransformedApiGoal[]|null $goals All goals of the selected employee
 	 *
 	 * @return self
 	 */

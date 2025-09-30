@@ -1,6 +1,6 @@
-# MySdk\TimeTrackingApi
+# BhrSdk\TimeTrackingApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -17,7 +17,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 ## `addEditTimesheetClockEntries()`
 
 ```php
-addEditTimesheetClockEntries($clock_entries_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+addEditTimesheetClockEntries($clock_entries_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
 ```
 
 Add/Edit Timesheet Clock Entries
@@ -31,19 +31,19 @@ Add or edit timesheet clock entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$clock_entries_schema = new \MySdk\Model\ClockEntriesSchema(); // \MySdk\Model\ClockEntriesSchema
+$clock_entries_schema = new \BhrSdk\Model\ClockEntriesSchema(); // \BhrSdk\Model\ClockEntriesSchema
 
 try {
     $result = $apiInstance->addEditTimesheetClockEntries($clock_entries_schema);
@@ -57,11 +57,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clock_entries_schema** | [**\MySdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
+| **clock_entries_schema** | [**\BhrSdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `addEditTimesheetHourEntries()`
 
 ```php
-addEditTimesheetHourEntries($hour_entries_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+addEditTimesheetHourEntries($hour_entries_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
 ```
 
 Add/Edit Timesheet Hour Entries
@@ -93,19 +93,19 @@ Add or edit timesheet hour entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$hour_entries_request_schema = new \MySdk\Model\HourEntriesRequestSchema(); // \MySdk\Model\HourEntriesRequestSchema
+$hour_entries_request_schema = new \BhrSdk\Model\HourEntriesRequestSchema(); // \BhrSdk\Model\HourEntriesRequestSchema
 
 try {
     $result = $apiInstance->addEditTimesheetHourEntries($hour_entries_request_schema);
@@ -119,11 +119,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **hour_entries_request_schema** | [**\MySdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
+| **hour_entries_request_schema** | [**\BhrSdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ try {
 ## `addTimesheetClockInEntry()`
 
 ```php
-addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer
+addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
 ```
 
 Add Timesheet Clock-In Entry
@@ -155,20 +155,20 @@ Clock in an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 56; // int | ID of the employee to clock in.
-$clock_in_request_schema = new \MySdk\Model\ClockInRequestSchema(); // \MySdk\Model\ClockInRequestSchema
+$clock_in_request_schema = new \BhrSdk\Model\ClockInRequestSchema(); // \BhrSdk\Model\ClockInRequestSchema
 
 try {
     $result = $apiInstance->addTimesheetClockInEntry($employee_id, $clock_in_request_schema);
@@ -183,11 +183,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| ID of the employee to clock in. | |
-| **clock_in_request_schema** | [**\MySdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
+| **clock_in_request_schema** | [**\BhrSdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ try {
 ## `addTimesheetClockOutEntry()`
 
 ```php
-addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer
+addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
 ```
 
 Add Timesheet Clock-Out Entry
@@ -219,20 +219,20 @@ Clock out an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 56; // int | ID of the employee to clock out.
-$clock_out_request_schema = new \MySdk\Model\ClockOutRequestSchema(); // \MySdk\Model\ClockOutRequestSchema
+$clock_out_request_schema = new \BhrSdk\Model\ClockOutRequestSchema(); // \BhrSdk\Model\ClockOutRequestSchema
 
 try {
     $result = $apiInstance->addTimesheetClockOutEntry($employee_id, $clock_out_request_schema);
@@ -247,11 +247,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| ID of the employee to clock out. | |
-| **clock_out_request_schema** | [**\MySdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
+| **clock_out_request_schema** | [**\BhrSdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ try {
 ## `createTimeTrackingProject()`
 
 ```php
-createTimeTrackingProject($project_create_request_schema): \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
+createTimeTrackingProject($project_create_request_schema): \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
 ```
 
 Create Time Tracking Project
@@ -283,19 +283,19 @@ Create a time tracking project with optional tasks.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$project_create_request_schema = new \MySdk\Model\ProjectCreateRequestSchema(); // \MySdk\Model\ProjectCreateRequestSchema
+$project_create_request_schema = new \BhrSdk\Model\ProjectCreateRequestSchema(); // \BhrSdk\Model\ProjectCreateRequestSchema
 
 try {
     $result = $apiInstance->createTimeTrackingProject($project_create_request_schema);
@@ -309,11 +309,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_create_request_schema** | [**\MySdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
+| **project_create_request_schema** | [**\BhrSdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
+[**\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 
 ### Authorization
 
@@ -345,19 +345,19 @@ Delete timesheet clock entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$clock_entry_ids_schema = new \MySdk\Model\ClockEntryIdsSchema(); // \MySdk\Model\ClockEntryIdsSchema
+$clock_entry_ids_schema = new \BhrSdk\Model\ClockEntryIdsSchema(); // \BhrSdk\Model\ClockEntryIdsSchema
 
 try {
     $result = $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
@@ -371,7 +371,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clock_entry_ids_schema** | [**\MySdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
+| **clock_entry_ids_schema** | [**\BhrSdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
 
 ### Return type
 
@@ -407,19 +407,19 @@ Delete timesheet hour entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$hour_entry_ids_schema = new \MySdk\Model\HourEntryIdsSchema(); // \MySdk\Model\HourEntryIdsSchema
+$hour_entry_ids_schema = new \BhrSdk\Model\HourEntryIdsSchema(); // \BhrSdk\Model\HourEntryIdsSchema
 
 try {
     $result = $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
@@ -433,7 +433,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **hour_entry_ids_schema** | [**\MySdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
+| **hour_entry_ids_schema** | [**\BhrSdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
 
 ### Return type
 
@@ -455,7 +455,7 @@ try {
 ## `getTimesheetEntries()`
 
 ```php
-getTimesheetEntries($start, $end, $employee_ids): \MySdk\Model\EmployeeTimesheetEntryTransformer[]
+getTimesheetEntries($start, $end, $employee_ids): \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]
 ```
 
 Get Timesheet Entries
@@ -469,13 +469,13 @@ Get all timesheet entries for a given period of time.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -503,7 +503,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
+[**\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
 
 ### Authorization
 

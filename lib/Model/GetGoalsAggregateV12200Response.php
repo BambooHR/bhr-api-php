@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetGoalsAggregateV12200Response Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,11 +58,11 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	protected static $openApiTypes = [
 		'can_align' => 'bool',
 		'can_create_goals' => 'bool',
-		'filters' => '\MySdk\Model\GoalFiltersV11',
+		'filters' => '\BhrSdk\Model\GoalFiltersV11',
 		'selected_filter' => 'string',
-		'goals' => '\MySdk\Model\TransformedApiGoal[]',
-		'persons' => '\MySdk\Model\GetGoalAggregate200ResponsePersonsInner[]',
-		'comments' => '\MySdk\Model\GetGoalsAggregateV12200ResponseCommentsInner[]'
+		'goals' => '\BhrSdk\Model\TransformedApiGoal[]',
+		'persons' => '\BhrSdk\Model\GetGoalAggregate200ResponsePersonsInner[]',
+		'comments' => '\BhrSdk\Model\GetGoalsAggregateV12200ResponseCommentsInner[]'
 	];
 
 	/**
@@ -368,7 +368,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets filters
 	 *
-	 * @return \MySdk\Model\GoalFiltersV11|null
+	 * @return \BhrSdk\Model\GoalFiltersV11|null
 	 */
 	public function getFilters() {
 		return $this->container['filters'];
@@ -377,7 +377,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets filters
 	 *
-	 * @param \MySdk\Model\GoalFiltersV11|null $filters filters
+	 * @param \BhrSdk\Model\GoalFiltersV11|null $filters filters
 	 *
 	 * @return self
 	 */
@@ -418,7 +418,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets goals
 	 *
-	 * @return \MySdk\Model\TransformedApiGoal[]|null
+	 * @return \BhrSdk\Model\TransformedApiGoal[]|null
 	 */
 	public function getGoals() {
 		return $this->container['goals'];
@@ -427,7 +427,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets goals
 	 *
-	 * @param \MySdk\Model\TransformedApiGoal[]|null $goals All goals in selected filter.
+	 * @param \BhrSdk\Model\TransformedApiGoal[]|null $goals All goals in selected filter.
 	 *
 	 * @return self
 	 */
@@ -443,7 +443,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets persons
 	 *
-	 * @return \MySdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null
+	 * @return \BhrSdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null
 	 */
 	public function getPersons() {
 		return $this->container['persons'];
@@ -452,7 +452,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets persons
 	 *
-	 * @param \MySdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null $persons A list of people with access to the goal.
+	 * @param \BhrSdk\Model\GetGoalAggregate200ResponsePersonsInner[]|null $persons A list of people with access to the goal.
 	 *
 	 * @return self
 	 */
@@ -468,7 +468,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets comments
 	 *
-	 * @return \MySdk\Model\GetGoalsAggregateV12200ResponseCommentsInner[]|null
+	 * @return \BhrSdk\Model\GetGoalsAggregateV12200ResponseCommentsInner[]|null
 	 */
 	public function getComments() {
 		return $this->container['comments'];
@@ -477,7 +477,7 @@ class GetGoalsAggregateV12200Response implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets comments
 	 *
-	 * @param \MySdk\Model\GetGoalsAggregateV12200ResponseCommentsInner[]|null $comments A list of how many comments belong to each goal.
+	 * @param \BhrSdk\Model\GetGoalsAggregateV12200ResponseCommentsInner[]|null $comments A list of how many comments belong to each goal.
 	 *
 	 * @return self
 	 */

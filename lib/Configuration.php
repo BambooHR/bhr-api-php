@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,14 +25,14 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk;
+namespace BhrSdk;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -92,7 +92,7 @@ class Configuration {
 	 *
 	 * @var string
 	 */
-	protected $host = 'https://example.bamboohr.com';
+	protected $host = 'https://company.bamboohr.com';
 
 	/**
 	 * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -402,7 +402,7 @@ class Configuration {
 	 * @return string The report for debugging
 	 */
 	public static function toDebugReport() {
-		$report  = 'PHP SDK (MySdk) Debug Report:' . PHP_EOL;
+		$report  = 'PHP SDK (BhrSdk) Debug Report:' . PHP_EOL;
 		$report .= '    OS: ' . php_uname() . PHP_EOL;
 		$report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
 		$report .= '    The version of the OpenAPI document: 1.0' . PHP_EOL;
@@ -448,7 +448,7 @@ class Configuration {
 				"variables" => [
 					"companyDomain" => [
 						"description" => "Company domain",
-						"default_value" => "example",
+						"default_value" => "company",
 					]
 				]
 			]

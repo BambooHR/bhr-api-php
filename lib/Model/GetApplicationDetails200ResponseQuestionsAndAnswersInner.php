@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * GetApplicationDetails200ResponseQuestionsAndAnswersInner Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,8 +56,8 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInner implements ModelI
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'question' => '\MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion',
-		'answer' => '\MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer'
+		'question' => '\BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion',
+		'answer' => '\BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer'
 	];
 
 	/**
@@ -283,7 +283,7 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInner implements ModelI
 	/**
 	 * Gets question
 	 *
-	 * @return \MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion|null
+	 * @return \BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion|null
 	 */
 	public function getQuestion() {
 		return $this->container['question'];
@@ -292,7 +292,7 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInner implements ModelI
 	/**
 	 * Sets question
 	 *
-	 * @param \MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion|null $question question
+	 * @param \BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion|null $question question
 	 *
 	 * @return self
 	 */
@@ -308,7 +308,7 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInner implements ModelI
 	/**
 	 * Gets answer
 	 *
-	 * @return \MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer|null
+	 * @return \BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer|null
 	 */
 	public function getAnswer() {
 		return $this->container['answer'];
@@ -317,7 +317,7 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInner implements ModelI
 	/**
 	 * Sets answer
 	 *
-	 * @param \MySdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer|null $answer answer
+	 * @param \BhrSdk\Model\GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer|null $answer answer
 	 *
 	 * @return self
 	 */

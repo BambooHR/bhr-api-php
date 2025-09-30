@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * WebhookError Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class WebhookError implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'errors' => '\MySdk\Model\WebhookErrorErrors'
+		'errors' => '\BhrSdk\Model\WebhookErrorErrors'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class WebhookError implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets errors
 	 *
-	 * @return \MySdk\Model\WebhookErrorErrors|null
+	 * @return \BhrSdk\Model\WebhookErrorErrors|null
 	 */
 	public function getErrors() {
 		return $this->container['errors'];
@@ -285,7 +285,7 @@ class WebhookError implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets errors
 	 *
-	 * @param \MySdk\Model\WebhookErrorErrors|null $errors errors
+	 * @param \BhrSdk\Model\WebhookErrorErrors|null $errors errors
 	 *
 	 * @return self
 	 */

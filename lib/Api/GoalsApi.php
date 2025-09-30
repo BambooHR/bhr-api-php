@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * GoalsApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -199,7 +199,7 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -216,7 +216,7 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -445,7 +445,7 @@ class GoalsApi {
 	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -463,7 +463,7 @@ class GoalsApi {
 	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -708,7 +708,7 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -724,7 +724,7 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -934,9 +934,9 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalAggregate200Response
+	 * @return \BhrSdk\Model\GetGoalAggregate200Response
 	 */
 	public function getGoalAggregate($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		list($response) = $this->getGoalAggregateWithHttpInfo($employee_id, $goal_id, $contentType);
@@ -952,9 +952,9 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalAggregate200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalAggregate200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalAggregateWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
@@ -985,7 +985,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalAggregate200Response',
+						'\BhrSdk\Model\GetGoalAggregate200Response',
 						$request,
 						$response,
 					);
@@ -1007,7 +1007,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalAggregate200Response',
+				'\BhrSdk\Model\GetGoalAggregate200Response',
 				$request,
 				$response,
 			);
@@ -1016,7 +1016,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalAggregate200Response',
+						'\BhrSdk\Model\GetGoalAggregate200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1062,7 +1062,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalAggregateAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
-		$returnType = '\MySdk\Model\GetGoalAggregate200Response';
+		$returnType = '\BhrSdk\Model\GetGoalAggregate200Response';
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
@@ -1229,7 +1229,7 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1246,7 +1246,7 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1474,9 +1474,9 @@ class GoalsApi {
 	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoals200Response
+	 * @return \BhrSdk\Model\GetGoals200Response
 	 */
 	public function getGoals($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		list($response) = $this->getGoalsWithHttpInfo($employee_id, $filter, $contentType);
@@ -1492,9 +1492,9 @@ class GoalsApi {
 	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoals200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoals200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
@@ -1525,7 +1525,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoals200Response',
+						'\BhrSdk\Model\GetGoals200Response',
 						$request,
 						$response,
 					);
@@ -1547,7 +1547,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoals200Response',
+				'\BhrSdk\Model\GetGoals200Response',
 				$request,
 				$response,
 			);
@@ -1556,7 +1556,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoals200Response',
+						'\BhrSdk\Model\GetGoals200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1602,7 +1602,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAsyncWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
-		$returnType = '\MySdk\Model\GetGoals200Response';
+		$returnType = '\BhrSdk\Model\GetGoals200Response';
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
 		return $this->client
@@ -1763,9 +1763,9 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalsAggregateV1200Response
+	 * @return \BhrSdk\Model\GetGoalsAggregateV1200Response
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
@@ -1781,9 +1781,9 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalsAggregateV1200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalsAggregateV1200Response, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
@@ -1815,7 +1815,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalsAggregateV1200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 						$request,
 						$response,
 					);
@@ -1837,7 +1837,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalsAggregateV1200Response',
+				'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 				$request,
 				$response,
 			);
@@ -1846,7 +1846,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalsAggregateV1200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1892,7 +1892,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
-		$returnType = '\MySdk\Model\GetGoalsAggregateV1200Response';
+		$returnType = '\BhrSdk\Model\GetGoalsAggregateV1200Response';
 		$request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
 		return $this->client
@@ -2043,9 +2043,9 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalsAggregateV11200Response
+	 * @return \BhrSdk\Model\GetGoalsAggregateV11200Response
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
@@ -2061,9 +2061,9 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalsAggregateV11200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalsAggregateV11200Response, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
@@ -2095,7 +2095,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalsAggregateV11200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 						$request,
 						$response,
 					);
@@ -2117,7 +2117,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalsAggregateV11200Response',
+				'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 				$request,
 				$response,
 			);
@@ -2126,7 +2126,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalsAggregateV11200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2172,7 +2172,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
-		$returnType = '\MySdk\Model\GetGoalsAggregateV11200Response';
+		$returnType = '\BhrSdk\Model\GetGoalsAggregateV11200Response';
 		$request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
 		return $this->client
@@ -2323,9 +2323,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalsAggregateV12200Response
+	 * @return \BhrSdk\Model\GetGoalsAggregateV12200Response
 	 */
 	public function getGoalsAggregateV12($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		list($response) = $this->getGoalsAggregateV12WithHttpInfo($employee_id, $contentType);
@@ -2340,9 +2340,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalsAggregateV12200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalsAggregateV12200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsAggregateV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
@@ -2373,7 +2373,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalsAggregateV12200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 						$request,
 						$response,
 					);
@@ -2395,7 +2395,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalsAggregateV12200Response',
+				'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 				$request,
 				$response,
 			);
@@ -2404,7 +2404,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalsAggregateV12200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2448,7 +2448,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAggregateV12AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
-		$returnType = '\MySdk\Model\GetGoalsAggregateV12200Response';
+		$returnType = '\BhrSdk\Model\GetGoalsAggregateV12200Response';
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
 		return $this->client
@@ -2599,7 +2599,7 @@ class GoalsApi {
 	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2616,7 +2616,7 @@ class GoalsApi {
 	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2836,9 +2836,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GoalFiltersV1
+	 * @return \BhrSdk\Model\GoalFiltersV1
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
@@ -2854,9 +2854,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GoalFiltersV1, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalFiltersV1, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
@@ -2888,7 +2888,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GoalFiltersV1',
+						'\BhrSdk\Model\GoalFiltersV1',
 						$request,
 						$response,
 					);
@@ -2910,7 +2910,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GoalFiltersV1',
+				'\BhrSdk\Model\GoalFiltersV1',
 				$request,
 				$response,
 			);
@@ -2919,7 +2919,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GoalFiltersV1',
+						'\BhrSdk\Model\GoalFiltersV1',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -2965,7 +2965,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
-		$returnType = '\MySdk\Model\GoalFiltersV1';
+		$returnType = '\BhrSdk\Model\GoalFiltersV1';
 		$request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
 
 		return $this->client
@@ -3116,9 +3116,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GoalFiltersV11
+	 * @return \BhrSdk\Model\GoalFiltersV11
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
@@ -3134,9 +3134,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
@@ -3168,7 +3168,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$request,
 						$response,
 					);
@@ -3190,7 +3190,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GoalFiltersV11',
+				'\BhrSdk\Model\GoalFiltersV11',
 				$request,
 				$response,
 			);
@@ -3199,7 +3199,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -3245,7 +3245,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
-		$returnType = '\MySdk\Model\GoalFiltersV11';
+		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
 
 		return $this->client
@@ -3396,9 +3396,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GoalFiltersV11
+	 * @return \BhrSdk\Model\GoalFiltersV11
 	 */
 	public function getGoalsFiltersV12($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
 		list($response) = $this->getGoalsFiltersV12WithHttpInfo($employee_id, $contentType);
@@ -3413,9 +3413,9 @@ class GoalsApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsFiltersV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
@@ -3446,7 +3446,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$request,
 						$response,
 					);
@@ -3468,7 +3468,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GoalFiltersV11',
+				'\BhrSdk\Model\GoalFiltersV11',
 				$request,
 				$response,
 			);
@@ -3477,7 +3477,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -3521,7 +3521,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsFiltersV12AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
-		$returnType = '\MySdk\Model\GoalFiltersV11';
+		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
 
 		return $this->client
@@ -3673,7 +3673,7 @@ class GoalsApi {
 	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -3691,7 +3691,7 @@ class GoalsApi {
 	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -3928,9 +3928,9 @@ class GoalsApi {
 	 * @param  string|null $body Comment field is optional. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function postCloseGoal($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
 		list($response) = $this->postCloseGoalWithHttpInfo($employee_id, $goal_id, $body, $contentType);
@@ -3947,9 +3947,9 @@ class GoalsApi {
 	 * @param  string|null $body Comment field is optional. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postCloseGoalWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
@@ -3980,7 +3980,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -4002,7 +4002,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -4011,7 +4011,7 @@ class GoalsApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -4059,7 +4059,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postCloseGoalAsyncWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
 
 		return $this->client
@@ -4232,12 +4232,12 @@ class GoalsApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function postGoal($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		list($response) = $this->postGoalWithHttpInfo($employee_id, $post_goal_request, $contentType);
@@ -4250,12 +4250,12 @@ class GoalsApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postGoalWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
@@ -4286,7 +4286,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -4308,7 +4308,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -4317,7 +4317,7 @@ class GoalsApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -4335,7 +4335,7 @@ class GoalsApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4356,14 +4356,14 @@ class GoalsApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postGoalAsyncWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
 		return $this->client
@@ -4406,7 +4406,7 @@ class GoalsApi {
 	 * Create request for operation 'postGoal'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4530,7 +4530,7 @@ class GoalsApi {
 	 * @param  string $body body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -4548,7 +4548,7 @@ class GoalsApi {
 	 * @param  string $body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -4793,9 +4793,9 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function postReopenGoal($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
 		list($response) = $this->postReopenGoalWithHttpInfo($employee_id, $goal_id, $contentType);
@@ -4811,9 +4811,9 @@ class GoalsApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postReopenGoalWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
@@ -4844,7 +4844,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -4866,7 +4866,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -4875,7 +4875,7 @@ class GoalsApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -4921,7 +4921,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postReopenGoalAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
@@ -5090,7 +5090,7 @@ class GoalsApi {
 	 * @param  string $body body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -5109,7 +5109,7 @@ class GoalsApi {
 	 * @param  string $body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -5371,10 +5371,10 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return object
 	 */
@@ -5391,10 +5391,10 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of object, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -5478,7 +5478,7 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5501,7 +5501,7 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5553,7 +5553,7 @@ class GoalsApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5704,12 +5704,12 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function putGoalProgress($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		list($response) = $this->putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, $contentType);
@@ -5723,12 +5723,12 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
@@ -5759,7 +5759,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -5781,7 +5781,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -5790,7 +5790,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -5809,7 +5809,7 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5831,14 +5831,14 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalProgressAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
 		return $this->client
@@ -5882,7 +5882,7 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6018,12 +6018,12 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
 		list($response) = $this->putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
@@ -6037,12 +6037,12 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
@@ -6073,7 +6073,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -6095,7 +6095,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -6104,7 +6104,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -6123,7 +6123,7 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6145,14 +6145,14 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalSharedWithAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
 
 		return $this->client
@@ -6196,7 +6196,7 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6332,12 +6332,12 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 * @deprecated
 	 */
 	public function putGoalV1($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
@@ -6352,12 +6352,12 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function putGoalV1WithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
@@ -6389,7 +6389,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -6411,7 +6411,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -6420,7 +6420,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -6439,7 +6439,7 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6462,7 +6462,7 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6470,7 +6470,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function putGoalV1AsyncWithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
 		return $this->client
@@ -6514,7 +6514,7 @@ class GoalsApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6651,12 +6651,12 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function putGoalV11($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		list($response) = $this->putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, $contentType);
@@ -6670,12 +6670,12 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
@@ -6706,7 +6706,7 @@ class GoalsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -6728,7 +6728,7 @@ class GoalsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -6737,7 +6737,7 @@ class GoalsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -6756,7 +6756,7 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -6778,14 +6778,14 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalV11AsyncWithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
 		return $this->client
@@ -6829,7 +6829,7 @@ class GoalsApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

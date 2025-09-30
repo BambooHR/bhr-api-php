@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * EmployeeResponse Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class EmployeeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 	  */
 	protected static $openApiTypes = [
 		'data' => 'object[]',
-		'aggregations' => '\MySdk\Model\EmployeeResponseAggregationsInner[]',
-		'pagination' => '\MySdk\Model\Pagination'
+		'aggregations' => '\BhrSdk\Model\EmployeeResponseAggregationsInner[]',
+		'pagination' => '\BhrSdk\Model\Pagination'
 	];
 
 	/**
@@ -315,7 +315,7 @@ class EmployeeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Gets aggregations
 	 *
-	 * @return \MySdk\Model\EmployeeResponseAggregationsInner[]|null
+	 * @return \BhrSdk\Model\EmployeeResponseAggregationsInner[]|null
 	 */
 	public function getAggregations() {
 		return $this->container['aggregations'];
@@ -324,7 +324,7 @@ class EmployeeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Sets aggregations
 	 *
-	 * @param \MySdk\Model\EmployeeResponseAggregationsInner[]|null $aggregations aggregations
+	 * @param \BhrSdk\Model\EmployeeResponseAggregationsInner[]|null $aggregations aggregations
 	 *
 	 * @return self
 	 */
@@ -340,7 +340,7 @@ class EmployeeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Gets pagination
 	 *
-	 * @return \MySdk\Model\Pagination|null
+	 * @return \BhrSdk\Model\Pagination|null
 	 */
 	public function getPagination() {
 		return $this->container['pagination'];
@@ -349,7 +349,7 @@ class EmployeeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Sets pagination
 	 *
-	 * @param \MySdk\Model\Pagination|null $pagination pagination
+	 * @param \BhrSdk\Model\Pagination|null $pagination pagination
 	 *
 	 * @return self
 	 */

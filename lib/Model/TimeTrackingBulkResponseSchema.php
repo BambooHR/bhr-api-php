@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TimeTrackingBulkResponseSchema Class Doc Comment
  *
  * @category Class
  * @description Schema for time tracking bulk operation response
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class TimeTrackingBulkResponseSchema implements ModelInterface, ArrayAccess, \Js
 	  */
 	protected static $openApiTypes = [
 		'success' => 'bool',
-		'response' => '\MySdk\Model\TimeTrackingBulkResponseSchemaResponse'
+		'response' => '\BhrSdk\Model\TimeTrackingBulkResponseSchemaResponse'
 	];
 
 	/**
@@ -309,7 +309,7 @@ class TimeTrackingBulkResponseSchema implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Gets response
 	 *
-	 * @return \MySdk\Model\TimeTrackingBulkResponseSchemaResponse|null
+	 * @return \BhrSdk\Model\TimeTrackingBulkResponseSchemaResponse|null
 	 */
 	public function getResponse() {
 		return $this->container['response'];
@@ -318,7 +318,7 @@ class TimeTrackingBulkResponseSchema implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Sets response
 	 *
-	 * @param \MySdk\Model\TimeTrackingBulkResponseSchemaResponse|null $response response
+	 * @param \BhrSdk\Model\TimeTrackingBulkResponseSchemaResponse|null $response response
 	 *
 	 * @return self
 	 */

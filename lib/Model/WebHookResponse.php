@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * WebHookResponse Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -64,8 +64,8 @@ class WebHookResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 		'post_fields' => 'object',
 		'url' => 'string',
 		'format' => 'string',
-		'frequency' => '\MySdk\Model\WebHookResponseFrequency',
-		'limit' => '\MySdk\Model\PostWebhook201ResponseLimit',
+		'frequency' => '\BhrSdk\Model\WebHookResponseFrequency',
+		'limit' => '\BhrSdk\Model\PostWebhook201ResponseLimit',
 		'include_company_domain' => 'bool'
 	];
 
@@ -546,7 +546,7 @@ class WebHookResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets frequency
 	 *
-	 * @return \MySdk\Model\WebHookResponseFrequency|null
+	 * @return \BhrSdk\Model\WebHookResponseFrequency|null
 	 */
 	public function getFrequency() {
 		return $this->container['frequency'];
@@ -555,7 +555,7 @@ class WebHookResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets frequency
 	 *
-	 * @param \MySdk\Model\WebHookResponseFrequency|null $frequency frequency
+	 * @param \BhrSdk\Model\WebHookResponseFrequency|null $frequency frequency
 	 *
 	 * @return self
 	 */
@@ -571,7 +571,7 @@ class WebHookResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets limit
 	 *
-	 * @return \MySdk\Model\PostWebhook201ResponseLimit|null
+	 * @return \BhrSdk\Model\PostWebhook201ResponseLimit|null
 	 */
 	public function getLimit() {
 		return $this->container['limit'];
@@ -580,7 +580,7 @@ class WebHookResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets limit
 	 *
-	 * @param \MySdk\Model\PostWebhook201ResponseLimit|null $limit limit
+	 * @param \BhrSdk\Model\PostWebhook201ResponseLimit|null $limit limit
 	 *
 	 * @return self
 	 */

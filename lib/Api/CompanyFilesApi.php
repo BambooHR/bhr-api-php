@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * CompanyFilesApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -144,7 +144,7 @@ class CompanyFilesApi {
 	 * @param  string[] $request_body request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -160,7 +160,7 @@ class CompanyFilesApi {
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -368,7 +368,7 @@ class CompanyFilesApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -384,7 +384,7 @@ class CompanyFilesApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -593,7 +593,7 @@ class CompanyFilesApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -609,7 +609,7 @@ class CompanyFilesApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -817,7 +817,7 @@ class CompanyFilesApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -832,7 +832,7 @@ class CompanyFilesApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1021,10 +1021,10 @@ class CompanyFilesApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1038,10 +1038,10 @@ class CompanyFilesApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1087,7 +1087,7 @@ class CompanyFilesApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1108,7 +1108,7 @@ class CompanyFilesApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1145,7 +1145,7 @@ class CompanyFilesApi {
 	 * Create request for operation 'updateCompanyFile'
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1266,7 +1266,7 @@ class CompanyFilesApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1281,7 +1281,7 @@ class CompanyFilesApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */

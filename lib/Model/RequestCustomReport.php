@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * RequestCustomReport Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	  */
 	protected static $openApiTypes = [
 		'title' => 'string',
-		'filters' => '\MySdk\Model\RequestCustomReportFilters',
+		'filters' => '\BhrSdk\Model\RequestCustomReportFilters',
 		'fields' => 'string[]'
 	];
 
@@ -315,7 +315,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Gets filters
 	 *
-	 * @return \MySdk\Model\RequestCustomReportFilters|null
+	 * @return \BhrSdk\Model\RequestCustomReportFilters|null
 	 */
 	public function getFilters() {
 		return $this->container['filters'];
@@ -324,7 +324,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets filters
 	 *
-	 * @param \MySdk\Model\RequestCustomReportFilters|null $filters filters
+	 * @param \BhrSdk\Model\RequestCustomReportFilters|null $filters filters
 	 *
 	 * @return self
 	 */

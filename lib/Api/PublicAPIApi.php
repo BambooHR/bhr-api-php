@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * PublicAPIApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -513,7 +513,7 @@ class PublicAPIApi {
 	 * @param  string[] $request_body request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -529,7 +529,7 @@ class PublicAPIApi {
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -734,12 +734,12 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addEditTimesheetClockEntries($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 		list($response) = $this->addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema, $contentType);
@@ -751,12 +751,12 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 		$request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
@@ -787,7 +787,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$request,
 						$response,
 					);
@@ -845,7 +845,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 				$request,
 				$response,
 			);
@@ -854,7 +854,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -919,7 +919,7 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -939,14 +939,14 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEditTimesheetClockEntriesAsyncWithHttpInfo($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]';
 		$request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
 
 		return $this->client
@@ -988,7 +988,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addEditTimesheetClockEntries'
 	 *
-	 * @param  \MySdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
+	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1086,12 +1086,12 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addEditTimesheetHourEntries($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 		list($response) = $this->addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema, $contentType);
@@ -1103,12 +1103,12 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 		$request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
@@ -1139,7 +1139,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$request,
 						$response,
 					);
@@ -1197,7 +1197,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 				$request,
 				$response,
 			);
@@ -1206,7 +1206,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer[]',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1271,7 +1271,7 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1291,14 +1291,14 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEditTimesheetHourEntriesAsyncWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer[]';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]';
 		$request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
 
 		return $this->client
@@ -1340,7 +1340,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addEditTimesheetHourEntries'
 	 *
-	 * @param  \MySdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1438,10 +1438,10 @@ class PublicAPIApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1454,10 +1454,10 @@ class PublicAPIApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1502,7 +1502,7 @@ class PublicAPIApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1522,7 +1522,7 @@ class PublicAPIApi {
 	 *
 	 * Add Employee
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1558,7 +1558,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addEmployee'
 	 *
-	 * @param  \MySdk\Model\PostNewEmployee $post_new_employee (required)
+	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1662,10 +1662,10 @@ class PublicAPIApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1678,10 +1678,10 @@ class PublicAPIApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1726,7 +1726,7 @@ class PublicAPIApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1746,7 +1746,7 @@ class PublicAPIApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1782,7 +1782,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addEmployeeDependent'
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1889,7 +1889,7 @@ class PublicAPIApi {
 	 * @param  string[] $request_body request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1905,7 +1905,7 @@ class PublicAPIApi {
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2112,10 +2112,10 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2130,10 +2130,10 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2180,7 +2180,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2202,7 +2202,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2240,7 +2240,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2376,10 +2376,10 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2394,10 +2394,10 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -2444,7 +2444,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2466,7 +2466,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2504,7 +2504,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2661,7 +2661,7 @@ class PublicAPIApi {
 	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -2697,7 +2697,7 @@ class PublicAPIApi {
 	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -3018,12 +3018,12 @@ class PublicAPIApi {
 	 * Add New Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TrainingRecord
+	 * @return \BhrSdk\Model\TrainingRecord
 	 */
 	public function addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
 		list($response) = $this->addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, $contentType);
@@ -3036,12 +3036,12 @@ class PublicAPIApi {
 	 * Add New Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
 		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
@@ -3072,7 +3072,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TrainingRecord',
+						'\BhrSdk\Model\TrainingRecord',
 						$request,
 						$response,
 					);
@@ -3094,7 +3094,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TrainingRecord',
+				'\BhrSdk\Model\TrainingRecord',
 				$request,
 				$response,
 			);
@@ -3103,7 +3103,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TrainingRecord',
+						'\BhrSdk\Model\TrainingRecord',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -3121,7 +3121,7 @@ class PublicAPIApi {
 	 * Add New Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3142,14 +3142,14 @@ class PublicAPIApi {
 	 * Add New Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addNewEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
-		$returnType = '\MySdk\Model\TrainingRecord';
+		$returnType = '\BhrSdk\Model\TrainingRecord';
 		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
 
 		return $this->client
@@ -3192,7 +3192,7 @@ class PublicAPIApi {
 	 * Create request for operation 'addNewEmployeeTrainingRecord'
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \MySdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3334,7 +3334,7 @@ class PublicAPIApi {
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -3370,7 +3370,7 @@ class PublicAPIApi {
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -3702,12 +3702,12 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingBulkResponseSchema
+	 * @return \BhrSdk\Model\TimeTrackingBulkResponseSchema
 	 */
 	public function addTimeTrackingBulk($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
 		list($response) = $this->addTimeTrackingBulkWithHttpInfo($time_tracking_record, $contentType);
@@ -3719,12 +3719,12 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingBulkResponseSchema, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingBulkResponseSchema, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimeTrackingBulkWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
 		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
@@ -3755,7 +3755,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingBulkResponseSchema',
+						'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
 						$request,
 						$response,
 					);
@@ -3777,7 +3777,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingBulkResponseSchema',
+				'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
 				$request,
 				$response,
 			);
@@ -3786,7 +3786,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingBulkResponseSchema',
+						'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -3803,7 +3803,7 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3823,14 +3823,14 @@ class PublicAPIApi {
 	 *
 	 * Add/Edit Hour Records
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimeTrackingBulkAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingBulkResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingBulkResponseSchema';
 		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
 
 		return $this->client
@@ -3872,7 +3872,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addTimeTrackingBulk'
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3976,12 +3976,12 @@ class PublicAPIApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingIdResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed
 	 */
 	public function addTimeTrackingHourRecord($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
 		list($response) = $this->addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, $contentType);
@@ -3993,12 +3993,12 @@ class PublicAPIApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
 		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
@@ -4029,7 +4029,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$request,
 						$response,
 					);
@@ -4057,7 +4057,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingIdResponseSchema',
+				'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 				$request,
 				$response,
 			);
@@ -4066,7 +4066,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -4091,7 +4091,7 @@ class PublicAPIApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4111,14 +4111,14 @@ class PublicAPIApi {
 	 *
 	 * Add Hour Record
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingIdResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
 		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
 
 		return $this->client
@@ -4160,7 +4160,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addTimeTrackingHourRecord'
 	 *
-	 * @param  \MySdk\Model\TimeTrackingRecord $time_tracking_record (required)
+	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4265,12 +4265,12 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addTimesheetClockInEntry($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
 		list($response) = $this->addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema, $contentType);
@@ -4283,12 +4283,12 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
 		$request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
@@ -4319,7 +4319,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$request,
 						$response,
 					);
@@ -4371,7 +4371,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 				$request,
 				$response,
 			);
@@ -4380,7 +4380,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -4438,7 +4438,7 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4459,14 +4459,14 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimesheetClockInEntryAsyncWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer';
 		$request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
 
 		return $this->client
@@ -4509,7 +4509,7 @@ class PublicAPIApi {
 	 * Create request for operation 'addTimesheetClockInEntry'
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
-	 * @param  \MySdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4623,12 +4623,12 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
 	public function addTimesheetClockOutEntry($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
 		list($response) = $this->addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema, $contentType);
@@ -4641,12 +4641,12 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimesheetEntryInfoApiTransformer|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
 		$request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
@@ -4677,7 +4677,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$request,
 						$response,
 					);
@@ -4735,7 +4735,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 				$request,
 				$response,
 			);
@@ -4744,7 +4744,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimesheetEntryInfoApiTransformer',
+						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -4810,7 +4810,7 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4831,14 +4831,14 @@ class PublicAPIApi {
 	 * Add Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTimesheetClockOutEntryAsyncWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
-		$returnType = '\MySdk\Model\TimesheetEntryInfoApiTransformer';
+		$returnType = '\BhrSdk\Model\TimesheetEntryInfoApiTransformer';
 		$request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
 
 		return $this->client
@@ -4881,7 +4881,7 @@ class PublicAPIApi {
 	 * Create request for operation 'addTimesheetClockOutEntry'
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
-	 * @param  \MySdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
+	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4994,12 +4994,12 @@ class PublicAPIApi {
 	 *
 	 * Add Training Category
 	 *
-	 * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TrainingCategory
+	 * @return \BhrSdk\Model\TrainingCategory
 	 */
 	public function addTrainingCategory($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
 		list($response) = $this->addTrainingCategoryWithHttpInfo($add_training_category_request, $contentType);
@@ -5011,12 +5011,12 @@ class PublicAPIApi {
 	 *
 	 * Add Training Category
 	 *
-	 * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTrainingCategoryWithHttpInfo($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
 		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
@@ -5047,7 +5047,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TrainingCategory',
+						'\BhrSdk\Model\TrainingCategory',
 						$request,
 						$response,
 					);
@@ -5069,7 +5069,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TrainingCategory',
+				'\BhrSdk\Model\TrainingCategory',
 				$request,
 				$response,
 			);
@@ -5078,7 +5078,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TrainingCategory',
+						'\BhrSdk\Model\TrainingCategory',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -5095,7 +5095,7 @@ class PublicAPIApi {
 	 *
 	 * Add Training Category
 	 *
-	 * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5115,14 +5115,14 @@ class PublicAPIApi {
 	 *
 	 * Add Training Category
 	 *
-	 * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTrainingCategoryAsyncWithHttpInfo($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
-		$returnType = '\MySdk\Model\TrainingCategory';
+		$returnType = '\BhrSdk\Model\TrainingCategory';
 		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
 
 		return $this->client
@@ -5164,7 +5164,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addTrainingCategory'
 	 *
-	 * @param  \MySdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5268,12 +5268,12 @@ class PublicAPIApi {
 	 *
 	 * Add Training Type
 	 *
-	 * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TrainingType
+	 * @return \BhrSdk\Model\TrainingType
 	 */
 	public function addTrainingType($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
 		list($response) = $this->addTrainingTypeWithHttpInfo($add_training_type_request, $contentType);
@@ -5285,12 +5285,12 @@ class PublicAPIApi {
 	 *
 	 * Add Training Type
 	 *
-	 * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function addTrainingTypeWithHttpInfo($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
 		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
@@ -5321,7 +5321,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TrainingType',
+						'\BhrSdk\Model\TrainingType',
 						$request,
 						$response,
 					);
@@ -5343,7 +5343,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TrainingType',
+				'\BhrSdk\Model\TrainingType',
 				$request,
 				$response,
 			);
@@ -5352,7 +5352,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TrainingType',
+						'\BhrSdk\Model\TrainingType',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -5369,7 +5369,7 @@ class PublicAPIApi {
 	 *
 	 * Add Training Type
 	 *
-	 * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5389,14 +5389,14 @@ class PublicAPIApi {
 	 *
 	 * Add Training Type
 	 *
-	 * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addTrainingTypeAsyncWithHttpInfo($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
-		$returnType = '\MySdk\Model\TrainingType';
+		$returnType = '\BhrSdk\Model\TrainingType';
 		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
 
 		return $this->client
@@ -5438,7 +5438,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'addTrainingType'
 	 *
-	 * @param  \MySdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
+	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5542,12 +5542,12 @@ class PublicAPIApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
+	 * @return \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
 	 */
 	public function createTimeTrackingProject($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 		list($response) = $this->createTimeTrackingProjectWithHttpInfo($project_create_request_schema, $contentType);
@@ -5559,12 +5559,12 @@ class PublicAPIApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function createTimeTrackingProjectWithHttpInfo($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 		$request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
@@ -5595,7 +5595,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+						'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
 						$request,
 						$response,
 					);
@@ -5617,7 +5617,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+				'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
 				$request,
 				$response,
 			);
@@ -5626,7 +5626,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+						'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -5643,7 +5643,7 @@ class PublicAPIApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5663,14 +5663,14 @@ class PublicAPIApi {
 	 *
 	 * Create Time Tracking Project
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function createTimeTrackingProjectAsyncWithHttpInfo($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds';
+		$returnType = '\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds';
 		$request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
 
 		return $this->client
@@ -5712,7 +5712,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'createTimeTrackingProject'
 	 *
-	 * @param  \MySdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
+	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -5813,7 +5813,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -5829,7 +5829,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -6039,7 +6039,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -6056,7 +6056,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -6285,9 +6285,9 @@ class PublicAPIApi {
 	 * @param  string $row_id Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\DeleteEmployeeTableRowV1200Response
+	 * @return \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
 	 */
 	public function deleteEmployeeTableRowV1($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
 		list($response) = $this->deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, $contentType);
@@ -6304,9 +6304,9 @@ class PublicAPIApi {
 	 * @param  string $row_id Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\DeleteEmployeeTableRowV1200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DeleteEmployeeTableRowV1200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
@@ -6337,7 +6337,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\DeleteEmployeeTableRowV1200Response',
+						'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
 						$request,
 						$response,
 					);
@@ -6359,7 +6359,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\DeleteEmployeeTableRowV1200Response',
+				'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
 				$request,
 				$response,
 			);
@@ -6368,7 +6368,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\DeleteEmployeeTableRowV1200Response',
+						'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -6416,7 +6416,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
-		$returnType = '\MySdk\Model\DeleteEmployeeTableRowV1200Response';
+		$returnType = '\BhrSdk\Model\DeleteEmployeeTableRowV1200Response';
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
 
 		return $this->client
@@ -6598,7 +6598,7 @@ class PublicAPIApi {
 	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -6614,7 +6614,7 @@ class PublicAPIApi {
 	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -6824,7 +6824,7 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -6841,7 +6841,7 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -7070,7 +7070,7 @@ class PublicAPIApi {
 	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -7088,7 +7088,7 @@ class PublicAPIApi {
 	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -7333,9 +7333,9 @@ class PublicAPIApi {
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingDeleteResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingDeleteResponseSchema|mixed
 	 */
 	public function deleteTimeTrackingById($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
 		list($response) = $this->deleteTimeTrackingByIdWithHttpInfo($id, $contentType);
@@ -7350,9 +7350,9 @@ class PublicAPIApi {
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingDeleteResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingDeleteResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteTimeTrackingByIdWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
 		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
@@ -7383,7 +7383,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingDeleteResponseSchema',
+						'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 						$request,
 						$response,
 					);
@@ -7411,7 +7411,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingDeleteResponseSchema',
+				'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 				$request,
 				$response,
 			);
@@ -7420,7 +7420,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingDeleteResponseSchema',
+						'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -7472,7 +7472,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTimeTrackingByIdAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingDeleteResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingDeleteResponseSchema';
 		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
 
 		return $this->client
@@ -7619,10 +7619,10 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
@@ -7636,10 +7636,10 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -7804,7 +7804,7 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -7824,7 +7824,7 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Clock Entries
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -7873,7 +7873,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'deleteTimesheetClockEntriesViaPost'
 	 *
-	 * @param  \MySdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
+	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -7977,10 +7977,10 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed
 	 */
@@ -7994,10 +7994,10 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -8176,7 +8176,7 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -8196,7 +8196,7 @@ class PublicAPIApi {
 	 *
 	 * Delete Timesheet Hour Entries
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -8245,7 +8245,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'deleteTimesheetHourEntriesViaPost'
 	 *
-	 * @param  \MySdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
+	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -8346,7 +8346,7 @@ class PublicAPIApi {
 	 * @param  int $training_category_id The ID of the training category to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -8362,7 +8362,7 @@ class PublicAPIApi {
 	 * @param  int $training_category_id The ID of the training category to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -8571,7 +8571,7 @@ class PublicAPIApi {
 	 * @param  int $training_type_id The ID of the training type to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -8587,7 +8587,7 @@ class PublicAPIApi {
 	 * @param  int $training_type_id The ID of the training type to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -8796,7 +8796,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -8812,7 +8812,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -8848,7 +8848,7 @@ class PublicAPIApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -8856,7 +8856,7 @@ class PublicAPIApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -8864,7 +8864,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -9042,12 +9042,12 @@ class PublicAPIApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingIdResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed
 	 */
 	public function editTimeTrackingRecord($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
 		list($response) = $this->editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, $contentType);
@@ -9059,12 +9059,12 @@ class PublicAPIApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
 		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
@@ -9095,7 +9095,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$request,
 						$response,
 					);
@@ -9123,7 +9123,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingIdResponseSchema',
+				'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 				$request,
 				$response,
 			);
@@ -9132,7 +9132,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingIdResponseSchema',
+						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -9157,7 +9157,7 @@ class PublicAPIApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -9177,14 +9177,14 @@ class PublicAPIApi {
 	 *
 	 * Edit Hour Record
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function editTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingIdResponseSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
 		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
 
 		return $this->client
@@ -9226,7 +9226,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'editTimeTrackingRecord'
 	 *
-	 * @param  \MySdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -9335,7 +9335,7 @@ class PublicAPIApi {
 	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -9353,7 +9353,7 @@ class PublicAPIApi {
 	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -9578,9 +9578,9 @@ class PublicAPIApi {
 	 * @param  int $application_id The ID of the application to look up details. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetApplicationDetails200Response
+	 * @return \BhrSdk\Model\GetApplicationDetails200Response
 	 */
 	public function getApplicationDetails($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
 		list($response) = $this->getApplicationDetailsWithHttpInfo($application_id, $contentType);
@@ -9595,9 +9595,9 @@ class PublicAPIApi {
 	 * @param  int $application_id The ID of the application to look up details. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetApplicationDetails200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetApplicationDetails200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getApplicationDetailsWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
 		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
@@ -9628,7 +9628,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetApplicationDetails200Response',
+						'\BhrSdk\Model\GetApplicationDetails200Response',
 						$request,
 						$response,
 					);
@@ -9650,7 +9650,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetApplicationDetails200Response',
+				'\BhrSdk\Model\GetApplicationDetails200Response',
 				$request,
 				$response,
 			);
@@ -9659,7 +9659,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetApplicationDetails200Response',
+						'\BhrSdk\Model\GetApplicationDetails200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -9703,7 +9703,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getApplicationDetailsAsyncWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
-		$returnType = '\MySdk\Model\GetApplicationDetails200Response';
+		$returnType = '\BhrSdk\Model\GetApplicationDetails200Response';
 		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
 
 		return $this->client
@@ -9861,9 +9861,9 @@ class PublicAPIApi {
 	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetApplications200Response
+	 * @return \BhrSdk\Model\GetApplications200Response
 	 */
 	public function getApplications($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		list($response) = $this->getApplicationsWithHttpInfo($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
@@ -9886,9 +9886,9 @@ class PublicAPIApi {
 	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetApplications200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetApplications200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
@@ -9919,7 +9919,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetApplications200Response',
+						'\BhrSdk\Model\GetApplications200Response',
 						$request,
 						$response,
 					);
@@ -9941,7 +9941,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetApplications200Response',
+				'\BhrSdk\Model\GetApplications200Response',
 				$request,
 				$response,
 			);
@@ -9950,7 +9950,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetApplications200Response',
+						'\BhrSdk\Model\GetApplications200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -10010,7 +10010,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getApplicationsAsyncWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
-		$returnType = '\MySdk\Model\GetApplications200Response';
+		$returnType = '\BhrSdk\Model\GetApplications200Response';
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
 		return $this->client
@@ -10243,7 +10243,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -10259,7 +10259,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -10457,7 +10457,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -10472,7 +10472,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -10663,9 +10663,9 @@ class PublicAPIApi {
 	 * @param  int $report_id report_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeResponse
+	 * @return \BhrSdk\Model\EmployeeResponse
 	 */
 	public function getByReportId($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
 		list($response) = $this->getByReportIdWithHttpInfo($report_id, $contentType);
@@ -10680,9 +10680,9 @@ class PublicAPIApi {
 	 * @param  int $report_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getByReportIdWithHttpInfo($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
 		$request = $this->getByReportIdRequest($report_id, $contentType);
@@ -10713,7 +10713,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$request,
 						$response,
 					);
@@ -10735,7 +10735,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeResponse',
+				'\BhrSdk\Model\EmployeeResponse',
 				$request,
 				$response,
 			);
@@ -10744,7 +10744,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -10788,7 +10788,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getByReportIdAsyncWithHttpInfo($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
-		$returnType = '\MySdk\Model\EmployeeResponse';
+		$returnType = '\BhrSdk\Model\EmployeeResponse';
 		$request = $this->getByReportIdRequest($report_id, $contentType);
 
 		return $this->client
@@ -10938,7 +10938,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -10954,7 +10954,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -11164,7 +11164,7 @@ class PublicAPIApi {
 	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -11181,7 +11181,7 @@ class PublicAPIApi {
 	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -11405,7 +11405,7 @@ class PublicAPIApi {
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -11422,7 +11422,7 @@ class PublicAPIApi {
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -11650,7 +11650,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -11666,7 +11666,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -11874,9 +11874,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyInformation'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetCompanyInformation200Response
+	 * @return \BhrSdk\Model\GetCompanyInformation200Response
 	 */
 	public function getCompanyInformation(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
 		list($response) = $this->getCompanyInformationWithHttpInfo($contentType);
@@ -11890,9 +11890,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyInformation'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetCompanyInformation200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetCompanyInformation200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCompanyInformationWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
 		$request = $this->getCompanyInformationRequest($contentType);
@@ -11923,7 +11923,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetCompanyInformation200Response',
+						'\BhrSdk\Model\GetCompanyInformation200Response',
 						$request,
 						$response,
 					);
@@ -11945,7 +11945,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetCompanyInformation200Response',
+				'\BhrSdk\Model\GetCompanyInformation200Response',
 				$request,
 				$response,
 			);
@@ -11954,7 +11954,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetCompanyInformation200Response',
+						'\BhrSdk\Model\GetCompanyInformation200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -11996,7 +11996,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyInformationAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
-		$returnType = '\MySdk\Model\GetCompanyInformation200Response';
+		$returnType = '\BhrSdk\Model\GetCompanyInformation200Response';
 		$request = $this->getCompanyInformationRequest($contentType);
 
 		return $this->client
@@ -12129,9 +12129,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyLocations'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetCompanyLocations200ResponseInner[]
+	 * @return \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
 	 */
 	public function getCompanyLocations(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		list($response) = $this->getCompanyLocationsWithHttpInfo($contentType);
@@ -12145,9 +12145,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyLocations'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetCompanyLocations200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetCompanyLocations200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
@@ -12178,7 +12178,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetCompanyLocations200ResponseInner[]',
+						'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -12200,7 +12200,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetCompanyLocations200ResponseInner[]',
+				'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -12209,7 +12209,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetCompanyLocations200ResponseInner[]',
+						'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -12251,7 +12251,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyLocationsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
-		$returnType = '\MySdk\Model\GetCompanyLocations200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\GetCompanyLocations200ResponseInner[]';
 		$request = $this->getCompanyLocationsRequest($contentType);
 
 		return $this->client
@@ -12389,7 +12389,7 @@ class PublicAPIApi {
 	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -12409,7 +12409,7 @@ class PublicAPIApi {
 	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -12670,9 +12670,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\CountrySchema[]
+	 * @return \BhrSdk\Model\CountrySchema[]
 	 */
 	public function getCountriesOptions(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 		list($response) = $this->getCountriesOptionsWithHttpInfo($contentType);
@@ -12686,9 +12686,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\CountrySchema[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\CountrySchema[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCountriesOptionsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 		$request = $this->getCountriesOptionsRequest($contentType);
@@ -12719,7 +12719,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\CountrySchema[]',
+						'\BhrSdk\Model\CountrySchema[]',
 						$request,
 						$response,
 					);
@@ -12741,7 +12741,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\CountrySchema[]',
+				'\BhrSdk\Model\CountrySchema[]',
 				$request,
 				$response,
 			);
@@ -12750,7 +12750,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\CountrySchema[]',
+						'\BhrSdk\Model\CountrySchema[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -12792,7 +12792,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCountriesOptionsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
-		$returnType = '\MySdk\Model\CountrySchema[]';
+		$returnType = '\BhrSdk\Model\CountrySchema[]';
 		$request = $this->getCountriesOptionsRequest($contentType);
 
 		return $this->client
@@ -12924,12 +12924,12 @@ class PublicAPIApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeResponse
+	 * @return \BhrSdk\Model\EmployeeResponse
 	 */
 	public function getDataFromDataset($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
 		list($response) = $this->getDataFromDatasetWithHttpInfo($dataset_name, $data_request, $contentType);
@@ -12942,12 +12942,12 @@ class PublicAPIApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getDataFromDatasetWithHttpInfo($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
 		$request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
@@ -12978,7 +12978,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$request,
 						$response,
 					);
@@ -13000,7 +13000,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeResponse',
+				'\BhrSdk\Model\EmployeeResponse',
 				$request,
 				$response,
 			);
@@ -13009,7 +13009,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -13027,7 +13027,7 @@ class PublicAPIApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -13048,14 +13048,14 @@ class PublicAPIApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getDataFromDatasetAsyncWithHttpInfo($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
-		$returnType = '\MySdk\Model\EmployeeResponse';
+		$returnType = '\BhrSdk\Model\EmployeeResponse';
 		$request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
 
 		return $this->client
@@ -13098,7 +13098,7 @@ class PublicAPIApi {
 	 * Create request for operation 'getDataFromDataset'
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -13219,9 +13219,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\DatasetResponse
+	 * @return \BhrSdk\Model\DatasetResponse
 	 */
 	public function getDataSets(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 		list($response) = $this->getDataSetsWithHttpInfo($contentType);
@@ -13235,9 +13235,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getDataSetsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 		$request = $this->getDataSetsRequest($contentType);
@@ -13268,7 +13268,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\DatasetResponse',
+						'\BhrSdk\Model\DatasetResponse',
 						$request,
 						$response,
 					);
@@ -13290,7 +13290,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\DatasetResponse',
+				'\BhrSdk\Model\DatasetResponse',
 				$request,
 				$response,
 			);
@@ -13299,7 +13299,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\DatasetResponse',
+						'\BhrSdk\Model\DatasetResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -13341,7 +13341,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getDataSetsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
-		$returnType = '\MySdk\Model\DatasetResponse';
+		$returnType = '\BhrSdk\Model\DatasetResponse';
 		$request = $this->getDataSetsRequest($contentType);
 
 		return $this->client
@@ -13478,9 +13478,9 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetEmployee200Response
+	 * @return \BhrSdk\Model\GetEmployee200Response
 	 */
 	public function getEmployee($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		list($response) = $this->getEmployeeWithHttpInfo($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -13498,9 +13498,9 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeeWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -13531,7 +13531,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$request,
 						$response,
 					);
@@ -13553,7 +13553,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetEmployee200Response',
+				'\BhrSdk\Model\GetEmployee200Response',
 				$request,
 				$response,
 			);
@@ -13562,7 +13562,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -13612,7 +13612,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeAsyncWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
-		$returnType = '\MySdk\Model\GetEmployee200Response';
+		$returnType = '\BhrSdk\Model\GetEmployee200Response';
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
 
 		return $this->client
@@ -13797,7 +13797,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -13814,7 +13814,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -14032,7 +14032,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -14049,7 +14049,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -14268,7 +14268,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -14285,7 +14285,7 @@ class PublicAPIApi {
 	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -14513,7 +14513,7 @@ class PublicAPIApi {
 	 * @param  string $size Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -14530,7 +14530,7 @@ class PublicAPIApi {
 	 * @param  string $size Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -14758,7 +14758,7 @@ class PublicAPIApi {
 	 * @param  string $table Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -14775,7 +14775,7 @@ class PublicAPIApi {
 	 * @param  string $table Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -15002,9 +15002,9 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetEmployee200Response
+	 * @return \BhrSdk\Model\GetEmployee200Response
 	 */
 	public function getEmployeesDirectory($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		list($response) = $this->getEmployeesDirectoryWithHttpInfo($accept_header_parameter, $contentType);
@@ -15019,9 +15019,9 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeesDirectoryWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
@@ -15052,7 +15052,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$request,
 						$response,
 					);
@@ -15074,7 +15074,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetEmployee200Response',
+				'\BhrSdk\Model\GetEmployee200Response',
 				$request,
 				$response,
 			);
@@ -15083,7 +15083,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetEmployee200Response',
+						'\BhrSdk\Model\GetEmployee200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -15127,7 +15127,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeesDirectoryAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
-		$returnType = '\MySdk\Model\GetEmployee200Response';
+		$returnType = '\BhrSdk\Model\GetEmployee200Response';
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
 
 		return $this->client
@@ -15265,12 +15265,12 @@ class PublicAPIApi {
 	 * Get Field Options
 	 *
 	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
-	 * @param  \MySdk\Model\FieldOptionsRequestSchema $field_options_request_schema field_options_request_schema (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema field_options_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\FieldOptionsTransformer[]|\MySdk\Model\PostWebhook403ResponseErrorsInner|\MySdk\Model\PostWebhook403ResponseErrorsInner
+	 * @return \BhrSdk\Model\FieldOptionsTransformer[]|\BhrSdk\Model\PostWebhook403ResponseErrorsInner|\BhrSdk\Model\PostWebhook403ResponseErrorsInner
 	 */
 	public function getFieldOptions($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
 		list($response) = $this->getFieldOptionsWithHttpInfo($dataset_name, $field_options_request_schema, $contentType);
@@ -15283,12 +15283,12 @@ class PublicAPIApi {
 	 * Get Field Options
 	 *
 	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
-	 * @param  \MySdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\FieldOptionsTransformer[]|\MySdk\Model\PostWebhook403ResponseErrorsInner|\MySdk\Model\PostWebhook403ResponseErrorsInner, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\FieldOptionsTransformer[]|\BhrSdk\Model\PostWebhook403ResponseErrorsInner|\BhrSdk\Model\PostWebhook403ResponseErrorsInner, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getFieldOptionsWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
 		$request = $this->getFieldOptionsRequest($dataset_name, $field_options_request_schema, $contentType);
@@ -15319,19 +15319,19 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\FieldOptionsTransformer[]',
+						'\BhrSdk\Model\FieldOptionsTransformer[]',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PostWebhook403ResponseErrorsInner',
+						'\BhrSdk\Model\PostWebhook403ResponseErrorsInner',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PostWebhook403ResponseErrorsInner',
+						'\BhrSdk\Model\PostWebhook403ResponseErrorsInner',
 						$request,
 						$response,
 					);
@@ -15353,7 +15353,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\FieldOptionsTransformer[]',
+				'\BhrSdk\Model\FieldOptionsTransformer[]',
 				$request,
 				$response,
 			);
@@ -15362,7 +15362,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\FieldOptionsTransformer[]',
+						'\BhrSdk\Model\FieldOptionsTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -15370,7 +15370,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PostWebhook403ResponseErrorsInner',
+						'\BhrSdk\Model\PostWebhook403ResponseErrorsInner',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -15378,7 +15378,7 @@ class PublicAPIApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PostWebhook403ResponseErrorsInner',
+						'\BhrSdk\Model\PostWebhook403ResponseErrorsInner',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -15396,7 +15396,7 @@ class PublicAPIApi {
 	 * Get Field Options
 	 *
 	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
-	 * @param  \MySdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -15417,14 +15417,14 @@ class PublicAPIApi {
 	 * Get Field Options
 	 *
 	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
-	 * @param  \MySdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getFieldOptionsAsyncWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
-		$returnType = '\MySdk\Model\FieldOptionsTransformer[]';
+		$returnType = '\BhrSdk\Model\FieldOptionsTransformer[]';
 		$request = $this->getFieldOptionsRequest($dataset_name, $field_options_request_schema, $contentType);
 
 		return $this->client
@@ -15467,7 +15467,7 @@ class PublicAPIApi {
 	 * Create request for operation 'getFieldOptions'
 	 *
 	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
-	 * @param  \MySdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -15587,9 +15587,9 @@ class PublicAPIApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\DatasetFieldsResponse
+	 * @return \BhrSdk\Model\DatasetFieldsResponse
 	 */
 	public function getFieldsFromDataset($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
 		list($response) = $this->getFieldsFromDatasetWithHttpInfo($dataset_name, $page, $page_size, $contentType);
@@ -15606,9 +15606,9 @@ class PublicAPIApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\DatasetFieldsResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DatasetFieldsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getFieldsFromDatasetWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
 		$request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
@@ -15639,7 +15639,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\DatasetFieldsResponse',
+						'\BhrSdk\Model\DatasetFieldsResponse',
 						$request,
 						$response,
 					);
@@ -15661,7 +15661,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\DatasetFieldsResponse',
+				'\BhrSdk\Model\DatasetFieldsResponse',
 				$request,
 				$response,
 			);
@@ -15670,7 +15670,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\DatasetFieldsResponse',
+						'\BhrSdk\Model\DatasetFieldsResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -15718,7 +15718,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getFieldsFromDatasetAsyncWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
-		$returnType = '\MySdk\Model\DatasetFieldsResponse';
+		$returnType = '\BhrSdk\Model\DatasetFieldsResponse';
 		$request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
 
 		return $this->client
@@ -15891,9 +15891,9 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalAggregate200Response
+	 * @return \BhrSdk\Model\GetGoalAggregate200Response
 	 */
 	public function getGoalAggregate($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		list($response) = $this->getGoalAggregateWithHttpInfo($employee_id, $goal_id, $contentType);
@@ -15909,9 +15909,9 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalAggregate200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalAggregate200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalAggregateWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
@@ -15942,7 +15942,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalAggregate200Response',
+						'\BhrSdk\Model\GetGoalAggregate200Response',
 						$request,
 						$response,
 					);
@@ -15964,7 +15964,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalAggregate200Response',
+				'\BhrSdk\Model\GetGoalAggregate200Response',
 				$request,
 				$response,
 			);
@@ -15973,7 +15973,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalAggregate200Response',
+						'\BhrSdk\Model\GetGoalAggregate200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -16019,7 +16019,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalAggregateAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
-		$returnType = '\MySdk\Model\GetGoalAggregate200Response';
+		$returnType = '\BhrSdk\Model\GetGoalAggregate200Response';
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
@@ -16186,7 +16186,7 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -16203,7 +16203,7 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -16431,9 +16431,9 @@ class PublicAPIApi {
 	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoals200Response
+	 * @return \BhrSdk\Model\GetGoals200Response
 	 */
 	public function getGoals($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		list($response) = $this->getGoalsWithHttpInfo($employee_id, $filter, $contentType);
@@ -16449,9 +16449,9 @@ class PublicAPIApi {
 	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoals200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoals200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
@@ -16482,7 +16482,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoals200Response',
+						'\BhrSdk\Model\GetGoals200Response',
 						$request,
 						$response,
 					);
@@ -16504,7 +16504,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoals200Response',
+				'\BhrSdk\Model\GetGoals200Response',
 				$request,
 				$response,
 			);
@@ -16513,7 +16513,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoals200Response',
+						'\BhrSdk\Model\GetGoals200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -16559,7 +16559,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAsyncWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
-		$returnType = '\MySdk\Model\GetGoals200Response';
+		$returnType = '\BhrSdk\Model\GetGoals200Response';
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
 		return $this->client
@@ -16720,9 +16720,9 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalsAggregateV1200Response
+	 * @return \BhrSdk\Model\GetGoalsAggregateV1200Response
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
@@ -16738,9 +16738,9 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalsAggregateV1200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalsAggregateV1200Response, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
@@ -16772,7 +16772,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalsAggregateV1200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 						$request,
 						$response,
 					);
@@ -16794,7 +16794,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalsAggregateV1200Response',
+				'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 				$request,
 				$response,
 			);
@@ -16803,7 +16803,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalsAggregateV1200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -16849,7 +16849,7 @@ class PublicAPIApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
-		$returnType = '\MySdk\Model\GetGoalsAggregateV1200Response';
+		$returnType = '\BhrSdk\Model\GetGoalsAggregateV1200Response';
 		$request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
 		return $this->client
@@ -17000,9 +17000,9 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalsAggregateV11200Response
+	 * @return \BhrSdk\Model\GetGoalsAggregateV11200Response
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
@@ -17018,9 +17018,9 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalsAggregateV11200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalsAggregateV11200Response, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
@@ -17052,7 +17052,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalsAggregateV11200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 						$request,
 						$response,
 					);
@@ -17074,7 +17074,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalsAggregateV11200Response',
+				'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 				$request,
 				$response,
 			);
@@ -17083,7 +17083,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalsAggregateV11200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -17129,7 +17129,7 @@ class PublicAPIApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
-		$returnType = '\MySdk\Model\GetGoalsAggregateV11200Response';
+		$returnType = '\BhrSdk\Model\GetGoalsAggregateV11200Response';
 		$request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
 		return $this->client
@@ -17280,9 +17280,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetGoalsAggregateV12200Response
+	 * @return \BhrSdk\Model\GetGoalsAggregateV12200Response
 	 */
 	public function getGoalsAggregateV12($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		list($response) = $this->getGoalsAggregateV12WithHttpInfo($employee_id, $contentType);
@@ -17297,9 +17297,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetGoalsAggregateV12200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetGoalsAggregateV12200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsAggregateV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
@@ -17330,7 +17330,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetGoalsAggregateV12200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 						$request,
 						$response,
 					);
@@ -17352,7 +17352,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetGoalsAggregateV12200Response',
+				'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 				$request,
 				$response,
 			);
@@ -17361,7 +17361,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetGoalsAggregateV12200Response',
+						'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -17405,7 +17405,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAggregateV12AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
-		$returnType = '\MySdk\Model\GetGoalsAggregateV12200Response';
+		$returnType = '\BhrSdk\Model\GetGoalsAggregateV12200Response';
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
 		return $this->client
@@ -17556,7 +17556,7 @@ class PublicAPIApi {
 	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -17573,7 +17573,7 @@ class PublicAPIApi {
 	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -17793,9 +17793,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GoalFiltersV1
+	 * @return \BhrSdk\Model\GoalFiltersV1
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
@@ -17811,9 +17811,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GoalFiltersV1, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalFiltersV1, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
@@ -17845,7 +17845,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GoalFiltersV1',
+						'\BhrSdk\Model\GoalFiltersV1',
 						$request,
 						$response,
 					);
@@ -17867,7 +17867,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GoalFiltersV1',
+				'\BhrSdk\Model\GoalFiltersV1',
 				$request,
 				$response,
 			);
@@ -17876,7 +17876,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GoalFiltersV1',
+						'\BhrSdk\Model\GoalFiltersV1',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -17922,7 +17922,7 @@ class PublicAPIApi {
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
-		$returnType = '\MySdk\Model\GoalFiltersV1';
+		$returnType = '\BhrSdk\Model\GoalFiltersV1';
 		$request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
 
 		return $this->client
@@ -18073,9 +18073,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GoalFiltersV11
+	 * @return \BhrSdk\Model\GoalFiltersV11
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
@@ -18091,9 +18091,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
@@ -18125,7 +18125,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$request,
 						$response,
 					);
@@ -18147,7 +18147,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GoalFiltersV11',
+				'\BhrSdk\Model\GoalFiltersV11',
 				$request,
 				$response,
 			);
@@ -18156,7 +18156,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -18202,7 +18202,7 @@ class PublicAPIApi {
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
-		$returnType = '\MySdk\Model\GoalFiltersV11';
+		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
 
 		return $this->client
@@ -18353,9 +18353,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GoalFiltersV11
+	 * @return \BhrSdk\Model\GoalFiltersV11
 	 */
 	public function getGoalsFiltersV12($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
 		list($response) = $this->getGoalsFiltersV12WithHttpInfo($employee_id, $contentType);
@@ -18370,9 +18370,9 @@ class PublicAPIApi {
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalFiltersV11, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsFiltersV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
@@ -18403,7 +18403,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$request,
 						$response,
 					);
@@ -18425,7 +18425,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GoalFiltersV11',
+				'\BhrSdk\Model\GoalFiltersV11',
 				$request,
 				$response,
 			);
@@ -18434,7 +18434,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GoalFiltersV11',
+						'\BhrSdk\Model\GoalFiltersV11',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -18478,7 +18478,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsFiltersV12AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
-		$returnType = '\MySdk\Model\GoalFiltersV11';
+		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
 
 		return $this->client
@@ -18630,7 +18630,7 @@ class PublicAPIApi {
 	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -18648,7 +18648,7 @@ class PublicAPIApi {
 	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -18882,9 +18882,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getHiringLeads'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetHiringLeads200ResponseInner[]
+	 * @return \BhrSdk\Model\GetHiringLeads200ResponseInner[]
 	 */
 	public function getHiringLeads(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		list($response) = $this->getHiringLeadsWithHttpInfo($contentType);
@@ -18898,9 +18898,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getHiringLeads'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetHiringLeads200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetHiringLeads200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
@@ -18931,7 +18931,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetHiringLeads200ResponseInner[]',
+						'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -18953,7 +18953,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetHiringLeads200ResponseInner[]',
+				'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -18962,7 +18962,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetHiringLeads200ResponseInner[]',
+						'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -19004,7 +19004,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getHiringLeadsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
-		$returnType = '\MySdk\Model\GetHiringLeads200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\GetHiringLeads200ResponseInner[]';
 		$request = $this->getHiringLeadsRequest($contentType);
 
 		return $this->client
@@ -19140,7 +19140,7 @@ class PublicAPIApi {
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -19158,7 +19158,7 @@ class PublicAPIApi {
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -19387,7 +19387,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -19402,7 +19402,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -19592,9 +19592,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\MemberBenefitEvent[]
+	 * @return \BhrSdk\Model\MemberBenefitEvent[]
 	 */
 	public function getMemberBenefit(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 		list($response) = $this->getMemberBenefitWithHttpInfo($contentType);
@@ -19608,9 +19608,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\MemberBenefitEvent[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\MemberBenefitEvent[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getMemberBenefitWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 		$request = $this->getMemberBenefitRequest($contentType);
@@ -19641,7 +19641,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\MemberBenefitEvent[]',
+						'\BhrSdk\Model\MemberBenefitEvent[]',
 						$request,
 						$response,
 					);
@@ -19663,7 +19663,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\MemberBenefitEvent[]',
+				'\BhrSdk\Model\MemberBenefitEvent[]',
 				$request,
 				$response,
 			);
@@ -19672,7 +19672,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\MemberBenefitEvent[]',
+						'\BhrSdk\Model\MemberBenefitEvent[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -19714,7 +19714,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getMemberBenefitAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
-		$returnType = '\MySdk\Model\MemberBenefitEvent[]';
+		$returnType = '\BhrSdk\Model\MemberBenefitEvent[]';
 		$request = $this->getMemberBenefitRequest($contentType);
 
 		return $this->client
@@ -19847,9 +19847,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetMonitorFields200Response|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\GetMonitorFields200Response|\BhrSdk\Model\WebhookError
 	 */
 	public function getMonitorFields(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		list($response) = $this->getMonitorFieldsWithHttpInfo($contentType);
@@ -19863,9 +19863,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetMonitorFields200Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetMonitorFields200Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getMonitorFieldsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		$request = $this->getMonitorFieldsRequest($contentType);
@@ -19896,13 +19896,13 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetMonitorFields200Response',
+						'\BhrSdk\Model\GetMonitorFields200Response',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -19924,7 +19924,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetMonitorFields200Response',
+				'\BhrSdk\Model\GetMonitorFields200Response',
 				$request,
 				$response,
 			);
@@ -19933,7 +19933,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetMonitorFields200Response',
+						'\BhrSdk\Model\GetMonitorFields200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -19941,7 +19941,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -19983,7 +19983,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getMonitorFieldsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
-		$returnType = '\MySdk\Model\GetMonitorFields200Response';
+		$returnType = '\BhrSdk\Model\GetMonitorFields200Response';
 		$request = $this->getMonitorFieldsRequest($contentType);
 
 		return $this->client
@@ -20117,9 +20117,9 @@ class PublicAPIApi {
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\StateProvinceResponseSchema
+	 * @return \BhrSdk\Model\StateProvinceResponseSchema
 	 */
 	public function getStatesByCountryId($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
 		list($response) = $this->getStatesByCountryIdWithHttpInfo($country_id, $contentType);
@@ -20134,9 +20134,9 @@ class PublicAPIApi {
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\StateProvinceResponseSchema, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\StateProvinceResponseSchema, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getStatesByCountryIdWithHttpInfo($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
 		$request = $this->getStatesByCountryIdRequest($country_id, $contentType);
@@ -20167,7 +20167,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\StateProvinceResponseSchema',
+						'\BhrSdk\Model\StateProvinceResponseSchema',
 						$request,
 						$response,
 					);
@@ -20189,7 +20189,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\StateProvinceResponseSchema',
+				'\BhrSdk\Model\StateProvinceResponseSchema',
 				$request,
 				$response,
 			);
@@ -20198,7 +20198,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\StateProvinceResponseSchema',
+						'\BhrSdk\Model\StateProvinceResponseSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -20242,7 +20242,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getStatesByCountryIdAsyncWithHttpInfo($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
-		$returnType = '\MySdk\Model\StateProvinceResponseSchema';
+		$returnType = '\BhrSdk\Model\StateProvinceResponseSchema';
 		$request = $this->getStatesByCountryIdRequest($country_id, $contentType);
 
 		return $this->client
@@ -20391,7 +20391,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -20406,7 +20406,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -20597,7 +20597,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -20613,7 +20613,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -20813,7 +20813,7 @@ class PublicAPIApi {
 	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -20830,7 +20830,7 @@ class PublicAPIApi {
 	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -21042,9 +21042,9 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TimeTrackingRecordSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingRecordSchema|mixed
 	 */
 	public function getTimeTrackingRecord($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		list($response) = $this->getTimeTrackingRecordWithHttpInfo($id, $contentType);
@@ -21059,9 +21059,9 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TimeTrackingRecordSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingRecordSchema|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getTimeTrackingRecordWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		$request = $this->getTimeTrackingRecordRequest($id, $contentType);
@@ -21092,7 +21092,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TimeTrackingRecordSchema',
+						'\BhrSdk\Model\TimeTrackingRecordSchema',
 						$request,
 						$response,
 					);
@@ -21120,7 +21120,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TimeTrackingRecordSchema',
+				'\BhrSdk\Model\TimeTrackingRecordSchema',
 				$request,
 				$response,
 			);
@@ -21129,7 +21129,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TimeTrackingRecordSchema',
+						'\BhrSdk\Model\TimeTrackingRecordSchema',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -21181,7 +21181,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeTrackingRecordAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
-		$returnType = '\MySdk\Model\TimeTrackingRecordSchema';
+		$returnType = '\BhrSdk\Model\TimeTrackingRecordSchema';
 		$request = $this->getTimeTrackingRecordRequest($id, $contentType);
 
 		return $this->client
@@ -21333,9 +21333,9 @@ class PublicAPIApi {
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed
+	 * @return \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed
 	 */
 	public function getTimesheetEntries($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
 		list($response) = $this->getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids, $contentType);
@@ -21352,9 +21352,9 @@ class PublicAPIApi {
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
 		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
@@ -21385,7 +21385,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+						'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
 						$request,
 						$response,
 					);
@@ -21431,7 +21431,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+				'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
 				$request,
 				$response,
 			);
@@ -21440,7 +21440,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+						'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -21520,7 +21520,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimesheetEntriesAsyncWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
-		$returnType = '\MySdk\Model\EmployeeTimesheetEntryTransformer[]';
+		$returnType = '\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]';
 		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
 
 		return $this->client
@@ -21702,9 +21702,9 @@ class PublicAPIApi {
 	 * @param  int $id The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\WebHookResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhook($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
 		list($response) = $this->getWebhookWithHttpInfo($id, $contentType);
@@ -21719,9 +21719,9 @@ class PublicAPIApi {
 	 * @param  int $id The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\WebHookResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
 		$request = $this->getWebhookRequest($id, $contentType);
@@ -21752,25 +21752,25 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 404:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -21792,7 +21792,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\WebHookResponse',
+				'\BhrSdk\Model\WebHookResponse',
 				$request,
 				$response,
 			);
@@ -21801,7 +21801,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -21809,7 +21809,7 @@ class PublicAPIApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -21817,7 +21817,7 @@ class PublicAPIApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -21825,7 +21825,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -21869,7 +21869,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
-		$returnType = '\MySdk\Model\WebHookResponse';
+		$returnType = '\BhrSdk\Model\WebHookResponse';
 		$request = $this->getWebhookRequest($id, $contentType);
 
 		return $this->client
@@ -22018,9 +22018,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\GetWebhookList200Response|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\GetWebhookList200Response|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhookList(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		list($response) = $this->getWebhookListWithHttpInfo($contentType);
@@ -22034,9 +22034,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\GetWebhookList200Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetWebhookList200Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookListWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		$request = $this->getWebhookListRequest($contentType);
@@ -22067,13 +22067,13 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\GetWebhookList200Response',
+						'\BhrSdk\Model\GetWebhookList200Response',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -22095,7 +22095,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\GetWebhookList200Response',
+				'\BhrSdk\Model\GetWebhookList200Response',
 				$request,
 				$response,
 			);
@@ -22104,7 +22104,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\GetWebhookList200Response',
+						'\BhrSdk\Model\GetWebhookList200Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -22112,7 +22112,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -22154,7 +22154,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookListAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
-		$returnType = '\MySdk\Model\GetWebhookList200Response';
+		$returnType = '\BhrSdk\Model\GetWebhookList200Response';
 		$request = $this->getWebhookListRequest($contentType);
 
 		return $this->client
@@ -22288,9 +22288,9 @@ class PublicAPIApi {
 	 * @param  string $id The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\WebHookLogResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhookLogs($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		list($response) = $this->getWebhookLogsWithHttpInfo($id, $contentType);
@@ -22305,9 +22305,9 @@ class PublicAPIApi {
 	 * @param  string $id The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\WebHookLogResponse|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookLogsWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		$request = $this->getWebhookLogsRequest($id, $contentType);
@@ -22338,25 +22338,25 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebHookLogResponse',
+						'\BhrSdk\Model\WebHookLogResponse',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 404:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -22378,7 +22378,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\WebHookLogResponse',
+				'\BhrSdk\Model\WebHookLogResponse',
 				$request,
 				$response,
 			);
@@ -22387,7 +22387,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebHookLogResponse',
+						'\BhrSdk\Model\WebHookLogResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -22395,7 +22395,7 @@ class PublicAPIApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -22403,7 +22403,7 @@ class PublicAPIApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -22411,7 +22411,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -22455,7 +22455,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookLogsAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
-		$returnType = '\MySdk\Model\WebHookLogResponse';
+		$returnType = '\BhrSdk\Model\WebHookLogResponse';
 		$request = $this->getWebhookLogsRequest($id, $contentType);
 
 		return $this->client
@@ -22604,7 +22604,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -22619,7 +22619,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -22810,7 +22810,7 @@ class PublicAPIApi {
 	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -22826,7 +22826,7 @@ class PublicAPIApi {
 	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -23036,9 +23036,9 @@ class PublicAPIApi {
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\ListEmployeeTrainings200ResponseInner[]
+	 * @return \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]
 	 */
 	public function listEmployeeTrainings($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		list($response) = $this->listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id, $contentType);
@@ -23054,9 +23054,9 @@ class PublicAPIApi {
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\ListEmployeeTrainings200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
@@ -23087,7 +23087,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\ListEmployeeTrainings200ResponseInner[]',
+						'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -23109,7 +23109,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\ListEmployeeTrainings200ResponseInner[]',
+				'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -23118,7 +23118,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\ListEmployeeTrainings200ResponseInner[]',
+						'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -23164,7 +23164,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
-		$returnType = '\MySdk\Model\ListEmployeeTrainings200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]';
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
 
 		return $this->client
@@ -23326,9 +23326,9 @@ class PublicAPIApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\ReportsResponse
+	 * @return \BhrSdk\Model\ReportsResponse
 	 */
 	public function listReports($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		list($response) = $this->listReportsWithHttpInfo($page, $page_size, $contentType);
@@ -23344,9 +23344,9 @@ class PublicAPIApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\ReportsResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ReportsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listReportsWithHttpInfo($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		$request = $this->listReportsRequest($page, $page_size, $contentType);
@@ -23377,7 +23377,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\ReportsResponse',
+						'\BhrSdk\Model\ReportsResponse',
 						$request,
 						$response,
 					);
@@ -23399,7 +23399,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\ReportsResponse',
+				'\BhrSdk\Model\ReportsResponse',
 				$request,
 				$response,
 			);
@@ -23408,7 +23408,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\ReportsResponse',
+						'\BhrSdk\Model\ReportsResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -23454,7 +23454,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listReportsAsyncWithHttpInfo($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
-		$returnType = '\MySdk\Model\ReportsResponse';
+		$returnType = '\BhrSdk\Model\ReportsResponse';
 		$request = $this->listReportsRequest($page, $page_size, $contentType);
 
 		return $this->client
@@ -23609,9 +23609,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\ListTrainingCategories200ResponseInner[]
+	 * @return \BhrSdk\Model\ListTrainingCategories200ResponseInner[]
 	 */
 	public function listTrainingCategories(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		list($response) = $this->listTrainingCategoriesWithHttpInfo($contentType);
@@ -23625,9 +23625,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\ListTrainingCategories200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ListTrainingCategories200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listTrainingCategoriesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		$request = $this->listTrainingCategoriesRequest($contentType);
@@ -23658,7 +23658,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\ListTrainingCategories200ResponseInner[]',
+						'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -23680,7 +23680,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\ListTrainingCategories200ResponseInner[]',
+				'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -23689,7 +23689,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\ListTrainingCategories200ResponseInner[]',
+						'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -23731,7 +23731,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listTrainingCategoriesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
-		$returnType = '\MySdk\Model\ListTrainingCategories200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\ListTrainingCategories200ResponseInner[]';
 		$request = $this->listTrainingCategoriesRequest($contentType);
 
 		return $this->client
@@ -23864,9 +23864,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\ListTrainingTypes200ResponseInner[]
+	 * @return \BhrSdk\Model\ListTrainingTypes200ResponseInner[]
 	 */
 	public function listTrainingTypes(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		list($response) = $this->listTrainingTypesWithHttpInfo($contentType);
@@ -23880,9 +23880,9 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\ListTrainingTypes200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ListTrainingTypes200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listTrainingTypesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		$request = $this->listTrainingTypesRequest($contentType);
@@ -23913,7 +23913,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\ListTrainingTypes200ResponseInner[]',
+						'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
 						$request,
 						$response,
 					);
@@ -23935,7 +23935,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\ListTrainingTypes200ResponseInner[]',
+				'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
 				$request,
 				$response,
 			);
@@ -23944,7 +23944,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\ListTrainingTypes200ResponseInner[]',
+						'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -23986,7 +23986,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listTrainingTypesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
-		$returnType = '\MySdk\Model\ListTrainingTypes200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\ListTrainingTypes200ResponseInner[]';
 		$request = $this->listTrainingTypesRequest($contentType);
 
 		return $this->client
@@ -24123,7 +24123,7 @@ class PublicAPIApi {
 	 * @param  string|null $password password (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 * @deprecated
@@ -24143,7 +24143,7 @@ class PublicAPIApi {
 	 * @param  string|null $password (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
@@ -24367,10 +24367,10 @@ class PublicAPIApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -24384,10 +24384,10 @@ class PublicAPIApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -24433,7 +24433,7 @@ class PublicAPIApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -24454,7 +24454,7 @@ class PublicAPIApi {
 	 * Add or Update Values for List Fields
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -24491,7 +24491,7 @@ class PublicAPIApi {
 	 * Create request for operation 'metadataAddOrUpdateValuesForListFields'
 	 *
 	 * @param  string $list_field_id (required)
-	 * @param  \MySdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -24613,7 +24613,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -24629,7 +24629,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -24828,7 +24828,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -24844,7 +24844,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -25043,7 +25043,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -25059,7 +25059,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -25256,10 +25256,10 @@ class PublicAPIApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -25273,10 +25273,10 @@ class PublicAPIApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -25322,7 +25322,7 @@ class PublicAPIApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -25343,7 +25343,7 @@ class PublicAPIApi {
 	 * Change Applicant&#39;s Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -25380,7 +25380,7 @@ class PublicAPIApi {
 	 * Create request for operation 'postApplicantStatus'
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
+	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -25500,10 +25500,10 @@ class PublicAPIApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -25517,10 +25517,10 @@ class PublicAPIApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -25566,7 +25566,7 @@ class PublicAPIApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -25587,7 +25587,7 @@ class PublicAPIApi {
 	 * Add Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -25624,7 +25624,7 @@ class PublicAPIApi {
 	 * Create request for operation 'postApplicationComment'
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \MySdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
+	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -25748,9 +25748,9 @@ class PublicAPIApi {
 	 * @param  string|null $body Comment field is optional. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function postCloseGoal($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
 		list($response) = $this->postCloseGoalWithHttpInfo($employee_id, $goal_id, $body, $contentType);
@@ -25767,9 +25767,9 @@ class PublicAPIApi {
 	 * @param  string|null $body Comment field is optional. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postCloseGoalWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
@@ -25800,7 +25800,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -25822,7 +25822,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -25831,7 +25831,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -25879,7 +25879,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postCloseGoalAsyncWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
 
 		return $this->client
@@ -26052,12 +26052,12 @@ class PublicAPIApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function postGoal($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		list($response) = $this->postGoalWithHttpInfo($employee_id, $post_goal_request, $contentType);
@@ -26070,12 +26070,12 @@ class PublicAPIApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postGoalWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
@@ -26106,7 +26106,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -26128,7 +26128,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -26137,7 +26137,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -26155,7 +26155,7 @@ class PublicAPIApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -26176,14 +26176,14 @@ class PublicAPIApi {
 	 * Create Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postGoalAsyncWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
 		return $this->client
@@ -26226,7 +26226,7 @@ class PublicAPIApi {
 	 * Create request for operation 'postGoal'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  \MySdk\Model\PostGoalRequest $post_goal_request (required)
+	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -26350,7 +26350,7 @@ class PublicAPIApi {
 	 * @param  string $body body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -26368,7 +26368,7 @@ class PublicAPIApi {
 	 * @param  string $body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -26613,9 +26613,9 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function postReopenGoal($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
 		list($response) = $this->postReopenGoalWithHttpInfo($employee_id, $goal_id, $contentType);
@@ -26631,9 +26631,9 @@ class PublicAPIApi {
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postReopenGoalWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
@@ -26664,7 +26664,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -26686,7 +26686,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -26695,7 +26695,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -26741,7 +26741,7 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postReopenGoalAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
@@ -26904,12 +26904,12 @@ class PublicAPIApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\PostWebhook201Response|\MySdk\Model\Webhook400Error|\MySdk\Model\PostWebhook403Response|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\PostWebhook201Response|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PostWebhook403Response|\BhrSdk\Model\WebhookError
 	 */
 	public function postWebhook($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		list($response) = $this->postWebhookWithHttpInfo($new_web_hook, $contentType);
@@ -26921,12 +26921,12 @@ class PublicAPIApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\PostWebhook201Response|\MySdk\Model\Webhook400Error|\MySdk\Model\PostWebhook403Response|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\PostWebhook201Response|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PostWebhook403Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postWebhookWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
@@ -26957,25 +26957,25 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 201:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PostWebhook201Response',
+						'\BhrSdk\Model\PostWebhook201Response',
 						$request,
 						$response,
 					);
 				case 400:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PostWebhook403Response',
+						'\BhrSdk\Model\PostWebhook403Response',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -26997,7 +26997,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\PostWebhook201Response',
+				'\BhrSdk\Model\PostWebhook201Response',
 				$request,
 				$response,
 			);
@@ -27006,7 +27006,7 @@ class PublicAPIApi {
 				case 201:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PostWebhook201Response',
+						'\BhrSdk\Model\PostWebhook201Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -27014,7 +27014,7 @@ class PublicAPIApi {
 				case 400:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -27022,7 +27022,7 @@ class PublicAPIApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PostWebhook403Response',
+						'\BhrSdk\Model\PostWebhook403Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -27030,7 +27030,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -27047,7 +27047,7 @@ class PublicAPIApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -27067,14 +27067,14 @@ class PublicAPIApi {
 	 *
 	 * Add Webhook
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postWebhookAsyncWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
-		$returnType = '\MySdk\Model\PostWebhook201Response';
+		$returnType = '\BhrSdk\Model\PostWebhook201Response';
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
 
 		return $this->client
@@ -27116,7 +27116,7 @@ class PublicAPIApi {
 	/**
 	 * Create request for operation 'postWebhook'
 	 *
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -27226,7 +27226,7 @@ class PublicAPIApi {
 	 * @param  string $body body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -27245,7 +27245,7 @@ class PublicAPIApi {
 	 * @param  string $body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -27507,10 +27507,10 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return object
 	 */
@@ -27527,10 +27527,10 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of object, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -27614,7 +27614,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -27637,7 +27637,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -27689,7 +27689,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
 	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
-	 * @param  \MySdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
+	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -27840,12 +27840,12 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function putGoalProgress($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		list($response) = $this->putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, $contentType);
@@ -27859,12 +27859,12 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
@@ -27895,7 +27895,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -27917,7 +27917,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -27926,7 +27926,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -27945,7 +27945,7 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -27967,14 +27967,14 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalProgressAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
 		return $this->client
@@ -28018,7 +28018,7 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28154,12 +28154,12 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
 		list($response) = $this->putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
@@ -28173,12 +28173,12 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
@@ -28209,7 +28209,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -28231,7 +28231,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -28240,7 +28240,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -28259,7 +28259,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28281,14 +28281,14 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalSharedWithAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
 
 		return $this->client
@@ -28332,7 +28332,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
+	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28468,12 +28468,12 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 * @deprecated
 	 */
 	public function putGoalV1($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
@@ -28488,12 +28488,12 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function putGoalV1WithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
@@ -28525,7 +28525,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -28547,7 +28547,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -28556,7 +28556,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -28575,7 +28575,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28598,7 +28598,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28606,7 +28606,7 @@ class PublicAPIApi {
 	 * @deprecated
 	 */
 	public function putGoalV1AsyncWithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
 		return $this->client
@@ -28650,7 +28650,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28787,12 +28787,12 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiGoal
 	 */
 	public function putGoalV11($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		list($response) = $this->putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, $contentType);
@@ -28806,12 +28806,12 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
@@ -28842,7 +28842,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$request,
 						$response,
 					);
@@ -28864,7 +28864,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TransformedApiGoal',
+				'\BhrSdk\Model\TransformedApiGoal',
 				$request,
 				$response,
 			);
@@ -28873,7 +28873,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TransformedApiGoal',
+						'\BhrSdk\Model\TransformedApiGoal',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -28892,7 +28892,7 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -28914,14 +28914,14 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalV11AsyncWithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
-		$returnType = '\MySdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
 		return $this->client
@@ -28965,7 +28965,7 @@ class PublicAPIApi {
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \MySdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -29100,12 +29100,12 @@ class PublicAPIApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\WebHookResponse|\MySdk\Model\Webhook400Error|\MySdk\Model\PutWebhook403Response|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PutWebhook403Response|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function putWebhook($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		list($response) = $this->putWebhookWithHttpInfo($id, $new_web_hook, $contentType);
@@ -29118,12 +29118,12 @@ class PublicAPIApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\WebHookResponse|\MySdk\Model\Webhook400Error|\MySdk\Model\PutWebhook403Response|\MySdk\Model\WebhookError|\MySdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PutWebhook403Response|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putWebhookWithHttpInfo($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
@@ -29154,31 +29154,31 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$request,
 						$response,
 					);
 				case 400:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$request,
 						$response,
 					);
 				case 403:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\PutWebhook403Response',
+						'\BhrSdk\Model\PutWebhook403Response',
 						$request,
 						$response,
 					);
 				case 404:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
 				case 500:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$request,
 						$response,
 					);
@@ -29200,7 +29200,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\WebHookResponse',
+				'\BhrSdk\Model\WebHookResponse',
 				$request,
 				$response,
 			);
@@ -29209,7 +29209,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebHookResponse',
+						'\BhrSdk\Model\WebHookResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -29217,7 +29217,7 @@ class PublicAPIApi {
 				case 400:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\Webhook400Error',
+						'\BhrSdk\Model\Webhook400Error',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -29225,7 +29225,7 @@ class PublicAPIApi {
 				case 403:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\PutWebhook403Response',
+						'\BhrSdk\Model\PutWebhook403Response',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -29233,7 +29233,7 @@ class PublicAPIApi {
 				case 404:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -29241,7 +29241,7 @@ class PublicAPIApi {
 				case 500:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\WebhookError',
+						'\BhrSdk\Model\WebhookError',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -29259,7 +29259,7 @@ class PublicAPIApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -29280,14 +29280,14 @@ class PublicAPIApi {
 	 * Update Webhook
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putWebhookAsyncWithHttpInfo($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
-		$returnType = '\MySdk\Model\WebHookResponse';
+		$returnType = '\BhrSdk\Model\WebHookResponse';
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
 
 		return $this->client
@@ -29330,7 +29330,7 @@ class PublicAPIApi {
 	 * Create request for operation 'putWebhook'
 	 *
 	 * @param  string $id {id} is a webhook ID. (required)
-	 * @param  \MySdk\Model\NewWebHook $new_web_hook (required)
+	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -29450,11 +29450,11 @@ class PublicAPIApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -29468,11 +29468,11 @@ class PublicAPIApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -29518,7 +29518,7 @@ class PublicAPIApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
@@ -29540,7 +29540,7 @@ class PublicAPIApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
@@ -29578,7 +29578,7 @@ class PublicAPIApi {
 	 * Create request for operation 'requestCustomReport'
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
@@ -29710,10 +29710,10 @@ class PublicAPIApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -29727,10 +29727,10 @@ class PublicAPIApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -29776,7 +29776,7 @@ class PublicAPIApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -29797,7 +29797,7 @@ class PublicAPIApi {
 	 * Add a Time Off History Item For Time Off Request
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -29834,7 +29834,7 @@ class PublicAPIApi {
 	 * Create request for operation 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -29954,10 +29954,10 @@ class PublicAPIApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -29971,10 +29971,10 @@ class PublicAPIApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -30020,7 +30020,7 @@ class PublicAPIApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30041,7 +30041,7 @@ class PublicAPIApi {
 	 * Add a Time Off Request
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30078,7 +30078,7 @@ class PublicAPIApi {
 	 * Create request for operation 'timeOffAddATimeOffRequest'
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30198,10 +30198,10 @@ class PublicAPIApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -30215,10 +30215,10 @@ class PublicAPIApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -30264,7 +30264,7 @@ class PublicAPIApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30285,7 +30285,7 @@ class PublicAPIApi {
 	 * Adjust Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30322,7 +30322,7 @@ class PublicAPIApi {
 	 * Create request for operation 'timeOffAdjustTimeOffBalance'
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \MySdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30442,10 +30442,10 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -30459,10 +30459,10 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -30508,7 +30508,7 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30529,7 +30529,7 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30566,7 +30566,7 @@ class PublicAPIApi {
 	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployee'
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30686,10 +30686,10 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -30703,10 +30703,10 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -30752,7 +30752,7 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30773,7 +30773,7 @@ class PublicAPIApi {
 	 * Assign Time Off Policies for an Employee, Version 1.1
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30810,7 +30810,7 @@ class PublicAPIApi {
 	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
 	 *
 	 * @param  string $employee_id (required)
-	 * @param  \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
+	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -30930,10 +30930,10 @@ class PublicAPIApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id request_id (required)
-	 * @param  \MySdk\Model\Request $request request (required)
+	 * @param  \BhrSdk\Model\Request $request request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -30947,10 +30947,10 @@ class PublicAPIApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -30996,7 +30996,7 @@ class PublicAPIApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -31017,7 +31017,7 @@ class PublicAPIApi {
 	 * Change a Request Status
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -31054,7 +31054,7 @@ class PublicAPIApi {
 	 * Create request for operation 'timeOffChangeARequestStatus'
 	 *
 	 * @param  string $request_id (required)
-	 * @param  \MySdk\Model\Request $request (required)
+	 * @param  \BhrSdk\Model\Request $request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -31178,7 +31178,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -31196,7 +31196,7 @@ class PublicAPIApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -31439,7 +31439,7 @@ class PublicAPIApi {
 	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -31462,7 +31462,7 @@ class PublicAPIApi {
 	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -31764,7 +31764,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -31780,7 +31780,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -31989,7 +31989,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -32005,7 +32005,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -32212,10 +32212,10 @@ class PublicAPIApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -32229,10 +32229,10 @@ class PublicAPIApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -32278,7 +32278,7 @@ class PublicAPIApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32299,7 +32299,7 @@ class PublicAPIApi {
 	 * Update Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32336,7 +32336,7 @@ class PublicAPIApi {
 	 * Create request for operation 'updateCompanyFile'
 	 *
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\CompanyFileUpdate $company_file_update (required)
+	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32456,10 +32456,10 @@ class PublicAPIApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -32473,10 +32473,10 @@ class PublicAPIApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -32522,7 +32522,7 @@ class PublicAPIApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32543,7 +32543,7 @@ class PublicAPIApi {
 	 * Update Employee
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32580,7 +32580,7 @@ class PublicAPIApi {
 	 * Create request for operation 'updateEmployee'
 	 *
 	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \MySdk\Model\Employee $employee (required)
+	 * @param  \BhrSdk\Model\Employee $employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32700,10 +32700,10 @@ class PublicAPIApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -32717,10 +32717,10 @@ class PublicAPIApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -32766,7 +32766,7 @@ class PublicAPIApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32787,7 +32787,7 @@ class PublicAPIApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32824,7 +32824,7 @@ class PublicAPIApi {
 	 * Create request for operation 'updateEmployeeDependent'
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -32945,10 +32945,10 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\EmployeeFileUpdate $employee_file_update employee_file_update (required)
+	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -32963,10 +32963,10 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\EmployeeFileUpdate $employee_file_update (required)
+	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -33013,7 +33013,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\EmployeeFileUpdate $employee_file_update (required)
+	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33035,7 +33035,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\EmployeeFileUpdate $employee_file_update (required)
+	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33073,7 +33073,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
-	 * @param  \MySdk\Model\EmployeeFileUpdate $employee_file_update (required)
+	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33210,10 +33210,10 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -33229,10 +33229,10 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -33280,7 +33280,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33303,7 +33303,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33342,7 +33342,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33494,10 +33494,10 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -33513,10 +33513,10 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -33564,7 +33564,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33587,7 +33587,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33626,7 +33626,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
 	 * @param  string $row_id Row ID (required)
-	 * @param  \MySdk\Model\TableRowUpdate $table_row_update (required)
+	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33776,12 +33776,12 @@ class PublicAPIApi {
 	 * Update Employee Training Record
 	 *
 	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
-	 * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
+	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TrainingRecord
+	 * @return \BhrSdk\Model\TrainingRecord
 	 */
 	public function updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::CONTENT_TYPES['updateEmployeeTrainingRecord'][0]) {
 		list($response) = $this->updateEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, $contentType);
@@ -33794,12 +33794,12 @@ class PublicAPIApi {
 	 * Update Employee Training Record
 	 *
 	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
-	 * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
+	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function updateEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::CONTENT_TYPES['updateEmployeeTrainingRecord'][0]) {
 		$request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
@@ -33830,7 +33830,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TrainingRecord',
+						'\BhrSdk\Model\TrainingRecord',
 						$request,
 						$response,
 					);
@@ -33852,7 +33852,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TrainingRecord',
+				'\BhrSdk\Model\TrainingRecord',
 				$request,
 				$response,
 			);
@@ -33861,7 +33861,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TrainingRecord',
+						'\BhrSdk\Model\TrainingRecord',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -33879,7 +33879,7 @@ class PublicAPIApi {
 	 * Update Employee Training Record
 	 *
 	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
-	 * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
+	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -33900,14 +33900,14 @@ class PublicAPIApi {
 	 * Update Employee Training Record
 	 *
 	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
-	 * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
+	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::CONTENT_TYPES['updateEmployeeTrainingRecord'][0]) {
-		$returnType = '\MySdk\Model\TrainingRecord';
+		$returnType = '\BhrSdk\Model\TrainingRecord';
 		$request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
 
 		return $this->client
@@ -33950,7 +33950,7 @@ class PublicAPIApi {
 	 * Create request for operation 'updateEmployeeTrainingRecord'
 	 *
 	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
-	 * @param  \MySdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
+	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -34070,12 +34070,12 @@ class PublicAPIApi {
 	 * Update Training Category
 	 *
 	 * @param  int $training_category_id The ID of the training category to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TrainingCategory
+	 * @return \BhrSdk\Model\TrainingCategory
 	 */
 	public function updateTrainingCategory($training_category_id, $update_training_category_request, string $contentType = self::CONTENT_TYPES['updateTrainingCategory'][0]) {
 		list($response) = $this->updateTrainingCategoryWithHttpInfo($training_category_id, $update_training_category_request, $contentType);
@@ -34088,12 +34088,12 @@ class PublicAPIApi {
 	 * Update Training Category
 	 *
 	 * @param  int $training_category_id The ID of the training category to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function updateTrainingCategoryWithHttpInfo($training_category_id, $update_training_category_request, string $contentType = self::CONTENT_TYPES['updateTrainingCategory'][0]) {
 		$request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
@@ -34124,7 +34124,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TrainingCategory',
+						'\BhrSdk\Model\TrainingCategory',
 						$request,
 						$response,
 					);
@@ -34146,7 +34146,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TrainingCategory',
+				'\BhrSdk\Model\TrainingCategory',
 				$request,
 				$response,
 			);
@@ -34155,7 +34155,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TrainingCategory',
+						'\BhrSdk\Model\TrainingCategory',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -34173,7 +34173,7 @@ class PublicAPIApi {
 	 * Update Training Category
 	 *
 	 * @param  int $training_category_id The ID of the training category to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -34194,14 +34194,14 @@ class PublicAPIApi {
 	 * Update Training Category
 	 *
 	 * @param  int $training_category_id The ID of the training category to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateTrainingCategoryAsyncWithHttpInfo($training_category_id, $update_training_category_request, string $contentType = self::CONTENT_TYPES['updateTrainingCategory'][0]) {
-		$returnType = '\MySdk\Model\TrainingCategory';
+		$returnType = '\BhrSdk\Model\TrainingCategory';
 		$request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
 
 		return $this->client
@@ -34244,7 +34244,7 @@ class PublicAPIApi {
 	 * Create request for operation 'updateTrainingCategory'
 	 *
 	 * @param  int $training_category_id The ID of the training category to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -34364,12 +34364,12 @@ class PublicAPIApi {
 	 * Update Training Type
 	 *
 	 * @param  int $training_type_id The ID of the training type to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\TrainingType
+	 * @return \BhrSdk\Model\TrainingType
 	 */
 	public function updateTrainingType($training_type_id, $update_training_type_request, string $contentType = self::CONTENT_TYPES['updateTrainingType'][0]) {
 		list($response) = $this->updateTrainingTypeWithHttpInfo($training_type_id, $update_training_type_request, $contentType);
@@ -34382,12 +34382,12 @@ class PublicAPIApi {
 	 * Update Training Type
 	 *
 	 * @param  int $training_type_id The ID of the training type to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function updateTrainingTypeWithHttpInfo($training_type_id, $update_training_type_request, string $contentType = self::CONTENT_TYPES['updateTrainingType'][0]) {
 		$request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
@@ -34418,7 +34418,7 @@ class PublicAPIApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\TrainingType',
+						'\BhrSdk\Model\TrainingType',
 						$request,
 						$response,
 					);
@@ -34440,7 +34440,7 @@ class PublicAPIApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\TrainingType',
+				'\BhrSdk\Model\TrainingType',
 				$request,
 				$response,
 			);
@@ -34449,7 +34449,7 @@ class PublicAPIApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\TrainingType',
+						'\BhrSdk\Model\TrainingType',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -34467,7 +34467,7 @@ class PublicAPIApi {
 	 * Update Training Type
 	 *
 	 * @param  int $training_type_id The ID of the training type to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -34488,14 +34488,14 @@ class PublicAPIApi {
 	 * Update Training Type
 	 *
 	 * @param  int $training_type_id The ID of the training type to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateTrainingTypeAsyncWithHttpInfo($training_type_id, $update_training_type_request, string $contentType = self::CONTENT_TYPES['updateTrainingType'][0]) {
-		$returnType = '\MySdk\Model\TrainingType';
+		$returnType = '\BhrSdk\Model\TrainingType';
 		$request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
 
 		return $this->client
@@ -34538,7 +34538,7 @@ class PublicAPIApi {
 	 * Create request for operation 'updateTrainingType'
 	 *
 	 * @param  int $training_type_id The ID of the training type to update. (required)
-	 * @param  \MySdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
+	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -34659,7 +34659,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -34674,7 +34674,7 @@ class PublicAPIApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -34865,7 +34865,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -34881,7 +34881,7 @@ class PublicAPIApi {
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -35090,7 +35090,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -35106,7 +35106,7 @@ class PublicAPIApi {
 	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */

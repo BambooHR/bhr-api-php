@@ -1,6 +1,6 @@
-# MySdk\HoursApi
+# BhrSdk\HoursApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -14,7 +14,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 ## `addTimeTrackingBulk()`
 
 ```php
-addTimeTrackingBulk($time_tracking_record): \MySdk\Model\TimeTrackingBulkResponseSchema
+addTimeTrackingBulk($time_tracking_record): \BhrSdk\Model\TimeTrackingBulkResponseSchema
 ```
 
 Add/Edit Hour Records
@@ -28,19 +28,19 @@ Bulk add/edit hour records
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\HoursApi(
+$apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
+$time_tracking_record = array(new \BhrSdk\Model\TimeTrackingRecord()); // \BhrSdk\Model\TimeTrackingRecord[]
 
 try {
     $result = $apiInstance->addTimeTrackingBulk($time_tracking_record);
@@ -54,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
+| **time_tracking_record** | [**\BhrSdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingBulkResponseSchema**](../Model/TimeTrackingBulkResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingBulkResponseSchema**](../Model/TimeTrackingBulkResponseSchema.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `addTimeTrackingHourRecord()`
 
 ```php
-addTimeTrackingHourRecord($time_tracking_record): \MySdk\Model\TimeTrackingIdResponseSchema
+addTimeTrackingHourRecord($time_tracking_record): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
 Add Hour Record
@@ -90,19 +90,19 @@ Add an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\HoursApi(
+$apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
+$time_tracking_record = new \BhrSdk\Model\TimeTrackingRecord(); // \BhrSdk\Model\TimeTrackingRecord
 
 try {
     $result = $apiInstance->addTimeTrackingHourRecord($time_tracking_record);
@@ -116,11 +116,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
+| **time_tracking_record** | [**\BhrSdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ try {
 ## `deleteTimeTrackingById()`
 
 ```php
-deleteTimeTrackingById($id): \MySdk\Model\TimeTrackingDeleteResponseSchema
+deleteTimeTrackingById($id): \BhrSdk\Model\TimeTrackingDeleteResponseSchema
 ```
 
 Delete Hour Record
@@ -152,13 +152,13 @@ Delete an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\HoursApi(
+$apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -182,7 +182,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingDeleteResponseSchema**](../Model/TimeTrackingDeleteResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingDeleteResponseSchema**](../Model/TimeTrackingDeleteResponseSchema.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ try {
 ## `editTimeTrackingRecord()`
 
 ```php
-editTimeTrackingRecord($adjust_time_tracking_request_schema): \MySdk\Model\TimeTrackingIdResponseSchema
+editTimeTrackingRecord($adjust_time_tracking_request_schema): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
 Edit Hour Record
@@ -214,19 +214,19 @@ Edit an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\HoursApi(
+$apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$adjust_time_tracking_request_schema = new \MySdk\Model\AdjustTimeTrackingRequestSchema(); // \MySdk\Model\AdjustTimeTrackingRequestSchema
+$adjust_time_tracking_request_schema = new \BhrSdk\Model\AdjustTimeTrackingRequestSchema(); // \BhrSdk\Model\AdjustTimeTrackingRequestSchema
 
 try {
     $result = $apiInstance->editTimeTrackingRecord($adjust_time_tracking_request_schema);
@@ -240,11 +240,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **adjust_time_tracking_request_schema** | [**\MySdk\Model\AdjustTimeTrackingRequestSchema**](../Model/AdjustTimeTrackingRequestSchema.md)|  | |
+| **adjust_time_tracking_request_schema** | [**\BhrSdk\Model\AdjustTimeTrackingRequestSchema**](../Model/AdjustTimeTrackingRequestSchema.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ try {
 ## `getTimeTrackingRecord()`
 
 ```php
-getTimeTrackingRecord($id): \MySdk\Model\TimeTrackingRecordSchema
+getTimeTrackingRecord($id): \BhrSdk\Model\TimeTrackingRecordSchema
 ```
 
 Get Hour Record
@@ -276,13 +276,13 @@ Get an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\HoursApi(
+$apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -306,7 +306,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
+[**\BhrSdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
 
 ### Authorization
 

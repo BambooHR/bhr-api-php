@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * ReportsApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -136,7 +136,7 @@ class ReportsApi {
 	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -156,7 +156,7 @@ class ReportsApi {
 	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -416,11 +416,11 @@ class ReportsApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -434,11 +434,11 @@ class ReportsApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -484,7 +484,7 @@ class ReportsApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
@@ -506,7 +506,7 @@ class ReportsApi {
 	 * Request a custom report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
@@ -544,7 +544,7 @@ class ReportsApi {
 	 * Create request for operation 'requestCustomReport'
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
-	 * @param  \MySdk\Model\RequestCustomReport $request_custom_report (required)
+	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
 	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *

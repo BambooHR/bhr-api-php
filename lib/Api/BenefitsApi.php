@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * BenefitsApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -144,10 +144,10 @@ class BenefitsApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -160,10 +160,10 @@ class BenefitsApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -208,7 +208,7 @@ class BenefitsApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -228,7 +228,7 @@ class BenefitsApi {
 	 *
 	 * Add an employee dependent
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -264,7 +264,7 @@ class BenefitsApi {
 	/**
 	 * Create request for operation 'addEmployeeDependent'
 	 *
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -371,7 +371,7 @@ class BenefitsApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -387,7 +387,7 @@ class BenefitsApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -585,7 +585,7 @@ class BenefitsApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -600,7 +600,7 @@ class BenefitsApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -792,7 +792,7 @@ class BenefitsApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -809,7 +809,7 @@ class BenefitsApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1027,7 +1027,7 @@ class BenefitsApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1044,7 +1044,7 @@ class BenefitsApi {
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1261,9 +1261,9 @@ class BenefitsApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\MemberBenefitEvent[]
+	 * @return \BhrSdk\Model\MemberBenefitEvent[]
 	 */
 	public function getMemberBenefit(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 		list($response) = $this->getMemberBenefitWithHttpInfo($contentType);
@@ -1277,9 +1277,9 @@ class BenefitsApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\MemberBenefitEvent[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\MemberBenefitEvent[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getMemberBenefitWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 		$request = $this->getMemberBenefitRequest($contentType);
@@ -1310,7 +1310,7 @@ class BenefitsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\MemberBenefitEvent[]',
+						'\BhrSdk\Model\MemberBenefitEvent[]',
 						$request,
 						$response,
 					);
@@ -1332,7 +1332,7 @@ class BenefitsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\MemberBenefitEvent[]',
+				'\BhrSdk\Model\MemberBenefitEvent[]',
 				$request,
 				$response,
 			);
@@ -1341,7 +1341,7 @@ class BenefitsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\MemberBenefitEvent[]',
+						'\BhrSdk\Model\MemberBenefitEvent[]',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -1383,7 +1383,7 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getMemberBenefitAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
-		$returnType = '\MySdk\Model\MemberBenefitEvent[]';
+		$returnType = '\BhrSdk\Model\MemberBenefitEvent[]';
 		$request = $this->getMemberBenefitRequest($contentType);
 
 		return $this->client
@@ -1515,10 +1515,10 @@ class BenefitsApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
@@ -1532,10 +1532,10 @@ class BenefitsApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
@@ -1581,7 +1581,7 @@ class BenefitsApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1602,7 +1602,7 @@ class BenefitsApi {
 	 * Update an employee dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1639,7 +1639,7 @@ class BenefitsApi {
 	 * Create request for operation 'updateEmployeeDependent'
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
-	 * @param  \MySdk\Model\EmployeeDependent $employee_dependent (required)
+	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

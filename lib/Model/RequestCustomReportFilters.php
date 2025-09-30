@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * RequestCustomReportFilters Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'last_changed' => '\MySdk\Model\RequestCustomReportFiltersLastChanged'
+		'last_changed' => '\BhrSdk\Model\RequestCustomReportFiltersLastChanged'
 	];
 
 	/**
@@ -276,7 +276,7 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Gets last_changed
 	 *
-	 * @return \MySdk\Model\RequestCustomReportFiltersLastChanged|null
+	 * @return \BhrSdk\Model\RequestCustomReportFiltersLastChanged|null
 	 */
 	public function getLastChanged() {
 		return $this->container['last_changed'];
@@ -285,7 +285,7 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets last_changed
 	 *
-	 * @param \MySdk\Model\RequestCustomReportFiltersLastChanged|null $last_changed last_changed
+	 * @param \BhrSdk\Model\RequestCustomReportFiltersLastChanged|null $last_changed last_changed
 	 *
 	 * @return self
 	 */

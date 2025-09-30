@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * DatasetsApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -133,12 +133,12 @@ class DatasetsApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeResponse
+	 * @return \BhrSdk\Model\EmployeeResponse
 	 */
 	public function getDataFromDataset($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
 		list($response) = $this->getDataFromDatasetWithHttpInfo($dataset_name, $data_request, $contentType);
@@ -151,12 +151,12 @@ class DatasetsApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getDataFromDatasetWithHttpInfo($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
 		$request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
@@ -187,7 +187,7 @@ class DatasetsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$request,
 						$response,
 					);
@@ -209,7 +209,7 @@ class DatasetsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeResponse',
+				'\BhrSdk\Model\EmployeeResponse',
 				$request,
 				$response,
 			);
@@ -218,7 +218,7 @@ class DatasetsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -236,7 +236,7 @@ class DatasetsApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -257,14 +257,14 @@ class DatasetsApi {
 	 * Get Data from Dataset
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getDataFromDatasetAsyncWithHttpInfo($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
-		$returnType = '\MySdk\Model\EmployeeResponse';
+		$returnType = '\BhrSdk\Model\EmployeeResponse';
 		$request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
 
 		return $this->client
@@ -307,7 +307,7 @@ class DatasetsApi {
 	 * Create request for operation 'getDataFromDataset'
 	 *
 	 * @param  string $dataset_name The name of the dataset you want data from (required)
-	 * @param  \MySdk\Model\DataRequest $data_request (required)
+	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -428,9 +428,9 @@ class DatasetsApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\DatasetResponse
+	 * @return \BhrSdk\Model\DatasetResponse
 	 */
 	public function getDataSets(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 		list($response) = $this->getDataSetsWithHttpInfo($contentType);
@@ -444,9 +444,9 @@ class DatasetsApi {
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getDataSetsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 		$request = $this->getDataSetsRequest($contentType);
@@ -477,7 +477,7 @@ class DatasetsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\DatasetResponse',
+						'\BhrSdk\Model\DatasetResponse',
 						$request,
 						$response,
 					);
@@ -499,7 +499,7 @@ class DatasetsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\DatasetResponse',
+				'\BhrSdk\Model\DatasetResponse',
 				$request,
 				$response,
 			);
@@ -508,7 +508,7 @@ class DatasetsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\DatasetResponse',
+						'\BhrSdk\Model\DatasetResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -550,7 +550,7 @@ class DatasetsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getDataSetsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
-		$returnType = '\MySdk\Model\DatasetResponse';
+		$returnType = '\BhrSdk\Model\DatasetResponse';
 		$request = $this->getDataSetsRequest($contentType);
 
 		return $this->client
@@ -686,9 +686,9 @@ class DatasetsApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\DatasetFieldsResponse
+	 * @return \BhrSdk\Model\DatasetFieldsResponse
 	 */
 	public function getFieldsFromDataset($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
 		list($response) = $this->getFieldsFromDatasetWithHttpInfo($dataset_name, $page, $page_size, $contentType);
@@ -705,9 +705,9 @@ class DatasetsApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\DatasetFieldsResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DatasetFieldsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getFieldsFromDatasetWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
 		$request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
@@ -738,7 +738,7 @@ class DatasetsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\DatasetFieldsResponse',
+						'\BhrSdk\Model\DatasetFieldsResponse',
 						$request,
 						$response,
 					);
@@ -760,7 +760,7 @@ class DatasetsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\DatasetFieldsResponse',
+				'\BhrSdk\Model\DatasetFieldsResponse',
 				$request,
 				$response,
 			);
@@ -769,7 +769,7 @@ class DatasetsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\DatasetFieldsResponse',
+						'\BhrSdk\Model\DatasetFieldsResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -817,7 +817,7 @@ class DatasetsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getFieldsFromDatasetAsyncWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
-		$returnType = '\MySdk\Model\DatasetFieldsResponse';
+		$returnType = '\BhrSdk\Model\DatasetFieldsResponse';
 		$request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
 
 		return $this->client

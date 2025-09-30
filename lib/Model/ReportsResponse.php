@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * ReportsResponse Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -56,8 +56,8 @@ class ReportsResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'reports' => '\MySdk\Model\Report[]',
-		'pagination' => '\MySdk\Model\Pagination'
+		'reports' => '\BhrSdk\Model\Report[]',
+		'pagination' => '\BhrSdk\Model\Pagination'
 	];
 
 	/**
@@ -283,7 +283,7 @@ class ReportsResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets reports
 	 *
-	 * @return \MySdk\Model\Report[]|null
+	 * @return \BhrSdk\Model\Report[]|null
 	 */
 	public function getReports() {
 		return $this->container['reports'];
@@ -292,7 +292,7 @@ class ReportsResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets reports
 	 *
-	 * @param \MySdk\Model\Report[]|null $reports reports
+	 * @param \BhrSdk\Model\Report[]|null $reports reports
 	 *
 	 * @return self
 	 */
@@ -308,7 +308,7 @@ class ReportsResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets pagination
 	 *
-	 * @return \MySdk\Model\Pagination|null
+	 * @return \BhrSdk\Model\Pagination|null
 	 */
 	public function getPagination() {
 		return $this->container['pagination'];
@@ -317,7 +317,7 @@ class ReportsResponse implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets pagination
 	 *
-	 * @param \MySdk\Model\Pagination|null $pagination pagination
+	 * @param \BhrSdk\Model\Pagination|null $pagination pagination
 	 *
 	 * @return self
 	 */

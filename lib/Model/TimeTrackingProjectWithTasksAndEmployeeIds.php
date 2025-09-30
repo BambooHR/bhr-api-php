@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Model;
+namespace BhrSdk\Model;
 
 use \ArrayAccess;
-use \MySdk\ObjectSerializer;
+use \BhrSdk\ObjectSerializer;
 
 /**
  * TimeTrackingProjectWithTasksAndEmployeeIds Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	protected static $openApiTypes = [
 		'id' => 'int',
 		'name' => 'string',
-		'tasks' => '\MySdk\Model\TimeTrackingTask[]',
+		'tasks' => '\BhrSdk\Model\TimeTrackingTask[]',
 		'employee_ids' => 'int[]'
 	];
 
@@ -347,7 +347,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Gets tasks
 	 *
-	 * @return \MySdk\Model\TimeTrackingTask[]|null
+	 * @return \BhrSdk\Model\TimeTrackingTask[]|null
 	 */
 	public function getTasks() {
 		return $this->container['tasks'];
@@ -356,7 +356,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Sets tasks
 	 *
-	 * @param \MySdk\Model\TimeTrackingTask[]|null $tasks A list of time tracking tasks for the project.
+	 * @param \BhrSdk\Model\TimeTrackingTask[]|null $tasks A list of time tracking tasks for the project.
 	 *
 	 * @return self
 	 */

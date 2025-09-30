@@ -1,6 +1,6 @@
-# MySdk\PublicAPIApi
+# BhrSdk\PublicAPIApi
 
-All URIs are relative to https://example.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -152,13 +152,13 @@ Add a company file category.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -199,7 +199,7 @@ void (empty response body)
 ## `addEditTimesheetClockEntries()`
 
 ```php
-addEditTimesheetClockEntries($clock_entries_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+addEditTimesheetClockEntries($clock_entries_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
 ```
 
 Add/Edit Timesheet Clock Entries
@@ -213,19 +213,19 @@ Add or edit timesheet clock entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$clock_entries_schema = new \MySdk\Model\ClockEntriesSchema(); // \MySdk\Model\ClockEntriesSchema
+$clock_entries_schema = new \BhrSdk\Model\ClockEntriesSchema(); // \BhrSdk\Model\ClockEntriesSchema
 
 try {
     $result = $apiInstance->addEditTimesheetClockEntries($clock_entries_schema);
@@ -239,11 +239,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clock_entries_schema** | [**\MySdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
+| **clock_entries_schema** | [**\BhrSdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ try {
 ## `addEditTimesheetHourEntries()`
 
 ```php
-addEditTimesheetHourEntries($hour_entries_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+addEditTimesheetHourEntries($hour_entries_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
 ```
 
 Add/Edit Timesheet Hour Entries
@@ -275,19 +275,19 @@ Add or edit timesheet hour entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$hour_entries_request_schema = new \MySdk\Model\HourEntriesRequestSchema(); // \MySdk\Model\HourEntriesRequestSchema
+$hour_entries_request_schema = new \BhrSdk\Model\HourEntriesRequestSchema(); // \BhrSdk\Model\HourEntriesRequestSchema
 
 try {
     $result = $apiInstance->addEditTimesheetHourEntries($hour_entries_request_schema);
@@ -301,11 +301,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **hour_entries_request_schema** | [**\MySdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
+| **hour_entries_request_schema** | [**\BhrSdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -337,19 +337,19 @@ Add a new employee. New employees must have at least a first name and a last nam
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$post_new_employee = new \MySdk\Model\PostNewEmployee(); // \MySdk\Model\PostNewEmployee
+$post_new_employee = new \BhrSdk\Model\PostNewEmployee(); // \BhrSdk\Model\PostNewEmployee
 
 try {
     $apiInstance->addEmployee($post_new_employee);
@@ -362,7 +362,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **post_new_employee** | [**\MySdk\Model\PostNewEmployee**](../Model/PostNewEmployee.md)|  | |
+| **post_new_employee** | [**\BhrSdk\Model\PostNewEmployee**](../Model/PostNewEmployee.md)|  | |
 
 ### Return type
 
@@ -398,19 +398,19 @@ Adds an employee dependent
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$employee_dependent = new \MySdk\Model\EmployeeDependent(); // \MySdk\Model\EmployeeDependent
+$employee_dependent = new \BhrSdk\Model\EmployeeDependent(); // \BhrSdk\Model\EmployeeDependent
 
 try {
     $apiInstance->addEmployeeDependent($employee_dependent);
@@ -423,7 +423,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_dependent** | [**\MySdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
+| **employee_dependent** | [**\BhrSdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
 
 ### Return type
 
@@ -459,13 +459,13 @@ Add an employee file category.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -520,13 +520,13 @@ Adds a table row. If employee is currently on a pay schedule syncing with Trax P
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -534,7 +534,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->addEmployeeTableRow($id, $table, $table_row_update);
@@ -549,7 +549,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -585,13 +585,13 @@ Adds a table row. Fundamentally the same as version 1 so choose a version and st
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -599,7 +599,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->addEmployeeTableRowV1($id, $table, $table_row_update);
@@ -614,7 +614,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -650,13 +650,13 @@ Add a new candidate application to a job opening. The owner of the API key used 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -737,7 +737,7 @@ void (empty response body)
 ## `addNewEmployeeTrainingRecord()`
 
 ```php
-addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request): \MySdk\Model\TrainingRecord
+addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request): \BhrSdk\Model\TrainingRecord
 ```
 
 Add New Employee Training Record
@@ -751,20 +751,20 @@ Add a new employee training record. The owner of the API key used must have perm
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 0; // int | The ID of the employee to add a training record to.
-$add_new_employee_training_record_request = new \MySdk\Model\AddNewEmployeeTrainingRecordRequest(); // \MySdk\Model\AddNewEmployeeTrainingRecordRequest | Training object to post
+$add_new_employee_training_record_request = new \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest(); // \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest | Training object to post
 
 try {
     $result = $apiInstance->addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request);
@@ -779,11 +779,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| The ID of the employee to add a training record to. | [default to 0] |
-| **add_new_employee_training_record_request** | [**\MySdk\Model\AddNewEmployeeTrainingRecordRequest**](../Model/AddNewEmployeeTrainingRecordRequest.md)| Training object to post | |
+| **add_new_employee_training_record_request** | [**\BhrSdk\Model\AddNewEmployeeTrainingRecordRequest**](../Model/AddNewEmployeeTrainingRecordRequest.md)| Training object to post | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
+[**\BhrSdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
 
 ### Authorization
 
@@ -815,13 +815,13 @@ Add a new job opening. The owner of the API key used must have access to ATS set
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -902,7 +902,7 @@ void (empty response body)
 ## `addTimeTrackingBulk()`
 
 ```php
-addTimeTrackingBulk($time_tracking_record): \MySdk\Model\TimeTrackingBulkResponseSchema
+addTimeTrackingBulk($time_tracking_record): \BhrSdk\Model\TimeTrackingBulkResponseSchema
 ```
 
 Add/Edit Hour Records
@@ -916,19 +916,19 @@ Bulk add/edit hour records
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
+$time_tracking_record = array(new \BhrSdk\Model\TimeTrackingRecord()); // \BhrSdk\Model\TimeTrackingRecord[]
 
 try {
     $result = $apiInstance->addTimeTrackingBulk($time_tracking_record);
@@ -942,11 +942,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
+| **time_tracking_record** | [**\BhrSdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingBulkResponseSchema**](../Model/TimeTrackingBulkResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingBulkResponseSchema**](../Model/TimeTrackingBulkResponseSchema.md)
 
 ### Authorization
 
@@ -964,7 +964,7 @@ try {
 ## `addTimeTrackingHourRecord()`
 
 ```php
-addTimeTrackingHourRecord($time_tracking_record): \MySdk\Model\TimeTrackingIdResponseSchema
+addTimeTrackingHourRecord($time_tracking_record): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
 Add Hour Record
@@ -978,19 +978,19 @@ Add an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
+$time_tracking_record = new \BhrSdk\Model\TimeTrackingRecord(); // \BhrSdk\Model\TimeTrackingRecord
 
 try {
     $result = $apiInstance->addTimeTrackingHourRecord($time_tracking_record);
@@ -1004,11 +1004,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
+| **time_tracking_record** | [**\BhrSdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
 
 ### Authorization
 
@@ -1026,7 +1026,7 @@ try {
 ## `addTimesheetClockInEntry()`
 
 ```php
-addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer
+addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
 ```
 
 Add Timesheet Clock-In Entry
@@ -1040,20 +1040,20 @@ Clock in an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 56; // int | ID of the employee to clock in.
-$clock_in_request_schema = new \MySdk\Model\ClockInRequestSchema(); // \MySdk\Model\ClockInRequestSchema
+$clock_in_request_schema = new \BhrSdk\Model\ClockInRequestSchema(); // \BhrSdk\Model\ClockInRequestSchema
 
 try {
     $result = $apiInstance->addTimesheetClockInEntry($employee_id, $clock_in_request_schema);
@@ -1068,11 +1068,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| ID of the employee to clock in. | |
-| **clock_in_request_schema** | [**\MySdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
+| **clock_in_request_schema** | [**\BhrSdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -1090,7 +1090,7 @@ try {
 ## `addTimesheetClockOutEntry()`
 
 ```php
-addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \MySdk\Model\TimesheetEntryInfoApiTransformer
+addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
 ```
 
 Add Timesheet Clock-Out Entry
@@ -1104,20 +1104,20 @@ Clock out an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 56; // int | ID of the employee to clock out.
-$clock_out_request_schema = new \MySdk\Model\ClockOutRequestSchema(); // \MySdk\Model\ClockOutRequestSchema
+$clock_out_request_schema = new \BhrSdk\Model\ClockOutRequestSchema(); // \BhrSdk\Model\ClockOutRequestSchema
 
 try {
     $result = $apiInstance->addTimesheetClockOutEntry($employee_id, $clock_out_request_schema);
@@ -1132,11 +1132,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| ID of the employee to clock out. | |
-| **clock_out_request_schema** | [**\MySdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
+| **clock_out_request_schema** | [**\BhrSdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
@@ -1154,7 +1154,7 @@ try {
 ## `addTrainingCategory()`
 
 ```php
-addTrainingCategory($add_training_category_request): \MySdk\Model\TrainingCategory
+addTrainingCategory($add_training_category_request): \BhrSdk\Model\TrainingCategory
 ```
 
 Add Training Category
@@ -1168,19 +1168,19 @@ Add a training category. The owner of the API key used must have access to train
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$add_training_category_request = new \MySdk\Model\AddTrainingCategoryRequest(); // \MySdk\Model\AddTrainingCategoryRequest | Training category to post
+$add_training_category_request = new \BhrSdk\Model\AddTrainingCategoryRequest(); // \BhrSdk\Model\AddTrainingCategoryRequest | Training category to post
 
 try {
     $result = $apiInstance->addTrainingCategory($add_training_category_request);
@@ -1194,11 +1194,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **add_training_category_request** | [**\MySdk\Model\AddTrainingCategoryRequest**](../Model/AddTrainingCategoryRequest.md)| Training category to post | |
+| **add_training_category_request** | [**\BhrSdk\Model\AddTrainingCategoryRequest**](../Model/AddTrainingCategoryRequest.md)| Training category to post | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
+[**\BhrSdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
 
 ### Authorization
 
@@ -1216,7 +1216,7 @@ try {
 ## `addTrainingType()`
 
 ```php
-addTrainingType($add_training_type_request): \MySdk\Model\TrainingType
+addTrainingType($add_training_type_request): \BhrSdk\Model\TrainingType
 ```
 
 Add Training Type
@@ -1230,19 +1230,19 @@ Add a training type. The owner of the API key used must have access to training 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$add_training_type_request = new \MySdk\Model\AddTrainingTypeRequest(); // \MySdk\Model\AddTrainingTypeRequest | Training object to post
+$add_training_type_request = new \BhrSdk\Model\AddTrainingTypeRequest(); // \BhrSdk\Model\AddTrainingTypeRequest | Training object to post
 
 try {
     $result = $apiInstance->addTrainingType($add_training_type_request);
@@ -1256,11 +1256,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **add_training_type_request** | [**\MySdk\Model\AddTrainingTypeRequest**](../Model/AddTrainingTypeRequest.md)| Training object to post | |
+| **add_training_type_request** | [**\BhrSdk\Model\AddTrainingTypeRequest**](../Model/AddTrainingTypeRequest.md)| Training object to post | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingType**](../Model/TrainingType.md)
+[**\BhrSdk\Model\TrainingType**](../Model/TrainingType.md)
 
 ### Authorization
 
@@ -1278,7 +1278,7 @@ try {
 ## `createTimeTrackingProject()`
 
 ```php
-createTimeTrackingProject($project_create_request_schema): \MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
+createTimeTrackingProject($project_create_request_schema): \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
 ```
 
 Create Time Tracking Project
@@ -1292,19 +1292,19 @@ Create a time tracking project with optional tasks.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$project_create_request_schema = new \MySdk\Model\ProjectCreateRequestSchema(); // \MySdk\Model\ProjectCreateRequestSchema
+$project_create_request_schema = new \BhrSdk\Model\ProjectCreateRequestSchema(); // \BhrSdk\Model\ProjectCreateRequestSchema
 
 try {
     $result = $apiInstance->createTimeTrackingProject($project_create_request_schema);
@@ -1318,11 +1318,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_create_request_schema** | [**\MySdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
+| **project_create_request_schema** | [**\BhrSdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
+[**\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 
 ### Authorization
 
@@ -1354,13 +1354,13 @@ Delete a company file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1415,13 +1415,13 @@ Delete an employee file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1464,7 +1464,7 @@ void (empty response body)
 ## `deleteEmployeeTableRowV1()`
 
 ```php
-deleteEmployeeTableRowV1($id, $table, $row_id): \MySdk\Model\DeleteEmployeeTableRowV1200Response
+deleteEmployeeTableRowV1($id, $table, $row_id): \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
 ```
 
 Deletes a table row
@@ -1478,13 +1478,13 @@ Deletes a table row
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1512,7 +1512,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
+[**\BhrSdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
 
 ### Authorization
 
@@ -1544,13 +1544,13 @@ Delete an existing employee training record. The owner of the API key used must 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1605,13 +1605,13 @@ Delete a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1668,13 +1668,13 @@ Delete a goal comment.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1719,7 +1719,7 @@ void (empty response body)
 ## `deleteTimeTrackingById()`
 
 ```php
-deleteTimeTrackingById($id): \MySdk\Model\TimeTrackingDeleteResponseSchema
+deleteTimeTrackingById($id): \BhrSdk\Model\TimeTrackingDeleteResponseSchema
 ```
 
 Delete Hour Record
@@ -1733,13 +1733,13 @@ Delete an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1763,7 +1763,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingDeleteResponseSchema**](../Model/TimeTrackingDeleteResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingDeleteResponseSchema**](../Model/TimeTrackingDeleteResponseSchema.md)
 
 ### Authorization
 
@@ -1795,19 +1795,19 @@ Delete timesheet clock entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$clock_entry_ids_schema = new \MySdk\Model\ClockEntryIdsSchema(); // \MySdk\Model\ClockEntryIdsSchema
+$clock_entry_ids_schema = new \BhrSdk\Model\ClockEntryIdsSchema(); // \BhrSdk\Model\ClockEntryIdsSchema
 
 try {
     $result = $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
@@ -1821,7 +1821,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clock_entry_ids_schema** | [**\MySdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
+| **clock_entry_ids_schema** | [**\BhrSdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
 
 ### Return type
 
@@ -1857,19 +1857,19 @@ Delete timesheet hour entries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$hour_entry_ids_schema = new \MySdk\Model\HourEntryIdsSchema(); // \MySdk\Model\HourEntryIdsSchema
+$hour_entry_ids_schema = new \BhrSdk\Model\HourEntryIdsSchema(); // \BhrSdk\Model\HourEntryIdsSchema
 
 try {
     $result = $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
@@ -1883,7 +1883,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **hour_entry_ids_schema** | [**\MySdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
+| **hour_entry_ids_schema** | [**\BhrSdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
 
 ### Return type
 
@@ -1919,13 +1919,13 @@ Delete an existing training category. The owner of the API key used must have ac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1980,13 +1980,13 @@ Delete an existing training type. The owner of the API key used must have access
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2041,13 +2041,13 @@ Delete a webhook that is tied to a specific user API Key.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2088,7 +2088,7 @@ void (empty response body)
 ## `editTimeTrackingRecord()`
 
 ```php
-editTimeTrackingRecord($adjust_time_tracking_request_schema): \MySdk\Model\TimeTrackingIdResponseSchema
+editTimeTrackingRecord($adjust_time_tracking_request_schema): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
 Edit Hour Record
@@ -2102,19 +2102,19 @@ Edit an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$adjust_time_tracking_request_schema = new \MySdk\Model\AdjustTimeTrackingRequestSchema(); // \MySdk\Model\AdjustTimeTrackingRequestSchema
+$adjust_time_tracking_request_schema = new \BhrSdk\Model\AdjustTimeTrackingRequestSchema(); // \BhrSdk\Model\AdjustTimeTrackingRequestSchema
 
 try {
     $result = $apiInstance->editTimeTrackingRecord($adjust_time_tracking_request_schema);
@@ -2128,11 +2128,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **adjust_time_tracking_request_schema** | [**\MySdk\Model\AdjustTimeTrackingRequestSchema**](../Model/AdjustTimeTrackingRequestSchema.md)|  | |
+| **adjust_time_tracking_request_schema** | [**\BhrSdk\Model\AdjustTimeTrackingRequestSchema**](../Model/AdjustTimeTrackingRequestSchema.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
+[**\BhrSdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
 
 ### Authorization
 
@@ -2164,13 +2164,13 @@ This endpoint will return a list, sorted by date, of employees who will be out, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2215,7 +2215,7 @@ void (empty response body)
 ## `getApplicationDetails()`
 
 ```php
-getApplicationDetails($application_id): \MySdk\Model\GetApplicationDetails200Response
+getApplicationDetails($application_id): \BhrSdk\Model\GetApplicationDetails200Response
 ```
 
 Get Application Details
@@ -2229,13 +2229,13 @@ Get the details of an application. The owner of the API key used must have acces
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2259,7 +2259,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
+[**\BhrSdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
 
 ### Authorization
 
@@ -2277,7 +2277,7 @@ try {
 ## `getApplications()`
 
 ```php
-getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \MySdk\Model\GetApplications200Response
+getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \BhrSdk\Model\GetApplications200Response
 ```
 
 Get Applications
@@ -2291,13 +2291,13 @@ Get a list of applications. The owner of the API key used must have access to AT
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2337,7 +2337,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
+[**\BhrSdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
 
 ### Authorization
 
@@ -2369,13 +2369,13 @@ Get benefit coverages
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2430,13 +2430,13 @@ Get benefit deduction types
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2474,7 +2474,7 @@ void (empty response body)
 ## `getByReportId()`
 
 ```php
-getByReportId($report_id): \MySdk\Model\EmployeeResponse
+getByReportId($report_id): \BhrSdk\Model\EmployeeResponse
 ```
 
 Get Report by ID
@@ -2488,13 +2488,13 @@ Use this resource to retrieve data for a specific report.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2518,7 +2518,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
+[**\BhrSdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
 
 ### Authorization
 
@@ -2550,13 +2550,13 @@ Determine if the API user has permission to create a goal for this employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2611,13 +2611,13 @@ This API allows for efficient syncing of employee data. When you use this API yo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2674,13 +2674,13 @@ This API is merely an optimization to avoid downloading all table data for all e
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2737,13 +2737,13 @@ Gets an company file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2784,7 +2784,7 @@ void (empty response body)
 ## `getCompanyInformation()`
 
 ```php
-getCompanyInformation(): \MySdk\Model\GetCompanyInformation200Response
+getCompanyInformation(): \BhrSdk\Model\GetCompanyInformation200Response
 ```
 
 Get Company Information
@@ -2798,13 +2798,13 @@ Gets Company Information
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2825,7 +2825,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
+[**\BhrSdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
 
 ### Authorization
 
@@ -2843,7 +2843,7 @@ This endpoint does not need any parameter.
 ## `getCompanyLocations()`
 
 ```php
-getCompanyLocations(): \MySdk\Model\GetCompanyLocations200ResponseInner[]
+getCompanyLocations(): \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
 ```
 
 Get Company Locations
@@ -2857,13 +2857,13 @@ Get company locations for use in creating a new job opening. The owner of the AP
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2884,7 +2884,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
+[**\BhrSdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
 
 ### Authorization
 
@@ -2916,13 +2916,13 @@ Get company report
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2971,7 +2971,7 @@ void (empty response body)
 ## `getCountriesOptions()`
 
 ```php
-getCountriesOptions(): \MySdk\Model\CountrySchema[]
+getCountriesOptions(): \BhrSdk\Model\CountrySchema[]
 ```
 
 Get all countries
@@ -2985,13 +2985,13 @@ Get all available countries as options. Returns a list of countries with ID and 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3012,7 +3012,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\CountrySchema[]**](../Model/CountrySchema.md)
+[**\BhrSdk\Model\CountrySchema[]**](../Model/CountrySchema.md)
 
 ### Authorization
 
@@ -3030,7 +3030,7 @@ This endpoint does not need any parameter.
 ## `getDataFromDataset()`
 
 ```php
-getDataFromDataset($dataset_name, $data_request): \MySdk\Model\EmployeeResponse
+getDataFromDataset($dataset_name, $data_request): \BhrSdk\Model\EmployeeResponse
 ```
 
 Get Data from Dataset
@@ -3044,20 +3044,20 @@ Use this resource to request data from the specified dataset. You must specify a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $dataset_name = 'dataset_name_example'; // string | The name of the dataset you want data from
-$data_request = new \MySdk\Model\DataRequest(); // \MySdk\Model\DataRequest
+$data_request = new \BhrSdk\Model\DataRequest(); // \BhrSdk\Model\DataRequest
 
 try {
     $result = $apiInstance->getDataFromDataset($dataset_name, $data_request);
@@ -3072,11 +3072,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **dataset_name** | **string**| The name of the dataset you want data from | |
-| **data_request** | [**\MySdk\Model\DataRequest**](../Model/DataRequest.md)|  | |
+| **data_request** | [**\BhrSdk\Model\DataRequest**](../Model/DataRequest.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
+[**\BhrSdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
 
 ### Authorization
 
@@ -3094,7 +3094,7 @@ try {
 ## `getDataSets()`
 
 ```php
-getDataSets(): \MySdk\Model\DatasetResponse
+getDataSets(): \BhrSdk\Model\DatasetResponse
 ```
 
 Get Data Sets
@@ -3108,13 +3108,13 @@ Use this resource to retrieve the available datasets to query data from.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3135,7 +3135,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\DatasetResponse**](../Model/DatasetResponse.md)
+[**\BhrSdk\Model\DatasetResponse**](../Model/DatasetResponse.md)
 
 ### Authorization
 
@@ -3153,7 +3153,7 @@ This endpoint does not need any parameter.
 ## `getEmployee()`
 
 ```php
-getEmployee($fields, $id, $only_current, $accept_header_parameter): \MySdk\Model\GetEmployee200Response
+getEmployee($fields, $id, $only_current, $accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
 ```
 
 Get Employee
@@ -3167,13 +3167,13 @@ Get employee data by specifying a set of fields. This is suitable for getting ba
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3203,7 +3203,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
 
 ### Authorization
 
@@ -3235,13 +3235,13 @@ Get employee dependent
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3298,13 +3298,13 @@ Get all employee dependents
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3361,13 +3361,13 @@ Gets an employee file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3424,13 +3424,13 @@ Get an employee photo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3487,13 +3487,13 @@ Returns a data structure representing all the table rows for a given employee an
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3536,7 +3536,7 @@ void (empty response body)
 ## `getEmployeesDirectory()`
 
 ```php
-getEmployeesDirectory($accept_header_parameter): \MySdk\Model\GetEmployee200Response
+getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
 ```
 
 Get Employee Directory
@@ -3550,13 +3550,13 @@ Gets employee directory.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3580,7 +3580,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
 
 ### Authorization
 
@@ -3598,7 +3598,7 @@ try {
 ## `getFieldOptions()`
 
 ```php
-getFieldOptions($dataset_name, $field_options_request_schema): \MySdk\Model\FieldOptionsTransformer[]
+getFieldOptions($dataset_name, $field_options_request_schema): \BhrSdk\Model\FieldOptionsTransformer[]
 ```
 
 Get Field Options
@@ -3612,16 +3612,16 @@ Use this resource to retrieve a list of possible values for a field.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $dataset_name = 'dataset_name_example'; // string | The name of the dataset you want to see field options for
-$field_options_request_schema = new \MySdk\Model\FieldOptionsRequestSchema(); // \MySdk\Model\FieldOptionsRequestSchema
+$field_options_request_schema = new \BhrSdk\Model\FieldOptionsRequestSchema(); // \BhrSdk\Model\FieldOptionsRequestSchema
 
 try {
     $result = $apiInstance->getFieldOptions($dataset_name, $field_options_request_schema);
@@ -3636,11 +3636,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **dataset_name** | **string**| The name of the dataset you want to see field options for | |
-| **field_options_request_schema** | [**\MySdk\Model\FieldOptionsRequestSchema**](../Model/FieldOptionsRequestSchema.md)|  | |
+| **field_options_request_schema** | [**\BhrSdk\Model\FieldOptionsRequestSchema**](../Model/FieldOptionsRequestSchema.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\FieldOptionsTransformer[]**](../Model/FieldOptionsTransformer.md)
+[**\BhrSdk\Model\FieldOptionsTransformer[]**](../Model/FieldOptionsTransformer.md)
 
 ### Authorization
 
@@ -3658,7 +3658,7 @@ try {
 ## `getFieldsFromDataset()`
 
 ```php
-getFieldsFromDataset($dataset_name, $page, $page_size): \MySdk\Model\DatasetFieldsResponse
+getFieldsFromDataset($dataset_name, $page, $page_size): \BhrSdk\Model\DatasetFieldsResponse
 ```
 
 Get Fields from Dataset
@@ -3672,13 +3672,13 @@ Use this resource to request the available fields on a dataset.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3706,7 +3706,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\DatasetFieldsResponse**](../Model/DatasetFieldsResponse.md)
+[**\BhrSdk\Model\DatasetFieldsResponse**](../Model/DatasetFieldsResponse.md)
 
 ### Authorization
 
@@ -3724,7 +3724,7 @@ try {
 ## `getGoalAggregate()`
 
 ```php
-getGoalAggregate($employee_id, $goal_id): \MySdk\Model\GetGoalAggregate200Response
+getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GetGoalAggregate200Response
 ```
 
 Get Aggregate Goal Info
@@ -3738,13 +3738,13 @@ Provides goal information, goal comments, and employees shared with goals or who
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3770,7 +3770,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
+[**\BhrSdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
 
 ### Authorization
 
@@ -3802,13 +3802,13 @@ Get comments for a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3851,7 +3851,7 @@ void (empty response body)
 ## `getGoals()`
 
 ```php
-getGoals($employee_id, $filter): \MySdk\Model\GetGoals200Response
+getGoals($employee_id, $filter): \BhrSdk\Model\GetGoals200Response
 ```
 
 Get Goals
@@ -3865,13 +3865,13 @@ Get goals for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3897,7 +3897,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
+[**\BhrSdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
 
 ### Authorization
 
@@ -3915,7 +3915,7 @@ try {
 ## `getGoalsAggregateV1()`
 
 ```php
-getGoalsAggregateV1($employee_id): \MySdk\Model\GetGoalsAggregateV1200Response
+getGoalsAggregateV1($employee_id): \BhrSdk\Model\GetGoalsAggregateV1200Response
 ```
 
 Get All Aggregate Goal Info
@@ -3929,13 +3929,13 @@ Provides a list of all goals, type counts, goal comment counts, and employees sh
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3959,7 +3959,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
 
 ### Authorization
 
@@ -3977,7 +3977,7 @@ try {
 ## `getGoalsAggregateV11()`
 
 ```php
-getGoalsAggregateV11($employee_id): \MySdk\Model\GetGoalsAggregateV11200Response
+getGoalsAggregateV11($employee_id): \BhrSdk\Model\GetGoalsAggregateV11200Response
 ```
 
 Get All Aggregate Goal Info, Version 1.1
@@ -3991,13 +3991,13 @@ Provides a list of all goals, type counts, filter actions, goal comment counts, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4021,7 +4021,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
 
 ### Authorization
 
@@ -4039,7 +4039,7 @@ try {
 ## `getGoalsAggregateV12()`
 
 ```php
-getGoalsAggregateV12($employee_id): \MySdk\Model\GetGoalsAggregateV12200Response
+getGoalsAggregateV12($employee_id): \BhrSdk\Model\GetGoalsAggregateV12200Response
 ```
 
 Get All Aggregate Goal Info, Version 1.2
@@ -4053,13 +4053,13 @@ Provides a list of all goals, type counts, filter actions, goal comment counts, 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4083,7 +4083,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
 
 ### Authorization
 
@@ -4115,13 +4115,13 @@ Get alignable goal options for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4164,7 +4164,7 @@ void (empty response body)
 ## `getGoalsFiltersV1()`
 
 ```php
-getGoalsFiltersV1($employee_id): \MySdk\Model\GoalFiltersV1
+getGoalsFiltersV1($employee_id): \BhrSdk\Model\GoalFiltersV1
 ```
 
 Get Goals Filters
@@ -4178,13 +4178,13 @@ Get the number of goals per status for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4208,7 +4208,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV1**](../Model/GoalFiltersV1.md)
+[**\BhrSdk\Model\GoalFiltersV1**](../Model/GoalFiltersV1.md)
 
 ### Authorization
 
@@ -4226,7 +4226,7 @@ try {
 ## `getGoalsFiltersV11()`
 
 ```php
-getGoalsFiltersV11($employee_id): \MySdk\Model\GoalFiltersV11
+getGoalsFiltersV11($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
 Get Goals Filters
@@ -4240,13 +4240,13 @@ Get the number of goals per status for an employee. Difference from Version 1: I
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4270,7 +4270,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
+[**\BhrSdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
 
 ### Authorization
 
@@ -4288,7 +4288,7 @@ try {
 ## `getGoalsFiltersV12()`
 
 ```php
-getGoalsFiltersV12($employee_id): \MySdk\Model\GoalFiltersV11
+getGoalsFiltersV12($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
 Get Goal Status Counts, Version 1.2
@@ -4302,13 +4302,13 @@ Get the number of goals per status for an employee. Difference from Version 1_1:
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4332,7 +4332,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
+[**\BhrSdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
 
 ### Authorization
 
@@ -4364,13 +4364,13 @@ Provides a list of employees with whom the specified employee\\'s goals may be s
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4415,7 +4415,7 @@ void (empty response body)
 ## `getHiringLeads()`
 
 ```php
-getHiringLeads(): \MySdk\Model\GetHiringLeads200ResponseInner[]
+getHiringLeads(): \BhrSdk\Model\GetHiringLeads200ResponseInner[]
 ```
 
 Get Hiring Leads
@@ -4429,13 +4429,13 @@ Get potential hiring leads for use in creating a new job opening. The owner of t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4456,7 +4456,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
+[**\BhrSdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
 
 ### Authorization
 
@@ -4488,13 +4488,13 @@ Get a list of job summaries. The owner of the API key used must have access to A
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4553,13 +4553,13 @@ Get a List of Users
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4597,7 +4597,7 @@ void (empty response body)
 ## `getMemberBenefit()`
 
 ```php
-getMemberBenefit(): \MySdk\Model\MemberBenefitEvent[]
+getMemberBenefit(): \BhrSdk\Model\MemberBenefitEvent[]
 ```
 
 Get a list of member benefit events
@@ -4611,13 +4611,13 @@ Get a list of member benefit events
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4638,7 +4638,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\MemberBenefitEvent[]**](../Model/MemberBenefitEvent.md)
+[**\BhrSdk\Model\MemberBenefitEvent[]**](../Model/MemberBenefitEvent.md)
 
 ### Authorization
 
@@ -4656,7 +4656,7 @@ This endpoint does not need any parameter.
 ## `getMonitorFields()`
 
 ```php
-getMonitorFields(): \MySdk\Model\GetMonitorFields200Response
+getMonitorFields(): \BhrSdk\Model\GetMonitorFields200Response
 ```
 
 Get monitor fields
@@ -4670,13 +4670,13 @@ Get a list fields webhooks can monitor monitor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4697,7 +4697,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
+[**\BhrSdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
 
 ### Authorization
 
@@ -4715,7 +4715,7 @@ This endpoint does not need any parameter.
 ## `getStatesByCountryId()`
 
 ```php
-getStatesByCountryId($country_id): \MySdk\Model\StateProvinceResponseSchema
+getStatesByCountryId($country_id): \BhrSdk\Model\StateProvinceResponseSchema
 ```
 
 Get states by country ID
@@ -4729,13 +4729,13 @@ Get states/provinces for a specific country. Returns a list of state/province op
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4759,7 +4759,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\StateProvinceResponseSchema**](../Model/StateProvinceResponseSchema.md)
+[**\BhrSdk\Model\StateProvinceResponseSchema**](../Model/StateProvinceResponseSchema.md)
 
 ### Authorization
 
@@ -4791,13 +4791,13 @@ Get a list of statuses for a company. The owner of the API key used must have ac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4849,13 +4849,13 @@ This endpoint gets a list of time off policies.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4910,13 +4910,13 @@ This endpoint gets a list of time off types.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4959,7 +4959,7 @@ void (empty response body)
 ## `getTimeTrackingRecord()`
 
 ```php
-getTimeTrackingRecord($id): \MySdk\Model\TimeTrackingRecordSchema
+getTimeTrackingRecord($id): \BhrSdk\Model\TimeTrackingRecordSchema
 ```
 
 Get Hour Record
@@ -4973,13 +4973,13 @@ Get an hour record
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5003,7 +5003,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
+[**\BhrSdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
 
 ### Authorization
 
@@ -5021,7 +5021,7 @@ try {
 ## `getTimesheetEntries()`
 
 ```php
-getTimesheetEntries($start, $end, $employee_ids): \MySdk\Model\EmployeeTimesheetEntryTransformer[]
+getTimesheetEntries($start, $end, $employee_ids): \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]
 ```
 
 Get Timesheet Entries
@@ -5035,13 +5035,13 @@ Get all timesheet entries for a given period of time.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5069,7 +5069,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
+[**\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
 
 ### Authorization
 
@@ -5087,7 +5087,7 @@ try {
 ## `getWebhook()`
 
 ```php
-getWebhook($id): \MySdk\Model\WebHookResponse
+getWebhook($id): \BhrSdk\Model\WebHookResponse
 ```
 
 Get Webhook
@@ -5101,13 +5101,13 @@ Get webhook data that is tied to a specific user API Key.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5131,7 +5131,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
@@ -5149,7 +5149,7 @@ try {
 ## `getWebhookList()`
 
 ```php
-getWebhookList(): \MySdk\Model\GetWebhookList200Response
+getWebhookList(): \BhrSdk\Model\GetWebhookList200Response
 ```
 
 Gets as list of webhooks for the user API key.
@@ -5163,13 +5163,13 @@ Gets as list of webhooks for the user API key.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5190,7 +5190,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
+[**\BhrSdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
 
 ### Authorization
 
@@ -5208,7 +5208,7 @@ This endpoint does not need any parameter.
 ## `getWebhookLogs()`
 
 ```php
-getWebhookLogs($id): \MySdk\Model\WebHookLogResponse
+getWebhookLogs($id): \BhrSdk\Model\WebHookLogResponse
 ```
 
 Get Webhook Logs
@@ -5222,13 +5222,13 @@ Get webhook logs for specific webhook id that is associated with the user API Ke
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5252,7 +5252,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
+[**\BhrSdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
 
 ### Authorization
 
@@ -5284,13 +5284,13 @@ Lists company files and categories
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5342,13 +5342,13 @@ Lists employee files and categories
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5389,7 +5389,7 @@ void (empty response body)
 ## `listEmployeeTrainings()`
 
 ```php
-listEmployeeTrainings($employee_id, $training_type_id): \MySdk\Model\ListEmployeeTrainings200ResponseInner[]
+listEmployeeTrainings($employee_id, $training_type_id): \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]
 ```
 
 List Employee Trainings
@@ -5403,13 +5403,13 @@ Get all employee training records. The owner of the API key used must have acces
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5435,7 +5435,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\ListEmployeeTrainings200ResponseInner[]**](../Model/ListEmployeeTrainings200ResponseInner.md)
+[**\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]**](../Model/ListEmployeeTrainings200ResponseInner.md)
 
 ### Authorization
 
@@ -5453,7 +5453,7 @@ try {
 ## `listReports()`
 
 ```php
-listReports($page, $page_size): \MySdk\Model\ReportsResponse
+listReports($page, $page_size): \BhrSdk\Model\ReportsResponse
 ```
 
 List Reports
@@ -5467,13 +5467,13 @@ Use this resource to retrieve a list of available reports.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5499,7 +5499,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\ReportsResponse**](../Model/ReportsResponse.md)
+[**\BhrSdk\Model\ReportsResponse**](../Model/ReportsResponse.md)
 
 ### Authorization
 
@@ -5517,7 +5517,7 @@ try {
 ## `listTrainingCategories()`
 
 ```php
-listTrainingCategories(): \MySdk\Model\ListTrainingCategories200ResponseInner[]
+listTrainingCategories(): \BhrSdk\Model\ListTrainingCategories200ResponseInner[]
 ```
 
 List Training Categories
@@ -5531,13 +5531,13 @@ Get a list of training categories. The owner of the API key used must have acces
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5558,7 +5558,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\ListTrainingCategories200ResponseInner[]**](../Model/ListTrainingCategories200ResponseInner.md)
+[**\BhrSdk\Model\ListTrainingCategories200ResponseInner[]**](../Model/ListTrainingCategories200ResponseInner.md)
 
 ### Authorization
 
@@ -5576,7 +5576,7 @@ This endpoint does not need any parameter.
 ## `listTrainingTypes()`
 
 ```php
-listTrainingTypes(): \MySdk\Model\ListTrainingTypes200ResponseInner[]
+listTrainingTypes(): \BhrSdk\Model\ListTrainingTypes200ResponseInner[]
 ```
 
 List Training Types
@@ -5590,13 +5590,13 @@ Get a list of training types. The owner of the API key used must have access to 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5617,7 +5617,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\ListTrainingTypes200ResponseInner[]**](../Model/ListTrainingTypes200ResponseInner.md)
+[**\BhrSdk\Model\ListTrainingTypes200ResponseInner[]**](../Model/ListTrainingTypes200ResponseInner.md)
 
 ### Authorization
 
@@ -5649,13 +5649,13 @@ User Login
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5716,20 +5716,20 @@ This resource accepts one or more options. To update an option, specify an ID. Y
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $list_field_id = 'list_field_id_example'; // string
-$list_field_values = new \MySdk\Model\ListFieldValues(); // \MySdk\Model\ListFieldValues
+$list_field_values = new \BhrSdk\Model\ListFieldValues(); // \BhrSdk\Model\ListFieldValues
 
 try {
     $apiInstance->metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values);
@@ -5743,7 +5743,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **list_field_id** | **string**|  | |
-| **list_field_values** | [**\MySdk\Model\ListFieldValues**](../Model/ListFieldValues.md)|  | |
+| **list_field_values** | [**\BhrSdk\Model\ListFieldValues**](../Model/ListFieldValues.md)|  | |
 
 ### Return type
 
@@ -5779,13 +5779,13 @@ This endpoint can help with discovery of fields that are available in an account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5840,13 +5840,13 @@ This endpoint can help discover table fields available in your BambooHR account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5901,13 +5901,13 @@ This endpoint will return details for all list fields. Lists that can be edited 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5962,20 +5962,20 @@ Change applicant\\'s status. The owner of the API key used must have access to A
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 0; // int | The ID of the application to add a comment to.
-$post_applicant_status_request = new \MySdk\Model\PostApplicantStatusRequest(); // \MySdk\Model\PostApplicantStatusRequest | Sample Post Data.
+$post_applicant_status_request = new \BhrSdk\Model\PostApplicantStatusRequest(); // \BhrSdk\Model\PostApplicantStatusRequest | Sample Post Data.
 
 try {
     $apiInstance->postApplicantStatus($application_id, $post_applicant_status_request);
@@ -5989,7 +5989,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
-| **post_applicant_status_request** | [**\MySdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
+| **post_applicant_status_request** | [**\BhrSdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
 
 ### Return type
 
@@ -6025,20 +6025,20 @@ Add a comment to an application. The owner of the API key used must have access 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $application_id = 0; // int | The ID of the application to add a comment to.
-$post_application_comment_request = new \MySdk\Model\PostApplicationCommentRequest(); // \MySdk\Model\PostApplicationCommentRequest | Comment object to post
+$post_application_comment_request = new \BhrSdk\Model\PostApplicationCommentRequest(); // \BhrSdk\Model\PostApplicationCommentRequest | Comment object to post
 
 try {
     $apiInstance->postApplicationComment($application_id, $post_application_comment_request);
@@ -6052,7 +6052,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
-| **post_application_comment_request** | [**\MySdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
+| **post_application_comment_request** | [**\BhrSdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
 
 ### Return type
 
@@ -6074,7 +6074,7 @@ void (empty response body)
 ## `postCloseGoal()`
 
 ```php
-postCloseGoal($employee_id, $goal_id, $body): \MySdk\Model\TransformedApiGoal
+postCloseGoal($employee_id, $goal_id, $body): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Close Goal
@@ -6088,13 +6088,13 @@ Close a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6122,7 +6122,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6140,7 +6140,7 @@ try {
 ## `postGoal()`
 
 ```php
-postGoal($employee_id, $post_goal_request): \MySdk\Model\TransformedApiGoal
+postGoal($employee_id, $post_goal_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Create Goal
@@ -6154,20 +6154,20 @@ Create a new goal for an employee.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$post_goal_request = new \MySdk\Model\PostGoalRequest(); // \MySdk\Model\PostGoalRequest
+$post_goal_request = new \BhrSdk\Model\PostGoalRequest(); // \BhrSdk\Model\PostGoalRequest
 
 try {
     $result = $apiInstance->postGoal($employee_id, $post_goal_request);
@@ -6182,11 +6182,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **post_goal_request** | [**\MySdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
+| **post_goal_request** | [**\BhrSdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6218,13 +6218,13 @@ Create a new goal comment.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6269,7 +6269,7 @@ void (empty response body)
 ## `postReopenGoal()`
 
 ```php
-postReopenGoal($employee_id, $goal_id): \MySdk\Model\TransformedApiGoal
+postReopenGoal($employee_id, $goal_id): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Reopen a Goal
@@ -6283,13 +6283,13 @@ Reopen a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6315,7 +6315,7 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6333,7 +6333,7 @@ try {
 ## `postWebhook()`
 
 ```php
-postWebhook($new_web_hook): \MySdk\Model\PostWebhook201Response
+postWebhook($new_web_hook): \BhrSdk\Model\PostWebhook201Response
 ```
 
 Add Webhook
@@ -6347,19 +6347,19 @@ Add a new Webhook. For more details or instructions you can refer to the [webhoo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
     $result = $apiInstance->postWebhook($new_web_hook);
@@ -6373,11 +6373,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
+[**\BhrSdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
 
 ### Authorization
 
@@ -6409,13 +6409,13 @@ Update a goal comment.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6476,13 +6476,13 @@ Update the progress of a milestone in a goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6491,7 +6491,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $milestone_id = 'milestone_id_example'; // string | milestoneId is the milestone ID for the specified goal.
-$put_goal_milestone_progress_request = new \MySdk\Model\PutGoalMilestoneProgressRequest(); // \MySdk\Model\PutGoalMilestoneProgressRequest
+$put_goal_milestone_progress_request = new \BhrSdk\Model\PutGoalMilestoneProgressRequest(); // \BhrSdk\Model\PutGoalMilestoneProgressRequest
 
 try {
     $result = $apiInstance->putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request);
@@ -6508,7 +6508,7 @@ try {
 | **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **milestone_id** | **string**| milestoneId is the milestone ID for the specified goal. | |
-| **put_goal_milestone_progress_request** | [**\MySdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
+| **put_goal_milestone_progress_request** | [**\BhrSdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
 
 ### Return type
 
@@ -6530,7 +6530,7 @@ try {
 ## `putGoalProgress()`
 
 ```php
-putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \MySdk\Model\TransformedApiGoal
+putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal Progress
@@ -6544,13 +6544,13 @@ Update the progress percentage of an individual goal.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6558,7 +6558,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_progress_request = new \MySdk\Model\PutGoalProgressRequest(); // \MySdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$put_goal_progress_request = new \BhrSdk\Model\PutGoalProgressRequest(); // \BhrSdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
     $result = $apiInstance->putGoalProgress($employee_id, $goal_id, $put_goal_progress_request);
@@ -6574,11 +6574,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_progress_request** | [**\MySdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **put_goal_progress_request** | [**\BhrSdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6596,7 +6596,7 @@ try {
 ## `putGoalSharedWith()`
 
 ```php
-putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request): \MySdk\Model\TransformedApiGoal
+putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal Sharing
@@ -6610,13 +6610,13 @@ Updates which employees this goal is shared with.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6624,7 +6624,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$put_goal_shared_with_request = new \MySdk\Model\PutGoalSharedWithRequest(); // \MySdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$put_goal_shared_with_request = new \BhrSdk\Model\PutGoalSharedWithRequest(); // \BhrSdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
     $result = $apiInstance->putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request);
@@ -6640,11 +6640,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **put_goal_shared_with_request** | [**\MySdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **put_goal_shared_with_request** | [**\BhrSdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6662,7 +6662,7 @@ try {
 ## `putGoalV1()`
 
 ```php
-putGoalV1($employee_id, $goal_id, $goal): \MySdk\Model\TransformedApiGoal
+putGoalV1($employee_id, $goal_id, $goal): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal
@@ -6676,13 +6676,13 @@ Update a goal. This version will not update a goal to contain milestones, that f
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6690,7 +6690,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$goal = new \MySdk\Model\Goal(); // \MySdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$goal = new \BhrSdk\Model\Goal(); // \BhrSdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
 
 try {
     $result = $apiInstance->putGoalV1($employee_id, $goal_id, $goal);
@@ -6706,11 +6706,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **goal** | [**\MySdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **goal** | [**\BhrSdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6728,7 +6728,7 @@ try {
 ## `putGoalV11()`
 
 ```php
-putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \MySdk\Model\TransformedApiGoal
+putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal, V1.1
@@ -6742,13 +6742,13 @@ Update a goal. Version 1.1 allows the updating of the milestones contained withi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6756,7 +6756,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_v11_request = new \MySdk\Model\PutGoalV11Request(); // \MySdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$put_goal_v11_request = new \BhrSdk\Model\PutGoalV11Request(); // \BhrSdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
 
 try {
     $result = $apiInstance->putGoalV11($employee_id, $goal_id, $put_goal_v11_request);
@@ -6772,11 +6772,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_v11_request** | [**\MySdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **put_goal_v11_request** | [**\BhrSdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
@@ -6794,7 +6794,7 @@ try {
 ## `putWebhook()`
 
 ```php
-putWebhook($id, $new_web_hook): \MySdk\Model\WebHookResponse
+putWebhook($id, $new_web_hook): \BhrSdk\Model\WebHookResponse
 ```
 
 Update Webhook
@@ -6808,20 +6808,20 @@ Update a webhook, based on webhook ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | {id} is a webhook ID.
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
     $result = $apiInstance->putWebhook($id, $new_web_hook);
@@ -6836,11 +6836,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is a webhook ID. | |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
@@ -6872,20 +6872,20 @@ Request a custom report
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
-$request_custom_report = new \MySdk\Model\RequestCustomReport(); // \MySdk\Model\RequestCustomReport
+$request_custom_report = new \BhrSdk\Model\RequestCustomReport(); // \BhrSdk\Model\RequestCustomReport
 $only_current = false; // bool | Limits the report to only current employees. Setting to false will include future-dated employees in the report.
 
 try {
@@ -6900,7 +6900,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
-| **request_custom_report** | [**\MySdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
+| **request_custom_report** | [**\BhrSdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
 | **only_current** | **bool**| Limits the report to only current employees. Setting to false will include future-dated employees in the report. | [optional] [default to false] |
 
 ### Return type
@@ -6937,20 +6937,20 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 56; // int | The ID of the employee.
-$time_off_history = new \MySdk\Model\TimeOffHistory(); // \MySdk\Model\TimeOffHistory
+$time_off_history = new \BhrSdk\Model\TimeOffHistory(); // \BhrSdk\Model\TimeOffHistory
 
 try {
     $apiInstance->timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history);
@@ -6964,7 +6964,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| The ID of the employee. | |
-| **time_off_history** | [**\MySdk\Model\TimeOffHistory**](../Model/TimeOffHistory.md)|  | |
+| **time_off_history** | [**\BhrSdk\Model\TimeOffHistory**](../Model/TimeOffHistory.md)|  | |
 
 ### Return type
 
@@ -7000,20 +7000,20 @@ A time off request is an entity that describes the decision making process for a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$time_off_request = new \MySdk\Model\TimeOffRequest(); // \MySdk\Model\TimeOffRequest
+$time_off_request = new \BhrSdk\Model\TimeOffRequest(); // \BhrSdk\Model\TimeOffRequest
 
 try {
     $apiInstance->timeOffAddATimeOffRequest($employee_id, $time_off_request);
@@ -7027,7 +7027,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **time_off_request** | [**\MySdk\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | |
+| **time_off_request** | [**\BhrSdk\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | |
 
 ### Return type
 
@@ -7063,20 +7063,20 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 56; // int | The ID of the employee.
-$adjust_time_off_balance = new \MySdk\Model\AdjustTimeOffBalance(); // \MySdk\Model\AdjustTimeOffBalance
+$adjust_time_off_balance = new \BhrSdk\Model\AdjustTimeOffBalance(); // \BhrSdk\Model\AdjustTimeOffBalance
 
 try {
     $apiInstance->timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance);
@@ -7090,7 +7090,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| The ID of the employee. | |
-| **adjust_time_off_balance** | [**\MySdk\Model\AdjustTimeOffBalance**](../Model/AdjustTimeOffBalance.md)|  | |
+| **adjust_time_off_balance** | [**\BhrSdk\Model\AdjustTimeOffBalance**](../Model/AdjustTimeOffBalance.md)|  | |
 
 ### Return type
 
@@ -7126,20 +7126,20 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
     $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
@@ -7153,7 +7153,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 
@@ -7189,20 +7189,20 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_id = 'employee_id_example'; // string
-$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
     $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
@@ -7216,7 +7216,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**|  | |
-| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\MySdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 
@@ -7252,20 +7252,20 @@ This endpoint allows you to change the status of a request in the system. You ca
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $request_id = 'request_id_example'; // string
-$request = new \MySdk\Model\Request(); // \MySdk\Model\Request
+$request = new \BhrSdk\Model\Request(); // \BhrSdk\Model\Request
 
 try {
     $apiInstance->timeOffChangeARequestStatus($request_id, $request);
@@ -7279,7 +7279,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **request_id** | **string**|  | |
-| **request** | [**\MySdk\Model\Request**](../Model/Request.md)|  | |
+| **request** | [**\BhrSdk\Model\Request**](../Model/Request.md)|  | |
 
 ### Return type
 
@@ -7315,13 +7315,13 @@ This endpoint will sum future time off accruals, scheduled time off, and carry-o
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7380,13 +7380,13 @@ Get Time Off Requests
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7455,13 +7455,13 @@ List Time Off Policies for Employee
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7516,13 +7516,13 @@ List Time Off Policies for Employee, Version 1.1
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7577,20 +7577,20 @@ Update a company file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being updated.
-$company_file_update = new \MySdk\Model\CompanyFileUpdate(); // \MySdk\Model\CompanyFileUpdate
+$company_file_update = new \BhrSdk\Model\CompanyFileUpdate(); // \BhrSdk\Model\CompanyFileUpdate
 
 try {
     $apiInstance->updateCompanyFile($file_id, $company_file_update);
@@ -7604,7 +7604,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **file_id** | **string**| {fileId} is the ID of the employee file being updated. | |
-| **company_file_update** | [**\MySdk\Model\CompanyFileUpdate**](../Model/CompanyFileUpdate.md)|  | |
+| **company_file_update** | [**\BhrSdk\Model\CompanyFileUpdate**](../Model/CompanyFileUpdate.md)|  | |
 
 ### Return type
 
@@ -7640,20 +7640,20 @@ Update an employee, based on employee ID. If employee is currently on a pay sche
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | {id} is an employee ID.
-$employee = new \MySdk\Model\Employee(); // \MySdk\Model\Employee
+$employee = new \BhrSdk\Model\Employee(); // \BhrSdk\Model\Employee
 
 try {
     $apiInstance->updateEmployee($id, $employee);
@@ -7667,7 +7667,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is an employee ID. | |
-| **employee** | [**\MySdk\Model\Employee**](../Model/Employee.md)|  | |
+| **employee** | [**\BhrSdk\Model\Employee**](../Model/Employee.md)|  | |
 
 ### Return type
 
@@ -7703,20 +7703,20 @@ This API allows you to change the information for a given dependent ID.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | {id} is the employee dependent ID.
-$employee_dependent = new \MySdk\Model\EmployeeDependent(); // \MySdk\Model\EmployeeDependent
+$employee_dependent = new \BhrSdk\Model\EmployeeDependent(); // \BhrSdk\Model\EmployeeDependent
 
 try {
     $apiInstance->updateEmployeeDependent($id, $employee_dependent);
@@ -7730,7 +7730,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is the employee dependent ID. | |
-| **employee_dependent** | [**\MySdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
+| **employee_dependent** | [**\BhrSdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
 
 ### Return type
 
@@ -7766,13 +7766,13 @@ Update an employee file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7780,7 +7780,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 );
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being updated.
-$employee_file_update = new \MySdk\Model\EmployeeFileUpdate(); // \MySdk\Model\EmployeeFileUpdate
+$employee_file_update = new \BhrSdk\Model\EmployeeFileUpdate(); // \BhrSdk\Model\EmployeeFileUpdate
 
 try {
     $apiInstance->updateEmployeeFile($id, $file_id, $employee_file_update);
@@ -7795,7 +7795,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being updated. | |
-| **employee_file_update** | [**\MySdk\Model\EmployeeFileUpdate**](../Model/EmployeeFileUpdate.md)|  | |
+| **employee_file_update** | [**\BhrSdk\Model\EmployeeFileUpdate**](../Model/EmployeeFileUpdate.md)|  | |
 
 ### Return type
 
@@ -7831,13 +7831,13 @@ Updates a table row. If employee is currently on a pay schedule syncing with Tra
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7846,7 +7846,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->updateEmployeeTableRow($id, $table, $row_id, $table_row_update);
@@ -7862,7 +7862,7 @@ try {
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -7898,13 +7898,13 @@ Updates a table row. Fundamentally the same as version 1 so choose a version and
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7913,7 +7913,7 @@ $apiInstance = new MySdk\Api\PublicAPIApi(
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
     $apiInstance->updateEmployeeTableRowV($id, $table, $row_id, $table_row_update);
@@ -7929,7 +7929,7 @@ try {
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -7951,7 +7951,7 @@ void (empty response body)
 ## `updateEmployeeTrainingRecord()`
 
 ```php
-updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request): \MySdk\Model\TrainingRecord
+updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request): \BhrSdk\Model\TrainingRecord
 ```
 
 Update Employee Training Record
@@ -7965,20 +7965,20 @@ Update an existing exmployee training record. The owner of the API key used must
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $employee_training_record_id = 0; // int | The ID of the training record to update.
-$update_employee_training_record_request = new \MySdk\Model\UpdateEmployeeTrainingRecordRequest(); // \MySdk\Model\UpdateEmployeeTrainingRecordRequest | Training object to update
+$update_employee_training_record_request = new \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest(); // \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest | Training object to update
 
 try {
     $result = $apiInstance->updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request);
@@ -7993,11 +7993,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_training_record_id** | **int**| The ID of the training record to update. | [default to 0] |
-| **update_employee_training_record_request** | [**\MySdk\Model\UpdateEmployeeTrainingRecordRequest**](../Model/UpdateEmployeeTrainingRecordRequest.md)| Training object to update | |
+| **update_employee_training_record_request** | [**\BhrSdk\Model\UpdateEmployeeTrainingRecordRequest**](../Model/UpdateEmployeeTrainingRecordRequest.md)| Training object to update | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
+[**\BhrSdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
 
 ### Authorization
 
@@ -8015,7 +8015,7 @@ try {
 ## `updateTrainingCategory()`
 
 ```php
-updateTrainingCategory($training_category_id, $update_training_category_request): \MySdk\Model\TrainingCategory
+updateTrainingCategory($training_category_id, $update_training_category_request): \BhrSdk\Model\TrainingCategory
 ```
 
 Update Training Category
@@ -8029,20 +8029,20 @@ Update an existing training category. The owner of the API key used must have ac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $training_category_id = 0; // int | The ID of the training category to update.
-$update_training_category_request = new \MySdk\Model\UpdateTrainingCategoryRequest(); // \MySdk\Model\UpdateTrainingCategoryRequest | Training category to update
+$update_training_category_request = new \BhrSdk\Model\UpdateTrainingCategoryRequest(); // \BhrSdk\Model\UpdateTrainingCategoryRequest | Training category to update
 
 try {
     $result = $apiInstance->updateTrainingCategory($training_category_id, $update_training_category_request);
@@ -8057,11 +8057,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **training_category_id** | **int**| The ID of the training category to update. | [default to 0] |
-| **update_training_category_request** | [**\MySdk\Model\UpdateTrainingCategoryRequest**](../Model/UpdateTrainingCategoryRequest.md)| Training category to update | |
+| **update_training_category_request** | [**\BhrSdk\Model\UpdateTrainingCategoryRequest**](../Model/UpdateTrainingCategoryRequest.md)| Training category to update | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
+[**\BhrSdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
 
 ### Authorization
 
@@ -8079,7 +8079,7 @@ try {
 ## `updateTrainingType()`
 
 ```php
-updateTrainingType($training_type_id, $update_training_type_request): \MySdk\Model\TrainingType
+updateTrainingType($training_type_id, $update_training_type_request): \BhrSdk\Model\TrainingType
 ```
 
 Update Training Type
@@ -8093,20 +8093,20 @@ Update an existing training type. The owner of the API key used must have access
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $training_type_id = 0; // int | The ID of the training type to update.
-$update_training_type_request = new \MySdk\Model\UpdateTrainingTypeRequest(); // \MySdk\Model\UpdateTrainingTypeRequest | Training type object to update to
+$update_training_type_request = new \BhrSdk\Model\UpdateTrainingTypeRequest(); // \BhrSdk\Model\UpdateTrainingTypeRequest | Training type object to update to
 
 try {
     $result = $apiInstance->updateTrainingType($training_type_id, $update_training_type_request);
@@ -8121,11 +8121,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **training_type_id** | **int**| The ID of the training type to update. | [default to 0] |
-| **update_training_type_request** | [**\MySdk\Model\UpdateTrainingTypeRequest**](../Model/UpdateTrainingTypeRequest.md)| Training type object to update to | |
+| **update_training_type_request** | [**\BhrSdk\Model\UpdateTrainingTypeRequest**](../Model/UpdateTrainingTypeRequest.md)| Training type object to update to | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingType**](../Model/TrainingType.md)
+[**\BhrSdk\Model\TrainingType**](../Model/TrainingType.md)
 
 ### Authorization
 
@@ -8157,13 +8157,13 @@ Upload a company file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8215,13 +8215,13 @@ Upload an employee file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8276,13 +8276,13 @@ Store a new employee photo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

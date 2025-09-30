@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace MySdk\Api;
+namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use MySdk\ApiException;
-use MySdk\Configuration;
-use MySdk\FormDataProcessor;
-use MySdk\HeaderSelector;
-use MySdk\ObjectSerializer;
+use BhrSdk\ApiException;
+use BhrSdk\Configuration;
+use BhrSdk\FormDataProcessor;
+use BhrSdk\HeaderSelector;
+use BhrSdk\ObjectSerializer;
 
 /**
  * CustomReportsApi Class Doc Comment
  *
  * @category Class
- * @package  MySdk
+ * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -132,9 +132,9 @@ class CustomReportsApi {
 	 * @param  int $report_id report_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeResponse
+	 * @return \BhrSdk\Model\EmployeeResponse
 	 */
 	public function getByReportId($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
 		list($response) = $this->getByReportIdWithHttpInfo($report_id, $contentType);
@@ -149,9 +149,9 @@ class CustomReportsApi {
 	 * @param  int $report_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getByReportIdWithHttpInfo($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
 		$request = $this->getByReportIdRequest($report_id, $contentType);
@@ -182,7 +182,7 @@ class CustomReportsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$request,
 						$response,
 					);
@@ -204,7 +204,7 @@ class CustomReportsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeResponse',
+				'\BhrSdk\Model\EmployeeResponse',
 				$request,
 				$response,
 			);
@@ -213,7 +213,7 @@ class CustomReportsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeResponse',
+						'\BhrSdk\Model\EmployeeResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -257,7 +257,7 @@ class CustomReportsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getByReportIdAsyncWithHttpInfo($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
-		$returnType = '\MySdk\Model\EmployeeResponse';
+		$returnType = '\BhrSdk\Model\EmployeeResponse';
 		$request = $this->getByReportIdRequest($report_id, $contentType);
 
 		return $this->client
@@ -408,9 +408,9 @@ class CustomReportsApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\ReportsResponse
+	 * @return \BhrSdk\Model\ReportsResponse
 	 */
 	public function listReports($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		list($response) = $this->listReportsWithHttpInfo($page, $page_size, $contentType);
@@ -426,9 +426,9 @@ class CustomReportsApi {
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\ReportsResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ReportsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listReportsWithHttpInfo($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		$request = $this->listReportsRequest($page, $page_size, $contentType);
@@ -459,7 +459,7 @@ class CustomReportsApi {
 			switch($statusCode) {
 				case 200:
 					return $this->handleResponseWithDataType(
-						'\MySdk\Model\ReportsResponse',
+						'\BhrSdk\Model\ReportsResponse',
 						$request,
 						$response,
 					);
@@ -481,7 +481,7 @@ class CustomReportsApi {
 			}
 
 			return $this->handleResponseWithDataType(
-				'\MySdk\Model\ReportsResponse',
+				'\BhrSdk\Model\ReportsResponse',
 				$request,
 				$response,
 			);
@@ -490,7 +490,7 @@ class CustomReportsApi {
 				case 200:
 					$data = ObjectSerializer::deserialize(
 						$e->getResponseBody(),
-						'\MySdk\Model\ReportsResponse',
+						'\BhrSdk\Model\ReportsResponse',
 						$e->getResponseHeaders()
 					);
 					$e->setResponseObject($data);
@@ -536,7 +536,7 @@ class CustomReportsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listReportsAsyncWithHttpInfo($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
-		$returnType = '\MySdk\Model\ReportsResponse';
+		$returnType = '\BhrSdk\Model\ReportsResponse';
 		$request = $this->listReportsRequest($page, $page_size, $contentType);
 
 		return $this->client
