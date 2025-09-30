@@ -24,18 +24,12 @@ Use this resource to retrieve data for a specific report.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\CustomReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -65,7 +59,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -92,18 +86,12 @@ Use this resource to retrieve a list of available reports.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\CustomReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -135,7 +123,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

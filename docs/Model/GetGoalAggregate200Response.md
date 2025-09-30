@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | [**\MySdk\Model\TransformedApiGoal**](TransformedApiGoal.md) |  | [optional]
+**goal** | [**\MySdk\Model\TransformedApiGoal**](TransformedApiGoal.md) |  | [optional]
 **can_align** | **bool** | The selected user can align goals with other users. | [optional]
 **can_create_goals** | **bool** | The selected user can create a goal. | [optional]
 **aligns_with_options** | [**\MySdk\Model\GetGoalAggregate200ResponseAlignsWithOptionsInner[]**](GetGoalAggregate200ResponseAlignsWithOptionsInner.md) | All possible goals that this goal could be aligned with. | [optional]

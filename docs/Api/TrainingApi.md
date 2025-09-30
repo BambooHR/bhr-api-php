@@ -34,18 +34,12 @@ Add a new employee training record. The owner of the API key used must have perm
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -77,7 +71,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -104,18 +98,12 @@ Add a training category. The owner of the API key used must have access to train
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -145,7 +133,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -172,18 +160,12 @@ Add a training type. The owner of the API key used must have access to training 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -213,7 +195,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -240,18 +222,12 @@ Delete an existing employee training record. The owner of the API key used must 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -280,7 +256,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -307,18 +283,12 @@ Delete an existing training category. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -347,7 +317,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -374,18 +344,12 @@ Delete an existing training type. The owner of the API key used must have access
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -414,7 +378,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -441,18 +405,12 @@ Get all employee training records. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -484,7 +442,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -511,18 +469,12 @@ Get a list of training categories. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -549,7 +501,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -576,18 +528,12 @@ Get a list of training types. The owner of the API key used must have access to 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -614,7 +560,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -641,18 +587,12 @@ Update an existing exmployee training record. The owner of the API key used must
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -684,7 +624,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -711,18 +651,12 @@ Update an existing training category. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -754,7 +688,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -781,18 +715,12 @@ Update an existing training type. The owner of the API key used must have access
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -824,7 +752,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

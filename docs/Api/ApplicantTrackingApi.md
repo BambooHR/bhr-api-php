@@ -31,18 +31,12 @@ Add a new candidate application to a job opening. The owner of the API key used 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -111,7 +105,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -138,18 +132,12 @@ Add a new job opening. The owner of the API key used must have access to ATS set
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -218,7 +206,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -245,18 +233,12 @@ Get a list of applications. The owner of the API key used must have access to AT
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -302,7 +284,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -329,18 +311,12 @@ Get company locations for use in creating a new job opening. The owner of the AP
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -367,7 +343,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -394,18 +370,12 @@ Get potential hiring leads for use in creating a new job opening. The owner of t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -432,7 +402,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -459,18 +429,12 @@ Get a list of job summaries. The owner of the API key used must have access to A
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -503,7 +467,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -530,18 +494,12 @@ Get a list of statuses for a company. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -567,7 +525,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -594,18 +552,12 @@ Change applicant\\'s status. The owner of the API key used must have access to A
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -636,7 +588,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -663,18 +615,12 @@ Add a comment to an application. The owner of the API key used must have access 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\ApplicantTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -705,7 +651,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

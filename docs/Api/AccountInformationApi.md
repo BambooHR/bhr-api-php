@@ -29,18 +29,12 @@ Get all available countries as options. Returns a list of countries with ID and 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -67,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -94,18 +88,12 @@ Get a List of Users
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -131,7 +119,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -158,18 +146,12 @@ Get states/provinces for a specific country. Returns a list of state/province op
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -199,7 +181,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -226,18 +208,12 @@ This resource accepts one or more options. To update an option, specify an ID. Y
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -268,7 +244,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -295,18 +271,12 @@ This endpoint can help with discovery of fields that are available in an account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -335,7 +305,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -362,18 +332,12 @@ This endpoint can help discover table fields available in your BambooHR account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -402,7 +366,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -429,18 +393,12 @@ This endpoint will return details for all list fields. Lists that can be edited 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\AccountInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -469,7 +427,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

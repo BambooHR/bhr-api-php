@@ -30,18 +30,12 @@ Add or edit timesheet clock entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -71,7 +65,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -98,18 +92,12 @@ Add or edit timesheet hour entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -139,7 +127,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -166,18 +154,12 @@ Clock in an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -209,7 +191,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -236,18 +218,12 @@ Clock out an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -279,7 +255,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -306,18 +282,12 @@ Get all timesheet entries for a given period of time.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -351,7 +321,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -378,18 +348,12 @@ Create a time tracking project with optional tasks.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -419,7 +383,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -446,18 +410,12 @@ Delete timesheet clock entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -487,7 +445,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -514,18 +472,12 @@ Delete timesheet hour entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
 $config = MySdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
 $config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new MySdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -555,7 +507,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
