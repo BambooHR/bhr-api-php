@@ -80,9 +80,9 @@ class GetGoalAggregate200ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute ""
+     * Test attribute "goal"
      */
-    public function testProperty()
+    public function testPropertyGoal()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

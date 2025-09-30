@@ -21,7 +21,6 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**addTimesheetClockOutEntry()**](PublicAPIApi.md#addTimesheetClockOutEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
 | [**addTrainingCategory()**](PublicAPIApi.md#addTrainingCategory) | **POST** /api/v1/training/category | Add Training Category |
 | [**addTrainingType()**](PublicAPIApi.md#addTrainingType) | **POST** /api/v1/training/type | Add Training Type |
-| [**call134f6593587d7195536c151bd65eb6d5()**](PublicAPIApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
 | [**createTimeTrackingProject()**](PublicAPIApi.md#createTimeTrackingProject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project |
 | [**deleteCompanyFile()**](PublicAPIApi.md#deleteCompanyFile) | **DELETE** /api/v1/files/{fileId} | Delete Company File |
 | [**deleteEmployeeFile()**](PublicAPIApi.md#deleteEmployeeFile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File |
@@ -82,6 +81,7 @@ All URIs are relative to https://example.bamboohr.com, except if the operation d
 | [**getTimeOffPolicies()**](PublicAPIApi.md#getTimeOffPolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies |
 | [**getTimeOffTypes()**](PublicAPIApi.md#getTimeOffTypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types |
 | [**getTimeTrackingRecord()**](PublicAPIApi.md#getTimeTrackingRecord) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
+| [**getTimesheetEntries()**](PublicAPIApi.md#getTimesheetEntries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
 | [**getWebhook()**](PublicAPIApi.md#getWebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook |
 | [**getWebhookList()**](PublicAPIApi.md#getWebhookList) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key. |
 | [**getWebhookLogs()**](PublicAPIApi.md#getWebhookLogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs |
@@ -1270,72 +1270,6 @@ try {
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call134f6593587d7195536c151bd65eb6d5()`
-
-```php
-call134f6593587d7195536c151bd65eb6d5($start, $end, $employee_ids): \MySdk\Model\EmployeeTimesheetEntryTransformer[]
-```
-
-Get Timesheet Entries
-
-Get all timesheet entries for a given period of time.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$start = 2025-01-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days.
-$end = 2025-03-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days.
-$employee_ids = 1,2,3; // string | A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned.
-
-try {
-    $result = $apiInstance->call134f6593587d7195536c151bd65eb6d5($start, $end, $employee_ids);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call134f6593587d7195536c151bd65eb6d5: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **start** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. | |
-| **end** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. | |
-| **employee_ids** | **string**| A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. | [optional] |
-
-### Return type
-
-[**\MySdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -5070,6 +5004,72 @@ try {
 ### Return type
 
 [**\MySdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTimesheetEntries()`
+
+```php
+getTimesheetEntries($start, $end, $employee_ids): \MySdk\Model\EmployeeTimesheetEntryTransformer[]
+```
+
+Get Timesheet Entries
+
+Get all timesheet entries for a given period of time.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = MySdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MySdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$start = 2025-01-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days.
+$end = 2025-03-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days.
+$employee_ids = 1,2,3; // string | A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned.
+
+try {
+    $result = $apiInstance->getTimesheetEntries($start, $end, $employee_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getTimesheetEntries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **start** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. | |
+| **end** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. | |
+| **employee_ids** | **string**| A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. | [optional] |
+
+### Return type
+
+[**\MySdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
 
 ### Authorization
 

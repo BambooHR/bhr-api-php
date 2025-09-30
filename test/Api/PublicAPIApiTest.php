@@ -276,18 +276,6 @@ class PublicAPIApiTest extends TestCase
     }
 
     /**
-     * Test case for call134f6593587d7195536c151bd65eb6d5
-     *
-     * Get Timesheet Entries.
-     *
-     */
-    public function testCall134f6593587d7195536c151bd65eb6d5()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for createTimeTrackingProject
      *
      * Create Time Tracking Project.
@@ -1002,6 +990,18 @@ class PublicAPIApiTest extends TestCase
      *
      */
     public function testGetTimeTrackingRecord()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getTimesheetEntries
+     *
+     * Get Timesheet Entries.
+     *
+     */
+    public function testGetTimesheetEntries()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

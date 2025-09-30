@@ -173,7 +173,6 @@ Class | Method | HTTP request | Description
 *PublicAPIApi* | [**addTimesheetClockOutEntry**](docs/Api/PublicAPIApi.md#addtimesheetclockoutentry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
 *PublicAPIApi* | [**addTrainingCategory**](docs/Api/PublicAPIApi.md#addtrainingcategory) | **POST** /api/v1/training/category | Add Training Category
 *PublicAPIApi* | [**addTrainingType**](docs/Api/PublicAPIApi.md#addtrainingtype) | **POST** /api/v1/training/type | Add Training Type
-*PublicAPIApi* | [**call134f6593587d7195536c151bd65eb6d5**](docs/Api/PublicAPIApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
 *PublicAPIApi* | [**createTimeTrackingProject**](docs/Api/PublicAPIApi.md#createtimetrackingproject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project
 *PublicAPIApi* | [**deleteCompanyFile**](docs/Api/PublicAPIApi.md#deletecompanyfile) | **DELETE** /api/v1/files/{fileId} | Delete Company File
 *PublicAPIApi* | [**deleteEmployeeFile**](docs/Api/PublicAPIApi.md#deleteemployeefile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File
@@ -234,6 +233,7 @@ Class | Method | HTTP request | Description
 *PublicAPIApi* | [**getTimeOffPolicies**](docs/Api/PublicAPIApi.md#gettimeoffpolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies
 *PublicAPIApi* | [**getTimeOffTypes**](docs/Api/PublicAPIApi.md#gettimeofftypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types
 *PublicAPIApi* | [**getTimeTrackingRecord**](docs/Api/PublicAPIApi.md#gettimetrackingrecord) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record
+*PublicAPIApi* | [**getTimesheetEntries**](docs/Api/PublicAPIApi.md#gettimesheetentries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
 *PublicAPIApi* | [**getWebhook**](docs/Api/PublicAPIApi.md#getwebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook
 *PublicAPIApi* | [**getWebhookList**](docs/Api/PublicAPIApi.md#getwebhooklist) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key.
 *PublicAPIApi* | [**getWebhookLogs**](docs/Api/PublicAPIApi.md#getwebhooklogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs
@@ -311,10 +311,10 @@ Class | Method | HTTP request | Description
 *TimeTrackingApi* | [**addEditTimesheetHourEntries**](docs/Api/TimeTrackingApi.md#addedittimesheethourentries) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
 *TimeTrackingApi* | [**addTimesheetClockInEntry**](docs/Api/TimeTrackingApi.md#addtimesheetclockinentry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
 *TimeTrackingApi* | [**addTimesheetClockOutEntry**](docs/Api/TimeTrackingApi.md#addtimesheetclockoutentry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
-*TimeTrackingApi* | [**call134f6593587d7195536c151bd65eb6d5**](docs/Api/TimeTrackingApi.md#call134f6593587d7195536c151bd65eb6d5) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
 *TimeTrackingApi* | [**createTimeTrackingProject**](docs/Api/TimeTrackingApi.md#createtimetrackingproject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project
 *TimeTrackingApi* | [**deleteTimesheetClockEntriesViaPost**](docs/Api/TimeTrackingApi.md#deletetimesheetclockentriesviapost) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries
 *TimeTrackingApi* | [**deleteTimesheetHourEntriesViaPost**](docs/Api/TimeTrackingApi.md#deletetimesheethourentriesviapost) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
+*TimeTrackingApi* | [**getTimesheetEntries**](docs/Api/TimeTrackingApi.md#gettimesheetentries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
 *TrainingApi* | [**addNewEmployeeTrainingRecord**](docs/Api/TrainingApi.md#addnewemployeetrainingrecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record
 *TrainingApi* | [**addTrainingCategory**](docs/Api/TrainingApi.md#addtrainingcategory) | **POST** /api/v1/training/category | Add Training Category
 *TrainingApi* | [**addTrainingType**](docs/Api/TrainingApi.md#addtrainingtype) | **POST** /api/v1/training/type | Add Training Type

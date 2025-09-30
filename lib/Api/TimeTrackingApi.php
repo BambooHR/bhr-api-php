@@ -85,9 +85,6 @@ class TimeTrackingApi {
 		'addTimesheetClockOutEntry' => [
 			'application/json',
         ],
-		'call134f6593587d7195536c151bd65eb6d5' => [
-			'application/json',
-        ],
 		'createTimeTrackingProject' => [
 			'application/json',
         ],
@@ -95,6 +92,9 @@ class TimeTrackingApi {
 			'application/json',
         ],
 		'deleteTimesheetHourEntriesViaPost' => [
+			'application/json',
+        ],
+		'getTimesheetEntries' => [
 			'application/json',
         ],
 	];
@@ -1577,377 +1577,6 @@ class TimeTrackingApi {
 	}
 
 	/**
-	 * Operation call134f6593587d7195536c151bd65eb6d5
-	 *
-	 * Get Timesheet Entries
-	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
-	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'] to see the possible values for this operation
-	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed
-	 */
-	public function call134f6593587d7195536c151bd65eb6d5($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'][0]) {
-		list($response) = $this->call134f6593587d7195536c151bd65eb6d5WithHttpInfo($start, $end, $employee_ids, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation call134f6593587d7195536c151bd65eb6d5WithHttpInfo
-	 *
-	 * Get Timesheet Entries
-	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
-	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'] to see the possible values for this operation
-	 *
-	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function call134f6593587d7195536c151bd65eb6d5WithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'][0]) {
-		$request = $this->call134f6593587d7195536c151bd65eb6d5Request($start, $end, $employee_ids, $contentType);
-
-		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
-				$request,
-				$response,
-			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
-		
-
-			throw $e;
-		}
-	}
-
-	/**
-	 * Operation call134f6593587d7195536c151bd65eb6d5Async
-	 *
-	 * Get Timesheet Entries
-	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
-	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function call134f6593587d7195536c151bd65eb6d5Async($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'][0]) {
-		return $this->call134f6593587d7195536c151bd65eb6d5AsyncWithHttpInfo($start, $end, $employee_ids, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation call134f6593587d7195536c151bd65eb6d5AsyncWithHttpInfo
-	 *
-	 * Get Timesheet Entries
-	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
-	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function call134f6593587d7195536c151bd65eb6d5AsyncWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'][0]) {
-		$returnType = '\MySdk\Model\EmployeeTimesheetEntryTransformer[]';
-		$request = $this->call134f6593587d7195536c151bd65eb6d5Request($start, $end, $employee_ids, $contentType);
-
-		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
-			->then(
-				function ($response) use ($returnType) {
-					if ($returnType === '\SplFileObject') {
-						$content = $response->getBody(); //stream goes to serializer
-					} else {
-						$content = (string) $response->getBody();
-						if ($returnType !== 'string') {
-							$content = json_decode($content);
-						}
-					}
-
-					return [
-						ObjectSerializer::deserialize($content, $returnType, []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'call134f6593587d7195536c151bd65eb6d5'
-	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
-	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function call134f6593587d7195536c151bd65eb6d5Request($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['call134f6593587d7195536c151bd65eb6d5'][0]) {
-
-		// verify the required parameter 'start' is set
-		if ($start === null || (is_array($start) && count($start) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $start when calling call134f6593587d7195536c151bd65eb6d5'
-			);
-		}
-
-		// verify the required parameter 'end' is set
-		if ($end === null || (is_array($end) && count($end) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $end when calling call134f6593587d7195536c151bd65eb6d5'
-			);
-		}
-
-		if ($employee_ids !== null && !preg_match("/^\\d+(,\\d+)*$/", $employee_ids)) {
-			throw new \InvalidArgumentException("invalid value for \"employee_ids\" when calling TimeTrackingApi.call134f6593587d7195536c151bd65eb6d5, must conform to the pattern /^\\d+(,\\d+)*$/.");
-		}
-		
-
-		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
-		$formParams = [];
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$start,
-			'start', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$end,
-			'end', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$employee_ids,
-			'employeeIds', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-
-
-
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (count($formParams) > 0) {
-			if ($multipart) {
-				$multipartContents = [];
-				foreach ($formParams as $formParamName => $formParamValue) {
-					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-					foreach ($formParamValueItems as $formParamValueItem) {
-						$multipartContents[] = [
-							'name' => $formParamName,
-							'contents' => $formParamValueItem
-						];
-					}
-				}
-				// for HTTP post (form)
-				$httpBody = new MultipartStream($multipartContents);
-
-			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the form parameters
-				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-			} else {
-				// for HTTP post (form)
-				$httpBody = ObjectSerializer::buildQuery($formParams);
-			}
-		}
-
-		// this endpoint requires HTTP basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		// this endpoint requires OAuth (access token)
-		if (!empty($this->config->getAccessToken())) {
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-		// this endpoint requires OAuth (access token)
-		if (!empty($this->config->getAccessToken())) {
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'GET',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			$httpBody
-		);
-	}
-
-	/**
 	 * Operation createTimeTrackingProject
 	 *
 	 * Create Time Tracking Project
@@ -2933,6 +2562,377 @@ class TimeTrackingApi {
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
 			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			$httpBody
+		);
+	}
+
+	/**
+	 * Operation getTimesheetEntries
+	 *
+	 * Get Timesheet Entries
+	 *
+	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 *
+	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed
+	 */
+	public function getTimesheetEntries($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
+		list($response) = $this->getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getTimesheetEntriesWithHttpInfo
+	 *
+	 * Get Timesheet Entries
+	 *
+	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 *
+	 * @throws \MySdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \MySdk\Model\EmployeeTimesheetEntryTransformer[]|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
+		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
+
+		try {
+			$options = $this->createHttpClientOption();
+			try {
+				$response = $this->client->send($request, $options);
+			} catch (RequestException $e) {
+				throw new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				);
+			} catch (ConnectException $e) {
+				throw new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					null,
+					null
+				);
+			}
+
+			$statusCode = $response->getStatusCode();
+
+
+			switch($statusCode) {
+				case 200:
+					return $this->handleResponseWithDataType(
+						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+						$request,
+						$response,
+					);
+				case 400:
+					return $this->handleResponseWithDataType(
+						'mixed',
+						$request,
+						$response,
+					);
+				case 401:
+					return $this->handleResponseWithDataType(
+						'mixed',
+						$request,
+						$response,
+					);
+				case 403:
+					return $this->handleResponseWithDataType(
+						'mixed',
+						$request,
+						$response,
+					);
+				case 500:
+					return $this->handleResponseWithDataType(
+						'mixed',
+						$request,
+						$response,
+					);
+			}
+
+			
+
+			if ($statusCode < 200 || $statusCode > 299) {
+				throw new ApiException(
+					sprintf(
+						'[%d] Error connecting to the API (%s)',
+						$statusCode,
+						(string) $request->getUri()
+					),
+					$statusCode,
+					$response->getHeaders(),
+					(string) $response->getBody()
+				);
+			}
+
+			return $this->handleResponseWithDataType(
+				'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+				$request,
+				$response,
+			);
+		} catch (ApiException $e) {
+			switch ($e->getCode()) {
+				case 200:
+					$data = ObjectSerializer::deserialize(
+						$e->getResponseBody(),
+						'\MySdk\Model\EmployeeTimesheetEntryTransformer[]',
+						$e->getResponseHeaders()
+					);
+					$e->setResponseObject($data);
+					throw $e;
+				case 400:
+					$data = ObjectSerializer::deserialize(
+						$e->getResponseBody(),
+						'mixed',
+						$e->getResponseHeaders()
+					);
+					$e->setResponseObject($data);
+					throw $e;
+				case 401:
+					$data = ObjectSerializer::deserialize(
+						$e->getResponseBody(),
+						'mixed',
+						$e->getResponseHeaders()
+					);
+					$e->setResponseObject($data);
+					throw $e;
+				case 403:
+					$data = ObjectSerializer::deserialize(
+						$e->getResponseBody(),
+						'mixed',
+						$e->getResponseHeaders()
+					);
+					$e->setResponseObject($data);
+					throw $e;
+				case 500:
+					$data = ObjectSerializer::deserialize(
+						$e->getResponseBody(),
+						'mixed',
+						$e->getResponseHeaders()
+					);
+					$e->setResponseObject($data);
+					throw $e;
+			}
+		
+
+			throw $e;
+		}
+	}
+
+	/**
+	 * Operation getTimesheetEntriesAsync
+	 *
+	 * Get Timesheet Entries
+	 *
+	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getTimesheetEntriesAsync($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
+		return $this->getTimesheetEntriesAsyncWithHttpInfo($start, $end, $employee_ids, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getTimesheetEntriesAsyncWithHttpInfo
+	 *
+	 * Get Timesheet Entries
+	 *
+	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getTimesheetEntriesAsyncWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
+		$returnType = '\MySdk\Model\EmployeeTimesheetEntryTransformer[]';
+		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
+
+		return $this->client
+			->sendAsync($request, $this->createHttpClientOption())
+			->then(
+				function ($response) use ($returnType) {
+					if ($returnType === '\SplFileObject') {
+						$content = $response->getBody(); //stream goes to serializer
+					} else {
+						$content = (string) $response->getBody();
+						if ($returnType !== 'string') {
+							$content = json_decode($content);
+						}
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getTimesheetEntries'
+	 *
+	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getTimesheetEntriesRequest($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
+
+		// verify the required parameter 'start' is set
+		if ($start === null || (is_array($start) && count($start) === 0)) {
+			throw new \InvalidArgumentException(
+				'Missing the required parameter $start when calling getTimesheetEntries'
+			);
+		}
+
+		// verify the required parameter 'end' is set
+		if ($end === null || (is_array($end) && count($end) === 0)) {
+			throw new \InvalidArgumentException(
+				'Missing the required parameter $end when calling getTimesheetEntries'
+			);
+		}
+
+		if ($employee_ids !== null && !preg_match("/^\\d+(,\\d+)*$/", $employee_ids)) {
+			throw new \InvalidArgumentException("invalid value for \"employee_ids\" when calling TimeTrackingApi.getTimesheetEntries, must conform to the pattern /^\\d+(,\\d+)*$/.");
+		}
+		
+
+		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
+		$formParams = [];
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// query params
+		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+			$start,
+			'start', // param base name
+			'string', // openApiType
+			'form', // style
+			true, // explode
+			true // required
+		) ?? []);
+		// query params
+		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+			$end,
+			'end', // param base name
+			'string', // openApiType
+			'form', // style
+			true, // explode
+			true // required
+		) ?? []);
+		// query params
+		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+			$employee_ids,
+			'employeeIds', // param base name
+			'string', // openApiType
+			'form', // style
+			true, // explode
+			false // required
+		) ?? []);
+
+
+
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (count($formParams) > 0) {
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
+
+		// this endpoint requires HTTP basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		// this endpoint requires OAuth (access token)
+		if (!empty($this->config->getAccessToken())) {
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+		// this endpoint requires OAuth (access token)
+		if (!empty($this->config->getAccessToken())) {
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			$httpBody
