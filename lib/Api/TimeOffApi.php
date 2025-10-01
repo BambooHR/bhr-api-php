@@ -261,13 +261,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getAListOfWhoIsOutAsyncWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
-		$returnType = '';
+		
 		$request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -473,13 +473,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		$returnType = '';
+		
 		$request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -667,13 +667,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		$returnType = '';
+		
 		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -872,13 +872,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1093,13 +1093,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAddATimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1314,13 +1314,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1535,13 +1535,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1756,13 +1756,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1977,13 +1977,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffChangeARequestStatusAsyncWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2202,13 +2202,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2453,13 +2453,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffGetTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2732,13 +2732,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2932,13 +2932,13 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

@@ -221,13 +221,13 @@ class LastChangeInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getChangedEmployeeIdsAsyncWithHttpInfo($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
-		$returnType = '';
+		
 		$request = $this->getChangedEmployeeIdsRequest($since, $type, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

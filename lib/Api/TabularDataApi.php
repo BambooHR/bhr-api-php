@@ -243,13 +243,13 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeTableRowAsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -484,13 +484,13 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1011,13 +1011,13 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getChangedEmployeeTableDataAsyncWithHttpInfo($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
-		$returnType = '';
+		
 		$request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1232,13 +1232,13 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeTableRowAsyncWithHttpInfo($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1460,13 +1460,13 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1721,13 +1721,13 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeTableRowVAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

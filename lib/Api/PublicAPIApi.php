@@ -601,13 +601,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addCompanyFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
-		$returnType = '';
+		
 		$request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1460,13 +1460,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeAsyncWithHttpInfo($post_new_employee, string $contentType = self::CONTENT_TYPES['addEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeRequest($post_new_employee, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1661,13 +1661,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeDependentAsyncWithHttpInfo($employee_dependent, string $contentType = self::CONTENT_TYPES['addEmployeeDependent'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeDependentRequest($employee_dependent, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1862,13 +1862,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2071,13 +2071,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeTableRowAsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2312,13 +2312,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2625,13 +2625,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addNewCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
-		$returnType = '';
+		
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -3273,13 +3273,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addNewJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
-		$returnType = '';
+		
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -5529,13 +5529,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteCompanyFileAsyncWithHttpInfo($file_id, string $contentType = self::CONTENT_TYPES['deleteCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteCompanyFileRequest($file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -5733,13 +5733,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeFileAsyncWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteEmployeeFileRequest($id, $file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -6239,13 +6239,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTrainingRecord'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -6443,13 +6443,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteGoalAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['deleteGoal'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -6667,13 +6667,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, string $contentType = self::CONTENT_TYPES['deleteGoalComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -7841,13 +7841,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTrainingCategoryAsyncWithHttpInfo($training_category_id, string $contentType = self::CONTENT_TYPES['deleteTrainingCategory'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -8041,13 +8041,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTrainingTypeAsyncWithHttpInfo($training_type_id, string $contentType = self::CONTENT_TYPES['deleteTrainingType'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -8265,13 +8265,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteWebhookAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteWebhook'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteWebhookRequest($id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -8738,13 +8738,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getAListOfWhoIsOutAsyncWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
-		$returnType = '';
+		
 		$request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -9565,13 +9565,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getBenefitCoveragesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getBenefitCoverages'][0]) {
-		$returnType = '';
+		
 		$request = $this->getBenefitCoveragesRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -9751,13 +9751,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getBenefitDeductionTypesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getBenefitDeductionTypes'][0]) {
-		$returnType = '';
+		
 		$request = $this->getBenefitDeductionTypesRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -10185,13 +10185,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCanCreateGoalAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getCanCreateGoal'][0]) {
-		$returnType = '';
+		
 		$request = $this->getCanCreateGoalRequest($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -10389,13 +10389,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getChangedEmployeeIdsAsyncWithHttpInfo($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
-		$returnType = '';
+		
 		$request = $this->getChangedEmployeeIdsRequest($since, $type, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -10605,13 +10605,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getChangedEmployeeTableDataAsyncWithHttpInfo($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
-		$returnType = '';
+		
 		$request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -10822,13 +10822,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyFileAsyncWithHttpInfo($file_id, string $contentType = self::CONTENT_TYPES['getCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->getCompanyFileRequest($file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -11498,13 +11498,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyReportAsyncWithHttpInfo($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::CONTENT_TYPES['getCompanyReport'][0]) {
-		$returnType = '';
+		
 		$request = $this->getCompanyReportRequest($id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -12774,13 +12774,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeDependentAsyncWithHttpInfo($id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependent'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeDependentRequest($id, $accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -12984,13 +12984,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeDependentsAsyncWithHttpInfo($employeeid, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependents'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeDependentsRequest($employeeid, $accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -13195,13 +13195,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeFileAsyncWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -13415,13 +13415,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -13635,13 +13635,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeTableRowAsyncWithHttpInfo($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -14944,13 +14944,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalCommentsAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalComments'][0]) {
-		$returnType = '';
+		
 		$request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -16189,13 +16189,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
-		$returnType = '';
+		
 		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -17168,13 +17168,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsShareOptionsAsyncWithHttpInfo($employee_id, $search = null, $limit = null, string $contentType = self::CONTENT_TYPES['getGoalsShareOptions'][0]) {
-		$returnType = '';
+		
 		$request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -17628,13 +17628,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getJobSummariesAsyncWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
-		$returnType = '';
+		
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -17841,13 +17841,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getListOfUsersAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		$returnType = '';
+		
 		$request = $this->getListOfUsersRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -18745,13 +18745,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getStatusesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
-		$returnType = '';
+		
 		$request = $this->getStatusesRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -18929,13 +18929,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		$returnType = '';
+		
 		$request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -19123,13 +19123,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		$returnType = '';
+		
 		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -20758,13 +20758,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listCompanyFilesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
-		$returnType = '';
+		
 		$request = $this->listCompanyFilesRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -20942,13 +20942,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listEmployeeFilesAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		$returnType = '';
+		
 		$request = $this->listEmployeeFilesRequest($id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -22143,13 +22143,13 @@ class PublicAPIApi {
 	 * @deprecated
 	 */
 	public function loginAsyncWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		$returnType = '';
+		
 		$request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -22378,13 +22378,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -22595,13 +22595,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataGetAListOfFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -22785,13 +22785,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataGetAListOfTabularFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -22975,13 +22975,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataGetDetailsForListFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -23169,13 +23169,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postApplicantStatusAsyncWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
-		$returnType = '';
+		
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -23390,13 +23390,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postApplicationCommentAsyncWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -24171,13 +24171,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $body, string $contentType = self::CONTENT_TYPES['postGoalComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -24979,13 +24979,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, $body, string $contentType = self::CONTENT_TYPES['putGoalComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -27043,13 +27043,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function requestCustomReportAsyncWithHttpInfo($format, $request_custom_report, $only_current = false, string $contentType = self::CONTENT_TYPES['requestCustomReport'][0]) {
-		$returnType = '';
+		
 		$request = $this->requestCustomReportRequest($format, $request_custom_report, $only_current, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -27276,13 +27276,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -27497,13 +27497,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAddATimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -27718,13 +27718,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -27939,13 +27939,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -28160,13 +28160,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -28381,13 +28381,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffChangeARequestStatusAsyncWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -28606,13 +28606,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -28857,13 +28857,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffGetTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -29136,13 +29136,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -29336,13 +29336,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		$returnType = '';
+		
 		$request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -29540,13 +29540,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateCompanyFileAsyncWithHttpInfo($file_id, $company_file_update, string $contentType = self::CONTENT_TYPES['updateCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateCompanyFileRequest($file_id, $company_file_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -29761,13 +29761,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeAsyncWithHttpInfo($id, $employee, string $contentType = self::CONTENT_TYPES['updateEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeRequest($id, $employee, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -29982,13 +29982,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeDependentAsyncWithHttpInfo($id, $employee_dependent, string $contentType = self::CONTENT_TYPES['updateEmployeeDependent'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeDependentRequest($id, $employee_dependent, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -30207,13 +30207,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeFileAsyncWithHttpInfo($id, $file_id, $employee_file_update, string $contentType = self::CONTENT_TYPES['updateEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeFileRequest($id, $file_id, $employee_file_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -30452,13 +30452,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -30713,13 +30713,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeTableRowVAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -31771,13 +31771,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function uploadCompanyFileAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->uploadCompanyFileRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -31955,13 +31955,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function uploadEmployeeFileAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->uploadEmployeeFileRequest($id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -32155,13 +32155,13 @@ class PublicAPIApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function uploadEmployeePhotoAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
-		$returnType = '';
+		
 		$request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

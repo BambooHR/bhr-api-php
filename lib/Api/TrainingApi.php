@@ -1023,13 +1023,13 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeTrainingRecordAsyncWithHttpInfo($employee_training_record_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTrainingRecord'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1223,13 +1223,13 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTrainingCategoryAsyncWithHttpInfo($training_category_id, string $contentType = self::CONTENT_TYPES['deleteTrainingCategory'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1423,13 +1423,13 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTrainingTypeAsyncWithHttpInfo($training_type_id, string $contentType = self::CONTENT_TYPES['deleteTrainingType'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

@@ -229,13 +229,13 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeAsyncWithHttpInfo($post_new_employee, string $contentType = self::CONTENT_TYPES['addEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeRequest($post_new_employee, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1200,13 +1200,13 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeAsyncWithHttpInfo($id, $employee, string $contentType = self::CONTENT_TYPES['updateEmployee'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeRequest($id, $employee, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

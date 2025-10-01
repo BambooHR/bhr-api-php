@@ -224,13 +224,13 @@ class PhotosApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -440,13 +440,13 @@ class PhotosApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function uploadEmployeePhotoAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
-		$returnType = '';
+		
 		$request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

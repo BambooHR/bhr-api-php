@@ -235,13 +235,13 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeDependentAsyncWithHttpInfo($employee_dependent, string $contentType = self::CONTENT_TYPES['addEmployeeDependent'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeDependentRequest($employee_dependent, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -436,13 +436,13 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getBenefitCoveragesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getBenefitCoverages'][0]) {
-		$returnType = '';
+		
 		$request = $this->getBenefitCoveragesRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -622,13 +622,13 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getBenefitDeductionTypesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getBenefitDeductionTypes'][0]) {
-		$returnType = '';
+		
 		$request = $this->getBenefitDeductionTypesRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -810,13 +810,13 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeDependentAsyncWithHttpInfo($id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependent'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeDependentRequest($id, $accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1020,13 +1020,13 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeDependentsAsyncWithHttpInfo($employeeid, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependents'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeDependentsRequest($employeeid, $accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1461,13 +1461,13 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeDependentAsyncWithHttpInfo($id, $employee_dependent, string $contentType = self::CONTENT_TYPES['updateEmployeeDependent'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeDependentRequest($id, $employee_dependent, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

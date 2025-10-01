@@ -290,13 +290,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteGoalAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['deleteGoal'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -514,13 +514,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, string $contentType = self::CONTENT_TYPES['deleteGoalComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -746,13 +746,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCanCreateGoalAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getCanCreateGoal'][0]) {
-		$returnType = '';
+		
 		$request = $this->getCanCreateGoalRequest($employee_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1220,13 +1220,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalCommentsAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalComments'][0]) {
-		$returnType = '';
+		
 		$request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -2465,13 +2465,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
-		$returnType = '';
+		
 		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -3444,13 +3444,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsShareOptionsAsyncWithHttpInfo($employee_id, $search = null, $limit = null, string $contentType = self::CONTENT_TYPES['getGoalsShareOptions'][0]) {
-		$returnType = '';
+		
 		$request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -4230,13 +4230,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $body, string $contentType = self::CONTENT_TYPES['postGoalComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -4745,13 +4745,13 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalCommentAsyncWithHttpInfo($employee_id, $goal_id, $comment_id, $body, string $contentType = self::CONTENT_TYPES['putGoalComment'][0]) {
-		$returnType = '';
+		
 		$request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

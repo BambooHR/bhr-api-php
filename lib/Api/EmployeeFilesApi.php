@@ -232,13 +232,13 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addEmployeeFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
-		$returnType = '';
+		
 		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -437,13 +437,13 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeFileAsyncWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteEmployeeFileRequest($id, $file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -657,13 +657,13 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeFileAsyncWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -873,13 +873,13 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listEmployeeFilesAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		$returnType = '';
+		
 		$request = $this->listEmployeeFilesRequest($id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1081,13 +1081,13 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateEmployeeFileAsyncWithHttpInfo($id, $file_id, $employee_file_update, string $contentType = self::CONTENT_TYPES['updateEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateEmployeeFileRequest($id, $file_id, $employee_file_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1314,13 +1314,13 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function uploadEmployeeFileAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->uploadEmployeeFileRequest($id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

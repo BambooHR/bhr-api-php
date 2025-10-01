@@ -232,13 +232,13 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function addCompanyFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
-		$returnType = '';
+		
 		$request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -433,13 +433,13 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteCompanyFileAsyncWithHttpInfo($file_id, string $contentType = self::CONTENT_TYPES['deleteCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->deleteCompanyFileRequest($file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -633,13 +633,13 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyFileAsyncWithHttpInfo($file_id, string $contentType = self::CONTENT_TYPES['getCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->getCompanyFileRequest($file_id, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -829,13 +829,13 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listCompanyFilesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
-		$returnType = '';
+		
 		$request = $this->listCompanyFilesRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1017,13 +1017,13 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function updateCompanyFileAsyncWithHttpInfo($file_id, $company_file_update, string $contentType = self::CONTENT_TYPES['updateCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->updateCompanyFileRequest($file_id, $company_file_update, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1230,13 +1230,13 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function uploadCompanyFileAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
-		$returnType = '';
+		
 		$request = $this->uploadCompanyFileRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

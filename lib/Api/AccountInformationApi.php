@@ -461,13 +461,13 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getListOfUsersAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		$returnType = '';
+		
 		$request = $this->getListOfUsersRequest($contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -899,13 +899,13 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1116,13 +1116,13 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataGetAListOfFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1306,13 +1306,13 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataGetAListOfTabularFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
@@ -1496,13 +1496,13 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function metadataGetDetailsForListFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		$returnType = '';
+		
 		$request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {

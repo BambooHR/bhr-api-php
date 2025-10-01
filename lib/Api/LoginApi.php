@@ -233,13 +233,13 @@ class LoginApi {
 	 * @deprecated
 	 */
 	public function loginAsyncWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		$returnType = '';
+		
 		$request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
 
 		return $this->client
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
 				},
 				function ($exception) {
