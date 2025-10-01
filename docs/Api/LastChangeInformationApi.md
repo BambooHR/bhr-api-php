@@ -1,6 +1,6 @@
 # BhrSdk\LastChangeInformationApi
 
-All URIs are relative to https://company.bamboohr.com, except if the operation defines another base path.
+All URIs are relative to https://companySubDomain.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |

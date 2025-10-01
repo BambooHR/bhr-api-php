@@ -73,7 +73,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://company.bamboohr.com*
+All URIs are relative to *https://companySubDomain.bamboohr.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
