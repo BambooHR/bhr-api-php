@@ -152,7 +152,8 @@ class HeaderSelector {
 
 		$acceptHeaders = array_merge(...$acceptHeaders);
 
-		return implode(',', $acceptHeaders);
+		// Return only the first header, as the BHR API returns xml if it's included, even if json is first in the list
+		return $acceptHeaders[0];
 	}
 
 	/**

@@ -741,6 +741,11 @@ use {{invokerPackage}}\ObjectSerializer;
 			$headerParams,
 			$headers
 		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
 
 		{{#servers.0}}
 		# Preserve the original behavior of server indexing.

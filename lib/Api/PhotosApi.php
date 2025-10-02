@@ -333,6 +333,11 @@ class PhotosApi {
 			$headerParams,
 			$headers
 		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
 
 		$operationHost = $this->config->getHost();
 		$query = ObjectSerializer::buildQuery($queryParams);
@@ -533,6 +538,11 @@ class PhotosApi {
 			$headerParams,
 			$headers
 		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
 
 		$operationHost = $this->config->getHost();
 		$query = ObjectSerializer::buildQuery($queryParams);
