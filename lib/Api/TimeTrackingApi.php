@@ -2650,33 +2650,23 @@ class TimeTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$start,
-			'start', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$end,
-			'end', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$employee_ids,
-			'employeeIds', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'start' => ['value' => $start, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'employeeIds' => ['value' => $employee_ids, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 

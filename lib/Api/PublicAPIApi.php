@@ -8726,24 +8726,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$start,
-			'start', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$end,
-			'end', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'start' => ['value' => $start, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -9274,87 +9272,29 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page,
-			'page', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$job_id,
-			'jobId', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$application_status_id,
-			'applicationStatusId', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$application_status,
-			'applicationStatus', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$job_status_groups,
-			'jobStatusGroups', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$search_string,
-			'searchString', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$sort_by,
-			'sortBy', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$sort_order,
-			'sortOrder', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$new_since,
-			'newSince', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'jobId' => ['value' => $job_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'applicationStatusId' => ['value' => $application_status_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'applicationStatus' => ['value' => $application_status, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'jobStatusGroups' => ['value' => $job_status_groups, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'searchString' => ['value' => $search_string, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'sortBy' => ['value' => $sort_by, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'sortOrder' => ['value' => $sort_order, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'newSince' => ['value' => $new_since, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 
@@ -10369,24 +10309,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$since,
-			'since', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$type,
-			'type', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'since' => ['value' => $since, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'type' => ['value' => $type, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 
@@ -10591,15 +10529,21 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$since,
-			'since', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
+		$parameters = [
+			'since' => ['value' => $since, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params
@@ -11482,33 +11426,23 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$format,
-			'format', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$fd,
-			'fd', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$only_current,
-			'onlyCurrent', // param base name
-			'boolean', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'format' => ['value' => $format, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'fd' => ['value' => $fd, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'onlyCurrent' => ['value' => $only_current, 'type' => 'boolean', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -12502,24 +12436,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$fields,
-			'fields', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$only_current,
-			'onlyCurrent', // param base name
-			'boolean', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'fields' => ['value' => $fields, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'onlyCurrent' => ['value' => $only_current, 'type' => 'boolean', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -12940,15 +12872,21 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$employeeid,
-			'employeeid', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
+		$parameters = [
+			'employeeid' => ['value' => $employeeid, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -14394,24 +14332,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page,
-			'page', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page_size,
-			'page_size', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page_size' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params
@@ -15150,15 +15086,21 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$filter,
-			'filter', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params
@@ -17082,24 +17024,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$search,
-			'search', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$limit,
-			'limit', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'search' => ['value' => $search, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params
@@ -17532,33 +17472,23 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$status_groups,
-			'statusGroups', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$sort_by,
-			'sortBy', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$sort_order,
-			'sortOrder', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'statusGroups' => ['value' => $status_groups, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'sortBy' => ['value' => $sort_by, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'sortOrder' => ['value' => $sort_order, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 
@@ -19013,15 +18943,21 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$mode,
-			'mode', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'mode' => ['value' => $mode, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -19601,33 +19537,23 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$start,
-			'start', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$end,
-			'end', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$employee_ids,
-			'employeeIds', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'start' => ['value' => $start, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'employeeIds' => ['value' => $employee_ids, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 
@@ -21068,15 +20994,21 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$training_type_id,
-			'trainingTypeId', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'trainingTypeId' => ['value' => $training_type_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params
@@ -21323,24 +21255,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page,
-			'page', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page_size,
-			'page_size', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page_size' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 
@@ -26871,24 +26801,22 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$format,
-			'format', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$only_current,
-			'onlyCurrent', // param base name
-			'boolean', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'format' => ['value' => $format, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'onlyCurrent' => ['value' => $only_current, 'type' => 'boolean', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 
@@ -28434,15 +28362,21 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$end,
-			'end', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
+		$parameters = [
+			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -28695,69 +28629,27 @@ class PublicAPIApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$id,
-			'id', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$action,
-			'action', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$employee_id,
-			'employeeId', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$start,
-			'start', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$end,
-			'end', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$type,
-			'type', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$status,
-			'status', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'id' => ['value' => $id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'action' => ['value' => $action, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'employeeId' => ['value' => $employee_id, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'start' => ['value' => $start, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'type' => ['value' => $type, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'status' => ['value' => $status, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {

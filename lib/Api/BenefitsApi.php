@@ -1074,15 +1074,21 @@ class BenefitsApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$employeeid,
-			'employeeid', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
+		$parameters = [
+			'employeeid' => ['value' => $employeeid, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {

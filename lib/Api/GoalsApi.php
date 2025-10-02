@@ -1536,15 +1536,21 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$filter,
-			'filter', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params
@@ -3468,24 +3474,22 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$search,
-			'search', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$limit,
-			'limit', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'search' => ['value' => $search, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params

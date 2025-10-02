@@ -826,24 +826,22 @@ class DatasetsApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page,
-			'page', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$page_size,
-			'page_size', // param base name
-			'integer', // openApiType
-			'form', // style
-			true, // explode
-			false // required
-		) ?? []);
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page_size' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params

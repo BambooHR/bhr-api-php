@@ -1067,15 +1067,21 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			$since,
-			'since', // param base name
-			'string', // openApiType
-			'form', // style
-			true, // explode
-			true // required
-		) ?? []);
+		$parameters = [
+			'since' => ['value' => $since, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 
 		// path params

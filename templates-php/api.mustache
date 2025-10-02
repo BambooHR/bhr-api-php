@@ -594,17 +594,25 @@ use {{invokerPackage}}\ObjectSerializer;
 		$httpBody = '';
 		$multipart = false;
 
-		{{#queryParams}}
-		// query params
-		$queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-			${{paramName}},
-			'{{baseName}}', // param base name
-			'{{#schema}}{{openApiType}}{{/schema}}', // openApiType
-			'{{style}}', // style
-			{{#isExplode}}true{{/isExplode}}{{^isExplode}}false{{/isExplode}}, // explode
-			{{required}} // required
-		) ?? []);
-		{{/queryParams}}
+		{{#hasQueryParams}}
+		$parameters = [
+			{{#queryParams}}
+			'{{baseName}}' => ['value' => ${{paramName}}, 'type' => '{{#schema}}{{openApiType}}{{/schema}}', 'required' => {{required}}, 'style' => '{{style}}', 'explode' => {{#isExplode}}true{{/isExplode}}{{^isExplode}}false{{/isExplode}}],
+			{{/queryParams}}
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+		{{/hasQueryParams}}
 
 		{{#headerParams}}
 		// header params
