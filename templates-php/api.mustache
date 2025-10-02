@@ -454,13 +454,9 @@ use {{invokerPackage}}\ObjectSerializer;
 			->then(
 				function ($response) {{#returnType}}use ($returnType) {{/returnType}}{
 					{{#returnType}}
-					if ($returnType === '\SplFileObject') {
-						$content = $response->getBody(); //stream goes to serializer
-					} else {
-						$content = (string) $response->getBody();
-						if ($returnType !== 'string') {
-							$content = json_decode($content);
-						}
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
 					}
 
 					return [

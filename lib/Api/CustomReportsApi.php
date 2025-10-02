@@ -264,13 +264,9 @@ class CustomReportsApi {
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
-					if ($returnType === '\SplFileObject') {
-						$content = $response->getBody(); //stream goes to serializer
-					} else {
-						$content = (string) $response->getBody();
-						if ($returnType !== 'string') {
-							$content = json_decode($content);
-						}
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
 					}
 
 					return [
@@ -518,13 +514,9 @@ class CustomReportsApi {
 			->sendAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
-					if ($returnType === '\SplFileObject') {
-						$content = $response->getBody(); //stream goes to serializer
-					} else {
-						$content = (string) $response->getBody();
-						if ($returnType !== 'string') {
-							$content = json_decode($content);
-						}
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
 					}
 
 					return [
