@@ -645,12 +645,14 @@ use {{invokerPackage}}\ObjectSerializer;
 
 		$formData = $formDataProcessor->prepare([
 		{{/-first}}
-			'{{paramName}}' => ${{paramName}},
+			${{paramName}},
 		{{#-last}}
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
-		$multipart = $formDataProcessor->has_file;
+		{{^isMultipart}}
+		$multipart = $formDataProcessor->hasFile;
+		{{/isMultipart}}
 		{{/-last}}
 		{{/formParams}}
 

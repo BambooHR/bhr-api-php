@@ -2736,31 +2736,30 @@ class PublicAPIApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			'first_name' => $first_name,
-			'last_name' => $last_name,
-			'email' => $email,
-			'phone_number' => $phone_number,
-			'source' => $source,
-			'job_id' => $job_id,
-			'address' => $address,
-			'city' => $city,
-			'state' => $state,
-			'zip' => $zip,
-			'country' => $country,
-			'linkedin_url' => $linkedin_url,
-			'date_available' => $date_available,
-			'desired_salary' => $desired_salary,
-			'referred_by' => $referred_by,
-			'website_url' => $website_url,
-			'highest_education' => $highest_education,
-			'college_name' => $college_name,
-			'references' => $references,
-			'resume' => $resume,
-			'cover_letter' => $cover_letter,
+			$first_name,
+			$last_name,
+			$email,
+			$phone_number,
+			$source,
+			$job_id,
+			$address,
+			$city,
+			$state,
+			$zip,
+			$country,
+			$linkedin_url,
+			$date_available,
+			$desired_salary,
+			$referred_by,
+			$website_url,
+			$highest_education,
+			$college_name,
+			$references,
+			$resume,
+			$cover_letter,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
-		$multipart = $formDataProcessor->has_file;
 
 		$multipart = true;
 		$headers = $this->headerSelector->selectHeaders(
@@ -3396,31 +3395,30 @@ class PublicAPIApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			'posting_title' => $posting_title,
-			'job_status' => $job_status,
-			'hiring_lead' => $hiring_lead,
-			'department' => $department,
-			'employment_type' => $employment_type,
-			'minimum_experience' => $minimum_experience,
-			'compensation' => $compensation,
-			'job_location' => $job_location,
-			'job_description' => $job_description,
-			'application_question_resume' => $application_question_resume,
-			'application_question_address' => $application_question_address,
-			'application_question_linkedin_url' => $application_question_linkedin_url,
-			'application_question_date_available' => $application_question_date_available,
-			'application_question_desired_salary' => $application_question_desired_salary,
-			'application_question_cover_letter' => $application_question_cover_letter,
-			'application_question_referred_by' => $application_question_referred_by,
-			'application_question_website_url' => $application_question_website_url,
-			'application_question_highest_education' => $application_question_highest_education,
-			'application_question_college' => $application_question_college,
-			'application_question_references' => $application_question_references,
-			'internal_job_code' => $internal_job_code,
+			$posting_title,
+			$job_status,
+			$hiring_lead,
+			$department,
+			$employment_type,
+			$minimum_experience,
+			$compensation,
+			$job_location,
+			$job_description,
+			$application_question_resume,
+			$application_question_address,
+			$application_question_linkedin_url,
+			$application_question_date_available,
+			$application_question_desired_salary,
+			$application_question_cover_letter,
+			$application_question_referred_by,
+			$application_question_website_url,
+			$application_question_highest_education,
+			$application_question_college,
+			$application_question_references,
+			$internal_job_code,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
-		$multipart = $formDataProcessor->has_file;
 
 		$multipart = true;
 		$headers = $this->headerSelector->selectHeaders(
@@ -22207,13 +22205,13 @@ class PublicAPIApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			'application_key' => $application_key,
-			'user' => $user,
-			'password' => $password,
+			$application_key,
+			$user,
+			$password,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
-		$multipart = $formDataProcessor->has_file;
+		$multipart = $formDataProcessor->hasFile;
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],

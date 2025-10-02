@@ -297,13 +297,13 @@ class LoginApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			'application_key' => $application_key,
-			'user' => $user,
-			'password' => $password,
+			$application_key,
+			$user,
+			$password,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
-		$multipart = $formDataProcessor->has_file;
+		$multipart = $formDataProcessor->hasFile;
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
