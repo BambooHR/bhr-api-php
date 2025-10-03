@@ -509,6 +509,19 @@ use {{invokerPackage}}\ObjectSerializer;
 	{{/isDeprecated}}
 	 */
 	public function {{operationId}}Request({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}{{^required}} = {{#defaultValue}}{{{.}}}{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}, {{/allParams}}{{#servers}}{{#-first}}?int $hostIndex = null, array $variables = [], {{/-first}}{{/servers}}string $contentType = self::CONTENT_TYPES['{{{operationId}}}'][0]{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}}) {
+		{{#hasRequiredParams}}
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				{{#allParams}}
+				{{#required}}
+				'{{paramName}}' => ${{paramName}},
+				{{/required}}
+				{{/allParams}}
+			],
+			methodName: '{{operationId}}'
+		);
+		{{/hasRequiredParams}}
 		{{#vendorExtensions.x-group-parameters}}
 		// unbox the parameters from the associative array
 {{#allParams}}
@@ -519,14 +532,6 @@ use {{invokerPackage}}\ObjectSerializer;
 {{/servers.0}}
 		$contentType = $associative_array['contentType'] ?? self::CONTENT_TYPES['{{{operationId}}}'][0];
 		{{/vendorExtensions.x-group-parameters}}{{#allParams}}
-		{{#required}}
-		// verify the required parameter '{{paramName}}' is set
-		if (${{paramName}} === null || (is_array(${{paramName}}) && count(${{paramName}}) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter ${{paramName}} when calling {{operationId}}'
-			);
-		}
-		{{/required}}
 		{{#hasValidation}}
 		{{#maxLength}}
 		if ({{^required}}${{paramName}} !== null && {{/required}}strlen(${{paramName}}) > {{maxLength}}) {
@@ -849,6 +854,23 @@ use {{invokerPackage}}\ObjectSerializer;
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }
 {{/operations}}

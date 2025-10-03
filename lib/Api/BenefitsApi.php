@@ -270,13 +270,14 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addEmployeeDependentRequest($employee_dependent, string $contentType = self::CONTENT_TYPES['addEmployeeDependent'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_dependent' => $employee_dependent,
+			],
+			methodName: 'addEmployeeDependent'
+		);
 
-		// verify the required parameter 'employee_dependent' is set
-		if ($employee_dependent === null || (is_array($employee_dependent) && count($employee_dependent) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_dependent when calling addEmployeeDependent'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employeedependents';
@@ -858,13 +859,14 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getEmployeeDependentRequest($id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependent'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'getEmployeeDependent'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getEmployeeDependent'
-			);
-		}
 
 
 
@@ -1072,13 +1074,14 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getEmployeeDependentsRequest($employeeid, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependents'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employeeid' => $employeeid,
+			],
+			methodName: 'getEmployeeDependents'
+		);
 
-		// verify the required parameter 'employeeid' is set
-		if ($employeeid === null || (is_array($employeeid) && count($employeeid) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employeeid when calling getEmployeeDependents'
-			);
-		}
 
 
 
@@ -1515,20 +1518,16 @@ class BenefitsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateEmployeeDependentRequest($id, $employee_dependent, string $contentType = self::CONTENT_TYPES['updateEmployeeDependent'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'employee_dependent' => $employee_dependent,
+			],
+			methodName: 'updateEmployeeDependent'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling updateEmployeeDependent'
-			);
-		}
 
-		// verify the required parameter 'employee_dependent' is set
-		if ($employee_dependent === null || (is_array($employee_dependent) && count($employee_dependent) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_dependent when calling updateEmployeeDependent'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employeedependents/{id}';
@@ -1663,5 +1662,22 @@ class BenefitsApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

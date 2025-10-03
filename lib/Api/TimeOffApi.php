@@ -924,20 +924,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'time_off_history' => $time_off_history,
+			],
+			methodName: 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffAddATimeOffHistoryItemForTimeOffRequest'
-			);
-		}
 
-		// verify the required parameter 'time_off_history' is set
-		if ($time_off_history === null || (is_array($time_off_history) && count($time_off_history) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $time_off_history when calling timeOffAddATimeOffHistoryItemForTimeOffRequest'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
@@ -1149,20 +1145,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'time_off_request' => $time_off_request,
+			],
+			methodName: 'timeOffAddATimeOffRequest'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffAddATimeOffRequest'
-			);
-		}
 
-		// verify the required parameter 'time_off_request' is set
-		if ($time_off_request === null || (is_array($time_off_request) && count($time_off_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $time_off_request when calling timeOffAddATimeOffRequest'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
@@ -1374,20 +1366,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'adjust_time_off_balance' => $adjust_time_off_balance,
+			],
+			methodName: 'timeOffAdjustTimeOffBalance'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffAdjustTimeOffBalance'
-			);
-		}
 
-		// verify the required parameter 'adjust_time_off_balance' is set
-		if ($adjust_time_off_balance === null || (is_array($adjust_time_off_balance) && count($adjust_time_off_balance) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $adjust_time_off_balance when calling timeOffAdjustTimeOffBalance'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
@@ -1599,20 +1587,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'time_off_assign_time_off_policies_for_an_employee_request_inner' => $time_off_assign_time_off_policies_for_an_employee_request_inner,
+			],
+			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployee'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffAssignTimeOffPoliciesForAnEmployee'
-			);
-		}
 
-		// verify the required parameter 'time_off_assign_time_off_policies_for_an_employee_request_inner' is set
-		if ($time_off_assign_time_off_policies_for_an_employee_request_inner === null || (is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) && count($time_off_assign_time_off_policies_for_an_employee_request_inner) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $time_off_assign_time_off_policies_for_an_employee_request_inner when calling timeOffAssignTimeOffPoliciesForAnEmployee'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
@@ -1824,20 +1808,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'time_off_assign_time_off_policies_for_an_employee_request_inner' => $time_off_assign_time_off_policies_for_an_employee_request_inner,
+			],
+			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffAssignTimeOffPoliciesForAnEmployeeV11'
-			);
-		}
 
-		// verify the required parameter 'time_off_assign_time_off_policies_for_an_employee_request_inner' is set
-		if ($time_off_assign_time_off_policies_for_an_employee_request_inner === null || (is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) && count($time_off_assign_time_off_policies_for_an_employee_request_inner) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $time_off_assign_time_off_policies_for_an_employee_request_inner when calling timeOffAssignTimeOffPoliciesForAnEmployeeV11'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
@@ -2049,20 +2029,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffChangeARequestStatusRequest($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'request_id' => $request_id,
+				'request' => $request,
+			],
+			methodName: 'timeOffChangeARequestStatus'
+		);
 
-		// verify the required parameter 'request_id' is set
-		if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $request_id when calling timeOffChangeARequestStatus'
-			);
-		}
 
-		// verify the required parameter 'request' is set
-		if ($request === null || (is_array($request) && count($request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $request when calling timeOffChangeARequestStatus'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/time_off/requests/{requestId}/status';
@@ -2279,20 +2255,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'end' => $end,
+				'employee_id' => $employee_id,
+			],
+			methodName: 'timeOffEstimateFutureTimeOffBalances'
+		);
 
-		// verify the required parameter 'end' is set
-		if ($end === null || (is_array($end) && count($end) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $end when calling timeOffEstimateFutureTimeOffBalances'
-			);
-		}
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffEstimateFutureTimeOffBalances'
-			);
-		}
 
 
 
@@ -2545,20 +2517,16 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'start' => $start,
+				'end' => $end,
+			],
+			methodName: 'timeOffGetTimeOffRequests'
+		);
 
-		// verify the required parameter 'start' is set
-		if ($start === null || (is_array($start) && count($start) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $start when calling timeOffGetTimeOffRequests'
-			);
-		}
 
-		// verify the required parameter 'end' is set
-		if ($end === null || (is_array($end) && count($end) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $end when calling timeOffGetTimeOffRequests'
-			);
-		}
 
 
 
@@ -2779,13 +2747,14 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'timeOffListTimeOffPoliciesForEmployee'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffListTimeOffPoliciesForEmployee'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
@@ -2983,13 +2952,14 @@ class TimeOffApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'timeOffListTimeOffPoliciesForEmployeeV11'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling timeOffListTimeOffPoliciesForEmployeeV11'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
@@ -3115,5 +3085,22 @@ class TimeOffApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

@@ -293,13 +293,14 @@ class CustomReportsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getByReportIdRequest($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'report_id' => $report_id,
+			],
+			methodName: 'getByReportId'
+		);
 
-		// verify the required parameter 'report_id' is set
-		if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $report_id when calling getByReportId'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/custom-reports/{reportId}';
@@ -675,5 +676,22 @@ class CustomReportsApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

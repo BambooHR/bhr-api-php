@@ -260,20 +260,16 @@ class PhotosApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getEmployeePhotoRequest($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'size' => $size,
+			],
+			methodName: 'getEmployeePhoto'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getEmployeePhoto'
-			);
-		}
 
-		// verify the required parameter 'size' is set
-		if ($size === null || (is_array($size) && count($size) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $size when calling getEmployeePhoto'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/photo/{size}';
@@ -479,13 +475,14 @@ class PhotosApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function uploadEmployeePhotoRequest($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'uploadEmployeePhoto'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling uploadEmployeePhoto'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{employeeId}/photo';
@@ -611,5 +608,22 @@ class PhotosApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

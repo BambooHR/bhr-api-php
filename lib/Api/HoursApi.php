@@ -302,13 +302,14 @@ class HoursApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addTimeTrackingBulkRequest($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'time_tracking_record' => $time_tracking_record,
+			],
+			methodName: 'addTimeTrackingBulk'
+		);
 
-		// verify the required parameter 'time_tracking_record' is set
-		if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $time_tracking_record when calling addTimeTrackingBulk'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/timetracking/record';
@@ -551,13 +552,14 @@ class HoursApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addTimeTrackingHourRecordRequest($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'time_tracking_record' => $time_tracking_record,
+			],
+			methodName: 'addTimeTrackingHourRecord'
+		);
 
-		// verify the required parameter 'time_tracking_record' is set
-		if ($time_tracking_record === null || (is_array($time_tracking_record) && count($time_tracking_record) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $time_tracking_record when calling addTimeTrackingHourRecord'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/timetracking/add';
@@ -800,13 +802,14 @@ class HoursApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteTimeTrackingByIdRequest($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'deleteTimeTrackingById'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling deleteTimeTrackingById'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/timetracking/delete/{id}';
@@ -1048,13 +1051,14 @@ class HoursApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'adjust_time_tracking_request_schema' => $adjust_time_tracking_request_schema,
+			],
+			methodName: 'editTimeTrackingRecord'
+		);
 
-		// verify the required parameter 'adjust_time_tracking_request_schema' is set
-		if ($adjust_time_tracking_request_schema === null || (is_array($adjust_time_tracking_request_schema) && count($adjust_time_tracking_request_schema) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $adjust_time_tracking_request_schema when calling editTimeTrackingRecord'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/timetracking/adjust';
@@ -1297,13 +1301,14 @@ class HoursApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getTimeTrackingRecordRequest($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'getTimeTrackingRecord'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getTimeTrackingRecord'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/timetracking/record/{id}';
@@ -1429,5 +1434,22 @@ class HoursApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

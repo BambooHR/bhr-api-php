@@ -280,27 +280,18 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addEmployeeTableRowRequest($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'table' => $table,
+				'table_row_update' => $table_row_update,
+			],
+			methodName: 'addEmployeeTableRow'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling addEmployeeTableRow'
-			);
-		}
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling addEmployeeTableRow'
-			);
-		}
 
-		// verify the required parameter 'table_row_update' is set
-		if ($table_row_update === null || (is_array($table_row_update) && count($table_row_update) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table_row_update when calling addEmployeeTableRow'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
@@ -525,27 +516,18 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addEmployeeTableRowV1Request($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'table' => $table,
+				'table_row_update' => $table_row_update,
+			],
+			methodName: 'addEmployeeTableRowV1'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling addEmployeeTableRowV1'
-			);
-		}
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling addEmployeeTableRowV1'
-			);
-		}
 
-		// verify the required parameter 'table_row_update' is set
-		if ($table_row_update === null || (is_array($table_row_update) && count($table_row_update) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table_row_update when calling addEmployeeTableRowV1'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
@@ -808,27 +790,18 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteEmployeeTableRowV1Request($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'table' => $table,
+				'row_id' => $row_id,
+			],
+			methodName: 'deleteEmployeeTableRowV1'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling deleteEmployeeTableRowV1'
-			);
-		}
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling deleteEmployeeTableRowV1'
-			);
-		}
 
-		// verify the required parameter 'row_id' is set
-		if ($row_id === null || (is_array($row_id) && count($row_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $row_id when calling deleteEmployeeTableRowV1'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
@@ -1047,20 +1020,16 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getChangedEmployeeTableDataRequest($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'table' => $table,
+				'since' => $since,
+			],
+			methodName: 'getChangedEmployeeTableData'
+		);
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling getChangedEmployeeTableData'
-			);
-		}
 
-		// verify the required parameter 'since' is set
-		if ($since === null || (is_array($since) && count($since) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $since when calling getChangedEmployeeTableData'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/changed/tables/{table}';
@@ -1278,20 +1247,16 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getEmployeeTableRowRequest($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'table' => $table,
+			],
+			methodName: 'getEmployeeTableRow'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getEmployeeTableRow'
-			);
-		}
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling getEmployeeTableRow'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
@@ -1512,34 +1477,20 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'table' => $table,
+				'row_id' => $row_id,
+				'table_row_update' => $table_row_update,
+			],
+			methodName: 'updateEmployeeTableRow'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling updateEmployeeTableRow'
-			);
-		}
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling updateEmployeeTableRow'
-			);
-		}
 
-		// verify the required parameter 'row_id' is set
-		if ($row_id === null || (is_array($row_id) && count($row_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $row_id when calling updateEmployeeTableRow'
-			);
-		}
 
-		// verify the required parameter 'table_row_update' is set
-		if ($table_row_update === null || (is_array($table_row_update) && count($table_row_update) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table_row_update when calling updateEmployeeTableRow'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
@@ -1777,34 +1728,20 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'table' => $table,
+				'row_id' => $row_id,
+				'table_row_update' => $table_row_update,
+			],
+			methodName: 'updateEmployeeTableRowV'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling updateEmployeeTableRowV'
-			);
-		}
 
-		// verify the required parameter 'table' is set
-		if ($table === null || (is_array($table) && count($table) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table when calling updateEmployeeTableRowV'
-			);
-		}
 
-		// verify the required parameter 'row_id' is set
-		if ($row_id === null || (is_array($row_id) && count($row_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $row_id when calling updateEmployeeTableRowV'
-			);
-		}
 
-		// verify the required parameter 'table_row_update' is set
-		if ($table_row_update === null || (is_array($table_row_update) && count($table_row_update) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $table_row_update when calling updateEmployeeTableRowV'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
@@ -1955,5 +1892,22 @@ class TabularDataApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

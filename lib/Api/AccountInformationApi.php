@@ -714,13 +714,14 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getStatesByCountryIdRequest($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'country_id' => $country_id,
+			],
+			methodName: 'getStatesByCountryId'
+		);
 
-		// verify the required parameter 'country_id' is set
-		if ($country_id === null || (is_array($country_id) && count($country_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $country_id when calling getStatesByCountryId'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/meta/provinces/{countryId}';
@@ -923,20 +924,16 @@ class AccountInformationApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'list_field_id' => $list_field_id,
+				'list_field_values' => $list_field_values,
+			],
+			methodName: 'metadataAddOrUpdateValuesForListFields'
+		);
 
-		// verify the required parameter 'list_field_id' is set
-		if ($list_field_id === null || (is_array($list_field_id) && count($list_field_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $list_field_id when calling metadataAddOrUpdateValuesForListFields'
-			);
-		}
 
-		// verify the required parameter 'list_field_values' is set
-		if ($list_field_values === null || (is_array($list_field_values) && count($list_field_values) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $list_field_values when calling metadataAddOrUpdateValuesForListFields'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/meta/lists/{listFieldId}';
@@ -1653,5 +1650,22 @@ class AccountInformationApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

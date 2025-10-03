@@ -290,13 +290,14 @@ class ATSApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getApplicationDetailsRequest($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'application_id' => $application_id,
+			],
+			methodName: 'getApplicationDetails'
+		);
 
-		// verify the required parameter 'application_id' is set
-		if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $application_id when calling getApplicationDetails'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}';
@@ -422,5 +423,22 @@ class ATSApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

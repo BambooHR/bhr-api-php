@@ -267,13 +267,14 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addCompanyFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'request_body' => $request_body,
+			],
+			methodName: 'addCompanyFileCategory'
+		);
 
-		// verify the required parameter 'request_body' is set
-		if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $request_body when calling addCompanyFileCategory'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/files/categories';
@@ -472,13 +473,14 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteCompanyFileRequest($file_id, string $contentType = self::CONTENT_TYPES['deleteCompanyFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'file_id' => $file_id,
+			],
+			methodName: 'deleteCompanyFile'
+		);
 
-		// verify the required parameter 'file_id' is set
-		if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $file_id when calling deleteCompanyFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/files/{fileId}';
@@ -676,13 +678,14 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getCompanyFileRequest($file_id, string $contentType = self::CONTENT_TYPES['getCompanyFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'file_id' => $file_id,
+			],
+			methodName: 'getCompanyFile'
+		);
 
-		// verify the required parameter 'file_id' is set
-		if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $file_id when calling getCompanyFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/files/{fileId}';
@@ -1069,20 +1072,16 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateCompanyFileRequest($file_id, $company_file_update, string $contentType = self::CONTENT_TYPES['updateCompanyFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'file_id' => $file_id,
+				'company_file_update' => $company_file_update,
+			],
+			methodName: 'updateCompanyFile'
+		);
 
-		// verify the required parameter 'file_id' is set
-		if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $file_id when calling updateCompanyFile'
-			);
-		}
 
-		// verify the required parameter 'company_file_update' is set
-		if ($company_file_update === null || (is_array($company_file_update) && count($company_file_update) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $company_file_update when calling updateCompanyFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/files/{fileId}';
@@ -1401,5 +1400,22 @@ class CompanyFilesApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

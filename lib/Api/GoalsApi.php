@@ -326,20 +326,16 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteGoalRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['deleteGoal'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+			],
+			methodName: 'deleteGoal'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling deleteGoal'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling deleteGoal'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
@@ -555,27 +551,18 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, string $contentType = self::CONTENT_TYPES['deleteGoalComment'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'comment_id' => $comment_id,
+			],
+			methodName: 'deleteGoalComment'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling deleteGoalComment'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling deleteGoalComment'
-			);
-		}
 
-		// verify the required parameter 'comment_id' is set
-		if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $comment_id when calling deleteGoalComment'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
@@ -789,13 +776,14 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getCanCreateGoalRequest($employee_id, string $contentType = self::CONTENT_TYPES['getCanCreateGoal'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getCanCreateGoal'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getCanCreateGoal'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
@@ -1036,20 +1024,16 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalAggregateRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+			],
+			methodName: 'getGoalAggregate'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalAggregate'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling getGoalAggregate'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
@@ -1260,20 +1244,16 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalCommentsRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalComments'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+			],
+			methodName: 'getGoalComments'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalComments'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling getGoalComments'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
@@ -1522,13 +1502,14 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalsRequest($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoals'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoals'
-			);
-		}
 
 
 
@@ -1785,13 +1766,14 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsAggregateV1'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsAggregateV1'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
@@ -2032,13 +2014,14 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsAggregateV11'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsAggregateV11'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
@@ -2274,13 +2257,14 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalsAggregateV12Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsAggregateV12'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsAggregateV12'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
@@ -2483,13 +2467,14 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalsAlignmentOptionsRequest($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsAlignmentOptions'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsAlignmentOptions'
-			);
-		}
 
 
 
@@ -2740,13 +2725,14 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV1Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsFiltersV1'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsFiltersV1'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
@@ -2987,13 +2973,14 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsFiltersV11Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsFiltersV11'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsFiltersV11'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
@@ -3229,13 +3216,14 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalsFiltersV12Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsFiltersV12'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsFiltersV12'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
@@ -3443,13 +3431,14 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getGoalsShareOptionsRequest($employee_id, $search = null, $limit = null, string $contentType = self::CONTENT_TYPES['getGoalsShareOptions'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getGoalsShareOptions'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling getGoalsShareOptions'
-			);
-		}
 
 
 
@@ -3713,20 +3702,16 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postCloseGoalRequest($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+			],
+			methodName: 'postCloseGoal'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling postCloseGoal'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling postCloseGoal'
-			);
-		}
 
 
 
@@ -3985,20 +3970,16 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postGoalRequest($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'post_goal_request' => $post_goal_request,
+			],
+			methodName: 'postGoal'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling postGoal'
-			);
-		}
 
-		// verify the required parameter 'post_goal_request' is set
-		if ($post_goal_request === null || (is_array($post_goal_request) && count($post_goal_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $post_goal_request when calling postGoal'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
@@ -4215,27 +4196,18 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postGoalCommentRequest($employee_id, $goal_id, $body, string $contentType = self::CONTENT_TYPES['postGoalComment'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'body' => $body,
+			],
+			methodName: 'postGoalComment'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling postGoalComment'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling postGoalComment'
-			);
-		}
 
-		// verify the required parameter 'body' is set
-		if ($body === null || (is_array($body) && count($body) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $body when calling postGoalComment'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
@@ -4493,20 +4465,16 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postReopenGoalRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+			],
+			methodName: 'postReopenGoal'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling postReopenGoal'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling postReopenGoal'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
@@ -4727,34 +4695,20 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, string $contentType = self::CONTENT_TYPES['putGoalComment'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'comment_id' => $comment_id,
+				'body' => $body,
+			],
+			methodName: 'putGoalComment'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling putGoalComment'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling putGoalComment'
-			);
-		}
 
-		// verify the required parameter 'comment_id' is set
-		if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $comment_id when calling putGoalComment'
-			);
-		}
 
-		// verify the required parameter 'body' is set
-		if ($body === null || (is_array($body) && count($body) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $body when calling putGoalComment'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
@@ -5030,34 +4984,20 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::CONTENT_TYPES['putGoalMilestoneProgress'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'milestone_id' => $milestone_id,
+				'put_goal_milestone_progress_request' => $put_goal_milestone_progress_request,
+			],
+			methodName: 'putGoalMilestoneProgress'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling putGoalMilestoneProgress'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling putGoalMilestoneProgress'
-			);
-		}
 
-		// verify the required parameter 'milestone_id' is set
-		if ($milestone_id === null || (is_array($milestone_id) && count($milestone_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $milestone_id when calling putGoalMilestoneProgress'
-			);
-		}
 
-		// verify the required parameter 'put_goal_milestone_progress_request' is set
-		if ($put_goal_milestone_progress_request === null || (is_array($put_goal_milestone_progress_request) && count($put_goal_milestone_progress_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $put_goal_milestone_progress_request when calling putGoalMilestoneProgress'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
@@ -5328,27 +5268,18 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'put_goal_progress_request' => $put_goal_progress_request,
+			],
+			methodName: 'putGoalProgress'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling putGoalProgress'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling putGoalProgress'
-			);
-		}
 
-		// verify the required parameter 'put_goal_progress_request' is set
-		if ($put_goal_progress_request === null || (is_array($put_goal_progress_request) && count($put_goal_progress_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $put_goal_progress_request when calling putGoalProgress'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
@@ -5611,27 +5542,18 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'put_goal_shared_with_request' => $put_goal_shared_with_request,
+			],
+			methodName: 'putGoalSharedWith'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling putGoalSharedWith'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling putGoalSharedWith'
-			);
-		}
 
-		// verify the required parameter 'put_goal_shared_with_request' is set
-		if ($put_goal_shared_with_request === null || (is_array($put_goal_shared_with_request) && count($put_goal_shared_with_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $put_goal_shared_with_request when calling putGoalSharedWith'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
@@ -5899,27 +5821,18 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function putGoalV1Request($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'goal' => $goal,
+			],
+			methodName: 'putGoalV1'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling putGoalV1'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling putGoalV1'
-			);
-		}
 
-		// verify the required parameter 'goal' is set
-		if ($goal === null || (is_array($goal) && count($goal) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal when calling putGoalV1'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
@@ -6182,27 +6095,18 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'goal_id' => $goal_id,
+				'put_goal_v11_request' => $put_goal_v11_request,
+			],
+			methodName: 'putGoalV11'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling putGoalV11'
-			);
-		}
 
-		// verify the required parameter 'goal_id' is set
-		if ($goal_id === null || (is_array($goal_id) && count($goal_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $goal_id when calling putGoalV11'
-			);
-		}
 
-		// verify the required parameter 'put_goal_v11_request' is set
-		if ($put_goal_v11_request === null || (is_array($put_goal_v11_request) && count($put_goal_v11_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $put_goal_v11_request when calling putGoalV11'
-			);
-		}
 
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
@@ -6345,5 +6249,22 @@ class GoalsApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

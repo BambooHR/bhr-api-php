@@ -257,13 +257,14 @@ class LastChangeInformationApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getChangedEmployeeIdsRequest($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'since' => $since,
+			],
+			methodName: 'getChangedEmployeeIds'
+		);
 
-		// verify the required parameter 'since' is set
-		if ($since === null || (is_array($since) && count($since) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $since when calling getChangedEmployeeIds'
-			);
-		}
 
 
 
@@ -398,5 +399,22 @@ class LastChangeInformationApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

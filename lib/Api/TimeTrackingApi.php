@@ -892,13 +892,14 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'addTimesheetClockInEntry'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling addTimesheetClockInEntry'
-			);
-		}
 
 
 
@@ -1185,13 +1186,14 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'addTimesheetClockOutEntry'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling addTimesheetClockOutEntry'
-			);
-		}
 
 
 
@@ -1710,13 +1712,14 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, string $contentType = self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'clock_entry_ids_schema' => $clock_entry_ids_schema,
+			],
+			methodName: 'deleteTimesheetClockEntriesViaPost'
+		);
 
-		// verify the required parameter 'clock_entry_ids_schema' is set
-		if ($clock_entry_ids_schema === null || (is_array($clock_entry_ids_schema) && count($clock_entry_ids_schema) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $clock_entry_ids_schema when calling deleteTimesheetClockEntriesViaPost'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/delete';
@@ -2266,20 +2269,16 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getTimesheetEntriesRequest($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'start' => $start,
+				'end' => $end,
+			],
+			methodName: 'getTimesheetEntries'
+		);
 
-		// verify the required parameter 'start' is set
-		if ($start === null || (is_array($start) && count($start) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $start when calling getTimesheetEntries'
-			);
-		}
 
-		// verify the required parameter 'end' is set
-		if ($end === null || (is_array($end) && count($end) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $end when calling getTimesheetEntries'
-			);
-		}
 
 		if ($employee_ids !== null && !preg_match("/^\\d+(,\\d+)*$/", $employee_ids)) {
 			throw new \InvalidArgumentException("invalid value for \"employee_ids\" when calling TimeTrackingApi.getTimesheetEntries, must conform to the pattern /^\\d+(,\\d+)*$/.");
@@ -2418,5 +2417,22 @@ class TimeTrackingApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

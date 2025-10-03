@@ -264,13 +264,14 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addEmployeeRequest($post_new_employee, string $contentType = self::CONTENT_TYPES['addEmployee'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'post_new_employee' => $post_new_employee,
+			],
+			methodName: 'addEmployee'
+		);
 
-		// verify the required parameter 'post_new_employee' is set
-		if ($post_new_employee === null || (is_array($post_new_employee) && count($post_new_employee) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $post_new_employee when calling addEmployee'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees';
@@ -744,20 +745,16 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getEmployeeRequest($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'fields' => $fields,
+				'id' => $id,
+			],
+			methodName: 'getEmployee'
+		);
 
-		// verify the required parameter 'fields' is set
-		if ($fields === null || (is_array($fields) && count($fields) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $fields when calling getEmployee'
-			);
-		}
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getEmployee'
-			);
-		}
 
 
 
@@ -1214,20 +1211,16 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateEmployeeRequest($id, $employee, string $contentType = self::CONTENT_TYPES['updateEmployee'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'employee' => $employee,
+			],
+			methodName: 'updateEmployee'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling updateEmployee'
-			);
-		}
 
-		// verify the required parameter 'employee' is set
-		if ($employee === null || (is_array($employee) && count($employee) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee when calling updateEmployee'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}';
@@ -1362,5 +1355,22 @@ class EmployeesApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

@@ -301,20 +301,16 @@ class DatasetsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getDataFromDatasetRequest($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'dataset_name' => $dataset_name,
+				'data_request' => $data_request,
+			],
+			methodName: 'getDataFromDataset'
+		);
 
-		// verify the required parameter 'dataset_name' is set
-		if ($dataset_name === null || (is_array($dataset_name) && count($dataset_name) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $dataset_name when calling getDataFromDataset'
-			);
-		}
 
-		// verify the required parameter 'data_request' is set
-		if ($data_request === null || (is_array($data_request) && count($data_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $data_request when calling getDataFromDataset'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/datasets/{datasetName}';
@@ -791,13 +787,14 @@ class DatasetsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getFieldsFromDatasetRequest($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'dataset_name' => $dataset_name,
+			],
+			methodName: 'getFieldsFromDataset'
+		);
 
-		// verify the required parameter 'dataset_name' is set
-		if ($dataset_name === null || (is_array($dataset_name) && count($dataset_name) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $dataset_name when calling getFieldsFromDataset'
-			);
-		}
 
 
 
@@ -941,5 +938,22 @@ class DatasetsApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

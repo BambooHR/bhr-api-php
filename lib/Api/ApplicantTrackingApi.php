@@ -376,27 +376,18 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addNewCandidateRequest($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'first_name' => $first_name,
+				'last_name' => $last_name,
+				'job_id' => $job_id,
+			],
+			methodName: 'addNewCandidate'
+		);
 
-		// verify the required parameter 'first_name' is set
-		if ($first_name === null || (is_array($first_name) && count($first_name) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $first_name when calling addNewCandidate'
-			);
-		}
 
-		// verify the required parameter 'last_name' is set
-		if ($last_name === null || (is_array($last_name) && count($last_name) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $last_name when calling addNewCandidate'
-			);
-		}
 
-		// verify the required parameter 'job_id' is set
-		if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $job_id when calling addNewCandidate'
-			);
-		}
 
 
 
@@ -756,41 +747,22 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'posting_title' => $posting_title,
+				'job_status' => $job_status,
+				'hiring_lead' => $hiring_lead,
+				'employment_type' => $employment_type,
+				'job_description' => $job_description,
+			],
+			methodName: 'addNewJobOpening'
+		);
 
-		// verify the required parameter 'posting_title' is set
-		if ($posting_title === null || (is_array($posting_title) && count($posting_title) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $posting_title when calling addNewJobOpening'
-			);
-		}
 
-		// verify the required parameter 'job_status' is set
-		if ($job_status === null || (is_array($job_status) && count($job_status) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $job_status when calling addNewJobOpening'
-			);
-		}
 
-		// verify the required parameter 'hiring_lead' is set
-		if ($hiring_lead === null || (is_array($hiring_lead) && count($hiring_lead) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $hiring_lead when calling addNewJobOpening'
-			);
-		}
 
-		// verify the required parameter 'employment_type' is set
-		if ($employment_type === null || (is_array($employment_type) && count($employment_type) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employment_type when calling addNewJobOpening'
-			);
-		}
 
-		// verify the required parameter 'job_description' is set
-		if ($job_description === null || (is_array($job_description) && count($job_description) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $job_description when calling addNewJobOpening'
-			);
-		}
 
 
 
@@ -2199,20 +2171,16 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postApplicantStatusRequest($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'application_id' => $application_id,
+				'post_applicant_status_request' => $post_applicant_status_request,
+			],
+			methodName: 'postApplicantStatus'
+		);
 
-		// verify the required parameter 'application_id' is set
-		if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $application_id when calling postApplicantStatus'
-			);
-		}
 
-		// verify the required parameter 'post_applicant_status_request' is set
-		if ($post_applicant_status_request === null || (is_array($post_applicant_status_request) && count($post_applicant_status_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $post_applicant_status_request when calling postApplicantStatus'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
@@ -2424,20 +2392,16 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postApplicationCommentRequest($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'application_id' => $application_id,
+				'post_application_comment_request' => $post_application_comment_request,
+			],
+			methodName: 'postApplicationComment'
+		);
 
-		// verify the required parameter 'application_id' is set
-		if ($application_id === null || (is_array($application_id) && count($application_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $application_id when calling postApplicationComment'
-			);
-		}
 
-		// verify the required parameter 'post_application_comment_request' is set
-		if ($post_application_comment_request === null || (is_array($post_application_comment_request) && count($post_application_comment_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $post_application_comment_request when calling postApplicationComment'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
@@ -2572,5 +2536,22 @@ class ApplicantTrackingApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

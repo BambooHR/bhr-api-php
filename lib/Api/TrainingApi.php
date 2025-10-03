@@ -328,20 +328,16 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'add_new_employee_training_record_request' => $add_new_employee_training_record_request,
+			],
+			methodName: 'addNewEmployeeTrainingRecord'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling addNewEmployeeTrainingRecord'
-			);
-		}
 
-		// verify the required parameter 'add_new_employee_training_record_request' is set
-		if ($add_new_employee_training_record_request === null || (is_array($add_new_employee_training_record_request) && count($add_new_employee_training_record_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $add_new_employee_training_record_request when calling addNewEmployeeTrainingRecord'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
@@ -586,13 +582,14 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addTrainingCategoryRequest($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'add_training_category_request' => $add_training_category_request,
+			],
+			methodName: 'addTrainingCategory'
+		);
 
-		// verify the required parameter 'add_training_category_request' is set
-		if ($add_training_category_request === null || (is_array($add_training_category_request) && count($add_training_category_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $add_training_category_request when calling addTrainingCategory'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/category';
@@ -829,13 +826,14 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addTrainingTypeRequest($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'add_training_type_request' => $add_training_type_request,
+			],
+			methodName: 'addTrainingType'
+		);
 
-		// verify the required parameter 'add_training_type_request' is set
-		if ($add_training_type_request === null || (is_array($add_training_type_request) && count($add_training_type_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $add_training_type_request when calling addTrainingType'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/type';
@@ -1034,13 +1032,14 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteEmployeeTrainingRecordRequest($employee_training_record_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTrainingRecord'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_training_record_id' => $employee_training_record_id,
+			],
+			methodName: 'deleteEmployeeTrainingRecord'
+		);
 
-		// verify the required parameter 'employee_training_record_id' is set
-		if ($employee_training_record_id === null || (is_array($employee_training_record_id) && count($employee_training_record_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_training_record_id when calling deleteEmployeeTrainingRecord'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
@@ -1238,13 +1237,14 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteTrainingCategoryRequest($training_category_id, string $contentType = self::CONTENT_TYPES['deleteTrainingCategory'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'training_category_id' => $training_category_id,
+			],
+			methodName: 'deleteTrainingCategory'
+		);
 
-		// verify the required parameter 'training_category_id' is set
-		if ($training_category_id === null || (is_array($training_category_id) && count($training_category_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $training_category_id when calling deleteTrainingCategory'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
@@ -1442,13 +1442,14 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteTrainingTypeRequest($training_type_id, string $contentType = self::CONTENT_TYPES['deleteTrainingType'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'training_type_id' => $training_type_id,
+			],
+			methodName: 'deleteTrainingType'
+		);
 
-		// verify the required parameter 'training_type_id' is set
-		if ($training_type_id === null || (is_array($training_type_id) && count($training_type_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $training_type_id when calling deleteTrainingType'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
@@ -1689,13 +1690,14 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function listEmployeeTrainingsRequest($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'listEmployeeTrainings'
+		);
 
-		// verify the required parameter 'employee_id' is set
-		if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_id when calling listEmployeeTrainings'
-			);
-		}
 
 
 
@@ -2396,20 +2398,16 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::CONTENT_TYPES['updateEmployeeTrainingRecord'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'employee_training_record_id' => $employee_training_record_id,
+				'update_employee_training_record_request' => $update_employee_training_record_request,
+			],
+			methodName: 'updateEmployeeTrainingRecord'
+		);
 
-		// verify the required parameter 'employee_training_record_id' is set
-		if ($employee_training_record_id === null || (is_array($employee_training_record_id) && count($employee_training_record_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_training_record_id when calling updateEmployeeTrainingRecord'
-			);
-		}
 
-		// verify the required parameter 'update_employee_training_record_request' is set
-		if ($update_employee_training_record_request === null || (is_array($update_employee_training_record_request) && count($update_employee_training_record_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $update_employee_training_record_request when calling updateEmployeeTrainingRecord'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
@@ -2659,20 +2657,16 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateTrainingCategoryRequest($training_category_id, $update_training_category_request, string $contentType = self::CONTENT_TYPES['updateTrainingCategory'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'training_category_id' => $training_category_id,
+				'update_training_category_request' => $update_training_category_request,
+			],
+			methodName: 'updateTrainingCategory'
+		);
 
-		// verify the required parameter 'training_category_id' is set
-		if ($training_category_id === null || (is_array($training_category_id) && count($training_category_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $training_category_id when calling updateTrainingCategory'
-			);
-		}
 
-		// verify the required parameter 'update_training_category_request' is set
-		if ($update_training_category_request === null || (is_array($update_training_category_request) && count($update_training_category_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $update_training_category_request when calling updateTrainingCategory'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
@@ -2922,20 +2916,16 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateTrainingTypeRequest($training_type_id, $update_training_type_request, string $contentType = self::CONTENT_TYPES['updateTrainingType'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'training_type_id' => $training_type_id,
+				'update_training_type_request' => $update_training_type_request,
+			],
+			methodName: 'updateTrainingType'
+		);
 
-		// verify the required parameter 'training_type_id' is set
-		if ($training_type_id === null || (is_array($training_type_id) && count($training_type_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $training_type_id when calling updateTrainingType'
-			);
-		}
 
-		// verify the required parameter 'update_training_type_request' is set
-		if ($update_training_type_request === null || (is_array($update_training_type_request) && count($update_training_type_request) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $update_training_type_request when calling updateTrainingType'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
@@ -3070,5 +3060,22 @@ class TrainingApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

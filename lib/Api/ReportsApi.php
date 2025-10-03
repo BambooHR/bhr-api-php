@@ -275,20 +275,16 @@ class ReportsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getCompanyReportRequest($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::CONTENT_TYPES['getCompanyReport'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'format' => $format,
+			],
+			methodName: 'getCompanyReport'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getCompanyReport'
-			);
-		}
 
-		// verify the required parameter 'format' is set
-		if ($format === null || (is_array($format) && count($format) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $format when calling getCompanyReport'
-			);
-		}
 
 
 
@@ -520,20 +516,16 @@ class ReportsApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function requestCustomReportRequest($format, $request_custom_report, $only_current = false, string $contentType = self::CONTENT_TYPES['requestCustomReport'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'format' => $format,
+				'request_custom_report' => $request_custom_report,
+			],
+			methodName: 'requestCustomReport'
+		);
 
-		// verify the required parameter 'format' is set
-		if ($format === null || (is_array($format) && count($format) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $format when calling requestCustomReport'
-			);
-		}
 
-		// verify the required parameter 'request_custom_report' is set
-		if ($request_custom_report === null || (is_array($request_custom_report) && count($request_custom_report) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $request_custom_report when calling requestCustomReport'
-			);
-		}
 
 
 
@@ -677,5 +669,22 @@ class ReportsApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

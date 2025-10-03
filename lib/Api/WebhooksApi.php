@@ -270,13 +270,14 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteWebhookRequest($id, string $contentType = self::CONTENT_TYPES['deleteWebhook'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'deleteWebhook'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling deleteWebhook'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/webhooks/{id}';
@@ -758,13 +759,14 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getWebhookRequest($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'getWebhook'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getWebhook'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/webhooks/{id}';
@@ -1246,13 +1248,14 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getWebhookLogsRequest($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'getWebhookLogs'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getWebhookLogs'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/webhooks/{id}/log';
@@ -1506,13 +1509,14 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function postWebhookRequest($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'new_web_hook' => $new_web_hook,
+			],
+			methodName: 'postWebhook'
+		);
 
-		// verify the required parameter 'new_web_hook' is set
-		if ($new_web_hook === null || (is_array($new_web_hook) && count($new_web_hook) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $new_web_hook when calling postWebhook'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/webhooks';
@@ -1778,20 +1782,16 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function putWebhookRequest($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'new_web_hook' => $new_web_hook,
+			],
+			methodName: 'putWebhook'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling putWebhook'
-			);
-		}
 
-		// verify the required parameter 'new_web_hook' is set
-		if ($new_web_hook === null || (is_array($new_web_hook) && count($new_web_hook) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $new_web_hook when calling putWebhook'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/webhooks/{id}';
@@ -1926,5 +1926,22 @@ class WebhooksApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }

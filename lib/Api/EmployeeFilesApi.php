@@ -267,13 +267,14 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function addEmployeeFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'request_body' => $request_body,
+			],
+			methodName: 'addEmployeeFileCategory'
+		);
 
-		// verify the required parameter 'request_body' is set
-		if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $request_body when calling addEmployeeFileCategory'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/files/categories';
@@ -477,20 +478,16 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function deleteEmployeeFileRequest($id, $file_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'file_id' => $file_id,
+			],
+			methodName: 'deleteEmployeeFile'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling deleteEmployeeFile'
-			);
-		}
 
-		// verify the required parameter 'file_id' is set
-		if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $file_id when calling deleteEmployeeFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
@@ -701,20 +698,16 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function getEmployeeFileRequest($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'file_id' => $file_id,
+			],
+			methodName: 'getEmployeeFile'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling getEmployeeFile'
-			);
-		}
 
-		// verify the required parameter 'file_id' is set
-		if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $file_id when calling getEmployeeFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
@@ -920,13 +913,14 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function listEmployeeFilesRequest($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'listEmployeeFiles'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling listEmployeeFiles'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/files/view';
@@ -1134,27 +1128,18 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function updateEmployeeFileRequest($id, $file_id, $employee_file_update, string $contentType = self::CONTENT_TYPES['updateEmployeeFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'file_id' => $file_id,
+				'employee_file_update' => $employee_file_update,
+			],
+			methodName: 'updateEmployeeFile'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling updateEmployeeFile'
-			);
-		}
 
-		// verify the required parameter 'file_id' is set
-		if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $file_id when calling updateEmployeeFile'
-			);
-		}
 
-		// verify the required parameter 'employee_file_update' is set
-		if ($employee_file_update === null || (is_array($employee_file_update) && count($employee_file_update) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $employee_file_update when calling updateEmployeeFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
@@ -1369,13 +1354,14 @@ class EmployeeFilesApi {
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
 	public function uploadEmployeeFileRequest($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
+		// PHP 8.0+ only
+		$this->validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'uploadEmployeeFile'
+		);
 
-		// verify the required parameter 'id' is set
-		if ($id === null || (is_array($id) && count($id) === 0)) {
-			throw new \InvalidArgumentException(
-				'Missing the required parameter $id when calling uploadEmployeeFile'
-			);
-		}
 
 
 		$resourcePath = '/api/v1/employees/{id}/files';
@@ -1501,5 +1487,22 @@ class EmployeeFilesApi {
 		$right = (int) ($rangeCode[0].'99');
 
 		return $statusCode >= $left && $statusCode <= $right;
+	}
+
+	/**
+	* Validates required parameters and throws an exception if any are missing
+	* 
+	* @param array $params Associative array of parameter name => value pairs
+	* @param string $methodName Name of the calling method for error messages
+	* @throws \InvalidArgumentException If any required parameter is missing
+	*/
+	private function validateRequiredParameters(array $params, string $methodName): void {
+		foreach ($params as $paramName => $paramValue) {
+			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
+				throw new \InvalidArgumentException(
+					"Missing the required parameter \${$paramName} when calling {$methodName}"
+				);
+			}
+		}
 	}
 }
