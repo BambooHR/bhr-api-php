@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **due_date** | **string** | The due date of the goal. | [optional]
 **completion_date** | **string** | The date the goal was completed. | [optional]
 **status** | **string** | The status of the goal. | [optional]
-**milestones** | [**\MySdk\Model\TransformedApiGoalGoalMilestonesInner[]**](TransformedApiGoalGoalMilestonesInner.md) | All milestones for the individual goal. This array will not exist if milestones are not selected for this goal. | [optional]
-**actions** | [**\MySdk\Model\TransformedApiGoalGoalActions**](TransformedApiGoalGoalActions.md) |  | [optional]
+**milestones** | [**\BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]**](TransformedApiGoalGoalMilestonesInner.md) | All milestones for the individual goal. This array will not exist if milestones are not selected for this goal. | [optional]
+**actions** | [**\BhrSdk\Model\TransformedApiGoalGoalActions**](TransformedApiGoalGoalActions.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

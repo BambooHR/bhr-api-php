@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="BambooHR API PHP Custom Standard">
+    <description>Custom ruleset for BambooHR API PHP - Modified to allow snake_case variables</description>
+
+    <!-- Include the BambooHR standard -->
+    <rule ref="BambooHR">
+        <!-- Exclude variable naming rules to allow both snake_case and camelCase -->
+        <exclude name="BambooHR.Variables.CamelCapsVariable"/>
+        <exclude name="BambooHR.Variables.CamelCapsVariable.Found"/>
+        <exclude name="BambooHR.Variables.CamelCapsVariable.NotCamelCaps"/>
+        <exclude name="PSR1.Methods.CamelCapsMethodName"/>
+        <exclude name="Squiz.NamingConventions.ValidVariableName"/>
+        <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
+        <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
+        <exclude name="PEAR.NamingConventions.ValidVariableName"/>
+    </rule>
+
+    <!-- Paths to check -->
+    <file>lib</file>
+    <file>test</file>
+
+    <!-- Exclude vendor directory -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    
+    <!-- Exclude generated code -->
+    <exclude-pattern>*/lib/Model/*</exclude-pattern>
+    <exclude-pattern>*/lib/Api/*</exclude-pattern>
+</ruleset>

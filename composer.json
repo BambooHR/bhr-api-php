@@ -9,12 +9,12 @@
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
+    "homepage": "https://www.bamboohr.com/",
     "license": "unlicense",
     "authors": [
         {
             "name": "OpenAPI",
-            "homepage": "https://openapi-generator.tech"
+            "homepage": "https://github.com/BambooHR/bhr-api-php"
         }
     ],
     "require": {
@@ -30,9 +30,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "MySdk\\" : "lib/" }
+        "psr-4": { "BhrSdk\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "MySdk\\Test\\" : "test/" }
+        "psr-4": { "BhrSdk\\Test\\" : "test/" }
     }
 }

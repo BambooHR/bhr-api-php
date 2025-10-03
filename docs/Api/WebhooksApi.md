@@ -1,22 +1,22 @@
-# MySdk\WebhooksApi
+# BhrSdk\WebhooksApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://companySubDomain.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /{companyDomain}/v1/webhooks/{id} | Delete Webhook |
-| [**getMonitorFields()**](WebhooksApi.md#getMonitorFields) | **GET** /{companyDomain}/v1/webhooks/monitor_fields | Get monitor fields |
-| [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /{companyDomain}/v1/webhooks/{id} | Get Webhook |
-| [**getWebhookList()**](WebhooksApi.md#getWebhookList) | **GET** /{companyDomain}/v1/webhooks | Gets as list of webhooks for the user API key. |
-| [**getWebhookLogs()**](WebhooksApi.md#getWebhookLogs) | **GET** /{companyDomain}/v1/webhooks/{id}/log | Get Webhook Logs |
-| [**postWebhook()**](WebhooksApi.md#postWebhook) | **POST** /{companyDomain}/v1/webhooks | Add Webhook |
-| [**putWebhook()**](WebhooksApi.md#putWebhook) | **PUT** /{companyDomain}/v1/webhooks/{id} | Update Webhook |
+| [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook |
+| [**getMonitorFields()**](WebhooksApi.md#getMonitorFields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields |
+| [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook |
+| [**getWebhookList()**](WebhooksApi.md#getWebhookList) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key. |
+| [**getWebhookLogs()**](WebhooksApi.md#getWebhookLogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs |
+| [**postWebhook()**](WebhooksApi.md#postWebhook) | **POST** /api/v1/webhooks | Add Webhook |
+| [**putWebhook()**](WebhooksApi.md#putWebhook) | **PUT** /api/v1/webhooks/{id} | Update Webhook |
 
 
 ## `deleteWebhook()`
 
 ```php
-deleteWebhook($company_domain, $id)
+deleteWebhook($id)
 ```
 
 Delete Webhook
@@ -29,30 +29,23 @@ Delete a webhook that is tied to a specific user API Key.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is an webhook ID that is associated with the User API key.
 
 try {
-    $apiInstance->deleteWebhook($company_domain, $id);
+    $apiInstance->deleteWebhook($id);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
 }
@@ -62,7 +55,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an webhook ID that is associated with the User API key. | |
 
 ### Return type
@@ -71,11 +63,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -85,7 +77,7 @@ void (empty response body)
 ## `getMonitorFields()`
 
 ```php
-getMonitorFields($company_domain): \MySdk\Model\GetMonitorFields200Response
+getMonitorFields(): \BhrSdk\Model\GetMonitorFields200Response
 ```
 
 Get monitor fields
@@ -98,29 +90,22 @@ Get a list fields webhooks can monitor monitor
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getMonitorFields($company_domain);
+    $result = $apiInstance->getMonitorFields();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getMonitorFields: ', $e->getMessage(), PHP_EOL;
@@ -129,21 +114,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
+[**\BhrSdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -153,7 +136,7 @@ try {
 ## `getWebhook()`
 
 ```php
-getWebhook($company_domain, $id): \MySdk\Model\WebHookResponse
+getWebhook($id): \BhrSdk\Model\WebHookResponse
 ```
 
 Get Webhook
@@ -166,30 +149,23 @@ Get webhook data that is tied to a specific user API Key.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 56; // int | The webhook ID to display details about.
 
 try {
-    $result = $apiInstance->getWebhook($company_domain, $id);
+    $result = $apiInstance->getWebhook($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhook: ', $e->getMessage(), PHP_EOL;
@@ -200,20 +176,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **int**| The webhook ID to display details about. | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -223,7 +198,7 @@ try {
 ## `getWebhookList()`
 
 ```php
-getWebhookList($company_domain): \MySdk\Model\GetWebhookList200Response
+getWebhookList(): \BhrSdk\Model\GetWebhookList200Response
 ```
 
 Gets as list of webhooks for the user API key.
@@ -236,29 +211,22 @@ Gets as list of webhooks for the user API key.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getWebhookList($company_domain);
+    $result = $apiInstance->getWebhookList();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhookList: ', $e->getMessage(), PHP_EOL;
@@ -267,21 +235,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
+[**\BhrSdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -291,7 +257,7 @@ try {
 ## `getWebhookLogs()`
 
 ```php
-getWebhookLogs($company_domain, $id): \MySdk\Model\WebHookLogResponse
+getWebhookLogs($id): \BhrSdk\Model\WebHookLogResponse
 ```
 
 Get Webhook Logs
@@ -304,30 +270,23 @@ Get webhook logs for specific webhook id that is associated with the user API Ke
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | The webhook ID to get logs about.
 
 try {
-    $result = $apiInstance->getWebhookLogs($company_domain, $id);
+    $result = $apiInstance->getWebhookLogs($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhookLogs: ', $e->getMessage(), PHP_EOL;
@@ -338,20 +297,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| The webhook ID to get logs about. | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
+[**\BhrSdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -361,12 +319,12 @@ try {
 ## `postWebhook()`
 
 ```php
-postWebhook($company_domain, $new_web_hook): \MySdk\Model\PostWebhook201Response
+postWebhook($new_web_hook): \BhrSdk\Model\PostWebhook201Response
 ```
 
 Add Webhook
 
-Add a new Webhook. For more details or instructions you can refer to the [webhooks API tutorial](https://documentation.bamboohr.com/docs/webhooks-api-permission-based).
+Add a new Webhook. For more details or instructions you can refer to the [webhooks documentation](https://documentation.bamboohr.com/docs/webhooks-2).
 
 ### Example
 
@@ -374,30 +332,23 @@ Add a new Webhook. For more details or instructions you can refer to the [webhoo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
-    $result = $apiInstance->postWebhook($company_domain, $new_web_hook);
+    $result = $apiInstance->postWebhook($new_web_hook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->postWebhook: ', $e->getMessage(), PHP_EOL;
@@ -408,16 +359,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
+[**\BhrSdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -431,7 +381,7 @@ try {
 ## `putWebhook()`
 
 ```php
-putWebhook($company_domain, $id, $new_web_hook): \MySdk\Model\WebHookResponse
+putWebhook($id, $new_web_hook): \BhrSdk\Model\WebHookResponse
 ```
 
 Update Webhook
@@ -444,31 +394,24 @@ Update a webhook, based on webhook ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\WebhooksApi(
+$apiInstance = new BhrSdk\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is a webhook ID.
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
-    $result = $apiInstance->putWebhook($company_domain, $id, $new_web_hook);
+    $result = $apiInstance->putWebhook($id, $new_web_hook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->putWebhook: ', $e->getMessage(), PHP_EOL;
@@ -479,17 +422,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is a webhook ID. | |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 

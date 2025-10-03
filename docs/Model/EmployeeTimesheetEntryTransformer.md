@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **timezone** | **string** | Timezone | [optional]
 **hours** | **float** | Hours worked | [optional]
 **note** | **string** | Note | [optional]
-**project_info** | [**\MySdk\Model\ProjectInfoApiTransformer**](ProjectInfoApiTransformer.md) |  | [optional]
+**project_info** | [**\BhrSdk\Model\ProjectInfoApiTransformer**](ProjectInfoApiTransformer.md) |  | [optional]
 **approved_at** | **\DateTime** | Approved time | [optional]
 **approved** | **bool** | Whether the timesheet entry is approved | [optional]
 

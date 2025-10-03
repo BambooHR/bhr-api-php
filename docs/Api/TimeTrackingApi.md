@@ -1,94 +1,23 @@
-# MySdk\TimeTrackingApi
+# BhrSdk\TimeTrackingApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://companySubDomain.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**b86bb5db603786dfc98c8f6a7bb1a218()**](TimeTrackingApi.md#b86bb5db603786dfc98c8f6a7bb1a218) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
-| [**call149e00955713fb486cd7a81dd6ee31aa()**](TimeTrackingApi.md#call149e00955713fb486cd7a81dd6ee31aa) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
-| [**call88ef63550f43537c6b3bfaa03d51d95d()**](TimeTrackingApi.md#call88ef63550f43537c6b3bfaa03d51d95d) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
-| [**call910252128bfbd9d42e50f9dc31bb6120()**](TimeTrackingApi.md#call910252128bfbd9d42e50f9dc31bb6120) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
-| [**call9a6d5660f03eadcf705c808a1f44b8c4()**](TimeTrackingApi.md#call9a6d5660f03eadcf705c808a1f44b8c4) | **GET** /{companyDomain}/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
-| [**db65bacaf29686d9c3b1296f6047a065()**](TimeTrackingApi.md#db65bacaf29686d9c3b1296f6047a065) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
-| [**dcb62a5d1780635153b978462f9debd0()**](TimeTrackingApi.md#dcb62a5d1780635153b978462f9debd0) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/delete | Delete timesheet clock entries. |
+| [**addEditTimesheetClockEntries()**](TimeTrackingApi.md#addEditTimesheetClockEntries) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
+| [**addEditTimesheetHourEntries()**](TimeTrackingApi.md#addEditTimesheetHourEntries) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
+| [**addTimesheetClockInEntry()**](TimeTrackingApi.md#addTimesheetClockInEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
+| [**addTimesheetClockOutEntry()**](TimeTrackingApi.md#addTimesheetClockOutEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
+| [**createTimeTrackingProject()**](TimeTrackingApi.md#createTimeTrackingProject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project |
+| [**deleteTimesheetClockEntriesViaPost()**](TimeTrackingApi.md#deleteTimesheetClockEntriesViaPost) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries |
+| [**deleteTimesheetHourEntriesViaPost()**](TimeTrackingApi.md#deleteTimesheetHourEntriesViaPost) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
+| [**getTimesheetEntries()**](TimeTrackingApi.md#getTimesheetEntries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
 
 
-## `b86bb5db603786dfc98c8f6a7bb1a218()`
-
-```php
-b86bb5db603786dfc98c8f6a7bb1a218($company_domain, $employee_id, $b86bb5db603786dfc98c8f6a7bb1a218_request): \MySdk\Model\TimesheetEntryInfoApiTransformer
-```
-
-Add Timesheet Clock-In Entry
-
-Clock in an employee.
-
-### Example
+## `addEditTimesheetClockEntries()`
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 56; // int | ID of the employee to clock in.
-$b86bb5db603786dfc98c8f6a7bb1a218_request = new \MySdk\Model\B86bb5db603786dfc98c8f6a7bb1a218Request(); // \MySdk\Model\B86bb5db603786dfc98c8f6a7bb1a218Request
-
-try {
-    $result = $apiInstance->b86bb5db603786dfc98c8f6a7bb1a218($company_domain, $employee_id, $b86bb5db603786dfc98c8f6a7bb1a218_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->b86bb5db603786dfc98c8f6a7bb1a218: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **int**| ID of the employee to clock in. | |
-| **b86bb5db603786dfc98c8f6a7bb1a218_request** | [**\MySdk\Model\B86bb5db603786dfc98c8f6a7bb1a218Request**](../Model/B86bb5db603786dfc98c8f6a7bb1a218Request.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call149e00955713fb486cd7a81dd6ee31aa()`
-
-```php
-call149e00955713fb486cd7a81dd6ee31aa($company_domain, $_149e00955713fb486cd7a81dd6ee31aa_request): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+addEditTimesheetClockEntries($clock_entries_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
 ```
 
 Add/Edit Timesheet Clock Entries
@@ -101,33 +30,26 @@ Add or edit timesheet clock entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_149e00955713fb486cd7a81dd6ee31aa_request = new \MySdk\Model\149e00955713fb486cd7a81dd6ee31aaRequest(); // \MySdk\Model\149e00955713fb486cd7a81dd6ee31aaRequest
+$clock_entries_schema = new \BhrSdk\Model\ClockEntriesSchema(); // \BhrSdk\Model\ClockEntriesSchema
 
 try {
-    $result = $apiInstance->call149e00955713fb486cd7a81dd6ee31aa($company_domain, $_149e00955713fb486cd7a81dd6ee31aa_request);
+    $result = $apiInstance->addEditTimesheetClockEntries($clock_entries_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->call149e00955713fb486cd7a81dd6ee31aa: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeTrackingApi->addEditTimesheetClockEntries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -135,16 +57,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_149e00955713fb486cd7a81dd6ee31aa_request** | [**\MySdk\Model\149e00955713fb486cd7a81dd6ee31aaRequest**](../Model/149e00955713fb486cd7a81dd6ee31aaRequest.md)|  | [optional] |
+| **clock_entries_schema** | [**\BhrSdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -155,82 +76,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call88ef63550f43537c6b3bfaa03d51d95d()`
+## `addEditTimesheetHourEntries()`
 
 ```php
-call88ef63550f43537c6b3bfaa03d51d95d($company_domain, $employee_id, $_88ef63550f43537c6b3bfaa03d51d95d_request): \MySdk\Model\TimesheetEntryInfoApiTransformer
-```
-
-Add Timesheet Clock-Out Entry
-
-Clock out an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 56; // int | ID of the employee to clock out.
-$_88ef63550f43537c6b3bfaa03d51d95d_request = new \MySdk\Model\88ef63550f43537c6b3bfaa03d51d95dRequest(); // \MySdk\Model\88ef63550f43537c6b3bfaa03d51d95dRequest
-
-try {
-    $result = $apiInstance->call88ef63550f43537c6b3bfaa03d51d95d($company_domain, $employee_id, $_88ef63550f43537c6b3bfaa03d51d95d_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->call88ef63550f43537c6b3bfaa03d51d95d: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **int**| ID of the employee to clock out. | |
-| **_88ef63550f43537c6b3bfaa03d51d95d_request** | [**\MySdk\Model\88ef63550f43537c6b3bfaa03d51d95dRequest**](../Model/88ef63550f43537c6b3bfaa03d51d95dRequest.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call910252128bfbd9d42e50f9dc31bb6120()`
-
-```php
-call910252128bfbd9d42e50f9dc31bb6120($company_domain, $_910252128bfbd9d42e50f9dc31bb6120_request): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
+addEditTimesheetHourEntries($hour_entries_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
 ```
 
 Add/Edit Timesheet Hour Entries
@@ -243,33 +92,26 @@ Add or edit timesheet hour entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_910252128bfbd9d42e50f9dc31bb6120_request = new \MySdk\Model\910252128bfbd9d42e50f9dc31bb6120Request(); // \MySdk\Model\910252128bfbd9d42e50f9dc31bb6120Request
+$hour_entries_request_schema = new \BhrSdk\Model\HourEntriesRequestSchema(); // \BhrSdk\Model\HourEntriesRequestSchema
 
 try {
-    $result = $apiInstance->call910252128bfbd9d42e50f9dc31bb6120($company_domain, $_910252128bfbd9d42e50f9dc31bb6120_request);
+    $result = $apiInstance->addEditTimesheetHourEntries($hour_entries_request_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->call910252128bfbd9d42e50f9dc31bb6120: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeTrackingApi->addEditTimesheetHourEntries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -277,16 +119,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_910252128bfbd9d42e50f9dc31bb6120_request** | [**\MySdk\Model\910252128bfbd9d42e50f9dc31bb6120Request**](../Model/910252128bfbd9d42e50f9dc31bb6120Request.md)|  | [optional] |
+| **hour_entries_request_schema** | [**\BhrSdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -297,15 +138,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `call9a6d5660f03eadcf705c808a1f44b8c4()`
+## `addTimesheetClockInEntry()`
 
 ```php
-call9a6d5660f03eadcf705c808a1f44b8c4($company_domain, $start, $end, $employee_ids): \MySdk\Model\EmployeeTimesheetEntryTransformer[]
+addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
 ```
 
-Get Timesheet Entries
+Add Timesheet Clock-In Entry
 
-Get all timesheet entries for a given period of time.
+Clock in an employee.
 
 ### Example
 
@@ -313,35 +154,27 @@ Get all timesheet entries for a given period of time.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$start = Tue Dec 31 17:00:00 MST 2024; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days.
-$end = Fri Feb 28 17:00:00 MST 2025; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days.
-$employee_ids = 1,2,3; // string | A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned.
+$employee_id = 56; // int | ID of the employee to clock in.
+$clock_in_request_schema = new \BhrSdk\Model\ClockInRequestSchema(); // \BhrSdk\Model\ClockInRequestSchema
 
 try {
-    $result = $apiInstance->call9a6d5660f03eadcf705c808a1f44b8c4($company_domain, $start, $end, $employee_ids);
+    $result = $apiInstance->addTimesheetClockInEntry($employee_id, $clock_in_request_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->call9a6d5660f03eadcf705c808a1f44b8c4: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeTrackingApi->addTimesheetClockInEntry: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -349,32 +182,218 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **start** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. | |
-| **end** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. | |
-| **employee_ids** | **string**| A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. | [optional] |
+| **employee_id** | **int**| ID of the employee to clock in. | |
+| **clock_in_request_schema** | [**\BhrSdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `db65bacaf29686d9c3b1296f6047a065()`
+## `addTimesheetClockOutEntry()`
 
 ```php
-db65bacaf29686d9c3b1296f6047a065($company_domain, $db65bacaf29686d9c3b1296f6047a065_request): mixed
+addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
+```
+
+Add Timesheet Clock-Out Entry
+
+Clock out an employee.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 56; // int | ID of the employee to clock out.
+$clock_out_request_schema = new \BhrSdk\Model\ClockOutRequestSchema(); // \BhrSdk\Model\ClockOutRequestSchema
+
+try {
+    $result = $apiInstance->addTimesheetClockOutEntry($employee_id, $clock_out_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TimeTrackingApi->addTimesheetClockOutEntry: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **int**| ID of the employee to clock out. | |
+| **clock_out_request_schema** | [**\BhrSdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createTimeTrackingProject()`
+
+```php
+createTimeTrackingProject($project_create_request_schema): \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
+```
+
+Create Time Tracking Project
+
+Create a time tracking project with optional tasks.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_create_request_schema = new \BhrSdk\Model\ProjectCreateRequestSchema(); // \BhrSdk\Model\ProjectCreateRequestSchema
+
+try {
+    $result = $apiInstance->createTimeTrackingProject($project_create_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TimeTrackingApi->createTimeTrackingProject: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_create_request_schema** | [**\BhrSdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimesheetClockEntriesViaPost()`
+
+```php
+deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema): mixed
+```
+
+Delete Timesheet Clock Entries
+
+Delete timesheet clock entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$clock_entry_ids_schema = new \BhrSdk\Model\ClockEntryIdsSchema(); // \BhrSdk\Model\ClockEntryIdsSchema
+
+try {
+    $result = $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TimeTrackingApi->deleteTimesheetClockEntriesViaPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clock_entry_ids_schema** | [**\BhrSdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimesheetHourEntriesViaPost()`
+
+```php
+deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema): mixed
 ```
 
 Delete Timesheet Hour Entries
@@ -387,33 +406,26 @@ Delete timesheet hour entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$db65bacaf29686d9c3b1296f6047a065_request = new \MySdk\Model\Db65bacaf29686d9c3b1296f6047a065Request(); // \MySdk\Model\Db65bacaf29686d9c3b1296f6047a065Request
+$hour_entry_ids_schema = new \BhrSdk\Model\HourEntryIdsSchema(); // \BhrSdk\Model\HourEntryIdsSchema
 
 try {
-    $result = $apiInstance->db65bacaf29686d9c3b1296f6047a065($company_domain, $db65bacaf29686d9c3b1296f6047a065_request);
+    $result = $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->db65bacaf29686d9c3b1296f6047a065: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeTrackingApi->deleteTimesheetHourEntriesViaPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -421,8 +433,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **db65bacaf29686d9c3b1296f6047a065_request** | [**\MySdk\Model\Db65bacaf29686d9c3b1296f6047a065Request**](../Model/Db65bacaf29686d9c3b1296f6047a065Request.md)|  | [optional] |
+| **hour_entry_ids_schema** | [**\BhrSdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
 
 ### Return type
 
@@ -430,7 +441,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -441,15 +452,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `dcb62a5d1780635153b978462f9debd0()`
+## `getTimesheetEntries()`
 
 ```php
-dcb62a5d1780635153b978462f9debd0($company_domain, $dcb62a5d1780635153b978462f9debd0_request): mixed
+getTimesheetEntries($start, $end, $employee_ids): \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]
 ```
 
-Delete timesheet clock entries.
+Get Timesheet Entries
 
-Delete timesheet clock entries.
+Get all timesheet entries for a given period of time.
 
 ### Example
 
@@ -457,33 +468,28 @@ Delete timesheet clock entries.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\TimeTrackingApi(
+$apiInstance = new BhrSdk\Api\TimeTrackingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$dcb62a5d1780635153b978462f9debd0_request = new \MySdk\Model\Dcb62a5d1780635153b978462f9debd0Request(); // \MySdk\Model\Dcb62a5d1780635153b978462f9debd0Request
+$start = 2025-01-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days.
+$end = 2025-03-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days.
+$employee_ids = 1,2,3; // string | A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned.
 
 try {
-    $result = $apiInstance->dcb62a5d1780635153b978462f9debd0($company_domain, $dcb62a5d1780635153b978462f9debd0_request);
+    $result = $apiInstance->getTimesheetEntries($start, $end, $employee_ids);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeTrackingApi->dcb62a5d1780635153b978462f9debd0: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeTrackingApi->getTimesheetEntries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -491,16 +497,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **dcb62a5d1780635153b978462f9debd0_request** | [**\MySdk\Model\Dcb62a5d1780635153b978462f9debd0Request**](../Model/Dcb62a5d1780635153b978462f9debd0Request.md)|  | |
+| **start** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. | |
+| **end** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. | |
+| **employee_ids** | **string**| A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. | [optional] |
 
 ### Return type
 
-**mixed**
+[**\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
