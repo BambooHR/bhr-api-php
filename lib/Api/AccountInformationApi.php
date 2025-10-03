@@ -168,74 +168,65 @@ class AccountInformationApi {
 	 */
 	public function getCountriesOptionsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 		$request = $this->getCountriesOptionsRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\CountrySchema[]',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\CountrySchema[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\CountrySchema[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\CountrySchema[]',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\CountrySchema[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -398,38 +389,37 @@ class AccountInformationApi {
 	 */
 	public function getListOfUsersWithHttpInfo(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
 		$request = $this->getListOfUsersRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -586,74 +576,65 @@ class AccountInformationApi {
 	 */
 	public function getStatesByCountryIdWithHttpInfo($country_id, string $contentType = self::CONTENT_TYPES['getStatesByCountryId'][0]) {
 		$request = $this->getStatesByCountryIdRequest($country_id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\StateProvinceResponseSchema',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\StateProvinceResponseSchema',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\StateProvinceResponseSchema',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\StateProvinceResponseSchema',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\StateProvinceResponseSchema',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -838,38 +819,37 @@ class AccountInformationApi {
 	 */
 	public function metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
 		$request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1062,38 +1042,37 @@ class AccountInformationApi {
 	 */
 	public function metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
 		$request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1257,38 +1236,37 @@ class AccountInformationApi {
 	 */
 	public function metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
 		$request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1452,38 +1430,37 @@ class AccountInformationApi {
 	 */
 	public function metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
 		$request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**

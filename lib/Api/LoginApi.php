@@ -159,38 +159,37 @@ class LoginApi {
 	 */
 	public function loginWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
 		$request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**

@@ -215,38 +215,37 @@ class ApplicantTrackingApi {
 	 */
 	public function addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -596,38 +595,37 @@ class ApplicantTrackingApi {
 	 */
 	public function addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -966,74 +964,65 @@ class ApplicantTrackingApi {
 	 */
 	public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\GetApplications200Response',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\GetApplications200Response',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\GetApplications200Response',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetApplications200Response',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\GetApplications200Response',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1256,74 +1245,65 @@ class ApplicantTrackingApi {
 	 */
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1487,74 +1467,65 @@ class ApplicantTrackingApi {
 	 */
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1723,38 +1694,37 @@ class ApplicantTrackingApi {
 	 */
 	public function getJobSummariesWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1937,38 +1907,37 @@ class ApplicantTrackingApi {
 	 */
 	public function getStatusesWithHttpInfo(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 		$request = $this->getStatusesRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -2126,38 +2095,37 @@ class ApplicantTrackingApi {
 	 */
 	public function postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -2352,38 +2320,37 @@ class ApplicantTrackingApi {
 	 */
 	public function postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**

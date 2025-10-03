@@ -169,62 +169,37 @@ class WebhooksApi {
 	 */
 	public function deleteWebhookWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteWebhook'][0]) {
 		$request = $this->deleteWebhookRequest($id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 404:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -397,88 +372,71 @@ class WebhooksApi {
 	 */
 	public function getMonitorFieldsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		$request = $this->getMonitorFieldsRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\GetMonitorFields200Response',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\GetMonitorFields200Response',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\GetMonitorFields200Response',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetMonitorFields200Response',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\GetMonitorFields200Response',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -644,116 +602,83 @@ class WebhooksApi {
 	 */
 	public function getWebhookWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhook'][0]) {
 		$request = $this->getWebhookRequest($id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebHookResponse',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-				case 404:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\WebHookResponse',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebHookResponse',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 404:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebHookResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+			case 404:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\WebHookResponse',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -935,88 +860,71 @@ class WebhooksApi {
 	 */
 	public function getWebhookListWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		$request = $this->getWebhookListRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\GetWebhookList200Response',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\GetWebhookList200Response',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\GetWebhookList200Response',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetWebhookList200Response',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\GetWebhookList200Response',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1182,116 +1090,83 @@ class WebhooksApi {
 	 */
 	public function getWebhookLogsWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		$request = $this->getWebhookLogsRequest($id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebHookLogResponse',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-				case 404:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\WebHookLogResponse',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebHookLogResponse',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 404:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebHookLogResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+			case 404:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\WebHookLogResponse',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1475,116 +1350,83 @@ class WebhooksApi {
 	 */
 	public function postWebhookWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\PostWebhook201Response',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\Webhook400Error',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\PostWebhook403Response',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\PostWebhook201Response',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\PostWebhook201Response',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\Webhook400Error',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\PostWebhook403Response',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\PostWebhook201Response',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\Webhook400Error',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\PostWebhook403Response',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\PostWebhook201Response',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1771,130 +1613,89 @@ class WebhooksApi {
 	 */
 	public function putWebhookWithHttpInfo($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebHookResponse',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\Webhook400Error',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\PutWebhook403Response',
-						$request,
-						$response,
-					);
-				case 404:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\WebhookError',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\WebHookResponse',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebHookResponse',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\Webhook400Error',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\PutWebhook403Response',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 404:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\WebhookError',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebHookResponse',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\Webhook400Error',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\PutWebhook403Response',
+					$request,
+					$response,
+				);
+			case 404:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\WebHookResponse',
+			$request,
+			$response,
+		);
 	}
 
 	/**

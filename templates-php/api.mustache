@@ -229,107 +229,85 @@ use {{invokerPackage}}\ObjectSerializer;
 	 */
 	public function {{operationId}}WithHttpInfo({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}{{^required}} = {{#defaultValue}}{{{.}}}{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}, {{/allParams}}{{#servers}}{{#-first}}?int $hostIndex = null, array $variables = [], {{/-first}}{{/servers}}string $contentType = self::CONTENT_TYPES['{{{operationId}}}'][0]{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}}) {
 		$request = $this->{{operationId}}Request({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}, {{/allParams}}{{#servers}}{{#-first}}$hostIndex, $variables, {{/-first}}{{/servers}}$contentType{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}});
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '{{{dataType}}}', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '{{{dataType}}}', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			{{#returnType}}
-			{{#responses}}
-			{{#-first}}
+			throw $eInner;
+		}
 
-			switch($statusCode) {
-			{{/-first}}
-			{{#dataType}}
-				{{^isRange}}{{^isWildcard}}case {{code}}:{{/isWildcard}}{{#isWildcard}}default:{{/isWildcard}}
-					return $this->handleResponseWithDataType(
-						'{{{dataType}}}',
-						$request,
-						$response,
-					);{{/isRange}}
-			{{/dataType}}
-			{{#-last}}
-			}
-			{{/-last}}
-			{{/responses}}
+		$statusCode = $response->getStatusCode();
 
-			{{#responses}}{{#dataType}}{{#isRange}}{{^isWildcard}}if ($this->responseWithinRangeCode('{{code}}', $statusCode)) {
+		{{#returnType}}
+		{{#responses}}
+		{{#-first}}
+
+		switch($statusCode) {
+		{{/-first}}
+		{{#dataType}}
+			{{^isRange}}{{^isWildcard}}case {{code}}:{{/isWildcard}}{{#isWildcard}}default:{{/isWildcard}}
 				return $this->handleResponseWithDataType(
 					'{{{dataType}}}',
 					$request,
 					$response,
-				);
-			}{{/isWildcard}}{{/isRange}}{{/dataType}}{{/responses}}
+				);{{/isRange}}
+		{{/dataType}}
+		{{#-last}}
+		}
+		{{/-last}}
+		{{/responses}}
 
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
+		{{#responses}}{{#dataType}}{{#isRange}}{{^isWildcard}}if ($this->responseWithinRangeCode('{{code}}', $statusCode)) {
 			return $this->handleResponseWithDataType(
-				'{{{returnType}}}',
+				'{{{dataType}}}',
 				$request,
 				$response,
 			);
-			{{/returnType}}
-			{{^returnType}}
+		}{{/isWildcard}}{{/isRange}}{{/dataType}}{{/responses}}
 
-			return [null, $statusCode, $response->getHeaders()];
-			{{/returnType}}
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-		{{#responses}}
-			{{#dataType}}
-				{{^isRange}}{{^isWildcard}}case {{code}}:{{/isWildcard}}{{#isWildcard}}default:{{/isWildcard}}
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'{{{dataType}}}',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;{{/isRange}}
-			{{/dataType}}
-		{{/responses}}
-			}
-		{{#responses}}{{#dataType}}{{#isRange}}{{^isWildcard}}
-			if ($this->responseWithinRangeCode('{{code}}', $e->getCode())) {
-				$data = ObjectSerializer::deserialize(
-					$e->getResponseBody(),
-					'{{{dataType}}}',
-					$e->getResponseHeaders()
-				);
-				$e->setResponseObject($data);
-				throw $e;
-			}{{/isWildcard}}{{/isRange}}{{/dataType}}{{/responses}}
-
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'{{{returnType}}}',
+			$request,
+			$response,
+		);
+		{{/returnType}}
+		{{^returnType}}
+
+		return [null, $statusCode, $response->getHeaders()];
+		{{/returnType}}
 	}
 
 	/**

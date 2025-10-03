@@ -187,74 +187,65 @@ class TrainingApi {
 	 */
 	public function addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
 		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TrainingRecord',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TrainingRecord',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TrainingRecord',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TrainingRecord',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TrainingRecord',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -457,74 +448,65 @@ class TrainingApi {
 	 */
 	public function addTrainingCategoryWithHttpInfo($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
 		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TrainingCategory',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TrainingCategory',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TrainingCategory',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TrainingCategory',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TrainingCategory',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -709,74 +691,65 @@ class TrainingApi {
 	 */
 	public function addTrainingTypeWithHttpInfo($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
 		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TrainingType',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TrainingType',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TrainingType',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TrainingType',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TrainingType',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -960,38 +933,37 @@ class TrainingApi {
 	 */
 	public function deleteEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTrainingRecord'][0]) {
 		$request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1165,38 +1137,37 @@ class TrainingApi {
 	 */
 	public function deleteTrainingCategoryWithHttpInfo($training_category_id, string $contentType = self::CONTENT_TYPES['deleteTrainingCategory'][0]) {
 		$request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1370,38 +1341,37 @@ class TrainingApi {
 	 */
 	public function deleteTrainingTypeWithHttpInfo($training_type_id, string $contentType = self::CONTENT_TYPES['deleteTrainingType'][0]) {
 		$request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-			$statusCode = $response->getStatusCode();
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
 
-
-			return [null, $statusCode, $response->getHeaders()];
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-			}
-		
-
-			throw $e;
+			throw $eInner;
 		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		return [null, $statusCode, $response->getHeaders()];
 	}
 
 	/**
@@ -1578,74 +1548,65 @@ class TrainingApi {
 	 */
 	public function listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1846,74 +1807,65 @@ class TrainingApi {
 	 */
 	public function listTrainingCategoriesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		$request = $this->listTrainingCategoriesRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -2077,74 +2029,65 @@ class TrainingApi {
 	 */
 	public function listTrainingTypesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		$request = $this->listTrainingTypesRequest($contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -2312,74 +2255,65 @@ class TrainingApi {
 	 */
 	public function updateEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::CONTENT_TYPES['updateEmployeeTrainingRecord'][0]) {
 		$request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TrainingRecord',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TrainingRecord',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TrainingRecord',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TrainingRecord',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TrainingRecord',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -2584,74 +2518,65 @@ class TrainingApi {
 	 */
 	public function updateTrainingCategoryWithHttpInfo($training_category_id, $update_training_category_request, string $contentType = self::CONTENT_TYPES['updateTrainingCategory'][0]) {
 		$request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TrainingCategory',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TrainingCategory',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TrainingCategory',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TrainingCategory',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TrainingCategory',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -2856,74 +2781,65 @@ class TrainingApi {
 	 */
 	public function updateTrainingTypeWithHttpInfo($training_type_id, $update_training_type_request, string $contentType = self::CONTENT_TYPES['updateTrainingType'][0]) {
 		$request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TrainingType',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TrainingType',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TrainingType',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TrainingType',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TrainingType',
+			$request,
+			$response,
+		);
 	}
 
 	/**

@@ -164,74 +164,65 @@ class HoursApi {
 	 */
 	public function addTimeTrackingBulkWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
 		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -416,88 +407,71 @@ class HoursApi {
 	 */
 	public function addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
 		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingIdResponseSchema',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingIdResponseSchema',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -682,88 +656,71 @@ class HoursApi {
 	 */
 	public function deleteTimeTrackingByIdWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
 		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -947,88 +904,71 @@ class HoursApi {
 	 */
 	public function editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
 		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingIdResponseSchema',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingIdResponseSchema',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1213,88 +1153,71 @@ class HoursApi {
 	 */
 	public function getTimeTrackingRecordWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		$request = $this->getTimeTrackingRecordRequest($id, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimeTrackingRecordSchema',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimeTrackingRecordSchema',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimeTrackingRecordSchema',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingRecordSchema',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingRecordSchema',
+			$request,
+			$response,
+		);
 	}
 
 	/**

@@ -173,158 +173,101 @@ class TimeTrackingApi {
 	 */
 	public function addEditTimesheetClockEntriesWithHttpInfo($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 		$request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 406:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 409:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 406:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 409:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 401:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 406:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 409:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -503,158 +446,101 @@ class TimeTrackingApi {
 	 */
 	public function addEditTimesheetHourEntriesWithHttpInfo($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 		$request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 406:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 409:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 406:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 409:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 401:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 406:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 409:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -835,144 +721,95 @@ class TimeTrackingApi {
 	 */
 	public function addTimesheetClockInEntryWithHttpInfo($employee_id, $clock_in_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockInEntry'][0]) {
 		$request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 406:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 409:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 406:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 409:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 401:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 406:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 409:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1171,158 +1008,101 @@ class TimeTrackingApi {
 	 */
 	public function addTimesheetClockOutEntryWithHttpInfo($employee_id, $clock_out_request_schema = null, string $contentType = self::CONTENT_TYPES['addTimesheetClockOutEntry'][0]) {
 		$request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 406:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 409:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 406:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 409:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 401:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 406:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 409:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimesheetEntryInfoApiTransformer',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1519,74 +1299,65 @@ class TimeTrackingApi {
 	 */
 	public function createTimeTrackingProjectWithHttpInfo($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 		$request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 201:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 201:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 201:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -1765,158 +1536,101 @@ class TimeTrackingApi {
 	 */
 	public function deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, string $contentType = self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'][0]) {
 		$request = $this->deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 204:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 404:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 409:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 412:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'mixed',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 204:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 404:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 409:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 412:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 204:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 404:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 409:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 412:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'mixed',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -2101,172 +1815,107 @@ class TimeTrackingApi {
 	 */
 	public function deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 		$request = $this->deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 204:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 406:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 409:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 412:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'mixed',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 204:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 406:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 409:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 412:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 204:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 401:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 406:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 409:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 412:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'mixed',
+			$request,
+			$response,
+		);
 	}
 
 	/**
@@ -2449,130 +2098,89 @@ class TimeTrackingApi {
 	 */
 	public function getTimesheetEntriesWithHttpInfo($start, $end, $employee_ids = null, string $contentType = self::CONTENT_TYPES['getTimesheetEntries'][0]) {
 		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
-
+		$options = $this->createHttpClientOption();
 		try {
-			$options = $this->createHttpClientOption();
-			try {
-				$response = $this->client->send($request, $options);
-			} catch (RequestException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-			} catch (ConnectException $e) {
-				throw new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-			}
-
-			$statusCode = $response->getStatusCode();
-
-
-			switch($statusCode) {
-				case 200:
-					return $this->handleResponseWithDataType(
-						'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
-						$request,
-						$response,
-					);
-				case 400:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 401:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 403:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-				case 500:
-					return $this->handleResponseWithDataType(
-						'mixed',
-						$request,
-						$response,
-					);
-			}
-
-			
-
-			if ($statusCode < 200 || $statusCode > 299) {
-				throw new ApiException(
-					sprintf(
-						'[%d] Error connecting to the API (%s)',
-						$statusCode,
-						(string) $request->getUri()
-					),
-					$statusCode,
-					$response->getHeaders(),
-					(string) $response->getBody()
-				);
-			}
-
-			return $this->handleResponseWithDataType(
-				'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
-				$request,
-				$response,
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
 			);
-		} catch (ApiException $e) {
-			switch ($e->getCode()) {
-				case 200:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 400:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 401:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 403:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-				case 500:
-					$data = ObjectSerializer::deserialize(
-						$e->getResponseBody(),
-						'mixed',
-						$e->getResponseHeaders()
-					);
-					$e->setResponseObject($data);
-					throw $e;
-			}
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 401:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 403:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+			case 500:
+				return $this->handleResponseWithDataType(
+					'mixed',
+					$request,
+					$response,
+				);
+		}
+
 		
 
-			throw $e;
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
 		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]',
+			$request,
+			$response,
+		);
 	}
 
 	/**
