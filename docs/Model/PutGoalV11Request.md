@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **aligns_with_option_id** | **int** | ID of the option this goal aligns with | [optional]
 **milestones_enabled** | **bool** | Flag indicating whether milestones are enabled for this goal | [optional]
 **deleted_milestone_ids** | **int[]** | List of milestone IDs to be deleted from the goal | [optional]
-**milestones** | [**\MySdk\Model\PutGoalV11RequestMilestonesInner[]**](PutGoalV11RequestMilestonesInner.md) | List of milestones to add to this goal | [optional]
+**milestones** | [**\BhrSdk\Model\PutGoalV11RequestMilestonesInner[]**](PutGoalV11RequestMilestonesInner.md) | List of milestones to add to this goal | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

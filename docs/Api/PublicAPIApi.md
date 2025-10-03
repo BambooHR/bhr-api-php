@@ -1,142 +1,144 @@
-# MySdk\PublicAPIApi
+# BhrSdk\PublicAPIApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://companySubDomain.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addCompanyFileCategory()**](PublicAPIApi.md#addCompanyFileCategory) | **POST** /{companyDomain}/v1/files/categories | Add Company File Category |
-| [**addEmployee()**](PublicAPIApi.md#addEmployee) | **POST** /{companyDomain}/v1/employees | Add Employee |
-| [**addEmployeeDependent()**](PublicAPIApi.md#addEmployeeDependent) | **POST** /{companyDomain}/v1/employeedependents | Add an employee dependent |
-| [**addEmployeeFileCategory()**](PublicAPIApi.md#addEmployeeFileCategory) | **POST** /{companyDomain}/v1/employees/files/categories | Add Employee File Category |
-| [**addEmployeeTableRow()**](PublicAPIApi.md#addEmployeeTableRow) | **POST** /{companyDomain}/v1/employees/{id}/tables/{table} | Adds a table row |
-| [**addEmployeeTableRowV1()**](PublicAPIApi.md#addEmployeeTableRowV1) | **POST** /{companyDomain}/v1_1/employees/{id}/tables/{table} | Adds a table row |
-| [**addNewCandidate()**](PublicAPIApi.md#addNewCandidate) | **POST** /{companyDomain}/v1/applicant_tracking/application | Add New Candidate |
-| [**addNewEmployeeTrainingRecord()**](PublicAPIApi.md#addNewEmployeeTrainingRecord) | **POST** /{companyDomain}/v1/training/record/employee/{employeeId} | Add New Employee Training Record |
-| [**addNewJobOpening()**](PublicAPIApi.md#addNewJobOpening) | **POST** /{companyDomain}/v1/applicant_tracking/job_opening | Add New Job Opening |
-| [**addTrainingCategory()**](PublicAPIApi.md#addTrainingCategory) | **POST** /{companyDomain}/v1/training/category | Add Training Category |
-| [**addTrainingType()**](PublicAPIApi.md#addTrainingType) | **POST** /{companyDomain}/v1/training/type | Add Training Type |
-| [**b86bb5db603786dfc98c8f6a7bb1a218()**](PublicAPIApi.md#b86bb5db603786dfc98c8f6a7bb1a218) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
-| [**call0f428442e53dc46d1e2c8ff5b7a483a8()**](PublicAPIApi.md#call0f428442e53dc46d1e2c8ff5b7a483a8) | **POST** /{companyDomain}/v1/timetracking/record | addTimeTrackingBulk |
-| [**call149e00955713fb486cd7a81dd6ee31aa()**](PublicAPIApi.md#call149e00955713fb486cd7a81dd6ee31aa) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
-| [**call14e73aef978eb81d51fdbd74e0e83823()**](PublicAPIApi.md#call14e73aef978eb81d51fdbd74e0e83823) | **PUT** /{companyDomain}/v1/timetracking/adjust | adjustTimeTracking |
-| [**call59d25b8c03d013c96fbbf866769b8206()**](PublicAPIApi.md#call59d25b8c03d013c96fbbf866769b8206) | **GET** /{companyDomain}/v1/field-options | Get Field Options |
-| [**call5e1c5b4ef12e61d1bc975e8b4e00c38d()**](PublicAPIApi.md#call5e1c5b4ef12e61d1bc975e8b4e00c38d) | **GET** /{companyDomain}/v1/timetracking/record/{id} | getTimeTrackingByTimeTrackingId |
-| [**call69c777478f5d52dee1b4f0937dca154f()**](PublicAPIApi.md#call69c777478f5d52dee1b4f0937dca154f) | **POST** /{companyDomain}/v1/timetracking/add | addTimeTracking |
-| [**call88ef63550f43537c6b3bfaa03d51d95d()**](PublicAPIApi.md#call88ef63550f43537c6b3bfaa03d51d95d) | **POST** /{companyDomain}/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
-| [**call910252128bfbd9d42e50f9dc31bb6120()**](PublicAPIApi.md#call910252128bfbd9d42e50f9dc31bb6120) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
-| [**call9a6d5660f03eadcf705c808a1f44b8c4()**](PublicAPIApi.md#call9a6d5660f03eadcf705c808a1f44b8c4) | **GET** /{companyDomain}/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
-| [**db65bacaf29686d9c3b1296f6047a065()**](PublicAPIApi.md#db65bacaf29686d9c3b1296f6047a065) | **POST** /{companyDomain}/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
-| [**dcb62a5d1780635153b978462f9debd0()**](PublicAPIApi.md#dcb62a5d1780635153b978462f9debd0) | **POST** /{companyDomain}/v1/time_tracking/clock_entries/delete | Delete timesheet clock entries. |
-| [**deleteCompanyFile()**](PublicAPIApi.md#deleteCompanyFile) | **DELETE** /{companyDomain}/v1/files/{fileId} | Delete Company File |
-| [**deleteEmployeeFile()**](PublicAPIApi.md#deleteEmployeeFile) | **DELETE** /{companyDomain}/v1/employees/{id}/files/{fileId} | Delete Employee File |
-| [**deleteEmployeeTableRowV1()**](PublicAPIApi.md#deleteEmployeeTableRowV1) | **DELETE** /{companyDomain}/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row |
-| [**deleteEmployeeTrainingRecord()**](PublicAPIApi.md#deleteEmployeeTrainingRecord) | **DELETE** /{companyDomain}/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record |
-| [**deleteGoal()**](PublicAPIApi.md#deleteGoal) | **DELETE** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal |
-| [**deleteGoalComment()**](PublicAPIApi.md#deleteGoalComment) | **DELETE** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment |
-| [**deleteTrainingCategory()**](PublicAPIApi.md#deleteTrainingCategory) | **DELETE** /{companyDomain}/v1/training/category/{trainingCategoryId} | Delete Training Category |
-| [**deleteTrainingType()**](PublicAPIApi.md#deleteTrainingType) | **DELETE** /{companyDomain}/v1/training/type/{trainingTypeId} | Delete Training Type |
-| [**deleteWebhook()**](PublicAPIApi.md#deleteWebhook) | **DELETE** /{companyDomain}/v1/webhooks/{id} | Delete Webhook |
-| [**estimateFutureTimeOffBalances()**](PublicAPIApi.md#estimateFutureTimeOffBalances) | **GET** /{companyDomain}/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances |
-| [**f97efc203b25647724accb9da7dda7db()**](PublicAPIApi.md#f97efc203b25647724accb9da7dda7db) | **DELETE** /{companyDomain}/v1/timetracking/delete/{id} | deleteTimeTrackingByTimeTrackingId |
-| [**getAListOfUsers()**](PublicAPIApi.md#getAListOfUsers) | **GET** /{companyDomain}/v1/meta/users | Get a List of Users |
-| [**getAListOfWhosOut()**](PublicAPIApi.md#getAListOfWhosOut) | **GET** /{companyDomain}/v1/time_off/whos_out | Get a list of Who&#39;s Out |
-| [**getApplicationDetails()**](PublicAPIApi.md#getApplicationDetails) | **GET** /{companyDomain}/v1/applicant_tracking/applications/{applicationId} | Get Application Details |
-| [**getApplications()**](PublicAPIApi.md#getApplications) | **GET** /{companyDomain}/v1/applicant_tracking/applications | Get Applications |
-| [**getBenefitCoverages()**](PublicAPIApi.md#getBenefitCoverages) | **GET** /{companyDomain}/v1/benefitcoverages | Get benefit coverages |
-| [**getBenefitDeductionTypes()**](PublicAPIApi.md#getBenefitDeductionTypes) | **GET** /{companyDomain}/v1/benefits/settings/deduction_types/all | Get benefit deduction types |
-| [**getByReportId()**](PublicAPIApi.md#getByReportId) | **GET** /{companyDomain}/v1/custom-reports/{reportId} | Get Report by ID |
-| [**getCanCreateGoal()**](PublicAPIApi.md#getCanCreateGoal) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal |
-| [**getChangedEmployeeIds()**](PublicAPIApi.md#getChangedEmployeeIds) | **GET** /{companyDomain}/v1/employees/changed | Gets all updated employee IDs |
-| [**getChangedEmployeeTableData()**](PublicAPIApi.md#getChangedEmployeeTableData) | **GET** /{companyDomain}/v1/employees/changed/tables/{table} | Gets all updated employee table data |
-| [**getCompanyEINs()**](PublicAPIApi.md#getCompanyEINs) | **GET** /{companyDomain}/v1/company_eins | Get Company EINs |
-| [**getCompanyFile()**](PublicAPIApi.md#getCompanyFile) | **GET** /{companyDomain}/v1/files/{fileId} | Get an Company File |
-| [**getCompanyInformation()**](PublicAPIApi.md#getCompanyInformation) | **GET** /{companyDomain}/v1/company_information | Get Company Information |
-| [**getCompanyLocations()**](PublicAPIApi.md#getCompanyLocations) | **GET** /{companyDomain}/v1/applicant_tracking/locations | Get Company Locations |
-| [**getCompanyReport()**](PublicAPIApi.md#getCompanyReport) | **GET** /{companyDomain}/v1/reports/{id} | Get company report |
-| [**getDataFromDataset()**](PublicAPIApi.md#getDataFromDataset) | **POST** /{companyDomain}/v1/datasets/{datasetName} | Get Data from Dataset |
-| [**getDataSets()**](PublicAPIApi.md#getDataSets) | **GET** /{companyDomain}/v1/datasets | Get Data Sets |
-| [**getEmployee()**](PublicAPIApi.md#getEmployee) | **GET** /{companyDomain}/v1/employees/{id} | Get Employee |
-| [**getEmployeeDependent()**](PublicAPIApi.md#getEmployeeDependent) | **GET** /{companyDomain}/v1/employeedependents/{id} | Get employee dependent |
-| [**getEmployeeDependents()**](PublicAPIApi.md#getEmployeeDependents) | **GET** /{companyDomain}/v1/employeedependents | Get all employee dependents |
-| [**getEmployeeFile()**](PublicAPIApi.md#getEmployeeFile) | **GET** /{companyDomain}/v1/employees/{id}/files/{fileId} | Get an Employee File |
-| [**getEmployeePhoto()**](PublicAPIApi.md#getEmployeePhoto) | **GET** /{companyDomain}/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
-| [**getEmployeeTableRow()**](PublicAPIApi.md#getEmployeeTableRow) | **GET** /{companyDomain}/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination |
-| [**getEmployeesDirectory()**](PublicAPIApi.md#getEmployeesDirectory) | **GET** /{companyDomain}/v1/employees/directory | Get Employee Directory |
-| [**getFieldsFromDataset()**](PublicAPIApi.md#getFieldsFromDataset) | **GET** /{companyDomain}/v1/datasets/{datasetName}/fields | Get Fields from Dataset |
-| [**getGoalAggregate()**](PublicAPIApi.md#getGoalAggregate) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info |
-| [**getGoalComments()**](PublicAPIApi.md#getGoalComments) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments |
-| [**getGoals()**](PublicAPIApi.md#getGoals) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals | Get Goals |
-| [**getGoalsAggregateV1()**](PublicAPIApi.md#getGoalsAggregateV1) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info |
-| [**getGoalsAggregateV11()**](PublicAPIApi.md#getGoalsAggregateV11) | **GET** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1 |
-| [**getGoalsAggregateV12()**](PublicAPIApi.md#getGoalsAggregateV12) | **GET** /{companyDomain}/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2 |
-| [**getGoalsAlignmentOptions()**](PublicAPIApi.md#getGoalsAlignmentOptions) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options |
-| [**getGoalsFiltersV1()**](PublicAPIApi.md#getGoalsFiltersV1) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/filters |  |
-| [**getGoalsFiltersV11()**](PublicAPIApi.md#getGoalsFiltersV11) | **GET** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/filters |  |
-| [**getGoalsFiltersV12()**](PublicAPIApi.md#getGoalsFiltersV12) | **GET** /{companyDomain}/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2 |
-| [**getGoalsShareOptions()**](PublicAPIApi.md#getGoalsShareOptions) | **GET** /{companyDomain}/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options |
-| [**getHiringLeads()**](PublicAPIApi.md#getHiringLeads) | **GET** /{companyDomain}/v1/applicant_tracking/hiring_leads | Get Hiring Leads |
-| [**getJobSummaries()**](PublicAPIApi.md#getJobSummaries) | **GET** /{companyDomain}/v1/applicant_tracking/jobs | Get Job Summaries |
-| [**getMemberBenefit()**](PublicAPIApi.md#getMemberBenefit) | **GET** /{companyDomain}/v1/benefit/member_benefit | Get a list of member benefit events |
-| [**getMonitorFields()**](PublicAPIApi.md#getMonitorFields) | **GET** /{companyDomain}/v1/webhooks/monitor_fields | Get monitor fields |
-| [**getStatuses()**](PublicAPIApi.md#getStatuses) | **GET** /{companyDomain}/v1/applicant_tracking/statuses | Get Statuses |
-| [**getTimeOffPolicies()**](PublicAPIApi.md#getTimeOffPolicies) | **GET** /{companyDomain}/v1/meta/time_off/policies | Get Time Off Policies |
-| [**getTimeOffTypes()**](PublicAPIApi.md#getTimeOffTypes) | **GET** /{companyDomain}/v1/meta/time_off/types | Get Time Off Types |
-| [**getWebhook()**](PublicAPIApi.md#getWebhook) | **GET** /{companyDomain}/v1/webhooks/{id} | Get Webhook |
-| [**getWebhookList()**](PublicAPIApi.md#getWebhookList) | **GET** /{companyDomain}/v1/webhooks | Gets as list of webhooks for the user API key. |
-| [**getWebhookLogs()**](PublicAPIApi.md#getWebhookLogs) | **GET** /{companyDomain}/v1/webhooks/{id}/log | Get Webhook Logs |
-| [**listCompanyFiles()**](PublicAPIApi.md#listCompanyFiles) | **GET** /{companyDomain}/v1/files/view | List company files and categories |
-| [**listEmployeeFiles()**](PublicAPIApi.md#listEmployeeFiles) | **GET** /{companyDomain}/v1/employees/{id}/files/view | List employee files and categories |
-| [**listEmployeeTrainings()**](PublicAPIApi.md#listEmployeeTrainings) | **GET** /{companyDomain}/v1/training/record/employee/{employeeId} | List Employee Trainings |
-| [**listReports()**](PublicAPIApi.md#listReports) | **GET** /{companyDomain}/v1/custom-reports | List Reports |
-| [**listTrainingCategories()**](PublicAPIApi.md#listTrainingCategories) | **GET** /{companyDomain}/v1/training/category | List Training Categories |
-| [**listTrainingTypes()**](PublicAPIApi.md#listTrainingTypes) | **GET** /{companyDomain}/v1/training/type | List Training Types |
-| [**login()**](PublicAPIApi.md#login) | **POST** /{companyDomain}/v1/login | User Login |
-| [**metadataAddOrUpdateValuesForListFields()**](PublicAPIApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /{companyDomain}/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields |
-| [**metadataGetAListOfFields()**](PublicAPIApi.md#metadataGetAListOfFields) | **GET** /{companyDomain}/v1/meta/fields | Get a list of fields |
-| [**metadataGetAListOfTabularFields()**](PublicAPIApi.md#metadataGetAListOfTabularFields) | **GET** /{companyDomain}/v1/meta/tables | Get a list of tabular fields |
-| [**metadataGetDetailsForListFields()**](PublicAPIApi.md#metadataGetDetailsForListFields) | **GET** /{companyDomain}/v1/meta/lists | Get details for list fields |
-| [**postApplicantStatus()**](PublicAPIApi.md#postApplicantStatus) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status |
-| [**postApplicationComment()**](PublicAPIApi.md#postApplicationComment) | **POST** /{companyDomain}/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment |
-| [**postCloseGoal()**](PublicAPIApi.md#postCloseGoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal |
-| [**postGoal()**](PublicAPIApi.md#postGoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals | Create Goal |
-| [**postGoalComment()**](PublicAPIApi.md#postGoalComment) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment |
-| [**postReopenGoal()**](PublicAPIApi.md#postReopenGoal) | **POST** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal |
-| [**postWebhook()**](PublicAPIApi.md#postWebhook) | **POST** /{companyDomain}/v1/webhooks | Add Webhook |
-| [**putGoalComment()**](PublicAPIApi.md#putGoalComment) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment |
-| [**putGoalMilestoneProgress()**](PublicAPIApi.md#putGoalMilestoneProgress) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress |
-| [**putGoalProgress()**](PublicAPIApi.md#putGoalProgress) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress |
-| [**putGoalSharedWith()**](PublicAPIApi.md#putGoalSharedWith) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing |
-| [**putGoalV1()**](PublicAPIApi.md#putGoalV1) | **PUT** /{companyDomain}/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal |
-| [**putGoalV11()**](PublicAPIApi.md#putGoalV11) | **PUT** /{companyDomain}/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1 |
-| [**putWebhook()**](PublicAPIApi.md#putWebhook) | **PUT** /{companyDomain}/v1/webhooks/{id} | Update Webhook |
-| [**requestCustomReport()**](PublicAPIApi.md#requestCustomReport) | **POST** /{companyDomain}/v1/reports/custom | Request a custom report |
-| [**timeOffAddATimeOffHistoryItemForTimeOffRequest()**](PublicAPIApi.md#timeOffAddATimeOffHistoryItemForTimeOffRequest) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request |
-| [**timeOffAddATimeOffRequest()**](PublicAPIApi.md#timeOffAddATimeOffRequest) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/request | Add a Time Off Request |
-| [**timeOffAdjustTimeOffBalance()**](PublicAPIApi.md#timeOffAdjustTimeOffBalance) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance |
-| [**timeOffAssignTimeOffPoliciesForAnEmployee()**](PublicAPIApi.md#timeOffAssignTimeOffPoliciesForAnEmployee) | **PUT** /{companyDomain}/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee |
-| [**timeOffChangeARequestStatus()**](PublicAPIApi.md#timeOffChangeARequestStatus) | **PUT** /{companyDomain}/v1/time_off/requests/{requestId}/status | Change a Request Status |
-| [**timeOffGetTimeOffRequests()**](PublicAPIApi.md#timeOffGetTimeOffRequests) | **GET** /{companyDomain}/v1/time_off/requests | Get Time Off Requests |
-| [**timeOffListTimeOffPoliciesForEmployee()**](PublicAPIApi.md#timeOffListTimeOffPoliciesForEmployee) | **GET** /{companyDomain}/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee |
-| [**timeOffV11AssignTimeOffPoliciesForAnEmployee()**](PublicAPIApi.md#timeOffV11AssignTimeOffPoliciesForAnEmployee) | **PUT** /{companyDomain}/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1 |
-| [**timeOffV11ListTimeOffPoliciesForEmployee()**](PublicAPIApi.md#timeOffV11ListTimeOffPoliciesForEmployee) | **GET** /{companyDomain}/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1 |
-| [**updateCompanyFile()**](PublicAPIApi.md#updateCompanyFile) | **POST** /{companyDomain}/v1/files/{fileId} | Update Company File |
-| [**updateEmployee()**](PublicAPIApi.md#updateEmployee) | **POST** /{companyDomain}/v1/employees/{id} | Update Employee |
-| [**updateEmployeeDependent()**](PublicAPIApi.md#updateEmployeeDependent) | **PUT** /{companyDomain}/v1/employeedependents/{id} | Update an employee dependent |
-| [**updateEmployeeFile()**](PublicAPIApi.md#updateEmployeeFile) | **POST** /{companyDomain}/v1/employees/{id}/files/{fileId} | Update Employee File |
-| [**updateEmployeeTableRow()**](PublicAPIApi.md#updateEmployeeTableRow) | **POST** /{companyDomain}/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row. |
-| [**updateEmployeeTableRowV()**](PublicAPIApi.md#updateEmployeeTableRowV) | **POST** /{companyDomain}/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row. |
-| [**updateEmployeeTrainingRecord()**](PublicAPIApi.md#updateEmployeeTrainingRecord) | **PUT** /{companyDomain}/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record |
-| [**updateTrainingCategory()**](PublicAPIApi.md#updateTrainingCategory) | **PUT** /{companyDomain}/v1/training/category/{trainingCategoryId} | Update Training Category |
-| [**updateTrainingType()**](PublicAPIApi.md#updateTrainingType) | **PUT** /{companyDomain}/v1/training/type/{trainingTypeId} | Update Training Type |
-| [**uploadCompanyFile()**](PublicAPIApi.md#uploadCompanyFile) | **POST** /{companyDomain}/v1/files | Upload Company File |
-| [**uploadEmployeeFile()**](PublicAPIApi.md#uploadEmployeeFile) | **POST** /{companyDomain}/v1/employees/{id}/files | Upload Employee File |
-| [**uploadEmployeePhoto()**](PublicAPIApi.md#uploadEmployeePhoto) | **POST** /{companyDomain}/v1/employees/{employeeId}/photo | Store a new employee photo |
+| [**addCompanyFileCategory()**](PublicAPIApi.md#addCompanyFileCategory) | **POST** /api/v1/files/categories | Add Company File Category |
+| [**addEditTimesheetClockEntries()**](PublicAPIApi.md#addEditTimesheetClockEntries) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries |
+| [**addEditTimesheetHourEntries()**](PublicAPIApi.md#addEditTimesheetHourEntries) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries |
+| [**addEmployee()**](PublicAPIApi.md#addEmployee) | **POST** /api/v1/employees | Add Employee |
+| [**addEmployeeDependent()**](PublicAPIApi.md#addEmployeeDependent) | **POST** /api/v1/employeedependents | Add an employee dependent |
+| [**addEmployeeFileCategory()**](PublicAPIApi.md#addEmployeeFileCategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category |
+| [**addEmployeeTableRow()**](PublicAPIApi.md#addEmployeeTableRow) | **POST** /api/v1/employees/{id}/tables/{table} | Adds a table row |
+| [**addEmployeeTableRowV1()**](PublicAPIApi.md#addEmployeeTableRowV1) | **POST** /api/v1_1/employees/{id}/tables/{table} | Adds a table row |
+| [**addNewCandidate()**](PublicAPIApi.md#addNewCandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate |
+| [**addNewEmployeeTrainingRecord()**](PublicAPIApi.md#addNewEmployeeTrainingRecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record |
+| [**addNewJobOpening()**](PublicAPIApi.md#addNewJobOpening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening |
+| [**addTimeTrackingBulk()**](PublicAPIApi.md#addTimeTrackingBulk) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records |
+| [**addTimeTrackingHourRecord()**](PublicAPIApi.md#addTimeTrackingHourRecord) | **POST** /api/v1/timetracking/add | Add Hour Record |
+| [**addTimesheetClockInEntry()**](PublicAPIApi.md#addTimesheetClockInEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry |
+| [**addTimesheetClockOutEntry()**](PublicAPIApi.md#addTimesheetClockOutEntry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry |
+| [**addTrainingCategory()**](PublicAPIApi.md#addTrainingCategory) | **POST** /api/v1/training/category | Add Training Category |
+| [**addTrainingType()**](PublicAPIApi.md#addTrainingType) | **POST** /api/v1/training/type | Add Training Type |
+| [**createTimeTrackingProject()**](PublicAPIApi.md#createTimeTrackingProject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project |
+| [**deleteCompanyFile()**](PublicAPIApi.md#deleteCompanyFile) | **DELETE** /api/v1/files/{fileId} | Delete Company File |
+| [**deleteEmployeeFile()**](PublicAPIApi.md#deleteEmployeeFile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File |
+| [**deleteEmployeeTableRowV1()**](PublicAPIApi.md#deleteEmployeeTableRowV1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row |
+| [**deleteEmployeeTrainingRecord()**](PublicAPIApi.md#deleteEmployeeTrainingRecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record |
+| [**deleteGoal()**](PublicAPIApi.md#deleteGoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal |
+| [**deleteGoalComment()**](PublicAPIApi.md#deleteGoalComment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment |
+| [**deleteTimeTrackingById()**](PublicAPIApi.md#deleteTimeTrackingById) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record |
+| [**deleteTimesheetClockEntriesViaPost()**](PublicAPIApi.md#deleteTimesheetClockEntriesViaPost) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries |
+| [**deleteTimesheetHourEntriesViaPost()**](PublicAPIApi.md#deleteTimesheetHourEntriesViaPost) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries |
+| [**deleteTrainingCategory()**](PublicAPIApi.md#deleteTrainingCategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category |
+| [**deleteTrainingType()**](PublicAPIApi.md#deleteTrainingType) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type |
+| [**deleteWebhook()**](PublicAPIApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook |
+| [**editTimeTrackingRecord()**](PublicAPIApi.md#editTimeTrackingRecord) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record |
+| [**getAListOfWhoIsOut()**](PublicAPIApi.md#getAListOfWhoIsOut) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out |
+| [**getApplicationDetails()**](PublicAPIApi.md#getApplicationDetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details |
+| [**getApplications()**](PublicAPIApi.md#getApplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications |
+| [**getBenefitCoverages()**](PublicAPIApi.md#getBenefitCoverages) | **GET** /api/v1/benefitcoverages | Get benefit coverages |
+| [**getBenefitDeductionTypes()**](PublicAPIApi.md#getBenefitDeductionTypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get benefit deduction types |
+| [**getByReportId()**](PublicAPIApi.md#getByReportId) | **GET** /api/v1/custom-reports/{reportId} | Get Report by ID |
+| [**getCanCreateGoal()**](PublicAPIApi.md#getCanCreateGoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal |
+| [**getChangedEmployeeIds()**](PublicAPIApi.md#getChangedEmployeeIds) | **GET** /api/v1/employees/changed | Gets all updated employee IDs |
+| [**getChangedEmployeeTableData()**](PublicAPIApi.md#getChangedEmployeeTableData) | **GET** /api/v1/employees/changed/tables/{table} | Gets all updated employee table data |
+| [**getCompanyFile()**](PublicAPIApi.md#getCompanyFile) | **GET** /api/v1/files/{fileId} | Get an Company File |
+| [**getCompanyInformation()**](PublicAPIApi.md#getCompanyInformation) | **GET** /api/v1/company_information | Get Company Information |
+| [**getCompanyLocations()**](PublicAPIApi.md#getCompanyLocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations |
+| [**getCompanyReport()**](PublicAPIApi.md#getCompanyReport) | **GET** /api/v1/reports/{id} | Get company report |
+| [**getCountriesOptions()**](PublicAPIApi.md#getCountriesOptions) | **GET** /api/v1/meta/countries/options | Get all countries |
+| [**getDataFromDataset()**](PublicAPIApi.md#getDataFromDataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset |
+| [**getDataSets()**](PublicAPIApi.md#getDataSets) | **GET** /api/v1/datasets | Get Data Sets |
+| [**getEmployee()**](PublicAPIApi.md#getEmployee) | **GET** /api/v1/employees/{id} | Get Employee |
+| [**getEmployeeDependent()**](PublicAPIApi.md#getEmployeeDependent) | **GET** /api/v1/employeedependents/{id} | Get employee dependent |
+| [**getEmployeeDependents()**](PublicAPIApi.md#getEmployeeDependents) | **GET** /api/v1/employeedependents | Get all employee dependents |
+| [**getEmployeeFile()**](PublicAPIApi.md#getEmployeeFile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get an Employee File |
+| [**getEmployeePhoto()**](PublicAPIApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
+| [**getEmployeeTableRow()**](PublicAPIApi.md#getEmployeeTableRow) | **GET** /api/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination |
+| [**getEmployeesDirectory()**](PublicAPIApi.md#getEmployeesDirectory) | **GET** /api/v1/employees/directory | Get Employee Directory |
+| [**getFieldOptions()**](PublicAPIApi.md#getFieldOptions) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options |
+| [**getFieldsFromDataset()**](PublicAPIApi.md#getFieldsFromDataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset |
+| [**getGoalAggregate()**](PublicAPIApi.md#getGoalAggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info |
+| [**getGoalComments()**](PublicAPIApi.md#getGoalComments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments |
+| [**getGoals()**](PublicAPIApi.md#getGoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | Get Goals |
+| [**getGoalsAggregateV1()**](PublicAPIApi.md#getGoalsAggregateV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info |
+| [**getGoalsAggregateV11()**](PublicAPIApi.md#getGoalsAggregateV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1 |
+| [**getGoalsAggregateV12()**](PublicAPIApi.md#getGoalsAggregateV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2 |
+| [**getGoalsAlignmentOptions()**](PublicAPIApi.md#getGoalsAlignmentOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options |
+| [**getGoalsFiltersV1()**](PublicAPIApi.md#getGoalsFiltersV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goals Filters |
+| [**getGoalsFiltersV11()**](PublicAPIApi.md#getGoalsFiltersV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goals Filters |
+| [**getGoalsFiltersV12()**](PublicAPIApi.md#getGoalsFiltersV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2 |
+| [**getGoalsShareOptions()**](PublicAPIApi.md#getGoalsShareOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options |
+| [**getHiringLeads()**](PublicAPIApi.md#getHiringLeads) | **GET** /api/v1/applicant_tracking/hiring_leads | Get Hiring Leads |
+| [**getJobSummaries()**](PublicAPIApi.md#getJobSummaries) | **GET** /api/v1/applicant_tracking/jobs | Get Job Summaries |
+| [**getListOfUsers()**](PublicAPIApi.md#getListOfUsers) | **GET** /api/v1/meta/users | Get a List of Users |
+| [**getMemberBenefit()**](PublicAPIApi.md#getMemberBenefit) | **GET** /api/v1/benefit/member_benefit | Get a list of member benefit events |
+| [**getMonitorFields()**](PublicAPIApi.md#getMonitorFields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields |
+| [**getStatesByCountryId()**](PublicAPIApi.md#getStatesByCountryId) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
+| [**getStatuses()**](PublicAPIApi.md#getStatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses |
+| [**getTimeOffPolicies()**](PublicAPIApi.md#getTimeOffPolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies |
+| [**getTimeOffTypes()**](PublicAPIApi.md#getTimeOffTypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types |
+| [**getTimeTrackingRecord()**](PublicAPIApi.md#getTimeTrackingRecord) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
+| [**getTimesheetEntries()**](PublicAPIApi.md#getTimesheetEntries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries |
+| [**getWebhook()**](PublicAPIApi.md#getWebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook |
+| [**getWebhookList()**](PublicAPIApi.md#getWebhookList) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key. |
+| [**getWebhookLogs()**](PublicAPIApi.md#getWebhookLogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs |
+| [**listCompanyFiles()**](PublicAPIApi.md#listCompanyFiles) | **GET** /api/v1/files/view | List company files and categories |
+| [**listEmployeeFiles()**](PublicAPIApi.md#listEmployeeFiles) | **GET** /api/v1/employees/{id}/files/view | List employee files and categories |
+| [**listEmployeeTrainings()**](PublicAPIApi.md#listEmployeeTrainings) | **GET** /api/v1/training/record/employee/{employeeId} | List Employee Trainings |
+| [**listReports()**](PublicAPIApi.md#listReports) | **GET** /api/v1/custom-reports | List Reports |
+| [**listTrainingCategories()**](PublicAPIApi.md#listTrainingCategories) | **GET** /api/v1/training/category | List Training Categories |
+| [**listTrainingTypes()**](PublicAPIApi.md#listTrainingTypes) | **GET** /api/v1/training/type | List Training Types |
+| [**login()**](PublicAPIApi.md#login) | **POST** /api/v1/login | User Login |
+| [**metadataAddOrUpdateValuesForListFields()**](PublicAPIApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields |
+| [**metadataGetAListOfFields()**](PublicAPIApi.md#metadataGetAListOfFields) | **GET** /api/v1/meta/fields | Get a list of fields |
+| [**metadataGetAListOfTabularFields()**](PublicAPIApi.md#metadataGetAListOfTabularFields) | **GET** /api/v1/meta/tables | Get a list of tabular fields |
+| [**metadataGetDetailsForListFields()**](PublicAPIApi.md#metadataGetDetailsForListFields) | **GET** /api/v1/meta/lists | Get details for list fields |
+| [**postApplicantStatus()**](PublicAPIApi.md#postApplicantStatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status |
+| [**postApplicationComment()**](PublicAPIApi.md#postApplicationComment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment |
+| [**postCloseGoal()**](PublicAPIApi.md#postCloseGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal |
+| [**postGoal()**](PublicAPIApi.md#postGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal |
+| [**postGoalComment()**](PublicAPIApi.md#postGoalComment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment |
+| [**postReopenGoal()**](PublicAPIApi.md#postReopenGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal |
+| [**postWebhook()**](PublicAPIApi.md#postWebhook) | **POST** /api/v1/webhooks | Add Webhook |
+| [**putGoalComment()**](PublicAPIApi.md#putGoalComment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment |
+| [**putGoalMilestoneProgress()**](PublicAPIApi.md#putGoalMilestoneProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress |
+| [**putGoalProgress()**](PublicAPIApi.md#putGoalProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress |
+| [**putGoalSharedWith()**](PublicAPIApi.md#putGoalSharedWith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing |
+| [**putGoalV1()**](PublicAPIApi.md#putGoalV1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal |
+| [**putGoalV11()**](PublicAPIApi.md#putGoalV11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1 |
+| [**putWebhook()**](PublicAPIApi.md#putWebhook) | **PUT** /api/v1/webhooks/{id} | Update Webhook |
+| [**requestCustomReport()**](PublicAPIApi.md#requestCustomReport) | **POST** /api/v1/reports/custom | Request a custom report |
+| [**timeOffAddATimeOffHistoryItemForTimeOffRequest()**](PublicAPIApi.md#timeOffAddATimeOffHistoryItemForTimeOffRequest) | **PUT** /api/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request |
+| [**timeOffAddATimeOffRequest()**](PublicAPIApi.md#timeOffAddATimeOffRequest) | **PUT** /api/v1/employees/{employeeId}/time_off/request | Add a Time Off Request |
+| [**timeOffAdjustTimeOffBalance()**](PublicAPIApi.md#timeOffAdjustTimeOffBalance) | **PUT** /api/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance |
+| [**timeOffAssignTimeOffPoliciesForAnEmployee()**](PublicAPIApi.md#timeOffAssignTimeOffPoliciesForAnEmployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee |
+| [**timeOffAssignTimeOffPoliciesForAnEmployeeV11()**](PublicAPIApi.md#timeOffAssignTimeOffPoliciesForAnEmployeeV11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1 |
+| [**timeOffChangeARequestStatus()**](PublicAPIApi.md#timeOffChangeARequestStatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Change a Request Status |
+| [**timeOffEstimateFutureTimeOffBalances()**](PublicAPIApi.md#timeOffEstimateFutureTimeOffBalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances |
+| [**timeOffGetTimeOffRequests()**](PublicAPIApi.md#timeOffGetTimeOffRequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests |
+| [**timeOffListTimeOffPoliciesForEmployee()**](PublicAPIApi.md#timeOffListTimeOffPoliciesForEmployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee |
+| [**timeOffListTimeOffPoliciesForEmployeeV11()**](PublicAPIApi.md#timeOffListTimeOffPoliciesForEmployeeV11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1 |
+| [**updateCompanyFile()**](PublicAPIApi.md#updateCompanyFile) | **POST** /api/v1/files/{fileId} | Update Company File |
+| [**updateEmployee()**](PublicAPIApi.md#updateEmployee) | **POST** /api/v1/employees/{id} | Update Employee |
+| [**updateEmployeeDependent()**](PublicAPIApi.md#updateEmployeeDependent) | **PUT** /api/v1/employeedependents/{id} | Update an employee dependent |
+| [**updateEmployeeFile()**](PublicAPIApi.md#updateEmployeeFile) | **POST** /api/v1/employees/{id}/files/{fileId} | Update Employee File |
+| [**updateEmployeeTableRow()**](PublicAPIApi.md#updateEmployeeTableRow) | **POST** /api/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row. |
+| [**updateEmployeeTableRowV()**](PublicAPIApi.md#updateEmployeeTableRowV) | **POST** /api/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row. |
+| [**updateEmployeeTrainingRecord()**](PublicAPIApi.md#updateEmployeeTrainingRecord) | **PUT** /api/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record |
+| [**updateTrainingCategory()**](PublicAPIApi.md#updateTrainingCategory) | **PUT** /api/v1/training/category/{trainingCategoryId} | Update Training Category |
+| [**updateTrainingType()**](PublicAPIApi.md#updateTrainingType) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type |
+| [**uploadCompanyFile()**](PublicAPIApi.md#uploadCompanyFile) | **POST** /api/v1/files | Upload Company File |
+| [**uploadEmployeeFile()**](PublicAPIApi.md#uploadEmployeeFile) | **POST** /api/v1/employees/{id}/files | Upload Employee File |
+| [**uploadEmployeePhoto()**](PublicAPIApi.md#uploadEmployeePhoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo |
 
 
 ## `addCompanyFileCategory()`
 
 ```php
-addCompanyFileCategory($company_domain, $request_body)
+addCompanyFileCategory($request_body)
 ```
 
 Add Company File Category
@@ -149,30 +151,23 @@ Add a company file category.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $request_body = array('request_body_example'); // string[]
 
 try {
-    $apiInstance->addCompanyFileCategory($company_domain, $request_body);
+    $apiInstance->addCompanyFileCategory($request_body);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addCompanyFileCategory: ', $e->getMessage(), PHP_EOL;
 }
@@ -182,7 +177,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 
 ### Return type
@@ -191,7 +185,131 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addEditTimesheetClockEntries()`
+
+```php
+addEditTimesheetClockEntries($clock_entries_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
+```
+
+Add/Edit Timesheet Clock Entries
+
+Add or edit timesheet clock entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$clock_entries_schema = new \BhrSdk\Model\ClockEntriesSchema(); // \BhrSdk\Model\ClockEntriesSchema
+
+try {
+    $result = $apiInstance->addEditTimesheetClockEntries($clock_entries_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addEditTimesheetClockEntries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clock_entries_schema** | [**\BhrSdk\Model\ClockEntriesSchema**](../Model/ClockEntriesSchema.md)|  | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addEditTimesheetHourEntries()`
+
+```php
+addEditTimesheetHourEntries($hour_entries_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer[]
+```
+
+Add/Edit Timesheet Hour Entries
+
+Add or edit timesheet hour entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$hour_entries_request_schema = new \BhrSdk\Model\HourEntriesRequestSchema(); // \BhrSdk\Model\HourEntriesRequestSchema
+
+try {
+    $result = $apiInstance->addEditTimesheetHourEntries($hour_entries_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addEditTimesheetHourEntries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hour_entries_request_schema** | [**\BhrSdk\Model\HourEntriesRequestSchema**](../Model/HourEntriesRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -205,12 +323,12 @@ void (empty response body)
 ## `addEmployee()`
 
 ```php
-addEmployee($company_domain, $post_new_employee)
+addEmployee($post_new_employee)
 ```
 
 Add Employee
 
-Add a new employee. New employees must have at least a first name and a last name. The ID of the newly created employee is included in the Location header of the response. Other fields can be included. Please see the [fields](ref:metadata-get-a-list-of-fields) endpoint. New Employees added to a pay schedule synced with Trax Payroll must have the following required fields (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
+Add a new employee. New employees must have at least a first name and a last name. The ID of the newly created employee is included in the Location header of the response. Other fields can be included. Please see the [fields](ref:metadata-get-a-list-of-fields) endpoint. New Employees added to a pay schedule synced with Trax Payroll must have the following required fields (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn or ein, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
 
 ### Example
 
@@ -218,30 +336,23 @@ Add a new employee. New employees must have at least a first name and a last nam
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$post_new_employee = new \MySdk\Model\PostNewEmployee(); // \MySdk\Model\PostNewEmployee
+$post_new_employee = new \BhrSdk\Model\PostNewEmployee(); // \BhrSdk\Model\PostNewEmployee
 
 try {
-    $apiInstance->addEmployee($company_domain, $post_new_employee);
+    $apiInstance->addEmployee($post_new_employee);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -251,8 +362,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **post_new_employee** | [**\MySdk\Model\PostNewEmployee**](../Model/PostNewEmployee.md)|  | |
+| **post_new_employee** | [**\BhrSdk\Model\PostNewEmployee**](../Model/PostNewEmployee.md)|  | |
 
 ### Return type
 
@@ -260,7 +370,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -274,7 +384,7 @@ void (empty response body)
 ## `addEmployeeDependent()`
 
 ```php
-addEmployeeDependent($company_domain, $employee_dependent)
+addEmployeeDependent($employee_dependent)
 ```
 
 Add an employee dependent
@@ -287,30 +397,23 @@ Adds an employee dependent
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_dependent = new \MySdk\Model\EmployeeDependent(); // \MySdk\Model\EmployeeDependent
+$employee_dependent = new \BhrSdk\Model\EmployeeDependent(); // \BhrSdk\Model\EmployeeDependent
 
 try {
-    $apiInstance->addEmployeeDependent($company_domain, $employee_dependent);
+    $apiInstance->addEmployeeDependent($employee_dependent);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addEmployeeDependent: ', $e->getMessage(), PHP_EOL;
 }
@@ -320,8 +423,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_dependent** | [**\MySdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
+| **employee_dependent** | [**\BhrSdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
 
 ### Return type
 
@@ -329,7 +431,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -343,7 +445,7 @@ void (empty response body)
 ## `addEmployeeFileCategory()`
 
 ```php
-addEmployeeFileCategory($company_domain, $request_body)
+addEmployeeFileCategory($request_body)
 ```
 
 Add Employee File Category
@@ -356,30 +458,23 @@ Add an employee file category.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $request_body = array('request_body_example'); // string[]
 
 try {
-    $apiInstance->addEmployeeFileCategory($company_domain, $request_body);
+    $apiInstance->addEmployeeFileCategory($request_body);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addEmployeeFileCategory: ', $e->getMessage(), PHP_EOL;
 }
@@ -389,7 +484,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 
 ### Return type
@@ -398,7 +492,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -412,7 +506,7 @@ void (empty response body)
 ## `addEmployeeTableRow()`
 
 ```php
-addEmployeeTableRow($company_domain, $id, $table, $table_row_update)
+addEmployeeTableRow($id, $table, $table_row_update)
 ```
 
 Adds a table row
@@ -425,32 +519,25 @@ Adds a table row. If employee is currently on a pay schedule syncing with Trax P
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
-    $apiInstance->addEmployeeTableRow($company_domain, $id, $table, $table_row_update);
+    $apiInstance->addEmployeeTableRow($id, $table, $table_row_update);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addEmployeeTableRow: ', $e->getMessage(), PHP_EOL;
 }
@@ -460,10 +547,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -471,7 +557,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -485,7 +571,7 @@ void (empty response body)
 ## `addEmployeeTableRowV1()`
 
 ```php
-addEmployeeTableRowV1($company_domain, $id, $table, $table_row_update)
+addEmployeeTableRowV1($id, $table, $table_row_update)
 ```
 
 Adds a table row
@@ -498,32 +584,25 @@ Adds a table row. Fundamentally the same as version 1 so choose a version and st
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
-    $apiInstance->addEmployeeTableRowV1($company_domain, $id, $table, $table_row_update);
+    $apiInstance->addEmployeeTableRowV1($id, $table, $table_row_update);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addEmployeeTableRowV1: ', $e->getMessage(), PHP_EOL;
 }
@@ -533,10 +612,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -544,7 +622,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -558,7 +636,7 @@ void (empty response body)
 ## `addNewCandidate()`
 
 ```php
-addNewCandidate($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter)
+addNewCandidate($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter)
 ```
 
 Add New Candidate
@@ -571,26 +649,19 @@ Add a new candidate application to a job opening. The owner of the API key used 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $first_name = 'first_name_example'; // string | The first name of the candidate.
 $last_name = 'last_name_example'; // string | The last name of the candidate.
 $job_id = 56; // int | The id of the job opening for the candidate application.
@@ -614,7 +685,7 @@ $resume = 'resume_example'; // string | Resume of the candidate.
 $cover_letter = 'cover_letter_example'; // string | Cover letter of the candidate.
 
 try {
-    $apiInstance->addNewCandidate($company_domain, $first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter);
+    $apiInstance->addNewCandidate($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addNewCandidate: ', $e->getMessage(), PHP_EOL;
 }
@@ -624,7 +695,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **first_name** | **string**| The first name of the candidate. | |
 | **last_name** | **string**| The last name of the candidate. | |
 | **job_id** | **int**| The id of the job opening for the candidate application. | |
@@ -653,7 +723,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -667,7 +737,7 @@ void (empty response body)
 ## `addNewEmployeeTrainingRecord()`
 
 ```php
-addNewEmployeeTrainingRecord($company_domain, $employee_id, $add_new_employee_training_record_request): \MySdk\Model\TrainingRecord
+addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request): \BhrSdk\Model\TrainingRecord
 ```
 
 Add New Employee Training Record
@@ -680,31 +750,24 @@ Add a new employee training record. The owner of the API key used must have perm
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 56; // int | The ID of the employee to add a training record to.
-$add_new_employee_training_record_request = new \MySdk\Model\AddNewEmployeeTrainingRecordRequest(); // \MySdk\Model\AddNewEmployeeTrainingRecordRequest | Training object to post
+$employee_id = 0; // int | The ID of the employee to add a training record to.
+$add_new_employee_training_record_request = new \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest(); // \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest | Training object to post
 
 try {
-    $result = $apiInstance->addNewEmployeeTrainingRecord($company_domain, $employee_id, $add_new_employee_training_record_request);
+    $result = $apiInstance->addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addNewEmployeeTrainingRecord: ', $e->getMessage(), PHP_EOL;
@@ -715,17 +778,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **int**| The ID of the employee to add a training record to. | |
-| **add_new_employee_training_record_request** | [**\MySdk\Model\AddNewEmployeeTrainingRecordRequest**](../Model/AddNewEmployeeTrainingRecordRequest.md)| Training object to post | |
+| **employee_id** | **int**| The ID of the employee to add a training record to. | [default to 0] |
+| **add_new_employee_training_record_request** | [**\BhrSdk\Model\AddNewEmployeeTrainingRecordRequest**](../Model/AddNewEmployeeTrainingRecordRequest.md)| Training object to post | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
+[**\BhrSdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -739,7 +801,7 @@ try {
 ## `addNewJobOpening()`
 
 ```php
-addNewJobOpening($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code)
+addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code)
 ```
 
 Add New Job Opening
@@ -752,26 +814,19 @@ Add a new job opening. The owner of the API key used must have access to ATS set
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $posting_title = 'posting_title_example'; // string | The posting title of the job opening.
 $job_status = 'job_status_example'; // string | The status of the job opening.
 $hiring_lead = 56; // int | The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening.
@@ -795,7 +850,7 @@ $application_question_references = 'application_question_references_example'; //
 $internal_job_code = 'internal_job_code_example'; // string | The internal job code for the job opening.
 
 try {
-    $apiInstance->addNewJobOpening($company_domain, $posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code);
+    $apiInstance->addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addNewJobOpening: ', $e->getMessage(), PHP_EOL;
 }
@@ -805,7 +860,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **posting_title** | **string**| The posting title of the job opening. | |
 | **job_status** | **string**| The status of the job opening. | |
 | **hiring_lead** | **int**| The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. | |
@@ -834,7 +888,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -845,10 +899,262 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `addTimeTrackingBulk()`
+
+```php
+addTimeTrackingBulk($time_tracking_record): \BhrSdk\Model\TimeTrackingBulkResponseSchema
+```
+
+Add/Edit Hour Records
+
+Bulk add/edit hour records
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$time_tracking_record = array(new \BhrSdk\Model\TimeTrackingRecord()); // \BhrSdk\Model\TimeTrackingRecord[]
+
+try {
+    $result = $apiInstance->addTimeTrackingBulk($time_tracking_record);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimeTrackingBulk: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_tracking_record** | [**\BhrSdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
+
+### Return type
+
+[**\BhrSdk\Model\TimeTrackingBulkResponseSchema**](../Model/TimeTrackingBulkResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addTimeTrackingHourRecord()`
+
+```php
+addTimeTrackingHourRecord($time_tracking_record): \BhrSdk\Model\TimeTrackingIdResponseSchema
+```
+
+Add Hour Record
+
+Add an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$time_tracking_record = new \BhrSdk\Model\TimeTrackingRecord(); // \BhrSdk\Model\TimeTrackingRecord
+
+try {
+    $result = $apiInstance->addTimeTrackingHourRecord($time_tracking_record);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimeTrackingHourRecord: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_tracking_record** | [**\BhrSdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
+
+### Return type
+
+[**\BhrSdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addTimesheetClockInEntry()`
+
+```php
+addTimesheetClockInEntry($employee_id, $clock_in_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
+```
+
+Add Timesheet Clock-In Entry
+
+Clock in an employee.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 56; // int | ID of the employee to clock in.
+$clock_in_request_schema = new \BhrSdk\Model\ClockInRequestSchema(); // \BhrSdk\Model\ClockInRequestSchema
+
+try {
+    $result = $apiInstance->addTimesheetClockInEntry($employee_id, $clock_in_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimesheetClockInEntry: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **int**| ID of the employee to clock in. | |
+| **clock_in_request_schema** | [**\BhrSdk\Model\ClockInRequestSchema**](../Model/ClockInRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addTimesheetClockOutEntry()`
+
+```php
+addTimesheetClockOutEntry($employee_id, $clock_out_request_schema): \BhrSdk\Model\TimesheetEntryInfoApiTransformer
+```
+
+Add Timesheet Clock-Out Entry
+
+Clock out an employee.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 56; // int | ID of the employee to clock out.
+$clock_out_request_schema = new \BhrSdk\Model\ClockOutRequestSchema(); // \BhrSdk\Model\ClockOutRequestSchema
+
+try {
+    $result = $apiInstance->addTimesheetClockOutEntry($employee_id, $clock_out_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->addTimesheetClockOutEntry: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **int**| ID of the employee to clock out. | |
+| **clock_out_request_schema** | [**\BhrSdk\Model\ClockOutRequestSchema**](../Model/ClockOutRequestSchema.md)|  | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `addTrainingCategory()`
 
 ```php
-addTrainingCategory($company_domain, $add_training_category_request): \MySdk\Model\TrainingCategory
+addTrainingCategory($add_training_category_request): \BhrSdk\Model\TrainingCategory
 ```
 
 Add Training Category
@@ -861,30 +1167,23 @@ Add a training category. The owner of the API key used must have access to train
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$add_training_category_request = new \MySdk\Model\AddTrainingCategoryRequest(); // \MySdk\Model\AddTrainingCategoryRequest | Training category to post
+$add_training_category_request = new \BhrSdk\Model\AddTrainingCategoryRequest(); // \BhrSdk\Model\AddTrainingCategoryRequest | Training category to post
 
 try {
-    $result = $apiInstance->addTrainingCategory($company_domain, $add_training_category_request);
+    $result = $apiInstance->addTrainingCategory($add_training_category_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addTrainingCategory: ', $e->getMessage(), PHP_EOL;
@@ -895,16 +1194,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **add_training_category_request** | [**\MySdk\Model\AddTrainingCategoryRequest**](../Model/AddTrainingCategoryRequest.md)| Training category to post | |
+| **add_training_category_request** | [**\BhrSdk\Model\AddTrainingCategoryRequest**](../Model/AddTrainingCategoryRequest.md)| Training category to post | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
+[**\BhrSdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -918,7 +1216,7 @@ try {
 ## `addTrainingType()`
 
 ```php
-addTrainingType($company_domain, $add_training_type_request): \MySdk\Model\TrainingType
+addTrainingType($add_training_type_request): \BhrSdk\Model\TrainingType
 ```
 
 Add Training Type
@@ -931,30 +1229,23 @@ Add a training type. The owner of the API key used must have access to training 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$add_training_type_request = new \MySdk\Model\AddTrainingTypeRequest(); // \MySdk\Model\AddTrainingTypeRequest | Training object to post
+$add_training_type_request = new \BhrSdk\Model\AddTrainingTypeRequest(); // \BhrSdk\Model\AddTrainingTypeRequest | Training object to post
 
 try {
-    $result = $apiInstance->addTrainingType($company_domain, $add_training_type_request);
+    $result = $apiInstance->addTrainingType($add_training_type_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->addTrainingType: ', $e->getMessage(), PHP_EOL;
@@ -965,16 +1256,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **add_training_type_request** | [**\MySdk\Model\AddTrainingTypeRequest**](../Model/AddTrainingTypeRequest.md)| Training object to post | |
+| **add_training_type_request** | [**\BhrSdk\Model\AddTrainingTypeRequest**](../Model/AddTrainingTypeRequest.md)| Training object to post | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingType**](../Model/TrainingType.md)
+[**\BhrSdk\Model\TrainingType**](../Model/TrainingType.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -985,15 +1275,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `b86bb5db603786dfc98c8f6a7bb1a218()`
+## `createTimeTrackingProject()`
 
 ```php
-b86bb5db603786dfc98c8f6a7bb1a218($company_domain, $employee_id, $b86bb5db603786dfc98c8f6a7bb1a218_request): \MySdk\Model\TimesheetEntryInfoApiTransformer
+createTimeTrackingProject($project_create_request_schema): \BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds
 ```
 
-Add Timesheet Clock-In Entry
+Create Time Tracking Project
 
-Clock in an employee.
+Create a time tracking project with optional tasks.
 
 ### Example
 
@@ -1001,34 +1291,26 @@ Clock in an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 56; // int | ID of the employee to clock in.
-$b86bb5db603786dfc98c8f6a7bb1a218_request = new \MySdk\Model\B86bb5db603786dfc98c8f6a7bb1a218Request(); // \MySdk\Model\B86bb5db603786dfc98c8f6a7bb1a218Request
+$project_create_request_schema = new \BhrSdk\Model\ProjectCreateRequestSchema(); // \BhrSdk\Model\ProjectCreateRequestSchema
 
 try {
-    $result = $apiInstance->b86bb5db603786dfc98c8f6a7bb1a218($company_domain, $employee_id, $b86bb5db603786dfc98c8f6a7bb1a218_request);
+    $result = $apiInstance->createTimeTrackingProject($project_create_request_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->b86bb5db603786dfc98c8f6a7bb1a218: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PublicAPIApi->createTimeTrackingProject: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1036,781 +1318,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **int**| ID of the employee to clock in. | |
-| **b86bb5db603786dfc98c8f6a7bb1a218_request** | [**\MySdk\Model\B86bb5db603786dfc98c8f6a7bb1a218Request**](../Model/B86bb5db603786dfc98c8f6a7bb1a218Request.md)|  | [optional] |
+| **project_create_request_schema** | [**\BhrSdk\Model\ProjectCreateRequestSchema**](../Model/ProjectCreateRequestSchema.md)|  | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
+[**\BhrSdk\Model\TimeTrackingProjectWithTasksAndEmployeeIds**](../Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call0f428442e53dc46d1e2c8ff5b7a483a8()`
-
-```php
-call0f428442e53dc46d1e2c8ff5b7a483a8($company_domain, $time_tracking_record): \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response
-```
-
-addTimeTrackingBulk
-
-Bulk add/edit hour records
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$time_tracking_record = array(new \MySdk\Model\TimeTrackingRecord()); // \MySdk\Model\TimeTrackingRecord[]
-
-try {
-    $result = $apiInstance->call0f428442e53dc46d1e2c8ff5b7a483a8($company_domain, $time_tracking_record);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call0f428442e53dc46d1e2c8ff5b7a483a8: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord[]**](../Model/TimeTrackingRecord.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201Response**](../Model/0f428442e53dc46d1e2c8ff5b7a483a8201Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call149e00955713fb486cd7a81dd6ee31aa()`
-
-```php
-call149e00955713fb486cd7a81dd6ee31aa($company_domain, $_149e00955713fb486cd7a81dd6ee31aa_request): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
-```
-
-Add/Edit Timesheet Clock Entries
-
-Add or edit timesheet clock entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_149e00955713fb486cd7a81dd6ee31aa_request = new \MySdk\Model\149e00955713fb486cd7a81dd6ee31aaRequest(); // \MySdk\Model\149e00955713fb486cd7a81dd6ee31aaRequest
-
-try {
-    $result = $apiInstance->call149e00955713fb486cd7a81dd6ee31aa($company_domain, $_149e00955713fb486cd7a81dd6ee31aa_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call149e00955713fb486cd7a81dd6ee31aa: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_149e00955713fb486cd7a81dd6ee31aa_request** | [**\MySdk\Model\149e00955713fb486cd7a81dd6ee31aaRequest**](../Model/149e00955713fb486cd7a81dd6ee31aaRequest.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call14e73aef978eb81d51fdbd74e0e83823()`
-
-```php
-call14e73aef978eb81d51fdbd74e0e83823($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request): mixed
-```
-
-adjustTimeTracking
-
-Edit an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_14e73aef978eb81d51fdbd74e0e83823_request = new \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request(); // \MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request
-
-try {
-    $result = $apiInstance->call14e73aef978eb81d51fdbd74e0e83823($company_domain, $_14e73aef978eb81d51fdbd74e0e83823_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call14e73aef978eb81d51fdbd74e0e83823: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_14e73aef978eb81d51fdbd74e0e83823_request** | [**\MySdk\Model\14e73aef978eb81d51fdbd74e0e83823Request**](../Model/14e73aef978eb81d51fdbd74e0e83823Request.md)|  | |
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call59d25b8c03d013c96fbbf866769b8206()`
-
-```php
-call59d25b8c03d013c96fbbf866769b8206($company_domain, $_59d25b8c03d013c96fbbf866769b8206_request): \MySdk\Model\FieldOptionsTransformer[]
-```
-
-Get Field Options
-
-Use this resource to retrieve a list of possible values for a field.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_59d25b8c03d013c96fbbf866769b8206_request = new \MySdk\Model\59d25b8c03d013c96fbbf866769b8206Request(); // \MySdk\Model\59d25b8c03d013c96fbbf866769b8206Request
-
-try {
-    $result = $apiInstance->call59d25b8c03d013c96fbbf866769b8206($company_domain, $_59d25b8c03d013c96fbbf866769b8206_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call59d25b8c03d013c96fbbf866769b8206: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_59d25b8c03d013c96fbbf866769b8206_request** | [**\MySdk\Model\59d25b8c03d013c96fbbf866769b8206Request**](../Model/59d25b8c03d013c96fbbf866769b8206Request.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\FieldOptionsTransformer[]**](../Model/FieldOptionsTransformer.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call5e1c5b4ef12e61d1bc975e8b4e00c38d()`
-
-```php
-call5e1c5b4ef12e61d1bc975e8b4e00c38d($company_domain, $id): \MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response
-```
-
-getTimeTrackingByTimeTrackingId
-
-Get an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$id = 'id_example'; // string | {id} is the time tracking ID used to originally create the record.
-
-try {
-    $result = $apiInstance->call5e1c5b4ef12e61d1bc975e8b4e00c38d($company_domain, $id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call5e1c5b4ef12e61d1bc975e8b4e00c38d: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **id** | **string**| {id} is the time tracking ID used to originally create the record. | |
-
-### Return type
-
-[**\MySdk\Model\Model5e1c5b4ef12e61d1bc975e8b4e00c38d200Response**](../Model/5e1c5b4ef12e61d1bc975e8b4e00c38d200Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call69c777478f5d52dee1b4f0937dca154f()`
-
-```php
-call69c777478f5d52dee1b4f0937dca154f($company_domain, $time_tracking_record): \MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response
-```
-
-addTimeTracking
-
-Add an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$time_tracking_record = new \MySdk\Model\TimeTrackingRecord(); // \MySdk\Model\TimeTrackingRecord
-
-try {
-    $result = $apiInstance->call69c777478f5d52dee1b4f0937dca154f($company_domain, $time_tracking_record);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call69c777478f5d52dee1b4f0937dca154f: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **time_tracking_record** | [**\MySdk\Model\TimeTrackingRecord**](../Model/TimeTrackingRecord.md)|  | |
-
-### Return type
-
-[**\MySdk\Model\Model69c777478f5d52dee1b4f0937dca154f201Response**](../Model/69c777478f5d52dee1b4f0937dca154f201Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call88ef63550f43537c6b3bfaa03d51d95d()`
-
-```php
-call88ef63550f43537c6b3bfaa03d51d95d($company_domain, $employee_id, $_88ef63550f43537c6b3bfaa03d51d95d_request): \MySdk\Model\TimesheetEntryInfoApiTransformer
-```
-
-Add Timesheet Clock-Out Entry
-
-Clock out an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 56; // int | ID of the employee to clock out.
-$_88ef63550f43537c6b3bfaa03d51d95d_request = new \MySdk\Model\88ef63550f43537c6b3bfaa03d51d95dRequest(); // \MySdk\Model\88ef63550f43537c6b3bfaa03d51d95dRequest
-
-try {
-    $result = $apiInstance->call88ef63550f43537c6b3bfaa03d51d95d($company_domain, $employee_id, $_88ef63550f43537c6b3bfaa03d51d95d_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call88ef63550f43537c6b3bfaa03d51d95d: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **int**| ID of the employee to clock out. | |
-| **_88ef63550f43537c6b3bfaa03d51d95d_request** | [**\MySdk\Model\88ef63550f43537c6b3bfaa03d51d95dRequest**](../Model/88ef63550f43537c6b3bfaa03d51d95dRequest.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call910252128bfbd9d42e50f9dc31bb6120()`
-
-```php
-call910252128bfbd9d42e50f9dc31bb6120($company_domain, $_910252128bfbd9d42e50f9dc31bb6120_request): \MySdk\Model\TimesheetEntryInfoApiTransformer[]
-```
-
-Add/Edit Timesheet Hour Entries
-
-Add or edit timesheet hour entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$_910252128bfbd9d42e50f9dc31bb6120_request = new \MySdk\Model\910252128bfbd9d42e50f9dc31bb6120Request(); // \MySdk\Model\910252128bfbd9d42e50f9dc31bb6120Request
-
-try {
-    $result = $apiInstance->call910252128bfbd9d42e50f9dc31bb6120($company_domain, $_910252128bfbd9d42e50f9dc31bb6120_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call910252128bfbd9d42e50f9dc31bb6120: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **_910252128bfbd9d42e50f9dc31bb6120_request** | [**\MySdk\Model\910252128bfbd9d42e50f9dc31bb6120Request**](../Model/910252128bfbd9d42e50f9dc31bb6120Request.md)|  | [optional] |
-
-### Return type
-
-[**\MySdk\Model\TimesheetEntryInfoApiTransformer[]**](../Model/TimesheetEntryInfoApiTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `call9a6d5660f03eadcf705c808a1f44b8c4()`
-
-```php
-call9a6d5660f03eadcf705c808a1f44b8c4($company_domain, $start, $end, $employee_ids): \MySdk\Model\EmployeeTimesheetEntryTransformer[]
-```
-
-Get Timesheet Entries
-
-Get all timesheet entries for a given period of time.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$start = Tue Dec 31 17:00:00 MST 2024; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days.
-$end = Fri Feb 28 17:00:00 MST 2025; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days.
-$employee_ids = 1,2,3; // string | A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned.
-
-try {
-    $result = $apiInstance->call9a6d5660f03eadcf705c808a1f44b8c4($company_domain, $start, $end, $employee_ids);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->call9a6d5660f03eadcf705c808a1f44b8c4: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **start** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. | |
-| **end** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. | |
-| **employee_ids** | **string**| A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. | [optional] |
-
-### Return type
-
-[**\MySdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `db65bacaf29686d9c3b1296f6047a065()`
-
-```php
-db65bacaf29686d9c3b1296f6047a065($company_domain, $db65bacaf29686d9c3b1296f6047a065_request): mixed
-```
-
-Delete Timesheet Hour Entries
-
-Delete timesheet hour entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$db65bacaf29686d9c3b1296f6047a065_request = new \MySdk\Model\Db65bacaf29686d9c3b1296f6047a065Request(); // \MySdk\Model\Db65bacaf29686d9c3b1296f6047a065Request
-
-try {
-    $result = $apiInstance->db65bacaf29686d9c3b1296f6047a065($company_domain, $db65bacaf29686d9c3b1296f6047a065_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->db65bacaf29686d9c3b1296f6047a065: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **db65bacaf29686d9c3b1296f6047a065_request** | [**\MySdk\Model\Db65bacaf29686d9c3b1296f6047a065Request**](../Model/Db65bacaf29686d9c3b1296f6047a065Request.md)|  | [optional] |
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `dcb62a5d1780635153b978462f9debd0()`
-
-```php
-dcb62a5d1780635153b978462f9debd0($company_domain, $dcb62a5d1780635153b978462f9debd0_request): mixed
-```
-
-Delete timesheet clock entries.
-
-Delete timesheet clock entries.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$dcb62a5d1780635153b978462f9debd0_request = new \MySdk\Model\Dcb62a5d1780635153b978462f9debd0Request(); // \MySdk\Model\Dcb62a5d1780635153b978462f9debd0Request
-
-try {
-    $result = $apiInstance->dcb62a5d1780635153b978462f9debd0($company_domain, $dcb62a5d1780635153b978462f9debd0_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->dcb62a5d1780635153b978462f9debd0: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **dcb62a5d1780635153b978462f9debd0_request** | [**\MySdk\Model\Dcb62a5d1780635153b978462f9debd0Request**](../Model/Dcb62a5d1780635153b978462f9debd0Request.md)|  | |
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -1824,7 +1340,7 @@ try {
 ## `deleteCompanyFile()`
 
 ```php
-deleteCompanyFile($company_domain, $file_id)
+deleteCompanyFile($file_id)
 ```
 
 Delete Company File
@@ -1837,30 +1353,23 @@ Delete a company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the company file being deleted.
 
 try {
-    $apiInstance->deleteCompanyFile($company_domain, $file_id);
+    $apiInstance->deleteCompanyFile($file_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteCompanyFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -1870,7 +1379,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **file_id** | **string**| {fileId} is the ID of the company file being deleted. | |
 
 ### Return type
@@ -1879,11 +1387,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1893,7 +1401,7 @@ void (empty response body)
 ## `deleteEmployeeFile()`
 
 ```php
-deleteEmployeeFile($company_domain, $id, $file_id)
+deleteEmployeeFile($id, $file_id)
 ```
 
 Delete Employee File
@@ -1906,31 +1414,24 @@ Delete an employee file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being deleted.
 
 try {
-    $apiInstance->deleteEmployeeFile($company_domain, $id, $file_id);
+    $apiInstance->deleteEmployeeFile($id, $file_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -1940,7 +1441,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being deleted. | |
 
@@ -1950,11 +1450,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1964,7 +1464,7 @@ void (empty response body)
 ## `deleteEmployeeTableRowV1()`
 
 ```php
-deleteEmployeeTableRowV1($company_domain, $id, $table, $row_id): \MySdk\Model\DeleteEmployeeTableRowV1200Response
+deleteEmployeeTableRowV1($id, $table, $row_id): \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
 ```
 
 Deletes a table row
@@ -1977,32 +1477,25 @@ Deletes a table row
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
 
 try {
-    $result = $apiInstance->deleteEmployeeTableRowV1($company_domain, $id, $table, $row_id);
+    $result = $apiInstance->deleteEmployeeTableRowV1($id, $table, $row_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteEmployeeTableRowV1: ', $e->getMessage(), PHP_EOL;
@@ -2013,22 +1506,21 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
 
 ### Return type
 
-[**\MySdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
+[**\BhrSdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2038,7 +1530,7 @@ try {
 ## `deleteEmployeeTrainingRecord()`
 
 ```php
-deleteEmployeeTrainingRecord($company_domain, $employee_training_record_id)
+deleteEmployeeTrainingRecord($employee_training_record_id)
 ```
 
 Delete Employee Training Record
@@ -2051,30 +1543,23 @@ Delete an existing employee training record. The owner of the API key used must 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_training_record_id = 56; // int | The ID of the training record to delete.
+$employee_training_record_id = 0; // int | The ID of the training record to delete.
 
 try {
-    $apiInstance->deleteEmployeeTrainingRecord($company_domain, $employee_training_record_id);
+    $apiInstance->deleteEmployeeTrainingRecord($employee_training_record_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteEmployeeTrainingRecord: ', $e->getMessage(), PHP_EOL;
 }
@@ -2084,8 +1569,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_training_record_id** | **int**| The ID of the training record to delete. | |
+| **employee_training_record_id** | **int**| The ID of the training record to delete. | [default to 0] |
 
 ### Return type
 
@@ -2093,11 +1577,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2107,7 +1591,7 @@ void (empty response body)
 ## `deleteGoal()`
 
 ```php
-deleteGoal($company_domain, $employee_id, $goal_id)
+deleteGoal($employee_id, $goal_id)
 ```
 
 Delete Goal
@@ -2120,31 +1604,24 @@ Delete a goal.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 
 try {
-    $apiInstance->deleteGoal($company_domain, $employee_id, $goal_id);
+    $apiInstance->deleteGoal($employee_id, $goal_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteGoal: ', $e->getMessage(), PHP_EOL;
 }
@@ -2154,7 +1631,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 
@@ -2164,11 +1640,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2178,7 +1654,7 @@ void (empty response body)
 ## `deleteGoalComment()`
 
 ```php
-deleteGoalComment($company_domain, $employee_id, $goal_id, $comment_id)
+deleteGoalComment($employee_id, $goal_id, $comment_id)
 ```
 
 Delete Goal Comment
@@ -2191,32 +1667,25 @@ Delete a goal comment.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $comment_id = 'comment_id_example'; // string | commentId is the ID of a specific comment for the specified goal.
 
 try {
-    $apiInstance->deleteGoalComment($company_domain, $employee_id, $goal_id, $comment_id);
+    $apiInstance->deleteGoalComment($employee_id, $goal_id, $comment_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteGoalComment: ', $e->getMessage(), PHP_EOL;
 }
@@ -2226,7 +1695,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **comment_id** | **string**| commentId is the ID of a specific comment for the specified goal. | |
@@ -2237,11 +1705,197 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimeTrackingById()`
+
+```php
+deleteTimeTrackingById($id): \BhrSdk\Model\TimeTrackingDeleteResponseSchema
+```
+
+Delete Hour Record
+
+Delete an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID).
+
+try {
+    $result = $apiInstance->deleteTimeTrackingById($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->deleteTimeTrackingById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). | |
+
+### Return type
+
+[**\BhrSdk\Model\TimeTrackingDeleteResponseSchema**](../Model/TimeTrackingDeleteResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimesheetClockEntriesViaPost()`
+
+```php
+deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema): mixed
+```
+
+Delete Timesheet Clock Entries
+
+Delete timesheet clock entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$clock_entry_ids_schema = new \BhrSdk\Model\ClockEntryIdsSchema(); // \BhrSdk\Model\ClockEntryIdsSchema
+
+try {
+    $result = $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->deleteTimesheetClockEntriesViaPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clock_entry_ids_schema** | [**\BhrSdk\Model\ClockEntryIdsSchema**](../Model/ClockEntryIdsSchema.md)|  | |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTimesheetHourEntriesViaPost()`
+
+```php
+deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema): mixed
+```
+
+Delete Timesheet Hour Entries
+
+Delete timesheet hour entries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$hour_entry_ids_schema = new \BhrSdk\Model\HourEntryIdsSchema(); // \BhrSdk\Model\HourEntryIdsSchema
+
+try {
+    $result = $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->deleteTimesheetHourEntriesViaPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hour_entry_ids_schema** | [**\BhrSdk\Model\HourEntryIdsSchema**](../Model/HourEntryIdsSchema.md)|  | [optional] |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2251,7 +1905,7 @@ void (empty response body)
 ## `deleteTrainingCategory()`
 
 ```php
-deleteTrainingCategory($company_domain, $training_category_id)
+deleteTrainingCategory($training_category_id)
 ```
 
 Delete Training Category
@@ -2264,30 +1918,23 @@ Delete an existing training category. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$training_category_id = 56; // int | The ID of the training category to delete.
+$training_category_id = 0; // int | The ID of the training category to delete.
 
 try {
-    $apiInstance->deleteTrainingCategory($company_domain, $training_category_id);
+    $apiInstance->deleteTrainingCategory($training_category_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteTrainingCategory: ', $e->getMessage(), PHP_EOL;
 }
@@ -2297,8 +1944,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **training_category_id** | **int**| The ID of the training category to delete. | |
+| **training_category_id** | **int**| The ID of the training category to delete. | [default to 0] |
 
 ### Return type
 
@@ -2306,11 +1952,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2320,7 +1966,7 @@ void (empty response body)
 ## `deleteTrainingType()`
 
 ```php
-deleteTrainingType($company_domain, $training_type_id)
+deleteTrainingType($training_type_id)
 ```
 
 Delete Training Type
@@ -2333,30 +1979,23 @@ Delete an existing training type. The owner of the API key used must have access
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$training_type_id = 56; // int | The ID of the training type to delete.
+$training_type_id = 0; // int | The ID of the training type to delete.
 
 try {
-    $apiInstance->deleteTrainingType($company_domain, $training_type_id);
+    $apiInstance->deleteTrainingType($training_type_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteTrainingType: ', $e->getMessage(), PHP_EOL;
 }
@@ -2366,8 +2005,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **training_type_id** | **int**| The ID of the training type to delete. | |
+| **training_type_id** | **int**| The ID of the training type to delete. | [default to 0] |
 
 ### Return type
 
@@ -2375,11 +2013,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2389,7 +2027,7 @@ void (empty response body)
 ## `deleteWebhook()`
 
 ```php
-deleteWebhook($company_domain, $id)
+deleteWebhook($id)
 ```
 
 Delete Webhook
@@ -2402,30 +2040,23 @@ Delete a webhook that is tied to a specific user API Key.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is an webhook ID that is associated with the User API key.
 
 try {
-    $apiInstance->deleteWebhook($company_domain, $id);
+    $apiInstance->deleteWebhook($id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
 }
@@ -2435,7 +2066,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an webhook ID that is associated with the User API key. | |
 
 ### Return type
@@ -2444,26 +2074,26 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `estimateFutureTimeOffBalances()`
+## `editTimeTrackingRecord()`
 
 ```php
-estimateFutureTimeOffBalances($company_domain, $end, $employee_id, $accept_header_parameter)
+editTimeTrackingRecord($adjust_time_tracking_request_schema): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
-Estimate Future Time Off Balances
+Edit Hour Record
 
-This endpoint will sum future time off accruals, scheduled time off, and carry-over events to produce estimates for the anticipated time off balance on a given date in the future.
+Edit an hour record
 
 ### Example
 
@@ -2471,106 +2101,26 @@ This endpoint will sum future time off accruals, scheduled time off, and carry-o
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$employee_id = 'employee_id_example'; // string
-$accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
+$adjust_time_tracking_request_schema = new \BhrSdk\Model\AdjustTimeTrackingRequestSchema(); // \BhrSdk\Model\AdjustTimeTrackingRequestSchema
 
 try {
-    $apiInstance->estimateFutureTimeOffBalances($company_domain, $end, $employee_id, $accept_header_parameter);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->estimateFutureTimeOffBalances: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **end** | **\DateTime**|  | |
-| **employee_id** | **string**|  | |
-| **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `f97efc203b25647724accb9da7dda7db()`
-
-```php
-f97efc203b25647724accb9da7dda7db($company_domain, $id): \MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse
-```
-
-deleteTimeTrackingByTimeTrackingId
-
-Delete an hour record
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$id = 'id_example'; // string | The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID).
-
-try {
-    $result = $apiInstance->f97efc203b25647724accb9da7dda7db($company_domain, $id);
+    $result = $apiInstance->editTimeTrackingRecord($adjust_time_tracking_request_schema);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->f97efc203b25647724accb9da7dda7db: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PublicAPIApi->editTimeTrackingRecord: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2578,97 +2128,29 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **id** | **string**| The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). | |
+| **adjust_time_tracking_request_schema** | [**\BhrSdk\Model\AdjustTimeTrackingRequestSchema**](../Model/AdjustTimeTrackingRequestSchema.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\Model0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse**](../Model/0f428442e53dc46d1e2c8ff5b7a483a8201ResponseResponse.md)
+[**\BhrSdk\Model\TimeTrackingIdResponseSchema**](../Model/TimeTrackingIdResponseSchema.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAListOfUsers()`
+## `getAListOfWhoIsOut()`
 
 ```php
-getAListOfUsers($company_domain)
-```
-
-Get a List of Users
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-
-try {
-    $apiInstance->getAListOfUsers($company_domain);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->getAListOfUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAListOfWhosOut()`
-
-```php
-getAListOfWhosOut($company_domain, $accept_header_parameter, $start, $end)
+getAListOfWhoIsOut($accept_header_parameter, $start, $end)
 ```
 
 Get a list of Who's Out
@@ -2681,34 +2163,27 @@ This endpoint will return a list, sorted by date, of employees who will be out, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 $start = 'start_example'; // string | A date in the form YYYY-MM-DD - defaults to the current date.
 $end = 'end_example'; // string | A date in the form YYYY-MM-DD - defaults to 14 days from the start date.
 
 try {
-    $apiInstance->getAListOfWhosOut($company_domain, $accept_header_parameter, $start, $end);
+    $apiInstance->getAListOfWhoIsOut($accept_header_parameter, $start, $end);
 } catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->getAListOfWhosOut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PublicAPIApi->getAListOfWhoIsOut: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2716,7 +2191,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 | **start** | **string**| A date in the form YYYY-MM-DD - defaults to the current date. | [optional] |
 | **end** | **string**| A date in the form YYYY-MM-DD - defaults to 14 days from the start date. | [optional] |
@@ -2727,11 +2201,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2741,7 +2215,7 @@ void (empty response body)
 ## `getApplicationDetails()`
 
 ```php
-getApplicationDetails($company_domain, $application_id): \MySdk\Model\GetApplicationDetails200Response
+getApplicationDetails($application_id): \BhrSdk\Model\GetApplicationDetails200Response
 ```
 
 Get Application Details
@@ -2754,30 +2228,23 @@ Get the details of an application. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $application_id = 56; // int | The ID of the application to look up details.
 
 try {
-    $result = $apiInstance->getApplicationDetails($company_domain, $application_id);
+    $result = $apiInstance->getApplicationDetails($application_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getApplicationDetails: ', $e->getMessage(), PHP_EOL;
@@ -2788,20 +2255,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **application_id** | **int**| The ID of the application to look up details. | |
 
 ### Return type
 
-[**\MySdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
+[**\BhrSdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2811,7 +2277,7 @@ try {
 ## `getApplications()`
 
 ```php
-getApplications($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \MySdk\Model\GetApplications200Response
+getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \BhrSdk\Model\GetApplications200Response
 ```
 
 Get Applications
@@ -2824,26 +2290,19 @@ Get a list of applications. The owner of the API key used must have access to AT
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $page = 56; // int | The page number
 $job_id = 56; // int | A Job Id to limit results to
 $application_status_id = 56; // int | Application status id to filter by.
@@ -2855,7 +2314,7 @@ $sort_order = 'sort_order_example'; // string | Order by which to sort results.
 $new_since = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00
 
 try {
-    $result = $apiInstance->getApplications($company_domain, $page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since);
+    $result = $apiInstance->getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getApplications: ', $e->getMessage(), PHP_EOL;
@@ -2866,7 +2325,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **page** | **int**| The page number | [optional] |
 | **job_id** | **int**| A Job Id to limit results to | [optional] |
 | **application_status_id** | **int**| Application status id to filter by. | [optional] |
@@ -2879,15 +2337,15 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
+[**\BhrSdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2897,7 +2355,7 @@ try {
 ## `getBenefitCoverages()`
 
 ```php
-getBenefitCoverages($company_domain, $accept_header_parameter)
+getBenefitCoverages($accept_header_parameter)
 ```
 
 Get benefit coverages
@@ -2910,30 +2368,23 @@ Get benefit coverages
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->getBenefitCoverages($company_domain, $accept_header_parameter);
+    $apiInstance->getBenefitCoverages($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getBenefitCoverages: ', $e->getMessage(), PHP_EOL;
 }
@@ -2943,7 +2394,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -2952,11 +2402,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2966,7 +2416,7 @@ void (empty response body)
 ## `getBenefitDeductionTypes()`
 
 ```php
-getBenefitDeductionTypes($company_domain)
+getBenefitDeductionTypes()
 ```
 
 Get benefit deduction types
@@ -2979,29 +2429,22 @@ Get benefit deduction types
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $apiInstance->getBenefitDeductionTypes($company_domain);
+    $apiInstance->getBenefitDeductionTypes();
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getBenefitDeductionTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -3009,9 +2452,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -3019,11 +2460,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3033,7 +2474,7 @@ void (empty response body)
 ## `getByReportId()`
 
 ```php
-getByReportId($company_domain, $report_id): \MySdk\Model\EmployeeResponse
+getByReportId($report_id): \BhrSdk\Model\EmployeeResponse
 ```
 
 Get Report by ID
@@ -3046,30 +2487,23 @@ Use this resource to retrieve data for a specific report.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $report_id = 56; // int
 
 try {
-    $result = $apiInstance->getByReportId($company_domain, $report_id);
+    $result = $apiInstance->getByReportId($report_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getByReportId: ', $e->getMessage(), PHP_EOL;
@@ -3080,20 +2514,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **report_id** | **int**|  | |
 
 ### Return type
 
-[**\MySdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
+[**\BhrSdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3103,7 +2536,7 @@ try {
 ## `getCanCreateGoal()`
 
 ```php
-getCanCreateGoal($company_domain, $employee_id)
+getCanCreateGoal($employee_id)
 ```
 
 Can Create a Goal
@@ -3116,30 +2549,23 @@ Determine if the API user has permission to create a goal for this employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 
 try {
-    $apiInstance->getCanCreateGoal($company_domain, $employee_id);
+    $apiInstance->getCanCreateGoal($employee_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getCanCreateGoal: ', $e->getMessage(), PHP_EOL;
 }
@@ -3149,7 +2575,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 
 ### Return type
@@ -3158,11 +2583,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3172,7 +2597,7 @@ void (empty response body)
 ## `getChangedEmployeeIds()`
 
 ```php
-getChangedEmployeeIds($company_domain, $since, $type)
+getChangedEmployeeIds($since, $type)
 ```
 
 Gets all updated employee IDs
@@ -3185,31 +2610,24 @@ This API allows for efficient syncing of employee data. When you use this API yo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $since = 'since_example'; // string | URL encoded iso8601 timestamp
 $type = 'type_example'; // string | Use one of these in the {type} variable in the URL: \"inserted\", \"updated\", \"deleted\"
 
 try {
-    $apiInstance->getChangedEmployeeIds($company_domain, $since, $type);
+    $apiInstance->getChangedEmployeeIds($since, $type);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getChangedEmployeeIds: ', $e->getMessage(), PHP_EOL;
 }
@@ -3219,7 +2637,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **since** | **string**| URL encoded iso8601 timestamp | |
 | **type** | **string**| Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; | [optional] |
 
@@ -3229,11 +2646,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3243,7 +2660,7 @@ void (empty response body)
 ## `getChangedEmployeeTableData()`
 
 ```php
-getChangedEmployeeTableData($company_domain, $table, $since)
+getChangedEmployeeTableData($table, $since)
 ```
 
 Gets all updated employee table data
@@ -3256,31 +2673,24 @@ This API is merely an optimization to avoid downloading all table data for all e
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $table = 'table_example'; // string | Table name
 $since = 'since_example'; // string | URL encoded iso8601 timestamp
 
 try {
-    $apiInstance->getChangedEmployeeTableData($company_domain, $table, $since);
+    $apiInstance->getChangedEmployeeTableData($table, $since);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getChangedEmployeeTableData: ', $e->getMessage(), PHP_EOL;
 }
@@ -3290,7 +2700,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **table** | **string**| Table name | |
 | **since** | **string**| URL encoded iso8601 timestamp | |
 
@@ -3300,80 +2709,12 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCompanyEINs()`
-
-```php
-getCompanyEINs($company_domain): \MySdk\Model\GetCompanyEINs200Response
-```
-
-Get Company EINs
-
-Gets Company EINs
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-
-try {
-    $result = $apiInstance->getCompanyEINs($company_domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->getCompanyEINs: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-
-### Return type
-
-[**\MySdk\Model\GetCompanyEINs200Response**](../Model/GetCompanyEINs200Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -3382,7 +2723,7 @@ try {
 ## `getCompanyFile()`
 
 ```php
-getCompanyFile($company_domain, $file_id)
+getCompanyFile($file_id)
 ```
 
 Get an Company File
@@ -3395,30 +2736,23 @@ Gets an company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the company file being retrieved.
 
 try {
-    $apiInstance->getCompanyFile($company_domain, $file_id);
+    $apiInstance->getCompanyFile($file_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getCompanyFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -3428,7 +2762,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **file_id** | **string**| {fileId} is the ID of the company file being retrieved. | |
 
 ### Return type
@@ -3437,11 +2770,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3451,7 +2784,7 @@ void (empty response body)
 ## `getCompanyInformation()`
 
 ```php
-getCompanyInformation($company_domain): \MySdk\Model\GetCompanyInformation200Response
+getCompanyInformation(): \BhrSdk\Model\GetCompanyInformation200Response
 ```
 
 Get Company Information
@@ -3464,29 +2797,22 @@ Gets Company Information
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getCompanyInformation($company_domain);
+    $result = $apiInstance->getCompanyInformation();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getCompanyInformation: ', $e->getMessage(), PHP_EOL;
@@ -3495,21 +2821,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
+[**\BhrSdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3519,7 +2843,7 @@ try {
 ## `getCompanyLocations()`
 
 ```php
-getCompanyLocations($company_domain): \MySdk\Model\GetCompanyLocations200ResponseInner[]
+getCompanyLocations(): \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
 ```
 
 Get Company Locations
@@ -3532,29 +2856,22 @@ Get company locations for use in creating a new job opening. The owner of the AP
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getCompanyLocations($company_domain);
+    $result = $apiInstance->getCompanyLocations();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getCompanyLocations: ', $e->getMessage(), PHP_EOL;
@@ -3563,21 +2880,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
+[**\BhrSdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3587,7 +2902,7 @@ try {
 ## `getCompanyReport()`
 
 ```php
-getCompanyReport($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current)
+getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current)
 ```
 
 Get company report
@@ -3600,26 +2915,19 @@ Get company report
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is a report ID.
 $format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
@@ -3627,7 +2935,7 @@ $fd = 'fd_example'; // string | yes=apply standard duplicate field filtering, no
 $only_current = false; // bool | Setting to false will return future dated values from history table fields.
 
 try {
-    $apiInstance->getCompanyReport($company_domain, $id, $format, $accept_header_parameter, $fd, $only_current);
+    $apiInstance->getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getCompanyReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -3637,7 +2945,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is a report ID. | |
 | **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
@@ -3650,12 +2957,71 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCountriesOptions()`
+
+```php
+getCountriesOptions(): \BhrSdk\Model\CountrySchema[]
+```
+
+Get all countries
+
+Get all available countries as options. Returns a list of countries with ID and name for use in forms and dropdowns.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getCountriesOptions();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getCountriesOptions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\BhrSdk\Model\CountrySchema[]**](../Model/CountrySchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -3664,12 +3030,12 @@ void (empty response body)
 ## `getDataFromDataset()`
 
 ```php
-getDataFromDataset($company_domain, $dataset_name, $data_request): \MySdk\Model\EmployeeResponse
+getDataFromDataset($dataset_name, $data_request): \BhrSdk\Model\EmployeeResponse
 ```
 
 Get Data from Dataset
 
-Use this resource to request data from the specified dataset. You must specify a list of fields to show on the report. The list of fields is available here at /{companyDomain}/datasets/{datasetName}/fields.  Sort By you can pass multiple fields to sort by as an array of objects {field: \"fieldName\", sort: \"asc,desc\"}. The order of the fields in the array will determine the order of the sort.  Group By is passed as an array of strings but currently grouping by more than one field is not supported.  When using aggregations the following aggregates are available based on field type:   - **text**     - count   - **date**     - count     - min     - max   - **int**     - count     - min     - max     - sum     - avg   - **bool**     - count   - **options**     - count   - **ssnText**     - count  When using the filters the filtered field does not have to be in the list of fields you want to show on the report. When you\\'re using the \"status\" field as a filter, there\\'s something special to note. The \"status\" filter is always required, no matter what you set for the \"matches\" field. So, if you include \"status\" and set \"matches\" to \"all,\" your query will look like this: status AND filter1 AND filter2 AND filter3. But if you set \"matches\" to \"any,\" it changes to: status AND (filter1 OR filter2 OR filter3). If needed, use the `/{companyDomain}/v1/field-options` endpoint to retrieve possible filter values for fields. The following operators are available to be used based on the field type:   - **text**     - contains     - does_not_contain     - equal     - not_equal     - empty     - not_empty   - **date**     - lt     - lte     - gt     - gte     - last     - next     - range     - equal     - not_equal     - empty     - not_empty   - **int**     - equal     - not_equal     - gte     - gt     - lte     - lt     - empty     - not_empty   - **bool**     - checked     - not_checked   - **options**     - includes     - does_not_include     - empty     - not_empty   - **ssnText**:     - empty     - not_empty
+Use this resource to request data from the specified dataset. You must specify a list of fields to show on the report. The list of fields is available here at /api/v1/datasets/{datasetName}/fields.  Sort By you can pass multiple fields to sort by as an array of objects {field: \"fieldName\", sort: \"asc,desc\"}. The order of the fields in the array will determine the order of the sort.  Group By is passed as an array of strings but currently grouping by more than one field is not supported.  When using aggregations the following aggregates are available based on field type:   - **text**     - count   - **date**     - count     - min     - max   - **int**     - count     - min     - max     - sum     - avg   - **bool**     - count   - **options**     - count   - **ssnText**     - count  When using the filters the filtered field does not have to be in the list of fields you want to show on the report. When you\\'re using the \"status\" field as a filter, there\\'s something special to note. The \"status\" filter is always required, no matter what you set for the \"matches\" field. So, if you include \"status\" and set \"matches\" to \"all,\" your query will look like this: status AND filter1 AND filter2 AND filter3. But if you set \"matches\" to \"any,\" it changes to: status AND (filter1 OR filter2 OR filter3). If needed, use the `/api/v1/field-options` endpoint to retrieve possible filter values for fields. The following operators are available to be used based on the field type:   - **text**     - contains     - does_not_contain     - equal     - not_equal     - empty     - not_empty   - **date**     - lt     - lte     - gt     - gte     - last     - next     - range     - equal     - not_equal     - empty     - not_empty   - **int**     - equal     - not_equal     - gte     - gt     - lte     - lt     - empty     - not_empty   - **bool**     - checked     - not_checked   - **options**     - includes     - does_not_include     - empty     - not_empty   - **ssnText**:     - empty     - not_empty
 
 ### Example
 
@@ -3677,31 +3043,24 @@ Use this resource to request data from the specified dataset. You must specify a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $dataset_name = 'dataset_name_example'; // string | The name of the dataset you want data from
-$data_request = new \MySdk\Model\DataRequest(); // \MySdk\Model\DataRequest
+$data_request = new \BhrSdk\Model\DataRequest(); // \BhrSdk\Model\DataRequest
 
 try {
-    $result = $apiInstance->getDataFromDataset($company_domain, $dataset_name, $data_request);
+    $result = $apiInstance->getDataFromDataset($dataset_name, $data_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getDataFromDataset: ', $e->getMessage(), PHP_EOL;
@@ -3712,17 +3071,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **dataset_name** | **string**| The name of the dataset you want data from | |
-| **data_request** | [**\MySdk\Model\DataRequest**](../Model/DataRequest.md)|  | |
+| **data_request** | [**\BhrSdk\Model\DataRequest**](../Model/DataRequest.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
+[**\BhrSdk\Model\EmployeeResponse**](../Model/EmployeeResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -3736,7 +3094,7 @@ try {
 ## `getDataSets()`
 
 ```php
-getDataSets($company_domain): \MySdk\Model\DatasetResponse
+getDataSets(): \BhrSdk\Model\DatasetResponse
 ```
 
 Get Data Sets
@@ -3749,29 +3107,22 @@ Use this resource to retrieve the available datasets to query data from.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getDataSets($company_domain);
+    $result = $apiInstance->getDataSets();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getDataSets: ', $e->getMessage(), PHP_EOL;
@@ -3780,21 +3131,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\DatasetResponse**](../Model/DatasetResponse.md)
+[**\BhrSdk\Model\DatasetResponse**](../Model/DatasetResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3804,7 +3153,7 @@ try {
 ## `getEmployee()`
 
 ```php
-getEmployee($company_domain, $fields, $id, $only_current, $accept_header_parameter): \MySdk\Model\GetEmployee200Response
+getEmployee($fields, $id, $only_current, $accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
 ```
 
 Get Employee
@@ -3817,33 +3166,26 @@ Get employee data by specifying a set of fields. This is suitable for getting ba
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $fields = 'firstName,lastName'; // string | {fields} is a comma separated list of values taken from the official list of field names.
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $only_current = false; // bool | Setting to false will return future dated values from history table fields.
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $result = $apiInstance->getEmployee($company_domain, $fields, $id, $only_current, $accept_header_parameter);
+    $result = $apiInstance->getEmployee($fields, $id, $only_current, $accept_header_parameter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployee: ', $e->getMessage(), PHP_EOL;
@@ -3854,7 +3196,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **fields** | **string**| {fields} is a comma separated list of values taken from the official list of field names. | [default to &#39;firstName,lastName&#39;] |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **only_current** | **bool**| Setting to false will return future dated values from history table fields. | [optional] [default to false] |
@@ -3862,15 +3203,15 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3880,7 +3221,7 @@ try {
 ## `getEmployeeDependent()`
 
 ```php
-getEmployeeDependent($company_domain, $id, $accept_header_parameter)
+getEmployeeDependent($id, $accept_header_parameter)
 ```
 
 Get employee dependent
@@ -3893,31 +3234,24 @@ Get employee dependent
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee dependent ID.
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->getEmployeeDependent($company_domain, $id, $accept_header_parameter);
+    $apiInstance->getEmployeeDependent($id, $accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployeeDependent: ', $e->getMessage(), PHP_EOL;
 }
@@ -3927,7 +3261,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee dependent ID. | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
@@ -3937,11 +3270,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3951,7 +3284,7 @@ void (empty response body)
 ## `getEmployeeDependents()`
 
 ```php
-getEmployeeDependents($company_domain, $employeeid, $accept_header_parameter)
+getEmployeeDependents($employeeid, $accept_header_parameter)
 ```
 
 Get all employee dependents
@@ -3964,31 +3297,24 @@ Get all employee dependents
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employeeid = 'employeeid_example'; // string | {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee.
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->getEmployeeDependents($company_domain, $employeeid, $accept_header_parameter);
+    $apiInstance->getEmployeeDependents($employeeid, $accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployeeDependents: ', $e->getMessage(), PHP_EOL;
 }
@@ -3998,7 +3324,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employeeid** | **string**| {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
@@ -4008,11 +3333,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4022,7 +3347,7 @@ void (empty response body)
 ## `getEmployeeFile()`
 
 ```php
-getEmployeeFile($company_domain, $id, $file_id)
+getEmployeeFile($id, $file_id)
 ```
 
 Get an Employee File
@@ -4035,31 +3360,24 @@ Gets an employee file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being retrieved.
 
 try {
-    $apiInstance->getEmployeeFile($company_domain, $id, $file_id);
+    $apiInstance->getEmployeeFile($id, $file_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -4069,7 +3387,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being retrieved. | |
 
@@ -4079,11 +3396,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4093,7 +3410,7 @@ void (empty response body)
 ## `getEmployeePhoto()`
 
 ```php
-getEmployeePhoto($company_domain, $employee_id, $size)
+getEmployeePhoto($employee_id, $size)
 ```
 
 Get an employee photo
@@ -4106,31 +3423,24 @@ Get an employee photo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | The ID for the employee you are getting the photo for.
 $size = 'size_example'; // string | Photo size
 
 try {
-    $apiInstance->getEmployeePhoto($company_domain, $employee_id, $size);
+    $apiInstance->getEmployeePhoto($employee_id, $size);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployeePhoto: ', $e->getMessage(), PHP_EOL;
 }
@@ -4140,7 +3450,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| The ID for the employee you are getting the photo for. | |
 | **size** | **string**| Photo size | |
 
@@ -4150,11 +3459,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4164,7 +3473,7 @@ void (empty response body)
 ## `getEmployeeTableRow()`
 
 ```php
-getEmployeeTableRow($company_domain, $id, $table)
+getEmployeeTableRow($id, $table)
 ```
 
 Gets table rows for a given employee and table combination
@@ -4177,31 +3486,24 @@ Returns a data structure representing all the table rows for a given employee an
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 
 try {
-    $apiInstance->getEmployeeTableRow($company_domain, $id, $table);
+    $apiInstance->getEmployeeTableRow($id, $table);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployeeTableRow: ', $e->getMessage(), PHP_EOL;
 }
@@ -4211,7 +3513,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 
@@ -4221,11 +3522,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4235,7 +3536,7 @@ void (empty response body)
 ## `getEmployeesDirectory()`
 
 ```php
-getEmployeesDirectory($company_domain, $accept_header_parameter): \MySdk\Model\GetEmployee200Response
+getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
 ```
 
 Get Employee Directory
@@ -4248,30 +3549,23 @@ Gets employee directory.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $result = $apiInstance->getEmployeesDirectory($company_domain, $accept_header_parameter);
+    $result = $apiInstance->getEmployeesDirectory($accept_header_parameter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getEmployeesDirectory: ', $e->getMessage(), PHP_EOL;
@@ -4282,21 +3576,80 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getFieldOptions()`
+
+```php
+getFieldOptions($dataset_name, $field_options_request_schema): \BhrSdk\Model\FieldOptionsTransformer[]
+```
+
+Get Field Options
+
+Use this resource to retrieve a list of possible values for a field.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$dataset_name = 'dataset_name_example'; // string | The name of the dataset you want to see field options for
+$field_options_request_schema = new \BhrSdk\Model\FieldOptionsRequestSchema(); // \BhrSdk\Model\FieldOptionsRequestSchema
+
+try {
+    $result = $apiInstance->getFieldOptions($dataset_name, $field_options_request_schema);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getFieldOptions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **dataset_name** | **string**| The name of the dataset you want to see field options for | |
+| **field_options_request_schema** | [**\BhrSdk\Model\FieldOptionsRequestSchema**](../Model/FieldOptionsRequestSchema.md)|  | |
+
+### Return type
+
+[**\BhrSdk\Model\FieldOptionsTransformer[]**](../Model/FieldOptionsTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -4305,7 +3658,7 @@ try {
 ## `getFieldsFromDataset()`
 
 ```php
-getFieldsFromDataset($company_domain, $dataset_name, $page, $page_size): \MySdk\Model\DatasetFieldsResponse
+getFieldsFromDataset($dataset_name, $page, $page_size): \BhrSdk\Model\DatasetFieldsResponse
 ```
 
 Get Fields from Dataset
@@ -4318,32 +3671,25 @@ Use this resource to request the available fields on a dataset.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $dataset_name = 'dataset_name_example'; // string | The name of the dataset you want to see fields for
 $page = 56; // int | The page number to retrieve
 $page_size = 56; // int | The number of records to retrieve per page. Default is 500 and the Max is 1000
 
 try {
-    $result = $apiInstance->getFieldsFromDataset($company_domain, $dataset_name, $page, $page_size);
+    $result = $apiInstance->getFieldsFromDataset($dataset_name, $page, $page_size);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getFieldsFromDataset: ', $e->getMessage(), PHP_EOL;
@@ -4354,22 +3700,21 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **dataset_name** | **string**| The name of the dataset you want to see fields for | |
 | **page** | **int**| The page number to retrieve | [optional] |
 | **page_size** | **int**| The number of records to retrieve per page. Default is 500 and the Max is 1000 | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\DatasetFieldsResponse**](../Model/DatasetFieldsResponse.md)
+[**\BhrSdk\Model\DatasetFieldsResponse**](../Model/DatasetFieldsResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4379,7 +3724,7 @@ try {
 ## `getGoalAggregate()`
 
 ```php
-getGoalAggregate($company_domain, $employee_id, $goal_id): \MySdk\Model\GetGoalAggregate200Response
+getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GetGoalAggregate200Response
 ```
 
 Get Aggregate Goal Info
@@ -4392,31 +3737,24 @@ Provides goal information, goal comments, and employees shared with goals or who
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the Goal ID used to generate the aggregate information.
 
 try {
-    $result = $apiInstance->getGoalAggregate($company_domain, $employee_id, $goal_id);
+    $result = $apiInstance->getGoalAggregate($employee_id, $goal_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalAggregate: ', $e->getMessage(), PHP_EOL;
@@ -4427,21 +3765,20 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the Goal ID used to generate the aggregate information. | |
 
 ### Return type
 
-[**\MySdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
+[**\BhrSdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4451,7 +3788,7 @@ try {
 ## `getGoalComments()`
 
 ```php
-getGoalComments($company_domain, $employee_id, $goal_id)
+getGoalComments($employee_id, $goal_id)
 ```
 
 Get Goal Comments
@@ -4464,31 +3801,24 @@ Get comments for a goal.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 
 try {
-    $apiInstance->getGoalComments($company_domain, $employee_id, $goal_id);
+    $apiInstance->getGoalComments($employee_id, $goal_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalComments: ', $e->getMessage(), PHP_EOL;
 }
@@ -4498,7 +3828,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 
@@ -4508,11 +3837,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4522,7 +3851,7 @@ void (empty response body)
 ## `getGoals()`
 
 ```php
-getGoals($company_domain, $employee_id, $filter): \MySdk\Model\GetGoals200Response
+getGoals($employee_id, $filter): \BhrSdk\Model\GetGoals200Response
 ```
 
 Get Goals
@@ -4535,31 +3864,24 @@ Get goals for an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
 $filter = 'filter_example'; // string | A filter that can be applied to only show the goals that are in a certain state.
 
 try {
-    $result = $apiInstance->getGoals($company_domain, $employee_id, $filter);
+    $result = $apiInstance->getGoals($employee_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoals: ', $e->getMessage(), PHP_EOL;
@@ -4570,21 +3892,20 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
 | **filter** | **string**| A filter that can be applied to only show the goals that are in a certain state. | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
+[**\BhrSdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4594,7 +3915,7 @@ try {
 ## `getGoalsAggregateV1()`
 
 ```php
-getGoalsAggregateV1($company_domain, $employee_id): \MySdk\Model\GetGoalsAggregateV1200Response
+getGoalsAggregateV1($employee_id): \BhrSdk\Model\GetGoalsAggregateV1200Response
 ```
 
 Get All Aggregate Goal Info
@@ -4607,30 +3928,23 @@ Provides a list of all goals, type counts, goal comment counts, and employees sh
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID used to generate the aggregate information.
 
 try {
-    $result = $apiInstance->getGoalsAggregateV1($company_domain, $employee_id);
+    $result = $apiInstance->getGoalsAggregateV1($employee_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsAggregateV1: ', $e->getMessage(), PHP_EOL;
@@ -4641,20 +3955,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID used to generate the aggregate information. | |
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4664,7 +3977,7 @@ try {
 ## `getGoalsAggregateV11()`
 
 ```php
-getGoalsAggregateV11($company_domain, $employee_id): \MySdk\Model\GetGoalsAggregateV11200Response
+getGoalsAggregateV11($employee_id): \BhrSdk\Model\GetGoalsAggregateV11200Response
 ```
 
 Get All Aggregate Goal Info, Version 1.1
@@ -4677,30 +3990,23 @@ Provides a list of all goals, type counts, filter actions, goal comment counts, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID used to generate the aggregate information.
 
 try {
-    $result = $apiInstance->getGoalsAggregateV11($company_domain, $employee_id);
+    $result = $apiInstance->getGoalsAggregateV11($employee_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsAggregateV11: ', $e->getMessage(), PHP_EOL;
@@ -4711,20 +4017,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID used to generate the aggregate information. | |
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4734,7 +4039,7 @@ try {
 ## `getGoalsAggregateV12()`
 
 ```php
-getGoalsAggregateV12($company_domain, $employee_id): \MySdk\Model\GetGoalsAggregateV12200Response
+getGoalsAggregateV12($employee_id): \BhrSdk\Model\GetGoalsAggregateV12200Response
 ```
 
 Get All Aggregate Goal Info, Version 1.2
@@ -4747,30 +4052,23 @@ Provides a list of all goals, type counts, filter actions, goal comment counts, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | employeeId is the employee ID used to generate the aggregate information.
 
 try {
-    $result = $apiInstance->getGoalsAggregateV12($company_domain, $employee_id);
+    $result = $apiInstance->getGoalsAggregateV12($employee_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsAggregateV12: ', $e->getMessage(), PHP_EOL;
@@ -4781,20 +4079,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| employeeId is the employee ID used to generate the aggregate information. | |
 
 ### Return type
 
-[**\MySdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
+[**\BhrSdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4804,7 +4101,7 @@ try {
 ## `getGoalsAlignmentOptions()`
 
 ```php
-getGoalsAlignmentOptions($company_domain, $employee_id, $body)
+getGoalsAlignmentOptions($employee_id, $body)
 ```
 
 Alignable Goal Options
@@ -4817,31 +4114,24 @@ Get alignable goal options for an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to get alignable goal options for.
 $body = 'body_example'; // string | Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user.
 
 try {
-    $apiInstance->getGoalsAlignmentOptions($company_domain, $employee_id, $body);
+    $apiInstance->getGoalsAlignmentOptions($employee_id, $body);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsAlignmentOptions: ', $e->getMessage(), PHP_EOL;
 }
@@ -4851,7 +4141,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID to get alignable goal options for. | |
 | **body** | **string**| Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. | [optional] |
 
@@ -4861,7 +4150,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -4875,10 +4164,10 @@ void (empty response body)
 ## `getGoalsFiltersV1()`
 
 ```php
-getGoalsFiltersV1($company_domain, $employee_id): \MySdk\Model\GoalFiltersV1
+getGoalsFiltersV1($employee_id): \BhrSdk\Model\GoalFiltersV1
 ```
 
-
+Get Goals Filters
 
 Get the number of goals per status for an employee.
 
@@ -4888,30 +4177,23 @@ Get the number of goals per status for an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | employeeId is the employee ID to whom the goals are assigned.
 
 try {
-    $result = $apiInstance->getGoalsFiltersV1($company_domain, $employee_id);
+    $result = $apiInstance->getGoalsFiltersV1($employee_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsFiltersV1: ', $e->getMessage(), PHP_EOL;
@@ -4922,20 +4204,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| employeeId is the employee ID to whom the goals are assigned. | |
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV1**](../Model/GoalFiltersV1.md)
+[**\BhrSdk\Model\GoalFiltersV1**](../Model/GoalFiltersV1.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4945,10 +4226,10 @@ try {
 ## `getGoalsFiltersV11()`
 
 ```php
-getGoalsFiltersV11($company_domain, $employee_id): \MySdk\Model\GoalFiltersV11
+getGoalsFiltersV11($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
-
+Get Goals Filters
 
 Get the number of goals per status for an employee. Difference from Version 1: Includes actions.
 
@@ -4958,30 +4239,23 @@ Get the number of goals per status for an employee. Difference from Version 1: I
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | employeeId is the employee ID to whom the goals are assigned.
 
 try {
-    $result = $apiInstance->getGoalsFiltersV11($company_domain, $employee_id);
+    $result = $apiInstance->getGoalsFiltersV11($employee_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsFiltersV11: ', $e->getMessage(), PHP_EOL;
@@ -4992,20 +4266,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| employeeId is the employee ID to whom the goals are assigned. | |
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
+[**\BhrSdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5015,7 +4288,7 @@ try {
 ## `getGoalsFiltersV12()`
 
 ```php
-getGoalsFiltersV12($company_domain, $employee_id): \MySdk\Model\GoalFiltersV11
+getGoalsFiltersV12($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
 Get Goal Status Counts, Version 1.2
@@ -5028,30 +4301,23 @@ Get the number of goals per status for an employee. Difference from Version 1_1:
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | employeeId is the employee ID to whom the goals are assigned.
 
 try {
-    $result = $apiInstance->getGoalsFiltersV12($company_domain, $employee_id);
+    $result = $apiInstance->getGoalsFiltersV12($employee_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsFiltersV12: ', $e->getMessage(), PHP_EOL;
@@ -5062,20 +4328,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| employeeId is the employee ID to whom the goals are assigned. | |
 
 ### Return type
 
-[**\MySdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
+[**\BhrSdk\Model\GoalFiltersV11**](../Model/GoalFiltersV11.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5085,7 +4350,7 @@ try {
 ## `getGoalsShareOptions()`
 
 ```php
-getGoalsShareOptions($company_domain, $employee_id, $search, $limit)
+getGoalsShareOptions($employee_id, $search, $limit)
 ```
 
 Available Goal Sharing Options
@@ -5098,32 +4363,25 @@ Provides a list of employees with whom the specified employee\\'s goals may be s
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to get sharing options for.
 $search = 'search_example'; // string | The search term used to filter employees returned. Will search name, employee ID and email.
 $limit = 'limit_example'; // string | Limit will restrict results to specified number.
 
 try {
-    $apiInstance->getGoalsShareOptions($company_domain, $employee_id, $search, $limit);
+    $apiInstance->getGoalsShareOptions($employee_id, $search, $limit);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getGoalsShareOptions: ', $e->getMessage(), PHP_EOL;
 }
@@ -5133,7 +4391,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID to get sharing options for. | |
 | **search** | **string**| The search term used to filter employees returned. Will search name, employee ID and email. | [optional] |
 | **limit** | **string**| Limit will restrict results to specified number. | [optional] |
@@ -5144,11 +4401,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5158,7 +4415,7 @@ void (empty response body)
 ## `getHiringLeads()`
 
 ```php
-getHiringLeads($company_domain): \MySdk\Model\GetHiringLeads200ResponseInner[]
+getHiringLeads(): \BhrSdk\Model\GetHiringLeads200ResponseInner[]
 ```
 
 Get Hiring Leads
@@ -5171,29 +4428,22 @@ Get potential hiring leads for use in creating a new job opening. The owner of t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getHiringLeads($company_domain);
+    $result = $apiInstance->getHiringLeads();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getHiringLeads: ', $e->getMessage(), PHP_EOL;
@@ -5202,21 +4452,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
+[**\BhrSdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5226,7 +4474,7 @@ try {
 ## `getJobSummaries()`
 
 ```php
-getJobSummaries($company_domain, $status_groups, $sort_by, $sort_order)
+getJobSummaries($status_groups, $sort_by, $sort_order)
 ```
 
 Get Job Summaries
@@ -5239,32 +4487,25 @@ Get a list of job summaries. The owner of the API key used must have access to A
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $status_groups = 'status_groups_example'; // string | A list of status groups to filter positions by.
 $sort_by = 'sort_by_example'; // string | A specific field to sort the results by.
 $sort_order = 'sort_order_example'; // string | Order by which to sort results.
 
 try {
-    $apiInstance->getJobSummaries($company_domain, $status_groups, $sort_by, $sort_order);
+    $apiInstance->getJobSummaries($status_groups, $sort_by, $sort_order);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getJobSummaries: ', $e->getMessage(), PHP_EOL;
 }
@@ -5274,7 +4515,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **status_groups** | **string**| A list of status groups to filter positions by. | [optional] |
 | **sort_by** | **string**| A specific field to sort the results by. | [optional] |
 | **sort_order** | **string**| Order by which to sort results. | [optional] |
@@ -5285,11 +4525,69 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getListOfUsers()`
+
+```php
+getListOfUsers()
+```
+
+Get a List of Users
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $apiInstance->getListOfUsers();
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getListOfUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5299,7 +4597,7 @@ void (empty response body)
 ## `getMemberBenefit()`
 
 ```php
-getMemberBenefit($company_domain): \MySdk\Model\MemberBenefitEvent[]
+getMemberBenefit(): \BhrSdk\Model\MemberBenefitEvent[]
 ```
 
 Get a list of member benefit events
@@ -5312,29 +4610,22 @@ Get a list of member benefit events
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getMemberBenefit($company_domain);
+    $result = $apiInstance->getMemberBenefit();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getMemberBenefit: ', $e->getMessage(), PHP_EOL;
@@ -5343,21 +4634,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\MemberBenefitEvent[]**](../Model/MemberBenefitEvent.md)
+[**\BhrSdk\Model\MemberBenefitEvent[]**](../Model/MemberBenefitEvent.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5367,7 +4656,7 @@ try {
 ## `getMonitorFields()`
 
 ```php
-getMonitorFields($company_domain): \MySdk\Model\GetMonitorFields200Response
+getMonitorFields(): \BhrSdk\Model\GetMonitorFields200Response
 ```
 
 Get monitor fields
@@ -5380,29 +4669,22 @@ Get a list fields webhooks can monitor monitor
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getMonitorFields($company_domain);
+    $result = $apiInstance->getMonitorFields();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getMonitorFields: ', $e->getMessage(), PHP_EOL;
@@ -5411,21 +4693,81 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
+[**\BhrSdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getStatesByCountryId()`
+
+```php
+getStatesByCountryId($country_id): \BhrSdk\Model\StateProvinceResponseSchema
+```
+
+Get states by country ID
+
+Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$country_id = 56; // int | ID of the country to get states/provinces for
+
+try {
+    $result = $apiInstance->getStatesByCountryId($country_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getStatesByCountryId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country_id** | **int**| ID of the country to get states/provinces for | |
+
+### Return type
+
+[**\BhrSdk\Model\StateProvinceResponseSchema**](../Model/StateProvinceResponseSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5435,7 +4777,7 @@ try {
 ## `getStatuses()`
 
 ```php
-getStatuses($company_domain)
+getStatuses()
 ```
 
 Get Statuses
@@ -5448,29 +4790,22 @@ Get a list of statuses for a company. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $apiInstance->getStatuses($company_domain);
+    $apiInstance->getStatuses();
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getStatuses: ', $e->getMessage(), PHP_EOL;
 }
@@ -5478,9 +4813,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -5488,11 +4821,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5502,7 +4835,7 @@ void (empty response body)
 ## `getTimeOffPolicies()`
 
 ```php
-getTimeOffPolicies($company_domain, $accept_header_parameter)
+getTimeOffPolicies($accept_header_parameter)
 ```
 
 Get Time Off Policies
@@ -5515,30 +4848,23 @@ This endpoint gets a list of time off policies.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->getTimeOffPolicies($company_domain, $accept_header_parameter);
+    $apiInstance->getTimeOffPolicies($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getTimeOffPolicies: ', $e->getMessage(), PHP_EOL;
 }
@@ -5548,7 +4874,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -5557,11 +4882,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5571,7 +4896,7 @@ void (empty response body)
 ## `getTimeOffTypes()`
 
 ```php
-getTimeOffTypes($company_domain, $accept_header_parameter, $mode)
+getTimeOffTypes($accept_header_parameter, $mode)
 ```
 
 Get Time Off Types
@@ -5584,31 +4909,24 @@ This endpoint gets a list of time off types.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 $mode = 'mode_example'; // string | set to \\'request\\' to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\'t have permission to view balances and requests for.
 
 try {
-    $apiInstance->getTimeOffTypes($company_domain, $accept_header_parameter, $mode);
+    $apiInstance->getTimeOffTypes($accept_header_parameter, $mode);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getTimeOffTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -5618,7 +4936,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 | **mode** | **string**| set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. | [optional] |
 
@@ -5628,11 +4945,139 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTimeTrackingRecord()`
+
+```php
+getTimeTrackingRecord($id): \BhrSdk\Model\TimeTrackingRecordSchema
+```
+
+Get Hour Record
+
+Get an hour record
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | {id} is the time tracking ID used to originally create the record.
+
+try {
+    $result = $apiInstance->getTimeTrackingRecord($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getTimeTrackingRecord: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| {id} is the time tracking ID used to originally create the record. | |
+
+### Return type
+
+[**\BhrSdk\Model\TimeTrackingRecordSchema**](../Model/TimeTrackingRecordSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTimesheetEntries()`
+
+```php
+getTimesheetEntries($start, $end, $employee_ids): \BhrSdk\Model\EmployeeTimesheetEntryTransformer[]
+```
+
+Get Timesheet Entries
+
+Get all timesheet entries for a given period of time.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$start = 2025-01-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days.
+$end = 2025-03-01; // \DateTime | YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days.
+$employee_ids = 1,2,3; // string | A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned.
+
+try {
+    $result = $apiInstance->getTimesheetEntries($start, $end, $employee_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->getTimesheetEntries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **start** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. | |
+| **end** | **\DateTime**| YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. | |
+| **employee_ids** | **string**| A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\EmployeeTimesheetEntryTransformer[]**](../Model/EmployeeTimesheetEntryTransformer.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5642,7 +5087,7 @@ void (empty response body)
 ## `getWebhook()`
 
 ```php
-getWebhook($company_domain, $id): \MySdk\Model\WebHookResponse
+getWebhook($id): \BhrSdk\Model\WebHookResponse
 ```
 
 Get Webhook
@@ -5655,30 +5100,23 @@ Get webhook data that is tied to a specific user API Key.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 56; // int | The webhook ID to display details about.
 
 try {
-    $result = $apiInstance->getWebhook($company_domain, $id);
+    $result = $apiInstance->getWebhook($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getWebhook: ', $e->getMessage(), PHP_EOL;
@@ -5689,20 +5127,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **int**| The webhook ID to display details about. | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5712,7 +5149,7 @@ try {
 ## `getWebhookList()`
 
 ```php
-getWebhookList($company_domain): \MySdk\Model\GetWebhookList200Response
+getWebhookList(): \BhrSdk\Model\GetWebhookList200Response
 ```
 
 Gets as list of webhooks for the user API key.
@@ -5725,29 +5162,22 @@ Gets as list of webhooks for the user API key.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getWebhookList($company_domain);
+    $result = $apiInstance->getWebhookList();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getWebhookList: ', $e->getMessage(), PHP_EOL;
@@ -5756,21 +5186,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
+[**\BhrSdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5780,7 +5208,7 @@ try {
 ## `getWebhookLogs()`
 
 ```php
-getWebhookLogs($company_domain, $id): \MySdk\Model\WebHookLogResponse
+getWebhookLogs($id): \BhrSdk\Model\WebHookLogResponse
 ```
 
 Get Webhook Logs
@@ -5793,30 +5221,23 @@ Get webhook logs for specific webhook id that is associated with the user API Ke
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | The webhook ID to get logs about.
 
 try {
-    $result = $apiInstance->getWebhookLogs($company_domain, $id);
+    $result = $apiInstance->getWebhookLogs($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->getWebhookLogs: ', $e->getMessage(), PHP_EOL;
@@ -5827,20 +5248,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| The webhook ID to get logs about. | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
+[**\BhrSdk\Model\WebHookLogResponse**](../Model/WebHookLogResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5850,7 +5270,7 @@ try {
 ## `listCompanyFiles()`
 
 ```php
-listCompanyFiles($company_domain)
+listCompanyFiles()
 ```
 
 List company files and categories
@@ -5863,29 +5283,22 @@ Lists company files and categories
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $apiInstance->listCompanyFiles($company_domain);
+    $apiInstance->listCompanyFiles();
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->listCompanyFiles: ', $e->getMessage(), PHP_EOL;
 }
@@ -5893,9 +5306,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -5903,11 +5314,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/xml`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5917,7 +5328,7 @@ void (empty response body)
 ## `listEmployeeFiles()`
 
 ```php
-listEmployeeFiles($company_domain, $id)
+listEmployeeFiles($id)
 ```
 
 List employee files and categories
@@ -5930,30 +5341,23 @@ Lists employee files and categories
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
+$id = 1501; // string | Employee ID is required and needs to be a valid employee ID.
 
 try {
-    $apiInstance->listEmployeeFiles($company_domain, $id);
+    $apiInstance->listEmployeeFiles($id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->listEmployeeFiles: ', $e->getMessage(), PHP_EOL;
 }
@@ -5963,8 +5367,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
+| **id** | **string**| Employee ID is required and needs to be a valid employee ID. | |
 
 ### Return type
 
@@ -5972,11 +5375,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/xml`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5986,7 +5389,7 @@ void (empty response body)
 ## `listEmployeeTrainings()`
 
 ```php
-listEmployeeTrainings($company_domain, $employee_id, $training_type_id): \MySdk\Model\ListEmployeeTrainings200ResponseInner[]
+listEmployeeTrainings($employee_id, $training_type_id): \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]
 ```
 
 List Employee Trainings
@@ -5999,31 +5402,24 @@ Get all employee training records. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 56; // int | The ID of the employee to get a list of trainings for.
-$training_type_id = 56; // int | The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee.
+$employee_id = 0; // int | The ID of the employee to get a list of trainings for.
+$training_type_id = 0; // int | The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee.
 
 try {
-    $result = $apiInstance->listEmployeeTrainings($company_domain, $employee_id, $training_type_id);
+    $result = $apiInstance->listEmployeeTrainings($employee_id, $training_type_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->listEmployeeTrainings: ', $e->getMessage(), PHP_EOL;
@@ -6034,21 +5430,20 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **int**| The ID of the employee to get a list of trainings for. | |
-| **training_type_id** | **int**| The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. | [optional] |
+| **employee_id** | **int**| The ID of the employee to get a list of trainings for. | [default to 0] |
+| **training_type_id** | **int**| The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. | [optional] [default to 0] |
 
 ### Return type
 
-[**\MySdk\Model\ListEmployeeTrainings200ResponseInner[]**](../Model/ListEmployeeTrainings200ResponseInner.md)
+[**\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]**](../Model/ListEmployeeTrainings200ResponseInner.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6058,7 +5453,7 @@ try {
 ## `listReports()`
 
 ```php
-listReports($company_domain, $page, $page_size): \MySdk\Model\ReportsResponse
+listReports($page, $page_size): \BhrSdk\Model\ReportsResponse
 ```
 
 List Reports
@@ -6071,31 +5466,24 @@ Use this resource to retrieve a list of available reports.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $page = 56; // int | The page number to retrieve
 $page_size = 56; // int | The number of records to retrieve per page. Default is 500 and the Max is 1000
 
 try {
-    $result = $apiInstance->listReports($company_domain, $page, $page_size);
+    $result = $apiInstance->listReports($page, $page_size);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->listReports: ', $e->getMessage(), PHP_EOL;
@@ -6106,21 +5494,20 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **page** | **int**| The page number to retrieve | [optional] |
 | **page_size** | **int**| The number of records to retrieve per page. Default is 500 and the Max is 1000 | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\ReportsResponse**](../Model/ReportsResponse.md)
+[**\BhrSdk\Model\ReportsResponse**](../Model/ReportsResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6130,7 +5517,7 @@ try {
 ## `listTrainingCategories()`
 
 ```php
-listTrainingCategories($company_domain): \MySdk\Model\ListTrainingCategories200ResponseInner[]
+listTrainingCategories(): \BhrSdk\Model\ListTrainingCategories200ResponseInner[]
 ```
 
 List Training Categories
@@ -6143,29 +5530,22 @@ Get a list of training categories. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->listTrainingCategories($company_domain);
+    $result = $apiInstance->listTrainingCategories();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->listTrainingCategories: ', $e->getMessage(), PHP_EOL;
@@ -6174,21 +5554,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\ListTrainingCategories200ResponseInner[]**](../Model/ListTrainingCategories200ResponseInner.md)
+[**\BhrSdk\Model\ListTrainingCategories200ResponseInner[]**](../Model/ListTrainingCategories200ResponseInner.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6198,7 +5576,7 @@ try {
 ## `listTrainingTypes()`
 
 ```php
-listTrainingTypes($company_domain): \MySdk\Model\ListTrainingTypes200ResponseInner[]
+listTrainingTypes(): \BhrSdk\Model\ListTrainingTypes200ResponseInner[]
 ```
 
 List Training Types
@@ -6211,29 +5589,22 @@ Get a list of training types. The owner of the API key used must have access to 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->listTrainingTypes($company_domain);
+    $result = $apiInstance->listTrainingTypes();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->listTrainingTypes: ', $e->getMessage(), PHP_EOL;
@@ -6242,21 +5613,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\ListTrainingTypes200ResponseInner[]**](../Model/ListTrainingTypes200ResponseInner.md)
+[**\BhrSdk\Model\ListTrainingTypes200ResponseInner[]**](../Model/ListTrainingTypes200ResponseInner.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6266,7 +5635,7 @@ try {
 ## `login()`
 
 ```php
-login($company_domain, $accept_header_parameter, $application_key, $user, $password)
+login($accept_header_parameter, $application_key, $user, $password)
 ```
 
 User Login
@@ -6279,33 +5648,26 @@ User Login
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 $application_key = 'application_key_example'; // string
 $user = 'user_example'; // string
 $password = 'password_example'; // string
 
 try {
-    $apiInstance->login($company_domain, $accept_header_parameter, $application_key, $user, $password);
+    $apiInstance->login($accept_header_parameter, $application_key, $user, $password);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->login: ', $e->getMessage(), PHP_EOL;
 }
@@ -6315,7 +5677,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 | **application_key** | **string**|  | [optional] |
 | **user** | **string**|  | [optional] |
@@ -6327,7 +5688,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6341,7 +5702,7 @@ void (empty response body)
 ## `metadataAddOrUpdateValuesForListFields()`
 
 ```php
-metadataAddOrUpdateValuesForListFields($company_domain, $list_field_id, $list_field_values)
+metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values)
 ```
 
 Add or Update Values for List Fields
@@ -6354,31 +5715,24 @@ This resource accepts one or more options. To update an option, specify an ID. Y
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $list_field_id = 'list_field_id_example'; // string
-$list_field_values = new \MySdk\Model\ListFieldValues(); // \MySdk\Model\ListFieldValues
+$list_field_values = new \BhrSdk\Model\ListFieldValues(); // \BhrSdk\Model\ListFieldValues
 
 try {
-    $apiInstance->metadataAddOrUpdateValuesForListFields($company_domain, $list_field_id, $list_field_values);
+    $apiInstance->metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->metadataAddOrUpdateValuesForListFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -6388,9 +5742,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **list_field_id** | **string**|  | |
-| **list_field_values** | [**\MySdk\Model\ListFieldValues**](../Model/ListFieldValues.md)|  | |
+| **list_field_values** | [**\BhrSdk\Model\ListFieldValues**](../Model/ListFieldValues.md)|  | |
 
 ### Return type
 
@@ -6398,7 +5751,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6412,7 +5765,7 @@ void (empty response body)
 ## `metadataGetAListOfFields()`
 
 ```php
-metadataGetAListOfFields($company_domain, $accept_header_parameter)
+metadataGetAListOfFields($accept_header_parameter)
 ```
 
 Get a list of fields
@@ -6425,30 +5778,23 @@ This endpoint can help with discovery of fields that are available in an account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->metadataGetAListOfFields($company_domain, $accept_header_parameter);
+    $apiInstance->metadataGetAListOfFields($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->metadataGetAListOfFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -6458,7 +5804,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -6467,11 +5812,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6481,7 +5826,7 @@ void (empty response body)
 ## `metadataGetAListOfTabularFields()`
 
 ```php
-metadataGetAListOfTabularFields($company_domain, $accept_header_parameter)
+metadataGetAListOfTabularFields($accept_header_parameter)
 ```
 
 Get a list of tabular fields
@@ -6494,30 +5839,23 @@ This endpoint can help discover table fields available in your BambooHR account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->metadataGetAListOfTabularFields($company_domain, $accept_header_parameter);
+    $apiInstance->metadataGetAListOfTabularFields($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->metadataGetAListOfTabularFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -6527,7 +5865,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -6536,11 +5873,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6550,7 +5887,7 @@ void (empty response body)
 ## `metadataGetDetailsForListFields()`
 
 ```php
-metadataGetDetailsForListFields($company_domain, $accept_header_parameter)
+metadataGetDetailsForListFields($accept_header_parameter)
 ```
 
 Get details for list fields
@@ -6563,30 +5900,23 @@ This endpoint will return details for all list fields. Lists that can be edited 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $apiInstance->metadataGetDetailsForListFields($company_domain, $accept_header_parameter);
+    $apiInstance->metadataGetDetailsForListFields($accept_header_parameter);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->metadataGetDetailsForListFields: ', $e->getMessage(), PHP_EOL;
 }
@@ -6596,7 +5926,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
@@ -6605,11 +5934,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -6619,7 +5948,7 @@ void (empty response body)
 ## `postApplicantStatus()`
 
 ```php
-postApplicantStatus($company_domain, $application_id, $post_applicant_status_request)
+postApplicantStatus($application_id, $post_applicant_status_request)
 ```
 
 Change Applicant's Status
@@ -6632,31 +5961,24 @@ Change applicant\\'s status. The owner of the API key used must have access to A
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$application_id = 56; // int | The ID of the application to add a comment to.
-$post_applicant_status_request = new \MySdk\Model\PostApplicantStatusRequest(); // \MySdk\Model\PostApplicantStatusRequest | Sample Post Data.
+$application_id = 0; // int | The ID of the application to add a comment to.
+$post_applicant_status_request = new \BhrSdk\Model\PostApplicantStatusRequest(); // \BhrSdk\Model\PostApplicantStatusRequest | Sample Post Data.
 
 try {
-    $apiInstance->postApplicantStatus($company_domain, $application_id, $post_applicant_status_request);
+    $apiInstance->postApplicantStatus($application_id, $post_applicant_status_request);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postApplicantStatus: ', $e->getMessage(), PHP_EOL;
 }
@@ -6666,9 +5988,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **application_id** | **int**| The ID of the application to add a comment to. | |
-| **post_applicant_status_request** | [**\MySdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
+| **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
+| **post_applicant_status_request** | [**\BhrSdk\Model\PostApplicantStatusRequest**](../Model/PostApplicantStatusRequest.md)| Sample Post Data. | |
 
 ### Return type
 
@@ -6676,7 +5997,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6690,7 +6011,7 @@ void (empty response body)
 ## `postApplicationComment()`
 
 ```php
-postApplicationComment($company_domain, $application_id, $post_application_comment_request)
+postApplicationComment($application_id, $post_application_comment_request)
 ```
 
 Add Application Comment
@@ -6703,31 +6024,24 @@ Add a comment to an application. The owner of the API key used must have access 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$application_id = 56; // int | The ID of the application to add a comment to.
-$post_application_comment_request = new \MySdk\Model\PostApplicationCommentRequest(); // \MySdk\Model\PostApplicationCommentRequest | Comment object to post
+$application_id = 0; // int | The ID of the application to add a comment to.
+$post_application_comment_request = new \BhrSdk\Model\PostApplicationCommentRequest(); // \BhrSdk\Model\PostApplicationCommentRequest | Comment object to post
 
 try {
-    $apiInstance->postApplicationComment($company_domain, $application_id, $post_application_comment_request);
+    $apiInstance->postApplicationComment($application_id, $post_application_comment_request);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postApplicationComment: ', $e->getMessage(), PHP_EOL;
 }
@@ -6737,9 +6051,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **application_id** | **int**| The ID of the application to add a comment to. | |
-| **post_application_comment_request** | [**\MySdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
+| **application_id** | **int**| The ID of the application to add a comment to. | [default to 0] |
+| **post_application_comment_request** | [**\BhrSdk\Model\PostApplicationCommentRequest**](../Model/PostApplicationCommentRequest.md)| Comment object to post | |
 
 ### Return type
 
@@ -6747,7 +6060,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6761,7 +6074,7 @@ void (empty response body)
 ## `postCloseGoal()`
 
 ```php
-postCloseGoal($company_domain, $employee_id, $goal_id, $body): \MySdk\Model\TransformedApiGoal
+postCloseGoal($employee_id, $goal_id, $body): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Close Goal
@@ -6774,32 +6087,25 @@ Close a goal.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $body = 'body_example'; // string | Comment field is optional.
 
 try {
-    $result = $apiInstance->postCloseGoal($company_domain, $employee_id, $goal_id, $body);
+    $result = $apiInstance->postCloseGoal($employee_id, $goal_id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postCloseGoal: ', $e->getMessage(), PHP_EOL;
@@ -6810,18 +6116,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **body** | **string**| Comment field is optional. | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6835,7 +6140,7 @@ try {
 ## `postGoal()`
 
 ```php
-postGoal($company_domain, $employee_id, $post_goal_request): \MySdk\Model\TransformedApiGoal
+postGoal($employee_id, $post_goal_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Create Goal
@@ -6848,31 +6153,24 @@ Create a new goal for an employee.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$post_goal_request = new \MySdk\Model\PostGoalRequest(); // \MySdk\Model\PostGoalRequest
+$post_goal_request = new \BhrSdk\Model\PostGoalRequest(); // \BhrSdk\Model\PostGoalRequest
 
 try {
-    $result = $apiInstance->postGoal($company_domain, $employee_id, $post_goal_request);
+    $result = $apiInstance->postGoal($employee_id, $post_goal_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postGoal: ', $e->getMessage(), PHP_EOL;
@@ -6883,17 +6181,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **post_goal_request** | [**\MySdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
+| **post_goal_request** | [**\BhrSdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6907,7 +6204,7 @@ try {
 ## `postGoalComment()`
 
 ```php
-postGoalComment($company_domain, $employee_id, $goal_id, $body)
+postGoalComment($employee_id, $goal_id, $body)
 ```
 
 Create Goal Comment
@@ -6920,32 +6217,25 @@ Create a new goal comment.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $body = 'body_example'; // string
 
 try {
-    $apiInstance->postGoalComment($company_domain, $employee_id, $goal_id, $body);
+    $apiInstance->postGoalComment($employee_id, $goal_id, $body);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postGoalComment: ', $e->getMessage(), PHP_EOL;
 }
@@ -6955,7 +6245,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **body** | **string**|  | |
@@ -6966,7 +6255,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -6980,7 +6269,7 @@ void (empty response body)
 ## `postReopenGoal()`
 
 ```php
-postReopenGoal($company_domain, $employee_id, $goal_id): \MySdk\Model\TransformedApiGoal
+postReopenGoal($employee_id, $goal_id): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Reopen a Goal
@@ -6993,31 +6282,24 @@ Reopen a goal.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 
 try {
-    $result = $apiInstance->postReopenGoal($company_domain, $employee_id, $goal_id);
+    $result = $apiInstance->postReopenGoal($employee_id, $goal_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postReopenGoal: ', $e->getMessage(), PHP_EOL;
@@ -7028,21 +6310,20 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -7052,12 +6333,12 @@ try {
 ## `postWebhook()`
 
 ```php
-postWebhook($company_domain, $new_web_hook): \MySdk\Model\PostWebhook201Response
+postWebhook($new_web_hook): \BhrSdk\Model\PostWebhook201Response
 ```
 
 Add Webhook
 
-Add a new Webhook. For more details or instructions you can refer to the [webhooks API tutorial](https://documentation.bamboohr.com/docs/webhooks-api-permission-based).
+Add a new Webhook. For more details or instructions you can refer to the [webhooks documentation](https://documentation.bamboohr.com/docs/webhooks-2).
 
 ### Example
 
@@ -7065,30 +6346,23 @@ Add a new Webhook. For more details or instructions you can refer to the [webhoo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
-    $result = $apiInstance->postWebhook($company_domain, $new_web_hook);
+    $result = $apiInstance->postWebhook($new_web_hook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->postWebhook: ', $e->getMessage(), PHP_EOL;
@@ -7099,16 +6373,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
+[**\BhrSdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7122,7 +6395,7 @@ try {
 ## `putGoalComment()`
 
 ```php
-putGoalComment($company_domain, $employee_id, $goal_id, $comment_id, $body)
+putGoalComment($employee_id, $goal_id, $comment_id, $body)
 ```
 
 Update Goal Comment
@@ -7135,33 +6408,26 @@ Update a goal comment.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $comment_id = 'comment_id_example'; // string | commentId is the comment ID for the specified goal.
 $body = 'body_example'; // string
 
 try {
-    $apiInstance->putGoalComment($company_domain, $employee_id, $goal_id, $comment_id, $body);
+    $apiInstance->putGoalComment($employee_id, $goal_id, $comment_id, $body);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putGoalComment: ', $e->getMessage(), PHP_EOL;
 }
@@ -7171,7 +6437,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **comment_id** | **string**| commentId is the comment ID for the specified goal. | |
@@ -7183,7 +6448,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7197,7 +6462,7 @@ void (empty response body)
 ## `putGoalMilestoneProgress()`
 
 ```php
-putGoalMilestoneProgress($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request): object
+putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request): object
 ```
 
 Update Milestone Progress
@@ -7210,33 +6475,26 @@ Update the progress of a milestone in a goal.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $milestone_id = 'milestone_id_example'; // string | milestoneId is the milestone ID for the specified goal.
-$put_goal_milestone_progress_request = new \MySdk\Model\PutGoalMilestoneProgressRequest(); // \MySdk\Model\PutGoalMilestoneProgressRequest
+$put_goal_milestone_progress_request = new \BhrSdk\Model\PutGoalMilestoneProgressRequest(); // \BhrSdk\Model\PutGoalMilestoneProgressRequest
 
 try {
-    $result = $apiInstance->putGoalMilestoneProgress($company_domain, $employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request);
+    $result = $apiInstance->putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putGoalMilestoneProgress: ', $e->getMessage(), PHP_EOL;
@@ -7247,11 +6505,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **milestone_id** | **string**| milestoneId is the milestone ID for the specified goal. | |
-| **put_goal_milestone_progress_request** | [**\MySdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
+| **put_goal_milestone_progress_request** | [**\BhrSdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
 
 ### Return type
 
@@ -7259,7 +6516,7 @@ try {
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7273,7 +6530,7 @@ try {
 ## `putGoalProgress()`
 
 ```php
-putGoalProgress($company_domain, $employee_id, $goal_id, $put_goal_progress_request): \MySdk\Model\TransformedApiGoal
+putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal Progress
@@ -7286,32 +6543,25 @@ Update the progress percentage of an individual goal.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_progress_request = new \MySdk\Model\PutGoalProgressRequest(); // \MySdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$put_goal_progress_request = new \BhrSdk\Model\PutGoalProgressRequest(); // \BhrSdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
-    $result = $apiInstance->putGoalProgress($company_domain, $employee_id, $goal_id, $put_goal_progress_request);
+    $result = $apiInstance->putGoalProgress($employee_id, $goal_id, $put_goal_progress_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putGoalProgress: ', $e->getMessage(), PHP_EOL;
@@ -7322,18 +6572,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_progress_request** | [**\MySdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **put_goal_progress_request** | [**\BhrSdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7347,7 +6596,7 @@ try {
 ## `putGoalSharedWith()`
 
 ```php
-putGoalSharedWith($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request): \MySdk\Model\TransformedApiGoal
+putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal Sharing
@@ -7360,32 +6609,25 @@ Updates which employees this goal is shared with.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$put_goal_shared_with_request = new \MySdk\Model\PutGoalSharedWithRequest(); // \MySdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$put_goal_shared_with_request = new \BhrSdk\Model\PutGoalSharedWithRequest(); // \BhrSdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
-    $result = $apiInstance->putGoalSharedWith($company_domain, $employee_id, $goal_id, $put_goal_shared_with_request);
+    $result = $apiInstance->putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putGoalSharedWith: ', $e->getMessage(), PHP_EOL;
@@ -7396,18 +6638,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **put_goal_shared_with_request** | [**\MySdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **put_goal_shared_with_request** | [**\BhrSdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7421,7 +6662,7 @@ try {
 ## `putGoalV1()`
 
 ```php
-putGoalV1($company_domain, $employee_id, $goal_id, $goal): \MySdk\Model\TransformedApiGoal
+putGoalV1($employee_id, $goal_id, $goal): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal
@@ -7434,32 +6675,25 @@ Update a goal. This version will not update a goal to contain milestones, that f
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$goal = new \MySdk\Model\Goal(); // \MySdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$goal = new \BhrSdk\Model\Goal(); // \BhrSdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
 
 try {
-    $result = $apiInstance->putGoalV1($company_domain, $employee_id, $goal_id, $goal);
+    $result = $apiInstance->putGoalV1($employee_id, $goal_id, $goal);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putGoalV1: ', $e->getMessage(), PHP_EOL;
@@ -7470,18 +6704,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **goal** | [**\MySdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **goal** | [**\BhrSdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7495,7 +6728,7 @@ try {
 ## `putGoalV11()`
 
 ```php
-putGoalV11($company_domain, $employee_id, $goal_id, $put_goal_v11_request): \MySdk\Model\TransformedApiGoal
+putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \BhrSdk\Model\TransformedApiGoal
 ```
 
 Update Goal, V1.1
@@ -7508,32 +6741,25 @@ Update a goal. Version 1.1 allows the updating of the milestones contained withi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_v11_request = new \MySdk\Model\PutGoalV11Request(); // \MySdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$put_goal_v11_request = new \BhrSdk\Model\PutGoalV11Request(); // \BhrSdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
 
 try {
-    $result = $apiInstance->putGoalV11($company_domain, $employee_id, $goal_id, $put_goal_v11_request);
+    $result = $apiInstance->putGoalV11($employee_id, $goal_id, $put_goal_v11_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putGoalV11: ', $e->getMessage(), PHP_EOL;
@@ -7544,18 +6770,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_v11_request** | [**\MySdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **put_goal_v11_request** | [**\BhrSdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
 
 ### Return type
 
-[**\MySdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7569,7 +6794,7 @@ try {
 ## `putWebhook()`
 
 ```php
-putWebhook($company_domain, $id, $new_web_hook): \MySdk\Model\WebHookResponse
+putWebhook($id, $new_web_hook): \BhrSdk\Model\WebHookResponse
 ```
 
 Update Webhook
@@ -7582,31 +6807,24 @@ Update a webhook, based on webhook ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is a webhook ID.
-$new_web_hook = new \MySdk\Model\NewWebHook(); // \MySdk\Model\NewWebHook
+$new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
-    $result = $apiInstance->putWebhook($company_domain, $id, $new_web_hook);
+    $result = $apiInstance->putWebhook($id, $new_web_hook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->putWebhook: ', $e->getMessage(), PHP_EOL;
@@ -7617,17 +6835,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is a webhook ID. | |
-| **new_web_hook** | [**\MySdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
+| **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type
 
-[**\MySdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
+[**\BhrSdk\Model\WebHookResponse**](../Model/WebHookResponse.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7641,7 +6858,7 @@ try {
 ## `requestCustomReport()`
 
 ```php
-requestCustomReport($company_domain, $format, $request_custom_report, $only_current)
+requestCustomReport($format, $request_custom_report, $only_current)
 ```
 
 Request a custom report
@@ -7654,32 +6871,25 @@ Request a custom report
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
-$request_custom_report = new \MySdk\Model\RequestCustomReport(); // \MySdk\Model\RequestCustomReport
+$request_custom_report = new \BhrSdk\Model\RequestCustomReport(); // \BhrSdk\Model\RequestCustomReport
 $only_current = false; // bool | Limits the report to only current employees. Setting to false will include future-dated employees in the report.
 
 try {
-    $apiInstance->requestCustomReport($company_domain, $format, $request_custom_report, $only_current);
+    $apiInstance->requestCustomReport($format, $request_custom_report, $only_current);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->requestCustomReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -7689,9 +6899,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
-| **request_custom_report** | [**\MySdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
+| **request_custom_report** | [**\BhrSdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
 | **only_current** | **bool**| Limits the report to only current employees. Setting to false will include future-dated employees in the report. | [optional] [default to false] |
 
 ### Return type
@@ -7700,7 +6909,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7714,7 +6923,7 @@ void (empty response body)
 ## `timeOffAddATimeOffHistoryItemForTimeOffRequest()`
 
 ```php
-timeOffAddATimeOffHistoryItemForTimeOffRequest($company_domain, $employee_id, $time_off_history)
+timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history)
 ```
 
 Add a Time Off History Item For Time Off Request
@@ -7727,31 +6936,24 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | The ID of the employee.
-$time_off_history = new \MySdk\Model\TimeOffHistory(); // \MySdk\Model\TimeOffHistory
+$time_off_history = new \BhrSdk\Model\TimeOffHistory(); // \BhrSdk\Model\TimeOffHistory
 
 try {
-    $apiInstance->timeOffAddATimeOffHistoryItemForTimeOffRequest($company_domain, $employee_id, $time_off_history);
+    $apiInstance->timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffAddATimeOffHistoryItemForTimeOffRequest: ', $e->getMessage(), PHP_EOL;
 }
@@ -7761,9 +6963,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| The ID of the employee. | |
-| **time_off_history** | [**\MySdk\Model\TimeOffHistory**](../Model/TimeOffHistory.md)|  | |
+| **time_off_history** | [**\BhrSdk\Model\TimeOffHistory**](../Model/TimeOffHistory.md)|  | |
 
 ### Return type
 
@@ -7771,7 +6972,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7785,7 +6986,7 @@ void (empty response body)
 ## `timeOffAddATimeOffRequest()`
 
 ```php
-timeOffAddATimeOffRequest($company_domain, $employee_id, $time_off_request)
+timeOffAddATimeOffRequest($employee_id, $time_off_request)
 ```
 
 Add a Time Off Request
@@ -7798,31 +6999,24 @@ A time off request is an entity that describes the decision making process for a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string
-$time_off_request = new \MySdk\Model\TimeOffRequest(); // \MySdk\Model\TimeOffRequest
+$time_off_request = new \BhrSdk\Model\TimeOffRequest(); // \BhrSdk\Model\TimeOffRequest
 
 try {
-    $apiInstance->timeOffAddATimeOffRequest($company_domain, $employee_id, $time_off_request);
+    $apiInstance->timeOffAddATimeOffRequest($employee_id, $time_off_request);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffAddATimeOffRequest: ', $e->getMessage(), PHP_EOL;
 }
@@ -7832,9 +7026,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**|  | |
-| **time_off_request** | [**\MySdk\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | |
+| **time_off_request** | [**\BhrSdk\Model\TimeOffRequest**](../Model/TimeOffRequest.md)|  | |
 
 ### Return type
 
@@ -7842,7 +7035,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7856,7 +7049,7 @@ void (empty response body)
 ## `timeOffAdjustTimeOffBalance()`
 
 ```php
-timeOffAdjustTimeOffBalance($company_domain, $employee_id, $adjust_time_off_balance)
+timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance)
 ```
 
 Adjust Time Off Balance
@@ -7869,31 +7062,24 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 56; // int | The ID of the employee.
-$adjust_time_off_balance = new \MySdk\Model\AdjustTimeOffBalance(); // \MySdk\Model\AdjustTimeOffBalance
+$adjust_time_off_balance = new \BhrSdk\Model\AdjustTimeOffBalance(); // \BhrSdk\Model\AdjustTimeOffBalance
 
 try {
-    $apiInstance->timeOffAdjustTimeOffBalance($company_domain, $employee_id, $adjust_time_off_balance);
+    $apiInstance->timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffAdjustTimeOffBalance: ', $e->getMessage(), PHP_EOL;
 }
@@ -7903,9 +7089,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **int**| The ID of the employee. | |
-| **adjust_time_off_balance** | [**\MySdk\Model\AdjustTimeOffBalance**](../Model/AdjustTimeOffBalance.md)|  | |
+| **adjust_time_off_balance** | [**\BhrSdk\Model\AdjustTimeOffBalance**](../Model/AdjustTimeOffBalance.md)|  | |
 
 ### Return type
 
@@ -7913,7 +7098,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7927,7 +7112,7 @@ void (empty response body)
 ## `timeOffAssignTimeOffPoliciesForAnEmployee()`
 
 ```php
-timeOffAssignTimeOffPoliciesForAnEmployee($company_domain, $employee_id, $request_body)
+timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
 Assign Time Off Policies for an Employee
@@ -7940,31 +7125,24 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string
-$request_body = array(new \stdClass); // object[]
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
 
 try {
-    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($company_domain, $employee_id, $request_body);
+    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffAssignTimeOffPoliciesForAnEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -7974,9 +7152,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**|  | |
-| **request_body** | [**object[]**](../Model/object.md)|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
 
 ### Return type
 
@@ -7984,7 +7161,70 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `timeOffAssignTimeOffPoliciesForAnEmployeeV11()`
+
+```php
+timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
+```
+
+Assign Time Off Policies for an Employee, Version 1.1
+
+To use this API make an HTTP PUT where the body of the request is the JSON documented below. A time off policy will be assigned to the employee with accruals starting on the date specified. On success, a 200 Success code is returned and the content of the response will be the same as the List Time off Policies API.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 'employee_id_example'; // string
+$time_off_assign_time_off_policies_for_an_employee_request_inner = array(new \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner()); // \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]
+
+try {
+    $apiInstance->timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->timeOffAssignTimeOffPoliciesForAnEmployeeV11: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **string**|  | |
+| **time_off_assign_time_off_policies_for_an_employee_request_inner** | [**\BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[]**](../Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -7998,7 +7238,7 @@ void (empty response body)
 ## `timeOffChangeARequestStatus()`
 
 ```php
-timeOffChangeARequestStatus($company_domain, $request_id, $request)
+timeOffChangeARequestStatus($request_id, $request)
 ```
 
 Change a Request Status
@@ -8011,31 +7251,24 @@ This endpoint allows you to change the status of a request in the system. You ca
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $request_id = 'request_id_example'; // string
-$request = new \MySdk\Model\Request(); // \MySdk\Model\Request
+$request = new \BhrSdk\Model\Request(); // \BhrSdk\Model\Request
 
 try {
-    $apiInstance->timeOffChangeARequestStatus($company_domain, $request_id, $request);
+    $apiInstance->timeOffChangeARequestStatus($request_id, $request);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffChangeARequestStatus: ', $e->getMessage(), PHP_EOL;
 }
@@ -8045,9 +7278,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **request_id** | **string**|  | |
-| **request** | [**\MySdk\Model\Request**](../Model/Request.md)|  | |
+| **request** | [**\BhrSdk\Model\Request**](../Model/Request.md)|  | |
 
 ### Return type
 
@@ -8055,7 +7287,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8066,10 +7298,75 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeOffEstimateFutureTimeOffBalances()`
+
+```php
+timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter)
+```
+
+Estimate Future Time Off Balances
+
+This endpoint will sum future time off accruals, scheduled time off, and carry-over events to produce estimates for the anticipated time off balance on a given date in the future.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$employee_id = 'employee_id_example'; // string
+$accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
+
+try {
+    $apiInstance->timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicAPIApi->timeOffEstimateFutureTimeOffBalances: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **end** | **\DateTime**|  | |
+| **employee_id** | **string**|  | |
+| **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `timeOffGetTimeOffRequests()`
 
 ```php
-timeOffGetTimeOffRequests($company_domain, $start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status)
+timeOffGetTimeOffRequests($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status)
 ```
 
 Get Time Off Requests
@@ -8082,26 +7379,19 @@ Get Time Off Requests
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $start = 'start_example'; // string | YYYY-MM-DD. Only show time off that occurs on/after the specified start date.
 $end = 'end_example'; // string | YYYY-MM-DD. Only show time off that occurs on/before the specified end date.
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
@@ -8112,7 +7402,7 @@ $type = 'type_example'; // string | A comma separated list of time off types IDs
 $status = 'status_example'; // string | A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \"approved\", \"denied\", \"superceded\", \"requested\", \"canceled\".
 
 try {
-    $apiInstance->timeOffGetTimeOffRequests($company_domain, $start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status);
+    $apiInstance->timeOffGetTimeOffRequests($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffGetTimeOffRequests: ', $e->getMessage(), PHP_EOL;
 }
@@ -8122,7 +7412,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **start** | **string**| YYYY-MM-DD. Only show time off that occurs on/after the specified start date. | |
 | **end** | **string**| YYYY-MM-DD. Only show time off that occurs on/before the specified end date. | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
@@ -8138,11 +7427,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -8152,7 +7441,7 @@ void (empty response body)
 ## `timeOffListTimeOffPoliciesForEmployee()`
 
 ```php
-timeOffListTimeOffPoliciesForEmployee($company_domain, $employee_id)
+timeOffListTimeOffPoliciesForEmployee($employee_id)
 ```
 
 List Time Off Policies for Employee
@@ -8165,30 +7454,23 @@ List Time Off Policies for Employee
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string
 
 try {
-    $apiInstance->timeOffListTimeOffPoliciesForEmployee($company_domain, $employee_id);
+    $apiInstance->timeOffListTimeOffPoliciesForEmployee($employee_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->timeOffListTimeOffPoliciesForEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -8198,7 +7480,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**|  | |
 
 ### Return type
@@ -8207,78 +7488,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `timeOffV11AssignTimeOffPoliciesForAnEmployee()`
-
-```php
-timeOffV11AssignTimeOffPoliciesForAnEmployee($company_domain, $employee_id, $request_body)
-```
-
-Assign Time Off Policies for an Employee, Version 1.1
-
-To use this API make an HTTP PUT where the body of the request is the JSON documented below. A time off policy will be assigned to the employee with accruals starting on the date specified. On success, a 200 Success code is returned and the content of the response will be the same as the List Time off Policies API.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_id = 'employee_id_example'; // string
-$request_body = array(new \stdClass); // object[]
-
-try {
-    $apiInstance->timeOffV11AssignTimeOffPoliciesForAnEmployee($company_domain, $employee_id, $request_body);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->timeOffV11AssignTimeOffPoliciesForAnEmployee: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_id** | **string**|  | |
-| **request_body** | [**object[]**](../Model/object.md)|  | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8289,10 +7499,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `timeOffV11ListTimeOffPoliciesForEmployee()`
+## `timeOffListTimeOffPoliciesForEmployeeV11()`
 
 ```php
-timeOffV11ListTimeOffPoliciesForEmployee($company_domain, $employee_id)
+timeOffListTimeOffPoliciesForEmployeeV11($employee_id)
 ```
 
 List Time Off Policies for Employee, Version 1.1
@@ -8305,32 +7515,25 @@ List Time Off Policies for Employee, Version 1.1
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string
 
 try {
-    $apiInstance->timeOffV11ListTimeOffPoliciesForEmployee($company_domain, $employee_id);
+    $apiInstance->timeOffListTimeOffPoliciesForEmployeeV11($employee_id);
 } catch (Exception $e) {
-    echo 'Exception when calling PublicAPIApi->timeOffV11ListTimeOffPoliciesForEmployee: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PublicAPIApi->timeOffListTimeOffPoliciesForEmployeeV11: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -8338,7 +7541,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**|  | |
 
 ### Return type
@@ -8347,11 +7549,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -8361,7 +7563,7 @@ void (empty response body)
 ## `updateCompanyFile()`
 
 ```php
-updateCompanyFile($company_domain, $file_id, $company_file_update)
+updateCompanyFile($file_id, $company_file_update)
 ```
 
 Update Company File
@@ -8374,31 +7576,24 @@ Update a company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being updated.
-$company_file_update = new \MySdk\Model\CompanyFileUpdate(); // \MySdk\Model\CompanyFileUpdate
+$company_file_update = new \BhrSdk\Model\CompanyFileUpdate(); // \BhrSdk\Model\CompanyFileUpdate
 
 try {
-    $apiInstance->updateCompanyFile($company_domain, $file_id, $company_file_update);
+    $apiInstance->updateCompanyFile($file_id, $company_file_update);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateCompanyFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -8408,9 +7603,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **file_id** | **string**| {fileId} is the ID of the employee file being updated. | |
-| **company_file_update** | [**\MySdk\Model\CompanyFileUpdate**](../Model/CompanyFileUpdate.md)|  | |
+| **company_file_update** | [**\BhrSdk\Model\CompanyFileUpdate**](../Model/CompanyFileUpdate.md)|  | |
 
 ### Return type
 
@@ -8418,7 +7612,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8432,12 +7626,12 @@ void (empty response body)
 ## `updateEmployee()`
 
 ```php
-updateEmployee($company_domain, $id, $employee)
+updateEmployee($id, $employee)
 ```
 
 Update Employee
 
-Update an employee, based on employee ID. If employee is currently on a pay schedule syncing with Trax Payroll, or being added to one, the API user will need to update the employee with all of the following required fields for the update to be successful (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
+Update an employee, based on employee ID. If employee is currently on a pay schedule syncing with Trax Payroll, or being added to one, the API user will need to update the employee with all of the following required fields for the update to be successful (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn or ein, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
 
 ### Example
 
@@ -8445,31 +7639,24 @@ Update an employee, based on employee ID. If employee is currently on a pay sche
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is an employee ID.
-$employee = new \MySdk\Model\Employee(); // \MySdk\Model\Employee
+$employee = new \BhrSdk\Model\Employee(); // \BhrSdk\Model\Employee
 
 try {
-    $apiInstance->updateEmployee($company_domain, $id, $employee);
+    $apiInstance->updateEmployee($id, $employee);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -8479,9 +7666,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. | |
-| **employee** | [**\MySdk\Model\Employee**](../Model/Employee.md)|  | |
+| **employee** | [**\BhrSdk\Model\Employee**](../Model/Employee.md)|  | |
 
 ### Return type
 
@@ -8489,7 +7675,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8503,7 +7689,7 @@ void (empty response body)
 ## `updateEmployeeDependent()`
 
 ```php
-updateEmployeeDependent($company_domain, $id, $employee_dependent)
+updateEmployeeDependent($id, $employee_dependent)
 ```
 
 Update an employee dependent
@@ -8516,31 +7702,24 @@ This API allows you to change the information for a given dependent ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee dependent ID.
-$employee_dependent = new \MySdk\Model\EmployeeDependent(); // \MySdk\Model\EmployeeDependent
+$employee_dependent = new \BhrSdk\Model\EmployeeDependent(); // \BhrSdk\Model\EmployeeDependent
 
 try {
-    $apiInstance->updateEmployeeDependent($company_domain, $id, $employee_dependent);
+    $apiInstance->updateEmployeeDependent($id, $employee_dependent);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateEmployeeDependent: ', $e->getMessage(), PHP_EOL;
 }
@@ -8550,9 +7729,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee dependent ID. | |
-| **employee_dependent** | [**\MySdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
+| **employee_dependent** | [**\BhrSdk\Model\EmployeeDependent**](../Model/EmployeeDependent.md)|  | |
 
 ### Return type
 
@@ -8560,7 +7738,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8574,7 +7752,7 @@ void (empty response body)
 ## `updateEmployeeFile()`
 
 ```php
-updateEmployeeFile($company_domain, $id, $file_id, $employee_file_update)
+updateEmployeeFile($id, $file_id, $employee_file_update)
 ```
 
 Update Employee File
@@ -8587,32 +7765,25 @@ Update an employee file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $file_id = 'file_id_example'; // string | {fileId} is the ID of the employee file being updated.
-$employee_file_update = new \MySdk\Model\EmployeeFileUpdate(); // \MySdk\Model\EmployeeFileUpdate
+$employee_file_update = new \BhrSdk\Model\EmployeeFileUpdate(); // \BhrSdk\Model\EmployeeFileUpdate
 
 try {
-    $apiInstance->updateEmployeeFile($company_domain, $id, $file_id, $employee_file_update);
+    $apiInstance->updateEmployeeFile($id, $file_id, $employee_file_update);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -8622,10 +7793,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **file_id** | **string**| {fileId} is the ID of the employee file being updated. | |
-| **employee_file_update** | [**\MySdk\Model\EmployeeFileUpdate**](../Model/EmployeeFileUpdate.md)|  | |
+| **employee_file_update** | [**\BhrSdk\Model\EmployeeFileUpdate**](../Model/EmployeeFileUpdate.md)|  | |
 
 ### Return type
 
@@ -8633,7 +7803,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8647,7 +7817,7 @@ void (empty response body)
 ## `updateEmployeeTableRow()`
 
 ```php
-updateEmployeeTableRow($company_domain, $id, $table, $row_id, $table_row_update)
+updateEmployeeTableRow($id, $table, $row_id, $table_row_update)
 ```
 
 Updates a table row.
@@ -8660,33 +7830,26 @@ Updates a table row. If employee is currently on a pay schedule syncing with Tra
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
-    $apiInstance->updateEmployeeTableRow($company_domain, $id, $table, $row_id, $table_row_update);
+    $apiInstance->updateEmployeeTableRow($id, $table, $row_id, $table_row_update);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateEmployeeTableRow: ', $e->getMessage(), PHP_EOL;
 }
@@ -8696,11 +7859,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -8708,7 +7870,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8722,7 +7884,7 @@ void (empty response body)
 ## `updateEmployeeTableRowV()`
 
 ```php
-updateEmployeeTableRowV($company_domain, $id, $table, $row_id, $table_row_update)
+updateEmployeeTableRowV($id, $table, $row_id, $table_row_update)
 ```
 
 Updates a table row.
@@ -8735,33 +7897,26 @@ Updates a table row. Fundamentally the same as version 1 so choose a version and
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is the employee ID.
 $table = 'table_example'; // string | Table name
 $row_id = 'row_id_example'; // string | Row ID
-$table_row_update = new \MySdk\Model\TableRowUpdate(); // \MySdk\Model\TableRowUpdate
+$table_row_update = new \BhrSdk\Model\TableRowUpdate(); // \BhrSdk\Model\TableRowUpdate
 
 try {
-    $apiInstance->updateEmployeeTableRowV($company_domain, $id, $table, $row_id, $table_row_update);
+    $apiInstance->updateEmployeeTableRowV($id, $table, $row_id, $table_row_update);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateEmployeeTableRowV: ', $e->getMessage(), PHP_EOL;
 }
@@ -8771,11 +7926,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is the employee ID. | |
 | **table** | **string**| Table name | |
 | **row_id** | **string**| Row ID | |
-| **table_row_update** | [**\MySdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
+| **table_row_update** | [**\BhrSdk\Model\TableRowUpdate**](../Model/TableRowUpdate.md)|  | |
 
 ### Return type
 
@@ -8783,7 +7937,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8797,7 +7951,7 @@ void (empty response body)
 ## `updateEmployeeTrainingRecord()`
 
 ```php
-updateEmployeeTrainingRecord($company_domain, $employee_training_record_id, $update_employee_training_record_request): \MySdk\Model\TrainingRecord
+updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request): \BhrSdk\Model\TrainingRecord
 ```
 
 Update Employee Training Record
@@ -8810,31 +7964,24 @@ Update an existing exmployee training record. The owner of the API key used must
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$employee_training_record_id = 56; // int | The ID of the training record to update.
-$update_employee_training_record_request = new \MySdk\Model\UpdateEmployeeTrainingRecordRequest(); // \MySdk\Model\UpdateEmployeeTrainingRecordRequest | Training object to update
+$employee_training_record_id = 0; // int | The ID of the training record to update.
+$update_employee_training_record_request = new \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest(); // \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest | Training object to update
 
 try {
-    $result = $apiInstance->updateEmployeeTrainingRecord($company_domain, $employee_training_record_id, $update_employee_training_record_request);
+    $result = $apiInstance->updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_training_record_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateEmployeeTrainingRecord: ', $e->getMessage(), PHP_EOL;
@@ -8845,17 +7992,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **employee_training_record_id** | **int**| The ID of the training record to update. | |
-| **update_employee_training_record_request** | [**\MySdk\Model\UpdateEmployeeTrainingRecordRequest**](../Model/UpdateEmployeeTrainingRecordRequest.md)| Training object to update | |
+| **employee_training_record_id** | **int**| The ID of the training record to update. | [default to 0] |
+| **update_employee_training_record_request** | [**\BhrSdk\Model\UpdateEmployeeTrainingRecordRequest**](../Model/UpdateEmployeeTrainingRecordRequest.md)| Training object to update | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
+[**\BhrSdk\Model\TrainingRecord**](../Model/TrainingRecord.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8869,7 +8015,7 @@ try {
 ## `updateTrainingCategory()`
 
 ```php
-updateTrainingCategory($company_domain, $training_category_id, $update_training_category_request): \MySdk\Model\TrainingCategory
+updateTrainingCategory($training_category_id, $update_training_category_request): \BhrSdk\Model\TrainingCategory
 ```
 
 Update Training Category
@@ -8882,31 +8028,24 @@ Update an existing training category. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$training_category_id = 56; // int | The ID of the training category to update.
-$update_training_category_request = new \MySdk\Model\UpdateTrainingCategoryRequest(); // \MySdk\Model\UpdateTrainingCategoryRequest | Training category to update
+$training_category_id = 0; // int | The ID of the training category to update.
+$update_training_category_request = new \BhrSdk\Model\UpdateTrainingCategoryRequest(); // \BhrSdk\Model\UpdateTrainingCategoryRequest | Training category to update
 
 try {
-    $result = $apiInstance->updateTrainingCategory($company_domain, $training_category_id, $update_training_category_request);
+    $result = $apiInstance->updateTrainingCategory($training_category_id, $update_training_category_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateTrainingCategory: ', $e->getMessage(), PHP_EOL;
@@ -8917,17 +8056,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **training_category_id** | **int**| The ID of the training category to update. | |
-| **update_training_category_request** | [**\MySdk\Model\UpdateTrainingCategoryRequest**](../Model/UpdateTrainingCategoryRequest.md)| Training category to update | |
+| **training_category_id** | **int**| The ID of the training category to update. | [default to 0] |
+| **update_training_category_request** | [**\BhrSdk\Model\UpdateTrainingCategoryRequest**](../Model/UpdateTrainingCategoryRequest.md)| Training category to update | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
+[**\BhrSdk\Model\TrainingCategory**](../Model/TrainingCategory.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -8941,7 +8079,7 @@ try {
 ## `updateTrainingType()`
 
 ```php
-updateTrainingType($company_domain, $training_type_id, $update_training_type_request): \MySdk\Model\TrainingType
+updateTrainingType($training_type_id, $update_training_type_request): \BhrSdk\Model\TrainingType
 ```
 
 Update Training Type
@@ -8954,31 +8092,24 @@ Update an existing training type. The owner of the API key used must have access
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$training_type_id = 56; // int | The ID of the training type to update.
-$update_training_type_request = new \MySdk\Model\UpdateTrainingTypeRequest(); // \MySdk\Model\UpdateTrainingTypeRequest | Training type object to update to
+$training_type_id = 0; // int | The ID of the training type to update.
+$update_training_type_request = new \BhrSdk\Model\UpdateTrainingTypeRequest(); // \BhrSdk\Model\UpdateTrainingTypeRequest | Training type object to update to
 
 try {
-    $result = $apiInstance->updateTrainingType($company_domain, $training_type_id, $update_training_type_request);
+    $result = $apiInstance->updateTrainingType($training_type_id, $update_training_type_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->updateTrainingType: ', $e->getMessage(), PHP_EOL;
@@ -8989,17 +8120,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **training_type_id** | **int**| The ID of the training type to update. | |
-| **update_training_type_request** | [**\MySdk\Model\UpdateTrainingTypeRequest**](../Model/UpdateTrainingTypeRequest.md)| Training type object to update to | |
+| **training_type_id** | **int**| The ID of the training type to update. | [default to 0] |
+| **update_training_type_request** | [**\BhrSdk\Model\UpdateTrainingTypeRequest**](../Model/UpdateTrainingTypeRequest.md)| Training type object to update to | |
 
 ### Return type
 
-[**\MySdk\Model\TrainingType**](../Model/TrainingType.md)
+[**\BhrSdk\Model\TrainingType**](../Model/TrainingType.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -9013,7 +8143,7 @@ try {
 ## `uploadCompanyFile()`
 
 ```php
-uploadCompanyFile($company_domain)
+uploadCompanyFile()
 ```
 
 Upload Company File
@@ -9026,29 +8156,22 @@ Upload a company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $apiInstance->uploadCompanyFile($company_domain);
+    $apiInstance->uploadCompanyFile();
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->uploadCompanyFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -9056,9 +8179,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -9066,11 +8187,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -9080,7 +8201,7 @@ void (empty response body)
 ## `uploadEmployeeFile()`
 
 ```php
-uploadEmployeeFile($company_domain, $id)
+uploadEmployeeFile($id)
 ```
 
 Upload Employee File
@@ -9093,30 +8214,23 @@ Upload an employee file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 
 try {
-    $apiInstance->uploadEmployeeFile($company_domain, $id);
+    $apiInstance->uploadEmployeeFile($id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->uploadEmployeeFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -9126,7 +8240,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 
 ### Return type
@@ -9135,11 +8248,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -9149,7 +8262,7 @@ void (empty response body)
 ## `uploadEmployeePhoto()`
 
 ```php
-uploadEmployeePhoto($company_domain, $employee_id)
+uploadEmployeePhoto($employee_id)
 ```
 
 Store a new employee photo
@@ -9162,30 +8275,23 @@ Store a new employee photo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\PublicAPIApi(
+$apiInstance = new BhrSdk\Api\PublicAPIApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $employee_id = 'employee_id_example'; // string | The ID for the employee you are setting the photo for.
 
 try {
-    $apiInstance->uploadEmployeePhoto($company_domain, $employee_id);
+    $apiInstance->uploadEmployeePhoto($employee_id);
 } catch (Exception $e) {
     echo 'Exception when calling PublicAPIApi->uploadEmployeePhoto: ', $e->getMessage(), PHP_EOL;
 }
@@ -9195,7 +8301,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **employee_id** | **string**| The ID for the employee you are setting the photo for. | |
 
 ### Return type
@@ -9204,11 +8309,11 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -1,26 +1,25 @@
-# MySdk\EmployeesApi
+# BhrSdk\EmployeesApi
 
-All URIs are relative to https://api.bamboohr.com/api/gateway.php, except if the operation defines another base path.
+All URIs are relative to https://companySubDomain.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addEmployee()**](EmployeesApi.md#addEmployee) | **POST** /{companyDomain}/v1/employees | Add Employee |
-| [**getCompanyEINs()**](EmployeesApi.md#getCompanyEINs) | **GET** /{companyDomain}/v1/company_eins | Get Company EINs |
-| [**getCompanyInformation()**](EmployeesApi.md#getCompanyInformation) | **GET** /{companyDomain}/v1/company_information | Get Company Information |
-| [**getEmployee()**](EmployeesApi.md#getEmployee) | **GET** /{companyDomain}/v1/employees/{id} | Get Employee |
-| [**getEmployeesDirectory()**](EmployeesApi.md#getEmployeesDirectory) | **GET** /{companyDomain}/v1/employees/directory | Get Employee Directory |
-| [**updateEmployee()**](EmployeesApi.md#updateEmployee) | **POST** /{companyDomain}/v1/employees/{id} | Update Employee |
+| [**addEmployee()**](EmployeesApi.md#addEmployee) | **POST** /api/v1/employees | Add Employee |
+| [**getCompanyInformation()**](EmployeesApi.md#getCompanyInformation) | **GET** /api/v1/company_information | Get Company Information |
+| [**getEmployee()**](EmployeesApi.md#getEmployee) | **GET** /api/v1/employees/{id} | Get Employee |
+| [**getEmployeesDirectory()**](EmployeesApi.md#getEmployeesDirectory) | **GET** /api/v1/employees/directory | Get Employee Directory |
+| [**updateEmployee()**](EmployeesApi.md#updateEmployee) | **POST** /api/v1/employees/{id} | Update Employee |
 
 
 ## `addEmployee()`
 
 ```php
-addEmployee($company_domain, $post_new_employee)
+addEmployee($post_new_employee)
 ```
 
 Add Employee
 
-Add a new employee. New employees must have at least a first name and a last name. The ID of the newly created employee is included in the Location header of the response. Other fields can be included. Please see the [fields](ref:metadata-get-a-list-of-fields) endpoint. New Employees added to a pay schedule synced with Trax Payroll must have the following required fields (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
+Add a new employee. New employees must have at least a first name and a last name. The ID of the newly created employee is included in the Location header of the response. Other fields can be included. Please see the [fields](ref:metadata-get-a-list-of-fields) endpoint. New Employees added to a pay schedule synced with Trax Payroll must have the following required fields (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn or ein, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
 
 ### Example
 
@@ -28,30 +27,23 @@ Add a new employee. New employees must have at least a first name and a last nam
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\EmployeesApi(
+$apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-$post_new_employee = new \MySdk\Model\PostNewEmployee(); // \MySdk\Model\PostNewEmployee
+$post_new_employee = new \BhrSdk\Model\PostNewEmployee(); // \BhrSdk\Model\PostNewEmployee
 
 try {
-    $apiInstance->addEmployee($company_domain, $post_new_employee);
+    $apiInstance->addEmployee($post_new_employee);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->addEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -61,8 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-| **post_new_employee** | [**\MySdk\Model\PostNewEmployee**](../Model/PostNewEmployee.md)|  | |
+| **post_new_employee** | [**\BhrSdk\Model\PostNewEmployee**](../Model/PostNewEmployee.md)|  | |
 
 ### Return type
 
@@ -70,7 +61,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
@@ -81,78 +72,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCompanyEINs()`
-
-```php
-getCompanyEINs($company_domain): \MySdk\Model\GetCompanyEINs200Response
-```
-
-Get Company EINs
-
-Gets Company EINs
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\EmployeesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
-
-try {
-    $result = $apiInstance->getCompanyEINs($company_domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EmployeesApi->getCompanyEINs: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
-
-### Return type
-
-[**\MySdk\Model\GetCompanyEINs200Response**](../Model/GetCompanyEINs200Response.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getCompanyInformation()`
 
 ```php
-getCompanyInformation($company_domain): \MySdk\Model\GetCompanyInformation200Response
+getCompanyInformation(): \BhrSdk\Model\GetCompanyInformation200Response
 ```
 
 Get Company Information
@@ -165,29 +88,22 @@ Gets Company Information
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\EmployeesApi(
+$apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 
 try {
-    $result = $apiInstance->getCompanyInformation($company_domain);
+    $result = $apiInstance->getCompanyInformation();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->getCompanyInformation: ', $e->getMessage(), PHP_EOL;
@@ -196,21 +112,19 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MySdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
+[**\BhrSdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -220,7 +134,7 @@ try {
 ## `getEmployee()`
 
 ```php
-getEmployee($company_domain, $fields, $id, $only_current, $accept_header_parameter): \MySdk\Model\GetEmployee200Response
+getEmployee($fields, $id, $only_current, $accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
 ```
 
 Get Employee
@@ -233,33 +147,26 @@ Get employee data by specifying a set of fields. This is suitable for getting ba
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\EmployeesApi(
+$apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $fields = 'firstName,lastName'; // string | {fields} is a comma separated list of values taken from the official list of field names.
 $id = '0'; // string | {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any).
 $only_current = false; // bool | Setting to false will return future dated values from history table fields.
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $result = $apiInstance->getEmployee($company_domain, $fields, $id, $only_current, $accept_header_parameter);
+    $result = $apiInstance->getEmployee($fields, $id, $only_current, $accept_header_parameter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->getEmployee: ', $e->getMessage(), PHP_EOL;
@@ -270,7 +177,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **fields** | **string**| {fields} is a comma separated list of values taken from the official list of field names. | [default to &#39;firstName,lastName&#39;] |
 | **id** | **string**| {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). | [default to &#39;0&#39;] |
 | **only_current** | **bool**| Setting to false will return future dated values from history table fields. | [optional] [default to false] |
@@ -278,15 +184,15 @@ try {
 
 ### Return type
 
-[**\MySdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -296,7 +202,7 @@ try {
 ## `getEmployeesDirectory()`
 
 ```php
-getEmployeesDirectory($company_domain, $accept_header_parameter): \MySdk\Model\GetEmployee200Response
+getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
 ```
 
 Get Employee Directory
@@ -309,30 +215,23 @@ Gets employee directory.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\EmployeesApi(
+$apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
 
 try {
-    $result = $apiInstance->getEmployeesDirectory($company_domain, $accept_header_parameter);
+    $result = $apiInstance->getEmployeesDirectory($accept_header_parameter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->getEmployeesDirectory: ', $e->getMessage(), PHP_EOL;
@@ -343,20 +242,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
 
 ### Return type
 
-[**\MySdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -366,12 +264,12 @@ try {
 ## `updateEmployee()`
 
 ```php
-updateEmployee($company_domain, $id, $employee)
+updateEmployee($id, $employee)
 ```
 
 Update Employee
 
-Update an employee, based on employee ID. If employee is currently on a pay schedule syncing with Trax Payroll, or being added to one, the API user will need to update the employee with all of the following required fields for the update to be successful (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
+Update an employee, based on employee ID. If employee is currently on a pay schedule syncing with Trax Payroll, or being added to one, the API user will need to update the employee with all of the following required fields for the update to be successful (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn or ein, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
 
 ### Example
 
@@ -379,31 +277,24 @@ Update an employee, based on employee ID. If employee is currently on a pay sche
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure HTTP basic authorization: basic
-$config = MySdk\Configuration::getDefaultConfiguration()
+$config = BhrSdk\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-
 // Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = MySdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new MySdk\Api\EmployeesApi(
+$apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$company_domain = 'company_domain_example'; // string | The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \"mycompany\"
 $id = 'id_example'; // string | {id} is an employee ID.
-$employee = new \MySdk\Model\Employee(); // \MySdk\Model\Employee
+$employee = new \BhrSdk\Model\Employee(); // \BhrSdk\Model\Employee
 
 try {
-    $apiInstance->updateEmployee($company_domain, $id, $employee);
+    $apiInstance->updateEmployee($id, $employee);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -413,9 +304,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_domain** | **string**| The subdomain used to access BambooHR. If you access BambooHR at https://mycompany.bamboohr.com, then the companyDomain is \&quot;mycompany\&quot; | |
 | **id** | **string**| {id} is an employee ID. | |
-| **employee** | [**\MySdk\Model\Employee**](../Model/Employee.md)|  | |
+| **employee** | [**\BhrSdk\Model\Employee**](../Model/Employee.md)|  | |
 
 ### Return type
 
@@ -423,7 +313,7 @@ void (empty response body)
 
 ### Authorization
 
-[basic](../../README.md#basic), [oauth](../../README.md#oauth), [oauth](../../README.md#oauth)
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
 
 ### HTTP request headers
 
