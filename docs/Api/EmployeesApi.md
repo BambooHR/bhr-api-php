@@ -8,6 +8,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | [**getCompanyInformation()**](EmployeesApi.md#getCompanyInformation) | **GET** /api/v1/company_information | Get Company Information |
 | [**getEmployee()**](EmployeesApi.md#getEmployee) | **GET** /api/v1/employees/{id} | Get Employee |
 | [**getEmployeesDirectory()**](EmployeesApi.md#getEmployeesDirectory) | **GET** /api/v1/employees/directory | Get Employee Directory |
+| [**getEmployeesList()**](EmployeesApi.md#getEmployeesList) | **GET** /api/v1/employees | Get employees |
 | [**updateEmployee()**](EmployeesApi.md#updateEmployee) | **POST** /api/v1/employees/{id} | Update Employee |
 
 
@@ -134,7 +135,7 @@ This endpoint does not need any parameter.
 ## `getEmployee()`
 
 ```php
-getEmployee($fields, $id, $only_current, $accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
+getEmployee($fields, $id, $only_current, $accept_header_parameter): array<string,mixed>
 ```
 
 Get Employee
@@ -184,7 +185,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+**array<string,mixed>**
 
 ### Authorization
 
@@ -202,7 +203,7 @@ try {
 ## `getEmployeesDirectory()`
 
 ```php
-getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\GetEmployee200Response
+getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\GetEmployeesDirectory200Response
 ```
 
 Get Employee Directory
@@ -246,7 +247,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetEmployee200Response**](../Model/GetEmployee200Response.md)
+[**\BhrSdk\Model\GetEmployeesDirectory200Response**](../Model/GetEmployeesDirectory200Response.md)
 
 ### Authorization
 
@@ -256,6 +257,68 @@ try {
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmployeesList()`
+
+```php
+getEmployeesList($filter, $sort, $page): \BhrSdk\Model\GetEmployeesResponseObject
+```
+
+Get employees
+
+Get paged employees with optional filtering, sorting. This returns a fixed set of simple employee fields that can easily be filtered and sorted. For retrieve more complex employee data please use the singular get employee endpoint or use the datasets api for more complex bulk queries.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\EmployeesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$filter = new \BhrSdk\Model\\BhrSdk\Model\GetEmployeesFilterRequestObject(); // \BhrSdk\Model\GetEmployeesFilterRequestObject | Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data.
+$sort = 'sort_example'; // string | Comma-separated list of sortable fields. Prefix with '-' for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information.
+$page = new \BhrSdk\Model\\BhrSdk\Model\CursorPaginationQueryObject(); // \BhrSdk\Model\CursorPaginationQueryObject | Pagination parameters
+
+try {
+    $result = $apiInstance->getEmployeesList($filter, $sort, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EmployeesApi->getEmployeesList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **filter** | [**\BhrSdk\Model\GetEmployeesFilterRequestObject**](../Model/.md)| Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. | [optional] |
+| **sort** | **string**| Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. | [optional] |
+| **page** | [**\BhrSdk\Model\CursorPaginationQueryObject**](../Model/.md)| Pagination parameters | [optional] |
+
+### Return type
+
+[**\BhrSdk\Model\GetEmployeesResponseObject**](../Model/GetEmployeesResponseObject.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

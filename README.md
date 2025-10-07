@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**getCompanyInformation**](docs/Api/EmployeesApi.md#getcompanyinformation) | **GET** /api/v1/company_information | Get Company Information
 *EmployeesApi* | [**getEmployee**](docs/Api/EmployeesApi.md#getemployee) | **GET** /api/v1/employees/{id} | Get Employee
 *EmployeesApi* | [**getEmployeesDirectory**](docs/Api/EmployeesApi.md#getemployeesdirectory) | **GET** /api/v1/employees/directory | Get Employee Directory
+*EmployeesApi* | [**getEmployeesList**](docs/Api/EmployeesApi.md#getemployeeslist) | **GET** /api/v1/employees | Get employees
 *EmployeesApi* | [**updateEmployee**](docs/Api/EmployeesApi.md#updateemployee) | **POST** /api/v1/employees/{id} | Update Employee
 *GoalsApi* | [**deleteGoal**](docs/Api/GoalsApi.md#deletegoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
 *GoalsApi* | [**deleteGoalComment**](docs/Api/GoalsApi.md#deletegoalcomment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
@@ -156,135 +157,6 @@ Class | Method | HTTP request | Description
 *LoginApi* | [**login**](docs/Api/LoginApi.md#login) | **POST** /api/v1/login | User Login
 *PhotosApi* | [**getEmployeePhoto**](docs/Api/PhotosApi.md#getemployeephoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo
 *PhotosApi* | [**uploadEmployeePhoto**](docs/Api/PhotosApi.md#uploademployeephoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo
-*PublicAPIApi* | [**addCompanyFileCategory**](docs/Api/PublicAPIApi.md#addcompanyfilecategory) | **POST** /api/v1/files/categories | Add Company File Category
-*PublicAPIApi* | [**addEditTimesheetClockEntries**](docs/Api/PublicAPIApi.md#addedittimesheetclockentries) | **POST** /api/v1/time_tracking/clock_entries/store | Add/Edit Timesheet Clock Entries
-*PublicAPIApi* | [**addEditTimesheetHourEntries**](docs/Api/PublicAPIApi.md#addedittimesheethourentries) | **POST** /api/v1/time_tracking/hour_entries/store | Add/Edit Timesheet Hour Entries
-*PublicAPIApi* | [**addEmployee**](docs/Api/PublicAPIApi.md#addemployee) | **POST** /api/v1/employees | Add Employee
-*PublicAPIApi* | [**addEmployeeDependent**](docs/Api/PublicAPIApi.md#addemployeedependent) | **POST** /api/v1/employeedependents | Add an employee dependent
-*PublicAPIApi* | [**addEmployeeFileCategory**](docs/Api/PublicAPIApi.md#addemployeefilecategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category
-*PublicAPIApi* | [**addEmployeeTableRow**](docs/Api/PublicAPIApi.md#addemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table} | Adds a table row
-*PublicAPIApi* | [**addEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#addemployeetablerowv1) | **POST** /api/v1_1/employees/{id}/tables/{table} | Adds a table row
-*PublicAPIApi* | [**addNewCandidate**](docs/Api/PublicAPIApi.md#addnewcandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate
-*PublicAPIApi* | [**addNewEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#addnewemployeetrainingrecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record
-*PublicAPIApi* | [**addNewJobOpening**](docs/Api/PublicAPIApi.md#addnewjobopening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening
-*PublicAPIApi* | [**addTimeTrackingBulk**](docs/Api/PublicAPIApi.md#addtimetrackingbulk) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records
-*PublicAPIApi* | [**addTimeTrackingHourRecord**](docs/Api/PublicAPIApi.md#addtimetrackinghourrecord) | **POST** /api/v1/timetracking/add | Add Hour Record
-*PublicAPIApi* | [**addTimesheetClockInEntry**](docs/Api/PublicAPIApi.md#addtimesheetclockinentry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_in | Add Timesheet Clock-In Entry
-*PublicAPIApi* | [**addTimesheetClockOutEntry**](docs/Api/PublicAPIApi.md#addtimesheetclockoutentry) | **POST** /api/v1/time_tracking/employees/{employeeId}/clock_out | Add Timesheet Clock-Out Entry
-*PublicAPIApi* | [**addTrainingCategory**](docs/Api/PublicAPIApi.md#addtrainingcategory) | **POST** /api/v1/training/category | Add Training Category
-*PublicAPIApi* | [**addTrainingType**](docs/Api/PublicAPIApi.md#addtrainingtype) | **POST** /api/v1/training/type | Add Training Type
-*PublicAPIApi* | [**createTimeTrackingProject**](docs/Api/PublicAPIApi.md#createtimetrackingproject) | **POST** /api/v1/time_tracking/projects | Create Time Tracking Project
-*PublicAPIApi* | [**deleteCompanyFile**](docs/Api/PublicAPIApi.md#deletecompanyfile) | **DELETE** /api/v1/files/{fileId} | Delete Company File
-*PublicAPIApi* | [**deleteEmployeeFile**](docs/Api/PublicAPIApi.md#deleteemployeefile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File
-*PublicAPIApi* | [**deleteEmployeeTableRowV1**](docs/Api/PublicAPIApi.md#deleteemployeetablerowv1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row
-*PublicAPIApi* | [**deleteEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#deleteemployeetrainingrecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record
-*PublicAPIApi* | [**deleteGoal**](docs/Api/PublicAPIApi.md#deletegoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
-*PublicAPIApi* | [**deleteGoalComment**](docs/Api/PublicAPIApi.md#deletegoalcomment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
-*PublicAPIApi* | [**deleteTimeTrackingById**](docs/Api/PublicAPIApi.md#deletetimetrackingbyid) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record
-*PublicAPIApi* | [**deleteTimesheetClockEntriesViaPost**](docs/Api/PublicAPIApi.md#deletetimesheetclockentriesviapost) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries
-*PublicAPIApi* | [**deleteTimesheetHourEntriesViaPost**](docs/Api/PublicAPIApi.md#deletetimesheethourentriesviapost) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
-*PublicAPIApi* | [**deleteTrainingCategory**](docs/Api/PublicAPIApi.md#deletetrainingcategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category
-*PublicAPIApi* | [**deleteTrainingType**](docs/Api/PublicAPIApi.md#deletetrainingtype) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type
-*PublicAPIApi* | [**deleteWebhook**](docs/Api/PublicAPIApi.md#deletewebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook
-*PublicAPIApi* | [**editTimeTrackingRecord**](docs/Api/PublicAPIApi.md#edittimetrackingrecord) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record
-*PublicAPIApi* | [**getAListOfWhoIsOut**](docs/Api/PublicAPIApi.md#getalistofwhoisout) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out
-*PublicAPIApi* | [**getApplicationDetails**](docs/Api/PublicAPIApi.md#getapplicationdetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Application Details
-*PublicAPIApi* | [**getApplications**](docs/Api/PublicAPIApi.md#getapplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications
-*PublicAPIApi* | [**getBenefitCoverages**](docs/Api/PublicAPIApi.md#getbenefitcoverages) | **GET** /api/v1/benefitcoverages | Get benefit coverages
-*PublicAPIApi* | [**getBenefitDeductionTypes**](docs/Api/PublicAPIApi.md#getbenefitdeductiontypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get benefit deduction types
-*PublicAPIApi* | [**getByReportId**](docs/Api/PublicAPIApi.md#getbyreportid) | **GET** /api/v1/custom-reports/{reportId} | Get Report by ID
-*PublicAPIApi* | [**getCanCreateGoal**](docs/Api/PublicAPIApi.md#getcancreategoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal
-*PublicAPIApi* | [**getChangedEmployeeIds**](docs/Api/PublicAPIApi.md#getchangedemployeeids) | **GET** /api/v1/employees/changed | Gets all updated employee IDs
-*PublicAPIApi* | [**getChangedEmployeeTableData**](docs/Api/PublicAPIApi.md#getchangedemployeetabledata) | **GET** /api/v1/employees/changed/tables/{table} | Gets all updated employee table data
-*PublicAPIApi* | [**getCompanyFile**](docs/Api/PublicAPIApi.md#getcompanyfile) | **GET** /api/v1/files/{fileId} | Get an Company File
-*PublicAPIApi* | [**getCompanyInformation**](docs/Api/PublicAPIApi.md#getcompanyinformation) | **GET** /api/v1/company_information | Get Company Information
-*PublicAPIApi* | [**getCompanyLocations**](docs/Api/PublicAPIApi.md#getcompanylocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations
-*PublicAPIApi* | [**getCompanyReport**](docs/Api/PublicAPIApi.md#getcompanyreport) | **GET** /api/v1/reports/{id} | Get company report
-*PublicAPIApi* | [**getCountriesOptions**](docs/Api/PublicAPIApi.md#getcountriesoptions) | **GET** /api/v1/meta/countries/options | Get all countries
-*PublicAPIApi* | [**getDataFromDataset**](docs/Api/PublicAPIApi.md#getdatafromdataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset
-*PublicAPIApi* | [**getDataSets**](docs/Api/PublicAPIApi.md#getdatasets) | **GET** /api/v1/datasets | Get Data Sets
-*PublicAPIApi* | [**getEmployee**](docs/Api/PublicAPIApi.md#getemployee) | **GET** /api/v1/employees/{id} | Get Employee
-*PublicAPIApi* | [**getEmployeeDependent**](docs/Api/PublicAPIApi.md#getemployeedependent) | **GET** /api/v1/employeedependents/{id} | Get employee dependent
-*PublicAPIApi* | [**getEmployeeDependents**](docs/Api/PublicAPIApi.md#getemployeedependents) | **GET** /api/v1/employeedependents | Get all employee dependents
-*PublicAPIApi* | [**getEmployeeFile**](docs/Api/PublicAPIApi.md#getemployeefile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get an Employee File
-*PublicAPIApi* | [**getEmployeePhoto**](docs/Api/PublicAPIApi.md#getemployeephoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo
-*PublicAPIApi* | [**getEmployeeTableRow**](docs/Api/PublicAPIApi.md#getemployeetablerow) | **GET** /api/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination
-*PublicAPIApi* | [**getEmployeesDirectory**](docs/Api/PublicAPIApi.md#getemployeesdirectory) | **GET** /api/v1/employees/directory | Get Employee Directory
-*PublicAPIApi* | [**getFieldOptions**](docs/Api/PublicAPIApi.md#getfieldoptions) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options
-*PublicAPIApi* | [**getFieldsFromDataset**](docs/Api/PublicAPIApi.md#getfieldsfromdataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset
-*PublicAPIApi* | [**getGoalAggregate**](docs/Api/PublicAPIApi.md#getgoalaggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info
-*PublicAPIApi* | [**getGoalComments**](docs/Api/PublicAPIApi.md#getgoalcomments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments
-*PublicAPIApi* | [**getGoals**](docs/Api/PublicAPIApi.md#getgoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | Get Goals
-*PublicAPIApi* | [**getGoalsAggregateV1**](docs/Api/PublicAPIApi.md#getgoalsaggregatev1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info
-*PublicAPIApi* | [**getGoalsAggregateV11**](docs/Api/PublicAPIApi.md#getgoalsaggregatev11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1
-*PublicAPIApi* | [**getGoalsAggregateV12**](docs/Api/PublicAPIApi.md#getgoalsaggregatev12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2
-*PublicAPIApi* | [**getGoalsAlignmentOptions**](docs/Api/PublicAPIApi.md#getgoalsalignmentoptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options
-*PublicAPIApi* | [**getGoalsFiltersV1**](docs/Api/PublicAPIApi.md#getgoalsfiltersv1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goals Filters
-*PublicAPIApi* | [**getGoalsFiltersV11**](docs/Api/PublicAPIApi.md#getgoalsfiltersv11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goals Filters
-*PublicAPIApi* | [**getGoalsFiltersV12**](docs/Api/PublicAPIApi.md#getgoalsfiltersv12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2
-*PublicAPIApi* | [**getGoalsShareOptions**](docs/Api/PublicAPIApi.md#getgoalsshareoptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options
-*PublicAPIApi* | [**getHiringLeads**](docs/Api/PublicAPIApi.md#gethiringleads) | **GET** /api/v1/applicant_tracking/hiring_leads | Get Hiring Leads
-*PublicAPIApi* | [**getJobSummaries**](docs/Api/PublicAPIApi.md#getjobsummaries) | **GET** /api/v1/applicant_tracking/jobs | Get Job Summaries
-*PublicAPIApi* | [**getListOfUsers**](docs/Api/PublicAPIApi.md#getlistofusers) | **GET** /api/v1/meta/users | Get a List of Users
-*PublicAPIApi* | [**getMemberBenefit**](docs/Api/PublicAPIApi.md#getmemberbenefit) | **GET** /api/v1/benefit/member_benefit | Get a list of member benefit events
-*PublicAPIApi* | [**getMonitorFields**](docs/Api/PublicAPIApi.md#getmonitorfields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields
-*PublicAPIApi* | [**getStatesByCountryId**](docs/Api/PublicAPIApi.md#getstatesbycountryid) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID
-*PublicAPIApi* | [**getStatuses**](docs/Api/PublicAPIApi.md#getstatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses
-*PublicAPIApi* | [**getTimeOffPolicies**](docs/Api/PublicAPIApi.md#gettimeoffpolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies
-*PublicAPIApi* | [**getTimeOffTypes**](docs/Api/PublicAPIApi.md#gettimeofftypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types
-*PublicAPIApi* | [**getTimeTrackingRecord**](docs/Api/PublicAPIApi.md#gettimetrackingrecord) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record
-*PublicAPIApi* | [**getTimesheetEntries**](docs/Api/PublicAPIApi.md#gettimesheetentries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
-*PublicAPIApi* | [**getWebhook**](docs/Api/PublicAPIApi.md#getwebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook
-*PublicAPIApi* | [**getWebhookList**](docs/Api/PublicAPIApi.md#getwebhooklist) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key.
-*PublicAPIApi* | [**getWebhookLogs**](docs/Api/PublicAPIApi.md#getwebhooklogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs
-*PublicAPIApi* | [**listCompanyFiles**](docs/Api/PublicAPIApi.md#listcompanyfiles) | **GET** /api/v1/files/view | List company files and categories
-*PublicAPIApi* | [**listEmployeeFiles**](docs/Api/PublicAPIApi.md#listemployeefiles) | **GET** /api/v1/employees/{id}/files/view | List employee files and categories
-*PublicAPIApi* | [**listEmployeeTrainings**](docs/Api/PublicAPIApi.md#listemployeetrainings) | **GET** /api/v1/training/record/employee/{employeeId} | List Employee Trainings
-*PublicAPIApi* | [**listReports**](docs/Api/PublicAPIApi.md#listreports) | **GET** /api/v1/custom-reports | List Reports
-*PublicAPIApi* | [**listTrainingCategories**](docs/Api/PublicAPIApi.md#listtrainingcategories) | **GET** /api/v1/training/category | List Training Categories
-*PublicAPIApi* | [**listTrainingTypes**](docs/Api/PublicAPIApi.md#listtrainingtypes) | **GET** /api/v1/training/type | List Training Types
-*PublicAPIApi* | [**login**](docs/Api/PublicAPIApi.md#login) | **POST** /api/v1/login | User Login
-*PublicAPIApi* | [**metadataAddOrUpdateValuesForListFields**](docs/Api/PublicAPIApi.md#metadataaddorupdatevaluesforlistfields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields
-*PublicAPIApi* | [**metadataGetAListOfFields**](docs/Api/PublicAPIApi.md#metadatagetalistoffields) | **GET** /api/v1/meta/fields | Get a list of fields
-*PublicAPIApi* | [**metadataGetAListOfTabularFields**](docs/Api/PublicAPIApi.md#metadatagetalistoftabularfields) | **GET** /api/v1/meta/tables | Get a list of tabular fields
-*PublicAPIApi* | [**metadataGetDetailsForListFields**](docs/Api/PublicAPIApi.md#metadatagetdetailsforlistfields) | **GET** /api/v1/meta/lists | Get details for list fields
-*PublicAPIApi* | [**postApplicantStatus**](docs/Api/PublicAPIApi.md#postapplicantstatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status
-*PublicAPIApi* | [**postApplicationComment**](docs/Api/PublicAPIApi.md#postapplicationcomment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment
-*PublicAPIApi* | [**postCloseGoal**](docs/Api/PublicAPIApi.md#postclosegoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal
-*PublicAPIApi* | [**postGoal**](docs/Api/PublicAPIApi.md#postgoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal
-*PublicAPIApi* | [**postGoalComment**](docs/Api/PublicAPIApi.md#postgoalcomment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment
-*PublicAPIApi* | [**postReopenGoal**](docs/Api/PublicAPIApi.md#postreopengoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal
-*PublicAPIApi* | [**postWebhook**](docs/Api/PublicAPIApi.md#postwebhook) | **POST** /api/v1/webhooks | Add Webhook
-*PublicAPIApi* | [**putGoalComment**](docs/Api/PublicAPIApi.md#putgoalcomment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment
-*PublicAPIApi* | [**putGoalMilestoneProgress**](docs/Api/PublicAPIApi.md#putgoalmilestoneprogress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress
-*PublicAPIApi* | [**putGoalProgress**](docs/Api/PublicAPIApi.md#putgoalprogress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress
-*PublicAPIApi* | [**putGoalSharedWith**](docs/Api/PublicAPIApi.md#putgoalsharedwith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing
-*PublicAPIApi* | [**putGoalV1**](docs/Api/PublicAPIApi.md#putgoalv1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal
-*PublicAPIApi* | [**putGoalV11**](docs/Api/PublicAPIApi.md#putgoalv11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1
-*PublicAPIApi* | [**putWebhook**](docs/Api/PublicAPIApi.md#putwebhook) | **PUT** /api/v1/webhooks/{id} | Update Webhook
-*PublicAPIApi* | [**requestCustomReport**](docs/Api/PublicAPIApi.md#requestcustomreport) | **POST** /api/v1/reports/custom | Request a custom report
-*PublicAPIApi* | [**timeOffAddATimeOffHistoryItemForTimeOffRequest**](docs/Api/PublicAPIApi.md#timeoffaddatimeoffhistoryitemfortimeoffrequest) | **PUT** /api/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request
-*PublicAPIApi* | [**timeOffAddATimeOffRequest**](docs/Api/PublicAPIApi.md#timeoffaddatimeoffrequest) | **PUT** /api/v1/employees/{employeeId}/time_off/request | Add a Time Off Request
-*PublicAPIApi* | [**timeOffAdjustTimeOffBalance**](docs/Api/PublicAPIApi.md#timeoffadjusttimeoffbalance) | **PUT** /api/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance
-*PublicAPIApi* | [**timeOffAssignTimeOffPoliciesForAnEmployee**](docs/Api/PublicAPIApi.md#timeoffassigntimeoffpoliciesforanemployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee
-*PublicAPIApi* | [**timeOffAssignTimeOffPoliciesForAnEmployeeV11**](docs/Api/PublicAPIApi.md#timeoffassigntimeoffpoliciesforanemployeev11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1
-*PublicAPIApi* | [**timeOffChangeARequestStatus**](docs/Api/PublicAPIApi.md#timeoffchangearequeststatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Change a Request Status
-*PublicAPIApi* | [**timeOffEstimateFutureTimeOffBalances**](docs/Api/PublicAPIApi.md#timeoffestimatefuturetimeoffbalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances
-*PublicAPIApi* | [**timeOffGetTimeOffRequests**](docs/Api/PublicAPIApi.md#timeoffgettimeoffrequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests
-*PublicAPIApi* | [**timeOffListTimeOffPoliciesForEmployee**](docs/Api/PublicAPIApi.md#timeofflisttimeoffpoliciesforemployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee
-*PublicAPIApi* | [**timeOffListTimeOffPoliciesForEmployeeV11**](docs/Api/PublicAPIApi.md#timeofflisttimeoffpoliciesforemployeev11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1
-*PublicAPIApi* | [**updateCompanyFile**](docs/Api/PublicAPIApi.md#updatecompanyfile) | **POST** /api/v1/files/{fileId} | Update Company File
-*PublicAPIApi* | [**updateEmployee**](docs/Api/PublicAPIApi.md#updateemployee) | **POST** /api/v1/employees/{id} | Update Employee
-*PublicAPIApi* | [**updateEmployeeDependent**](docs/Api/PublicAPIApi.md#updateemployeedependent) | **PUT** /api/v1/employeedependents/{id} | Update an employee dependent
-*PublicAPIApi* | [**updateEmployeeFile**](docs/Api/PublicAPIApi.md#updateemployeefile) | **POST** /api/v1/employees/{id}/files/{fileId} | Update Employee File
-*PublicAPIApi* | [**updateEmployeeTableRow**](docs/Api/PublicAPIApi.md#updateemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
-*PublicAPIApi* | [**updateEmployeeTableRowV**](docs/Api/PublicAPIApi.md#updateemployeetablerowv) | **POST** /api/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row.
-*PublicAPIApi* | [**updateEmployeeTrainingRecord**](docs/Api/PublicAPIApi.md#updateemployeetrainingrecord) | **PUT** /api/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record
-*PublicAPIApi* | [**updateTrainingCategory**](docs/Api/PublicAPIApi.md#updatetrainingcategory) | **PUT** /api/v1/training/category/{trainingCategoryId} | Update Training Category
-*PublicAPIApi* | [**updateTrainingType**](docs/Api/PublicAPIApi.md#updatetrainingtype) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type
-*PublicAPIApi* | [**uploadCompanyFile**](docs/Api/PublicAPIApi.md#uploadcompanyfile) | **POST** /api/v1/files | Upload Company File
-*PublicAPIApi* | [**uploadEmployeeFile**](docs/Api/PublicAPIApi.md#uploademployeefile) | **POST** /api/v1/employees/{id}/files | Upload Employee File
-*PublicAPIApi* | [**uploadEmployeePhoto**](docs/Api/PublicAPIApi.md#uploademployeephoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo
 *ReportsApi* | [**getCompanyReport**](docs/Api/ReportsApi.md#getcompanyreport) | **GET** /api/v1/reports/{id} | Get company report
 *ReportsApi* | [**requestCustomReport**](docs/Api/ReportsApi.md#requestcustomreport) | **POST** /api/v1/reports/custom | Request a custom report
 *TabularDataApi* | [**addEmployeeTableRow**](docs/Api/TabularDataApi.md#addemployeetablerow) | **POST** /api/v1/employees/{id}/tables/{table} | Adds a table row
@@ -352,6 +224,9 @@ Class | Method | HTTP request | Description
 - [CompanyFileUpdate](docs/Model/CompanyFileUpdate.md)
 - [Country](docs/Model/Country.md)
 - [CountrySchema](docs/Model/CountrySchema.md)
+- [CursorPagedResponseMetadata](docs/Model/CursorPagedResponseMetadata.md)
+- [CursorPagesResponse](docs/Model/CursorPagesResponse.md)
+- [CursorPaginationQueryObject](docs/Model/CursorPaginationQueryObject.md)
 - [DataRequest](docs/Model/DataRequest.md)
 - [DataRequestAggregationsInner](docs/Model/DataRequestAggregationsInner.md)
 - [DataRequestFilters](docs/Model/DataRequestFilters.md)
@@ -387,7 +262,13 @@ Class | Method | HTTP request | Description
 - [GetCompanyInformation200Response](docs/Model/GetCompanyInformation200Response.md)
 - [GetCompanyInformation200ResponseAddress](docs/Model/GetCompanyInformation200ResponseAddress.md)
 - [GetCompanyLocations200ResponseInner](docs/Model/GetCompanyLocations200ResponseInner.md)
-- [GetEmployee200Response](docs/Model/GetEmployee200Response.md)
+- [GetEmployeesDirectory200Response](docs/Model/GetEmployeesDirectory200Response.md)
+- [GetEmployeesEmployeeResponse](docs/Model/GetEmployeesEmployeeResponse.md)
+- [GetEmployeesFilterRequestObject](docs/Model/GetEmployeesFilterRequestObject.md)
+- [GetEmployeesList400Response](docs/Model/GetEmployeesList400Response.md)
+- [GetEmployeesList400ResponseError](docs/Model/GetEmployeesList400ResponseError.md)
+- [GetEmployeesResponseObject](docs/Model/GetEmployeesResponseObject.md)
+- [GetEmployeesResponseObjectLinks](docs/Model/GetEmployeesResponseObjectLinks.md)
 - [GetGoalAggregate200Response](docs/Model/GetGoalAggregate200Response.md)
 - [GetGoalAggregate200ResponseAlignsWithOptionsInner](docs/Model/GetGoalAggregate200ResponseAlignsWithOptionsInner.md)
 - [GetGoalAggregate200ResponseCommentsInner](docs/Model/GetGoalAggregate200ResponseCommentsInner.md)
@@ -536,6 +417,7 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.0`
+    - Package version: `2.0.0`
     - Generator version: `7.15.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
 
@@ -545,5 +427,6 @@ openapi-generator generate \
     -i /path/to/openapi.yaml \
     -g php \
     -t ./templates-php \
-    --additional-properties=invokerPackage=BhrSdk,artifactUrl=https://www.bamboohr.com/,developerOrganizationUrl=https://github.com/BambooHR/bhr-api-php
+    --additional-properties=invokerPackage=BhrSdk,artifactUrl=https://www.bamboohr.com/,developerOrganizationUrl=https://github.com/BambooHR/bhr-api-php,artifactVersion=2.0.0 \
+    && sed -i '' '/\*PublicAPIApi\*/d' README.md
 ```
