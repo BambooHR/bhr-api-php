@@ -156,5 +156,6 @@ openapi-generator generate \
     -i /path/to/openapi.yaml \
     -g php \
     -t ./templates-php \
-    --additional-properties=invokerPackage=BhrSdk,artifactUrl=https://www.bamboohr.com/,developerOrganizationUrl=https://github.com/BambooHR/bhr-api-php
+    --additional-properties=invokerPackage=BhrSdk,artifactUrl=https://www.bamboohr.com/,developerOrganizationUrl=https://github.com/BambooHR/bhr-api-php,artifactVersion=2.0.0 \
+    && sed -i '' '/\*PublicAPIApi\*/d' README.md
 ```

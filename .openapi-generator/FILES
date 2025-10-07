@@ -17,7 +17,6 @@ docs/Api/HoursApi.md
 docs/Api/LastChangeInformationApi.md
 docs/Api/LoginApi.md
 docs/Api/PhotosApi.md
-docs/Api/PublicAPIApi.md
 docs/Api/ReportsApi.md
 docs/Api/TabularDataApi.md
 docs/Api/TimeOffApi.md
@@ -39,6 +38,9 @@ docs/Model/ClockOutRequestSchema.md
 docs/Model/CompanyFileUpdate.md
 docs/Model/Country.md
 docs/Model/CountrySchema.md
+docs/Model/CursorPagedResponseMetadata.md
+docs/Model/CursorPagesResponse.md
+docs/Model/CursorPaginationQueryObject.md
 docs/Model/DataRequest.md
 docs/Model/DataRequestAggregationsInner.md
 docs/Model/DataRequestFilters.md
@@ -74,7 +76,13 @@ docs/Model/GetApplications200ResponseApplicationsItemsInnerStatus.md
 docs/Model/GetCompanyInformation200Response.md
 docs/Model/GetCompanyInformation200ResponseAddress.md
 docs/Model/GetCompanyLocations200ResponseInner.md
-docs/Model/GetEmployee200Response.md
+docs/Model/GetEmployeesDirectory200Response.md
+docs/Model/GetEmployeesEmployeeResponse.md
+docs/Model/GetEmployeesFilterRequestObject.md
+docs/Model/GetEmployeesList400Response.md
+docs/Model/GetEmployeesList400ResponseError.md
+docs/Model/GetEmployeesResponseObject.md
+docs/Model/GetEmployeesResponseObjectLinks.md
 docs/Model/GetGoalAggregate200Response.md
 docs/Model/GetGoalAggregate200ResponseAlignsWithOptionsInner.md
 docs/Model/GetGoalAggregate200ResponseCommentsInner.md
@@ -198,7 +206,6 @@ lib/Api/HoursApi.php
 lib/Api/LastChangeInformationApi.php
 lib/Api/LoginApi.php
 lib/Api/PhotosApi.php
-lib/Api/PublicAPIApi.php
 lib/Api/ReportsApi.php
 lib/Api/TabularDataApi.php
 lib/Api/TimeOffApi.php
@@ -224,6 +231,9 @@ lib/Model/ClockOutRequestSchema.php
 lib/Model/CompanyFileUpdate.php
 lib/Model/Country.php
 lib/Model/CountrySchema.php
+lib/Model/CursorPagedResponseMetadata.php
+lib/Model/CursorPagesResponse.php
+lib/Model/CursorPaginationQueryObject.php
 lib/Model/DataRequest.php
 lib/Model/DataRequestAggregationsInner.php
 lib/Model/DataRequestFilters.php
@@ -259,7 +269,13 @@ lib/Model/GetApplications200ResponseApplicationsItemsInnerStatus.php
 lib/Model/GetCompanyInformation200Response.php
 lib/Model/GetCompanyInformation200ResponseAddress.php
 lib/Model/GetCompanyLocations200ResponseInner.php
-lib/Model/GetEmployee200Response.php
+lib/Model/GetEmployeesDirectory200Response.php
+lib/Model/GetEmployeesEmployeeResponse.php
+lib/Model/GetEmployeesFilterRequestObject.php
+lib/Model/GetEmployeesList400Response.php
+lib/Model/GetEmployeesList400ResponseError.php
+lib/Model/GetEmployeesResponseObject.php
+lib/Model/GetEmployeesResponseObjectLinks.php
 lib/Model/GetGoalAggregate200Response.php
 lib/Model/GetGoalAggregate200ResponseAlignsWithOptionsInner.php
 lib/Model/GetGoalAggregate200ResponseCommentsInner.php
