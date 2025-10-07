@@ -85,6 +85,9 @@ class EmployeesApi {
 		'getEmployeesDirectory' => [
 			'application/json',
         ],
+		'getEmployeesList' => [
+			'application/json',
+        ],
 		'updateEmployee' => [
 			'application/json',
         ],
@@ -574,7 +577,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetEmployee200Response
+	 * @return array<string,mixed>
 	 */
 	public function getEmployee($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		list($response) = $this->getEmployeeWithHttpInfo($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -594,7 +597,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeeWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -631,7 +634,7 @@ class EmployeesApi {
 		switch($statusCode) {
 			case 200:
 				return $this->handleResponseWithDataType(
-					'\BhrSdk\Model\GetEmployee200Response',
+					'array<string,mixed>',
 					$request,
 					$response,
 				);
@@ -653,7 +656,7 @@ class EmployeesApi {
 		}
 
 		return $this->handleResponseWithDataType(
-			'\BhrSdk\Model\GetEmployee200Response',
+			'array<string,mixed>',
 			$request,
 			$response,
 		);
@@ -697,7 +700,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeAsyncWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
-		$returnType = '\BhrSdk\Model\GetEmployee200Response';
+		$returnType = 'array<string,mixed>';
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
 
 		return $this->client
@@ -853,7 +856,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetEmployee200Response
+	 * @return \BhrSdk\Model\GetEmployeesDirectory200Response
 	 */
 	public function getEmployeesDirectory($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		list($response) = $this->getEmployeesDirectoryWithHttpInfo($accept_header_parameter, $contentType);
@@ -870,7 +873,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetEmployee200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetEmployeesDirectory200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeesDirectoryWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
@@ -907,7 +910,7 @@ class EmployeesApi {
 		switch($statusCode) {
 			case 200:
 				return $this->handleResponseWithDataType(
-					'\BhrSdk\Model\GetEmployee200Response',
+					'\BhrSdk\Model\GetEmployeesDirectory200Response',
 					$request,
 					$response,
 				);
@@ -929,7 +932,7 @@ class EmployeesApi {
 		}
 
 		return $this->handleResponseWithDataType(
-			'\BhrSdk\Model\GetEmployee200Response',
+			'\BhrSdk\Model\GetEmployeesDirectory200Response',
 			$request,
 			$response,
 		);
@@ -967,7 +970,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeesDirectoryAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
-		$returnType = '\BhrSdk\Model\GetEmployee200Response';
+		$returnType = '\BhrSdk\Model\GetEmployeesDirectory200Response';
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
 
 		return $this->client
@@ -1032,6 +1035,269 @@ class EmployeesApi {
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
+			$contentType,
+			$multipart
+		);
+
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			$httpBody
+		);
+	}
+
+	/**
+	 * Operation getEmployeesList
+	 *
+	 * Get employees
+	 *
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\GetEmployeesList400Response
+	 */
+	public function getEmployeesList($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		list($response) = $this->getEmployeesListWithHttpInfo($filter, $sort, $page, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getEmployeesListWithHttpInfo
+	 *
+	 * Get employees
+	 *
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\GetEmployeesList400Response, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getEmployeesListWithHttpInfo($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		$request = $this->getEmployeesListRequest($filter, $sort, $page, $contentType);
+		$options = $this->createHttpClientOption();
+		try {
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		} catch (ConnectException $e) {
+			$eInner = new ApiException(
+				"[{$e->getCode()}] {$e->getMessage()}",
+				(int) $e->getCode(),
+				null,
+				null
+			);
+			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+			$eInner->setResponseObject($data);
+
+			throw $eInner;
+		}
+
+		$statusCode = $response->getStatusCode();
+
+
+		switch($statusCode) {
+			case 200:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetEmployeesResponseObject',
+					$request,
+					$response,
+				);
+			case 400:
+				return $this->handleResponseWithDataType(
+					'\BhrSdk\Model\GetEmployeesList400Response',
+					$request,
+					$response,
+				);
+		}
+
+		
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return $this->handleResponseWithDataType(
+			'\BhrSdk\Model\GetEmployeesResponseObject',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getEmployeesListAsync
+	 *
+	 * Get employees
+	 *
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getEmployeesListAsync($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		return $this->getEmployeesListAsyncWithHttpInfo($filter, $sort, $page, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getEmployeesListAsyncWithHttpInfo
+	 *
+	 * Get employees
+	 *
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getEmployeesListAsyncWithHttpInfo($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		$returnType = '\BhrSdk\Model\GetEmployeesResponseObject';
+		$request = $this->getEmployeesListRequest($filter, $sort, $page, $contentType);
+
+		return $this->client
+			->sendAsync($request, $this->createHttpClientOption())
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getEmployeesList'
+	 *
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getEmployeesListRequest($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+
+
+
+
+
+		$resourcePath = '/api/v1/employees';
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'filter' => ['value' => $filter, 'type' => 'object', 'required' => false, 'style' => 'deepObject', 'explode' => true],
+			'sort' => ['value' => $sort, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page' => ['value' => $page, 'type' => 'object', 'required' => false, 'style' => 'deepObject', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+
+
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
