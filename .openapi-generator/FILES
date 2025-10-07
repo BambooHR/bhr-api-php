@@ -17,7 +17,6 @@ docs/Api/HoursApi.md
 docs/Api/LastChangeInformationApi.md
 docs/Api/LoginApi.md
 docs/Api/PhotosApi.md
-docs/Api/PublicAPIApi.md
 docs/Api/ReportsApi.md
 docs/Api/TabularDataApi.md
 docs/Api/TimeOffApi.md
@@ -207,7 +206,6 @@ lib/Api/HoursApi.php
 lib/Api/LastChangeInformationApi.php
 lib/Api/LoginApi.php
 lib/Api/PhotosApi.php
-lib/Api/PublicAPIApi.php
 lib/Api/ReportsApi.php
 lib/Api/TabularDataApi.php
 lib/Api/TimeOffApi.php
