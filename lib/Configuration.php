@@ -270,6 +270,16 @@ class Configuration {
 	 * @return $this
 	 */
 	public function setHost($host) {
+		// Enforce HTTPS by replacing http:// with https:// if present
+		if (is_string($host) && strpos($host, 'http://') === 0) {
+			$host = 'https://' . substr($host, 7);
+		}
+
+		// If no protocol is specified, prepend https://
+		if (is_string($host) && strpos($host, 'http') !== 0) {
+			$host = 'https://' . ltrim($host, '/');
+		}
+
 		$this->host = $host;
 		return $this;
 	}
