@@ -216,31 +216,9 @@ class ApplicantTrackingApi {
 	public function addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -587,31 +565,9 @@ class ApplicantTrackingApi {
 	public function addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -937,31 +893,9 @@ class ApplicantTrackingApi {
 	public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1218,31 +1152,9 @@ class ApplicantTrackingApi {
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1440,31 +1352,9 @@ class ApplicantTrackingApi {
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1667,31 +1557,9 @@ class ApplicantTrackingApi {
 	public function getJobSummariesWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1880,31 +1748,9 @@ class ApplicantTrackingApi {
 	public function getStatusesWithHttpInfo(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 		$request = $this->getStatusesRequest($contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2068,31 +1914,9 @@ class ApplicantTrackingApi {
 	public function postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2289,31 +2113,9 @@ class ApplicantTrackingApi {
 	public function postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2493,6 +2295,76 @@ class ApplicantTrackingApi {
 		}
 
 		return $options;
+	}
+	
+	/**
+	 * Send a request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @throws ApiException on non-2xx response
+	 * @return ResponseInterface
+	 */
+	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$attempt = 0;
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		
+		do {
+			$attempt++;
+			try {
+				$response = $this->client->send($request, $options);
+				// If we get here, the request was successful, so break out of the retry loop
+				return $response;
+			} catch (RequestException $e) {
+				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
+				
+				// Check if this is a timeout error and if we should retry
+				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			} catch (ConnectException $e) {
+				// Connection exceptions can also be timeout-related
+				if ($attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					null,
+					null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			}
+		} while ($attempt <= $retries);
+		
+		throw new ApiException(
+			'Request failed after maximum retries',
+			0,
+			null,
+			null
+		);
 	}
 
 	private function handleResponseWithDataType(

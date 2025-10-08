@@ -157,31 +157,9 @@ class PhotosApi {
 	public function getEmployeePhotoWithHttpInfo($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
 		$request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -375,31 +353,9 @@ class PhotosApi {
 	public function uploadEmployeePhotoWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
 		$request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -565,6 +521,76 @@ class PhotosApi {
 		}
 
 		return $options;
+	}
+	
+	/**
+	 * Send a request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @throws ApiException on non-2xx response
+	 * @return ResponseInterface
+	 */
+	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$attempt = 0;
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		
+		do {
+			$attempt++;
+			try {
+				$response = $this->client->send($request, $options);
+				// If we get here, the request was successful, so break out of the retry loop
+				return $response;
+			} catch (RequestException $e) {
+				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
+				
+				// Check if this is a timeout error and if we should retry
+				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			} catch (ConnectException $e) {
+				// Connection exceptions can also be timeout-related
+				if ($attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					null,
+					null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			}
+		} while ($attempt <= $retries);
+		
+		throw new ApiException(
+			'Request failed after maximum retries',
+			0,
+			null,
+			null
+		);
 	}
 
 	private function handleResponseWithDataType(
