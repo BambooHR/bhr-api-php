@@ -192,31 +192,9 @@ class TimeOffApi {
 	public function getAListOfWhoIsOutWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
 		$request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -410,31 +388,9 @@ class TimeOffApi {
 	public function getTimeOffPoliciesWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
 		$request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -606,31 +562,9 @@ class TimeOffApi {
 	public function getTimeOffTypesWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -821,31 +755,9 @@ class TimeOffApi {
 	public function timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
 		$request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1042,31 +954,9 @@ class TimeOffApi {
 	public function timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
 		$request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1263,31 +1153,9 @@ class TimeOffApi {
 	public function timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
 		$request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1484,31 +1352,9 @@ class TimeOffApi {
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
 		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1705,31 +1551,9 @@ class TimeOffApi {
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
 		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1926,31 +1750,9 @@ class TimeOffApi {
 	public function timeOffChangeARequestStatusWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
 		$request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2149,31 +1951,9 @@ class TimeOffApi {
 	public function timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
 		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2396,31 +2176,9 @@ class TimeOffApi {
 	public function timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
 		$request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2647,31 +2405,9 @@ class TimeOffApi {
 	public function timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
 		$request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2852,31 +2588,9 @@ class TimeOffApi {
 	public function timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
 		$request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -3042,6 +2756,76 @@ class TimeOffApi {
 		}
 
 		return $options;
+	}
+	
+	/**
+	 * Send a request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @throws ApiException on non-2xx response
+	 * @return ResponseInterface
+	 */
+	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$attempt = 0;
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		
+		do {
+			$attempt++;
+			try {
+				$response = $this->client->send($request, $options);
+				// If we get here, the request was successful, so break out of the retry loop
+				return $response;
+			} catch (RequestException $e) {
+				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
+				
+				// Check if this is a timeout error and if we should retry
+				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			} catch (ConnectException $e) {
+				// Connection exceptions can also be timeout-related
+				if ($attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					null,
+					null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			}
+		} while ($attempt <= $retries);
+		
+		throw new ApiException(
+			'Request failed after maximum retries',
+			0,
+			null,
+			null
+		);
 	}
 
 	private function handleResponseWithDataType(

@@ -123,6 +123,23 @@ class Configuration {
 	protected $tempFolderPath;
 
 	/**
+	 * Number of retries for certain errors (e.g. HTTP 408, 429, 504, 598)
+	 * Valid values are 0 - 5
+	 * 0 means no retry, other values indicate number of retries.
+	 *
+	 * @var int
+	 */
+	protected $retries = 1;
+
+	/**
+	 * List of HTTP status codes that are eligible for retry
+	 * Default: 408 (Request Timeout), 429 (Too Many Requests), 504 (Gateway Timeout), 598 (Network read timeout)
+	 *
+	 * @var int[]
+	 */
+	protected $retryableStatusCodes = [408, 429, 504, 598];
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
@@ -270,6 +287,16 @@ class Configuration {
 	 * @return $this
 	 */
 	public function setHost($host) {
+		// Enforce HTTPS by replacing http:// with https:// if present
+		if (is_string($host) && strpos($host, 'http://') === 0) {
+			$host = 'https://' . substr($host, 7);
+		}
+
+		// If no protocol is specified, prepend https://
+		if (is_string($host) && strpos($host, 'http') !== 0) {
+			$host = 'https://' . ltrim($host, '/');
+		}
+
 		$this->host = $host;
 		return $this;
 	}
@@ -370,6 +397,53 @@ class Configuration {
 	 */
 	public function getTempFolderPath() {
 		return $this->tempFolderPath;
+	}
+
+	/**
+	 * Sets the number of retries for certain errors (e.g. HTTP 408, 429, 504, 598)
+	 *
+	 * @param int $retries Number of retries (valid values: 0 - 5)
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return $this
+	 */
+	public function setRetries($retries) {
+		if (!is_int($retries) || $retries < 0 || $retries > 5) {
+			throw new \InvalidArgumentException('Retries must be an integer between 0 and 5.');
+		}
+
+		$this->retries = $retries;
+		return $this;
+	}
+
+	/**
+	 * Gets the number of retries for certain errors
+	 *
+	 * @return int Number of retries
+	 */
+	public function getRetries() {
+		return $this->retries;
+	}
+
+	/**
+	 * Sets the list of HTTP status codes that are eligible for retry
+	 *
+	 * @param int[] $statusCodes Array of HTTP status codes
+	 *
+	 * @return $this
+	 */
+	public function setRetryableStatusCodes(array $statusCodes) {
+		$this->retryableStatusCodes = $statusCodes;
+		return $this;
+	}
+
+	/**
+	 * Gets the list of HTTP status codes that are eligible for retry
+	 *
+	 * @return int[] Array of HTTP status codes
+	 */
+	public function getRetryableStatusCodes() {
+		return $this->retryableStatusCodes;
 	}
 
 	/**
