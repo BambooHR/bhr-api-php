@@ -284,7 +284,7 @@ class TimeTrackingApi {
 		$request = $this->addEditTimesheetClockEntriesRequest($clock_entries_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -535,7 +535,7 @@ class TimeTrackingApi {
 		$request = $this->addEditTimesheetHourEntriesRequest($hour_entries_request_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -784,7 +784,7 @@ class TimeTrackingApi {
 		$request = $this->addTimesheetClockInEntryRequest($employee_id, $clock_in_request_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1056,7 +1056,7 @@ class TimeTrackingApi {
 		$request = $this->addTimesheetClockOutEntryRequest($employee_id, $clock_out_request_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1288,7 +1288,7 @@ class TimeTrackingApi {
 		$request = $this->createTimeTrackingProjectRequest($project_create_request_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1539,7 +1539,7 @@ class TimeTrackingApi {
 		$request = $this->deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1803,7 +1803,7 @@ class TimeTrackingApi {
 		$request = $this->deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2050,7 +2050,7 @@ class TimeTrackingApi {
 		$request = $this->getTimesheetEntriesRequest($start, $end, $employee_ids, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2268,6 +2268,77 @@ class TimeTrackingApi {
 			null,
 			null
 		);
+	}
+
+	/**
+	 * Send an asynchronous request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		$attempt = 0;
+		
+		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
+			$attempt++;
+			
+			return $this->client->sendAsync($request, $options)
+				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
+					// Check if this is a RequestException with a response
+					if ($reason instanceof RequestException && $reason->hasResponse()) {
+						$statusCode = $reason->getResponse()->getStatusCode();
+
+						// Check if this is a timeout error and if we should retry
+						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+							// Calculate delay with exponential backoff (similar to the sync version)
+							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+							return $doRequest(); // Try again with delay
+						}
+					}
+					
+					// For ConnectException (timeout-related)
+					if ($reason instanceof ConnectException && $attempt <= $retries) {
+						// Calculate delay with exponential backoff (similar to the sync version)
+						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+						return $doRequest(); // Try again with delay
+					}
+					
+					// If we can't retry or have exceeded retries, create a proper ApiException
+					if ($reason instanceof RequestException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
+							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} elseif ($reason instanceof ConnectException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							null,
+							null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} else {
+						// For any other type of exception, just reject with the original reason
+						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
+					}
+				});
+		};
+		
+		return $doRequest();
 	}
 
 	private function handleResponseWithDataType(
