@@ -264,7 +264,7 @@ class TrainingApi {
 		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -497,7 +497,7 @@ class TrainingApi {
 		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -719,7 +719,7 @@ class TrainingApi {
 		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -912,7 +912,7 @@ class TrainingApi {
 		$request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1095,7 +1095,7 @@ class TrainingApi {
 		$request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1278,7 +1278,7 @@ class TrainingApi {
 		$request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1494,7 +1494,7 @@ class TrainingApi {
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1728,7 +1728,7 @@ class TrainingApi {
 		$request = $this->listTrainingCategoriesRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1928,7 +1928,7 @@ class TrainingApi {
 		$request = $this->listTrainingTypesRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2136,7 +2136,7 @@ class TrainingApi {
 		$request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2373,7 +2373,7 @@ class TrainingApi {
 		$request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2610,7 +2610,7 @@ class TrainingApi {
 		$request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2823,6 +2823,77 @@ class TrainingApi {
 			null,
 			null
 		);
+	}
+
+	/**
+	 * Send an asynchronous request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		$attempt = 0;
+		
+		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
+			$attempt++;
+			
+			return $this->client->sendAsync($request, $options)
+				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
+					// Check if this is a RequestException with a response
+					if ($reason instanceof RequestException && $reason->hasResponse()) {
+						$statusCode = $reason->getResponse()->getStatusCode();
+
+						// Check if this is a timeout error and if we should retry
+						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+							// Calculate delay with exponential backoff (similar to the sync version)
+							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+							return $doRequest(); // Try again with delay
+						}
+					}
+					
+					// For ConnectException (timeout-related)
+					if ($reason instanceof ConnectException && $attempt <= $retries) {
+						// Calculate delay with exponential backoff (similar to the sync version)
+						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+						return $doRequest(); // Try again with delay
+					}
+					
+					// If we can't retry or have exceeded retries, create a proper ApiException
+					if ($reason instanceof RequestException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
+							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} elseif ($reason instanceof ConnectException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							null,
+							null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} else {
+						// For any other type of exception, just reject with the original reason
+						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
+					}
+				});
+		};
+		
+		return $doRequest();
 	}
 
 	private function handleResponseWithDataType(
