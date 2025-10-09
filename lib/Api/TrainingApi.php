@@ -188,31 +188,9 @@ class TrainingApi {
 	public function addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
 		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -445,31 +423,9 @@ class TrainingApi {
 	public function addTrainingCategoryWithHttpInfo($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
 		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -689,31 +645,9 @@ class TrainingApi {
 	public function addTrainingTypeWithHttpInfo($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
 		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -932,31 +866,9 @@ class TrainingApi {
 	public function deleteEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTrainingRecord'][0]) {
 		$request = $this->deleteEmployeeTrainingRecordRequest($employee_training_record_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1137,31 +1049,9 @@ class TrainingApi {
 	public function deleteTrainingCategoryWithHttpInfo($training_category_id, string $contentType = self::CONTENT_TYPES['deleteTrainingCategory'][0]) {
 		$request = $this->deleteTrainingCategoryRequest($training_category_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1342,31 +1232,9 @@ class TrainingApi {
 	public function deleteTrainingTypeWithHttpInfo($training_type_id, string $contentType = self::CONTENT_TYPES['deleteTrainingType'][0]) {
 		$request = $this->deleteTrainingTypeRequest($training_type_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1550,31 +1418,9 @@ class TrainingApi {
 	public function listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1810,31 +1656,9 @@ class TrainingApi {
 	public function listTrainingCategoriesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		$request = $this->listTrainingCategoriesRequest($contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2032,31 +1856,9 @@ class TrainingApi {
 	public function listTrainingTypesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		$request = $this->listTrainingTypesRequest($contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2258,31 +2060,9 @@ class TrainingApi {
 	public function updateEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $update_employee_training_record_request, string $contentType = self::CONTENT_TYPES['updateEmployeeTrainingRecord'][0]) {
 		$request = $this->updateEmployeeTrainingRecordRequest($employee_training_record_id, $update_employee_training_record_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2517,31 +2297,9 @@ class TrainingApi {
 	public function updateTrainingCategoryWithHttpInfo($training_category_id, $update_training_category_request, string $contentType = self::CONTENT_TYPES['updateTrainingCategory'][0]) {
 		$request = $this->updateTrainingCategoryRequest($training_category_id, $update_training_category_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -2776,31 +2534,9 @@ class TrainingApi {
 	public function updateTrainingTypeWithHttpInfo($training_type_id, $update_training_type_request, string $contentType = self::CONTENT_TYPES['updateTrainingType'][0]) {
 		$request = $this->updateTrainingTypeRequest($training_type_id, $update_training_type_request, $contentType);
 		$options = $this->createHttpClientOption();
-		try {
-			$response = $this->client->send($request, $options);
-		} catch (RequestException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-				$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		} catch (ConnectException $e) {
-			$eInner = new ApiException(
-				"[{$e->getCode()}] {$e->getMessage()}",
-				(int) $e->getCode(),
-				null,
-				null
-			);
-			$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-			$eInner->setResponseObject($data);
-
-			throw $eInner;
-		}
+		
+		// Send request with retry support for timeout errors
+		$response = $this->sendRequestWithRetries($request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -3017,6 +2753,76 @@ class TrainingApi {
 		}
 
 		return $options;
+	}
+	
+	/**
+	 * Send a request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @throws ApiException on non-2xx response
+	 * @return ResponseInterface
+	 */
+	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$attempt = 0;
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		
+		do {
+			$attempt++;
+			try {
+				$response = $this->client->send($request, $options);
+				// If we get here, the request was successful, so break out of the retry loop
+				return $response;
+			} catch (RequestException $e) {
+				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
+				
+				// Check if this is a timeout error and if we should retry
+				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			} catch (ConnectException $e) {
+				// Connection exceptions can also be timeout-related
+				if ($attempt <= $retries) {
+					// Wait before retrying (simple exponential backoff)
+					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
+					continue;
+				}
+				
+				$eInner = new ApiException(
+					"[{$e->getCode()}] {$e->getMessage()}",
+					(int) $e->getCode(),
+					null,
+					null
+				);
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+				$eInner->setResponseObject($data);
+
+				throw $eInner;
+			}
+		} while ($attempt <= $retries);
+		
+		throw new ApiException(
+			'Request failed after maximum retries',
+			0,
+			null,
+			null
+		);
 	}
 
 	private function handleResponseWithDataType(
