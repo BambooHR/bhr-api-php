@@ -216,7 +216,7 @@ class BenefitsApi {
 		$request = $this->addEmployeeDependentRequest($employee_dependent, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -400,7 +400,7 @@ class BenefitsApi {
 		$request = $this->getBenefitCoveragesRequest($accept_header_parameter, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -568,7 +568,7 @@ class BenefitsApi {
 		$request = $this->getBenefitDeductionTypesRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -738,7 +738,7 @@ class BenefitsApi {
 		$request = $this->getEmployeeDependentRequest($id, $accept_header_parameter, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -931,7 +931,7 @@ class BenefitsApi {
 		$request = $this->getEmployeeDependentsRequest($employeeid, $accept_header_parameter, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1152,7 +1152,7 @@ class BenefitsApi {
 		$request = $this->getMemberBenefitRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1331,7 +1331,7 @@ class BenefitsApi {
 		$request = $this->updateEmployeeDependentRequest($id, $employee_dependent, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1535,6 +1535,77 @@ class BenefitsApi {
 			null,
 			null
 		);
+	}
+
+	/**
+	 * Send an asynchronous request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		$attempt = 0;
+		
+		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
+			$attempt++;
+			
+			return $this->client->sendAsync($request, $options)
+				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
+					// Check if this is a RequestException with a response
+					if ($reason instanceof RequestException && $reason->hasResponse()) {
+						$statusCode = $reason->getResponse()->getStatusCode();
+
+						// Check if this is a timeout error and if we should retry
+						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+							// Calculate delay with exponential backoff (similar to the sync version)
+							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+							return $doRequest(); // Try again with delay
+						}
+					}
+					
+					// For ConnectException (timeout-related)
+					if ($reason instanceof ConnectException && $attempt <= $retries) {
+						// Calculate delay with exponential backoff (similar to the sync version)
+						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+						return $doRequest(); // Try again with delay
+					}
+					
+					// If we can't retry or have exceeded retries, create a proper ApiException
+					if ($reason instanceof RequestException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
+							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} elseif ($reason instanceof ConnectException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							null,
+							null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} else {
+						// For any other type of exception, just reject with the original reason
+						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
+					}
+				});
+		};
+		
+		return $doRequest();
 	}
 
 	private function handleResponseWithDataType(

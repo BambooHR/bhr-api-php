@@ -302,7 +302,7 @@ class ApplicantTrackingApi {
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -651,7 +651,7 @@ class ApplicantTrackingApi {
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -983,7 +983,7 @@ class ApplicantTrackingApi {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1224,7 +1224,7 @@ class ApplicantTrackingApi {
 		$request = $this->getCompanyLocationsRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1424,7 +1424,7 @@ class ApplicantTrackingApi {
 		$request = $this->getHiringLeadsRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1607,7 +1607,7 @@ class ApplicantTrackingApi {
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1792,7 +1792,7 @@ class ApplicantTrackingApi {
 		$request = $this->getStatusesRequest($contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1962,7 +1962,7 @@ class ApplicantTrackingApi {
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -2161,7 +2161,7 @@ class ApplicantTrackingApi {
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 
 		return $this->client
-			->sendAsync($request, $this->createHttpClientOption())
+			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -2365,6 +2365,77 @@ class ApplicantTrackingApi {
 			null,
 			null
 		);
+	}
+
+	/**
+	 * Send an asynchronous request with support for timeout retries
+	 *
+	 * @param RequestInterface $request The request to send
+	 * @param array $options Request options to apply to the given request
+	 *
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
+		// Get the configured number of retries for timeout errors
+		$retries = $this->config->getRetries();
+		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
+		$attempt = 0;
+		
+		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
+			$attempt++;
+			
+			return $this->client->sendAsync($request, $options)
+				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
+					// Check if this is a RequestException with a response
+					if ($reason instanceof RequestException && $reason->hasResponse()) {
+						$statusCode = $reason->getResponse()->getStatusCode();
+
+						// Check if this is a timeout error and if we should retry
+						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
+							// Calculate delay with exponential backoff (similar to the sync version)
+							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+							return $doRequest(); // Try again with delay
+						}
+					}
+					
+					// For ConnectException (timeout-related)
+					if ($reason instanceof ConnectException && $attempt <= $retries) {
+						// Calculate delay with exponential backoff (similar to the sync version)
+						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
+
+						return $doRequest(); // Try again with delay
+					}
+					
+					// If we can't retry or have exceeded retries, create a proper ApiException
+					if ($reason instanceof RequestException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
+							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} elseif ($reason instanceof ConnectException) {
+						$eInner = new ApiException(
+							"[{$reason->getCode()}] {$reason->getMessage()}",
+							(int) $reason->getCode(),
+							null,
+							null
+						);
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
+						$eInner->setResponseObject($data);
+						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+					} else {
+						// For any other type of exception, just reject with the original reason
+						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
+					}
+				});
+		};
+		
+		return $doRequest();
 	}
 
 	private function handleResponseWithDataType(
