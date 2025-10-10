@@ -41,6 +41,7 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
+use BhrSdk\ApiErrorHelper;
 
 /**
  * GoalsApi Class Doc Comment
@@ -270,8 +271,7 @@ class GoalsApi {
 		
 		$request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -472,8 +472,7 @@ class GoalsApi {
 		
 		$request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -677,8 +676,7 @@ class GoalsApi {
 		
 		$request = $this->getCanCreateGoalRequest($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -893,8 +891,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalAggregate200Response';
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1100,8 +1097,7 @@ class GoalsApi {
 		
 		$request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1327,8 +1323,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoals200Response';
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1569,8 +1564,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalsAggregateV1200Response';
 		$request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1795,8 +1789,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalsAggregateV11200Response';
 		$request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2017,8 +2010,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalsAggregateV12200Response';
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2213,8 +2205,7 @@ class GoalsApi {
 		
 		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -2440,8 +2431,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GoalFiltersV1';
 		$request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2666,8 +2656,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2888,8 +2877,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -3088,8 +3076,7 @@ class GoalsApi {
 		
 		$request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -3328,8 +3315,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -3575,8 +3561,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -3787,8 +3772,7 @@ class GoalsApi {
 		
 		$request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -4026,8 +4010,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -4241,8 +4224,7 @@ class GoalsApi {
 		
 		$request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -4499,8 +4481,7 @@ class GoalsApi {
 		$returnType = 'object';
 		$request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -4762,8 +4743,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5014,8 +4994,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5270,8 +5249,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5523,8 +5501,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5710,9 +5687,11 @@ class GoalsApi {
 					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
 					continue;
 				}
+
+				$message = ApiErrorHelper::formatErrorMessage((int)$e->getCode(), $e->getMessage(), $statusCode);
 				
 				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
+					$message,
 					(int) $e->getCode(),
 					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
 					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
@@ -5792,8 +5771,9 @@ class GoalsApi {
 					
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
+						$message = ApiErrorHelper::formatErrorMessage((int)$reason->getCode(), $reason->getMessage(), $statusCode);
 						$eInner = new ApiException(
-							"[{$reason->getCode()}] {$reason->getMessage()}",
+							$message,
 							(int) $reason->getCode(),
 							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
 							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null

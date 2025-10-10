@@ -41,6 +41,7 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
+use BhrSdk\ApiErrorHelper;
 
 /**
  * LoginApi Class Doc Comment
@@ -213,8 +214,7 @@ class LoginApi {
 		
 		$request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -398,9 +398,11 @@ class LoginApi {
 					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
 					continue;
 				}
+
+				$message = ApiErrorHelper::formatErrorMessage((int)$e->getCode(), $e->getMessage(), $statusCode);
 				
 				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
+					$message,
 					(int) $e->getCode(),
 					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
 					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
@@ -480,8 +482,9 @@ class LoginApi {
 					
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
+						$message = ApiErrorHelper::formatErrorMessage((int)$reason->getCode(), $reason->getMessage(), $statusCode);
 						$eInner = new ApiException(
-							"[{$reason->getCode()}] {$reason->getMessage()}",
+							$message,
 							(int) $reason->getCode(),
 							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
 							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
