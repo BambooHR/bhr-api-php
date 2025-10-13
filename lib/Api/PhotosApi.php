@@ -557,8 +557,8 @@ class PhotosApi {
 					(int)$e->getCode(), 
 					$e->getMessage(), 
 					$statusCode, 
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null, 
-					$e->getResponse() ? $e->getResponse()->getBody() : null			
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? $e->getResponse()->getBody() : null
 				);
 				
 				throw $exception;
@@ -637,7 +637,7 @@ class PhotosApi {
 							(int)$reason->getCode(), 
 							$reason->getMessage(), 
 							$statusCode, 
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null, 
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
 							$reason->getResponse() ? $reason->getResponse()->getBody() : null
 						);
 						
