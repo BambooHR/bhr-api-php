@@ -1258,7 +1258,7 @@ class CompanyFilesApi {
 					$e->getMessage(), 
 					$statusCode, 
 					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? $e->getResponse()->getBody() : null
+					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
 				);
 				
 				throw $exception;
@@ -1338,7 +1338,7 @@ class CompanyFilesApi {
 							$reason->getMessage(), 
 							$statusCode, 
 							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? $reason->getResponse()->getBody() : null
+							$reason->getResponse() ? (string)$reason->getResponse()->getBody() : null
 						);
 						
 						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
