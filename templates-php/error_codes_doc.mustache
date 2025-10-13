@@ -20,25 +20,6 @@ The SDK provides exception classes for each HTTP status code. For detailed docum
 - [{{name}}Exception](Classes/{{name}}Exception.md) - {{code}} {{title}}
 {{/serverExceptions}}
 
-## Status Codes
-
-{{#errorCodes}}
-### {{code}} - {{title}}
-
-**Type**: `{{type}}Exception`
-
-#### Potential Causes:
-{{#causes}}
-- {{.}}
-{{/causes}}
-
-#### Debugging Tips:
-{{#tips}}
-- {{.}}
-{{/tips}}
-
-{{/errorCodes}}
-
 ## Error Handling in the SDK
 
 When an error occurs, the SDK will throw an `ApiException` with details about the error. The exception will include:
