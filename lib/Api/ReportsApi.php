@@ -699,7 +699,7 @@ class ReportsApi {
 							$reason->getMessage(), 
 							$statusCode, 
 							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null, 
-							$reason->getResponse() ? $reason->getResponse()->getBody() : null			
+							$reason->getResponse() ? $reason->getResponse()->getBody() : null
 						);
 						
 						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
