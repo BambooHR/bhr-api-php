@@ -8,7 +8,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | [**getCompanyInformation()**](EmployeesApi.md#getCompanyInformation) | **GET** /api/v1/company_information | Get Company Information |
 | [**getEmployee()**](EmployeesApi.md#getEmployee) | **GET** /api/v1/employees/{id} | Get Employee |
 | [**getEmployeesDirectory()**](EmployeesApi.md#getEmployeesDirectory) | **GET** /api/v1/employees/directory | Get Employee Directory |
-| [**getEmployeesList()**](EmployeesApi.md#getEmployeesList) | **GET** /api/v1/employees | Get employees |
+| [**getEmployeesList()**](EmployeesApi.md#getEmployeesList) | **GET** /api/v1/employees | Get Employees |
 | [**updateEmployee()**](EmployeesApi.md#updateEmployee) | **POST** /api/v1/employees/{id} | Update Employee |
 
 
@@ -268,9 +268,9 @@ try {
 getEmployeesList($filter, $sort, $page): \BhrSdk\Model\GetEmployeesResponseObject
 ```
 
-Get employees
+Get Employees
 
-Get paged employees with optional filtering, sorting. This returns a fixed set of simple employee fields that can easily be filtered and sorted. For retrieve more complex employee data please use the singular get employee endpoint or use the datasets api for more complex bulk queries.
+Retrieve a paginated list of employees with optional filtering and sorting. Returns a fixed set of simple employee fields that support efficient filter and sort operations. For more complex employee data, use the single-employee endpoint or the Datasets API for bulk queries.
 
 ### Example
 
@@ -287,9 +287,9 @@ $apiInstance = new BhrSdk\Api\EmployeesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$filter = new \BhrSdk\Model\\BhrSdk\Model\GetEmployeesFilterRequestObject(); // \BhrSdk\Model\GetEmployeesFilterRequestObject | Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data.
-$sort = 'sort_example'; // string | Comma-separated list of sortable fields. Prefix with '-' for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information.
-$page = new \BhrSdk\Model\\BhrSdk\Model\CursorPaginationQueryObject(); // \BhrSdk\Model\CursorPaginationQueryObject | Pagination parameters
+$filter = new \BhrSdk\Model\\BhrSdk\Model\GetEmployeesFilterRequestObject(); // \BhrSdk\Model\GetEmployeesFilterRequestObject | Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data.
+$sort = 'sort_example'; // string | Comma-separated list of sortable fields. Prefix a field with \"-\" for descending order. Allowed fields: `employeeId`, `firstName`, `lastName`, `preferredName`, `jobTitleName`, `status`. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information.
+$page = new \BhrSdk\Model\\BhrSdk\Model\CursorPaginationQueryObject(); // \BhrSdk\Model\CursorPaginationQueryObject | Cursor-based pagination parameters (`limit`, `after`, `before`).
 
 try {
     $result = $apiInstance->getEmployeesList($filter, $sort, $page);
@@ -303,9 +303,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **filter** | [**\BhrSdk\Model\GetEmployeesFilterRequestObject**](../Model/.md)| Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. | [optional] |
-| **sort** | **string**| Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. | [optional] |
-| **page** | [**\BhrSdk\Model\CursorPaginationQueryObject**](../Model/.md)| Pagination parameters | [optional] |
+| **filter** | [**\BhrSdk\Model\GetEmployeesFilterRequestObject**](../Model/.md)| Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. | [optional] |
+| **sort** | **string**| Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. | [optional] |
+| **page** | [**\BhrSdk\Model\CursorPaginationQueryObject**](../Model/.md)| Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). | [optional] |
 
 ### Return type
 
