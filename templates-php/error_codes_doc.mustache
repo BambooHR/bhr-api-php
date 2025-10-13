@@ -51,3 +51,4 @@ try {
 - **Retry recommended**: 408, 429, 504, 598
 
 The SDK will automatically retry requests with these status codes based on the `retries` configuration option.
+Additional status codes may be added to the list of retryable status codes using the `setRetryableStatusCodes` method on the `Configuration` class.
