@@ -33,16 +33,37 @@ When an error occurs, the SDK will throw an `ApiException` with details about th
 ```php
 try {
     $result = $apiInstance->someOperation();
-} catch (ApiException $e) {
-    echo $e->getMessage();
+} catch (\BhrSdk\Exceptions\ClientException $clientException) {
+    // Handle client errors (4xx status codes)
+    echo "Client error: " . $clientException->getMessage();
     
     // Get status code
-    $statusCode = $e->getCode();
+    $statusCode = $clientException->getCode();
     
-    // Handle specific status codes
-    if ($statusCode === 500) {
-        // Log server error
-    }
+    // Do something
+} catch (\BhrSdk\Exceptions\ServerException $serverException) {
+    // Handle server errors (5xx status codes)
+    echo "Server error: " . $serverException->getMessage();
+    
+    // Get status code
+    $statusCode = $serverException->getCode();
+    
+    // Do something
+} catch (\BhrSdk\ApiException $apiException) {
+    // Handle any other API exceptions not caught by the more specific catches
+    echo "API error: " . $apiException->getMessage();
+    echo "Status code: " . $apiException->getCode();
+    
+    // Access response headers and body for additional debugging
+    $responseHeaders = $apiException->getResponseHeaders();
+    $responseBody = $apiException->getResponseBody();
+    
+    // Log the complete error information
+    error_log("Unexpected API error: " . json_encode([
+        'message' => $apiException->getMessage(),
+        'code' => $apiException->getCode(),
+        'responseBody' => $responseBody
+    ]));
 }
 ```
 
