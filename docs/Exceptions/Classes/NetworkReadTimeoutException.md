@@ -40,9 +40,7 @@ try {
 
 ```php
 public function __construct(
-    string $message,
-    ?\Throwable $previous = null,
-    array $errorData = []
+    string $message
 )
 ```
 
@@ -51,8 +49,6 @@ public function __construct(
 | Name | Type | Description |
 |------|------|-------------|
 | `$message` | string | The error message |
-| `$previous` | ?\Throwable | Previous exception |
-| `$errorData` | array | Additional error data |
 
 ## Methods
 
@@ -70,12 +66,4 @@ Returns an array of debugging tips for this exception.
 
 ```php
 public function getDebuggingTips(): array
-```
-
-### getErrorData()
-
-Returns additional error data provided when the exception was thrown.
-
-```php
-public function getErrorData(): array
 ```

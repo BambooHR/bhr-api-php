@@ -55,9 +55,8 @@ try {
 } catch (ApiException $e) {
     echo $e->getMessage();
     
-    // Access specific error details
+    // Get status code
     $statusCode = $e->getCode();
-    $errorData = $e->getResponseBody();
     
     // Handle specific status codes
     if ($statusCode === 500) {

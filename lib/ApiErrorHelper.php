@@ -300,7 +300,7 @@ class ApiErrorHelper {
 	/**
 	 * Creates an appropriate exception based on the status code
 	 *
-	 * @param int    $code        The error code
+	 * @param int    $code The error code
 	 * @param string $message The error message
 	 * @param int    $statusCode  The HTTP status code
 	 * @param array  $responseHeaders The HTTP response headers

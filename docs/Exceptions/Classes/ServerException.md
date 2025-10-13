@@ -16,8 +16,7 @@ try {
     // Handle any server error exception
     echo $e->getMessage();
     
-    // Access additional information
-    $errorData = $e->getErrorData();
+    // Get status code
     $statusCode = $e->getCode(); // Will be a 5xx code
 }
 ```
@@ -26,10 +25,7 @@ try {
 
 ```php
 public function __construct(
-    string $message = "",
-    int $code = 500,
-    ?\Throwable $previous = null,
-    array $errorData = []
+    string $message = ""
 )
 ```
 
@@ -38,19 +34,6 @@ public function __construct(
 | Name | Type | Description |
 |------|------|-------------|
 | `$message` | string | The error message |
-| `$code` | int | The error code (HTTP status code) |
-| `$previous` | ?\Throwable | Previous exception |
-| `$errorData` | array | Additional error data |
-
-## Methods
-
-### getErrorData()
-
-Returns additional error data provided when the exception was thrown.
-
-```php
-public function getErrorData(): array
-```
 
 ## Server Exception Types
 
