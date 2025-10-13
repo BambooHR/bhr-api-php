@@ -41,6 +41,7 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
+use BhrSdk\ApiErrorHelper;
 
 /**
  * ApplicantTrackingApi Class Doc Comment
@@ -301,8 +302,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -650,8 +650,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -982,8 +981,7 @@ class ApplicantTrackingApi {
 		$returnType = '\BhrSdk\Model\GetApplications200Response';
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1223,8 +1221,7 @@ class ApplicantTrackingApi {
 		$returnType = '\BhrSdk\Model\GetCompanyLocations200ResponseInner[]';
 		$request = $this->getCompanyLocationsRequest($contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1423,8 +1420,7 @@ class ApplicantTrackingApi {
 		$returnType = '\BhrSdk\Model\GetHiringLeads200ResponseInner[]';
 		$request = $this->getHiringLeadsRequest($contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1606,8 +1602,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1791,8 +1786,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->getStatusesRequest($contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1961,8 +1955,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -2160,8 +2153,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 
-		return $this->client
-			->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
 			->then(
 				function ($response) {
 					return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -2327,9 +2319,11 @@ class ApplicantTrackingApi {
 					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
 					continue;
 				}
+
+				$message = ApiErrorHelper::formatErrorMessage((int)$e->getCode(), $e->getMessage(), $statusCode);
 				
 				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
+					$message,
 					(int) $e->getCode(),
 					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
 					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
@@ -2409,8 +2403,9 @@ class ApplicantTrackingApi {
 					
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
+						$message = ApiErrorHelper::formatErrorMessage((int)$reason->getCode(), $reason->getMessage(), $statusCode);
 						$eInner = new ApiException(
-							"[{$reason->getCode()}] {$reason->getMessage()}",
+							$message,
 							(int) $reason->getCode(),
 							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
 							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
