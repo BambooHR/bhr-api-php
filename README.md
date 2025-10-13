@@ -378,6 +378,10 @@ Class | Method | HTTP request | Description
 - [WebhookSubErrorProperty](docs/Model/WebhookSubErrorProperty.md)
 - [WebhookSubErrorPropertyUnknownFieldsInner](docs/Model/WebhookSubErrorPropertyUnknownFieldsInner.md)
 
+## Exceptions
+
+- [HTTP Status Codes](docs/Exceptions/HttpStatusCodes.md) - Information about HTTP status codes, potential causes, and debugging tips
+
 ## Authorization
 
 Authentication schemes defined for the API:
@@ -428,5 +432,17 @@ openapi-generator generate \
     -g php \
     -t ./templates-php \
     --additional-properties=invokerPackage=BhrSdk,artifactUrl=https://www.bamboohr.com/,developerOrganizationUrl=https://github.com/BambooHR/bhr-api-php,artifactVersion=2.0.0 \
-    && sed -i '' '/\*PublicAPIApi\*/d' README.md
+    && sed -i '' '/\*PublicAPIApi\*/d' README.md \
+    && sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES
+    && ./scripts/update_error_docs.sh
 ```
+
+### Generating Error Documentation
+
+The error documentation is automatically generated from the error messages defined in `ApiErrorHelper.php`. To update the documentation when error messages are added or modified, run:
+
+```bash
+./scripts/update_error_docs.sh
+```
+
+This will regenerate the `docs/Exceptions/HttpStatusCodes.md` file with the latest error information.

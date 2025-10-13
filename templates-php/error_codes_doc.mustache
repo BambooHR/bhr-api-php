@@ -1,0 +1,53 @@
+# HTTP Status Codes and Error Handling
+
+This document provides information about HTTP status codes that may be returned by the BambooHR API, along with potential causes and debugging tips for each code.
+
+## Status Codes
+
+{{#errorCodes}}
+### {{code}} - {{title}}
+
+#### Potential Causes:
+{{#causes}}
+- {{.}}
+{{/causes}}
+
+#### Debugging Tips:
+{{#tips}}
+- {{.}}
+{{/tips}}
+
+{{/errorCodes}}
+
+## Error Handling in the SDK
+
+When an error occurs, the SDK will throw an `ApiException` with details about the error. The exception will include:
+
+- The HTTP status code
+- The error code
+- A detailed message with potential causes and debugging tips
+
+### Example Error Handling
+
+```php
+try {
+    $result = $apiInstance->someOperation();
+} catch (ApiException $e) {
+    echo $e->getMessage();
+    
+    // Access specific error details
+    $statusCode = $e->getCode();
+    $errorData = $e->getResponseBody();
+    
+    // Handle specific status codes
+    if ($statusCode === 500) {
+        // Log server error
+    }
+}
+```
+
+## Automatic Retry Recommendations
+
+- **Retry recommended**: 408, 429, 504, 598
+
+The SDK will automatically retry requests with these status codes based on the `retries` configuration option.
