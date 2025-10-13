@@ -57,7 +57,7 @@ class FieldOptionsRequestSchemaDependentFieldsValueInner implements ModelInterfa
 	  */
 	protected static $openApiTypes = [
 		'field' => 'string',
-		'value' => 'Mixed'
+		'value' => 'string'
 	];
 
 	/**
@@ -292,7 +292,7 @@ class FieldOptionsRequestSchemaDependentFieldsValueInner implements ModelInterfa
 	/**
 	 * Sets field
 	 *
-	 * @param string|null $field Dependent fields
+	 * @param string|null $field field
 	 *
 	 * @return self
 	 */
@@ -308,7 +308,7 @@ class FieldOptionsRequestSchemaDependentFieldsValueInner implements ModelInterfa
 	/**
 	 * Gets value
 	 *
-	 * @return Mixed|null
+	 * @return string|null
 	 */
 	public function getValue() {
 		return $this->container['value'];
@@ -317,7 +317,7 @@ class FieldOptionsRequestSchemaDependentFieldsValueInner implements ModelInterfa
 	/**
 	 * Sets value
 	 *
-	 * @param Mixed|null $value value
+	 * @param string|null $value value
 	 *
 	 * @return self
 	 */

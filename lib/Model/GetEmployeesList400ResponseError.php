@@ -35,7 +35,7 @@ use \BhrSdk\ObjectSerializer;
  * GetEmployeesList400ResponseError Class Doc Comment
  *
  * @category Class
- * @description Error details
+ * @description Error details.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -299,7 +299,7 @@ class GetEmployeesList400ResponseError implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets code
 	 *
-	 * @param string $code Error code indicating the type of validation failure. For BadPage errors, this can be caused by: 1) Invalid page parameter format, 2) Using wrong paging parameter type for before/after cursors, or 3) Employee on page boundary changing between pagination calls (e.g., employee deleted or no longer matches filter criteria).
+	 * @param string $code Error code indicating the type of validation failure. For BadPage errors, common causes include: 1) Invalid page parameter format, 2) Using the wrong paging parameter for before/after cursors, or 3) An employee on the page boundary changed between calls (for example, the employee was deleted or no longer matches the filter criteria).
 	 *
 	 * @return self
 	 */
@@ -324,7 +324,7 @@ class GetEmployeesList400ResponseError implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets message
 	 *
-	 * @param string $message Error message describing the validation failure.
+	 * @param string $message Human-readable message describing the validation failure.
 	 *
 	 * @return self
 	 */

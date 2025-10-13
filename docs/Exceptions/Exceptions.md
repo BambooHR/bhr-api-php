@@ -2,9 +2,41 @@
 
 This document provides information about HTTP status codes that may be returned by the BambooHR API, along with potential causes and debugging tips for each code.
 
+## Exception Classes
+
+The SDK provides exception classes for each HTTP status code. For detailed documentation on each exception class, see the links below:
+
+### Base Exceptions
+- [ClientException](Classes/ClientException.md) - Base class for 4xx errors
+- [ServerException](Classes/ServerException.md) - Base class for 5xx errors
+
+### Client Exceptions (4xx)
+- [BadRequestException](Classes/BadRequestException.md) - 400 Bad request
+- [AuthenticationFailedException](Classes/AuthenticationFailedException.md) - 401 Authentication failed
+- [PermissionDeniedException](Classes/PermissionDeniedException.md) - 403 Permission denied
+- [ResourceNotFoundException](Classes/ResourceNotFoundException.md) - 404 Resource not found
+- [MethodNotAllowedException](Classes/MethodNotAllowedException.md) - 405 Method not allowed
+- [RequestTimeoutException](Classes/RequestTimeoutException.md) - 408 Request timeout
+- [ConflictException](Classes/ConflictException.md) - 409 Conflict
+- [PayloadTooLargeException](Classes/PayloadTooLargeException.md) - 413 Payload too large
+- [UnsupportedMediaTypeException](Classes/UnsupportedMediaTypeException.md) - 415 Unsupported media type
+- [UnprocessableEntityException](Classes/UnprocessableEntityException.md) - 422 Unprocessable entity
+- [RateLimitExceededException](Classes/RateLimitExceededException.md) - 429 Rate limit exceeded
+
+### Server Exceptions (5xx)
+- [InternalServerErrorException](Classes/InternalServerErrorException.md) - 500 Internal server error
+- [NotImplementedException](Classes/NotImplementedException.md) - 501 Not implemented
+- [BadGatewayException](Classes/BadGatewayException.md) - 502 Bad gateway
+- [ServiceUnavailableException](Classes/ServiceUnavailableException.md) - 503 Service unavailable
+- [GatewayTimeoutException](Classes/GatewayTimeoutException.md) - 504 Gateway timeout
+- [InsufficientStorageException](Classes/InsufficientStorageException.md) - 507 Insufficient storage
+- [NetworkReadTimeoutException](Classes/NetworkReadTimeoutException.md) - 598 Network read timeout
+
 ## Status Codes
 
-### 400 - Bad request. This could be due to:
+### 400 - Bad request
+
+**Type**: `BadRequestException`
 
 #### Potential Causes:
 - Invalid request syntax or parameters
@@ -17,7 +49,9 @@ This document provides information about HTTP status codes that may be returned 
 - Ensure all required fields are included
 - Review API documentation for correct endpoint usage
 
-### 401 - Authentication failed. This could be due to:
+### 401 - Authentication failed
+
+**Type**: `AuthenticationFailedException`
 
 #### Potential Causes:
 - Invalid API key or password
@@ -30,7 +64,9 @@ This document provides information about HTTP status codes that may be returned 
 - Ensure your company subdomain is correct
 - Try regenerating your API key in the BambooHR system
 
-### 403 - Permission denied. This could be due to:
+### 403 - Permission denied
+
+**Type**: `PermissionDeniedException`
 
 #### Potential Causes:
 - API key lacks required permissions
@@ -42,7 +78,9 @@ This document provides information about HTTP status codes that may be returned 
 - Contact your BambooHR administrator to review API access permissions
 - Check if IP restrictions are in place for API access
 
-### 404 - Resource not found. This could be due to:
+### 404 - Resource not found
+
+**Type**: `ResourceNotFoundException`
 
 #### Potential Causes:
 - The requested resource does not exist
@@ -55,7 +93,9 @@ This document provides information about HTTP status codes that may be returned 
 - Ensure you are using the correct API version
 - Confirm the resource has not been deleted or archived
 
-### 405 - Method not allowed. This could be due to:
+### 405 - Method not allowed
+
+**Type**: `MethodNotAllowedException`
 
 #### Potential Causes:
 - Using an incorrect HTTP method for this endpoint
@@ -67,7 +107,9 @@ This document provides information about HTTP status codes that may be returned 
 - Verify the endpoint supports the operation you are attempting
 - Ensure you are using the correct API version
 
-### 408 - Request timeout. This could be due to:
+### 408 - Request timeout
+
+**Type**: `RequestTimeoutException`
 
 #### Potential Causes:
 - The server did not receive a complete request within the time it was prepared to wait
@@ -80,7 +122,9 @@ This document provides information about HTTP status codes that may be returned 
 - Consider breaking large requests into smaller chunks
 - Increase the number of retries
 
-### 409 - Conflict. This could be due to:
+### 409 - Conflict
+
+**Type**: `ConflictException`
 
 #### Potential Causes:
 - Resource state conflict with the current request
@@ -94,7 +138,9 @@ This document provides information about HTTP status codes that may be returned 
 - Check for existing resources before creation attempts
 - Handle conflict resolution in your application logic
 
-### 413 - Payload too large. This could be due to:
+### 413 - Payload too large
+
+**Type**: `PayloadTooLargeException`
 
 #### Potential Causes:
 - Request body exceeds the server's size limit
@@ -107,7 +153,9 @@ This document provides information about HTTP status codes that may be returned 
 - Compress data before sending if appropriate
 - Check API documentation for size limits
 
-### 415 - Unsupported media type. This could be due to:
+### 415 - Unsupported media type
+
+**Type**: `UnsupportedMediaTypeException`
 
 #### Potential Causes:
 - Content-Type header is missing or incorrect
@@ -120,7 +168,9 @@ This document provides information about HTTP status codes that may be returned 
 - Convert your payload to a supported format (usually JSON)
 - Review API documentation for supported media types
 
-### 422 - Unprocessable entity. This could be due to:
+### 422 - Unprocessable entity
+
+**Type**: `UnprocessableEntityException`
 
 #### Potential Causes:
 - Request syntax is correct but contains semantic errors
@@ -134,7 +184,9 @@ This document provides information about HTTP status codes that may be returned 
 - Validate data before submitting to the API
 - Review API documentation for field requirements and limitations
 
-### 429 - Rate limit exceeded. This could be due to:
+### 429 - Rate limit exceeded
+
+**Type**: `RateLimitExceededException`
 
 #### Potential Causes:
 - Too many requests in a short time period
@@ -146,7 +198,9 @@ This document provides information about HTTP status codes that may be returned 
 - Consider caching responses where appropriate
 - Check the Retry-After header for guidance on when to retry
 
-### 500 - Internal server error. This could be due to:
+### 500 - Internal server error
+
+**Type**: `InternalServerErrorException`
 
 #### Potential Causes:
 - Unexpected condition on the server
@@ -158,7 +212,9 @@ This document provides information about HTTP status codes that may be returned 
 - Contact BambooHR support if the problem persists
 - Include request ID or timestamp when reporting issues
 
-### 501 - Not implemented. This could be due to:
+### 501 - Not implemented
+
+**Type**: `NotImplementedException`
 
 #### Potential Causes:
 - The API endpoint does not support the requested functionality
@@ -171,7 +227,9 @@ This document provides information about HTTP status codes that may be returned 
 - Consider alternative approaches to achieve your goal
 - Contact support to inquire about feature availability
 
-### 502 - Bad gateway. This could be due to:
+### 502 - Bad gateway
+
+**Type**: `BadGatewayException`
 
 #### Potential Causes:
 - The server received an invalid response from an upstream server
@@ -184,7 +242,9 @@ This document provides information about HTTP status codes that may be returned 
 - Check if the service is experiencing known issues
 - Verify network connectivity between your client and the API
 
-### 503 - Service unavailable. This could be due to:
+### 503 - Service unavailable
+
+**Type**: `ServiceUnavailableException`
 
 #### Potential Causes:
 - Server is temporarily overloaded
@@ -196,7 +256,9 @@ This document provides information about HTTP status codes that may be returned 
 - Consider adding this status code to the list of retryable status codes, and increase the number of retries
 - Consider implementing a circuit breaker pattern
 
-### 504 - Gateway timeout. This could be due to:
+### 504 - Gateway timeout
+
+**Type**: `GatewayTimeoutException`
 
 #### Potential Causes:
 - The server acting as a gateway or proxy did not receive a timely response
@@ -208,7 +270,9 @@ This document provides information about HTTP status codes that may be returned 
 - Simplify complex queries if possible
 - Implement circuit breaker pattern to prevent cascading failures
 
-### 507 - Insufficient storage. This could be due to:
+### 507 - Insufficient storage
+
+**Type**: `InsufficientStorageException`
 
 #### Potential Causes:
 - Server storage capacity has been reached
@@ -220,7 +284,9 @@ This document provides information about HTTP status codes that may be returned 
 - Contact support to discuss storage limitations
 - Check if there are unused resources that can be deleted
 
-### 598 - Network read timeout. This could be due to:
+### 598 - Network read timeout
+
+**Type**: `NetworkReadTimeoutException`
 
 #### Potential Causes:
 - Network connection was dropped while waiting for response

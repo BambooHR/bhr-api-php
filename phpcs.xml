@@ -13,6 +13,9 @@
         <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
         <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
         <exclude name="PEAR.NamingConventions.ValidVariableName"/>
+        
+        <!-- Exclude docblock spacing rules -->
+        <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName"/>
     </rule>
 
     <!-- Paths to check -->

@@ -990,11 +990,11 @@ class EmployeesApi {
 	/**
 	 * Operation getEmployeesList
 	 *
-	 * Get employees
+	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1009,11 +1009,11 @@ class EmployeesApi {
 	/**
 	 * Operation getEmployeesListWithHttpInfo
 	 *
-	 * Get employees
+	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1070,11 +1070,11 @@ class EmployeesApi {
 	/**
 	 * Operation getEmployeesListAsync
 	 *
-	 * Get employees
+	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1092,11 +1092,11 @@ class EmployeesApi {
 	/**
 	 * Operation getEmployeesListAsyncWithHttpInfo
 	 *
-	 * Get employees
+	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1140,9 +1140,9 @@ class EmployeesApi {
 	/**
 	 * Create request for operation 'getEmployeesList'
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters for matching employees. Encode filter properties using  If the caller does not have access to the filtered field on a matching employee, the employee will be excluded from the result set to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix with &#39;-&#39; for descending. Allowed: employeeId,firstName,lastName,preferredName,jobTitleName,status. Nulls sort first in ascending, last in descending. If the caller does not have access to this field on an employee, the result will be excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Pagination parameters (optional)
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1474,18 +1474,15 @@ class EmployeesApi {
 					continue;
 				}
 
-				$message = ApiErrorHelper::formatErrorMessage((int)$e->getCode(), $e->getMessage(), $statusCode);
-				
-				$eInner = new ApiException(
-					$message,
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				$exception = ApiErrorHelper::createException(
+					(int)$e->getCode(), 
+					$e->getMessage(), 
+					$statusCode, 
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null, 
+					$e->getResponse() ? $e->getResponse()->getBody() : null			
 				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-				$eInner->setResponseObject($data);
-
-				throw $eInner;
+				
+				throw $exception;
 			} catch (ConnectException $e) {
 				// Connection exceptions can also be timeout-related
 				if ($attempt <= $retries) {
@@ -1557,16 +1554,15 @@ class EmployeesApi {
 					
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
-						$message = ApiErrorHelper::formatErrorMessage((int)$reason->getCode(), $reason->getMessage(), $statusCode);
-						$eInner = new ApiException(
-							$message,
-							(int) $reason->getCode(),
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
+						$exception = ApiErrorHelper::createException(
+							(int)$reason->getCode(), 
+							$reason->getMessage(), 
+							$statusCode, 
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null, 
+							$reason->getResponse() ? $reason->getResponse()->getBody() : null			
 						);
-						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-						$eInner->setResponseObject($data);
-						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+						
+						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
 					} elseif ($reason instanceof ConnectException) {
 						$eInner = new ApiException(
 							"[{$reason->getCode()}] {$reason->getMessage()}",

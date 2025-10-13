@@ -122,7 +122,7 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**getCompanyInformation**](docs/Api/EmployeesApi.md#getcompanyinformation) | **GET** /api/v1/company_information | Get Company Information
 *EmployeesApi* | [**getEmployee**](docs/Api/EmployeesApi.md#getemployee) | **GET** /api/v1/employees/{id} | Get Employee
 *EmployeesApi* | [**getEmployeesDirectory**](docs/Api/EmployeesApi.md#getemployeesdirectory) | **GET** /api/v1/employees/directory | Get Employee Directory
-*EmployeesApi* | [**getEmployeesList**](docs/Api/EmployeesApi.md#getemployeeslist) | **GET** /api/v1/employees | Get employees
+*EmployeesApi* | [**getEmployeesList**](docs/Api/EmployeesApi.md#getemployeeslist) | **GET** /api/v1/employees | Get Employees
 *EmployeesApi* | [**updateEmployee**](docs/Api/EmployeesApi.md#updateemployee) | **POST** /api/v1/employees/{id} | Update Employee
 *GoalsApi* | [**deleteGoal**](docs/Api/GoalsApi.md#deletegoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal
 *GoalsApi* | [**deleteGoalComment**](docs/Api/GoalsApi.md#deletegoalcomment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment
@@ -380,7 +380,7 @@ Class | Method | HTTP request | Description
 
 ## Exceptions
 
-- [HTTP Status Codes](docs/Exceptions/HttpStatusCodes.md) - Information about HTTP status codes, potential causes, and debugging tips
+- [Exceptions](docs/Exceptions/Exceptions.md) - Information about exceptions, potential causes, and debugging tips
 
 ## Authorization
 
@@ -445,4 +445,24 @@ The error documentation is automatically generated from the error messages defin
 ./scripts/update_error_docs.sh
 ```
 
-This will regenerate the `docs/Exceptions/HttpStatusCodes.md` file with the latest error information.
+This will:
+
+1. Regenerate the `docs/Exceptions/Exceptions.md` file with the latest error information
+2. Generate exception classes in `lib/Exceptions/` for each error type
+3. Generate exception documentation in `docs/Exceptions/Classes/`
+
+#### Exception Hierarchy
+
+The SDK provides a robust exception hierarchy for handling API errors:
+
+- `ApiException` - Base class for all exceptions
+  - `ClientException` - Base class for 4xx errors
+    - `BadRequestException` - 400 Bad Request
+    - `AuthenticationFailedException` - 401 Unauthorized
+    - And other specific 4xx exceptions
+  - `ServerException` - Base class for 5xx errors
+    - `InternalServerErrorException` - 500 Internal Server Error
+    - `ServiceUnavailableException` - 503 Service Unavailable
+    - And other specific 5xx exceptions
+
+See the [Exception Classes Documentation](docs/Exceptions/Exceptions.md) for details on all available exception types.

@@ -87,7 +87,7 @@ Class | Method | HTTP request | Description
 
 ## Exceptions
 
-- [HTTP Status Codes](docs/Exceptions/HttpStatusCodes.md) - Information about HTTP status codes, potential causes, and debugging tips
+- [Exceptions](docs/Exceptions/Exceptions.md) - Information about exceptions, potential causes, and debugging tips
 
 ## Authorization
 {{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
@@ -174,4 +174,24 @@ The error documentation is automatically generated from the error messages defin
 ./scripts/update_error_docs.sh
 ```
 
-This will regenerate the `docs/Exceptions/HttpStatusCodes.md` file with the latest error information.
+This will:
+
+1. Regenerate the `docs/Exceptions/Exceptions.md` file with the latest error information
+2. Generate exception classes in `lib/Exceptions/` for each error type
+3. Generate exception documentation in `docs/Exceptions/Classes/`
+
+#### Exception Hierarchy
+
+The SDK provides a robust exception hierarchy for handling API errors:
+
+- `ApiException` - Base class for all exceptions
+  - `ClientException` - Base class for 4xx errors
+    - `BadRequestException` - 400 Bad Request
+    - `AuthenticationFailedException` - 401 Unauthorized
+    - And other specific 4xx exceptions
+  - `ServerException` - Base class for 5xx errors
+    - `InternalServerErrorException` - 500 Internal Server Error
+    - `ServiceUnavailableException` - 503 Service Unavailable
+    - And other specific 5xx exceptions
+
+See the [Exception Classes Documentation](docs/Exceptions/Exceptions.md) for details on all available exception types.

@@ -1722,18 +1722,15 @@ class TabularDataApi {
 					continue;
 				}
 
-				$message = ApiErrorHelper::formatErrorMessage((int)$e->getCode(), $e->getMessage(), $statusCode);
-				
-				$eInner = new ApiException(
-					$message,
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
+				$exception = ApiErrorHelper::createException(
+					(int)$e->getCode(), 
+					$e->getMessage(), 
+					$statusCode, 
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null, 
+					$e->getResponse() ? $e->getResponse()->getBody() : null			
 				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-				$eInner->setResponseObject($data);
-
-				throw $eInner;
+				
+				throw $exception;
 			} catch (ConnectException $e) {
 				// Connection exceptions can also be timeout-related
 				if ($attempt <= $retries) {
@@ -1805,16 +1802,15 @@ class TabularDataApi {
 					
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
-						$message = ApiErrorHelper::formatErrorMessage((int)$reason->getCode(), $reason->getMessage(), $statusCode);
-						$eInner = new ApiException(
-							$message,
-							(int) $reason->getCode(),
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? (string) $reason->getResponse()->getBody() : null
+						$exception = ApiErrorHelper::createException(
+							(int)$reason->getCode(), 
+							$reason->getMessage(), 
+							$statusCode, 
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null, 
+							$reason->getResponse() ? $reason->getResponse()->getBody() : null			
 						);
-						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-						$eInner->setResponseObject($data);
-						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
+						
+						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
 					} elseif ($reason instanceof ConnectException) {
 						$eInner = new ApiException(
 							"[{$reason->getCode()}] {$reason->getMessage()}",

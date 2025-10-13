@@ -56,10 +56,13 @@ class ApiErrorHelperTest extends TestCase {
 		$baseMessage = "Authentication error";
 		$statusCode = 401;
 
-		$formattedMessage = ApiErrorHelper::formatErrorMessage($code, $baseMessage, $statusCode);
+		$exception = ApiErrorHelper::createException($code, $baseMessage, $statusCode);
+		$formattedMessage = $exception->getMessage();
 
 		// Check that the message contains the base message
-		$this->assertStringContainsString("[{$code}] {$baseMessage}. HTTP status code: {$statusCode}", $formattedMessage);
+		$this->assertStringContainsString("[{$code}] {$baseMessage}", $formattedMessage);
+
+		$this->assertEquals($statusCode, $exception->getCode());
 
 		// Check that the message contains the title for 401 errors
 		$this->assertStringContainsString("Authentication failed. This could be due to:", $formattedMessage);
@@ -79,10 +82,13 @@ class ApiErrorHelperTest extends TestCase {
 		$baseMessage = "Resource not found";
 		$statusCode = 404;
 
-		$formattedMessage = ApiErrorHelper::formatErrorMessage($code, $baseMessage, $statusCode);
+		$exception = ApiErrorHelper::createException($code, $baseMessage, $statusCode);
+		$formattedMessage = $exception->getMessage();
 
 		// Check that the message contains the base message
-		$this->assertStringContainsString("[{$code}] {$baseMessage}. HTTP status code: {$statusCode}", $formattedMessage);
+		$this->assertStringContainsString("[{$code}] {$baseMessage}", $formattedMessage);
+
+		$this->assertEquals($statusCode, $exception->getCode());
 
 		// Check that the message contains the title for 404 errors
 		$this->assertStringContainsString("Resource not found. This could be due to:", $formattedMessage);
@@ -102,10 +108,13 @@ class ApiErrorHelperTest extends TestCase {
 		$baseMessage = "Internal server error";
 		$statusCode = 500;
 
-		$formattedMessage = ApiErrorHelper::formatErrorMessage($code, $baseMessage, $statusCode);
+		$exception = ApiErrorHelper::createException($code, $baseMessage, $statusCode);
+		$formattedMessage = $exception->getMessage();
 
 		// Check that the message contains the base message
-		$this->assertStringContainsString("[{$code}] {$baseMessage}. HTTP status code: {$statusCode}", $formattedMessage);
+		$this->assertStringContainsString("[{$code}] {$baseMessage}", $formattedMessage);
+
+		$this->assertEquals($statusCode, $exception->getCode());
 
 		// Check that the message contains the title for 500 errors
 		$this->assertStringContainsString("Internal server error. This could be due to:", $formattedMessage);
@@ -125,10 +134,11 @@ class ApiErrorHelperTest extends TestCase {
 		$baseMessage = "Unknown error";
 		$statusCode = 599; // A status code that doesn't exist in the ERROR_MESSAGES array
 
-		$formattedMessage = ApiErrorHelper::formatErrorMessage($code, $baseMessage, $statusCode);
+		$exception = ApiErrorHelper::createException($code, $baseMessage, $statusCode);
+		$formattedMessage = $exception->getMessage();
 
 		// For unknown status codes, only the base message should be returned without additional context
-		$this->assertEquals("[{$code}] {$baseMessage}. HTTP status code: {$statusCode}", $formattedMessage);
+		$this->assertEquals("[{$code}] {$baseMessage}", $formattedMessage);
 
 		// The message should not contain any of the standard parts like "This could be due to:"
 		$this->assertStringNotContainsString("This could be due to:", $formattedMessage);

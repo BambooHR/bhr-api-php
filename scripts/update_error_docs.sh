@@ -13,7 +13,13 @@ if [ ! -d "vendor" ]; then
   composer update
 fi
 
-# Run the PHP script to generate the documentation
+# Run the PHP script to generate the error documentation
 php scripts/generate_error_docs.php
 
-echo "Documentation update complete for HttpStatusCodes.md!"
+# Run the PHP script to generate the exception classes and their documentation
+php scripts/generate_exceptions.php
+
+echo "Documentation update complete!"
+echo "- Generated Exceptions.md"
+echo "- Generated exception classes in lib/Exceptions/"
+echo "- Generated exception documentation in docs/Exceptions/Classes/"

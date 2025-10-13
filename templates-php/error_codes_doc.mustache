@@ -2,10 +2,30 @@
 
 This document provides information about HTTP status codes that may be returned by the BambooHR API, along with potential causes and debugging tips for each code.
 
+## Exception Classes
+
+The SDK provides exception classes for each HTTP status code. For detailed documentation on each exception class, see the links below:
+
+### Base Exceptions
+- [ClientException](Classes/ClientException.md) - Base class for 4xx errors
+- [ServerException](Classes/ServerException.md) - Base class for 5xx errors
+
+### Client Exceptions (4xx)
+{{#clientExceptions}}
+- [{{name}}Exception](Classes/{{name}}Exception.md) - {{code}} {{title}}
+{{/clientExceptions}}
+
+### Server Exceptions (5xx)
+{{#serverExceptions}}
+- [{{name}}Exception](Classes/{{name}}Exception.md) - {{code}} {{title}}
+{{/serverExceptions}}
+
 ## Status Codes
 
 {{#errorCodes}}
 ### {{code}} - {{title}}
+
+**Type**: `{{type}}Exception`
 
 #### Potential Causes:
 {{#causes}}
