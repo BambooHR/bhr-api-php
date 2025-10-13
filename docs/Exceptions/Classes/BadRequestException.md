@@ -20,6 +20,10 @@ try {
     // Access additional information
     $causes = $e->getPotentialCauses();
     $tips = $e->getDebuggingTips();
+    
+    // Access response data
+    $responseHeaders = $e->getResponseHeaders();
+    $responseBody = $e->getResponseBody();
 }
 ```
 
@@ -40,7 +44,9 @@ try {
 
 ```php
 public function __construct(
-    string $message
+    string $message,
+    array $responseHeaders = [],
+    $responseBody = null
 )
 ```
 
@@ -49,6 +55,8 @@ public function __construct(
 | Name | Type | Description |
 |------|------|-------------|
 | `$message` | string | The error message |
+| `$responseHeaders` | array | HTTP response headers from the API call |
+| `$responseBody` | mixed | HTTP response body from the API call |
 
 ## Methods
 
@@ -66,4 +74,20 @@ Returns an array of debugging tips for this exception.
 
 ```php
 public function getDebuggingTips(): array
+```
+
+### getResponseHeaders()
+
+Returns the HTTP response headers from the API call that triggered this exception.
+
+```php
+public function getResponseHeaders(): array
+```
+
+### getResponseBody()
+
+Returns the HTTP response body from the API call that triggered this exception.
+
+```php
+public function getResponseBody()
 ```
