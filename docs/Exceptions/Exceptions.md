@@ -34,11 +34,13 @@ The SDK provides exception classes for each HTTP status code. For detailed docum
 
 ## Error Handling in the SDK
 
-When an error occurs, the SDK will throw an `ApiException` with details about the error. The exception will include:
+When an error occurs, the SDK will throw an exception with details about the error. The exception will include:
 
 - The HTTP status code
 - The error code
 - A detailed message with potential causes and debugging tips
+
+The exception type will be a subclass of `ClientException` or `ServerException` based on the HTTP status code.
 
 ### Example Error Handling
 
