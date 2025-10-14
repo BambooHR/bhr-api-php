@@ -6,7 +6,10 @@ This document provides information about HTTP status codes that may be returned 
 
 The SDK provides exception classes for each HTTP status code. For detailed documentation on each exception class, see the links below:
 
-### Base Exceptions
+### Base Exception
+- [ApiException](Classes/ApiException.md) - Base exception class for all API errors
+
+### Server & Client Exceptions
 - [ClientException](Classes/ClientException.md) - Base class for 4xx errors
 - [ServerException](Classes/ServerException.md) - Base class for 5xx errors
 
@@ -31,6 +34,14 @@ The SDK provides exception classes for each HTTP status code. For detailed docum
 - [GatewayTimeoutException](Classes/GatewayTimeoutException.md) - 504 Gateway timeout
 - [InsufficientStorageException](Classes/InsufficientStorageException.md) - 507 Insufficient storage
 - [NetworkReadTimeoutException](Classes/NetworkReadTimeoutException.md) - 598 Network read timeout
+
+The SDK also provides other types of exceptions, as outlined below:
+
+### Input Exceptions
+- [InvalidArgumentException](Classes/InvalidArgumentException.md) - Invalid input provided to the API
+
+### Network Exceptions
+- [ConnectException](Classes/ConnectException.md) - Connection error
 
 ## Error Handling in the SDK
 

@@ -83,9 +83,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 use BhrSdk\Client\ApiClient;
 
-// Simple setup with API key authentication
+// Simple setup with OAuth authentication
 $client = (new ApiClient())
-    ->withApiKey('your-api-key')
+    ->withOAuth('your-oauth-token')
     ->forCompany('your-company-subdomain')
     ->build();
 
@@ -144,7 +144,7 @@ $client->manual()              // ManualApi
 
 ```php
 $client = (new ApiClient())
-    ->withApiKey('your-api-key')
+    ->withOAuth('your-oauth-token')
     ->forCompany('acme')
     ->withRetries(3)                    // Configure retry attempts
     ->withDebug(true)                   // Enable debug mode
@@ -162,7 +162,7 @@ use BhrSdk\Client\Logger\SecureLogger;
 
 // Enable logging with default settings
 $client = (new ApiClient())
-    ->withApiKey('your-api-key')
+    ->withOAuth('your-oauth-token')
     ->forCompany('acme')
     ->withLogging()  // Defaults to 'info' level
     ->build();
@@ -187,7 +187,7 @@ use BhrSdk\Client\ApiClient;
 
 // Configure the client
 $client = (new ApiClient())
-    ->withApiKey('your-api-key')
+    ->withOAuth('your-oauth-token')
     ->forCompany('acme')
     ->withLogging(null, 'info')
     ->withRetries(3)

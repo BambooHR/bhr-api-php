@@ -29,8 +29,6 @@ namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -42,7 +40,7 @@ use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
 use BhrSdk\Client\Logger\LoggerInterface;
-use BhrSdk\ApiErrorHelper;
+use BhrSdk\ApiHelper;
 
 /**
  * GoalsApi Class Doc Comment
@@ -232,15 +230,15 @@ class GoalsApi {
 	 */
 	public function deleteGoalWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['deleteGoal'][0]) {
 		$request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -284,7 +282,7 @@ class GoalsApi {
 		
 		$request = $this->deleteGoalRequest($employee_id, $goal_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -325,7 +323,7 @@ class GoalsApi {
 	 */
 	public function deleteGoalRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['deleteGoal'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -442,15 +440,15 @@ class GoalsApi {
 	 */
 	public function deleteGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, string $contentType = self::CONTENT_TYPES['deleteGoalComment'][0]) {
 		$request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -496,7 +494,7 @@ class GoalsApi {
 		
 		$request = $this->deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -538,7 +536,7 @@ class GoalsApi {
 	 */
 	public function deleteGoalCommentRequest($employee_id, $goal_id, $comment_id, string $contentType = self::CONTENT_TYPES['deleteGoalComment'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -661,15 +659,15 @@ class GoalsApi {
 	 */
 	public function getCanCreateGoalWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getCanCreateGoal'][0]) {
 		$request = $this->getCanCreateGoalRequest($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -711,7 +709,7 @@ class GoalsApi {
 		
 		$request = $this->getCanCreateGoalRequest($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -751,7 +749,7 @@ class GoalsApi {
 	 */
 	public function getCanCreateGoalRequest($employee_id, string $contentType = self::CONTENT_TYPES['getCanCreateGoal'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -857,17 +855,17 @@ class GoalsApi {
 	 */
 	public function getGoalAggregateWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetGoalAggregate200Response',
 					$request,
 					$response,
@@ -889,7 +887,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetGoalAggregate200Response',
 			$request,
 			$response,
@@ -933,7 +931,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalAggregate200Response';
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -976,7 +974,7 @@ class GoalsApi {
 	 */
 	public function getGoalAggregateRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -1091,15 +1089,15 @@ class GoalsApi {
 	 */
 	public function getGoalCommentsWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalComments'][0]) {
 		$request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -1143,7 +1141,7 @@ class GoalsApi {
 		
 		$request = $this->getGoalCommentsRequest($employee_id, $goal_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1184,7 +1182,7 @@ class GoalsApi {
 	 */
 	public function getGoalCommentsRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalComments'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -1300,17 +1298,17 @@ class GoalsApi {
 	 */
 	public function getGoalsWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetGoals200Response',
 					$request,
 					$response,
@@ -1332,7 +1330,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetGoals200Response',
 			$request,
 			$response,
@@ -1376,7 +1374,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoals200Response';
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1419,7 +1417,7 @@ class GoalsApi {
 	 */
 	public function getGoalsRequest($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -1541,17 +1539,17 @@ class GoalsApi {
 	 */
 	public function getGoalsAggregateV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
 		$request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 					$request,
 					$response,
@@ -1573,7 +1571,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetGoalsAggregateV1200Response',
 			$request,
 			$response,
@@ -1617,7 +1615,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalsAggregateV1200Response';
 		$request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1660,7 +1658,7 @@ class GoalsApi {
 	 */
 	public function getGoalsAggregateV1Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -1766,17 +1764,17 @@ class GoalsApi {
 	 */
 	public function getGoalsAggregateV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
 		$request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 					$request,
 					$response,
@@ -1798,7 +1796,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetGoalsAggregateV11200Response',
 			$request,
 			$response,
@@ -1842,7 +1840,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalsAggregateV11200Response';
 		$request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1885,7 +1883,7 @@ class GoalsApi {
 	 */
 	public function getGoalsAggregateV11Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -1989,17 +1987,17 @@ class GoalsApi {
 	 */
 	public function getGoalsAggregateV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 					$request,
 					$response,
@@ -2021,7 +2019,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetGoalsAggregateV12200Response',
 			$request,
 			$response,
@@ -2063,7 +2061,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GetGoalsAggregateV12200Response';
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2105,7 +2103,7 @@ class GoalsApi {
 	 */
 	public function getGoalsAggregateV12Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -2210,15 +2208,15 @@ class GoalsApi {
 	 */
 	public function getGoalsAlignmentOptionsWithHttpInfo($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
 		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -2262,7 +2260,7 @@ class GoalsApi {
 		
 		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -2303,7 +2301,7 @@ class GoalsApi {
 	 */
 	public function getGoalsAlignmentOptionsRequest($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -2419,17 +2417,17 @@ class GoalsApi {
 	 */
 	public function getGoalsFiltersV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
 		$request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GoalFiltersV1',
 					$request,
 					$response,
@@ -2451,7 +2449,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GoalFiltersV1',
 			$request,
 			$response,
@@ -2495,7 +2493,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GoalFiltersV1';
 		$request = $this->getGoalsFiltersV1Request($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2538,7 +2536,7 @@ class GoalsApi {
 	 */
 	public function getGoalsFiltersV1Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV1'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -2644,17 +2642,17 @@ class GoalsApi {
 	 */
 	public function getGoalsFiltersV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
 		$request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GoalFiltersV11',
 					$request,
 					$response,
@@ -2676,7 +2674,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GoalFiltersV11',
 			$request,
 			$response,
@@ -2720,7 +2718,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV11Request($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2763,7 +2761,7 @@ class GoalsApi {
 	 */
 	public function getGoalsFiltersV11Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV11'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -2867,17 +2865,17 @@ class GoalsApi {
 	 */
 	public function getGoalsFiltersV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GoalFiltersV11',
 					$request,
 					$response,
@@ -2899,7 +2897,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GoalFiltersV11',
 			$request,
 			$response,
@@ -2941,7 +2939,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\GoalFiltersV11';
 		$request = $this->getGoalsFiltersV12Request($employee_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -2983,7 +2981,7 @@ class GoalsApi {
 	 */
 	public function getGoalsFiltersV12Request($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsFiltersV12'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -3090,15 +3088,15 @@ class GoalsApi {
 	 */
 	public function getGoalsShareOptionsWithHttpInfo($employee_id, $search = null, $limit = null, string $contentType = self::CONTENT_TYPES['getGoalsShareOptions'][0]) {
 		$request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -3144,7 +3142,7 @@ class GoalsApi {
 		
 		$request = $this->getGoalsShareOptionsRequest($employee_id, $search, $limit, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -3186,7 +3184,7 @@ class GoalsApi {
 	 */
 	public function getGoalsShareOptionsRequest($employee_id, $search = null, $limit = null, string $contentType = self::CONTENT_TYPES['getGoalsShareOptions'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 			],
@@ -3312,17 +3310,17 @@ class GoalsApi {
 	 */
 	public function postCloseGoalWithHttpInfo($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 201:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -3344,7 +3342,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -3390,7 +3388,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postCloseGoalRequest($employee_id, $goal_id, $body, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -3434,7 +3432,7 @@ class GoalsApi {
 	 */
 	public function postCloseGoalRequest($employee_id, $goal_id, $body = null, string $contentType = self::CONTENT_TYPES['postCloseGoal'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -3560,17 +3558,17 @@ class GoalsApi {
 	 */
 	public function postGoalWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 201:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -3592,7 +3590,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -3636,7 +3634,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -3679,7 +3677,7 @@ class GoalsApi {
 	 */
 	public function postGoalRequest($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'post_goal_request' => $post_goal_request,
@@ -3797,15 +3795,15 @@ class GoalsApi {
 	 */
 	public function postGoalCommentWithHttpInfo($employee_id, $goal_id, $body, string $contentType = self::CONTENT_TYPES['postGoalComment'][0]) {
 		$request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -3851,7 +3849,7 @@ class GoalsApi {
 		
 		$request = $this->postGoalCommentRequest($employee_id, $goal_id, $body, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -3893,7 +3891,7 @@ class GoalsApi {
 	 */
 	public function postGoalCommentRequest($employee_id, $goal_id, $body, string $contentType = self::CONTENT_TYPES['postGoalComment'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -4020,17 +4018,17 @@ class GoalsApi {
 	 */
 	public function postReopenGoalWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 201:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -4052,7 +4050,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -4096,7 +4094,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->postReopenGoalRequest($employee_id, $goal_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -4139,7 +4137,7 @@ class GoalsApi {
 	 */
 	public function postReopenGoalRequest($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['postReopenGoal'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -4258,15 +4256,15 @@ class GoalsApi {
 	 */
 	public function putGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $body, string $contentType = self::CONTENT_TYPES['putGoalComment'][0]) {
 		$request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -4314,7 +4312,7 @@ class GoalsApi {
 		
 		$request = $this->putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -4357,7 +4355,7 @@ class GoalsApi {
 	 */
 	public function putGoalCommentRequest($employee_id, $goal_id, $comment_id, $body, string $contentType = self::CONTENT_TYPES['putGoalComment'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -4498,17 +4496,17 @@ class GoalsApi {
 	 */
 	public function putGoalMilestoneProgressWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::CONTENT_TYPES['putGoalMilestoneProgress'][0]) {
 		$request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'object',
 					$request,
 					$response,
@@ -4530,7 +4528,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object',
 			$request,
 			$response,
@@ -4578,7 +4576,7 @@ class GoalsApi {
 		$returnType = 'object';
 		$request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -4623,7 +4621,7 @@ class GoalsApi {
 	 */
 	public function putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::CONTENT_TYPES['putGoalMilestoneProgress'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -4762,17 +4760,17 @@ class GoalsApi {
 	 */
 	public function putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -4794,7 +4792,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -4840,7 +4838,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -4884,7 +4882,7 @@ class GoalsApi {
 	 */
 	public function putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -5013,17 +5011,17 @@ class GoalsApi {
 	 */
 	public function putGoalSharedWithWithHttpInfo($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -5045,7 +5043,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -5091,7 +5089,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5135,7 +5133,7 @@ class GoalsApi {
 	 */
 	public function putGoalSharedWithRequest($employee_id, $goal_id, $put_goal_shared_with_request, string $contentType = self::CONTENT_TYPES['putGoalSharedWith'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -5266,17 +5264,17 @@ class GoalsApi {
 	 */
 	public function putGoalV1WithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
 		$request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -5298,7 +5296,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -5346,7 +5344,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5391,7 +5389,7 @@ class GoalsApi {
 	 */
 	public function putGoalV1Request($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -5520,17 +5518,17 @@ class GoalsApi {
 	 */
 	public function putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TransformedApiGoal',
 					$request,
 					$response,
@@ -5552,7 +5550,7 @@ class GoalsApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\TransformedApiGoal',
 			$request,
 			$response,
@@ -5598,7 +5596,7 @@ class GoalsApi {
 		$returnType = '\BhrSdk\Model\TransformedApiGoal';
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -5642,7 +5640,7 @@ class GoalsApi {
 	 */
 	public function putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
 				'goal_id' => $goal_id,
@@ -5736,221 +5734,4 @@ class GoalsApi {
 		);
 	}
 
-	/**
-	 * Create http client option
-	 *
-	 * @throws \RuntimeException on file opening failure
-	 * @return array of http client options
-	 */
-	protected function createHttpClientOption() {
-		$options = [];
-		if ($this->config->getDebug()) {
-			$options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-			if (!$options[RequestOptions::DEBUG]) {
-				throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-			}
-		}
-
-		return $options;
-	}
-	
-	/**
-	 * Send a request with support for timeout retries
-	 *
-	 * @param RequestInterface $request The request to send
-	 * @param array $options Request options to apply to the given request
-	 *
-	 * @throws ApiException on non-2xx response
-	 * @return ResponseInterface
-	 */
-	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
-		// Get the configured number of retries for timeout errors
-		$retries = $this->config->getRetries();
-		$attempt = 0;
-		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
-		
-		do {
-			$attempt++;
-			try {
-				$response = $this->client->send($request, $options);
-				// If we get here, the request was successful, so break out of the retry loop
-				return $response;
-			} catch (RequestException $e) {
-				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
-				
-				// Check if this is a timeout error and if we should retry
-				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
-					// Wait before retrying (simple exponential backoff)
-					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
-					continue;
-				}
-
-				$exception = ApiErrorHelper::createException(
-					(int)$e->getCode(), 
-					$e->getMessage(), 
-					$statusCode, 
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
-				);
-				
-				throw $exception;
-			} catch (ConnectException $e) {
-				// Connection exceptions can also be timeout-related
-				if ($attempt <= $retries) {
-					// Wait before retrying (simple exponential backoff)
-					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
-					continue;
-				}
-				
-				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-				$eInner->setResponseObject($data);
-
-				throw $eInner;
-			}
-		} while ($attempt <= $retries);
-		
-		throw new ApiException(
-			'Request failed after maximum retries',
-			0,
-			null,
-			null
-		);
-	}
-
-	/**
-	 * Send an asynchronous request with support for timeout retries
-	 *
-	 * @param RequestInterface $request The request to send
-	 * @param array $options Request options to apply to the given request
-	 *
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
-		// Get the configured number of retries for timeout errors
-		$retries = $this->config->getRetries();
-		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
-		$attempt = 0;
-		
-		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
-			$attempt++;
-			
-			return $this->client->sendAsync($request, $options)
-				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
-					// Check if this is a RequestException with a response
-					if ($reason instanceof RequestException && $reason->hasResponse()) {
-						$statusCode = $reason->getResponse()->getStatusCode();
-
-						// Check if this is a timeout error and if we should retry
-						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
-							// Calculate delay with exponential backoff (similar to the sync version)
-							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
-
-							return $doRequest(); // Try again with delay
-						}
-					}
-					
-					// For ConnectException (timeout-related)
-					if ($reason instanceof ConnectException && $attempt <= $retries) {
-						// Calculate delay with exponential backoff (similar to the sync version)
-						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
-
-						return $doRequest(); // Try again with delay
-					}
-					
-					// If we can't retry or have exceeded retries, create a proper ApiException
-					if ($reason instanceof RequestException) {
-						$exception = ApiErrorHelper::createException(
-							(int)$reason->getCode(), 
-							$reason->getMessage(), 
-							$statusCode, 
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? (string)$reason->getResponse()->getBody() : null
-						);
-						
-						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
-					} elseif ($reason instanceof ConnectException) {
-						$eInner = new ApiException(
-							"[{$reason->getCode()}] {$reason->getMessage()}",
-							(int) $reason->getCode(),
-							null,
-							null
-						);
-						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-						$eInner->setResponseObject($data);
-						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
-					} else {
-						// For any other type of exception, just reject with the original reason
-						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
-					}
-				});
-		};
-		
-		return $doRequest();
-	}
-
-	private function handleResponseWithDataType(
-		string $dataType,
-		RequestInterface $request,
-		ResponseInterface $response
-	): array {
-		if ($dataType === '\SplFileObject') {
-			$content = $response->getBody(); //stream goes to serializer
-		} else {
-			$content = (string) $response->getBody();
-			if ($dataType !== 'string') {
-				try {
-					$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-				} catch (\JsonException $exception) {
-					throw new ApiException(
-						sprintf(
-							'Error JSON decoding server response (%s)',
-							$request->getUri()
-						),
-						$response->getStatusCode(),
-						$response->getHeaders(),
-						$content
-					);
-				}
-			}
-		}
-
-		return [
-			ObjectSerializer::deserialize($content, $dataType, []),
-			$response->getStatusCode(),
-			$response->getHeaders()
-		];
-	}
-
-	private function responseWithinRangeCode(
-		string $rangeCode,
-		int $statusCode
-	): bool {
-		$left = (int) ($rangeCode[0].'00');
-		$right = (int) ($rangeCode[0].'99');
-
-		return $statusCode >= $left && $statusCode <= $right;
-	}
-
-	/**
-	* Validates required parameters and throws an exception if any are missing
-	* 
-	* @param array $params Associative array of parameter name => value pairs
-	* @param string $methodName Name of the calling method for error messages
-	* @throws \InvalidArgumentException If any required parameter is missing
-	*/
-	private function validateRequiredParameters(array $params, string $methodName): void {
-		foreach ($params as $paramName => $paramValue) {
-			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
-				throw new \InvalidArgumentException(
-					"Missing the required parameter \${$paramName} when calling {$methodName}"
-				);
-			}
-		}
-	}
 }

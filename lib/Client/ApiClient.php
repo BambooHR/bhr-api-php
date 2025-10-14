@@ -480,16 +480,6 @@ class ApiClient
     }
 
     /**
-     * Convenience method to get PublicAPIApi instance
-     *
-     * @return \BhrSdk\Api\PublicAPIApi
-     */
-    public function publicAPI(): object
-    {
-        return $this->getApi(\BhrSdk\Api\PublicAPIApi::class);
-    }
-
-    /**
      * Convenience method to get ManualApi instance
      *
      * @return \BhrSdk\Api\ManualApi
