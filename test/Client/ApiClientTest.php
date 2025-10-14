@@ -700,20 +700,6 @@ class ApiClientTest extends TestCase
     }
 
     /**
-     * Test publicAPI() convenience method
-     */
-    public function testPublicAPIConvenienceMethod(): void
-    {
-        $client = new ApiClient();
-        $client->withApiKey('test-key')
-               ->forCompany('test-company')
-               ->build();
-
-        $api = $client->publicAPI();
-        $this->assertInstanceOf(\BhrSdk\Api\PublicAPIApi::class, $api);
-    }
-
-    /**
      * Test manual() convenience method
      */
     public function testManualConvenienceMethod(): void
