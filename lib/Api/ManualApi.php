@@ -14,6 +14,7 @@ use BhrSdk\ApiException;
 use BhrSdk\Configuration;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
+use BhrSdk\ApiErrorHelper;
 
 /**
  * ManualApi Class Doc Comment
@@ -395,24 +396,23 @@ class ManualApi {
 				return $response;
 			} catch (RequestException $e) {
 				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
-				
+
 				// Check if this is a timeout error and if we should retry
 				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
 					// Wait before retrying (simple exponential backoff)
 					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
 					continue;
 				}
-				
-				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string) $e->getResponse()->getBody() : null
-				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), 'mixed', $eInner->getResponseHeaders());
-				$eInner->setResponseObject($data);
 
-				throw $eInner;
+				$exception = ApiErrorHelper::createException(
+					(int)$e->getCode(),
+					$e->getMessage(),
+					$statusCode,
+					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
+				);
+
+				throw $exception;
 			} catch (ConnectException $e) {
 				// Connection exceptions can also be timeout-related
 				if ($attempt <= $retries) {

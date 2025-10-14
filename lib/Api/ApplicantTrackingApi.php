@@ -29,8 +29,6 @@ namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -41,7 +39,7 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
-use BhrSdk\ApiErrorHelper;
+use BhrSdk\ApiHelper;
 
 /**
  * ApplicantTrackingApi Class Doc Comment
@@ -216,15 +214,15 @@ class ApplicantTrackingApi {
 	 */
 	public function addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -306,7 +304,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -366,7 +364,7 @@ class ApplicantTrackingApi {
 	 */
 	public function addNewCandidateRequest($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'first_name' => $first_name,
 				'last_name' => $last_name,
@@ -575,15 +573,15 @@ class ApplicantTrackingApi {
 	 */
 	public function addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -665,7 +663,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -725,7 +723,7 @@ class ApplicantTrackingApi {
 	 */
 	public function addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'posting_title' => $posting_title,
 				'job_status' => $job_status,
@@ -913,17 +911,17 @@ class ApplicantTrackingApi {
 	 */
 	public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetApplications200Response',
 					$request,
 					$response,
@@ -945,7 +943,7 @@ class ApplicantTrackingApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetApplications200Response',
 			$request,
 			$response,
@@ -1003,7 +1001,7 @@ class ApplicantTrackingApi {
 		$returnType = '\BhrSdk\Model\GetApplications200Response';
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1171,17 +1169,17 @@ class ApplicantTrackingApi {
 	 */
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 					$request,
 					$response,
@@ -1203,7 +1201,7 @@ class ApplicantTrackingApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
 			$request,
 			$response,
@@ -1243,7 +1241,7 @@ class ApplicantTrackingApi {
 		$returnType = '\BhrSdk\Model\GetCompanyLocations200ResponseInner[]';
 		$request = $this->getCompanyLocationsRequest($contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1370,17 +1368,17 @@ class ApplicantTrackingApi {
 	 */
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
 		switch($statusCode) {
 			case 200:
-				return $this->handleResponseWithDataType(
+				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 					$request,
 					$response,
@@ -1402,7 +1400,7 @@ class ApplicantTrackingApi {
 			);
 		}
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
 			$request,
 			$response,
@@ -1442,7 +1440,7 @@ class ApplicantTrackingApi {
 		$returnType = '\BhrSdk\Model\GetHiringLeads200ResponseInner[]';
 		$request = $this->getHiringLeadsRequest($contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1574,15 +1572,15 @@ class ApplicantTrackingApi {
 	 */
 	public function getJobSummariesWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -1628,7 +1626,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1775,15 +1773,15 @@ class ApplicantTrackingApi {
 	 */
 	public function getStatusesWithHttpInfo(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 		$request = $this->getStatusesRequest($contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -1823,7 +1821,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->getStatusesRequest($contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1951,15 +1949,15 @@ class ApplicantTrackingApi {
 	 */
 	public function postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -2003,7 +2001,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -2044,7 +2042,7 @@ class ApplicantTrackingApi {
 	 */
 	public function postApplicantStatusRequest($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'application_id' => $application_id,
 				'post_applicant_status_request' => $post_applicant_status_request,
@@ -2160,15 +2158,15 @@ class ApplicantTrackingApi {
 	 */
 	public function postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -2212,7 +2210,7 @@ class ApplicantTrackingApi {
 		
 		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -2253,7 +2251,7 @@ class ApplicantTrackingApi {
 	 */
 	public function postApplicationCommentRequest($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'application_id' => $application_id,
 				'post_application_comment_request' => $post_application_comment_request,
@@ -2337,221 +2335,4 @@ class ApplicantTrackingApi {
 		);
 	}
 
-	/**
-	 * Create http client option
-	 *
-	 * @throws \RuntimeException on file opening failure
-	 * @return array of http client options
-	 */
-	protected function createHttpClientOption() {
-		$options = [];
-		if ($this->config->getDebug()) {
-			$options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-			if (!$options[RequestOptions::DEBUG]) {
-				throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-			}
-		}
-
-		return $options;
-	}
-	
-	/**
-	 * Send a request with support for timeout retries
-	 *
-	 * @param RequestInterface $request The request to send
-	 * @param array $options Request options to apply to the given request
-	 *
-	 * @throws ApiException on non-2xx response
-	 * @return ResponseInterface
-	 */
-	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
-		// Get the configured number of retries for timeout errors
-		$retries = $this->config->getRetries();
-		$attempt = 0;
-		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
-		
-		do {
-			$attempt++;
-			try {
-				$response = $this->client->send($request, $options);
-				// If we get here, the request was successful, so break out of the retry loop
-				return $response;
-			} catch (RequestException $e) {
-				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
-				
-				// Check if this is a timeout error and if we should retry
-				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
-					// Wait before retrying (simple exponential backoff)
-					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
-					continue;
-				}
-
-				$exception = ApiErrorHelper::createException(
-					(int)$e->getCode(), 
-					$e->getMessage(), 
-					$statusCode, 
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
-				);
-				
-				throw $exception;
-			} catch (ConnectException $e) {
-				// Connection exceptions can also be timeout-related
-				if ($attempt <= $retries) {
-					// Wait before retrying (simple exponential backoff)
-					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
-					continue;
-				}
-				
-				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-				$eInner->setResponseObject($data);
-
-				throw $eInner;
-			}
-		} while ($attempt <= $retries);
-		
-		throw new ApiException(
-			'Request failed after maximum retries',
-			0,
-			null,
-			null
-		);
-	}
-
-	/**
-	 * Send an asynchronous request with support for timeout retries
-	 *
-	 * @param RequestInterface $request The request to send
-	 * @param array $options Request options to apply to the given request
-	 *
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
-		// Get the configured number of retries for timeout errors
-		$retries = $this->config->getRetries();
-		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
-		$attempt = 0;
-		
-		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
-			$attempt++;
-			
-			return $this->client->sendAsync($request, $options)
-				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
-					// Check if this is a RequestException with a response
-					if ($reason instanceof RequestException && $reason->hasResponse()) {
-						$statusCode = $reason->getResponse()->getStatusCode();
-
-						// Check if this is a timeout error and if we should retry
-						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
-							// Calculate delay with exponential backoff (similar to the sync version)
-							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
-
-							return $doRequest(); // Try again with delay
-						}
-					}
-					
-					// For ConnectException (timeout-related)
-					if ($reason instanceof ConnectException && $attempt <= $retries) {
-						// Calculate delay with exponential backoff (similar to the sync version)
-						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
-
-						return $doRequest(); // Try again with delay
-					}
-					
-					// If we can't retry or have exceeded retries, create a proper ApiException
-					if ($reason instanceof RequestException) {
-						$exception = ApiErrorHelper::createException(
-							(int)$reason->getCode(), 
-							$reason->getMessage(), 
-							$statusCode, 
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? (string)$reason->getResponse()->getBody() : null
-						);
-						
-						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
-					} elseif ($reason instanceof ConnectException) {
-						$eInner = new ApiException(
-							"[{$reason->getCode()}] {$reason->getMessage()}",
-							(int) $reason->getCode(),
-							null,
-							null
-						);
-						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-						$eInner->setResponseObject($data);
-						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
-					} else {
-						// For any other type of exception, just reject with the original reason
-						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
-					}
-				});
-		};
-		
-		return $doRequest();
-	}
-
-	private function handleResponseWithDataType(
-		string $dataType,
-		RequestInterface $request,
-		ResponseInterface $response
-	): array {
-		if ($dataType === '\SplFileObject') {
-			$content = $response->getBody(); //stream goes to serializer
-		} else {
-			$content = (string) $response->getBody();
-			if ($dataType !== 'string') {
-				try {
-					$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-				} catch (\JsonException $exception) {
-					throw new ApiException(
-						sprintf(
-							'Error JSON decoding server response (%s)',
-							$request->getUri()
-						),
-						$response->getStatusCode(),
-						$response->getHeaders(),
-						$content
-					);
-				}
-			}
-		}
-
-		return [
-			ObjectSerializer::deserialize($content, $dataType, []),
-			$response->getStatusCode(),
-			$response->getHeaders()
-		];
-	}
-
-	private function responseWithinRangeCode(
-		string $rangeCode,
-		int $statusCode
-	): bool {
-		$left = (int) ($rangeCode[0].'00');
-		$right = (int) ($rangeCode[0].'99');
-
-		return $statusCode >= $left && $statusCode <= $right;
-	}
-
-	/**
-	* Validates required parameters and throws an exception if any are missing
-	* 
-	* @param array $params Associative array of parameter name => value pairs
-	* @param string $methodName Name of the calling method for error messages
-	* @throws \InvalidArgumentException If any required parameter is missing
-	*/
-	private function validateRequiredParameters(array $params, string $methodName): void {
-		foreach ($params as $paramName => $paramValue) {
-			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
-				throw new \InvalidArgumentException(
-					"Missing the required parameter \${$paramName} when calling {$methodName}"
-				);
-			}
-		}
-	}
 }
