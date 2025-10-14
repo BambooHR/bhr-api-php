@@ -29,8 +29,6 @@ namespace BhrSdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -41,7 +39,7 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
-use BhrSdk\ApiErrorHelper;
+use BhrSdk\ApiHelper;
 
 /**
  * EmployeeFilesApi Class Doc Comment
@@ -167,15 +165,15 @@ class EmployeeFilesApi {
 	 */
 	public function addEmployeeFileCategoryWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
 		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -217,7 +215,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -257,7 +255,7 @@ class EmployeeFilesApi {
 	 */
 	public function addEmployeeFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'request_body' => $request_body,
 			],
@@ -363,15 +361,15 @@ class EmployeeFilesApi {
 	 */
 	public function deleteEmployeeFileWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeFile'][0]) {
 		$request = $this->deleteEmployeeFileRequest($id, $file_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -415,7 +413,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->deleteEmployeeFileRequest($id, $file_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -456,7 +454,7 @@ class EmployeeFilesApi {
 	 */
 	public function deleteEmployeeFileRequest($id, $file_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeFile'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 				'file_id' => $file_id,
@@ -571,15 +569,15 @@ class EmployeeFilesApi {
 	 */
 	public function getEmployeeFileWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -623,7 +621,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -664,7 +662,7 @@ class EmployeeFilesApi {
 	 */
 	public function getEmployeeFileRequest($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 				'file_id' => $file_id,
@@ -777,15 +775,15 @@ class EmployeeFilesApi {
 	 */
 	public function listEmployeeFilesWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
 		$request = $this->listEmployeeFilesRequest($id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -827,7 +825,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->listEmployeeFilesRequest($id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -867,7 +865,7 @@ class EmployeeFilesApi {
 	 */
 	public function listEmployeeFilesRequest($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 			],
@@ -974,15 +972,15 @@ class EmployeeFilesApi {
 	 */
 	public function updateEmployeeFileWithHttpInfo($id, $file_id, $employee_file_update, string $contentType = self::CONTENT_TYPES['updateEmployeeFile'][0]) {
 		$request = $this->updateEmployeeFileRequest($id, $file_id, $employee_file_update, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -1028,7 +1026,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->updateEmployeeFileRequest($id, $file_id, $employee_file_update, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1070,7 +1068,7 @@ class EmployeeFilesApi {
 	 */
 	public function updateEmployeeFileRequest($id, $file_id, $employee_file_update, string $contentType = self::CONTENT_TYPES['updateEmployeeFile'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 				'file_id' => $file_id,
@@ -1194,15 +1192,15 @@ class EmployeeFilesApi {
 	 */
 	public function uploadEmployeeFileWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
 		$request = $this->uploadEmployeeFileRequest($id, $contentType);
-		$options = $this->createHttpClientOption();
+		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = $this->sendRequestWithRetries($request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
 
-		return $this->handleResponseWithDataType(
+		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
@@ -1244,7 +1242,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->uploadEmployeeFileRequest($id, $contentType);
 
-		return $this->sendRequestWithRetriesAsync($request, $this->createHttpClientOption())
+		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1284,7 +1282,7 @@ class EmployeeFilesApi {
 	 */
 	public function uploadEmployeeFileRequest($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
 		// PHP 8.0+ only
-		$this->validateRequiredParameters(
+		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 			],
@@ -1357,221 +1355,4 @@ class EmployeeFilesApi {
 		);
 	}
 
-	/**
-	 * Create http client option
-	 *
-	 * @throws \RuntimeException on file opening failure
-	 * @return array of http client options
-	 */
-	protected function createHttpClientOption() {
-		$options = [];
-		if ($this->config->getDebug()) {
-			$options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-			if (!$options[RequestOptions::DEBUG]) {
-				throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-			}
-		}
-
-		return $options;
-	}
-	
-	/**
-	 * Send a request with support for timeout retries
-	 *
-	 * @param RequestInterface $request The request to send
-	 * @param array $options Request options to apply to the given request
-	 *
-	 * @throws ApiException on non-2xx response
-	 * @return ResponseInterface
-	 */
-	protected function sendRequestWithRetries(RequestInterface $request, array $options): ResponseInterface {
-		// Get the configured number of retries for timeout errors
-		$retries = $this->config->getRetries();
-		$attempt = 0;
-		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
-		
-		do {
-			$attempt++;
-			try {
-				$response = $this->client->send($request, $options);
-				// If we get here, the request was successful, so break out of the retry loop
-				return $response;
-			} catch (RequestException $e) {
-				$statusCode = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
-				
-				// Check if this is a timeout error and if we should retry
-				if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
-					// Wait before retrying (simple exponential backoff)
-					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
-					continue;
-				}
-
-				$exception = ApiErrorHelper::createException(
-					(int)$e->getCode(), 
-					$e->getMessage(), 
-					$statusCode, 
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
-					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
-				);
-				
-				throw $exception;
-			} catch (ConnectException $e) {
-				// Connection exceptions can also be timeout-related
-				if ($attempt <= $retries) {
-					// Wait before retrying (simple exponential backoff)
-					usleep(100000 * pow(2, $attempt - 1)); // 100ms, 200ms, 400ms, etc.
-					continue;
-				}
-				
-				$eInner = new ApiException(
-					"[{$e->getCode()}] {$e->getMessage()}",
-					(int) $e->getCode(),
-					null,
-					null
-				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-				$eInner->setResponseObject($data);
-
-				throw $eInner;
-			}
-		} while ($attempt <= $retries);
-		
-		throw new ApiException(
-			'Request failed after maximum retries',
-			0,
-			null,
-			null
-		);
-	}
-
-	/**
-	 * Send an asynchronous request with support for timeout retries
-	 *
-	 * @param RequestInterface $request The request to send
-	 * @param array $options Request options to apply to the given request
-	 *
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	protected function sendRequestWithRetriesAsync(RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
-		// Get the configured number of retries for timeout errors
-		$retries = $this->config->getRetries();
-		$timeoutStatusCodes = $this->config->getRetryableStatusCodes();
-		$attempt = 0;
-		
-		$doRequest = function () use ($request, $options, &$attempt, $retries, $timeoutStatusCodes, &$doRequest) {
-			$attempt++;
-			
-			return $this->client->sendAsync($request, $options)
-				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
-					// Check if this is a RequestException with a response
-					if ($reason instanceof RequestException && $reason->hasResponse()) {
-						$statusCode = $reason->getResponse()->getStatusCode();
-
-						// Check if this is a timeout error and if we should retry
-						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
-							// Calculate delay with exponential backoff (similar to the sync version)
-							$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
-
-							return $doRequest(); // Try again with delay
-						}
-					}
-					
-					// For ConnectException (timeout-related)
-					if ($reason instanceof ConnectException && $attempt <= $retries) {
-						// Calculate delay with exponential backoff (similar to the sync version)
-						$options['delay'] = 100 * pow(2, $attempt - 1); // 100ms, 200ms, 400ms, etc.
-
-						return $doRequest(); // Try again with delay
-					}
-					
-					// If we can't retry or have exceeded retries, create a proper ApiException
-					if ($reason instanceof RequestException) {
-						$exception = ApiErrorHelper::createException(
-							(int)$reason->getCode(), 
-							$reason->getMessage(), 
-							$statusCode, 
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? (string)$reason->getResponse()->getBody() : null
-						);
-						
-						return \GuzzleHttp\Promise\Create::rejectionFor($exception);
-					} elseif ($reason instanceof ConnectException) {
-						$eInner = new ApiException(
-							"[{$reason->getCode()}] {$reason->getMessage()}",
-							(int) $reason->getCode(),
-							null,
-							null
-						);
-						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), '', $eInner->getResponseHeaders());
-						$eInner->setResponseObject($data);
-						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
-					} else {
-						// For any other type of exception, just reject with the original reason
-						return \GuzzleHttp\Promise\Create::rejectionFor($reason);
-					}
-				});
-		};
-		
-		return $doRequest();
-	}
-
-	private function handleResponseWithDataType(
-		string $dataType,
-		RequestInterface $request,
-		ResponseInterface $response
-	): array {
-		if ($dataType === '\SplFileObject') {
-			$content = $response->getBody(); //stream goes to serializer
-		} else {
-			$content = (string) $response->getBody();
-			if ($dataType !== 'string') {
-				try {
-					$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-				} catch (\JsonException $exception) {
-					throw new ApiException(
-						sprintf(
-							'Error JSON decoding server response (%s)',
-							$request->getUri()
-						),
-						$response->getStatusCode(),
-						$response->getHeaders(),
-						$content
-					);
-				}
-			}
-		}
-
-		return [
-			ObjectSerializer::deserialize($content, $dataType, []),
-			$response->getStatusCode(),
-			$response->getHeaders()
-		];
-	}
-
-	private function responseWithinRangeCode(
-		string $rangeCode,
-		int $statusCode
-	): bool {
-		$left = (int) ($rangeCode[0].'00');
-		$right = (int) ($rangeCode[0].'99');
-
-		return $statusCode >= $left && $statusCode <= $right;
-	}
-
-	/**
-	* Validates required parameters and throws an exception if any are missing
-	* 
-	* @param array $params Associative array of parameter name => value pairs
-	* @param string $methodName Name of the calling method for error messages
-	* @throws \InvalidArgumentException If any required parameter is missing
-	*/
-	private function validateRequiredParameters(array $params, string $methodName): void {
-		foreach ($params as $paramName => $paramValue) {
-			if ($paramValue === null || (is_array($paramValue) && count($paramValue) === 0)) {
-				throw new \InvalidArgumentException(
-					"Missing the required parameter \${$paramName} when calling {$methodName}"
-				);
-			}
-		}
-	}
 }
