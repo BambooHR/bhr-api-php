@@ -1,0 +1,44 @@
+# ClientException
+
+**Namespace**: `BhrSdk\Exceptions`  
+**Extends**: `ApiException`
+
+## Description
+
+Base class for all client-side (4xx) exceptions.
+
+## Usage
+
+```php
+try {
+    // API call that might fail with a 4xx status code
+} catch (BhrSdk\Exceptions\ClientException $e) {
+    // Handle any client error exception
+    echo $e->getMessage();
+    
+    // Get status code
+    $statusCode = $e->getCode(); // Will be a 4xx code
+}
+```
+
+## Constructor
+
+```php
+public function __construct(
+    string $message = ""
+)
+```
+
+### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| `$message` | string | The error message |
+
+## Client Exception Types
+
+The following specific exception types extend `ClientException`:
+
+{{#clientExceptions}}
+- [{{.}}Exception]({{.}}Exception.md)
+{{/clientExceptions}}

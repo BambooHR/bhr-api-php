@@ -11,6 +11,10 @@
 
 namespace BhrSdk;
 
+use BhrSdk\ApiException;
+use BhrSdk\Exceptions\ClientException;
+use BhrSdk\Exceptions\ServerException;
+
 /**
  * ApiErrorHelper Class Doc Comment
  *
@@ -27,7 +31,8 @@ class ApiErrorHelper {
 	 */
 	public static array $ERROR_MESSAGES = [
 		400 => [
-			'title' => 'Bad request. This could be due to:',
+			'type' => 'BadRequest',
+			'title' => 'Bad request',
 			'causes' => [
 				'Invalid request syntax or parameters',
 				'Missing required fields',
@@ -41,7 +46,8 @@ class ApiErrorHelper {
 			]
 		],
 		401 => [
-			'title' => 'Authentication failed. This could be due to:',
+			'type' => 'AuthenticationFailed',
+			'title' => 'Authentication failed',
 			'causes' => [
 				'Invalid API key or password',
 				'Expired credentials',
@@ -55,7 +61,8 @@ class ApiErrorHelper {
 			]
 		],
 		403 => [
-			'title' => 'Permission denied. This could be due to:',
+			'type' => 'PermissionDenied',
+			'title' => 'Permission denied',
 			'causes' => [
 				'API key lacks required permissions',
 				'Account restrictions in place',
@@ -68,7 +75,8 @@ class ApiErrorHelper {
 			]
 		],
 		404 => [
-			'title' => 'Resource not found. This could be due to:',
+			'type' => 'ResourceNotFound',
+			'title' => 'Resource not found',
 			'causes' => [
 				'The requested resource does not exist',
 				'Resource may have been deleted',
@@ -82,7 +90,8 @@ class ApiErrorHelper {
 			]
 		],
 		405 => [
-			'title' => 'Method not allowed. This could be due to:',
+			'type' => 'MethodNotAllowed',
+			'title' => 'Method not allowed',
 			'causes' => [
 				'Using an incorrect HTTP method for this endpoint',
 				'The endpoint does not support the requested operation',
@@ -95,7 +104,8 @@ class ApiErrorHelper {
 			]
 		],
 		408 => [
-			'title' => 'Request timeout. This could be due to:',
+			'type' => 'RequestTimeout',
+			'title' => 'Request timeout',
 			'causes' => [
 				'The server did not receive a complete request within the time it was prepared to wait',
 				'Network connectivity issues',
@@ -109,7 +119,8 @@ class ApiErrorHelper {
 			]
 		],
 		409 => [
-			'title' => 'Conflict. This could be due to:',
+			'type' => 'Conflict',
+			'title' => 'Conflict',
 			'causes' => [
 				'Resource state conflict with the current request',
 				'Concurrent modification of the same resource',
@@ -124,7 +135,8 @@ class ApiErrorHelper {
 			]
 		],
 		413 => [
-			'title' => 'Payload too large. This could be due to:',
+			'type' => 'PayloadTooLarge',
+			'title' => 'Payload too large',
 			'causes' => [
 				'Request body exceeds the server\'s size limit',
 				'File upload is too large',
@@ -138,7 +150,8 @@ class ApiErrorHelper {
 			]
 		],
 		415 => [
-			'title' => 'Unsupported media type. This could be due to:',
+			'type' => 'UnsupportedMediaType',
+			'title' => 'Unsupported media type',
 			'causes' => [
 				'Content-Type header is missing or incorrect',
 				'Request body format is not supported by the API',
@@ -152,7 +165,8 @@ class ApiErrorHelper {
 			]
 		],
 		422 => [
-			'title' => 'Unprocessable entity. This could be due to:',
+			'type' => 'UnprocessableEntity',
+			'title' => 'Unprocessable entity',
 			'causes' => [
 				'Request syntax is correct but contains semantic errors',
 				'Validation failures in the request data',
@@ -167,7 +181,8 @@ class ApiErrorHelper {
 			]
 		],
 		429 => [
-			'title' => 'Rate limit exceeded. This could be due to:',
+			'type' => 'RateLimitExceeded',
+			'title' => 'Rate limit exceeded',
 			'causes' => [
 				'Too many requests in a short time period',
 				'Exceeding API quota limits'
@@ -180,7 +195,8 @@ class ApiErrorHelper {
 			]
 		],
 		500 => [
-			'title' => 'Internal server error. This could be due to:',
+			'type' => 'InternalServerError',
+			'title' => 'Internal server error',
 			'causes' => [
 				'Unexpected condition on the server',
 				'Server-side exception or error',
@@ -193,7 +209,8 @@ class ApiErrorHelper {
 			]
 		],
 		501 => [
-			'title' => 'Not implemented. This could be due to:',
+			'type' => 'NotImplemented',
+			'title' => 'Not implemented',
 			'causes' => [
 				'The API endpoint does not support the requested functionality',
 				'The feature is planned but not yet available',
@@ -207,7 +224,8 @@ class ApiErrorHelper {
 			]
 		],
 		502 => [
-			'title' => 'Bad gateway. This could be due to:',
+			'type' => 'BadGateway',
+			'title' => 'Bad gateway',
 			'causes' => [
 				'The server received an invalid response from an upstream server',
 				'Proxy or gateway configuration issues',
@@ -221,7 +239,8 @@ class ApiErrorHelper {
 			]
 		],
 		503 => [
-			'title' => 'Service unavailable. This could be due to:',
+			'type' => 'ServiceUnavailable',
+			'title' => 'Service unavailable',
 			'causes' => [
 				'Server is temporarily overloaded',
 				'Server is under maintenance',
@@ -234,7 +253,8 @@ class ApiErrorHelper {
 			]
 		],
 		504 => [
-			'title' => 'Gateway timeout. This could be due to:',
+			'type' => 'GatewayTimeout',
+			'title' => 'Gateway timeout',
 			'causes' => [
 				'The server acting as a gateway or proxy did not receive a timely response',
 				'BambooHR servers experiencing high load',
@@ -247,7 +267,8 @@ class ApiErrorHelper {
 			]
 		],
 		507 => [
-			'title' => 'Insufficient storage. This could be due to:',
+			'type' => 'InsufficientStorage',
+			'title' => 'Insufficient storage',
 			'causes' => [
 				'Server storage capacity has been reached',
 				'Quota limits exceeded for your account',
@@ -260,7 +281,8 @@ class ApiErrorHelper {
 			]
 		],
 		598 => [
-			'title' => 'Network read timeout. This could be due to:',
+			'type' => 'NetworkReadTimeout',
+			'title' => 'Network read timeout',
 			'causes' => [
 				'Network connection was dropped while waiting for response',
 				'Proxy or firewall issues',
@@ -276,38 +298,69 @@ class ApiErrorHelper {
 	];
 
 	/**
-	 * Formats error messages with helpful context based on status code
+	 * Creates an appropriate exception based on the status code
 	 *
-	 * @param int    $code        The error code
-	 * @param string $baseMessage The base error message
+	 * @param int    $code The error code
+	 * @param string $message The error message
 	 * @param int    $statusCode  The HTTP status code
-	 * @return string Formatted error message with debugging tips
+	 * @param array  $responseHeaders The HTTP response headers
+	 * @param string $responseBody The HTTP response body
+	 * @return \Exception The appropriate exception for the status code
 	 */
-	public static function formatErrorMessage(int $code, string $baseMessage, int $statusCode): string {
-		$message = "[{$code}] {$baseMessage}. HTTP status code: {$statusCode}";
+	public static function createException(int $code, string $message, int $statusCode, array $responseHeaders = [], $responseBody = null): \Exception | ServerException | ClientException | ApiException {
+		$exceptionClass = null;
 
-		// Add helpful context for known error status codes
-		if (isset(self::$ERROR_MESSAGES[$statusCode])) {
-			$errorInfo = self::$ERROR_MESSAGES[$statusCode];
-			$message .= "\n\n{$errorInfo['title']}\n";
+		// Determine the appropriate exception class based on status code
+		if (isset(self::$ERROR_MESSAGES[$statusCode]) && isset(self::$ERROR_MESSAGES[$statusCode]['type'])) {
+			$type = self::$ERROR_MESSAGES[$statusCode]['type'];
+			$exceptionClass = "\\BhrSdk\\Exceptions\\{$type}Exception";
 
-			// Add causes
-			if (isset($errorInfo['causes']) && is_array($errorInfo['causes'])) {
-				foreach ($errorInfo['causes'] as $cause) {
-					$message .= "- {$cause}\n";
-				}
+			// Create the exception
+			if (class_exists($exceptionClass)) {
+				// For specific exception classes, we pass the message, previous exception, and error data
+				// The status code is already built into the specific exception class
+				return new $exceptionClass("[{$code}] {$message}", $responseHeaders, $responseBody);
 			}
+		} elseif ($statusCode >= 500) {
+			return new ServerException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+		} elseif ($statusCode >= 400) {
+			return new ClientException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+		} else {
+			return new ApiException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+		}
 
-			$message .= "\nDebugging tips:\n";
+		// Fallback to base exception if the specific class doesn't exist
+		// For ApiException, we need to explicitly pass the status code
+		return new ApiException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+	}
 
-			// Add tips
-			if (isset($errorInfo['tips']) && is_array($errorInfo['tips'])) {
-				foreach ($errorInfo['tips'] as $tip) {
-					$message .= "- {$tip}\n";
-				}
+	/**
+	 * Formats a detailed error message with causes and tips
+	 *
+	 * @param string $baseMessage The base error message
+	 * @param array  $causes      List of potential causes
+	 * @param array  $tips        List of debugging tips
+	 * @return string Formatted error message with causes and tips
+	 */
+	public static function formatDetailedErrorMessage(string $baseMessage, array $causes = [], array $tips = []): string {
+		$detailedMessage = $baseMessage;
+
+		// Add causes
+		if (!empty($causes)) {
+			$detailedMessage .= ". This could be due to:\n";
+			foreach ($causes as $cause) {
+				$detailedMessage .= "- {$cause}\n";
 			}
 		}
 
-		return $message;
+		// Add debugging tips
+		if (!empty($tips)) {
+			$detailedMessage .= "\nDebugging tips:\n";
+			foreach ($tips as $tip) {
+				$detailedMessage .= "- {$tip}\n";
+			}
+		}
+
+		return $detailedMessage;
 	}
 }

@@ -35,7 +35,8 @@ generate:
 		-t ./templates-php \
 		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
 		&& sed -i '' '/\*PublicAPIApi\*/d' README.md \
-		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES
+		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
+		&& ./scripts/update_error_docs.sh
 	@echo "SDK generation complete!"
 
 clean:
