@@ -19,8 +19,6 @@ help:
 	@echo "BambooHR API PHP SDK - Available commands:"
 	@echo "  make generate          - Generate SDK code from OpenAPI spec"
 	@echo "  make generate OPENAPI_SPEC_PATH=/path/to/spec.yaml - Generate using a custom spec path"
-	@echo "  make fix-response-handling - Fix the API response handling in the template"
-	@echo "  make fix-and-generate  - Fix the template and regenerate the SDK"
 	@echo "  make clean             - Remove generated files"
 	@echo "  make test              - Run tests"
 
