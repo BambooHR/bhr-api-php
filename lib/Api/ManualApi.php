@@ -14,6 +14,7 @@ use BhrSdk\ApiException;
 use BhrSdk\Configuration;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
+use BhrSdk\Client\Logger\LoggerInterface;
 use BhrSdk\ApiErrorHelper;
 
 /**
@@ -41,6 +42,11 @@ class ManualApi {
 	protected $headerSelector;
 
 	/**
+	 * @var LoggerInterface|null Logger instance
+	 */
+	protected $logger;
+
+	/**
 	 * @param ClientInterface $client
 	 * @param Configuration   $config
 	 * @param HeaderSelector  $selector
@@ -48,11 +54,13 @@ class ManualApi {
 	public function __construct(
 		?ClientInterface $client = null,
 		?Configuration $config = null,
-		?HeaderSelector $selector = null
+		?HeaderSelector $selector = null,
+		?LoggerInterface $logger = null
 	) {
 		$this->client = $client ?: new Client();
 		$this->config = $config ?: Configuration::getDefaultConfiguration();
 		$this->headerSelector = $selector ?: new HeaderSelector();
+		$this->logger = $logger;
 	}
 
 	/**
