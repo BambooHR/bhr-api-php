@@ -39,6 +39,7 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
+use BhrSdk\Client\Logger\LoggerInterface;
 use BhrSdk\ApiHelper;
 
 /**
@@ -69,6 +70,11 @@ class TimeTrackingApi {
 	 * @var int Host index
 	 */
 	protected $hostIndex;
+
+	/**
+	 * @var LoggerInterface|null Logger instance
+	 */
+	protected $logger;
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
@@ -103,17 +109,20 @@ class TimeTrackingApi {
 	 * @param Configuration   $config
 	 * @param HeaderSelector  $selector
 	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
 		?Configuration $config = null,
 		?HeaderSelector $selector = null,
-		int $hostIndex = 0
+		int $hostIndex = 0,
+		?LoggerInterface $logger = null
 	) {
 		$this->client = $client ?: new Client();
 		$this->config = $config ?: Configuration::getDefaultConfiguration();
 		$this->headerSelector = $selector ?: new HeaderSelector();
 		$this->hostIndex = $hostIndex;
+		$this->logger = $logger;
 	}
 
 	/**

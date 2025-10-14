@@ -71,6 +71,163 @@ try {
 
 ```
 
+## Using the Fluent API Client (Recommended)
+
+The SDK provides a modern, fluent interface for easier configuration and usage:
+
+### Quick Start with Fluent Interface
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use BhrSdk\Client\ApiClient;
+
+// Simple setup with OAuth authentication
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('your-company-subdomain')
+    ->build();
+
+// Use convenience methods to access APIs
+$employee = $client->employees()->getEmployee('123');
+$timeOffRequests = $client->timeOff()->getTimeOffRequests();
+```
+
+### Authentication Methods
+
+#### OAuth (Recommended)
+```php
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->build();
+```
+
+#### API Key 
+```php
+$client = (new ApiClient())
+    ->withApiKey('your-api-key')
+    ->forCompany('acme')
+    ->build();
+```
+
+### Convenience Methods
+
+Access commonly used APIs with simple method calls:
+
+```php
+$client->employees()           // EmployeesApi
+$client->timeOff()             // TimeOffApi
+$client->benefits()            // BenefitsApi
+$client->reports()             // ReportsApi
+$client->goals()               // GoalsApi
+$client->training()            // TrainingApi
+$client->timeTracking()        // TimeTrackingApi
+$client->photos()              // PhotosApi
+$client->webhooks()            // WebhooksApi
+$client->tabularData()         // TabularDataApi
+$client->accountInformation()  // AccountInformationApi
+$client->applicantTracking()   // ApplicantTrackingApi
+$client->companyFiles()        // CompanyFilesApi
+$client->employeeFiles()       // EmployeeFilesApi
+$client->ats()                 // ATSApi
+$client->customReports()       // CustomReportsApi
+$client->datasets()            // DatasetsApi
+$client->hours()               // HoursApi
+$client->lastChangeInformation() // LastChangeInformationApi
+$client->login()               // LoginApi
+$client->manual()              // ManualApi
+```
+
+### Advanced Configuration
+
+```php
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->withRetries(3)                    // Configure retry attempts
+    ->withDebug(true)                   // Enable debug mode
+    ->withLogging(null, 'debug')        // Enable secure logging
+    ->withHostIndex(1)                  // Set custom host index
+    ->build();
+```
+
+### Secure Logging
+
+The SDK includes secure logging with automatic sensitive data redaction:
+
+```php
+use BhrSdk\Client\Logger\SecureLogger;
+
+// Enable logging with default settings
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->withLogging()  // Defaults to 'info' level
+    ->build();
+
+// Custom log level
+$client->withLogging(null, 'debug');  // debug, info, warning, or error
+
+// Custom logger
+$customLogger = new SecureLogger(true, 'debug');
+$client->withLogging($customLogger);
+```
+
+**Note:** Sensitive data (API keys, tokens, passwords) is automatically masked in logs.
+
+### Complete Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use BhrSdk\Client\ApiClient;
+
+// Configure the client
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->withLogging(null, 'info')
+    ->withRetries(3)
+    ->build();
+
+try {
+    // Get employee information
+    $employee = $client->employees()->getEmployee('123');
+    echo "Employee: {$employee->getFirstName()} {$employee->getLastName()}\n";
+    
+    // Get time off requests
+    $requests = $client->timeOff()->getTimeOffRequests();
+    echo "Time off requests: " . count($requests) . "\n";
+    
+    // Get employee photo
+    $photo = $client->photos()->getEmployeePhoto('123', 'small');
+    
+    // Access any API using getApi()
+    $customApi = $client->getApi(\BhrSdk\Api\CustomReportsApi::class);
+    
+} catch (Exception $e) {
+    echo 'Error: ' . $e->getMessage() . PHP_EOL;
+}
+```
+
+### Backward Compatibility
+
+The traditional approach still works if you prefer it:
+
+```php
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+    ->setUsername('YOUR_API_KEY')
+    ->setPassword('x');
+
+$apiInstance = new BhrSdk\Api\EmployeesApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+```
+
 ## API Endpoints
 
 All URIs are relative to *https://companySubDomain.bamboohr.com*
