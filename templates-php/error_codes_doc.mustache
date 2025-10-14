@@ -6,7 +6,10 @@ This document provides information about HTTP status codes that may be returned 
 
 The SDK provides exception classes for each HTTP status code. For detailed documentation on each exception class, see the links below:
 
-### Base Exceptions
+### Base Exception
+- [ApiException](Classes/ApiException.md) - Base exception class for all API errors
+
+### Server & Client Exceptions
 - [ClientException](Classes/ClientException.md) - Base class for 4xx errors
 - [ServerException](Classes/ServerException.md) - Base class for 5xx errors
 
@@ -19,6 +22,14 @@ The SDK provides exception classes for each HTTP status code. For detailed docum
 {{#serverExceptions}}
 - [{{name}}Exception](Classes/{{name}}Exception.md) - {{code}} {{title}}
 {{/serverExceptions}}
+
+The SDK also provides other types of exceptions, as outlined below:
+
+### Input Exceptions
+- [InvalidArgumentException](Classes/InvalidArgumentException.md) - Invalid input provided to the API
+
+### Network Exceptions
+- [ConnectException](Classes/ConnectException.md) - Connection error
 
 ## Error Handling in the SDK
 
