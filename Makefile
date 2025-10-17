@@ -50,3 +50,8 @@ test:
 	@echo "Running tests..."
 	./vendor/bin/phpunit
 	@echo "Tests complete!"
+
+phpcs:
+	@echo "Running PHP Code Sniffer..."
+	./vendor/bin/phpcs --standard=phpcs.xml --report=summary lib
+	@echo "PHP Code Sniffer complete!"
