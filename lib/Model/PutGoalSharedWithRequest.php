@@ -216,7 +216,6 @@ class PutGoalSharedWithRequest implements ModelInterface, ArrayAccess, \JsonSeri
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class PutGoalSharedWithRequest implements ModelInterface, ArrayAccess, \JsonSeri
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets shared_with_employee_ids
@@ -380,5 +378,4 @@ class PutGoalSharedWithRequest implements ModelInterface, ArrayAccess, \JsonSeri
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

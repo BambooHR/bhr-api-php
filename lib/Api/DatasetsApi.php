@@ -175,7 +175,6 @@ class DatasetsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -184,8 +183,6 @@ class DatasetsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -295,17 +292,12 @@ class DatasetsApi {
 			methodName: 'getDataFromDataset'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/datasets/{datasetName}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($dataset_name !== null) {
@@ -315,7 +307,6 @@ class DatasetsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -407,7 +398,6 @@ class DatasetsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -416,8 +406,6 @@ class DatasetsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -513,7 +501,6 @@ class DatasetsApi {
 	 */
 	public function getDataSetsRequest(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 
-
 		$resourcePath = '/api/v1/datasets';
 		
 		$queryParams = [];
@@ -521,16 +508,11 @@ class DatasetsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -612,7 +594,6 @@ class DatasetsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -621,8 +602,6 @@ class DatasetsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -734,10 +713,6 @@ class DatasetsApi {
 			methodName: 'getFieldsFromDataset'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/datasets/{datasetName}/fields';
 		
 		$queryParams = [];
@@ -762,7 +737,6 @@ class DatasetsApi {
 			}
 		}
 
-
 		// path params
 		if ($dataset_name !== null) {
 			$resourcePath = str_replace(
@@ -772,13 +746,11 @@ class DatasetsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

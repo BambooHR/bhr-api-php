@@ -216,7 +216,6 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets last_changed
@@ -380,5 +378,4 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

@@ -259,7 +259,6 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -345,7 +344,6 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets employee_id
@@ -671,5 +669,4 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

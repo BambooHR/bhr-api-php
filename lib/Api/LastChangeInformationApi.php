@@ -168,7 +168,6 @@ class LastChangeInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -261,9 +260,6 @@ class LastChangeInformationApi {
 			methodName: 'getChangedEmployeeIds'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/changed';
 		
 		$queryParams = [];
@@ -288,15 +284,11 @@ class LastChangeInformationApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

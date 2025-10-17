@@ -235,7 +235,6 @@ class WebHookResponseFrequency implements ModelInterface, ArrayAccess, \JsonSeri
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -293,7 +292,6 @@ class WebHookResponseFrequency implements ModelInterface, ArrayAccess, \JsonSeri
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets hour
@@ -477,5 +475,4 @@ class WebHookResponseFrequency implements ModelInterface, ArrayAccess, \JsonSeri
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

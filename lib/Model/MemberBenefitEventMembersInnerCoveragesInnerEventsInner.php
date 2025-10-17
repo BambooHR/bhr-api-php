@@ -318,7 +318,6 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInner implements ModelIn
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets effective_date
 	 *
@@ -511,5 +510,4 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInner implements ModelIn
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

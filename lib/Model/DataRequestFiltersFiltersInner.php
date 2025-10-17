@@ -339,7 +339,6 @@ class DataRequestFiltersFiltersInner implements ModelInterface, ArrayAccess, \Js
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets field
 	 *
@@ -514,5 +513,4 @@ class DataRequestFiltersFiltersInner implements ModelInterface, ArrayAccess, \Js
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

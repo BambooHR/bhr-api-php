@@ -32,49 +32,43 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-{{#operations}}class {{classname}}Test extends TestCase
-{
+{{#operations}}class {{classname}}Test extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
-    {{#operation}}
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
+	{{#operation}}
 
-    /**
-     * Test case for {{{operationId}}}
-     *
-     * {{{summary}}}.
-     *
-     */
-    public function test{{vendorExtensions.x-test-operation-id}}()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-    {{/operation}}
+	/**
+	 * Test case for {{{operationId}}}
+	 *
+	 * {{{summary}}}.
+	 *
+	 */
+	public function test{{vendorExtensions.x-test-operation-id}}() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
+	{{/operation}}
 }
 {{/operations}}

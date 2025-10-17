@@ -188,7 +188,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -233,8 +232,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -333,18 +330,12 @@ class TimeTrackingApi {
 	 */
 	public function addEditTimesheetClockEntriesRequest($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/clock_entries/store';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -438,7 +429,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -483,8 +473,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -583,18 +571,12 @@ class TimeTrackingApi {
 	 */
 	public function addEditTimesheetHourEntriesRequest($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/hour_entries/store';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -690,7 +672,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -729,8 +710,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -839,17 +818,12 @@ class TimeTrackingApi {
 			methodName: 'addTimesheetClockInEntry'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -859,7 +833,6 @@ class TimeTrackingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -955,7 +928,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1000,8 +972,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1110,17 +1080,12 @@ class TimeTrackingApi {
 			methodName: 'addTimesheetClockOutEntry'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_out';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1130,7 +1095,6 @@ class TimeTrackingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1224,7 +1188,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -1233,8 +1196,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1333,18 +1294,12 @@ class TimeTrackingApi {
 	 */
 	public function createTimeTrackingProjectRequest($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/projects';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1438,7 +1393,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 204:
 				return ApiHelper::handleResponseWithDataType(
@@ -1483,8 +1437,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1590,18 +1542,12 @@ class TimeTrackingApi {
 			methodName: 'deleteTimesheetClockEntriesViaPost'
 		);
 
-
-
 		$resourcePath = '/api/v1/time_tracking/clock_entries/delete';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1695,7 +1641,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 204:
 				return ApiHelper::handleResponseWithDataType(
@@ -1746,8 +1691,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1846,18 +1789,12 @@ class TimeTrackingApi {
 	 */
 	public function deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/hour_entries/delete';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1955,7 +1892,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1988,8 +1924,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2102,13 +2036,10 @@ class TimeTrackingApi {
 			methodName: 'getTimesheetEntries'
 		);
 
-
-
 		if ($employee_ids !== null && !preg_match("/^\\d+(,\\d+)*$/", $employee_ids)) {
 			throw new \InvalidArgumentException("invalid value for \"employee_ids\" when calling TimeTrackingApi.getTimesheetEntries, must conform to the pattern /^\\d+(,\\d+)*$/.");
 		}
 		
-
 		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
 		
 		$queryParams = [];
@@ -2134,15 +2065,11 @@ class TimeTrackingApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

@@ -171,7 +171,6 @@ class PhotosApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -265,17 +264,12 @@ class PhotosApi {
 			methodName: 'getEmployeePhoto'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/photo/{size}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -294,13 +288,11 @@ class PhotosApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -376,7 +368,6 @@ class PhotosApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -467,16 +458,12 @@ class PhotosApi {
 			methodName: 'uploadEmployeePhoto'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/photo';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -487,13 +474,11 @@ class PhotosApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

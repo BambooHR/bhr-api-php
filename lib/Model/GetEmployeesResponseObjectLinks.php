@@ -229,7 +229,6 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -286,7 +285,6 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets self
@@ -445,5 +443,4 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

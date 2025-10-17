@@ -184,7 +184,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -274,16 +273,12 @@ class WebhooksApi {
 			methodName: 'deleteWebhook'
 		);
 
-
-
 		$resourcePath = '/api/v1/webhooks/{id}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -294,13 +289,11 @@ class WebhooksApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -376,7 +369,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -391,8 +383,6 @@ class WebhooksApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -488,7 +478,6 @@ class WebhooksApi {
 	 */
 	public function getMonitorFieldsRequest(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 
-
 		$resourcePath = '/api/v1/webhooks/monitor_fields';
 		
 		$queryParams = [];
@@ -496,16 +485,11 @@ class WebhooksApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -583,7 +567,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -610,8 +593,6 @@ class WebhooksApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -717,16 +698,12 @@ class WebhooksApi {
 			methodName: 'getWebhook'
 		);
 
-
-
 		$resourcePath = '/api/v1/webhooks/{id}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -737,13 +714,11 @@ class WebhooksApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -819,7 +794,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -834,8 +808,6 @@ class WebhooksApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -931,7 +903,6 @@ class WebhooksApi {
 	 */
 	public function getWebhookListRequest(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 
-
 		$resourcePath = '/api/v1/webhooks';
 		
 		$queryParams = [];
@@ -939,16 +910,11 @@ class WebhooksApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1026,7 +992,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1053,8 +1018,6 @@ class WebhooksApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1160,16 +1123,12 @@ class WebhooksApi {
 			methodName: 'getWebhookLogs'
 		);
 
-
-
 		$resourcePath = '/api/v1/webhooks/{id}/log';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1180,13 +1139,11 @@ class WebhooksApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1264,7 +1221,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -1291,8 +1247,6 @@ class WebhooksApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1398,18 +1352,12 @@ class WebhooksApi {
 			methodName: 'postWebhook'
 		);
 
-
-
 		$resourcePath = '/api/v1/webhooks';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1505,7 +1453,6 @@ class WebhooksApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1538,8 +1485,6 @@ class WebhooksApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1649,17 +1594,12 @@ class WebhooksApi {
 			methodName: 'putWebhook'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/webhooks/{id}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1669,7 +1609,6 @@ class WebhooksApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],

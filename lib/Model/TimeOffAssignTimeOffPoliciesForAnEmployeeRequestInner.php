@@ -222,7 +222,6 @@ class TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner implements ModelInte
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -284,7 +283,6 @@ class TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner implements ModelInte
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets time_off_policy_id
@@ -418,5 +416,4 @@ class TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner implements ModelInte
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

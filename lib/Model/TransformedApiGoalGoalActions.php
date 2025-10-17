@@ -223,7 +223,6 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -279,7 +278,6 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets can_edit_goal_progress_bar
@@ -413,5 +411,4 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

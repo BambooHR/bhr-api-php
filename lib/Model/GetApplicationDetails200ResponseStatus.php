@@ -234,7 +234,6 @@ class GetApplicationDetails200ResponseStatus implements ModelInterface, ArrayAcc
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -292,7 +291,6 @@ class GetApplicationDetails200ResponseStatus implements ModelInterface, ArrayAcc
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -476,5 +474,4 @@ class GetApplicationDetails200ResponseStatus implements ModelInterface, ArrayAcc
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

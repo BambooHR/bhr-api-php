@@ -216,7 +216,6 @@ class GetHiringLeads200ResponseInner implements ModelInterface, ArrayAccess, \Js
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class GetHiringLeads200ResponseInner implements ModelInterface, ArrayAccess, \Js
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets hiring_lead
@@ -380,5 +378,4 @@ class GetHiringLeads200ResponseInner implements ModelInterface, ArrayAccess, \Js
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

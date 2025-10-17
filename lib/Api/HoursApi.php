@@ -179,7 +179,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -188,8 +187,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -295,18 +292,12 @@ class HoursApi {
 			methodName: 'addTimeTrackingBulk'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/record';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -400,7 +391,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -415,8 +405,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -522,18 +510,12 @@ class HoursApi {
 			methodName: 'addTimeTrackingHourRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/add';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -627,7 +609,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -642,8 +623,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -749,16 +728,12 @@ class HoursApi {
 			methodName: 'deleteTimeTrackingById'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/delete/{id}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -769,13 +744,11 @@ class HoursApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -853,7 +826,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -868,8 +840,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -975,18 +945,12 @@ class HoursApi {
 			methodName: 'editTimeTrackingRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/adjust';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1080,7 +1044,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1095,8 +1058,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1202,16 +1163,12 @@ class HoursApi {
 			methodName: 'getTimeTrackingRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/record/{id}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1222,13 +1179,11 @@ class HoursApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

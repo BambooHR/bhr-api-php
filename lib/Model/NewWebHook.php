@@ -356,7 +356,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets name
 	 *
@@ -649,5 +648,4 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

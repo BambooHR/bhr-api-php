@@ -216,7 +216,6 @@ class PostWebhook403Response implements ModelInterface, ArrayAccess, \JsonSerial
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class PostWebhook403Response implements ModelInterface, ArrayAccess, \JsonSerial
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets errors
@@ -380,5 +378,4 @@ class PostWebhook403Response implements ModelInterface, ArrayAccess, \JsonSerial
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

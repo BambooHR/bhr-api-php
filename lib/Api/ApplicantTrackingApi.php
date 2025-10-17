@@ -230,7 +230,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -382,37 +381,12 @@ class ApplicantTrackingApi {
 			methodName: 'addNewCandidate'
 		);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/application';
 		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
 
 		// form params
 		$formDataProcessor = new FormDataProcessor();
@@ -589,7 +563,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -743,37 +716,12 @@ class ApplicantTrackingApi {
 			methodName: 'addNewJobOpening'
 		);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/job_opening';
 		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
 
 		// form params
 		$formDataProcessor = new FormDataProcessor();
@@ -927,7 +875,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -936,8 +883,6 @@ class ApplicantTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1060,16 +1005,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getApplicationsRequest($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 
-
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications';
 		
 		$queryParams = [];
@@ -1101,15 +1036,11 @@ class ApplicantTrackingApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1185,7 +1116,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1194,8 +1124,6 @@ class ApplicantTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1291,7 +1219,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getCompanyLocationsRequest(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 
-
 		$resourcePath = '/api/v1/applicant_tracking/locations';
 		
 		$queryParams = [];
@@ -1299,16 +1226,11 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1384,7 +1306,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1393,8 +1314,6 @@ class ApplicantTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1490,7 +1409,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getHiringLeadsRequest(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 
-
 		$resourcePath = '/api/v1/applicant_tracking/hiring_leads';
 		
 		$queryParams = [];
@@ -1498,16 +1416,11 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1587,7 +1500,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1677,10 +1589,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getJobSummariesRequest($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/jobs';
 		
 		$queryParams = [];
@@ -1706,15 +1614,11 @@ class ApplicantTrackingApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1788,7 +1692,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1869,7 +1772,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getStatusesRequest(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 
-
 		$resourcePath = '/api/v1/applicant_tracking/statuses';
 		
 		$queryParams = [];
@@ -1877,16 +1779,11 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1964,7 +1861,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2059,17 +1955,12 @@ class ApplicantTrackingApi {
 			methodName: 'postApplicantStatus'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($application_id !== null) {
@@ -2079,7 +1970,6 @@ class ApplicantTrackingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -2174,7 +2064,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -2268,17 +2157,12 @@ class ApplicantTrackingApi {
 			methodName: 'postApplicationComment'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($application_id !== null) {
@@ -2288,7 +2172,6 @@ class ApplicantTrackingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],

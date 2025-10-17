@@ -332,7 +332,6 @@ class GoalFiltersV1FiltersInner implements ModelInterface, ArrayAccess, \JsonSer
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets id
 	 *
@@ -510,5 +509,4 @@ class GoalFiltersV1FiltersInner implements ModelInterface, ArrayAccess, \JsonSer
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

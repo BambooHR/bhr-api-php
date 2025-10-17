@@ -170,7 +170,6 @@ class CustomReportsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -179,8 +178,6 @@ class CustomReportsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -286,16 +283,12 @@ class CustomReportsApi {
 			methodName: 'getByReportId'
 		);
 
-
-
 		$resourcePath = '/api/v1/custom-reports/{reportId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($report_id !== null) {
@@ -306,13 +299,11 @@ class CustomReportsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -392,7 +383,6 @@ class CustomReportsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -401,8 +391,6 @@ class CustomReportsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -504,9 +492,6 @@ class CustomReportsApi {
 	 */
 	public function listReportsRequest($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 
-
-
-
 		$resourcePath = '/api/v1/custom-reports';
 		
 		$queryParams = [];
@@ -531,15 +516,11 @@ class CustomReportsApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

@@ -252,7 +252,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -313,7 +312,6 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets can_align
@@ -578,5 +576,4 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

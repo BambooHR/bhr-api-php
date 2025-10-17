@@ -216,7 +216,6 @@ class GetCompanyLocations200ResponseInner implements ModelInterface, ArrayAccess
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class GetCompanyLocations200ResponseInner implements ModelInterface, ArrayAccess
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets location
@@ -380,5 +378,4 @@ class GetCompanyLocations200ResponseInner implements ModelInterface, ArrayAccess
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

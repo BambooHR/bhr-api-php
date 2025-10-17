@@ -188,7 +188,6 @@ class TabularDataApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -286,18 +285,12 @@ class TabularDataApi {
 			methodName: 'addEmployeeTableRow'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -315,7 +308,6 @@ class TabularDataApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -411,7 +403,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -510,18 +501,12 @@ class TabularDataApi {
 			methodName: 'addEmployeeTableRowV1'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -539,7 +524,6 @@ class TabularDataApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -637,7 +621,6 @@ class TabularDataApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -646,8 +629,6 @@ class TabularDataApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -761,18 +742,12 @@ class TabularDataApi {
 			methodName: 'deleteEmployeeTableRowV1'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -799,13 +774,11 @@ class TabularDataApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -883,7 +856,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -978,9 +950,6 @@ class TabularDataApi {
 			methodName: 'getChangedEmployeeTableData'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/changed/tables/{table}';
 		
 		$queryParams = [];
@@ -1004,7 +973,6 @@ class TabularDataApi {
 			}
 		}
 
-
 		// path params
 		if ($table !== null) {
 			$resourcePath = str_replace(
@@ -1014,13 +982,11 @@ class TabularDataApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1098,7 +1064,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1193,17 +1158,12 @@ class TabularDataApi {
 			methodName: 'getEmployeeTableRow'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1222,13 +1182,11 @@ class TabularDataApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1310,7 +1268,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1413,19 +1370,12 @@ class TabularDataApi {
 			methodName: 'updateEmployeeTableRow'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1451,7 +1401,6 @@ class TabularDataApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -1549,7 +1498,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1652,19 +1600,12 @@ class TabularDataApi {
 			methodName: 'updateEmployeeTableRowV'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1690,7 +1631,6 @@ class TabularDataApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],

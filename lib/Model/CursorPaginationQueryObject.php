@@ -228,7 +228,6 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -285,7 +284,6 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets before
@@ -444,5 +442,4 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

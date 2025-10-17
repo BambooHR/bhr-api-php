@@ -222,7 +222,6 @@ class PostApplicationCommentRequest implements ModelInterface, ArrayAccess, \Jso
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -284,7 +283,6 @@ class PostApplicationCommentRequest implements ModelInterface, ArrayAccess, \Jso
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets type
@@ -418,5 +416,4 @@ class PostApplicationCommentRequest implements ModelInterface, ArrayAccess, \Jso
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

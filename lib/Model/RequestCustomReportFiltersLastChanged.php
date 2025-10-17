@@ -222,7 +222,6 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -278,7 +277,6 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets include_null
@@ -412,5 +410,4 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

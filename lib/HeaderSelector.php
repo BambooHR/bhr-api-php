@@ -118,7 +118,6 @@ class HeaderSelector {
 		return $jsonMimeList;
 	}
 
-
 	/**
 	* Create an Accept header string from the given "Accept" headers array, recalculating all weights
 	*

@@ -282,7 +282,6 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -348,7 +347,6 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -781,5 +779,4 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

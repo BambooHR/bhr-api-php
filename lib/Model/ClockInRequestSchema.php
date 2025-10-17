@@ -247,7 +247,6 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -311,7 +310,6 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets project_id
@@ -592,5 +590,4 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

@@ -270,7 +270,6 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -334,7 +333,6 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -668,5 +666,4 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

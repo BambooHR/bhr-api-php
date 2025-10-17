@@ -222,7 +222,6 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -278,7 +277,6 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -412,5 +410,4 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

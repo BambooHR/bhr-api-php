@@ -40,118 +40,106 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AccountInformationApiTest extends TestCase
-{
+class AccountInformationApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for getCountriesOptions
-     *
-     * Get all countries.
-     *
-     */
-    public function testGetCountriesOptions()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getCountriesOptions
+	 *
+	 * Get all countries.
+	 *
+	 */
+	public function testGetCountriesOptions() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getListOfUsers
-     *
-     * Get a List of Users.
-     *
-     */
-    public function testGetListOfUsers()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getListOfUsers
+	 *
+	 * Get a List of Users.
+	 *
+	 */
+	public function testGetListOfUsers() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getStatesByCountryId
-     *
-     * Get states by country ID.
-     *
-     */
-    public function testGetStatesByCountryId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getStatesByCountryId
+	 *
+	 * Get states by country ID.
+	 *
+	 */
+	public function testGetStatesByCountryId() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for metadataAddOrUpdateValuesForListFields
-     *
-     * Add or Update Values for List Fields.
-     *
-     */
-    public function testMetadataAddOrUpdateValuesForListFields()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for metadataAddOrUpdateValuesForListFields
+	 *
+	 * Add or Update Values for List Fields.
+	 *
+	 */
+	public function testMetadataAddOrUpdateValuesForListFields() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for metadataGetAListOfFields
-     *
-     * Get a list of fields.
-     *
-     */
-    public function testMetadataGetAListOfFields()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for metadataGetAListOfFields
+	 *
+	 * Get a list of fields.
+	 *
+	 */
+	public function testMetadataGetAListOfFields() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for metadataGetAListOfTabularFields
-     *
-     * Get a list of tabular fields.
-     *
-     */
-    public function testMetadataGetAListOfTabularFields()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for metadataGetAListOfTabularFields
+	 *
+	 * Get a list of tabular fields.
+	 *
+	 */
+	public function testMetadataGetAListOfTabularFields() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for metadataGetDetailsForListFields
-     *
-     * Get details for list fields.
-     *
-     */
-    public function testMetadataGetDetailsForListFields()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for metadataGetDetailsForListFields
+	 *
+	 * Get details for list fields.
+	 *
+	 */
+	public function testMetadataGetDetailsForListFields() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

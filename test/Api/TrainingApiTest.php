@@ -40,178 +40,161 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TrainingApiTest extends TestCase
-{
+class TrainingApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addNewEmployeeTrainingRecord
-     *
-     * Add New Employee Training Record.
-     *
-     */
-    public function testAddNewEmployeeTrainingRecord()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addNewEmployeeTrainingRecord
+	 *
+	 * Add New Employee Training Record.
+	 *
+	 */
+	public function testAddNewEmployeeTrainingRecord() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addTrainingCategory
-     *
-     * Add Training Category.
-     *
-     */
-    public function testAddTrainingCategory()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addTrainingCategory
+	 *
+	 * Add Training Category.
+	 *
+	 */
+	public function testAddTrainingCategory() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addTrainingType
-     *
-     * Add Training Type.
-     *
-     */
-    public function testAddTrainingType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addTrainingType
+	 *
+	 * Add Training Type.
+	 *
+	 */
+	public function testAddTrainingType() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteEmployeeTrainingRecord
-     *
-     * Delete Employee Training Record.
-     *
-     */
-    public function testDeleteEmployeeTrainingRecord()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteEmployeeTrainingRecord
+	 *
+	 * Delete Employee Training Record.
+	 *
+	 */
+	public function testDeleteEmployeeTrainingRecord() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteTrainingCategory
-     *
-     * Delete Training Category.
-     *
-     */
-    public function testDeleteTrainingCategory()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteTrainingCategory
+	 *
+	 * Delete Training Category.
+	 *
+	 */
+	public function testDeleteTrainingCategory() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteTrainingType
-     *
-     * Delete Training Type.
-     *
-     */
-    public function testDeleteTrainingType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteTrainingType
+	 *
+	 * Delete Training Type.
+	 *
+	 */
+	public function testDeleteTrainingType() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for listEmployeeTrainings
-     *
-     * List Employee Trainings.
-     *
-     */
-    public function testListEmployeeTrainings()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for listEmployeeTrainings
+	 *
+	 * List Employee Trainings.
+	 *
+	 */
+	public function testListEmployeeTrainings() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for listTrainingCategories
-     *
-     * List Training Categories.
-     *
-     */
-    public function testListTrainingCategories()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for listTrainingCategories
+	 *
+	 * List Training Categories.
+	 *
+	 */
+	public function testListTrainingCategories() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for listTrainingTypes
-     *
-     * List Training Types.
-     *
-     */
-    public function testListTrainingTypes()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for listTrainingTypes
+	 *
+	 * List Training Types.
+	 *
+	 */
+	public function testListTrainingTypes() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateEmployeeTrainingRecord
-     *
-     * Update Employee Training Record.
-     *
-     */
-    public function testUpdateEmployeeTrainingRecord()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateEmployeeTrainingRecord
+	 *
+	 * Update Employee Training Record.
+	 *
+	 */
+	public function testUpdateEmployeeTrainingRecord() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateTrainingCategory
-     *
-     * Update Training Category.
-     *
-     */
-    public function testUpdateTrainingCategory()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateTrainingCategory
+	 *
+	 * Update Training Category.
+	 *
+	 */
+	public function testUpdateTrainingCategory() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateTrainingType
-     *
-     * Update Training Type.
-     *
-     */
-    public function testUpdateTrainingType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateTrainingType
+	 *
+	 * Update Training Type.
+	 *
+	 */
+	public function testUpdateTrainingType() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

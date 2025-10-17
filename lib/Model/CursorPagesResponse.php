@@ -229,7 +229,6 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -295,7 +294,6 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets limit
@@ -475,5 +473,4 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

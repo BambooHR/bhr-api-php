@@ -240,7 +240,6 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -299,7 +298,6 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets error
@@ -508,5 +506,4 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

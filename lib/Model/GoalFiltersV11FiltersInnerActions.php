@@ -241,7 +241,6 @@ class GoalFiltersV11FiltersInnerActions implements ModelInterface, ArrayAccess, 
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -300,7 +299,6 @@ class GoalFiltersV11FiltersInnerActions implements ModelInterface, ArrayAccess, 
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets can_close_goal
@@ -509,5 +507,4 @@ class GoalFiltersV11FiltersInnerActions implements ModelInterface, ArrayAccess, 
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

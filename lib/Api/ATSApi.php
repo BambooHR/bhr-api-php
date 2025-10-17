@@ -167,7 +167,6 @@ class ATSApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -176,8 +175,6 @@ class ATSApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -283,16 +280,12 @@ class ATSApi {
 			methodName: 'getApplicationDetails'
 		);
 
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($application_id !== null) {
@@ -303,13 +296,11 @@ class ATSApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

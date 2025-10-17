@@ -240,7 +240,6 @@ class GetGoalsAggregateV1200ResponsePersonsInner implements ModelInterface, Arra
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -299,7 +298,6 @@ class GetGoalsAggregateV1200ResponsePersonsInner implements ModelInterface, Arra
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets employee_id
@@ -518,5 +516,4 @@ class GetGoalsAggregateV1200ResponsePersonsInner implements ModelInterface, Arra
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

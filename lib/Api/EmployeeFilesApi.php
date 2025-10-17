@@ -181,7 +181,6 @@ class EmployeeFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -271,18 +270,12 @@ class EmployeeFilesApi {
 			methodName: 'addEmployeeFileCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/files/categories';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -377,7 +370,6 @@ class EmployeeFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -471,17 +463,12 @@ class EmployeeFilesApi {
 			methodName: 'deleteEmployeeFile'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -500,13 +487,11 @@ class EmployeeFilesApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -584,7 +569,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -679,17 +663,12 @@ class EmployeeFilesApi {
 			methodName: 'getEmployeeFile'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -708,13 +687,11 @@ class EmployeeFilesApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -790,7 +767,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -881,16 +857,12 @@ class EmployeeFilesApi {
 			methodName: 'listEmployeeFiles'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/view';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -901,13 +873,11 @@ class EmployeeFilesApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -987,7 +957,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1086,18 +1055,12 @@ class EmployeeFilesApi {
 			methodName: 'updateEmployeeFile'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1115,7 +1078,6 @@ class EmployeeFilesApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1208,7 +1170,6 @@ class EmployeeFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1298,16 +1259,12 @@ class EmployeeFilesApi {
 			methodName: 'uploadEmployeeFile'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{id}/files';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($id !== null) {
@@ -1318,13 +1275,11 @@ class EmployeeFilesApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

@@ -181,7 +181,6 @@ class CompanyFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -271,18 +270,12 @@ class CompanyFilesApi {
 			methodName: 'addCompanyFileCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/files/categories';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -375,7 +368,6 @@ class CompanyFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -465,16 +457,12 @@ class CompanyFilesApi {
 			methodName: 'deleteCompanyFile'
 		);
 
-
-
 		$resourcePath = '/api/v1/files/{fileId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($file_id !== null) {
@@ -485,13 +473,11 @@ class CompanyFilesApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -567,7 +553,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -658,16 +643,12 @@ class CompanyFilesApi {
 			methodName: 'getCompanyFile'
 		);
 
-
-
 		$resourcePath = '/api/v1/files/{fileId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($file_id !== null) {
@@ -678,13 +659,11 @@ class CompanyFilesApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -758,7 +737,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -839,7 +817,6 @@ class CompanyFilesApi {
 	 */
 	public function listCompanyFilesRequest(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
 
-
 		$resourcePath = '/api/v1/files/view';
 		
 		$queryParams = [];
@@ -847,16 +824,11 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -934,7 +906,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1029,17 +1000,12 @@ class CompanyFilesApi {
 			methodName: 'updateCompanyFile'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/files/{fileId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($file_id !== null) {
@@ -1049,7 +1015,6 @@ class CompanyFilesApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1140,7 +1105,6 @@ class CompanyFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1220,7 +1184,6 @@ class CompanyFilesApi {
 	 */
 	public function uploadCompanyFileRequest(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
 
-
 		$resourcePath = '/api/v1/files';
 		
 		$queryParams = [];
@@ -1228,16 +1191,11 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

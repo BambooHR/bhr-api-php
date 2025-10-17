@@ -222,7 +222,6 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion implement
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -278,7 +277,6 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion implement
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -412,5 +410,4 @@ class GetApplicationDetails200ResponseQuestionsAndAnswersInnerQuestion implement
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

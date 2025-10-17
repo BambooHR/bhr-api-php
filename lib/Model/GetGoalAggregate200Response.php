@@ -246,7 +246,6 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -306,7 +305,6 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets goal
@@ -540,5 +538,4 @@ class GetGoalAggregate200Response implements ModelInterface, ArrayAccess, \JsonS
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

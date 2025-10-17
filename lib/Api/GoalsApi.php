@@ -237,7 +237,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -331,17 +330,12 @@ class GoalsApi {
 			methodName: 'deleteGoal'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -360,13 +354,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -446,7 +438,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -545,18 +536,12 @@ class GoalsApi {
 			methodName: 'deleteGoalComment'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -583,13 +568,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -665,7 +648,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -756,16 +738,12 @@ class GoalsApi {
 			methodName: 'getCanCreateGoal'
 		);
 
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -776,13 +754,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -862,7 +838,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -871,8 +846,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -982,17 +955,12 @@ class GoalsApi {
 			methodName: 'getGoalAggregate'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1011,13 +979,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1095,7 +1061,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1190,17 +1155,12 @@ class GoalsApi {
 			methodName: 'getGoalComments'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1219,13 +1179,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1305,7 +1263,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1314,8 +1271,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1424,9 +1379,6 @@ class GoalsApi {
 			methodName: 'getGoals'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
 		
 		$queryParams = [];
@@ -1450,7 +1402,6 @@ class GoalsApi {
 			}
 		}
 
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
@@ -1460,13 +1411,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1546,7 +1495,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1555,8 +1503,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1665,16 +1611,12 @@ class GoalsApi {
 			methodName: 'getGoalsAggregateV1'
 		);
 
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1685,13 +1627,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1771,7 +1711,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1780,8 +1719,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1890,16 +1827,12 @@ class GoalsApi {
 			methodName: 'getGoalsAggregateV11'
 		);
 
-
-
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1910,13 +1843,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1994,7 +1925,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2003,8 +1933,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2110,16 +2038,12 @@ class GoalsApi {
 			methodName: 'getGoalsAggregateV12'
 		);
 
-
-
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -2130,13 +2054,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2214,7 +2136,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2308,17 +2229,12 @@ class GoalsApi {
 			methodName: 'getGoalsAlignmentOptions'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/alignmentOptions';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -2328,7 +2244,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -2424,7 +2339,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2433,8 +2347,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2543,16 +2455,12 @@ class GoalsApi {
 			methodName: 'getGoalsFiltersV1'
 		);
 
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -2563,13 +2471,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2649,7 +2555,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2658,8 +2563,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2768,16 +2671,12 @@ class GoalsApi {
 			methodName: 'getGoalsFiltersV11'
 		);
 
-
-
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -2788,13 +2687,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2872,7 +2769,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2881,8 +2777,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2988,16 +2882,12 @@ class GoalsApi {
 			methodName: 'getGoalsFiltersV12'
 		);
 
-
-
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -3008,13 +2898,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -3094,7 +2982,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -3191,10 +3078,6 @@ class GoalsApi {
 			methodName: 'getGoalsShareOptions'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/shareOptions';
 		
 		$queryParams = [];
@@ -3219,7 +3102,6 @@ class GoalsApi {
 			}
 		}
 
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
@@ -3229,13 +3111,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -3317,7 +3197,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -3326,8 +3205,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -3440,18 +3317,12 @@ class GoalsApi {
 			methodName: 'postCloseGoal'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/close';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -3469,7 +3340,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -3565,7 +3435,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -3574,8 +3443,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -3685,17 +3552,12 @@ class GoalsApi {
 			methodName: 'postGoal'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -3705,7 +3567,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -3801,7 +3662,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -3900,18 +3760,12 @@ class GoalsApi {
 			methodName: 'postGoalComment'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -3929,7 +3783,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -4025,7 +3878,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -4034,8 +3886,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -4145,17 +3995,12 @@ class GoalsApi {
 			methodName: 'postReopenGoal'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -4174,13 +4019,11 @@ class GoalsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -4262,7 +4105,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -4365,19 +4207,12 @@ class GoalsApi {
 			methodName: 'putGoalComment'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -4403,7 +4238,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -4503,7 +4337,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -4512,8 +4345,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -4631,19 +4462,12 @@ class GoalsApi {
 			methodName: 'putGoalMilestoneProgress'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -4669,7 +4493,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -4767,7 +4590,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -4776,8 +4598,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -4891,18 +4711,12 @@ class GoalsApi {
 			methodName: 'putGoalProgress'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -4920,7 +4734,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -5018,7 +4831,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -5027,8 +4839,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -5142,18 +4952,12 @@ class GoalsApi {
 			methodName: 'putGoalSharedWith'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -5171,7 +4975,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -5271,7 +5074,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -5280,8 +5082,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -5398,18 +5198,12 @@ class GoalsApi {
 			methodName: 'putGoalV1'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -5427,7 +5221,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -5525,7 +5318,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -5534,8 +5326,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -5649,18 +5439,12 @@ class GoalsApi {
 			methodName: 'putGoalV11'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -5678,7 +5462,6 @@ class GoalsApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],

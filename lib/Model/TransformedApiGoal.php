@@ -216,7 +216,6 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets goal
@@ -380,5 +378,4 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

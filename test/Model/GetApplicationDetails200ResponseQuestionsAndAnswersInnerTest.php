@@ -39,61 +39,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetApplicationDetails200ResponseQuestionsAndAnswersInnerTest extends TestCase
-{
+class GetApplicationDetails200ResponseQuestionsAndAnswersInnerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "GetApplicationDetails200ResponseQuestionsAndAnswersInner"
-     */
-    public function testGetApplicationDetails200ResponseQuestionsAndAnswersInner()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "GetApplicationDetails200ResponseQuestionsAndAnswersInner"
+	 */
+	public function testGetApplicationDetails200ResponseQuestionsAndAnswersInner() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "question"
-     */
-    public function testPropertyQuestion()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "question"
+	 */
+	public function testPropertyQuestion() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "answer"
-     */
-    public function testPropertyAnswer()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "answer"
+	 */
+	public function testPropertyAnswer() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

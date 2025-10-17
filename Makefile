@@ -36,6 +36,7 @@ generate:
 		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
 		&& sed -i '' '/\*PublicAPIApi\*/d' README.md \
 		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
+		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh
 	@echo "SDK generation complete!"
 

@@ -228,7 +228,6 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -285,7 +284,6 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets pagination_complete
@@ -451,5 +449,4 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

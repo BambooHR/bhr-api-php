@@ -223,7 +223,6 @@ class ProjectInfoApiTransformerTask implements ModelInterface, ArrayAccess, \Jso
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -279,7 +278,6 @@ class ProjectInfoApiTransformerTask implements ModelInterface, ArrayAccess, \Jso
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -413,5 +411,4 @@ class ProjectInfoApiTransformerTask implements ModelInterface, ArrayAccess, \Jso
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

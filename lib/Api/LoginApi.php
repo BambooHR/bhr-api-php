@@ -174,7 +174,6 @@ class LoginApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -269,11 +268,6 @@ class LoginApi {
 	 */
 	public function loginRequest($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
 
-
-
-
-
-
 		$resourcePath = '/api/v1/login';
 		$formParams = [];
 		$queryParams = [];
@@ -281,12 +275,10 @@ class LoginApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
 
 		// form params
 		$formDataProcessor = new FormDataProcessor();

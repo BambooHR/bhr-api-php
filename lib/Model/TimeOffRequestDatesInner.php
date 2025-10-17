@@ -222,7 +222,6 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -278,7 +277,6 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets ymd
@@ -412,5 +410,4 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

@@ -223,7 +223,6 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -282,7 +281,6 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets fields
@@ -416,5 +414,4 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

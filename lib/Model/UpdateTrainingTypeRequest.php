@@ -264,7 +264,6 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -333,7 +332,6 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets name
@@ -642,5 +640,4 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

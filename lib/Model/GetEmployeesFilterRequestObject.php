@@ -324,7 +324,6 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets first_name
 	 *
@@ -542,5 +541,4 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

@@ -234,7 +234,6 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -301,7 +300,6 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets date
@@ -485,5 +483,4 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

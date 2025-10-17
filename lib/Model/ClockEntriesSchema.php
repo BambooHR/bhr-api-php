@@ -217,7 +217,6 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -280,7 +279,6 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets entries
 	 *
@@ -301,7 +299,6 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		if (is_null($entries)) {
 			throw new \InvalidArgumentException('non-nullable entries cannot be null');
 		}
-
 
 		if ((count($entries) < 1)) {
 			throw new \InvalidArgumentException('invalid length for $entries when calling ClockEntriesSchema., number of items must be greater than or equal to 1.');
@@ -393,5 +390,4 @@ class ClockEntriesSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

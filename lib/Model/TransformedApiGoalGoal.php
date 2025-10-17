@@ -368,7 +368,6 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets id
 	 *
@@ -757,5 +756,4 @@ class TransformedApiGoalGoal implements ModelInterface, ArrayAccess, \JsonSerial
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

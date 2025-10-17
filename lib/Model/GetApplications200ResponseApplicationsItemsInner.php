@@ -246,7 +246,6 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -306,7 +305,6 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -547,5 +545,4 @@ class GetApplications200ResponseApplicationsItemsInner implements ModelInterface
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

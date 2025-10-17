@@ -40,106 +40,95 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class EmployeesApiTest extends TestCase
-{
+class EmployeesApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addEmployee
-     *
-     * Add Employee.
-     *
-     */
-    public function testAddEmployee()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addEmployee
+	 *
+	 * Add Employee.
+	 *
+	 */
+	public function testAddEmployee() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getCompanyInformation
-     *
-     * Get Company Information.
-     *
-     */
-    public function testGetCompanyInformation()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getCompanyInformation
+	 *
+	 * Get Company Information.
+	 *
+	 */
+	public function testGetCompanyInformation() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getEmployee
-     *
-     * Get Employee.
-     *
-     */
-    public function testGetEmployee()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getEmployee
+	 *
+	 * Get Employee.
+	 *
+	 */
+	public function testGetEmployee() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getEmployeesDirectory
-     *
-     * Get Employee Directory.
-     *
-     */
-    public function testGetEmployeesDirectory()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getEmployeesDirectory
+	 *
+	 * Get Employee Directory.
+	 *
+	 */
+	public function testGetEmployeesDirectory() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getEmployeesList
-     *
-     * Get Employees.
-     *
-     */
-    public function testGetEmployeesList()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getEmployeesList
+	 *
+	 * Get Employees.
+	 *
+	 */
+	public function testGetEmployeesList() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateEmployee
-     *
-     * Update Employee.
-     *
-     */
-    public function testUpdateEmployee()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateEmployee
+	 *
+	 * Update Employee.
+	 *
+	 */
+	public function testUpdateEmployee() {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

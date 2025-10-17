@@ -206,7 +206,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -295,10 +294,6 @@ class TimeOffApi {
 	 */
 	public function getAListOfWhoIsOutRequest($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
 
-
-
-
-
 		$resourcePath = '/api/v1/time_off/whos_out';
 		
 		$queryParams = [];
@@ -328,14 +323,11 @@ class TimeOffApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -411,7 +403,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -495,8 +486,6 @@ class TimeOffApi {
 	 */
 	public function getTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
 
-
-
 		$resourcePath = '/api/v1/meta/time_off/policies';
 		
 		$queryParams = [];
@@ -504,20 +493,16 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -595,7 +580,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -682,9 +666,6 @@ class TimeOffApi {
 	 */
 	public function getTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 
-
-
-
 		$resourcePath = '/api/v1/meta/time_off/types';
 		
 		$queryParams = [];
@@ -713,14 +694,11 @@ class TimeOffApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -798,7 +776,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -893,17 +870,12 @@ class TimeOffApi {
 			methodName: 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -913,7 +885,6 @@ class TimeOffApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1008,7 +979,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1102,17 +1072,12 @@ class TimeOffApi {
 			methodName: 'timeOffAddATimeOffRequest'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1122,7 +1087,6 @@ class TimeOffApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1217,7 +1181,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1311,17 +1274,12 @@ class TimeOffApi {
 			methodName: 'timeOffAdjustTimeOffBalance'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1331,7 +1289,6 @@ class TimeOffApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1426,7 +1383,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1520,17 +1476,12 @@ class TimeOffApi {
 			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployee'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1540,7 +1491,6 @@ class TimeOffApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1635,7 +1585,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1729,17 +1678,12 @@ class TimeOffApi {
 			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
 		);
 
-
-
-
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -1749,7 +1693,6 @@ class TimeOffApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1844,7 +1787,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -1938,17 +1880,12 @@ class TimeOffApi {
 			methodName: 'timeOffChangeARequestStatus'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/time_off/requests/{requestId}/status';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($request_id !== null) {
@@ -1958,7 +1895,6 @@ class TimeOffApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -2054,7 +1990,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2152,10 +2087,6 @@ class TimeOffApi {
 			methodName: 'timeOffEstimateFutureTimeOffBalances'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
 		
 		$queryParams = [];
@@ -2193,13 +2124,11 @@ class TimeOffApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2289,7 +2218,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2402,15 +2330,6 @@ class TimeOffApi {
 			methodName: 'timeOffGetTimeOffRequests'
 		);
 
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/time_off/requests';
 		
 		$queryParams = [];
@@ -2445,14 +2364,11 @@ class TimeOffApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2528,7 +2444,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2619,16 +2534,12 @@ class TimeOffApi {
 			methodName: 'timeOffListTimeOffPoliciesForEmployee'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -2639,13 +2550,11 @@ class TimeOffApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2721,7 +2630,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2812,16 +2720,12 @@ class TimeOffApi {
 			methodName: 'timeOffListTimeOffPoliciesForEmployeeV11'
 		);
 
-
-
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -2832,13 +2736,11 @@ class TimeOffApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		

@@ -229,7 +229,6 @@ class ClockOutRequestSchema implements ModelInterface, ArrayAccess, \JsonSeriali
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -290,7 +289,6 @@ class ClockOutRequestSchema implements ModelInterface, ArrayAccess, \JsonSeriali
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets date
@@ -454,5 +452,4 @@ class ClockOutRequestSchema implements ModelInterface, ArrayAccess, \JsonSeriali
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

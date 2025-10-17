@@ -217,7 +217,6 @@ class HourEntryIdsSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -280,7 +279,6 @@ class HourEntryIdsSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets hour_entry_ids
 	 *
@@ -301,7 +299,6 @@ class HourEntryIdsSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		if (is_null($hour_entry_ids)) {
 			throw new \InvalidArgumentException('non-nullable hour_entry_ids cannot be null');
 		}
-
 
 		if ((count($hour_entry_ids) < 1)) {
 			throw new \InvalidArgumentException('invalid length for $hour_entry_ids when calling HourEntryIdsSchema., number of items must be greater than or equal to 1.');
@@ -393,5 +390,4 @@ class HourEntryIdsSchema implements ModelInterface, ArrayAccess, \JsonSerializab
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

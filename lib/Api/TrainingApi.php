@@ -202,7 +202,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -211,8 +210,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -322,17 +319,12 @@ class TrainingApi {
 			methodName: 'addNewEmployeeTrainingRecord'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_id !== null) {
@@ -342,7 +334,6 @@ class TrainingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -436,7 +427,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -445,8 +435,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -552,18 +540,12 @@ class TrainingApi {
 			methodName: 'addTrainingCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/category';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -657,7 +639,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -666,8 +647,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -773,18 +752,12 @@ class TrainingApi {
 			methodName: 'addTrainingType'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/type';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -877,7 +850,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -967,16 +939,12 @@ class TrainingApi {
 			methodName: 'deleteEmployeeTrainingRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_training_record_id !== null) {
@@ -987,13 +955,11 @@ class TrainingApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1069,7 +1035,6 @@ class TrainingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1160,16 +1125,12 @@ class TrainingApi {
 			methodName: 'deleteTrainingCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($training_category_id !== null) {
@@ -1180,13 +1141,11 @@ class TrainingApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1262,7 +1221,6 @@ class TrainingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1353,16 +1311,12 @@ class TrainingApi {
 			methodName: 'deleteTrainingType'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($training_type_id !== null) {
@@ -1373,13 +1327,11 @@ class TrainingApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1459,7 +1411,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1468,8 +1419,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1578,9 +1527,6 @@ class TrainingApi {
 			methodName: 'listEmployeeTrainings'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
 		
 		$queryParams = [];
@@ -1604,7 +1550,6 @@ class TrainingApi {
 			}
 		}
 
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
@@ -1614,13 +1559,11 @@ class TrainingApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1696,7 +1639,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1705,8 +1647,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1802,7 +1742,6 @@ class TrainingApi {
 	 */
 	public function listTrainingCategoriesRequest(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 
-
 		$resourcePath = '/api/v1/training/category';
 		
 		$queryParams = [];
@@ -1810,16 +1749,11 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1895,7 +1829,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1904,8 +1837,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2001,7 +1932,6 @@ class TrainingApi {
 	 */
 	public function listTrainingTypesRequest(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 
-
 		$resourcePath = '/api/v1/training/type';
 		
 		$queryParams = [];
@@ -2009,16 +1939,11 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2098,7 +2023,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2107,8 +2031,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2218,17 +2140,12 @@ class TrainingApi {
 			methodName: 'updateEmployeeTrainingRecord'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($employee_training_record_id !== null) {
@@ -2238,7 +2155,6 @@ class TrainingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -2334,7 +2250,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2343,8 +2258,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2454,17 +2367,12 @@ class TrainingApi {
 			methodName: 'updateTrainingCategory'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($training_category_id !== null) {
@@ -2474,7 +2382,6 @@ class TrainingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -2570,7 +2477,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2579,8 +2485,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2690,17 +2594,12 @@ class TrainingApi {
 			methodName: 'updateTrainingType'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
 
 		// path params
 		if ($training_type_id !== null) {
@@ -2710,7 +2609,6 @@ class TrainingApi {
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],

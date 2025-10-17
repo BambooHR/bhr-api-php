@@ -312,7 +312,6 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -383,7 +382,6 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets employee_id
@@ -892,5 +890,4 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

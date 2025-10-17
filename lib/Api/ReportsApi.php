@@ -177,7 +177,6 @@ class ReportsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -280,12 +279,6 @@ class ReportsApi {
 			methodName: 'getCompanyReport'
 		);
 
-
-
-
-
-
-
 		$resourcePath = '/api/v1/reports/{id}';
 		
 		$queryParams = [];
@@ -325,13 +318,11 @@ class ReportsApi {
 			);
 		}
 
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -411,7 +402,6 @@ class ReportsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -509,10 +499,6 @@ class ReportsApi {
 			methodName: 'requestCustomReport'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/reports/custom';
 		
 		$queryParams = [];
@@ -536,9 +522,6 @@ class ReportsApi {
 				$queryParams = array_merge($queryParams, $value);
 			}
 		}
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],

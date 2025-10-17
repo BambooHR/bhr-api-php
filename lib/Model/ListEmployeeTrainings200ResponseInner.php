@@ -216,7 +216,6 @@ class ListEmployeeTrainings200ResponseInner implements ModelInterface, ArrayAcce
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class ListEmployeeTrainings200ResponseInner implements ModelInterface, ArrayAcce
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets training_id
@@ -380,5 +378,4 @@ class ListEmployeeTrainings200ResponseInner implements ModelInterface, ArrayAcce
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

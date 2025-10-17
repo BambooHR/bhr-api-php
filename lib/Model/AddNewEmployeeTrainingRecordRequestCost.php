@@ -222,7 +222,6 @@ class AddNewEmployeeTrainingRecordRequestCost implements ModelInterface, ArrayAc
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -278,7 +277,6 @@ class AddNewEmployeeTrainingRecordRequestCost implements ModelInterface, ArrayAc
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets currency
@@ -412,5 +410,4 @@ class AddNewEmployeeTrainingRecordRequestCost implements ModelInterface, ArrayAc
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

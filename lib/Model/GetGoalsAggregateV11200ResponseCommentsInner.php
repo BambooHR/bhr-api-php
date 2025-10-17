@@ -222,7 +222,6 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -278,7 +277,6 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets goal_id
@@ -416,5 +414,4 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

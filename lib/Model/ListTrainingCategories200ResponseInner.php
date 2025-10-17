@@ -216,7 +216,6 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -271,7 +270,6 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets category_id
@@ -380,5 +378,4 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 

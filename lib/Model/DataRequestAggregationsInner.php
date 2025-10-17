@@ -308,7 +308,6 @@ class DataRequestAggregationsInner implements ModelInterface, ArrayAccess, \Json
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets field
 	 *
@@ -451,5 +450,4 @@ class DataRequestAggregationsInner implements ModelInterface, ArrayAccess, \Json
 		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
 	}
 }
-
 
