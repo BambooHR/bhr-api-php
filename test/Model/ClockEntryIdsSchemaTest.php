@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ClockEntryIdsSchemaTest
  *
@@ -68,7 +69,7 @@ class ClockEntryIdsSchemaTest extends TestCase {
 	/**
 	 * Test "ClockEntryIdsSchema"
 	 */
-	public function testClockEntryIdsSchema() {
+	public function testClockEntryIdsSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ClockEntryIdsSchemaTest extends TestCase {
 	/**
 	 * Test attribute "clock_entry_ids"
 	 */
-	public function testPropertyClockEntryIds() {
+	public function testPropertyClockEntryIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

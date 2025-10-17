@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TransformedApiGoalTest
  *
@@ -68,7 +69,7 @@ class TransformedApiGoalTest extends TestCase {
 	/**
 	 * Test "TransformedApiGoal"
 	 */
-	public function testTransformedApiGoal() {
+	public function testTransformedApiGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TransformedApiGoalTest extends TestCase {
 	/**
 	 * Test attribute "goal"
 	 */
-	public function testPropertyGoal() {
+	public function testPropertyGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

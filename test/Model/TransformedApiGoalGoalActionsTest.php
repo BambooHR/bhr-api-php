@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TransformedApiGoalGoalActionsTest
  *
@@ -68,7 +69,7 @@ class TransformedApiGoalGoalActionsTest extends TestCase {
 	/**
 	 * Test "TransformedApiGoalGoalActions"
 	 */
-	public function testTransformedApiGoalGoalActions() {
+	public function testTransformedApiGoalGoalActions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TransformedApiGoalGoalActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_edit_goal_progress_bar"
 	 */
-	public function testPropertyCanEditGoalProgressBar() {
+	public function testPropertyCanEditGoalProgressBar(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TransformedApiGoalGoalActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_edit_goal_milestone_progress_bar"
 	 */
-	public function testPropertyCanEditGoalMilestoneProgressBar() {
+	public function testPropertyCanEditGoalMilestoneProgressBar(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

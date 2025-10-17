@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetEmployeesResponseObjectLinksTest
  *
@@ -68,7 +69,7 @@ class GetEmployeesResponseObjectLinksTest extends TestCase {
 	/**
 	 * Test "GetEmployeesResponseObjectLinks"
 	 */
-	public function testGetEmployeesResponseObjectLinks() {
+	public function testGetEmployeesResponseObjectLinks(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetEmployeesResponseObjectLinksTest extends TestCase {
 	/**
 	 * Test attribute "self"
 	 */
-	public function testPropertySelf() {
+	public function testPropertySelf(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetEmployeesResponseObjectLinksTest extends TestCase {
 	/**
 	 * Test attribute "next"
 	 */
-	public function testPropertyNext() {
+	public function testPropertyNext(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetEmployeesResponseObjectLinksTest extends TestCase {
 	/**
 	 * Test attribute "prev"
 	 */
-	public function testPropertyPrev() {
+	public function testPropertyPrev(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

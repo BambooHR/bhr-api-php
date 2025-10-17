@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetCompanyInformation200ResponseAddressTest
  *
@@ -68,7 +69,7 @@ class GetCompanyInformation200ResponseAddressTest extends TestCase {
 	/**
 	 * Test "GetCompanyInformation200ResponseAddress"
 	 */
-	public function testGetCompanyInformation200ResponseAddress() {
+	public function testGetCompanyInformation200ResponseAddress(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetCompanyInformation200ResponseAddressTest extends TestCase {
 	/**
 	 * Test attribute "line1"
 	 */
-	public function testPropertyLine1() {
+	public function testPropertyLine1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetCompanyInformation200ResponseAddressTest extends TestCase {
 	/**
 	 * Test attribute "line2"
 	 */
-	public function testPropertyLine2() {
+	public function testPropertyLine2(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetCompanyInformation200ResponseAddressTest extends TestCase {
 	/**
 	 * Test attribute "city"
 	 */
-	public function testPropertyCity() {
+	public function testPropertyCity(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetCompanyInformation200ResponseAddressTest extends TestCase {
 	/**
 	 * Test attribute "state"
 	 */
-	public function testPropertyState() {
+	public function testPropertyState(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetCompanyInformation200ResponseAddressTest extends TestCase {
 	/**
 	 * Test attribute "zip"
 	 */
-	public function testPropertyZip() {
+	public function testPropertyZip(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

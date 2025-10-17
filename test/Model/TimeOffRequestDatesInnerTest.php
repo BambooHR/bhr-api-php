@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffRequestDatesInnerTest
  *
@@ -68,7 +69,7 @@ class TimeOffRequestDatesInnerTest extends TestCase {
 	/**
 	 * Test "TimeOffRequestDatesInner"
 	 */
-	public function testTimeOffRequestDatesInner() {
+	public function testTimeOffRequestDatesInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeOffRequestDatesInnerTest extends TestCase {
 	/**
 	 * Test attribute "ymd"
 	 */
-	public function testPropertyYmd() {
+	public function testPropertyYmd(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeOffRequestDatesInnerTest extends TestCase {
 	/**
 	 * Test attribute "amount"
 	 */
-	public function testPropertyAmount() {
+	public function testPropertyAmount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

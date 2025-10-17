@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Add/Edit Timesheet Clock Entries.
 	 *
 	 */
-	public function testAddEditTimesheetClockEntries() {
+	public function testAddEditTimesheetClockEntries(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Add/Edit Timesheet Hour Entries.
 	 *
 	 */
-	public function testAddEditTimesheetHourEntries() {
+	public function testAddEditTimesheetHourEntries(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Add Timesheet Clock-In Entry.
 	 *
 	 */
-	public function testAddTimesheetClockInEntry() {
+	public function testAddTimesheetClockInEntry(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Add Timesheet Clock-Out Entry.
 	 *
 	 */
-	public function testAddTimesheetClockOutEntry() {
+	public function testAddTimesheetClockOutEntry(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Create Time Tracking Project.
 	 *
 	 */
-	public function testCreateTimeTrackingProject() {
+	public function testCreateTimeTrackingProject(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Delete Timesheet Clock Entries.
 	 *
 	 */
-	public function testDeleteTimesheetClockEntriesViaPost() {
+	public function testDeleteTimesheetClockEntriesViaPost(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Delete Timesheet Hour Entries.
 	 *
 	 */
-	public function testDeleteTimesheetHourEntriesViaPost() {
+	public function testDeleteTimesheetHourEntriesViaPost(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -149,7 +150,7 @@ class TimeTrackingApiTest extends TestCase {
 	 * Get Timesheet Entries.
 	 *
 	 */
-	public function testGetTimesheetEntries() {
+	public function testGetTimesheetEntries(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

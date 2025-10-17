@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CursorPagedResponseMetadataTest
  *
@@ -68,7 +69,7 @@ class CursorPagedResponseMetadataTest extends TestCase {
 	/**
 	 * Test "CursorPagedResponseMetadata"
 	 */
-	public function testCursorPagedResponseMetadata() {
+	public function testCursorPagedResponseMetadata(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class CursorPagedResponseMetadataTest extends TestCase {
 	/**
 	 * Test attribute "total"
 	 */
-	public function testPropertyTotal() {
+	public function testPropertyTotal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class CursorPagedResponseMetadataTest extends TestCase {
 	/**
 	 * Test attribute "page"
 	 */
-	public function testPropertyPage() {
+	public function testPropertyPage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

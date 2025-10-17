@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffRequest
  *
@@ -490,7 +491,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -501,7 +502,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -513,7 +514,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -529,7 +530,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

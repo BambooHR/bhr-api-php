@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * HeaderSelector
  * PHP version 8.1
@@ -175,7 +176,7 @@ class HeaderSelector {
 		if (preg_match('/(.*);\s*q=(1(?:\.0+)?|0\.\d+)$/', $header, $outputArray) === 1) {
 			$headerData = [
 				'header' => $outputArray[1],
-				'weight' => (int)($outputArray[2] * 1000),
+				'weight' => (int)((float)$outputArray[2] * 1000),
 			];
 		} else {
 			$headerData = [

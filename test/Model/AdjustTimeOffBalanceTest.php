@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AdjustTimeOffBalanceTest
  *
@@ -68,7 +69,7 @@ class AdjustTimeOffBalanceTest extends TestCase {
 	/**
 	 * Test "AdjustTimeOffBalance"
 	 */
-	public function testAdjustTimeOffBalance() {
+	public function testAdjustTimeOffBalance(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class AdjustTimeOffBalanceTest extends TestCase {
 	/**
 	 * Test attribute "date"
 	 */
-	public function testPropertyDate() {
+	public function testPropertyDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class AdjustTimeOffBalanceTest extends TestCase {
 	/**
 	 * Test attribute "time_off_type_id"
 	 */
-	public function testPropertyTimeOffTypeId() {
+	public function testPropertyTimeOffTypeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class AdjustTimeOffBalanceTest extends TestCase {
 	/**
 	 * Test attribute "amount"
 	 */
-	public function testPropertyAmount() {
+	public function testPropertyAmount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class AdjustTimeOffBalanceTest extends TestCase {
 	/**
 	 * Test attribute "note"
 	 */
-	public function testPropertyNote() {
+	public function testPropertyNote(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

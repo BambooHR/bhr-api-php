@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * MemberBenefitEventMembersInnerCoveragesInnerEventsInnerTest
  *
@@ -68,7 +69,7 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInnerTest extends TestCa
 	/**
 	 * Test "MemberBenefitEventMembersInnerCoveragesInnerEventsInner"
 	 */
-	public function testMemberBenefitEventMembersInnerCoveragesInnerEventsInner() {
+	public function testMemberBenefitEventMembersInnerCoveragesInnerEventsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInnerTest extends TestCa
 	/**
 	 * Test attribute "effective_date"
 	 */
-	public function testPropertyEffectiveDate() {
+	public function testPropertyEffectiveDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInnerTest extends TestCa
 	/**
 	 * Test attribute "type"
 	 */
-	public function testPropertyType() {
+	public function testPropertyType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInnerTest extends TestCa
 	/**
 	 * Test attribute "premium_tier_id"
 	 */
-	public function testPropertyPremiumTierId() {
+	public function testPropertyPremiumTierId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class MemberBenefitEventMembersInnerCoveragesInnerEventsInnerTest extends TestCa
 	/**
 	 * Test attribute "monthly_premium_in_cents"
 	 */
-	public function testPropertyMonthlyPremiumInCents() {
+	public function testPropertyMonthlyPremiumInCents(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

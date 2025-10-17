@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalAggregate200ResponseAlignsWithOptionsInnerTest
  *
@@ -68,7 +69,7 @@ class GetGoalAggregate200ResponseAlignsWithOptionsInnerTest extends TestCase {
 	/**
 	 * Test "GetGoalAggregate200ResponseAlignsWithOptionsInner"
 	 */
-	public function testGetGoalAggregate200ResponseAlignsWithOptionsInner() {
+	public function testGetGoalAggregate200ResponseAlignsWithOptionsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetGoalAggregate200ResponseAlignsWithOptionsInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetGoalAggregate200ResponseAlignsWithOptionsInnerTest extends TestCase {
 	/**
 	 * Test attribute "title"
 	 */
-	public function testPropertyTitle() {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

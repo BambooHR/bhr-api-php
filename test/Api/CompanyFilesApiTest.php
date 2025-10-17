@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CompanyFilesApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class CompanyFilesApiTest extends TestCase {
 	 * Add Company File Category.
 	 *
 	 */
-	public function testAddCompanyFileCategory() {
+	public function testAddCompanyFileCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class CompanyFilesApiTest extends TestCase {
 	 * Delete Company File.
 	 *
 	 */
-	public function testDeleteCompanyFile() {
+	public function testDeleteCompanyFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class CompanyFilesApiTest extends TestCase {
 	 * Get an Company File.
 	 *
 	 */
-	public function testGetCompanyFile() {
+	public function testGetCompanyFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class CompanyFilesApiTest extends TestCase {
 	 * List company files and categories.
 	 *
 	 */
-	public function testListCompanyFiles() {
+	public function testListCompanyFiles(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class CompanyFilesApiTest extends TestCase {
 	 * Update Company File.
 	 *
 	 */
-	public function testUpdateCompanyFile() {
+	public function testUpdateCompanyFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class CompanyFilesApiTest extends TestCase {
 	 * Upload Company File.
 	 *
 	 */
-	public function testUploadCompanyFile() {
+	public function testUploadCompanyFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

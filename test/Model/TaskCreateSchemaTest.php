@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TaskCreateSchemaTest
  *
@@ -68,7 +69,7 @@ class TaskCreateSchemaTest extends TestCase {
 	/**
 	 * Test "TaskCreateSchema"
 	 */
-	public function testTaskCreateSchema() {
+	public function testTaskCreateSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TaskCreateSchemaTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TaskCreateSchemaTest extends TestCase {
 	/**
 	 * Test attribute "billable"
 	 */
-	public function testPropertyBillable() {
+	public function testPropertyBillable(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

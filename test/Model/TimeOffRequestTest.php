@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffRequestTest
  *
@@ -68,7 +69,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test "TimeOffRequest"
 	 */
-	public function testTimeOffRequest() {
+	public function testTimeOffRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "start"
 	 */
-	public function testPropertyStart() {
+	public function testPropertyStart(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "end"
 	 */
-	public function testPropertyEnd() {
+	public function testPropertyEnd(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "time_off_type_id"
 	 */
-	public function testPropertyTimeOffTypeId() {
+	public function testPropertyTimeOffTypeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "amount"
 	 */
-	public function testPropertyAmount() {
+	public function testPropertyAmount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "notes"
 	 */
-	public function testPropertyNotes() {
+	public function testPropertyNotes(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class TimeOffRequestTest extends TestCase {
 	/**
 	 * Test attribute "dates"
 	 */
-	public function testPropertyDates() {
+	public function testPropertyDates(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

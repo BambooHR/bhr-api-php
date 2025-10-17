@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ProjectInfoApiTransformerProjectTest
  *
@@ -68,7 +69,7 @@ class ProjectInfoApiTransformerProjectTest extends TestCase {
 	/**
 	 * Test "ProjectInfoApiTransformerProject"
 	 */
-	public function testProjectInfoApiTransformerProject() {
+	public function testProjectInfoApiTransformerProject(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ProjectInfoApiTransformerProjectTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class ProjectInfoApiTransformerProjectTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

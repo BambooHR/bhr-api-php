@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TabularDataApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class TabularDataApiTest extends TestCase {
 	 * Adds a table row.
 	 *
 	 */
-	public function testAddEmployeeTableRow() {
+	public function testAddEmployeeTableRow(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class TabularDataApiTest extends TestCase {
 	 * Adds a table row.
 	 *
 	 */
-	public function testAddEmployeeTableRowV1() {
+	public function testAddEmployeeTableRowV1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class TabularDataApiTest extends TestCase {
 	 * Deletes a table row.
 	 *
 	 */
-	public function testDeleteEmployeeTableRowV1() {
+	public function testDeleteEmployeeTableRowV1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class TabularDataApiTest extends TestCase {
 	 * Gets all updated employee table data.
 	 *
 	 */
-	public function testGetChangedEmployeeTableData() {
+	public function testGetChangedEmployeeTableData(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TabularDataApiTest extends TestCase {
 	 * Gets table rows for a given employee and table combination.
 	 *
 	 */
-	public function testGetEmployeeTableRow() {
+	public function testGetEmployeeTableRow(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class TabularDataApiTest extends TestCase {
 	 * Updates a table row..
 	 *
 	 */
-	public function testUpdateEmployeeTableRow() {
+	public function testUpdateEmployeeTableRow(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class TabularDataApiTest extends TestCase {
 	 * Updates a table row..
 	 *
 	 */
-	public function testUpdateEmployeeTableRowV() {
+	public function testUpdateEmployeeTableRowV(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AddTrainingTypeRequestTest
  *
@@ -68,7 +69,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test "AddTrainingTypeRequest"
 	 */
-	public function testAddTrainingTypeRequest() {
+	public function testAddTrainingTypeRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "frequency"
 	 */
-	public function testPropertyFrequency() {
+	public function testPropertyFrequency(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "renewable"
 	 */
-	public function testPropertyRenewable() {
+	public function testPropertyRenewable(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "category"
 	 */
-	public function testPropertyCategory() {
+	public function testPropertyCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "required"
 	 */
-	public function testPropertyRequired() {
+	public function testPropertyRequired(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "due_from_hire_date"
 	 */
-	public function testPropertyDueFromHireDate() {
+	public function testPropertyDueFromHireDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "link_url"
 	 */
-	public function testPropertyLinkUrl() {
+	public function testPropertyLinkUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "description"
 	 */
-	public function testPropertyDescription() {
+	public function testPropertyDescription(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class AddTrainingTypeRequestTest extends TestCase {
 	/**
 	 * Test attribute "allow_employees_to_mark_complete"
 	 */
-	public function testPropertyAllowEmployeesToMarkComplete() {
+	public function testPropertyAllowEmployeesToMarkComplete(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * StateProvinceResponseSchemaTest
  *
@@ -68,7 +69,7 @@ class StateProvinceResponseSchemaTest extends TestCase {
 	/**
 	 * Test "StateProvinceResponseSchema"
 	 */
-	public function testStateProvinceResponseSchema() {
+	public function testStateProvinceResponseSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class StateProvinceResponseSchemaTest extends TestCase {
 	/**
 	 * Test attribute "options"
 	 */
-	public function testPropertyOptions() {
+	public function testPropertyOptions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TableRowUpdateTest
  *
@@ -68,7 +69,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test "TableRowUpdate"
 	 */
-	public function testTableRowUpdate() {
+	public function testTableRowUpdate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test attribute "date"
 	 */
-	public function testPropertyDate() {
+	public function testPropertyDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test attribute "location"
 	 */
-	public function testPropertyLocation() {
+	public function testPropertyLocation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test attribute "division"
 	 */
-	public function testPropertyDivision() {
+	public function testPropertyDivision(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test attribute "department"
 	 */
-	public function testPropertyDepartment() {
+	public function testPropertyDepartment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test attribute "job_title"
 	 */
-	public function testPropertyJobTitle() {
+	public function testPropertyJobTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TableRowUpdateTest extends TestCase {
 	/**
 	 * Test attribute "reports_to"
 	 */
-	public function testPropertyReportsTo() {
+	public function testPropertyReportsTo(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

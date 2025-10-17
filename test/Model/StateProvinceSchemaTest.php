@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * StateProvinceSchemaTest
  *
@@ -68,7 +69,7 @@ class StateProvinceSchemaTest extends TestCase {
 	/**
 	 * Test "StateProvinceSchema"
 	 */
-	public function testStateProvinceSchema() {
+	public function testStateProvinceSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class StateProvinceSchemaTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class StateProvinceSchemaTest extends TestCase {
 	/**
 	 * Test attribute "label"
 	 */
-	public function testPropertyLabel() {
+	public function testPropertyLabel(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class StateProvinceSchemaTest extends TestCase {
 	/**
 	 * Test attribute "iso"
 	 */
-	public function testPropertyIso() {
+	public function testPropertyIso(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class StateProvinceSchemaTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

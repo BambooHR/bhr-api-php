@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetCompanyInformation200ResponseAddress
  *
@@ -426,7 +427,7 @@ class GetCompanyInformation200ResponseAddress implements ModelInterface, ArrayAc
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -437,7 +438,7 @@ class GetCompanyInformation200ResponseAddress implements ModelInterface, ArrayAc
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -449,7 +450,7 @@ class GetCompanyInformation200ResponseAddress implements ModelInterface, ArrayAc
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -465,7 +466,7 @@ class GetCompanyInformation200ResponseAddress implements ModelInterface, ArrayAc
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

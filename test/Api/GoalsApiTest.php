@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GoalsApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class GoalsApiTest extends TestCase {
 	 * Delete Goal.
 	 *
 	 */
-	public function testDeleteGoal() {
+	public function testDeleteGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class GoalsApiTest extends TestCase {
 	 * Delete Goal Comment.
 	 *
 	 */
-	public function testDeleteGoalComment() {
+	public function testDeleteGoalComment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class GoalsApiTest extends TestCase {
 	 * Can Create a Goal.
 	 *
 	 */
-	public function testGetCanCreateGoal() {
+	public function testGetCanCreateGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class GoalsApiTest extends TestCase {
 	 * Get Aggregate Goal Info.
 	 *
 	 */
-	public function testGetGoalAggregate() {
+	public function testGetGoalAggregate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GoalsApiTest extends TestCase {
 	 * Get Goal Comments.
 	 *
 	 */
-	public function testGetGoalComments() {
+	public function testGetGoalComments(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class GoalsApiTest extends TestCase {
 	 * Get Goals.
 	 *
 	 */
-	public function testGetGoals() {
+	public function testGetGoals(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class GoalsApiTest extends TestCase {
 	 * Get All Aggregate Goal Info.
 	 *
 	 */
-	public function testGetGoalsAggregateV1() {
+	public function testGetGoalsAggregateV1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -149,7 +150,7 @@ class GoalsApiTest extends TestCase {
 	 * Get All Aggregate Goal Info, Version 1.1.
 	 *
 	 */
-	public function testGetGoalsAggregateV11() {
+	public function testGetGoalsAggregateV11(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -160,7 +161,7 @@ class GoalsApiTest extends TestCase {
 	 * Get All Aggregate Goal Info, Version 1.2.
 	 *
 	 */
-	public function testGetGoalsAggregateV12() {
+	public function testGetGoalsAggregateV12(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -171,7 +172,7 @@ class GoalsApiTest extends TestCase {
 	 * Alignable Goal Options.
 	 *
 	 */
-	public function testGetGoalsAlignmentOptions() {
+	public function testGetGoalsAlignmentOptions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -182,7 +183,7 @@ class GoalsApiTest extends TestCase {
 	 * Get Goals Filters.
 	 *
 	 */
-	public function testGetGoalsFiltersV1() {
+	public function testGetGoalsFiltersV1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -193,7 +194,7 @@ class GoalsApiTest extends TestCase {
 	 * Get Goals Filters.
 	 *
 	 */
-	public function testGetGoalsFiltersV11() {
+	public function testGetGoalsFiltersV11(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -204,7 +205,7 @@ class GoalsApiTest extends TestCase {
 	 * Get Goal Status Counts, Version 1.2.
 	 *
 	 */
-	public function testGetGoalsFiltersV12() {
+	public function testGetGoalsFiltersV12(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -215,7 +216,7 @@ class GoalsApiTest extends TestCase {
 	 * Available Goal Sharing Options.
 	 *
 	 */
-	public function testGetGoalsShareOptions() {
+	public function testGetGoalsShareOptions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -226,7 +227,7 @@ class GoalsApiTest extends TestCase {
 	 * Close Goal.
 	 *
 	 */
-	public function testPostCloseGoal() {
+	public function testPostCloseGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -237,7 +238,7 @@ class GoalsApiTest extends TestCase {
 	 * Create Goal.
 	 *
 	 */
-	public function testPostGoal() {
+	public function testPostGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -248,7 +249,7 @@ class GoalsApiTest extends TestCase {
 	 * Create Goal Comment.
 	 *
 	 */
-	public function testPostGoalComment() {
+	public function testPostGoalComment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -259,7 +260,7 @@ class GoalsApiTest extends TestCase {
 	 * Reopen a Goal.
 	 *
 	 */
-	public function testPostReopenGoal() {
+	public function testPostReopenGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -270,7 +271,7 @@ class GoalsApiTest extends TestCase {
 	 * Update Goal Comment.
 	 *
 	 */
-	public function testPutGoalComment() {
+	public function testPutGoalComment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -281,7 +282,7 @@ class GoalsApiTest extends TestCase {
 	 * Update Milestone Progress.
 	 *
 	 */
-	public function testPutGoalMilestoneProgress() {
+	public function testPutGoalMilestoneProgress(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -292,7 +293,7 @@ class GoalsApiTest extends TestCase {
 	 * Update Goal Progress.
 	 *
 	 */
-	public function testPutGoalProgress() {
+	public function testPutGoalProgress(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -303,7 +304,7 @@ class GoalsApiTest extends TestCase {
 	 * Update Goal Sharing.
 	 *
 	 */
-	public function testPutGoalSharedWith() {
+	public function testPutGoalSharedWith(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -314,7 +315,7 @@ class GoalsApiTest extends TestCase {
 	 * Update Goal.
 	 *
 	 */
-	public function testPutGoalV1() {
+	public function testPutGoalV1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -325,7 +326,7 @@ class GoalsApiTest extends TestCase {
 	 * Update Goal, V1.1.
 	 *
 	 */
-	public function testPutGoalV11() {
+	public function testPutGoalV11(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

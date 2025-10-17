@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * RequestCustomReportFiltersTest
  *
@@ -68,7 +69,7 @@ class RequestCustomReportFiltersTest extends TestCase {
 	/**
 	 * Test "RequestCustomReportFilters"
 	 */
-	public function testRequestCustomReportFilters() {
+	public function testRequestCustomReportFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class RequestCustomReportFiltersTest extends TestCase {
 	/**
 	 * Test attribute "last_changed"
 	 */
-	public function testPropertyLastChanged() {
+	public function testPropertyLastChanged(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

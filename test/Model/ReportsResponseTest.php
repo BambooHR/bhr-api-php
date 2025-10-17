@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ReportsResponseTest
  *
@@ -68,7 +69,7 @@ class ReportsResponseTest extends TestCase {
 	/**
 	 * Test "ReportsResponse"
 	 */
-	public function testReportsResponse() {
+	public function testReportsResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ReportsResponseTest extends TestCase {
 	/**
 	 * Test attribute "reports"
 	 */
-	public function testPropertyReports() {
+	public function testPropertyReports(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class ReportsResponseTest extends TestCase {
 	/**
 	 * Test attribute "pagination"
 	 */
-	public function testPropertyPagination() {
+	public function testPropertyPagination(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

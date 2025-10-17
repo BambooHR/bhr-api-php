@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostWebhook201ResponseFrequencyTest
  *
@@ -68,7 +69,7 @@ class PostWebhook201ResponseFrequencyTest extends TestCase {
 	/**
 	 * Test "PostWebhook201ResponseFrequency"
 	 */
-	public function testPostWebhook201ResponseFrequency() {
+	public function testPostWebhook201ResponseFrequency(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PostWebhook201ResponseFrequencyTest extends TestCase {
 	/**
 	 * Test attribute "hour"
 	 */
-	public function testPropertyHour() {
+	public function testPropertyHour(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class PostWebhook201ResponseFrequencyTest extends TestCase {
 	/**
 	 * Test attribute "minute"
 	 */
-	public function testPropertyMinute() {
+	public function testPropertyMinute(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class PostWebhook201ResponseFrequencyTest extends TestCase {
 	/**
 	 * Test attribute "day"
 	 */
-	public function testPropertyDay() {
+	public function testPropertyDay(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class PostWebhook201ResponseFrequencyTest extends TestCase {
 	/**
 	 * Test attribute "month"
 	 */
-	public function testPropertyMonth() {
+	public function testPropertyMonth(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

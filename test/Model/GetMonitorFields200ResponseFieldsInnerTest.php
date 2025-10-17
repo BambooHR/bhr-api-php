@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetMonitorFields200ResponseFieldsInnerTest
  *
@@ -68,7 +69,7 @@ class GetMonitorFields200ResponseFieldsInnerTest extends TestCase {
 	/**
 	 * Test "GetMonitorFields200ResponseFieldsInner"
 	 */
-	public function testGetMonitorFields200ResponseFieldsInner() {
+	public function testGetMonitorFields200ResponseFieldsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetMonitorFields200ResponseFieldsInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetMonitorFields200ResponseFieldsInnerTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetMonitorFields200ResponseFieldsInnerTest extends TestCase {
 	/**
 	 * Test attribute "alias"
 	 */
-	public function testPropertyAlias() {
+	public function testPropertyAlias(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

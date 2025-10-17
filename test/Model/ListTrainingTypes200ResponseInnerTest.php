@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ListTrainingTypes200ResponseInnerTest
  *
@@ -68,7 +69,7 @@ class ListTrainingTypes200ResponseInnerTest extends TestCase {
 	/**
 	 * Test "ListTrainingTypes200ResponseInner"
 	 */
-	public function testListTrainingTypes200ResponseInner() {
+	public function testListTrainingTypes200ResponseInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ListTrainingTypes200ResponseInnerTest extends TestCase {
 	/**
 	 * Test attribute "training_id"
 	 */
-	public function testPropertyTrainingId() {
+	public function testPropertyTrainingId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

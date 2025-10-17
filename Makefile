@@ -13,7 +13,7 @@ PACKAGE_URL = https://www.bamboohr.com/
 DEVELOPER_URL = https://github.com/BambooHR/bhr-api-php
 COMPOSER_PACKAGE_NAME = bamboohr/bhr-sdk
 
-.PHONY: help generate clean test
+.PHONY: help generate clean test phpstan
 
 help:
 	@echo "BambooHR API PHP SDK - Available commands:"
@@ -21,6 +21,8 @@ help:
 	@echo "  make generate OPENAPI_SPEC_PATH=/path/to/spec.yaml - Generate using a custom spec path"
 	@echo "  make clean             - Remove generated files"
 	@echo "  make test              - Run tests"
+	@echo "  make phpcs             - Run PHP Code Sniffer"
+	@echo "  make phpstan           - Run PHPStan static analysis"
 
 generate:
 	@echo "Generating PHP SDK from OpenAPI spec at $(OPENAPI_SPEC_PATH)..."
@@ -55,3 +57,8 @@ phpcs:
 	@echo "Running PHP Code Sniffer..."
 	./vendor/bin/phpcs --standard=phpcs.xml --report=summary lib
 	@echo "PHP Code Sniffer complete!"
+
+phpstan:
+	@echo "Running PHPStan..."
+	./vendor/bin/phpstan analyse --memory-limit=512M
+	@echo "PHPStan complete!"

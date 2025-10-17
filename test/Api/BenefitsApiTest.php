@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * BenefitsApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class BenefitsApiTest extends TestCase {
 	 * Add an employee dependent.
 	 *
 	 */
-	public function testAddEmployeeDependent() {
+	public function testAddEmployeeDependent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class BenefitsApiTest extends TestCase {
 	 * Get benefit coverages.
 	 *
 	 */
-	public function testGetBenefitCoverages() {
+	public function testGetBenefitCoverages(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class BenefitsApiTest extends TestCase {
 	 * Get benefit deduction types.
 	 *
 	 */
-	public function testGetBenefitDeductionTypes() {
+	public function testGetBenefitDeductionTypes(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class BenefitsApiTest extends TestCase {
 	 * Get employee dependent.
 	 *
 	 */
-	public function testGetEmployeeDependent() {
+	public function testGetEmployeeDependent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class BenefitsApiTest extends TestCase {
 	 * Get all employee dependents.
 	 *
 	 */
-	public function testGetEmployeeDependents() {
+	public function testGetEmployeeDependents(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class BenefitsApiTest extends TestCase {
 	 * Get a list of member benefit events.
 	 *
 	 */
-	public function testGetMemberBenefit() {
+	public function testGetMemberBenefit(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class BenefitsApiTest extends TestCase {
 	 * Update an employee dependent.
 	 *
 	 */
-	public function testUpdateEmployeeDependent() {
+	public function testUpdateEmployeeDependent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

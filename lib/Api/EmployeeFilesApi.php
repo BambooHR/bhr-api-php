@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeFilesApi
  * PHP version 8.1

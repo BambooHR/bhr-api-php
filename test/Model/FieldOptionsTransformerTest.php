@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FieldOptionsTransformerTest
  *
@@ -68,7 +69,7 @@ class FieldOptionsTransformerTest extends TestCase {
 	/**
 	 * Test "FieldOptionsTransformer"
 	 */
-	public function testFieldOptionsTransformer() {
+	public function testFieldOptionsTransformer(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class FieldOptionsTransformerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class FieldOptionsTransformerTest extends TestCase {
 	/**
 	 * Test attribute "value"
 	 */
-	public function testPropertyValue() {
+	public function testPropertyValue(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

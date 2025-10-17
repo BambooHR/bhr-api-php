@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetMonitorFields200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetMonitorFields200ResponseTest extends TestCase {
 	/**
 	 * Test "GetMonitorFields200Response"
 	 */
-	public function testGetMonitorFields200Response() {
+	public function testGetMonitorFields200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetMonitorFields200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "fields"
 	 */
-	public function testPropertyFields() {
+	public function testPropertyFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

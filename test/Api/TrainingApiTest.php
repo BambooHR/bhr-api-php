@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TrainingApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class TrainingApiTest extends TestCase {
 	 * Add New Employee Training Record.
 	 *
 	 */
-	public function testAddNewEmployeeTrainingRecord() {
+	public function testAddNewEmployeeTrainingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class TrainingApiTest extends TestCase {
 	 * Add Training Category.
 	 *
 	 */
-	public function testAddTrainingCategory() {
+	public function testAddTrainingCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class TrainingApiTest extends TestCase {
 	 * Add Training Type.
 	 *
 	 */
-	public function testAddTrainingType() {
+	public function testAddTrainingType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class TrainingApiTest extends TestCase {
 	 * Delete Employee Training Record.
 	 *
 	 */
-	public function testDeleteEmployeeTrainingRecord() {
+	public function testDeleteEmployeeTrainingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TrainingApiTest extends TestCase {
 	 * Delete Training Category.
 	 *
 	 */
-	public function testDeleteTrainingCategory() {
+	public function testDeleteTrainingCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class TrainingApiTest extends TestCase {
 	 * Delete Training Type.
 	 *
 	 */
-	public function testDeleteTrainingType() {
+	public function testDeleteTrainingType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class TrainingApiTest extends TestCase {
 	 * List Employee Trainings.
 	 *
 	 */
-	public function testListEmployeeTrainings() {
+	public function testListEmployeeTrainings(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -149,7 +150,7 @@ class TrainingApiTest extends TestCase {
 	 * List Training Categories.
 	 *
 	 */
-	public function testListTrainingCategories() {
+	public function testListTrainingCategories(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -160,7 +161,7 @@ class TrainingApiTest extends TestCase {
 	 * List Training Types.
 	 *
 	 */
-	public function testListTrainingTypes() {
+	public function testListTrainingTypes(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -171,7 +172,7 @@ class TrainingApiTest extends TestCase {
 	 * Update Employee Training Record.
 	 *
 	 */
-	public function testUpdateEmployeeTrainingRecord() {
+	public function testUpdateEmployeeTrainingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -182,7 +183,7 @@ class TrainingApiTest extends TestCase {
 	 * Update Training Category.
 	 *
 	 */
-	public function testUpdateTrainingCategory() {
+	public function testUpdateTrainingCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -193,7 +194,7 @@ class TrainingApiTest extends TestCase {
 	 * Update Training Type.
 	 *
 	 */
-	public function testUpdateTrainingType() {
+	public function testUpdateTrainingType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

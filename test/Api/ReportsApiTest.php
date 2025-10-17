@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ReportsApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class ReportsApiTest extends TestCase {
 	 * Get company report.
 	 *
 	 */
-	public function testGetCompanyReport() {
+	public function testGetCompanyReport(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class ReportsApiTest extends TestCase {
 	 * Request a custom report.
 	 *
 	 */
-	public function testRequestCustomReport() {
+	public function testRequestCustomReport(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * MemberBenefitEventTest
  *
@@ -68,7 +69,7 @@ class MemberBenefitEventTest extends TestCase {
 	/**
 	 * Test "MemberBenefitEvent"
 	 */
-	public function testMemberBenefitEvent() {
+	public function testMemberBenefitEvent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class MemberBenefitEventTest extends TestCase {
 	/**
 	 * Test attribute "members"
 	 */
-	public function testPropertyMembers() {
+	public function testPropertyMembers(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

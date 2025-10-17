@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GoalFiltersV11FiltersInnerActionsTest
  *
@@ -68,7 +69,7 @@ class GoalFiltersV11FiltersInnerActionsTest extends TestCase {
 	/**
 	 * Test "GoalFiltersV11FiltersInnerActions"
 	 */
-	public function testGoalFiltersV11FiltersInnerActions() {
+	public function testGoalFiltersV11FiltersInnerActions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GoalFiltersV11FiltersInnerActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_close_goal"
 	 */
-	public function testPropertyCanCloseGoal() {
+	public function testPropertyCanCloseGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GoalFiltersV11FiltersInnerActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_edit_goal"
 	 */
-	public function testPropertyCanEditGoal() {
+	public function testPropertyCanEditGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GoalFiltersV11FiltersInnerActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_edit_goal_progress_bar"
 	 */
-	public function testPropertyCanEditGoalProgressBar() {
+	public function testPropertyCanEditGoalProgressBar(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GoalFiltersV11FiltersInnerActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_reopen_goal"
 	 */
-	public function testPropertyCanReopenGoal() {
+	public function testPropertyCanReopenGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GoalFiltersV11FiltersInnerActionsTest extends TestCase {
 	/**
 	 * Test attribute "can_share_goal"
 	 */
-	public function testPropertyCanShareGoal() {
+	public function testPropertyCanShareGoal(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ListFieldValuesOptionsInnerTest
  *
@@ -68,7 +69,7 @@ class ListFieldValuesOptionsInnerTest extends TestCase {
 	/**
 	 * Test "ListFieldValuesOptionsInner"
 	 */
-	public function testListFieldValuesOptionsInner() {
+	public function testListFieldValuesOptionsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ListFieldValuesOptionsInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class ListFieldValuesOptionsInnerTest extends TestCase {
 	/**
 	 * Test attribute "value"
 	 */
-	public function testPropertyValue() {
+	public function testPropertyValue(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class ListFieldValuesOptionsInnerTest extends TestCase {
 	/**
 	 * Test attribute "archived"
 	 */
-	public function testPropertyArchived() {
+	public function testPropertyArchived(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class ListFieldValuesOptionsInnerTest extends TestCase {
 	/**
 	 * Test attribute "adp_code"
 	 */
-	public function testPropertyAdpCode() {
+	public function testPropertyAdpCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

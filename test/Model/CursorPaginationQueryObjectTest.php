@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CursorPaginationQueryObjectTest
  *
@@ -68,7 +69,7 @@ class CursorPaginationQueryObjectTest extends TestCase {
 	/**
 	 * Test "CursorPaginationQueryObject"
 	 */
-	public function testCursorPaginationQueryObject() {
+	public function testCursorPaginationQueryObject(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class CursorPaginationQueryObjectTest extends TestCase {
 	/**
 	 * Test attribute "before"
 	 */
-	public function testPropertyBefore() {
+	public function testPropertyBefore(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class CursorPaginationQueryObjectTest extends TestCase {
 	/**
 	 * Test attribute "after"
 	 */
-	public function testPropertyAfter() {
+	public function testPropertyAfter(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class CursorPaginationQueryObjectTest extends TestCase {
 	/**
 	 * Test attribute "limit"
 	 */
-	public function testPropertyLimit() {
+	public function testPropertyLimit(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

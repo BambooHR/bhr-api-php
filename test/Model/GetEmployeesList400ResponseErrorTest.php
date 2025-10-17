@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetEmployeesList400ResponseErrorTest
  *
@@ -68,7 +69,7 @@ class GetEmployeesList400ResponseErrorTest extends TestCase {
 	/**
 	 * Test "GetEmployeesList400ResponseError"
 	 */
-	public function testGetEmployeesList400ResponseError() {
+	public function testGetEmployeesList400ResponseError(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetEmployeesList400ResponseErrorTest extends TestCase {
 	/**
 	 * Test attribute "code"
 	 */
-	public function testPropertyCode() {
+	public function testPropertyCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetEmployeesList400ResponseErrorTest extends TestCase {
 	/**
 	 * Test attribute "message"
 	 */
-	public function testPropertyMessage() {
+	public function testPropertyMessage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

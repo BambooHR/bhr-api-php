@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TrainingRecordTest
  *
@@ -68,7 +69,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test "TrainingRecord"
 	 */
-	public function testTrainingRecord() {
+	public function testTrainingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "completed"
 	 */
-	public function testPropertyCompleted() {
+	public function testPropertyCompleted(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "notes"
 	 */
-	public function testPropertyNotes() {
+	public function testPropertyNotes(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "instructor"
 	 */
-	public function testPropertyInstructor() {
+	public function testPropertyInstructor(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "credits"
 	 */
-	public function testPropertyCredits() {
+	public function testPropertyCredits(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "hours"
 	 */
-	public function testPropertyHours() {
+	public function testPropertyHours(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "cost"
 	 */
-	public function testPropertyCost() {
+	public function testPropertyCost(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class TrainingRecordTest extends TestCase {
 	/**
 	 * Test attribute "type"
 	 */
-	public function testPropertyType() {
+	public function testPropertyType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ApplicantTrackingApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Add New Candidate.
 	 *
 	 */
-	public function testAddNewCandidate() {
+	public function testAddNewCandidate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Add New Job Opening.
 	 *
 	 */
-	public function testAddNewJobOpening() {
+	public function testAddNewJobOpening(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Get Applications.
 	 *
 	 */
-	public function testGetApplications() {
+	public function testGetApplications(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Get Company Locations.
 	 *
 	 */
-	public function testGetCompanyLocations() {
+	public function testGetCompanyLocations(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Get Hiring Leads.
 	 *
 	 */
-	public function testGetHiringLeads() {
+	public function testGetHiringLeads(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Get Job Summaries.
 	 *
 	 */
-	public function testGetJobSummaries() {
+	public function testGetJobSummaries(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Get Statuses.
 	 *
 	 */
-	public function testGetStatuses() {
+	public function testGetStatuses(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -149,7 +150,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Change Applicant's Status.
 	 *
 	 */
-	public function testPostApplicantStatus() {
+	public function testPostApplicantStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -160,7 +161,7 @@ class ApplicantTrackingApiTest extends TestCase {
 	 * Add Application Comment.
 	 *
 	 */
-	public function testPostApplicationComment() {
+	public function testPostApplicationComment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * HiringLeadTest
  *
@@ -68,7 +69,7 @@ class HiringLeadTest extends TestCase {
 	/**
 	 * Test "HiringLead"
 	 */
-	public function testHiringLead() {
+	public function testHiringLead(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class HiringLeadTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class HiringLeadTest extends TestCase {
 	/**
 	 * Test attribute "preferred_full_name"
 	 */
-	public function testPropertyPreferredFullName() {
+	public function testPropertyPreferredFullName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

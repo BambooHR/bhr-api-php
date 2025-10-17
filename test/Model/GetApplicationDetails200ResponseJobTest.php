@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200ResponseJobTest
  *
@@ -68,7 +69,7 @@ class GetApplicationDetails200ResponseJobTest extends TestCase {
 	/**
 	 * Test "GetApplicationDetails200ResponseJob"
 	 */
-	public function testGetApplicationDetails200ResponseJob() {
+	public function testGetApplicationDetails200ResponseJob(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplicationDetails200ResponseJobTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplicationDetails200ResponseJobTest extends TestCase {
 	/**
 	 * Test attribute "title"
 	 */
-	public function testPropertyTitle() {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplicationDetails200ResponseJobTest extends TestCase {
 	/**
 	 * Test attribute "department"
 	 */
-	public function testPropertyDepartment() {
+	public function testPropertyDepartment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetApplicationDetails200ResponseJobTest extends TestCase {
 	/**
 	 * Test attribute "location"
 	 */
-	public function testPropertyLocation() {
+	public function testPropertyLocation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetApplicationDetails200ResponseJobTest extends TestCase {
 	/**
 	 * Test attribute "hiring_lead"
 	 */
-	public function testPropertyHiringLead() {
+	public function testPropertyHiringLead(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

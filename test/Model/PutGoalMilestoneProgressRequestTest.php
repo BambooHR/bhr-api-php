@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PutGoalMilestoneProgressRequestTest
  *
@@ -68,7 +69,7 @@ class PutGoalMilestoneProgressRequestTest extends TestCase {
 	/**
 	 * Test "PutGoalMilestoneProgressRequest"
 	 */
-	public function testPutGoalMilestoneProgressRequest() {
+	public function testPutGoalMilestoneProgressRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PutGoalMilestoneProgressRequestTest extends TestCase {
 	/**
 	 * Test attribute "complete"
 	 */
-	public function testPropertyComplete() {
+	public function testPropertyComplete(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

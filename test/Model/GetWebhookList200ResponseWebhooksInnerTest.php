@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetWebhookList200ResponseWebhooksInnerTest
  *
@@ -68,7 +69,7 @@ class GetWebhookList200ResponseWebhooksInnerTest extends TestCase {
 	/**
 	 * Test "GetWebhookList200ResponseWebhooksInner"
 	 */
-	public function testGetWebhookList200ResponseWebhooksInner() {
+	public function testGetWebhookList200ResponseWebhooksInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetWebhookList200ResponseWebhooksInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetWebhookList200ResponseWebhooksInnerTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetWebhookList200ResponseWebhooksInnerTest extends TestCase {
 	/**
 	 * Test attribute "created"
 	 */
-	public function testPropertyCreated() {
+	public function testPropertyCreated(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetWebhookList200ResponseWebhooksInnerTest extends TestCase {
 	/**
 	 * Test attribute "last_sent"
 	 */
-	public function testPropertyLastSent() {
+	public function testPropertyLastSent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetWebhookList200ResponseWebhooksInnerTest extends TestCase {
 	/**
 	 * Test attribute "url"
 	 */
-	public function testPropertyUrl() {
+	public function testPropertyUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

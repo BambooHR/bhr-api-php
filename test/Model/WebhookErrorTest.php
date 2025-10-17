@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebhookErrorTest
  *
@@ -68,7 +69,7 @@ class WebhookErrorTest extends TestCase {
 	/**
 	 * Test "WebhookError"
 	 */
-	public function testWebhookError() {
+	public function testWebhookError(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class WebhookErrorTest extends TestCase {
 	/**
 	 * Test attribute "errors"
 	 */
-	public function testPropertyErrors() {
+	public function testPropertyErrors(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

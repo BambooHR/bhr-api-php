@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * RequestTest
  *
@@ -68,7 +69,7 @@ class RequestTest extends TestCase {
 	/**
 	 * Test "Request"
 	 */
-	public function testRequest() {
+	public function testRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class RequestTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class RequestTest extends TestCase {
 	/**
 	 * Test attribute "note"
 	 */
-	public function testPropertyNote() {
+	public function testPropertyNote(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

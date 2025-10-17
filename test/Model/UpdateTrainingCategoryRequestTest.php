@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * UpdateTrainingCategoryRequestTest
  *
@@ -68,7 +69,7 @@ class UpdateTrainingCategoryRequestTest extends TestCase {
 	/**
 	 * Test "UpdateTrainingCategoryRequest"
 	 */
-	public function testUpdateTrainingCategoryRequest() {
+	public function testUpdateTrainingCategoryRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class UpdateTrainingCategoryRequestTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

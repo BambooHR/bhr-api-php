@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GoalFiltersV1Test
  *
@@ -68,7 +69,7 @@ class GoalFiltersV1Test extends TestCase {
 	/**
 	 * Test "GoalFiltersV1"
 	 */
-	public function testGoalFiltersV1() {
+	public function testGoalFiltersV1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GoalFiltersV1Test extends TestCase {
 	/**
 	 * Test attribute "filters"
 	 */
-	public function testPropertyFilters() {
+	public function testPropertyFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

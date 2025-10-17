@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TransformedApiGoalGoalActions
  *
@@ -331,7 +332,7 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -342,7 +343,7 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -354,7 +355,7 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -370,7 +371,7 @@ class TransformedApiGoalGoalActions implements ModelInterface, ArrayAccess, \Jso
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

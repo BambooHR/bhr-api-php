@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimesheetEntryInfoApiTransformerTest
  *
@@ -68,7 +69,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test "TimesheetEntryInfoApiTransformer"
 	 */
-	public function testTimesheetEntryInfoApiTransformer() {
+	public function testTimesheetEntryInfoApiTransformer(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "type"
 	 */
-	public function testPropertyType() {
+	public function testPropertyType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "date"
 	 */
-	public function testPropertyDate() {
+	public function testPropertyDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "start"
 	 */
-	public function testPropertyStart() {
+	public function testPropertyStart(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "end"
 	 */
-	public function testPropertyEnd() {
+	public function testPropertyEnd(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "timezone"
 	 */
-	public function testPropertyTimezone() {
+	public function testPropertyTimezone(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "hours"
 	 */
-	public function testPropertyHours() {
+	public function testPropertyHours(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "note"
 	 */
-	public function testPropertyNote() {
+	public function testPropertyNote(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class TimesheetEntryInfoApiTransformerTest extends TestCase {
 	/**
 	 * Test attribute "project_info"
 	 */
-	public function testPropertyProjectInfo() {
+	public function testPropertyProjectInfo(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

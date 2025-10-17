@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AddNewEmployeeTrainingRecordRequestCostTest
  *
@@ -68,7 +69,7 @@ class AddNewEmployeeTrainingRecordRequestCostTest extends TestCase {
 	/**
 	 * Test "AddNewEmployeeTrainingRecordRequestCost"
 	 */
-	public function testAddNewEmployeeTrainingRecordRequestCost() {
+	public function testAddNewEmployeeTrainingRecordRequestCost(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class AddNewEmployeeTrainingRecordRequestCostTest extends TestCase {
 	/**
 	 * Test attribute "currency"
 	 */
-	public function testPropertyCurrency() {
+	public function testPropertyCurrency(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class AddNewEmployeeTrainingRecordRequestCostTest extends TestCase {
 	/**
 	 * Test attribute "cost"
 	 */
-	public function testPropertyCost() {
+	public function testPropertyCost(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

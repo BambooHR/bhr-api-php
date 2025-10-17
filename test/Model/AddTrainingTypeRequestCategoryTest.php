@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AddTrainingTypeRequestCategoryTest
  *
@@ -68,7 +69,7 @@ class AddTrainingTypeRequestCategoryTest extends TestCase {
 	/**
 	 * Test "AddTrainingTypeRequestCategory"
 	 */
-	public function testAddTrainingTypeRequestCategory() {
+	public function testAddTrainingTypeRequestCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class AddTrainingTypeRequestCategoryTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class AddTrainingTypeRequestCategoryTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class AddTrainingTypeRequestCategoryTest extends TestCase {
 	/**
 	 * Test attribute "accuracy"
 	 */
-	public function testPropertyAccuracy() {
+	public function testPropertyAccuracy(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class AddTrainingTypeRequestCategoryTest extends TestCase {
 	/**
 	 * Test attribute "address"
 	 */
-	public function testPropertyAddress() {
+	public function testPropertyAddress(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

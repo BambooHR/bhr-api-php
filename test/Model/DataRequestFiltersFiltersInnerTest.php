@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DataRequestFiltersFiltersInnerTest
  *
@@ -68,7 +69,7 @@ class DataRequestFiltersFiltersInnerTest extends TestCase {
 	/**
 	 * Test "DataRequestFiltersFiltersInner"
 	 */
-	public function testDataRequestFiltersFiltersInner() {
+	public function testDataRequestFiltersFiltersInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DataRequestFiltersFiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "field"
 	 */
-	public function testPropertyField() {
+	public function testPropertyField(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class DataRequestFiltersFiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "operator"
 	 */
-	public function testPropertyOperator() {
+	public function testPropertyOperator(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class DataRequestFiltersFiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "value"
 	 */
-	public function testPropertyValue() {
+	public function testPropertyValue(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

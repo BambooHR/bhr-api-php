@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostApplicationCommentRequestTest
  *
@@ -68,7 +69,7 @@ class PostApplicationCommentRequestTest extends TestCase {
 	/**
 	 * Test "PostApplicationCommentRequest"
 	 */
-	public function testPostApplicationCommentRequest() {
+	public function testPostApplicationCommentRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PostApplicationCommentRequestTest extends TestCase {
 	/**
 	 * Test attribute "type"
 	 */
-	public function testPropertyType() {
+	public function testPropertyType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class PostApplicationCommentRequestTest extends TestCase {
 	/**
 	 * Test attribute "comment"
 	 */
-	public function testPropertyComment() {
+	public function testPropertyComment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

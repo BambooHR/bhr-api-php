@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ObjectSerializer
  *
@@ -47,8 +48,10 @@ class ObjectSerializer {
 	 * Change the date format
 	 *
 	 * @param string $format the new date format to use
+	 *
+	 * @return void
 	 */
-	public static function setDateTimeFormat($format) {
+	public static function setDateTimeFormat($format): void {
 		self::$dateTimeFormat = $format;
 	}
 
@@ -324,11 +327,11 @@ class ObjectSerializer {
 	 * If it's a datetime object, format it in ISO8601
 	 * If it's a boolean, convert it to "true" or "false".
 	 *
-	 * @param float|int|bool|\DateTime $value the value of the parameter
+	 * @param mixed $value the value of the parameter
 	 *
 	 * @return string the header string
 	 */
-	public static function toString($value) {
+	public static function toString($value): string {
 		if ($value instanceof \DateTime) { // datetime in ISO8601 format
 			return $value->format(self::$dateTimeFormat);
 		} elseif (is_bool($value)) {
@@ -389,7 +392,7 @@ class ObjectSerializer {
 		}
 
 		// Handle empty class name (typically from error responses)
-		if (empty($class) || $class === '') {
+		if (empty($class)) {
 			return $data;
 		}
 

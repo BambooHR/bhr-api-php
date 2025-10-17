@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetHiringLeads200ResponseInnerTest
  *
@@ -68,7 +69,7 @@ class GetHiringLeads200ResponseInnerTest extends TestCase {
 	/**
 	 * Test "GetHiringLeads200ResponseInner"
 	 */
-	public function testGetHiringLeads200ResponseInner() {
+	public function testGetHiringLeads200ResponseInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetHiringLeads200ResponseInnerTest extends TestCase {
 	/**
 	 * Test attribute "hiring_lead"
 	 */
-	public function testPropertyHiringLead() {
+	public function testPropertyHiringLead(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

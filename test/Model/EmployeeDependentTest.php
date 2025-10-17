@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeDependentTest
  *
@@ -68,7 +69,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test "EmployeeDependent"
 	 */
-	public function testEmployeeDependent() {
+	public function testEmployeeDependent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "first_name"
 	 */
-	public function testPropertyFirstName() {
+	public function testPropertyFirstName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "middle_name"
 	 */
-	public function testPropertyMiddleName() {
+	public function testPropertyMiddleName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "last_name"
 	 */
-	public function testPropertyLastName() {
+	public function testPropertyLastName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "relationship"
 	 */
-	public function testPropertyRelationship() {
+	public function testPropertyRelationship(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "gender"
 	 */
-	public function testPropertyGender() {
+	public function testPropertyGender(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "ssn"
 	 */
-	public function testPropertySsn() {
+	public function testPropertySsn(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "date_of_birth"
 	 */
-	public function testPropertyDateOfBirth() {
+	public function testPropertyDateOfBirth(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "address_line1"
 	 */
-	public function testPropertyAddressLine1() {
+	public function testPropertyAddressLine1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "address_line2"
 	 */
-	public function testPropertyAddressLine2() {
+	public function testPropertyAddressLine2(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -156,7 +157,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "city"
 	 */
-	public function testPropertyCity() {
+	public function testPropertyCity(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -164,7 +165,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "state"
 	 */
-	public function testPropertyState() {
+	public function testPropertyState(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -172,7 +173,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "zip_code"
 	 */
-	public function testPropertyZipCode() {
+	public function testPropertyZipCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -180,7 +181,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "home_phone"
 	 */
-	public function testPropertyHomePhone() {
+	public function testPropertyHomePhone(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -188,7 +189,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "country"
 	 */
-	public function testPropertyCountry() {
+	public function testPropertyCountry(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -196,7 +197,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "is_us_citizen"
 	 */
-	public function testPropertyIsUsCitizen() {
+	public function testPropertyIsUsCitizen(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -204,7 +205,7 @@ class EmployeeDependentTest extends TestCase {
 	/**
 	 * Test attribute "is_student"
 	 */
-	public function testPropertyIsStudent() {
+	public function testPropertyIsStudent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

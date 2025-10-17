@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class TimeOffApiTest extends TestCase {
 	 * Get a list of Who's Out.
 	 *
 	 */
-	public function testGetAListOfWhoIsOut() {
+	public function testGetAListOfWhoIsOut(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class TimeOffApiTest extends TestCase {
 	 * Get Time Off Policies.
 	 *
 	 */
-	public function testGetTimeOffPolicies() {
+	public function testGetTimeOffPolicies(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class TimeOffApiTest extends TestCase {
 	 * Get Time Off Types.
 	 *
 	 */
-	public function testGetTimeOffTypes() {
+	public function testGetTimeOffTypes(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class TimeOffApiTest extends TestCase {
 	 * Add a Time Off History Item For Time Off Request.
 	 *
 	 */
-	public function testTimeOffAddATimeOffHistoryItemForTimeOffRequest() {
+	public function testTimeOffAddATimeOffHistoryItemForTimeOffRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TimeOffApiTest extends TestCase {
 	 * Add a Time Off Request.
 	 *
 	 */
-	public function testTimeOffAddATimeOffRequest() {
+	public function testTimeOffAddATimeOffRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class TimeOffApiTest extends TestCase {
 	 * Adjust Time Off Balance.
 	 *
 	 */
-	public function testTimeOffAdjustTimeOffBalance() {
+	public function testTimeOffAdjustTimeOffBalance(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class TimeOffApiTest extends TestCase {
 	 * Assign Time Off Policies for an Employee.
 	 *
 	 */
-	public function testTimeOffAssignTimeOffPoliciesForAnEmployee() {
+	public function testTimeOffAssignTimeOffPoliciesForAnEmployee(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -149,7 +150,7 @@ class TimeOffApiTest extends TestCase {
 	 * Assign Time Off Policies for an Employee, Version 1.1.
 	 *
 	 */
-	public function testTimeOffAssignTimeOffPoliciesForAnEmployeeV11() {
+	public function testTimeOffAssignTimeOffPoliciesForAnEmployeeV11(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -160,7 +161,7 @@ class TimeOffApiTest extends TestCase {
 	 * Change a Request Status.
 	 *
 	 */
-	public function testTimeOffChangeARequestStatus() {
+	public function testTimeOffChangeARequestStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -171,7 +172,7 @@ class TimeOffApiTest extends TestCase {
 	 * Estimate Future Time Off Balances.
 	 *
 	 */
-	public function testTimeOffEstimateFutureTimeOffBalances() {
+	public function testTimeOffEstimateFutureTimeOffBalances(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -182,7 +183,7 @@ class TimeOffApiTest extends TestCase {
 	 * Get Time Off Requests.
 	 *
 	 */
-	public function testTimeOffGetTimeOffRequests() {
+	public function testTimeOffGetTimeOffRequests(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -193,7 +194,7 @@ class TimeOffApiTest extends TestCase {
 	 * List Time Off Policies for Employee.
 	 *
 	 */
-	public function testTimeOffListTimeOffPoliciesForEmployee() {
+	public function testTimeOffListTimeOffPoliciesForEmployee(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -204,7 +205,7 @@ class TimeOffApiTest extends TestCase {
 	 * List Time Off Policies for Employee, Version 1.1.
 	 *
 	 */
-	public function testTimeOffListTimeOffPoliciesForEmployeeV11() {
+	public function testTimeOffListTimeOffPoliciesForEmployeeV11(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

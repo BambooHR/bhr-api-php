@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeResponseAggregationsInnerTest
  *
@@ -68,7 +69,7 @@ class EmployeeResponseAggregationsInnerTest extends TestCase {
 	/**
 	 * Test "EmployeeResponseAggregationsInner"
 	 */
-	public function testEmployeeResponseAggregationsInner() {
+	public function testEmployeeResponseAggregationsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class EmployeeResponseAggregationsInnerTest extends TestCase {
 	/**
 	 * Test attribute "field"
 	 */
-	public function testPropertyField() {
+	public function testPropertyField(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class EmployeeResponseAggregationsInnerTest extends TestCase {
 	/**
 	 * Test attribute "aggregation_type"
 	 */
-	public function testPropertyAggregationType() {
+	public function testPropertyAggregationType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class EmployeeResponseAggregationsInnerTest extends TestCase {
 	/**
 	 * Test attribute "groups"
 	 */
-	public function testPropertyGroups() {
+	public function testPropertyGroups(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class EmployeeResponseAggregationsInnerTest extends TestCase {
 	/**
 	 * Test attribute "all"
 	 */
-	public function testPropertyAll() {
+	public function testPropertyAll(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

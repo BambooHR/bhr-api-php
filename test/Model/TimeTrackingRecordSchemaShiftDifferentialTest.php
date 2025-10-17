@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingRecordSchemaShiftDifferentialTest
  *
@@ -68,7 +69,7 @@ class TimeTrackingRecordSchemaShiftDifferentialTest extends TestCase {
 	/**
 	 * Test "TimeTrackingRecordSchemaShiftDifferential"
 	 */
-	public function testTimeTrackingRecordSchemaShiftDifferential() {
+	public function testTimeTrackingRecordSchemaShiftDifferential(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeTrackingRecordSchemaShiftDifferentialTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeTrackingRecordSchemaShiftDifferentialTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

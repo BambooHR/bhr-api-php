@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetWebhookList200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetWebhookList200ResponseTest extends TestCase {
 	/**
 	 * Test "GetWebhookList200Response"
 	 */
-	public function testGetWebhookList200Response() {
+	public function testGetWebhookList200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetWebhookList200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "webhooks"
 	 */
-	public function testPropertyWebhooks() {
+	public function testPropertyWebhooks(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebHookLogResponseTest
  *
@@ -68,7 +69,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test "WebHookLogResponse"
 	 */
-	public function testWebHookLogResponse() {
+	public function testWebHookLogResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "webhook_id"
 	 */
-	public function testPropertyWebhookId() {
+	public function testPropertyWebhookId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "url"
 	 */
-	public function testPropertyUrl() {
+	public function testPropertyUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "last_attempted"
 	 */
-	public function testPropertyLastAttempted() {
+	public function testPropertyLastAttempted(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "last_success"
 	 */
-	public function testPropertyLastSuccess() {
+	public function testPropertyLastSuccess(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "failure_count"
 	 */
-	public function testPropertyFailureCount() {
+	public function testPropertyFailureCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class WebHookLogResponseTest extends TestCase {
 	/**
 	 * Test attribute "employee_ids"
 	 */
-	public function testPropertyEmployeeIds() {
+	public function testPropertyEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

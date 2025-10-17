@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test "GetApplicationDetails200Response"
 	 */
-	public function testGetApplicationDetails200Response() {
+	public function testGetApplicationDetails200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "applied_date"
 	 */
-	public function testPropertyAppliedDate() {
+	public function testPropertyAppliedDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "rating"
 	 */
-	public function testPropertyRating() {
+	public function testPropertyRating(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "education"
 	 */
-	public function testPropertyEducation() {
+	public function testPropertyEducation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "resume_file_id"
 	 */
-	public function testPropertyResumeFileId() {
+	public function testPropertyResumeFileId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "cover_letter_file_id"
 	 */
-	public function testPropertyCoverLetterFileId() {
+	public function testPropertyCoverLetterFileId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "moved_to"
 	 */
-	public function testPropertyMovedTo() {
+	public function testPropertyMovedTo(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "moved_from"
 	 */
-	public function testPropertyMovedFrom() {
+	public function testPropertyMovedFrom(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "also_considered_for_count"
 	 */
-	public function testPropertyAlsoConsideredForCount() {
+	public function testPropertyAlsoConsideredForCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -156,7 +157,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "duplicate_application_count"
 	 */
-	public function testPropertyDuplicateApplicationCount() {
+	public function testPropertyDuplicateApplicationCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -164,7 +165,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "referred_by"
 	 */
-	public function testPropertyReferredBy() {
+	public function testPropertyReferredBy(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -172,7 +173,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "desired_salary"
 	 */
-	public function testPropertyDesiredSalary() {
+	public function testPropertyDesiredSalary(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -180,7 +181,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "comment_count"
 	 */
-	public function testPropertyCommentCount() {
+	public function testPropertyCommentCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -188,7 +189,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "email_count"
 	 */
-	public function testPropertyEmailCount() {
+	public function testPropertyEmailCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -196,7 +197,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "event_count"
 	 */
-	public function testPropertyEventCount() {
+	public function testPropertyEventCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -204,7 +205,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "questions_and_answers"
 	 */
-	public function testPropertyQuestionsAndAnswers() {
+	public function testPropertyQuestionsAndAnswers(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -212,7 +213,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "application_references"
 	 */
-	public function testPropertyApplicationReferences() {
+	public function testPropertyApplicationReferences(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -220,7 +221,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "applicant"
 	 */
-	public function testPropertyApplicant() {
+	public function testPropertyApplicant(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -228,7 +229,7 @@ class GetApplicationDetails200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "job"
 	 */
-	public function testPropertyJob() {
+	public function testPropertyJob(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

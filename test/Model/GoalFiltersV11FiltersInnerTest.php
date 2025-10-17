@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GoalFiltersV11FiltersInnerTest
  *
@@ -68,7 +69,7 @@ class GoalFiltersV11FiltersInnerTest extends TestCase {
 	/**
 	 * Test "GoalFiltersV11FiltersInner"
 	 */
-	public function testGoalFiltersV11FiltersInner() {
+	public function testGoalFiltersV11FiltersInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GoalFiltersV11FiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GoalFiltersV11FiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GoalFiltersV11FiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "count"
 	 */
-	public function testPropertyCount() {
+	public function testPropertyCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GoalFiltersV11FiltersInnerTest extends TestCase {
 	/**
 	 * Test attribute "actions"
 	 */
-	public function testPropertyActions() {
+	public function testPropertyActions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ProjectCreateRequestSchemaTest
  *
@@ -68,7 +69,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test "ProjectCreateRequestSchema"
 	 */
-	public function testProjectCreateRequestSchema() {
+	public function testProjectCreateRequestSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "billable"
 	 */
-	public function testPropertyBillable() {
+	public function testPropertyBillable(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "allow_all_employees"
 	 */
-	public function testPropertyAllowAllEmployees() {
+	public function testPropertyAllowAllEmployees(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "employee_ids"
 	 */
-	public function testPropertyEmployeeIds() {
+	public function testPropertyEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "has_tasks"
 	 */
-	public function testPropertyHasTasks() {
+	public function testPropertyHasTasks(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class ProjectCreateRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "tasks"
 	 */
-	public function testPropertyTasks() {
+	public function testPropertyTasks(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

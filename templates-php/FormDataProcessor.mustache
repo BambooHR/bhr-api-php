@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FormDataProcessor
  * PHP version 7.4

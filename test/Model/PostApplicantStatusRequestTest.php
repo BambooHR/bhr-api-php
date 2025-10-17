@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostApplicantStatusRequestTest
  *
@@ -68,7 +69,7 @@ class PostApplicantStatusRequestTest extends TestCase {
 	/**
 	 * Test "PostApplicantStatusRequest"
 	 */
-	public function testPostApplicantStatusRequest() {
+	public function testPostApplicantStatusRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PostApplicantStatusRequestTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

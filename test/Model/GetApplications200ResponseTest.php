@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplications200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetApplications200ResponseTest extends TestCase {
 	/**
 	 * Test "GetApplications200Response"
 	 */
-	public function testGetApplications200Response() {
+	public function testGetApplications200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplications200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "pagination_complete"
 	 */
-	public function testPropertyPaginationComplete() {
+	public function testPropertyPaginationComplete(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplications200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "next_page_url"
 	 */
-	public function testPropertyNextPageUrl() {
+	public function testPropertyNextPageUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplications200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "applications"
 	 */
-	public function testPropertyApplications() {
+	public function testPropertyApplications(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

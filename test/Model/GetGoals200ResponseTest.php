@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoals200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetGoals200ResponseTest extends TestCase {
 	/**
 	 * Test "GetGoals200Response"
 	 */
-	public function testGetGoals200Response() {
+	public function testGetGoals200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetGoals200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "goals"
 	 */
-	public function testPropertyGoals() {
+	public function testPropertyGoals(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

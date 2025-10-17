@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalsAggregateV1200Response
  *
@@ -496,7 +497,7 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -507,7 +508,7 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -519,7 +520,7 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -535,7 +536,7 @@ class GetGoalsAggregateV1200Response implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

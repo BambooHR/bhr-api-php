@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DatasetsApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class DatasetsApiTest extends TestCase {
 	 * Get Data from Dataset.
 	 *
 	 */
-	public function testGetDataFromDataset() {
+	public function testGetDataFromDataset(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class DatasetsApiTest extends TestCase {
 	 * Get Data Sets.
 	 *
 	 */
-	public function testGetDataSets() {
+	public function testGetDataSets(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class DatasetsApiTest extends TestCase {
 	 * Get Fields from Dataset.
 	 *
 	 */
-	public function testGetFieldsFromDataset() {
+	public function testGetFieldsFromDataset(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

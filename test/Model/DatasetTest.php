@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DatasetTest
  *
@@ -68,7 +69,7 @@ class DatasetTest extends TestCase {
 	/**
 	 * Test "Dataset"
 	 */
-	public function testDataset() {
+	public function testDataset(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DatasetTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class DatasetTest extends TestCase {
 	/**
 	 * Test attribute "label"
 	 */
-	public function testPropertyLabel() {
+	public function testPropertyLabel(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

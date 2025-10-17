@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebHookResponseTest
  *
@@ -68,7 +69,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test "WebHookResponse"
 	 */
-	public function testWebHookResponse() {
+	public function testWebHookResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "created"
 	 */
-	public function testPropertyCreated() {
+	public function testPropertyCreated(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "last_sent"
 	 */
-	public function testPropertyLastSent() {
+	public function testPropertyLastSent(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "monitor_fields"
 	 */
-	public function testPropertyMonitorFields() {
+	public function testPropertyMonitorFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "post_fields"
 	 */
-	public function testPropertyPostFields() {
+	public function testPropertyPostFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "url"
 	 */
-	public function testPropertyUrl() {
+	public function testPropertyUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "format"
 	 */
-	public function testPropertyFormat() {
+	public function testPropertyFormat(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "frequency"
 	 */
-	public function testPropertyFrequency() {
+	public function testPropertyFrequency(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "limit"
 	 */
-	public function testPropertyLimit() {
+	public function testPropertyLimit(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -156,7 +157,7 @@ class WebHookResponseTest extends TestCase {
 	/**
 	 * Test attribute "include_company_domain"
 	 */
-	public function testPropertyIncludeCompanyDomain() {
+	public function testPropertyIncludeCompanyDomain(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

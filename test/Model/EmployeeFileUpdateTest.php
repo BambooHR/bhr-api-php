@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeFileUpdateTest
  *
@@ -68,7 +69,7 @@ class EmployeeFileUpdateTest extends TestCase {
 	/**
 	 * Test "EmployeeFileUpdate"
 	 */
-	public function testEmployeeFileUpdate() {
+	public function testEmployeeFileUpdate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class EmployeeFileUpdateTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class EmployeeFileUpdateTest extends TestCase {
 	/**
 	 * Test attribute "category_id"
 	 */
-	public function testPropertyCategoryId() {
+	public function testPropertyCategoryId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class EmployeeFileUpdateTest extends TestCase {
 	/**
 	 * Test attribute "share_with_employee"
 	 */
-	public function testPropertyShareWithEmployee() {
+	public function testPropertyShareWithEmployee(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

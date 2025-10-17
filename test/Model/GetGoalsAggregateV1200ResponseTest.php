@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalsAggregateV1200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test "GetGoalsAggregateV1200Response"
 	 */
-	public function testGetGoalsAggregateV1200Response() {
+	public function testGetGoalsAggregateV1200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "can_align"
 	 */
-	public function testPropertyCanAlign() {
+	public function testPropertyCanAlign(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "can_create_goals"
 	 */
-	public function testPropertyCanCreateGoals() {
+	public function testPropertyCanCreateGoals(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "filters"
 	 */
-	public function testPropertyFilters() {
+	public function testPropertyFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "selected_filter"
 	 */
-	public function testPropertySelectedFilter() {
+	public function testPropertySelectedFilter(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "goals"
 	 */
-	public function testPropertyGoals() {
+	public function testPropertyGoals(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "persons"
 	 */
-	public function testPropertyPersons() {
+	public function testPropertyPersons(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class GetGoalsAggregateV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "comments"
 	 */
-	public function testPropertyComments() {
+	public function testPropertyComments(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

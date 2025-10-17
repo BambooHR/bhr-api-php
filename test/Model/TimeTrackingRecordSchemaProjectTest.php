@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingRecordSchemaProjectTest
  *
@@ -68,7 +69,7 @@ class TimeTrackingRecordSchemaProjectTest extends TestCase {
 	/**
 	 * Test "TimeTrackingRecordSchemaProject"
 	 */
-	public function testTimeTrackingRecordSchemaProject() {
+	public function testTimeTrackingRecordSchemaProject(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeTrackingRecordSchemaProjectTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeTrackingRecordSchemaProjectTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimeTrackingRecordSchemaProjectTest extends TestCase {
 	/**
 	 * Test attribute "task"
 	 */
-	public function testPropertyTask() {
+	public function testPropertyTask(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

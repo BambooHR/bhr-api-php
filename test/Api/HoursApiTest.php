@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * HoursApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class HoursApiTest extends TestCase {
 	 * Add/Edit Hour Records.
 	 *
 	 */
-	public function testAddTimeTrackingBulk() {
+	public function testAddTimeTrackingBulk(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class HoursApiTest extends TestCase {
 	 * Add Hour Record.
 	 *
 	 */
-	public function testAddTimeTrackingHourRecord() {
+	public function testAddTimeTrackingHourRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class HoursApiTest extends TestCase {
 	 * Delete Hour Record.
 	 *
 	 */
-	public function testDeleteTimeTrackingById() {
+	public function testDeleteTimeTrackingById(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class HoursApiTest extends TestCase {
 	 * Edit Hour Record.
 	 *
 	 */
-	public function testEditTimeTrackingRecord() {
+	public function testEditTimeTrackingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class HoursApiTest extends TestCase {
 	 * Get Hour Record.
 	 *
 	 */
-	public function testGetTimeTrackingRecord() {
+	public function testGetTimeTrackingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

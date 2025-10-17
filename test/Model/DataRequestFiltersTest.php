@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DataRequestFiltersTest
  *
@@ -68,7 +69,7 @@ class DataRequestFiltersTest extends TestCase {
 	/**
 	 * Test "DataRequestFilters"
 	 */
-	public function testDataRequestFilters() {
+	public function testDataRequestFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DataRequestFiltersTest extends TestCase {
 	/**
 	 * Test attribute "match"
 	 */
-	public function testPropertyMatch() {
+	public function testPropertyMatch(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class DataRequestFiltersTest extends TestCase {
 	/**
 	 * Test attribute "filters"
 	 */
-	public function testPropertyFilters() {
+	public function testPropertyFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

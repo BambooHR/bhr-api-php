@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalsAggregateV1200ResponsePersonsInnerTest
  *
@@ -68,7 +69,7 @@ class GetGoalsAggregateV1200ResponsePersonsInnerTest extends TestCase {
 	/**
 	 * Test "GetGoalsAggregateV1200ResponsePersonsInner"
 	 */
-	public function testGetGoalsAggregateV1200ResponsePersonsInner() {
+	public function testGetGoalsAggregateV1200ResponsePersonsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetGoalsAggregateV1200ResponsePersonsInnerTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetGoalsAggregateV1200ResponsePersonsInnerTest extends TestCase {
 	/**
 	 * Test attribute "user_id"
 	 */
-	public function testPropertyUserId() {
+	public function testPropertyUserId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetGoalsAggregateV1200ResponsePersonsInnerTest extends TestCase {
 	/**
 	 * Test attribute "display_first_name"
 	 */
-	public function testPropertyDisplayFirstName() {
+	public function testPropertyDisplayFirstName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetGoalsAggregateV1200ResponsePersonsInnerTest extends TestCase {
 	/**
 	 * Test attribute "last_name"
 	 */
-	public function testPropertyLastName() {
+	public function testPropertyLastName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetGoalsAggregateV1200ResponsePersonsInnerTest extends TestCase {
 	/**
 	 * Test attribute "photo_url"
 	 */
-	public function testPropertyPhotoUrl() {
+	public function testPropertyPhotoUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

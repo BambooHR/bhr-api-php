@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ATSApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class ATSApiTest extends TestCase {
 	 * Get Application Details.
 	 *
 	 */
-	public function testGetApplicationDetails() {
+	public function testGetApplicationDetails(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

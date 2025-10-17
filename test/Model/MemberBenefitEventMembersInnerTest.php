@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * MemberBenefitEventMembersInnerTest
  *
@@ -68,7 +69,7 @@ class MemberBenefitEventMembersInnerTest extends TestCase {
 	/**
 	 * Test "MemberBenefitEventMembersInner"
 	 */
-	public function testMemberBenefitEventMembersInner() {
+	public function testMemberBenefitEventMembersInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class MemberBenefitEventMembersInnerTest extends TestCase {
 	/**
 	 * Test attribute "member_id"
 	 */
-	public function testPropertyMemberId() {
+	public function testPropertyMemberId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class MemberBenefitEventMembersInnerTest extends TestCase {
 	/**
 	 * Test attribute "coverages"
 	 */
-	public function testPropertyCoverages() {
+	public function testPropertyCoverages(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

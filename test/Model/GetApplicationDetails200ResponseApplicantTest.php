@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200ResponseApplicantTest
  *
@@ -68,7 +69,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test "GetApplicationDetails200ResponseApplicant"
 	 */
-	public function testGetApplicationDetails200ResponseApplicant() {
+	public function testGetApplicationDetails200ResponseApplicant(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test attribute "first_name"
 	 */
-	public function testPropertyFirstName() {
+	public function testPropertyFirstName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test attribute "last_name"
 	 */
-	public function testPropertyLastName() {
+	public function testPropertyLastName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test attribute "email"
 	 */
-	public function testPropertyEmail() {
+	public function testPropertyEmail(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test attribute "phone"
 	 */
-	public function testPropertyPhone() {
+	public function testPropertyPhone(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 	/**
 	 * Test attribute "address"
 	 */
-	public function testPropertyAddress() {
+	public function testPropertyAddress(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

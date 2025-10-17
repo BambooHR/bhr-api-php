@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ListFieldValuesTest
  *
@@ -68,7 +69,7 @@ class ListFieldValuesTest extends TestCase {
 	/**
 	 * Test "ListFieldValues"
 	 */
-	public function testListFieldValues() {
+	public function testListFieldValues(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ListFieldValuesTest extends TestCase {
 	/**
 	 * Test attribute "options"
 	 */
-	public function testPropertyOptions() {
+	public function testPropertyOptions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

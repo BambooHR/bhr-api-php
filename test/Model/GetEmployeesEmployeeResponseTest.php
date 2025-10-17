@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetEmployeesEmployeeResponseTest
  *
@@ -68,7 +69,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test "GetEmployeesEmployeeResponse"
 	 */
-	public function testGetEmployeesEmployeeResponse() {
+	public function testGetEmployeesEmployeeResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "first_name"
 	 */
-	public function testPropertyFirstName() {
+	public function testPropertyFirstName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "last_name"
 	 */
-	public function testPropertyLastName() {
+	public function testPropertyLastName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "preferred_name"
 	 */
-	public function testPropertyPreferredName() {
+	public function testPropertyPreferredName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "photo_url"
 	 */
-	public function testPropertyPhotoUrl() {
+	public function testPropertyPhotoUrl(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "job_title_name"
 	 */
-	public function testPropertyJobTitleName() {
+	public function testPropertyJobTitleName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class GetEmployeesEmployeeResponseTest extends TestCase {
 	/**
 	 * Test attribute "_restricted_fields"
 	 */
-	public function testPropertyRestrictedFields() {
+	public function testPropertyRestrictedFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

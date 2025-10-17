@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FieldTest
  *
@@ -68,7 +69,7 @@ class FieldTest extends TestCase {
 	/**
 	 * Test "Field"
 	 */
-	public function testField() {
+	public function testField(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class FieldTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class FieldTest extends TestCase {
 	/**
 	 * Test attribute "label"
 	 */
-	public function testPropertyLabel() {
+	public function testPropertyLabel(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class FieldTest extends TestCase {
 	/**
 	 * Test attribute "parent_type"
 	 */
-	public function testPropertyParentType() {
+	public function testPropertyParentType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class FieldTest extends TestCase {
 	/**
 	 * Test attribute "parent_name"
 	 */
-	public function testPropertyParentName() {
+	public function testPropertyParentName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

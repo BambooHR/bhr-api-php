@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TransformedApiGoalGoalMilestonesInnerTest
  *
@@ -68,7 +69,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test "TransformedApiGoalGoalMilestonesInner"
 	 */
-	public function testTransformedApiGoalGoalMilestonesInner() {
+	public function testTransformedApiGoalGoalMilestonesInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "employee_goal_id"
 	 */
-	public function testPropertyEmployeeGoalId() {
+	public function testPropertyEmployeeGoalId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "title"
 	 */
-	public function testPropertyTitle() {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "current_value"
 	 */
-	public function testPropertyCurrentValue() {
+	public function testPropertyCurrentValue(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "start_value"
 	 */
-	public function testPropertyStartValue() {
+	public function testPropertyStartValue(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "end_value"
 	 */
-	public function testPropertyEndValue() {
+	public function testPropertyEndValue(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "completed_date_time"
 	 */
-	public function testPropertyCompletedDateTime() {
+	public function testPropertyCompletedDateTime(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "last_update_date_date_time"
 	 */
-	public function testPropertyLastUpdateDateDateTime() {
+	public function testPropertyLastUpdateDateDateTime(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class TransformedApiGoalGoalMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "last_update_user_id"
 	 */
-	public function testPropertyLastUpdateUserId() {
+	public function testPropertyLastUpdateUserId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

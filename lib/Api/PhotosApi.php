@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PhotosApi
  * PHP version 8.1

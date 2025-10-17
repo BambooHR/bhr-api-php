@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffHistoryTest
  *
@@ -68,7 +69,7 @@ class TimeOffHistoryTest extends TestCase {
 	/**
 	 * Test "TimeOffHistory"
 	 */
-	public function testTimeOffHistory() {
+	public function testTimeOffHistory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeOffHistoryTest extends TestCase {
 	/**
 	 * Test attribute "date"
 	 */
-	public function testPropertyDate() {
+	public function testPropertyDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeOffHistoryTest extends TestCase {
 	/**
 	 * Test attribute "time_off_request_id"
 	 */
-	public function testPropertyTimeOffRequestId() {
+	public function testPropertyTimeOffRequestId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimeOffHistoryTest extends TestCase {
 	/**
 	 * Test attribute "note"
 	 */
-	public function testPropertyNote() {
+	public function testPropertyNote(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

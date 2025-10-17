@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplications200ResponseApplicationsItemsInnerStatusTest
  *
@@ -68,7 +69,7 @@ class GetApplications200ResponseApplicationsItemsInnerStatusTest extends TestCas
 	/**
 	 * Test "GetApplications200ResponseApplicationsItemsInnerStatus"
 	 */
-	public function testGetApplications200ResponseApplicationsItemsInnerStatus() {
+	public function testGetApplications200ResponseApplicationsItemsInnerStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplications200ResponseApplicationsItemsInnerStatusTest extends TestCas
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplications200ResponseApplicationsItemsInnerStatusTest extends TestCas
 	/**
 	 * Test attribute "label"
 	 */
-	public function testPropertyLabel() {
+	public function testPropertyLabel(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

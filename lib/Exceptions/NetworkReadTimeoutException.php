@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * NetworkReadTimeout Exception
  * PHP version 8.1

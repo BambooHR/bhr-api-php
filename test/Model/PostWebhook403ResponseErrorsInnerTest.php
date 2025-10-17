@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostWebhook403ResponseErrorsInnerTest
  *
@@ -68,7 +69,7 @@ class PostWebhook403ResponseErrorsInnerTest extends TestCase {
 	/**
 	 * Test "PostWebhook403ResponseErrorsInner"
 	 */
-	public function testPostWebhook403ResponseErrorsInner() {
+	public function testPostWebhook403ResponseErrorsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PostWebhook403ResponseErrorsInnerTest extends TestCase {
 	/**
 	 * Test attribute "error"
 	 */
-	public function testPropertyError() {
+	public function testPropertyError(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

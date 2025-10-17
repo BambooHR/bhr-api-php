@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PutGoalV11Request
  *
@@ -639,7 +640,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -650,7 +651,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -662,7 +663,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -678,7 +679,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

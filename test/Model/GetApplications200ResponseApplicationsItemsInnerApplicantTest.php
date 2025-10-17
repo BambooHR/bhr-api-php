@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplications200ResponseApplicationsItemsInnerApplicantTest
  *
@@ -68,7 +69,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test "GetApplications200ResponseApplicationsItemsInnerApplicant"
 	 */
-	public function testGetApplications200ResponseApplicationsItemsInnerApplicant() {
+	public function testGetApplications200ResponseApplicationsItemsInnerApplicant(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test attribute "first_name"
 	 */
-	public function testPropertyFirstName() {
+	public function testPropertyFirstName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test attribute "last_name"
 	 */
-	public function testPropertyLastName() {
+	public function testPropertyLastName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test attribute "avatar"
 	 */
-	public function testPropertyAvatar() {
+	public function testPropertyAvatar(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test attribute "email"
 	 */
-	public function testPropertyEmail() {
+	public function testPropertyEmail(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetApplications200ResponseApplicationsItemsInnerApplicantTest extends Test
 	/**
 	 * Test attribute "source"
 	 */
-	public function testPropertySource() {
+	public function testPropertySource(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

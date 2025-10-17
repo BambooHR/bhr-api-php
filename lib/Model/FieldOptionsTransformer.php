@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FieldOptionsTransformer
  *
@@ -330,7 +331,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -341,7 +342,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -353,7 +354,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -369,7 +370,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

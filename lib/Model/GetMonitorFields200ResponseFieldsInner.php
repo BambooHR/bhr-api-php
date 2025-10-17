@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetMonitorFields200ResponseFieldsInner
  *
@@ -362,7 +363,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -373,7 +374,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -385,7 +386,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -401,7 +402,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

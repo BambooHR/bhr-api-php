@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PutGoalSharedWithRequestTest
  *
@@ -68,7 +69,7 @@ class PutGoalSharedWithRequestTest extends TestCase {
 	/**
 	 * Test "PutGoalSharedWithRequest"
 	 */
-	public function testPutGoalSharedWithRequest() {
+	public function testPutGoalSharedWithRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PutGoalSharedWithRequestTest extends TestCase {
 	/**
 	 * Test attribute "shared_with_employee_ids"
 	 */
-	public function testPropertySharedWithEmployeeIds() {
+	public function testPropertySharedWithEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

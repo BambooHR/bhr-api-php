@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingRecordSchemaTest
  *
@@ -68,7 +69,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test "TimeTrackingRecordSchema"
 	 */
-	public function testTimeTrackingRecordSchema() {
+	public function testTimeTrackingRecordSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "time_tracking_id"
 	 */
-	public function testPropertyTimeTrackingId() {
+	public function testPropertyTimeTrackingId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "division_id"
 	 */
-	public function testPropertyDivisionId() {
+	public function testPropertyDivisionId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "department_id"
 	 */
-	public function testPropertyDepartmentId() {
+	public function testPropertyDepartmentId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "job_title_id"
 	 */
-	public function testPropertyJobTitleId() {
+	public function testPropertyJobTitleId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "pay_code"
 	 */
-	public function testPropertyPayCode() {
+	public function testPropertyPayCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "date_hours_worked"
 	 */
-	public function testPropertyDateHoursWorked() {
+	public function testPropertyDateHoursWorked(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "type"
 	 */
-	public function testPropertyType() {
+	public function testPropertyType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "pay_rate"
 	 */
-	public function testPropertyPayRate() {
+	public function testPropertyPayRate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "rate_type"
 	 */
-	public function testPropertyRateType() {
+	public function testPropertyRateType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -156,7 +157,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "hours_worked"
 	 */
-	public function testPropertyHoursWorked() {
+	public function testPropertyHoursWorked(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -164,7 +165,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "adjusted_hours"
 	 */
-	public function testPropertyAdjustedHours() {
+	public function testPropertyAdjustedHours(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -172,7 +173,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "date_adjusted"
 	 */
-	public function testPropertyDateAdjusted() {
+	public function testPropertyDateAdjusted(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -180,7 +181,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "job_code"
 	 */
-	public function testPropertyJobCode() {
+	public function testPropertyJobCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -188,7 +189,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "job_data"
 	 */
-	public function testPropertyJobData() {
+	public function testPropertyJobData(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -196,7 +197,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "project_id"
 	 */
-	public function testPropertyProjectId() {
+	public function testPropertyProjectId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -204,7 +205,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "task_id"
 	 */
-	public function testPropertyTaskId() {
+	public function testPropertyTaskId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -212,7 +213,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "shift_differential_id"
 	 */
-	public function testPropertyShiftDifferentialId() {
+	public function testPropertyShiftDifferentialId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -220,7 +221,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "holiday_id"
 	 */
-	public function testPropertyHolidayId() {
+	public function testPropertyHolidayId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -228,7 +229,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "project"
 	 */
-	public function testPropertyProject() {
+	public function testPropertyProject(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -236,7 +237,7 @@ class TimeTrackingRecordSchemaTest extends TestCase {
 	/**
 	 * Test attribute "shift_differential"
 	 */
-	public function testPropertyShiftDifferential() {
+	public function testPropertyShiftDifferential(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

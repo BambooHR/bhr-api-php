@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * LastChangeInformationApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class LastChangeInformationApiTest extends TestCase {
 	 * Gets all updated employee IDs.
 	 *
 	 */
-	public function testGetChangedEmployeeIds() {
+	public function testGetChangedEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

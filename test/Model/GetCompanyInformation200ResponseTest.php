@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetCompanyInformation200ResponseTest
  *
@@ -68,7 +69,7 @@ class GetCompanyInformation200ResponseTest extends TestCase {
 	/**
 	 * Test "GetCompanyInformation200Response"
 	 */
-	public function testGetCompanyInformation200Response() {
+	public function testGetCompanyInformation200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetCompanyInformation200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "legal_name"
 	 */
-	public function testPropertyLegalName() {
+	public function testPropertyLegalName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetCompanyInformation200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "display_name"
 	 */
-	public function testPropertyDisplayName() {
+	public function testPropertyDisplayName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetCompanyInformation200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "address"
 	 */
-	public function testPropertyAddress() {
+	public function testPropertyAddress(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetCompanyInformation200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "phone"
 	 */
-	public function testPropertyPhone() {
+	public function testPropertyPhone(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

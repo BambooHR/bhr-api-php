@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeFilesApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class EmployeeFilesApiTest extends TestCase {
 	 * Add Employee File Category.
 	 *
 	 */
-	public function testAddEmployeeFileCategory() {
+	public function testAddEmployeeFileCategory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class EmployeeFilesApiTest extends TestCase {
 	 * Delete Employee File.
 	 *
 	 */
-	public function testDeleteEmployeeFile() {
+	public function testDeleteEmployeeFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class EmployeeFilesApiTest extends TestCase {
 	 * Get an Employee File.
 	 *
 	 */
-	public function testGetEmployeeFile() {
+	public function testGetEmployeeFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class EmployeeFilesApiTest extends TestCase {
 	 * List employee files and categories.
 	 *
 	 */
-	public function testListEmployeeFiles() {
+	public function testListEmployeeFiles(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class EmployeeFilesApiTest extends TestCase {
 	 * Update Employee File.
 	 *
 	 */
-	public function testUpdateEmployeeFile() {
+	public function testUpdateEmployeeFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class EmployeeFilesApiTest extends TestCase {
 	 * Upload Employee File.
 	 *
 	 */
-	public function testUploadEmployeeFile() {
+	public function testUploadEmployeeFile(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

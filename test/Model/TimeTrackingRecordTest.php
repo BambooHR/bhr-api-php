@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingRecordTest
  *
@@ -68,7 +69,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test "TimeTrackingRecord"
 	 */
-	public function testTimeTrackingRecord() {
+	public function testTimeTrackingRecord(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "time_tracking_id"
 	 */
-	public function testPropertyTimeTrackingId() {
+	public function testPropertyTimeTrackingId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "employee_id"
 	 */
-	public function testPropertyEmployeeId() {
+	public function testPropertyEmployeeId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "division_id"
 	 */
-	public function testPropertyDivisionId() {
+	public function testPropertyDivisionId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "department_id"
 	 */
-	public function testPropertyDepartmentId() {
+	public function testPropertyDepartmentId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "job_title_id"
 	 */
-	public function testPropertyJobTitleId() {
+	public function testPropertyJobTitleId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "pay_code"
 	 */
-	public function testPropertyPayCode() {
+	public function testPropertyPayCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "date_hours_worked"
 	 */
-	public function testPropertyDateHoursWorked() {
+	public function testPropertyDateHoursWorked(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "pay_rate"
 	 */
-	public function testPropertyPayRate() {
+	public function testPropertyPayRate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "rate_type"
 	 */
-	public function testPropertyRateType() {
+	public function testPropertyRateType(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "hours_worked"
 	 */
-	public function testPropertyHoursWorked() {
+	public function testPropertyHoursWorked(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -156,7 +157,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "job_code"
 	 */
-	public function testPropertyJobCode() {
+	public function testPropertyJobCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -164,7 +165,7 @@ class TimeTrackingRecordTest extends TestCase {
 	/**
 	 * Test attribute "job_data"
 	 */
-	public function testPropertyJobData() {
+	public function testPropertyJobData(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DataRequestSortByInnerTest
  *
@@ -68,7 +69,7 @@ class DataRequestSortByInnerTest extends TestCase {
 	/**
 	 * Test "DataRequestSortByInner"
 	 */
-	public function testDataRequestSortByInner() {
+	public function testDataRequestSortByInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DataRequestSortByInnerTest extends TestCase {
 	/**
 	 * Test attribute "field"
 	 */
-	public function testPropertyField() {
+	public function testPropertyField(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class DataRequestSortByInnerTest extends TestCase {
 	/**
 	 * Test attribute "sort"
 	 */
-	public function testPropertySort() {
+	public function testPropertySort(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * RequestCustomReport
  *
@@ -362,7 +363,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -373,7 +374,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -385,7 +386,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -401,7 +402,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

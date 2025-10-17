@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * HourEntriesRequestSchemaTest
  *
@@ -68,7 +69,7 @@ class HourEntriesRequestSchemaTest extends TestCase {
 	/**
 	 * Test "HourEntriesRequestSchema"
 	 */
-	public function testHourEntriesRequestSchema() {
+	public function testHourEntriesRequestSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class HourEntriesRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "hours"
 	 */
-	public function testPropertyHours() {
+	public function testPropertyHours(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

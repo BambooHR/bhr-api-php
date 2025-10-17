@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalsAggregateV1200ResponseCommentsInnerTest
  *
@@ -68,7 +69,7 @@ class GetGoalsAggregateV1200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test "GetGoalsAggregateV1200ResponseCommentsInner"
 	 */
-	public function testGetGoalsAggregateV1200ResponseCommentsInner() {
+	public function testGetGoalsAggregateV1200ResponseCommentsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetGoalsAggregateV1200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "goal_id"
 	 */
-	public function testPropertyGoalId() {
+	public function testPropertyGoalId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetGoalsAggregateV1200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "comment_count"
 	 */
-	public function testPropertyCommentCount() {
+	public function testPropertyCommentCount(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

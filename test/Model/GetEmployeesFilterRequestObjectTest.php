@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetEmployeesFilterRequestObjectTest
  *
@@ -68,7 +69,7 @@ class GetEmployeesFilterRequestObjectTest extends TestCase {
 	/**
 	 * Test "GetEmployeesFilterRequestObject"
 	 */
-	public function testGetEmployeesFilterRequestObject() {
+	public function testGetEmployeesFilterRequestObject(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetEmployeesFilterRequestObjectTest extends TestCase {
 	/**
 	 * Test attribute "first_name"
 	 */
-	public function testPropertyFirstName() {
+	public function testPropertyFirstName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetEmployeesFilterRequestObjectTest extends TestCase {
 	/**
 	 * Test attribute "last_name"
 	 */
-	public function testPropertyLastName() {
+	public function testPropertyLastName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetEmployeesFilterRequestObjectTest extends TestCase {
 	/**
 	 * Test attribute "job_title_name"
 	 */
-	public function testPropertyJobTitleName() {
+	public function testPropertyJobTitleName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetEmployeesFilterRequestObjectTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetEmployeesFilterRequestObjectTest extends TestCase {
 	/**
 	 * Test attribute "ids"
 	 */
-	public function testPropertyIds() {
+	public function testPropertyIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

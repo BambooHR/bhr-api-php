@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostGoalRequestMilestonesInnerTest
  *
@@ -68,7 +69,7 @@ class PostGoalRequestMilestonesInnerTest extends TestCase {
 	/**
 	 * Test "PostGoalRequestMilestonesInner"
 	 */
-	public function testPostGoalRequestMilestonesInner() {
+	public function testPostGoalRequestMilestonesInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PostGoalRequestMilestonesInnerTest extends TestCase {
 	/**
 	 * Test attribute "title"
 	 */
-	public function testPropertyTitle() {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

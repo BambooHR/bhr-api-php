@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetCompanyLocations200ResponseInnerTest
  *
@@ -68,7 +69,7 @@ class GetCompanyLocations200ResponseInnerTest extends TestCase {
 	/**
 	 * Test "GetCompanyLocations200ResponseInner"
 	 */
-	public function testGetCompanyLocations200ResponseInner() {
+	public function testGetCompanyLocations200ResponseInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetCompanyLocations200ResponseInnerTest extends TestCase {
 	/**
 	 * Test attribute "location"
 	 */
-	public function testPropertyLocation() {
+	public function testPropertyLocation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

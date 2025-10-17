@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeesApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class EmployeesApiTest extends TestCase {
 	 * Add Employee.
 	 *
 	 */
-	public function testAddEmployee() {
+	public function testAddEmployee(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class EmployeesApiTest extends TestCase {
 	 * Get Company Information.
 	 *
 	 */
-	public function testGetCompanyInformation() {
+	public function testGetCompanyInformation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class EmployeesApiTest extends TestCase {
 	 * Get Employee.
 	 *
 	 */
-	public function testGetEmployee() {
+	public function testGetEmployee(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class EmployeesApiTest extends TestCase {
 	 * Get Employee Directory.
 	 *
 	 */
-	public function testGetEmployeesDirectory() {
+	public function testGetEmployeesDirectory(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class EmployeesApiTest extends TestCase {
 	 * Get Employees.
 	 *
 	 */
-	public function testGetEmployeesList() {
+	public function testGetEmployeesList(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class EmployeesApiTest extends TestCase {
 	 * Update Employee.
 	 *
 	 */
-	public function testUpdateEmployee() {
+	public function testUpdateEmployee(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebhooksApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class WebhooksApiTest extends TestCase {
 	 * Delete Webhook.
 	 *
 	 */
-	public function testDeleteWebhook() {
+	public function testDeleteWebhook(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class WebhooksApiTest extends TestCase {
 	 * Get monitor fields.
 	 *
 	 */
-	public function testGetMonitorFields() {
+	public function testGetMonitorFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class WebhooksApiTest extends TestCase {
 	 * Get Webhook.
 	 *
 	 */
-	public function testGetWebhook() {
+	public function testGetWebhook(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class WebhooksApiTest extends TestCase {
 	 * Gets as list of webhooks for the user API key..
 	 *
 	 */
-	public function testGetWebhookList() {
+	public function testGetWebhookList(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class WebhooksApiTest extends TestCase {
 	 * Get Webhook Logs.
 	 *
 	 */
-	public function testGetWebhookLogs() {
+	public function testGetWebhookLogs(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class WebhooksApiTest extends TestCase {
 	 * Add Webhook.
 	 *
 	 */
-	public function testPostWebhook() {
+	public function testPostWebhook(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class WebhooksApiTest extends TestCase {
 	 * Update Webhook.
 	 *
 	 */
-	public function testPutWebhook() {
+	public function testPutWebhook(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

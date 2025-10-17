@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DataRequestTest
  *
@@ -68,7 +69,7 @@ class DataRequestTest extends TestCase {
 	/**
 	 * Test "DataRequest"
 	 */
-	public function testDataRequest() {
+	public function testDataRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DataRequestTest extends TestCase {
 	/**
 	 * Test attribute "fields"
 	 */
-	public function testPropertyFields() {
+	public function testPropertyFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class DataRequestTest extends TestCase {
 	/**
 	 * Test attribute "aggregations"
 	 */
-	public function testPropertyAggregations() {
+	public function testPropertyAggregations(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class DataRequestTest extends TestCase {
 	/**
 	 * Test attribute "sort_by"
 	 */
-	public function testPropertySortBy() {
+	public function testPropertySortBy(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class DataRequestTest extends TestCase {
 	/**
 	 * Test attribute "filters"
 	 */
-	public function testPropertyFilters() {
+	public function testPropertyFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class DataRequestTest extends TestCase {
 	/**
 	 * Test attribute "group_by"
 	 */
-	public function testPropertyGroupBy() {
+	public function testPropertyGroupBy(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

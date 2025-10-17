@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * RequestCustomReportTest
  *
@@ -68,7 +69,7 @@ class RequestCustomReportTest extends TestCase {
 	/**
 	 * Test "RequestCustomReport"
 	 */
-	public function testRequestCustomReport() {
+	public function testRequestCustomReport(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class RequestCustomReportTest extends TestCase {
 	/**
 	 * Test attribute "title"
 	 */
-	public function testPropertyTitle() {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class RequestCustomReportTest extends TestCase {
 	/**
 	 * Test attribute "filters"
 	 */
-	public function testPropertyFilters() {
+	public function testPropertyFilters(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class RequestCustomReportTest extends TestCase {
 	/**
 	 * Test attribute "fields"
 	 */
-	public function testPropertyFields() {
+	public function testPropertyFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

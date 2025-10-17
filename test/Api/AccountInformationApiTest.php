@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AccountInformationApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Get all countries.
 	 *
 	 */
-	public function testGetCountriesOptions() {
+	public function testGetCountriesOptions(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Get a List of Users.
 	 *
 	 */
-	public function testGetListOfUsers() {
+	public function testGetListOfUsers(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -94,7 +95,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Get states by country ID.
 	 *
 	 */
-	public function testGetStatesByCountryId() {
+	public function testGetStatesByCountryId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -105,7 +106,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Add or Update Values for List Fields.
 	 *
 	 */
-	public function testMetadataAddOrUpdateValuesForListFields() {
+	public function testMetadataAddOrUpdateValuesForListFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Get a list of fields.
 	 *
 	 */
-	public function testMetadataGetAListOfFields() {
+	public function testMetadataGetAListOfFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -127,7 +128,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Get a list of tabular fields.
 	 *
 	 */
-	public function testMetadataGetAListOfTabularFields() {
+	public function testMetadataGetAListOfTabularFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -138,7 +139,7 @@ class AccountInformationApiTest extends TestCase {
 	 * Get details for list fields.
 	 *
 	 */
-	public function testMetadataGetDetailsForListFields() {
+	public function testMetadataGetDetailsForListFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

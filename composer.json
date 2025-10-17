@@ -36,7 +36,8 @@
     },
     "require-dev": {
         "bamboohr/phpcs": "^1.0.0",
-        "phpunit/phpunit": "^8.0 || ^9.0"
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "phpstan/phpstan": "^1.10"
     },
     "scripts": {
         "post-install-cmd": [

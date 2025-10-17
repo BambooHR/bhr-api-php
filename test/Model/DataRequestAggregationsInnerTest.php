@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DataRequestAggregationsInnerTest
  *
@@ -68,7 +69,7 @@ class DataRequestAggregationsInnerTest extends TestCase {
 	/**
 	 * Test "DataRequestAggregationsInner"
 	 */
-	public function testDataRequestAggregationsInner() {
+	public function testDataRequestAggregationsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DataRequestAggregationsInnerTest extends TestCase {
 	/**
 	 * Test attribute "field"
 	 */
-	public function testPropertyField() {
+	public function testPropertyField(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class DataRequestAggregationsInnerTest extends TestCase {
 	/**
 	 * Test attribute "aggregation"
 	 */
-	public function testPropertyAggregation() {
+	public function testPropertyAggregation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

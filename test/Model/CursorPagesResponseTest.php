@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CursorPagesResponseTest
  *
@@ -68,7 +69,7 @@ class CursorPagesResponseTest extends TestCase {
 	/**
 	 * Test "CursorPagesResponse"
 	 */
-	public function testCursorPagesResponse() {
+	public function testCursorPagesResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class CursorPagesResponseTest extends TestCase {
 	/**
 	 * Test attribute "limit"
 	 */
-	public function testPropertyLimit() {
+	public function testPropertyLimit(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class CursorPagesResponseTest extends TestCase {
 	/**
 	 * Test attribute "next_cursor"
 	 */
-	public function testPropertyNextCursor() {
+	public function testPropertyNextCursor(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class CursorPagesResponseTest extends TestCase {
 	/**
 	 * Test attribute "prev_cursor"
 	 */
-	public function testPropertyPrevCursor() {
+	public function testPropertyPrevCursor(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

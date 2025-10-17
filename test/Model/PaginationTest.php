@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PaginationTest
  *
@@ -68,7 +69,7 @@ class PaginationTest extends TestCase {
 	/**
 	 * Test "Pagination"
 	 */
-	public function testPagination() {
+	public function testPagination(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PaginationTest extends TestCase {
 	/**
 	 * Test attribute "total_records"
 	 */
-	public function testPropertyTotalRecords() {
+	public function testPropertyTotalRecords(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class PaginationTest extends TestCase {
 	/**
 	 * Test attribute "current_page"
 	 */
-	public function testPropertyCurrentPage() {
+	public function testPropertyCurrentPage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class PaginationTest extends TestCase {
 	/**
 	 * Test attribute "total_pages"
 	 */
-	public function testPropertyTotalPages() {
+	public function testPropertyTotalPages(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class PaginationTest extends TestCase {
 	/**
 	 * Test attribute "next_page"
 	 */
-	public function testPropertyNextPage() {
+	public function testPropertyNextPage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class PaginationTest extends TestCase {
 	/**
 	 * Test attribute "prev_page"
 	 */
-	public function testPropertyPrevPage() {
+	public function testPropertyPrevPage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

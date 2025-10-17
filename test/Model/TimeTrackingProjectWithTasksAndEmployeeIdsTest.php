@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingProjectWithTasksAndEmployeeIdsTest
  *
@@ -68,7 +69,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIdsTest extends TestCase {
 	/**
 	 * Test "TimeTrackingProjectWithTasksAndEmployeeIds"
 	 */
-	public function testTimeTrackingProjectWithTasksAndEmployeeIds() {
+	public function testTimeTrackingProjectWithTasksAndEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIdsTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIdsTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIdsTest extends TestCase {
 	/**
 	 * Test attribute "tasks"
 	 */
-	public function testPropertyTasks() {
+	public function testPropertyTasks(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIdsTest extends TestCase {
 	/**
 	 * Test attribute "employee_ids"
 	 */
-	public function testPropertyEmployeeIds() {
+	public function testPropertyEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

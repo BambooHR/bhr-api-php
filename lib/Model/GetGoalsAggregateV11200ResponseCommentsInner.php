@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalsAggregateV11200ResponseCommentsInner
  *
@@ -334,7 +335,7 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -345,7 +346,7 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -357,7 +358,7 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -373,7 +374,7 @@ class GetGoalsAggregateV11200ResponseCommentsInner implements ModelInterface, Ar
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostGoalRequestTest
  *
@@ -68,7 +69,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test "PostGoalRequest"
 	 */
-	public function testPostGoalRequest() {
+	public function testPostGoalRequest(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "title"
 	 */
-	public function testPropertyTitle() {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "description"
 	 */
-	public function testPropertyDescription() {
+	public function testPropertyDescription(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "due_date"
 	 */
-	public function testPropertyDueDate() {
+	public function testPropertyDueDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "percent_complete"
 	 */
-	public function testPropertyPercentComplete() {
+	public function testPropertyPercentComplete(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "completion_date"
 	 */
-	public function testPropertyCompletionDate() {
+	public function testPropertyCompletionDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "shared_with_employee_ids"
 	 */
-	public function testPropertySharedWithEmployeeIds() {
+	public function testPropertySharedWithEmployeeIds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "aligns_with_option_id"
 	 */
-	public function testPropertyAlignsWithOptionId() {
+	public function testPropertyAlignsWithOptionId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class PostGoalRequestTest extends TestCase {
 	/**
 	 * Test attribute "milestones"
 	 */
-	public function testPropertyMilestones() {
+	public function testPropertyMilestones(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

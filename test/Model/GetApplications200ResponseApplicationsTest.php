@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplications200ResponseApplicationsTest
  *
@@ -68,7 +69,7 @@ class GetApplications200ResponseApplicationsTest extends TestCase {
 	/**
 	 * Test "GetApplications200ResponseApplications"
 	 */
-	public function testGetApplications200ResponseApplications() {
+	public function testGetApplications200ResponseApplications(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplications200ResponseApplicationsTest extends TestCase {
 	/**
 	 * Test attribute "items"
 	 */
-	public function testPropertyItems() {
+	public function testPropertyItems(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

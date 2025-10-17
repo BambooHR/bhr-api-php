@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AdjustTimeTrackingRequestSchemaTest
  *
@@ -68,7 +69,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test "AdjustTimeTrackingRequestSchema"
 	 */
-	public function testAdjustTimeTrackingRequestSchema() {
+	public function testAdjustTimeTrackingRequestSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "time_tracking_id"
 	 */
-	public function testPropertyTimeTrackingId() {
+	public function testPropertyTimeTrackingId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "hours_worked"
 	 */
-	public function testPropertyHoursWorked() {
+	public function testPropertyHoursWorked(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "project_id"
 	 */
-	public function testPropertyProjectId() {
+	public function testPropertyProjectId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "task_id"
 	 */
-	public function testPropertyTaskId() {
+	public function testPropertyTaskId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "shift_differential_id"
 	 */
-	public function testPropertyShiftDifferentialId() {
+	public function testPropertyShiftDifferentialId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "holiday_id"
 	 */
-	public function testPropertyHolidayId() {
+	public function testPropertyHolidayId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

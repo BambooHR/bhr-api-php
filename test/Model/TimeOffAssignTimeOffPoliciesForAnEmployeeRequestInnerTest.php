@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInnerTest
  *
@@ -68,7 +69,7 @@ class TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInnerTest extends TestCase
 	/**
 	 * Test "TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner"
 	 */
-	public function testTimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner() {
+	public function testTimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInnerTest extends TestCase
 	/**
 	 * Test attribute "time_off_policy_id"
 	 */
-	public function testPropertyTimeOffPolicyId() {
+	public function testPropertyTimeOffPolicyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInnerTest extends TestCase
 	/**
 	 * Test attribute "accrual_start_date"
 	 */
-	public function testPropertyAccrualStartDate() {
+	public function testPropertyAccrualStartDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

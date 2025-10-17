@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DeleteEmployeeTableRowV1200ResponseTest
  *
@@ -68,7 +69,7 @@ class DeleteEmployeeTableRowV1200ResponseTest extends TestCase {
 	/**
 	 * Test "DeleteEmployeeTableRowV1200Response"
 	 */
-	public function testDeleteEmployeeTableRowV1200Response() {
+	public function testDeleteEmployeeTableRowV1200Response(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DeleteEmployeeTableRowV1200ResponseTest extends TestCase {
 	/**
 	 * Test attribute "sucess"
 	 */
-	public function testPropertySucess() {
+	public function testPropertySucess(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * LocationTest
  *
@@ -68,7 +69,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test "Location"
 	 */
-	public function testLocation() {
+	public function testLocation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "description"
 	 */
-	public function testPropertyDescription() {
+	public function testPropertyDescription(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "city"
 	 */
-	public function testPropertyCity() {
+	public function testPropertyCity(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "state"
 	 */
-	public function testPropertyState() {
+	public function testPropertyState(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "country"
 	 */
-	public function testPropertyCountry() {
+	public function testPropertyCountry(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -124,7 +125,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "zipcode"
 	 */
-	public function testPropertyZipcode() {
+	public function testPropertyZipcode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -132,7 +133,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "address_line1"
 	 */
-	public function testPropertyAddressLine1() {
+	public function testPropertyAddressLine1(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -140,7 +141,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "address_line2"
 	 */
-	public function testPropertyAddressLine2() {
+	public function testPropertyAddressLine2(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -148,7 +149,7 @@ class LocationTest extends TestCase {
 	/**
 	 * Test attribute "phone"
 	 */
-	public function testPropertyPhone() {
+	public function testPropertyPhone(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

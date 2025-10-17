@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * LoginApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class LoginApiTest extends TestCase {
 	 * User Login.
 	 *
 	 */
-	public function testLogin() {
+	public function testLogin(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

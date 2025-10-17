@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebhookSubErrorPropertyTest
  *
@@ -68,7 +69,7 @@ class WebhookSubErrorPropertyTest extends TestCase {
 	/**
 	 * Test "WebhookSubErrorProperty"
 	 */
-	public function testWebhookSubErrorProperty() {
+	public function testWebhookSubErrorProperty(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class WebhookSubErrorPropertyTest extends TestCase {
 	/**
 	 * Test attribute "error"
 	 */
-	public function testPropertyError() {
+	public function testPropertyError(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class WebhookSubErrorPropertyTest extends TestCase {
 	/**
 	 * Test attribute "unknown_fields"
 	 */
-	public function testPropertyUnknownFields() {
+	public function testPropertyUnknownFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class WebhookSubErrorPropertyTest extends TestCase {
 	/**
 	 * Test attribute "monitor_fields"
 	 */
-	public function testPropertyMonitorFields() {
+	public function testPropertyMonitorFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class WebhookSubErrorPropertyTest extends TestCase {
 	/**
 	 * Test attribute "duplicate_post_string"
 	 */
-	public function testPropertyDuplicatePostString() {
+	public function testPropertyDuplicatePostString(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class WebhookSubErrorPropertyTest extends TestCase {
 	/**
 	 * Test attribute "post_fields"
 	 */
-	public function testPropertyPostFields() {
+	public function testPropertyPostFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

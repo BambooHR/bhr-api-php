@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalAggregate200ResponseCommentsInnerTest
  *
@@ -68,7 +69,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test "GetGoalAggregate200ResponseCommentsInner"
 	 */
-	public function testGetGoalAggregate200ResponseCommentsInner() {
+	public function testGetGoalAggregate200ResponseCommentsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "author_user_id"
 	 */
-	public function testPropertyAuthorUserId() {
+	public function testPropertyAuthorUserId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "created_at"
 	 */
-	public function testPropertyCreatedAt() {
+	public function testPropertyCreatedAt(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "text"
 	 */
-	public function testPropertyText() {
+	public function testPropertyText(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "can_edit"
 	 */
-	public function testPropertyCanEdit() {
+	public function testPropertyCanEdit(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetGoalAggregate200ResponseCommentsInnerTest extends TestCase {
 	/**
 	 * Test attribute "can_delete"
 	 */
-	public function testPropertyCanDelete() {
+	public function testPropertyCanDelete(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

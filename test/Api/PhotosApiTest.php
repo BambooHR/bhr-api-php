@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PhotosApiTest
  * PHP version 8.1
@@ -72,7 +73,7 @@ class PhotosApiTest extends TestCase {
 	 * Get an employee photo.
 	 *
 	 */
-	public function testGetEmployeePhoto() {
+	public function testGetEmployeePhoto(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,7 +84,7 @@ class PhotosApiTest extends TestCase {
 	 * Store a new employee photo.
 	 *
 	 */
-	public function testUploadEmployeePhoto() {
+	public function testUploadEmployeePhoto(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

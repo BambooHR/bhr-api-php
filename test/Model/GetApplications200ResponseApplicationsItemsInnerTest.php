@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplications200ResponseApplicationsItemsInnerTest
  *
@@ -68,7 +69,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test "GetApplications200ResponseApplicationsItemsInner"
 	 */
-	public function testGetApplications200ResponseApplicationsItemsInner() {
+	public function testGetApplications200ResponseApplicationsItemsInner(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test attribute "applied_date"
 	 */
-	public function testPropertyAppliedDate() {
+	public function testPropertyAppliedDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test attribute "status"
 	 */
-	public function testPropertyStatus() {
+	public function testPropertyStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test attribute "rating"
 	 */
-	public function testPropertyRating() {
+	public function testPropertyRating(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -108,7 +109,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test attribute "applicant"
 	 */
-	public function testPropertyApplicant() {
+	public function testPropertyApplicant(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -116,7 +117,7 @@ class GetApplications200ResponseApplicationsItemsInnerTest extends TestCase {
 	/**
 	 * Test attribute "job"
 	 */
-	public function testPropertyJob() {
+	public function testPropertyJob(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ClockOutRequestSchemaTest
  *
@@ -68,7 +69,7 @@ class ClockOutRequestSchemaTest extends TestCase {
 	/**
 	 * Test "ClockOutRequestSchema"
 	 */
-	public function testClockOutRequestSchema() {
+	public function testClockOutRequestSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class ClockOutRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "date"
 	 */
-	public function testPropertyDate() {
+	public function testPropertyDate(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class ClockOutRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "end"
 	 */
-	public function testPropertyEnd() {
+	public function testPropertyEnd(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class ClockOutRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "timezone"
 	 */
-	public function testPropertyTimezone() {
+	public function testPropertyTimezone(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

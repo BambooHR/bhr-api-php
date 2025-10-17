@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * NewWebHookLimitTest
  *
@@ -68,7 +69,7 @@ class NewWebHookLimitTest extends TestCase {
 	/**
 	 * Test "NewWebHookLimit"
 	 */
-	public function testNewWebHookLimit() {
+	public function testNewWebHookLimit(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class NewWebHookLimitTest extends TestCase {
 	/**
 	 * Test attribute "times"
 	 */
-	public function testPropertyTimes() {
+	public function testPropertyTimes(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class NewWebHookLimitTest extends TestCase {
 	/**
 	 * Test attribute "seconds"
 	 */
-	public function testPropertySeconds() {
+	public function testPropertySeconds(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

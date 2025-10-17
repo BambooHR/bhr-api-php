@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ListTrainingCategories200ResponseInner
  *
@@ -298,7 +299,7 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -309,7 +310,7 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -321,7 +322,7 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -337,7 +338,7 @@ class ListTrainingCategories200ResponseInner implements ModelInterface, ArrayAcc
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

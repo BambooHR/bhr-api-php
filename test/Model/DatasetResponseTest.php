@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DatasetResponseTest
  *
@@ -68,7 +69,7 @@ class DatasetResponseTest extends TestCase {
 	/**
 	 * Test "DatasetResponse"
 	 */
-	public function testDatasetResponse() {
+	public function testDatasetResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class DatasetResponseTest extends TestCase {
 	/**
 	 * Test attribute "datasets"
 	 */
-	public function testPropertyDatasets() {
+	public function testPropertyDatasets(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

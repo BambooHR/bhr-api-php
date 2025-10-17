@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingBulkResponseSchemaResponseTest
  *
@@ -68,7 +69,7 @@ class TimeTrackingBulkResponseSchemaResponseTest extends TestCase {
 	/**
 	 * Test "TimeTrackingBulkResponseSchemaResponse"
 	 */
-	public function testTimeTrackingBulkResponseSchemaResponse() {
+	public function testTimeTrackingBulkResponseSchemaResponse(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class TimeTrackingBulkResponseSchemaResponseTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class TimeTrackingBulkResponseSchemaResponseTest extends TestCase {
 	/**
 	 * Test attribute "message"
 	 */
-	public function testPropertyMessage() {
+	public function testPropertyMessage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

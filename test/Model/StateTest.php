@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * StateTest
  *
@@ -68,7 +69,7 @@ class StateTest extends TestCase {
 	/**
 	 * Test "State"
 	 */
-	public function testState() {
+	public function testState(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class StateTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class StateTest extends TestCase {
 	/**
 	 * Test attribute "name"
 	 */
-	public function testPropertyName() {
+	public function testPropertyName(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class StateTest extends TestCase {
 	/**
 	 * Test attribute "abbrev"
 	 */
-	public function testPropertyAbbrev() {
+	public function testPropertyAbbrev(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class StateTest extends TestCase {
 	/**
 	 * Test attribute "iso_code"
 	 */
-	public function testPropertyIsoCode() {
+	public function testPropertyIsoCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

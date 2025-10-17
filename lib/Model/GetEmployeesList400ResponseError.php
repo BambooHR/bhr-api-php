@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetEmployeesList400ResponseError
  *
@@ -337,7 +338,7 @@ class GetEmployeesList400ResponseError implements ModelInterface, ArrayAccess, \
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -348,7 +349,7 @@ class GetEmployeesList400ResponseError implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -360,7 +361,7 @@ class GetEmployeesList400ResponseError implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -376,7 +377,7 @@ class GetEmployeesList400ResponseError implements ModelInterface, ArrayAccess, \
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */

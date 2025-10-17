@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FieldOptionsRequestSchemaTest
  *
@@ -68,7 +69,7 @@ class FieldOptionsRequestSchemaTest extends TestCase {
 	/**
 	 * Test "FieldOptionsRequestSchema"
 	 */
-	public function testFieldOptionsRequestSchema() {
+	public function testFieldOptionsRequestSchema(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class FieldOptionsRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "fields"
 	 */
-	public function testPropertyFields() {
+	public function testPropertyFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class FieldOptionsRequestSchemaTest extends TestCase {
 	/**
 	 * Test attribute "dependent_fields"
 	 */
-	public function testPropertyDependentFields() {
+	public function testPropertyDependentFields(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

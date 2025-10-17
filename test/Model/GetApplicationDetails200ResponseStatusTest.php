@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200ResponseStatusTest
  *
@@ -68,7 +69,7 @@ class GetApplicationDetails200ResponseStatusTest extends TestCase {
 	/**
 	 * Test "GetApplicationDetails200ResponseStatus"
 	 */
-	public function testGetApplicationDetails200ResponseStatus() {
+	public function testGetApplicationDetails200ResponseStatus(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -76,7 +77,7 @@ class GetApplicationDetails200ResponseStatusTest extends TestCase {
 	/**
 	 * Test attribute "id"
 	 */
-	public function testPropertyId() {
+	public function testPropertyId(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -84,7 +85,7 @@ class GetApplicationDetails200ResponseStatusTest extends TestCase {
 	/**
 	 * Test attribute "label"
 	 */
-	public function testPropertyLabel() {
+	public function testPropertyLabel(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -92,7 +93,7 @@ class GetApplicationDetails200ResponseStatusTest extends TestCase {
 	/**
 	 * Test attribute "date_changed"
 	 */
-	public function testPropertyDateChanged() {
+	public function testPropertyDateChanged(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -100,7 +101,7 @@ class GetApplicationDetails200ResponseStatusTest extends TestCase {
 	/**
 	 * Test attribute "changed_by_user"
 	 */
-	public function testPropertyChangedByUser() {
+	public function testPropertyChangedByUser(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
