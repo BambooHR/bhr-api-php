@@ -466,11 +466,9 @@ class ObjectSerializer {
 			// Handle both string[] and string[][] header formats
 			$contentDisposition = null;
 			if (is_array($httpHeaders) && array_key_exists('Content-Disposition', $httpHeaders)) {
-				$contentDisposition = is_array($httpHeaders['Content-Disposition']) 
-					? ($httpHeaders['Content-Disposition'][0] ?? null) 
-					: $httpHeaders['Content-Disposition'];
+				$contentDisposition = is_array($httpHeaders['Content-Disposition']) ? ($httpHeaders['Content-Disposition'][0] ?? null) : $httpHeaders['Content-Disposition'];
 			}
-			
+
 			if ($contentDisposition !== null && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $contentDisposition, $match)) {
 				$filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
 			} else {

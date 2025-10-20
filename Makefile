@@ -55,7 +55,7 @@ test:
 
 phpcs:
 	@echo "Running PHP Code Sniffer..."
-	./vendor/bin/phpcs --standard=phpcs.xml --report=summary lib
+	./vendor/bin/phpcs --standard=phpcs.xml lib
 	@echo "PHP Code Sniffer complete!"
 
 phpstan:

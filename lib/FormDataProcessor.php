@@ -252,7 +252,7 @@ class FormDataProcessor {
 
 	/**
 	 * Try to open a file for reading
-	 * 
+	 *
 	 * @param SplFileObject $file The file to open
 	 * @return resource The opened file resource
 	 */

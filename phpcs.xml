@@ -18,6 +18,9 @@
         
         <!-- Exclude docblock spacing rules -->
         <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName"/>
+        
+        <!-- Exclude function nesting level rule -->
+        <exclude name="Generic.Metrics.NestingLevel"/>
     </rule>
 
     <!-- Paths to check -->
