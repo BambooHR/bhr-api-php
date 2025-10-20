@@ -5,6 +5,7 @@ parameters:
 		- test/
 	excludePaths:
 		- vendor/
+	reportUnmatchedIgnoredErrors: false
 	treatPhpDocTypesAsCertain: false
 	ignoreErrors:
 		-

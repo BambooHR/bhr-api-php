@@ -342,7 +342,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -350,7 +350,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -385,7 +385,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -548,7 +550,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -556,7 +558,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -564,7 +566,7 @@ class GoalsApi {
 		if ($comment_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'commentId' . '}',
-				ObjectSerializer::toPathValue($comment_id),
+				ObjectSerializer::toPathValue((string) $comment_id),
 				$resourcePath
 			);
 		}
@@ -599,7 +601,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -750,7 +754,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -785,7 +789,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -967,7 +973,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -975,7 +981,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -1010,7 +1016,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1167,7 +1175,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -1175,7 +1183,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -1210,7 +1218,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1407,7 +1417,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -1442,7 +1452,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1623,7 +1635,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -1658,7 +1670,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1839,7 +1853,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -1874,7 +1888,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2050,7 +2066,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -2085,7 +2101,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2241,7 +2259,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -2286,7 +2304,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2467,7 +2487,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -2502,7 +2522,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2683,7 +2705,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -2718,7 +2740,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2894,7 +2918,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -2929,7 +2953,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3107,7 +3133,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -3142,7 +3168,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3329,7 +3357,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -3337,7 +3365,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -3382,7 +3410,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3564,7 +3594,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -3609,7 +3639,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3772,7 +3804,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -3780,7 +3812,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -3825,7 +3857,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4007,7 +4041,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4015,7 +4049,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -4050,7 +4084,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4219,7 +4255,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4227,7 +4263,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -4235,7 +4271,7 @@ class GoalsApi {
 		if ($comment_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'commentId' . '}',
-				ObjectSerializer::toPathValue($comment_id),
+				ObjectSerializer::toPathValue((string) $comment_id),
 				$resourcePath
 			);
 		}
@@ -4280,7 +4316,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4474,7 +4512,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4482,7 +4520,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -4490,7 +4528,7 @@ class GoalsApi {
 		if ($milestone_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'milestoneId' . '}',
-				ObjectSerializer::toPathValue($milestone_id),
+				ObjectSerializer::toPathValue((string) $milestone_id),
 				$resourcePath
 			);
 		}
@@ -4535,7 +4573,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4723,7 +4763,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4731,7 +4771,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -4776,7 +4816,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4964,7 +5006,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4972,7 +5014,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -5017,7 +5059,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -5210,7 +5254,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -5218,7 +5262,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -5263,7 +5307,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -5451,7 +5497,7 @@ class GoalsApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -5459,7 +5505,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -5504,7 +5550,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 

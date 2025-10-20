@@ -297,7 +297,7 @@ class TabularDataApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -305,7 +305,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -350,7 +350,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -513,7 +515,7 @@ class TabularDataApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -521,7 +523,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -566,7 +568,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -754,7 +758,7 @@ class TabularDataApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -762,7 +766,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -770,7 +774,7 @@ class TabularDataApi {
 		if ($row_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'rowId' . '}',
-				ObjectSerializer::toPathValue($row_id),
+				ObjectSerializer::toPathValue((string) $row_id),
 				$resourcePath
 			);
 		}
@@ -805,7 +809,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -978,7 +984,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -1013,7 +1019,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1170,7 +1178,7 @@ class TabularDataApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1178,7 +1186,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -1213,7 +1221,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1382,7 +1392,7 @@ class TabularDataApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1390,7 +1400,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -1398,7 +1408,7 @@ class TabularDataApi {
 		if ($row_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'rowId' . '}',
-				ObjectSerializer::toPathValue($row_id),
+				ObjectSerializer::toPathValue((string) $row_id),
 				$resourcePath
 			);
 		}
@@ -1443,7 +1453,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1612,7 +1624,7 @@ class TabularDataApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1620,7 +1632,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -1628,7 +1640,7 @@ class TabularDataApi {
 		if ($row_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'rowId' . '}',
-				ObjectSerializer::toPathValue($row_id),
+				ObjectSerializer::toPathValue((string) $row_id),
 				$resourcePath
 			);
 		}
@@ -1673,7 +1685,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 

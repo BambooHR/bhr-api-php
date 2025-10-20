@@ -60,5 +60,5 @@ phpcs:
 
 phpstan:
 	@echo "Running PHPStan..."
-	./vendor/bin/phpstan analyse --memory-limit=512M
+	./vendor/bin/phpstan analyse --memory-limit=1024M
 	@echo "PHPStan complete!"

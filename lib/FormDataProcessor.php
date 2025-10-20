@@ -136,8 +136,11 @@ class FormDataProcessor {
 	 * formdata must be limited to scalars or arrays of scalar values,
 	 * or a resource for a file upload. Here we iterate through all available
 	 * data and identify how to handle each scenario
+	 *
+	 * @param mixed $value The value to make form safe
+	 * @return mixed The form safe value
 	 */
-	protected function makeFormSafe($value) {
+	protected function makeFormSafe(mixed $value): mixed {
 		if ($value instanceof SplFileObject) {
 			return $this->processFiles([$value])[0];
 		}
@@ -247,7 +250,13 @@ class FormDataProcessor {
 		return $result;
 	}
 
-	private function tryFopen(SplFileObject $file) {
+	/**
+	 * Try to open a file for reading
+	 * 
+	 * @param SplFileObject $file The file to open
+	 * @return resource The opened file resource
+	 */
+	private function tryFopen(SplFileObject $file): mixed {
 		return Utils::tryFopen($file->getRealPath(), 'rb');
 	}
 }

@@ -25,6 +25,7 @@ namespace BhrSdk\Client\Logger;
 class SecureLogger implements LoggerInterface {
 	private bool $enabled;
 	private string $logLevel;
+	/** @var resource */
 	private $outputStream;
 
 	/**

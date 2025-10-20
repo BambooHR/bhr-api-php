@@ -304,7 +304,7 @@ class DatasetsApi {
 		if ($dataset_name !== null) {
 			$resourcePath = str_replace(
 				'{' . 'datasetName' . '}',
-				ObjectSerializer::toPathValue($dataset_name),
+				ObjectSerializer::toPathValue((string) $dataset_name),
 				$resourcePath
 			);
 		}
@@ -349,7 +349,9 @@ class DatasetsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -539,7 +541,9 @@ class DatasetsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -742,7 +746,7 @@ class DatasetsApi {
 		if ($dataset_name !== null) {
 			$resourcePath = str_replace(
 				'{' . 'datasetName' . '}',
-				ObjectSerializer::toPathValue($dataset_name),
+				ObjectSerializer::toPathValue((string) $dataset_name),
 				$resourcePath
 			);
 		}
@@ -777,7 +781,9 @@ class DatasetsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 

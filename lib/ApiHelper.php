@@ -11,7 +11,6 @@
 
 namespace BhrSdk;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -32,7 +31,7 @@ class ApiHelper {
 	/**
 	 * Send a request with support for timeout retries
 	 *
-	 * @param Client           $client The client to use for sending the request
+	 * @param ClientInterface  $client The client to use for sending the request
 	 * @param Configuration    $config The configuration to use for sending the request
 	 * @param RequestInterface $request The request to send
 	 * @param array            $options Request options to apply to the given request
@@ -40,7 +39,7 @@ class ApiHelper {
 	 * @throws ApiException on non-2xx response
 	 * @return ResponseInterface
 	 */
-	public static function sendRequestWithRetries(Client $client, Configuration $config, RequestInterface $request, array $options): ResponseInterface {
+	public static function sendRequestWithRetries(ClientInterface $client, Configuration $config, RequestInterface $request, array $options): ResponseInterface {
 		// Get the configured number of retries for timeout errors
 		$retries = $config->getRetries();
 		$attempt = 0;
@@ -103,14 +102,14 @@ class ApiHelper {
 	/**
 	 * Send an asynchronous request with support for timeout retries
 	 *
-	 * @param Client           $client The client to use for sending the request
+	 * @param ClientInterface  $client The client to use for sending the request
 	 * @param Configuration    $config The configuration to use for sending the request
 	 * @param RequestInterface $request The request to send
 	 * @param array            $options Request options to apply to the given request
 	 *
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public static function sendRequestWithRetriesAsync(Client $client, Configuration $config, RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
+	public static function sendRequestWithRetriesAsync(ClientInterface $client, Configuration $config, RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
 		// Get the configured number of retries for timeout errors
 		$retries = $config->getRetries();
 		$timeoutStatusCodes = $config->getRetryableStatusCodes();
@@ -120,7 +119,7 @@ class ApiHelper {
 			$attempt++;
 
 			return $client->sendAsync($request, $options)
-				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
+				->otherwise(function ($reason) use ($attempt, $retries, $timeoutStatusCodes, $doRequest) {
 					// Check if this is a RequestException with a response
 					if ($reason instanceof RequestException && $reason->hasResponse()) {
 						$statusCode = $reason->getResponse()->getStatusCode();
@@ -144,12 +143,13 @@ class ApiHelper {
 
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
+						$statusCode = $reason->hasResponse() ? $reason->getResponse()->getStatusCode() : 0;
 						$exception = ApiErrorHelper::createException(
 							(int)$reason->getCode(),
 							$reason->getMessage(),
 							$statusCode,
-							$reason->getResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->getResponse() ? (string)$reason->getResponse()->getBody() : null
+							$reason->hasResponse() ? $reason->getResponse()->getHeaders() : null,
+							$reason->hasResponse() ? (string)$reason->getResponse()->getBody() : null
 						);
 
 						return \GuzzleHttp\Promise\Create::rejectionFor($exception);

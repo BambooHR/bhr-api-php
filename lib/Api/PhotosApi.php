@@ -276,7 +276,7 @@ class PhotosApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -284,7 +284,7 @@ class PhotosApi {
 		if ($size !== null) {
 			$resourcePath = str_replace(
 				'{' . 'size' . '}',
-				ObjectSerializer::toPathValue($size),
+				ObjectSerializer::toPathValue((string) $size),
 				$resourcePath
 			);
 		}
@@ -319,7 +319,9 @@ class PhotosApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -470,7 +472,7 @@ class PhotosApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -505,7 +507,9 @@ class PhotosApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 

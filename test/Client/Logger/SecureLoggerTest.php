@@ -23,6 +23,7 @@ use PHPUnit\Framework\TestCase;
  * @link     https://www.bamboohr.com/api/documentation/
  */
 class SecureLoggerTest extends TestCase {
+	/** @var resource */
 	private $outputStream;
 
 	protected function setUp(): void {

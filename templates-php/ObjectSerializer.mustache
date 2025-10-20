@@ -372,9 +372,9 @@ class ObjectSerializer {
 	/**
 	 * Deserialize a JSON string into an object
 	 *
-	 * @param mixed         $data        object or primitive to be deserialized
-	 * @param string        $class       class name is passed as a string
-	 * @param string[]|null $httpHeaders HTTP headers
+	 * @param mixed                    $data object or primitive to be deserialized
+	 * @param string                   $class class name is passed as a string
+	 * @param string[]|string[][]|null $httpHeaders HTTP headers
 	 *
 	 * @return object|array|null a single or an array of $class instances
 	 */
@@ -453,11 +453,15 @@ class ObjectSerializer {
 			/** @var \Psr\Http\Message\StreamInterface $data */
 
 			// determine file name
-			if (
-				is_array($httpHeaders)
-				&& array_key_exists('Content-Disposition', $httpHeaders)
-				&& preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)
-			) {
+			// Handle both string[] and string[][] header formats
+			$contentDisposition = null;
+			if (is_array($httpHeaders) && array_key_exists('Content-Disposition', $httpHeaders)) {
+				$contentDisposition = is_array($httpHeaders['Content-Disposition']) 
+					? ($httpHeaders['Content-Disposition'][0] ?? null) 
+					: $httpHeaders['Content-Disposition'];
+			}
+			
+			if ($contentDisposition !== null && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $contentDisposition, $match)) {
 				$filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
 			} else {
 				$filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');

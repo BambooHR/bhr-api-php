@@ -318,7 +318,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -475,7 +477,7 @@ class EmployeeFilesApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -483,7 +485,7 @@ class EmployeeFilesApi {
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
@@ -518,7 +520,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -675,7 +679,7 @@ class EmployeeFilesApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -683,7 +687,7 @@ class EmployeeFilesApi {
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
@@ -718,7 +722,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -869,7 +875,7 @@ class EmployeeFilesApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -904,7 +910,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1067,7 +1075,7 @@ class EmployeeFilesApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1075,7 +1083,7 @@ class EmployeeFilesApi {
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
@@ -1120,7 +1128,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1271,7 +1281,7 @@ class EmployeeFilesApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1306,7 +1316,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
