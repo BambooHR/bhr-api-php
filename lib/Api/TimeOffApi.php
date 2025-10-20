@@ -366,7 +366,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -543,7 +543,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -741,7 +741,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -905,7 +905,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_history));
 			} else {
-				$httpBody = $time_off_history;
+				$httpBody = is_array($time_off_history) ? json_encode($time_off_history) : $time_off_history;
 			}
 		} 
 
@@ -945,7 +945,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1109,7 +1109,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_request));
 			} else {
-				$httpBody = $time_off_request;
+				$httpBody = is_array($time_off_request) ? json_encode($time_off_request) : $time_off_request;
 			}
 		} 
 
@@ -1149,7 +1149,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1313,7 +1313,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_off_balance));
 			} else {
-				$httpBody = $adjust_time_off_balance;
+				$httpBody = is_array($adjust_time_off_balance) ? json_encode($adjust_time_off_balance) : $adjust_time_off_balance;
 			}
 		} 
 
@@ -1353,7 +1353,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1517,7 +1517,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
 			} else {
-				$httpBody = $time_off_assign_time_off_policies_for_an_employee_request_inner;
+				$httpBody = is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) ? json_encode($time_off_assign_time_off_policies_for_an_employee_request_inner) : $time_off_assign_time_off_policies_for_an_employee_request_inner;
 			}
 		} 
 
@@ -1557,7 +1557,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1721,7 +1721,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
 			} else {
-				$httpBody = $time_off_assign_time_off_policies_for_an_employee_request_inner;
+				$httpBody = is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) ? json_encode($time_off_assign_time_off_policies_for_an_employee_request_inner) : $time_off_assign_time_off_policies_for_an_employee_request_inner;
 			}
 		} 
 
@@ -1761,7 +1761,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1925,7 +1925,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request));
 			} else {
-				$httpBody = $request;
+				$httpBody = is_array($request) ? json_encode($request) : $request;
 			}
 		} 
 
@@ -1965,7 +1965,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2185,7 +2185,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2427,7 +2427,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2615,7 +2615,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2803,7 +2803,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

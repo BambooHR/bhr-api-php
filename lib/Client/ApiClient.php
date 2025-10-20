@@ -229,11 +229,12 @@ class ApiClient {
 	/**
 	 * Get an instance of a specific API class
 	 *
-	 * @param string $apiClass Fully qualified API class name (e.g., \BhrSdk\Api\EmployeesApi::class)
-	 * @return object Instance of the requested API class
+	 * @template T
+	 * @param class-string<T> $apiClass Fully qualified API class name (e.g., \BhrSdk\Api\EmployeesApi::class)
+	 * @return T Instance of the requested API class
 	 * @throws \InvalidArgumentException if the API class doesn't exist
 	 */
-	public function getApi(string $apiClass): object {
+	public function getApi(string $apiClass) {
 		if (!class_exists($apiClass)) {
 			$this->log('error', 'API class not found', ['class' => $apiClass]);
 			throw new \InvalidArgumentException("API class '{$apiClass}' does not exist");
@@ -270,7 +271,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\EmployeesApi
 	 */
-	public function employees(): object {
+	public function employees(): \BhrSdk\Api\EmployeesApi {
 		return $this->getApi(\BhrSdk\Api\EmployeesApi::class);
 	}
 
@@ -279,7 +280,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\TimeOffApi
 	 */
-	public function timeOff(): object {
+	public function timeOff(): \BhrSdk\Api\TimeOffApi {
 		return $this->getApi(\BhrSdk\Api\TimeOffApi::class);
 	}
 
@@ -288,7 +289,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\BenefitsApi
 	 */
-	public function benefits(): object {
+	public function benefits(): \BhrSdk\Api\BenefitsApi {
 		return $this->getApi(\BhrSdk\Api\BenefitsApi::class);
 	}
 
@@ -297,7 +298,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\ReportsApi
 	 */
-	public function reports(): object {
+	public function reports(): \BhrSdk\Api\ReportsApi {
 		return $this->getApi(\BhrSdk\Api\ReportsApi::class);
 	}
 
@@ -306,7 +307,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\TabularDataApi
 	 */
-	public function tabularData(): object {
+	public function tabularData(): \BhrSdk\Api\TabularDataApi {
 		return $this->getApi(\BhrSdk\Api\TabularDataApi::class);
 	}
 
@@ -315,7 +316,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\PhotosApi
 	 */
-	public function photos(): object {
+	public function photos(): \BhrSdk\Api\PhotosApi {
 		return $this->getApi(\BhrSdk\Api\PhotosApi::class);
 	}
 
@@ -324,7 +325,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\WebhooksApi
 	 */
-	public function webhooks(): object {
+	public function webhooks(): \BhrSdk\Api\WebhooksApi {
 		return $this->getApi(\BhrSdk\Api\WebhooksApi::class);
 	}
 
@@ -333,7 +334,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\GoalsApi
 	 */
-	public function goals(): object {
+	public function goals(): \BhrSdk\Api\GoalsApi {
 		return $this->getApi(\BhrSdk\Api\GoalsApi::class);
 	}
 
@@ -342,7 +343,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\TrainingApi
 	 */
-	public function training(): object {
+	public function training(): \BhrSdk\Api\TrainingApi {
 		return $this->getApi(\BhrSdk\Api\TrainingApi::class);
 	}
 
@@ -351,7 +352,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\TimeTrackingApi
 	 */
-	public function timeTracking(): object {
+	public function timeTracking(): \BhrSdk\Api\TimeTrackingApi {
 		return $this->getApi(\BhrSdk\Api\TimeTrackingApi::class);
 	}
 
@@ -360,7 +361,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\AccountInformationApi
 	 */
-	public function accountInformation(): object {
+	public function accountInformation(): \BhrSdk\Api\AccountInformationApi {
 		return $this->getApi(\BhrSdk\Api\AccountInformationApi::class);
 	}
 
@@ -369,7 +370,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\ApplicantTrackingApi
 	 */
-	public function applicantTracking(): object {
+	public function applicantTracking(): \BhrSdk\Api\ApplicantTrackingApi {
 		return $this->getApi(\BhrSdk\Api\ApplicantTrackingApi::class);
 	}
 
@@ -378,7 +379,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\CompanyFilesApi
 	 */
-	public function companyFiles(): object {
+	public function companyFiles(): \BhrSdk\Api\CompanyFilesApi {
 		return $this->getApi(\BhrSdk\Api\CompanyFilesApi::class);
 	}
 
@@ -387,7 +388,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\EmployeeFilesApi
 	 */
-	public function employeeFiles(): object {
+	public function employeeFiles(): \BhrSdk\Api\EmployeeFilesApi {
 		return $this->getApi(\BhrSdk\Api\EmployeeFilesApi::class);
 	}
 
@@ -396,7 +397,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\ATSApi
 	 */
-	public function ats(): object {
+	public function ats(): \BhrSdk\Api\ATSApi {
 		return $this->getApi(\BhrSdk\Api\ATSApi::class);
 	}
 
@@ -405,7 +406,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\CustomReportsApi
 	 */
-	public function customReports(): object {
+	public function customReports(): \BhrSdk\Api\CustomReportsApi {
 		return $this->getApi(\BhrSdk\Api\CustomReportsApi::class);
 	}
 
@@ -414,7 +415,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\DatasetsApi
 	 */
-	public function datasets(): object {
+	public function datasets(): \BhrSdk\Api\DatasetsApi {
 		return $this->getApi(\BhrSdk\Api\DatasetsApi::class);
 	}
 
@@ -423,7 +424,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\HoursApi
 	 */
-	public function hours(): object {
+	public function hours(): \BhrSdk\Api\HoursApi {
 		return $this->getApi(\BhrSdk\Api\HoursApi::class);
 	}
 
@@ -432,7 +433,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\LastChangeInformationApi
 	 */
-	public function lastChangeInformation(): object {
+	public function lastChangeInformation(): \BhrSdk\Api\LastChangeInformationApi {
 		return $this->getApi(\BhrSdk\Api\LastChangeInformationApi::class);
 	}
 
@@ -441,7 +442,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\LoginApi
 	 */
-	public function login(): object {
+	public function login(): \BhrSdk\Api\LoginApi {
 		return $this->getApi(\BhrSdk\Api\LoginApi::class);
 	}
 
@@ -450,7 +451,7 @@ class ApiClient {
 	 *
 	 * @return \BhrSdk\Api\ManualApi
 	 */
-	public function manual(): object {
+	public function manual(): \BhrSdk\Api\ManualApi {
 		return $this->getApi(\BhrSdk\Api\ManualApi::class);
 	}
 

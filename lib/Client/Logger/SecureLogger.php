@@ -215,7 +215,8 @@ class SecureLogger implements LoggerInterface {
 	 */
 	private function redactSensitiveDataFromObject(object $data): array {
 		// Convert object to array and redact
-		$dataArray = json_decode(json_encode($data), true);
+		$jsonData = json_encode($data);
+		$dataArray = $jsonData !== false ? json_decode($jsonData, true) : [];
 		return $this->redactSensitiveDataFromArray($dataArray ?? []);
 	}
 

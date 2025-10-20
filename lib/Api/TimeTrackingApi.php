@@ -350,7 +350,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_entries_schema));
 			} else {
-				$httpBody = $clock_entries_schema;
+				$httpBody = is_array($clock_entries_schema) ? json_encode($clock_entries_schema) : $clock_entries_schema;
 			}
 		} 
 
@@ -390,7 +390,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -593,7 +593,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($hour_entries_request_schema));
 			} else {
-				$httpBody = $hour_entries_request_schema;
+				$httpBody = is_array($hour_entries_request_schema) ? json_encode($hour_entries_request_schema) : $hour_entries_request_schema;
 			}
 		} 
 
@@ -633,7 +633,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -851,7 +851,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_in_request_schema));
 			} else {
-				$httpBody = $clock_in_request_schema;
+				$httpBody = is_array($clock_in_request_schema) ? json_encode($clock_in_request_schema) : $clock_in_request_schema;
 			}
 		} 
 
@@ -891,7 +891,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1115,7 +1115,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_out_request_schema));
 			} else {
-				$httpBody = $clock_out_request_schema;
+				$httpBody = is_array($clock_out_request_schema) ? json_encode($clock_out_request_schema) : $clock_out_request_schema;
 			}
 		} 
 
@@ -1155,7 +1155,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1322,7 +1322,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_create_request_schema));
 			} else {
-				$httpBody = $project_create_request_schema;
+				$httpBody = is_array($project_create_request_schema) ? json_encode($project_create_request_schema) : $project_create_request_schema;
 			}
 		} 
 
@@ -1362,7 +1362,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1572,7 +1572,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_entry_ids_schema));
 			} else {
-				$httpBody = $clock_entry_ids_schema;
+				$httpBody = is_array($clock_entry_ids_schema) ? json_encode($clock_entry_ids_schema) : $clock_entry_ids_schema;
 			}
 		} 
 
@@ -1612,7 +1612,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1821,7 +1821,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($hour_entry_ids_schema));
 			} else {
-				$httpBody = $hour_entry_ids_schema;
+				$httpBody = is_array($hour_entry_ids_schema) ? json_encode($hour_entry_ids_schema) : $hour_entry_ids_schema;
 			}
 		} 
 
@@ -1861,7 +1861,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2122,7 +2122,7 @@ class TimeTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

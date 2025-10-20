@@ -55,7 +55,7 @@ class FormDataProcessor {
 	 * the http body (form parameter). If it's a string, pass through unchanged
 	 * If it's a datetime object, format it in ISO8601
 	 *
-	 * @param array<string|bool|array|DateTime|ArrayAccess|SplFileObject> $values the value of the form parameter
+	 * @param array<string|bool|int|array|DateTime|ArrayAccess|SplFileObject|null> $values the value of the form parameter
 	 *
 	 * @return array [key => value] of formdata
 	 */
@@ -155,7 +155,7 @@ class FormDataProcessor {
 			return $this->processModel($value);
 		}
 
-		if (is_array($value) || (is_object($value) && !$value instanceof \DateTimeInterface)) {
+		if (is_array($value) || (is_object($value) && !$value instanceof \DateTimeInterface && (is_iterable($value) || $value instanceof \Traversable))) {
 			$data = [];
 
 			foreach ($value as $key => $val) {

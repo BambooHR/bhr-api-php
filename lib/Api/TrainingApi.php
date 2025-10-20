@@ -348,7 +348,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_new_employee_training_record_request));
 			} else {
-				$httpBody = $add_new_employee_training_record_request;
+				$httpBody = is_array($add_new_employee_training_record_request) ? json_encode($add_new_employee_training_record_request) : $add_new_employee_training_record_request;
 			}
 		} 
 
@@ -388,7 +388,7 @@ class TrainingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -562,7 +562,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_training_category_request));
 			} else {
-				$httpBody = $add_training_category_request;
+				$httpBody = is_array($add_training_category_request) ? json_encode($add_training_category_request) : $add_training_category_request;
 			}
 		} 
 
@@ -602,7 +602,7 @@ class TrainingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -776,7 +776,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_training_type_request));
 			} else {
-				$httpBody = $add_training_type_request;
+				$httpBody = is_array($add_training_type_request) ? json_encode($add_training_type_request) : $add_training_type_request;
 			}
 		} 
 
@@ -816,7 +816,7 @@ class TrainingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1004,7 +1004,7 @@ class TrainingApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1192,7 +1192,7 @@ class TrainingApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1380,7 +1380,7 @@ class TrainingApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1614,7 +1614,7 @@ class TrainingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1806,7 +1806,7 @@ class TrainingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1998,7 +1998,7 @@ class TrainingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2187,7 +2187,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_employee_training_record_request));
 			} else {
-				$httpBody = $update_employee_training_record_request;
+				$httpBody = is_array($update_employee_training_record_request) ? json_encode($update_employee_training_record_request) : $update_employee_training_record_request;
 			}
 		} 
 
@@ -2227,7 +2227,7 @@ class TrainingApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2416,7 +2416,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_training_category_request));
 			} else {
-				$httpBody = $update_training_category_request;
+				$httpBody = is_array($update_training_category_request) ? json_encode($update_training_category_request) : $update_training_category_request;
 			}
 		} 
 
@@ -2456,7 +2456,7 @@ class TrainingApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2645,7 +2645,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_training_type_request));
 			} else {
-				$httpBody = $update_training_type_request;
+				$httpBody = is_array($update_training_type_request) ? json_encode($update_training_type_request) : $update_training_type_request;
 			}
 		} 
 
@@ -2685,7 +2685,7 @@ class TrainingApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

@@ -23,12 +23,16 @@ use PHPUnit\Framework\TestCase;
  * @link     https://www.bamboohr.com/api/documentation/
  */
 class SecureLoggerTest extends TestCase {
-	/** @var resource */
-	private $outputStream;
+	/** @var resource|null */
+	private $outputStream = null;
 
 	protected function setUp(): void {
 		// Create a memory stream for testing
-		$this->outputStream = fopen('php://memory', 'r+');
+		$stream = fopen('php://memory', 'r+');
+		if ($stream === false) {
+			$this->fail('Failed to open memory stream for testing');
+		}
+		$this->outputStream = $stream;
 	}
 
 	protected function tearDown(): void {
@@ -39,10 +43,15 @@ class SecureLoggerTest extends TestCase {
 
 	/**
 	 * Get output from the stream
+	 * @return string The content of the stream
 	 */
 	private function getOutput(): string {
+		if (!is_resource($this->outputStream)) {
+			return '';
+		}
 		rewind($this->outputStream);
-		return stream_get_contents($this->outputStream);
+		$content = stream_get_contents($this->outputStream);
+		return $content === false ? '' : $content;
 	}
 
 	/**

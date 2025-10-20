@@ -77,7 +77,8 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
@@ -87,7 +88,8 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -121,7 +123,8 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -130,7 +133,8 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -153,7 +157,7 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -253,7 +257,7 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -323,12 +327,11 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	 */
 	public function setMessage($message) {
 		if (is_null($message)) {
-			array_push($this->openApiNullablesSetToNull, 'message');
+			$this->openApiNullablesSetToNull['message'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('message', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['message'])) {
+				unset($nullablesSetToNull['message']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -403,11 +406,12 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -415,8 +419,9 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
 

@@ -312,7 +312,7 @@ class HoursApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
 			} else {
-				$httpBody = $time_tracking_record;
+				$httpBody = is_array($time_tracking_record) ? json_encode($time_tracking_record) : $time_tracking_record;
 			}
 		} 
 
@@ -352,7 +352,7 @@ class HoursApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -532,7 +532,7 @@ class HoursApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
 			} else {
-				$httpBody = $time_tracking_record;
+				$httpBody = is_array($time_tracking_record) ? json_encode($time_tracking_record) : $time_tracking_record;
 			}
 		} 
 
@@ -572,7 +572,7 @@ class HoursApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -791,7 +791,7 @@ class HoursApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -971,7 +971,7 @@ class HoursApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_tracking_request_schema));
 			} else {
-				$httpBody = $adjust_time_tracking_request_schema;
+				$httpBody = is_array($adjust_time_tracking_request_schema) ? json_encode($adjust_time_tracking_request_schema) : $adjust_time_tracking_request_schema;
 			}
 		} 
 
@@ -1011,7 +1011,7 @@ class HoursApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1230,7 +1230,7 @@ class HoursApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

@@ -307,7 +307,7 @@ class ApiErrorHelper {
 	 * @param string $responseBody The HTTP response body
 	 * @return \Exception The appropriate exception for the status code
 	 */
-	public static function createException(int $code, string $message, int $statusCode, array $responseHeaders = [], $responseBody = null): \Exception | ServerException | ClientException | ApiException {
+	public static function createException(int $code, string $message, int $statusCode, array $responseHeaders = [], $responseBody = null): \Exception {
 		$exceptionClass = null;
 
 		// Determine the appropriate exception class based on status code
@@ -319,7 +319,9 @@ class ApiErrorHelper {
 			if (class_exists($exceptionClass)) {
 				// For specific exception classes, we pass the message, previous exception, and error data
 				// The status code is already built into the specific exception class
-				return new $exceptionClass("[{$code}] {$message}", $responseHeaders, $responseBody);
+				/** @var \Exception $exception */
+				$exception = new $exceptionClass("[{$code}] {$message}", $responseHeaders, $responseBody);
+				return $exception;
 			}
 		} elseif ($statusCode >= 500) {
 			return new ServerException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);

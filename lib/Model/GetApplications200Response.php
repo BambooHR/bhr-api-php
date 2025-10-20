@@ -78,7 +78,8 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'pagination_complete' => false,
@@ -89,7 +90,8 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -123,7 +125,8 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -132,7 +135,8 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -155,7 +159,7 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -259,7 +263,7 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -329,12 +333,11 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	 */
 	public function setNextPageUrl($next_page_url) {
 		if (is_null($next_page_url)) {
-			array_push($this->openApiNullablesSetToNull, 'next_page_url');
+			$this->openApiNullablesSetToNull['next_page_url'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('next_page_url', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['next_page_url'])) {
+				unset($nullablesSetToNull['next_page_url']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -434,11 +437,12 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -446,8 +450,9 @@ class GetApplications200Response implements ModelInterface, ArrayAccess, \JsonSe
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
 

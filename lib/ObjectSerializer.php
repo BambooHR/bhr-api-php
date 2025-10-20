@@ -103,8 +103,10 @@ class ObjectSerializer {
 					}
 				}
 			} else {
-				foreach ($data as $property => $value) {
-					$values[$property] = self::sanitizeForSerialization($value);
+				if (is_iterable($data) || $data instanceof \Traversable) {
+					foreach ($data as $property => $value) {
+						$values[$property] = self::sanitizeForSerialization($value);
+					}
 				}
 			}
 			return (object)$values;
@@ -476,8 +478,14 @@ class ObjectSerializer {
 			}
 
 			$file = fopen($filename, 'w');
+			if ($file === false) {
+				throw new \RuntimeException("Failed to open file for writing: $filename");
+			}
 			while ($chunk = $data->read(200)) {
-				fwrite($file, $chunk);
+				if (fwrite($file, $chunk) === false) {
+					fclose($file);
+					throw new \RuntimeException("Failed to write to file: $filename");
+				}
 			}
 			fclose($file);
 

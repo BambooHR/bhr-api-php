@@ -89,7 +89,8 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'employee_id' => false,
@@ -105,7 +106,8 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -139,7 +141,8 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -148,7 +151,8 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -171,7 +175,7 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -295,7 +299,7 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -389,12 +393,11 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 */
 	public function setFirstName($first_name) {
 		if (is_null($first_name)) {
-			array_push($this->openApiNullablesSetToNull, 'first_name');
+			$this->openApiNullablesSetToNull['first_name'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('first_name', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['first_name'])) {
+				unset($nullablesSetToNull['first_name']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -421,12 +424,11 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 */
 	public function setLastName($last_name) {
 		if (is_null($last_name)) {
-			array_push($this->openApiNullablesSetToNull, 'last_name');
+			$this->openApiNullablesSetToNull['last_name'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('last_name', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['last_name'])) {
+				unset($nullablesSetToNull['last_name']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -453,12 +455,11 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 */
 	public function setPreferredName($preferred_name) {
 		if (is_null($preferred_name)) {
-			array_push($this->openApiNullablesSetToNull, 'preferred_name');
+			$this->openApiNullablesSetToNull['preferred_name'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('preferred_name', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['preferred_name'])) {
+				unset($nullablesSetToNull['preferred_name']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -485,12 +486,11 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 */
 	public function setPhotoUrl($photo_url) {
 		if (is_null($photo_url)) {
-			array_push($this->openApiNullablesSetToNull, 'photo_url');
+			$this->openApiNullablesSetToNull['photo_url'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('photo_url', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['photo_url'])) {
+				unset($nullablesSetToNull['photo_url']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -517,12 +517,11 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 */
 	public function setJobTitleName($job_title_name) {
 		if (is_null($job_title_name)) {
-			array_push($this->openApiNullablesSetToNull, 'job_title_name');
+			$this->openApiNullablesSetToNull['job_title_name'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('job_title_name', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['job_title_name'])) {
+				unset($nullablesSetToNull['job_title_name']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -549,12 +548,11 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 */
 	public function setStatus($status) {
 		if (is_null($status)) {
-			array_push($this->openApiNullablesSetToNull, 'status');
+			$this->openApiNullablesSetToNull['status'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('status', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['status'])) {
+				unset($nullablesSetToNull['status']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -654,11 +652,12 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -666,8 +665,9 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
 

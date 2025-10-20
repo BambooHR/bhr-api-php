@@ -290,7 +290,7 @@ class EmployeeFilesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
 			} else {
-				$httpBody = $request_body;
+				$httpBody = is_array($request_body) ? json_encode($request_body) : $request_body;
 			}
 		} 
 
@@ -330,7 +330,7 @@ class EmployeeFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -532,7 +532,7 @@ class EmployeeFilesApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -734,7 +734,7 @@ class EmployeeFilesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -922,7 +922,7 @@ class EmployeeFilesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1100,7 +1100,7 @@ class EmployeeFilesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_file_update));
 			} else {
-				$httpBody = $employee_file_update;
+				$httpBody = is_array($employee_file_update) ? json_encode($employee_file_update) : $employee_file_update;
 			}
 		} 
 
@@ -1140,7 +1140,7 @@ class EmployeeFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1328,7 +1328,7 @@ class EmployeeFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

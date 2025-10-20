@@ -90,7 +90,8 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
@@ -107,7 +108,8 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -141,7 +143,8 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -150,7 +153,8 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -173,7 +177,7 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -301,7 +305,7 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -421,12 +425,11 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	 */
 	public function setCurrentValue($current_value) {
 		if (is_null($current_value)) {
-			array_push($this->openApiNullablesSetToNull, 'current_value');
+			$this->openApiNullablesSetToNull['current_value'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('current_value', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['current_value'])) {
+				unset($nullablesSetToNull['current_value']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -453,12 +456,11 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	 */
 	public function setStartValue($start_value) {
 		if (is_null($start_value)) {
-			array_push($this->openApiNullablesSetToNull, 'start_value');
+			$this->openApiNullablesSetToNull['start_value'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('start_value', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['start_value'])) {
+				unset($nullablesSetToNull['start_value']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -485,12 +487,11 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	 */
 	public function setEndValue($end_value) {
 		if (is_null($end_value)) {
-			array_push($this->openApiNullablesSetToNull, 'end_value');
+			$this->openApiNullablesSetToNull['end_value'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('end_value', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['end_value'])) {
+				unset($nullablesSetToNull['end_value']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -640,11 +641,12 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -652,8 +654,9 @@ class TransformedApiGoalGoalMilestonesInner implements ModelInterface, ArrayAcce
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
 

@@ -361,7 +361,7 @@ class ReportsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -538,7 +538,7 @@ class ReportsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_custom_report));
 			} else {
-				$httpBody = $request_custom_report;
+				$httpBody = is_array($request_custom_report) ? json_encode($request_custom_report) : $request_custom_report;
 			}
 		} 
 
@@ -578,7 +578,7 @@ class ReportsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

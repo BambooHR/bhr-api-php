@@ -393,27 +393,27 @@ class ApplicantTrackingApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			$first_name,
-			$last_name,
-			$email,
-			$phone_number,
-			$source,
-			$job_id,
-			$address,
-			$city,
-			$state,
-			$zip,
-			$country,
-			$linkedin_url,
-			$date_available,
-			$desired_salary,
-			$referred_by,
-			$website_url,
-			$highest_education,
-			$college_name,
-			$references,
-			$resume,
-			$cover_letter,
+			'firstName' => $first_name,
+			'lastName' => $last_name,
+			'email' => $email,
+			'phoneNumber' => $phone_number,
+			'source' => $source,
+			'jobId' => $job_id,
+			'address' => $address,
+			'city' => $city,
+			'state' => $state,
+			'zip' => $zip,
+			'country' => $country,
+			'linkedinUrl' => $linkedin_url,
+			'dateAvailable' => $date_available,
+			'desiredSalary' => $desired_salary,
+			'referredBy' => $referred_by,
+			'websiteUrl' => $website_url,
+			'highestEducation' => $highest_education,
+			'collegeName' => $college_name,
+			'references' => $references,
+			'resume' => $resume,
+			'coverLetter' => $cover_letter,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -486,7 +486,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -731,27 +731,27 @@ class ApplicantTrackingApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			$posting_title,
-			$job_status,
-			$hiring_lead,
-			$department,
-			$employment_type,
-			$minimum_experience,
-			$compensation,
-			$job_location,
-			$job_description,
-			$application_question_resume,
-			$application_question_address,
-			$application_question_linkedin_url,
-			$application_question_date_available,
-			$application_question_desired_salary,
-			$application_question_cover_letter,
-			$application_question_referred_by,
-			$application_question_website_url,
-			$application_question_highest_education,
-			$application_question_college,
-			$application_question_references,
-			$internal_job_code,
+			'postingTitle' => $posting_title,
+			'jobStatus' => $job_status,
+			'hiringLead' => $hiring_lead,
+			'department' => $department,
+			'employmentType' => $employment_type,
+			'minimumExperience' => $minimum_experience,
+			'compensation' => $compensation,
+			'jobLocation' => $job_location,
+			'jobDescription' => $job_description,
+			'applicationQuestionResume' => $application_question_resume,
+			'applicationQuestionAddress' => $application_question_address,
+			'applicationQuestionLinkedinUrl' => $application_question_linkedin_url,
+			'applicationQuestionDateAvailable' => $application_question_date_available,
+			'applicationQuestionDesiredSalary' => $application_question_desired_salary,
+			'applicationQuestionCoverLetter' => $application_question_cover_letter,
+			'applicationQuestionReferredBy' => $application_question_referred_by,
+			'applicationQuestionWebsiteUrl' => $application_question_website_url,
+			'applicationQuestionHighestEducation' => $application_question_highest_education,
+			'applicationQuestionCollege' => $application_question_college,
+			'applicationQuestionReferences' => $application_question_references,
+			'internalJobCode' => $internal_job_code,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -824,7 +824,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1085,7 +1085,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1277,7 +1277,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1469,7 +1469,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1669,7 +1669,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1836,7 +1836,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2000,7 +2000,7 @@ class ApplicantTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_applicant_status_request));
 			} else {
-				$httpBody = $post_applicant_status_request;
+				$httpBody = is_array($post_applicant_status_request) ? json_encode($post_applicant_status_request) : $post_applicant_status_request;
 			}
 		} 
 
@@ -2040,7 +2040,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2204,7 +2204,7 @@ class ApplicantTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_application_comment_request));
 			} else {
-				$httpBody = $post_application_comment_request;
+				$httpBody = is_array($post_application_comment_request) ? json_encode($post_application_comment_request) : $post_application_comment_request;
 			}
 		} 
 
@@ -2244,7 +2244,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

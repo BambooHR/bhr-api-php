@@ -397,7 +397,7 @@ class GoalsApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -613,7 +613,7 @@ class GoalsApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -801,7 +801,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1028,7 +1028,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1230,7 +1230,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1464,7 +1464,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1682,7 +1682,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1900,7 +1900,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2113,7 +2113,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2276,7 +2276,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -2316,7 +2316,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2534,7 +2534,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2752,7 +2752,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2965,7 +2965,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3180,7 +3180,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3382,7 +3382,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -3422,7 +3422,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3611,7 +3611,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_goal_request));
 			} else {
-				$httpBody = $post_goal_request;
+				$httpBody = is_array($post_goal_request) ? json_encode($post_goal_request) : $post_goal_request;
 			}
 		} 
 
@@ -3651,7 +3651,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3829,7 +3829,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -3869,7 +3869,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4096,7 +4096,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4288,7 +4288,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -4328,7 +4328,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4545,7 +4545,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_milestone_progress_request));
 			} else {
-				$httpBody = $put_goal_milestone_progress_request;
+				$httpBody = is_array($put_goal_milestone_progress_request) ? json_encode($put_goal_milestone_progress_request) : $put_goal_milestone_progress_request;
 			}
 		} 
 
@@ -4585,7 +4585,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4788,7 +4788,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_progress_request));
 			} else {
-				$httpBody = $put_goal_progress_request;
+				$httpBody = is_array($put_goal_progress_request) ? json_encode($put_goal_progress_request) : $put_goal_progress_request;
 			}
 		} 
 
@@ -4828,7 +4828,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -5031,7 +5031,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_shared_with_request));
 			} else {
-				$httpBody = $put_goal_shared_with_request;
+				$httpBody = is_array($put_goal_shared_with_request) ? json_encode($put_goal_shared_with_request) : $put_goal_shared_with_request;
 			}
 		} 
 
@@ -5071,7 +5071,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -5279,7 +5279,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($goal));
 			} else {
-				$httpBody = $goal;
+				$httpBody = is_array($goal) ? json_encode($goal) : $goal;
 			}
 		} 
 
@@ -5319,7 +5319,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -5522,7 +5522,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_v11_request));
 			} else {
-				$httpBody = $put_goal_v11_request;
+				$httpBody = is_array($put_goal_v11_request) ? json_encode($put_goal_v11_request) : $put_goal_v11_request;
 			}
 		} 
 
@@ -5562,7 +5562,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

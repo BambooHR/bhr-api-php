@@ -322,7 +322,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -362,7 +362,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -540,7 +540,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -580,7 +580,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -821,7 +821,7 @@ class TabularDataApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1031,7 +1031,7 @@ class TabularDataApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1233,7 +1233,7 @@ class TabularDataApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1425,7 +1425,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -1465,7 +1465,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1657,7 +1657,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -1697,7 +1697,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

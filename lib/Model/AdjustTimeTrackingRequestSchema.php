@@ -85,7 +85,8 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'time_tracking_id' => false,
@@ -99,7 +100,8 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -133,7 +135,8 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -142,7 +145,8 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -165,7 +169,7 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -281,7 +285,7 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -382,12 +386,11 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 */
 	public function setProjectId($project_id) {
 		if (is_null($project_id)) {
-			array_push($this->openApiNullablesSetToNull, 'project_id');
+			$this->openApiNullablesSetToNull['project_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('project_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['project_id'])) {
+				unset($nullablesSetToNull['project_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -414,12 +417,11 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 */
 	public function setTaskId($task_id) {
 		if (is_null($task_id)) {
-			array_push($this->openApiNullablesSetToNull, 'task_id');
+			$this->openApiNullablesSetToNull['task_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('task_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['task_id'])) {
+				unset($nullablesSetToNull['task_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -446,12 +448,11 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 */
 	public function setShiftDifferentialId($shift_differential_id) {
 		if (is_null($shift_differential_id)) {
-			array_push($this->openApiNullablesSetToNull, 'shift_differential_id');
+			$this->openApiNullablesSetToNull['shift_differential_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('shift_differential_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['shift_differential_id'])) {
+				unset($nullablesSetToNull['shift_differential_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -478,12 +479,11 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 */
 	public function setHolidayId($holiday_id) {
 		if (is_null($holiday_id)) {
-			array_push($this->openApiNullablesSetToNull, 'holiday_id');
+			$this->openApiNullablesSetToNull['holiday_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('holiday_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['holiday_id'])) {
+				unset($nullablesSetToNull['holiday_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -558,11 +558,12 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -570,8 +571,9 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
 

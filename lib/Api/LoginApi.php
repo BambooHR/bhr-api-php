@@ -285,9 +285,9 @@ class LoginApi {
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			$application_key,
-			$user,
-			$password,
+			'applicationKey' => $application_key,
+			'user' => $user,
+			'password' => $password,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -360,7 +360,7 @@ class LoginApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

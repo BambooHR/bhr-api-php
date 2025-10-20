@@ -182,6 +182,7 @@ class ApiClientTest extends TestCase {
 		$client = new ApiClient();
 		$client->withApiKey('test-key')
 			   ->forCompany('test-company')
+			   /** @phpstan-ignore-next-line */
 			   ->getApi('NonExistentClass');
 	}
 
@@ -327,6 +328,9 @@ class ApiClientTest extends TestCase {
 	public function testLoggingIntegrationWithBuild(): void {
 		// Create a memory stream for testing
 		$stream = fopen('php://memory', 'r+');
+		if ($stream === false) {
+			$this->fail('Failed to open memory stream');
+		}
 		$logger = new SecureLogger(true, 'info', $stream);
 
 		$client = new ApiClient(null, $logger);
@@ -337,6 +341,9 @@ class ApiClientTest extends TestCase {
 		// Get log output
 		rewind($stream);
 		$output = stream_get_contents($stream);
+		if ($output === false) {
+			$output = '';
+		}
 		fclose($stream);
 
 		// Verify logging occurred
