@@ -65,7 +65,7 @@ class ApiHelper {
 					(int)$e->getCode(),
 					$e->getMessage(),
 					$statusCode,
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? $e->getResponse()->getHeaders() : [],
 					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
 				);
 
@@ -122,7 +122,7 @@ class ApiHelper {
 				->otherwise(function ($reason) use ($attempt, $retries, $timeoutStatusCodes, $doRequest) {
 					// Check if this is a RequestException with a response
 					if ($reason instanceof RequestException && $reason->hasResponse()) {
-						$statusCode = $reason->getResponse()->getStatusCode();
+						$statusCode = $reason->getResponse() ? $reason->getResponse()->getStatusCode() : 0;
 
 						// Check if this is a timeout error and if we should retry
 						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
@@ -143,13 +143,13 @@ class ApiHelper {
 
 					// If we can't retry or have exceeded retries, create a proper ApiException
 					if ($reason instanceof RequestException) {
-						$statusCode = $reason->hasResponse() ? $reason->getResponse()->getStatusCode() : 0;
+						$statusCode = $reason->getResponse() ? $reason->getResponse()->getStatusCode() : 0;
 						$exception = ApiErrorHelper::createException(
 							(int)$reason->getCode(),
 							$reason->getMessage(),
 							$statusCode,
-							$reason->hasResponse() ? $reason->getResponse()->getHeaders() : null,
-							$reason->hasResponse() ? (string)$reason->getResponse()->getBody() : null
+							$reason->getResponse() ? $reason->getResponse()->getHeaders() : [],
+							$reason->getResponse() ? (string)$reason->getResponse()->getBody() : null
 						);
 
 						return \GuzzleHttp\Promise\Create::rejectionFor($exception);

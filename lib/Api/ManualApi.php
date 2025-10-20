@@ -416,7 +416,7 @@ class ManualApi {
 					(int)$e->getCode(),
 					$e->getMessage(),
 					$statusCode,
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? $e->getResponse()->getHeaders() : [],
 					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
 				);
 
@@ -472,7 +472,7 @@ class ManualApi {
 				->otherwise(function ($reason) use ($attempt, $retries, $timeoutStatusCodes, $doRequest) {
 					// Check if this is a RequestException with a response
 					if ($reason instanceof RequestException && $reason->hasResponse()) {
-						$statusCode = $reason->getResponse()->getStatusCode();
+						$statusCode = $reason->getResponse() ? $reason->getResponse()->getStatusCode() : 0;
 
 						// Check if this is a timeout error and if we should retry
 						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {

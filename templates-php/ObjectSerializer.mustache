@@ -126,16 +126,16 @@ class ObjectSerializer {
 	/**
 	 * Shorter timestamp microseconds to 6 digits length.
 	 *
-	 * @param string $timestamp Original timestamp
+	 * @param string|mixed $timestamp Original timestamp
 	 *
 	 * @return string the shorten timestamp
 	 */
-	public static function sanitizeTimestamp($timestamp) {
+	public static function sanitizeTimestamp($timestamp): string {
 		if (!is_string($timestamp)) {
-			return $timestamp;
+			return (string)$timestamp;
 		}
 
-		return preg_replace('/(:\d{2}.\d{6})\d*/', '$1', $timestamp);
+		return (string)preg_replace('/(:\d{2}.\d{6})\d*/', '$1', $timestamp);
 	}
 
 	/**
@@ -345,11 +345,11 @@ class ObjectSerializer {
 	 *
 	 * @return string
 	 */
-	public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false) {
+	public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false): string {
 		if ($allowCollectionFormatMulti && ('multi' === $style)) {
 			// http_build_query() almost does the job for us. We just
 			// need to fix the result of multidimensional arrays.
-			return preg_replace('/%5B[0-9]+%5D=/', '=', http_build_query($collection, '', '&'));
+			return (string)preg_replace('/%5B[0-9]+%5D=/', '=', http_build_query($collection, '', '&'));
 		}
 		switch ($style) {
 			case 'pipeDelimited':

@@ -223,10 +223,14 @@ class SecureLogger implements LoggerInterface {
 	/**
 	 * Redact sensitive data from a string
 	 *
-	 * @param string $data String to redact
+	 * @param string|null $data String to redact
 	 * @return string Redacted string
 	 */
-	private function redactSensitiveDataFromString(string $data): string {
+	private function redactSensitiveDataFromString(?string $data): string|null {
+		// If data is null, return an empty string
+		if ($data === null) {
+			return '';
+		}
 		// Redact common patterns in strings
 		$patterns = [
 			// Bearer tokens
@@ -240,7 +244,8 @@ class SecureLogger implements LoggerInterface {
 		];
 
 		foreach ($patterns as $pattern => $replacement) {
-			$data = preg_replace($pattern, $replacement, $data);
+			// Ensure $data is a string before passing to preg_replace
+			$data = preg_replace($pattern, $replacement, (string)$data);
 		}
 
 		return $data;

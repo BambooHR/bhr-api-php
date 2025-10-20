@@ -69,11 +69,17 @@ class AuthBuilder {
 
 		switch ($this->authType) {
 			case 'api_key':
+				if ($this->apiKey === null) {
+					throw new \InvalidArgumentException('API key cannot be null');
+				}
 				$config->setUsername($this->apiKey);
 				$config->setPassword('x'); // BambooHR uses 'x' as password with API key
 				break;
 
 			case 'oauth':
+				if ($this->oauthToken === null) {
+					throw new \InvalidArgumentException('OAuth token cannot be null');
+				}
 				$config->setAccessToken($this->oauthToken);
 				break;
 
