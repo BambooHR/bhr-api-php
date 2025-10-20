@@ -50,7 +50,7 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with a 401 status code
-	 * 
+	 *
 	 * @return void
 	 */
 	public function testFormatErrorMessage401(): void {
@@ -78,7 +78,7 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with a 404 status code
-	 * 
+	 *
 	 * @return void
 	 */
 	public function testFormatErrorMessage404(): void {
@@ -106,7 +106,7 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with a 500 status code
-	 * 
+	 *
 	 * @return void
 	 */
 	public function testFormatErrorMessage500(): void {
@@ -134,7 +134,7 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with an unknown status code
-	 * 
+	 *
 	 * @return void
 	 */
 	public function testFormatErrorMessageUnknownStatusCode(): void {
