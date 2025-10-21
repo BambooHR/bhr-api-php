@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ApiClient
  * PHP version 8.1
@@ -12,11 +13,15 @@
 namespace BhrSdk\Client;
 
 use BhrSdk\Configuration;
+use BhrSdk\Client\Auth\TokenManager;
+use BhrSdk\Client\Auth\BambooHRTokenRefreshProvider;
+use BhrSdk\Client\Middleware\OAuth2Middleware;
 use BhrSdk\Client\Logger\LoggerInterface;
 use BhrSdk\Client\Logger\SecureLogger;
 use BhrSdk\HeaderSelector;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\HandlerStack;
 
 /**
  * ApiClient provides a fluent interface for configuring and using the BambooHR SDK
@@ -36,6 +41,8 @@ class ApiClient {
 	private ?LoggerInterface $logger = null;
 	private ?HeaderSelector $headerSelector = null;
 	private int $hostIndex = 0;
+	private ?TokenManager $tokenManager = null;
+	private ?BambooHRTokenRefreshProvider $refreshProvider = null;
 
 	/**
 	 * Constructor
@@ -82,6 +89,64 @@ class ApiClient {
 		$this->authBuilder->withOAuth($token);
 
 		$this->log('debug', 'Configured OAuth authentication');
+
+		return $this;
+	}
+
+	/**
+	 * Configure authentication using OAuth with automatic token refresh
+	 *
+	 * @param string   $accessToken Your OAuth access token
+	 * @param string   $refreshToken Your OAuth refresh token
+	 * @param string   $clientId Your OAuth client ID
+	 * @param string   $clientSecret Your OAuth client secret
+	 * @param int|null $expiresIn Number of seconds until access token expires (optional)
+	 * @return self
+	 */
+	public function withOAuthRefresh(
+		string $accessToken,
+		string $refreshToken,
+		string $clientId,
+		string $clientSecret,
+		?int $expiresIn = null
+	): self {
+		if ($this->authBuilder === null) {
+			$this->authBuilder = new AuthBuilder();
+		}
+		$this->authBuilder->withOAuthRefresh(
+			$accessToken,
+			$refreshToken,
+			$clientId,
+			$clientSecret,
+			$expiresIn
+		);
+
+		$this->log('debug', 'Configured OAuth with automatic refresh', [
+			'has_expiry' => $expiresIn !== null
+		]);
+
+		return $this;
+	}
+
+	/**
+	 * Set a callback to be invoked when OAuth tokens are refreshed
+	 *
+	 * The callback receives four parameters:
+	 * 1. string $newAccessToken
+	 * 2. string|null $newRefreshToken
+	 * 3. string $oldAccessToken
+	 * 4. string|null $oldRefreshToken
+	 *
+	 * @param callable $callback Function to call on token refresh
+	 * @return self
+	 */
+	public function onTokenRefresh(callable $callback): self {
+		if ($this->authBuilder === null) {
+			$this->authBuilder = new AuthBuilder();
+		}
+		$this->authBuilder->onTokenRefresh($callback);
+
+		$this->log('debug', 'Token refresh callback registered');
 
 		return $this;
 	}
@@ -206,22 +271,24 @@ class ApiClient {
 	public function build(): self {
 		$this->log('info', 'Building API client configuration');
 
-		// Apply authentication if AuthBuilder was used
+		// Validate and apply authentication
 		if ($this->authBuilder !== null && $this->authBuilder->isConfigured()) {
 			$this->authBuilder->applyTo($this->config);
+
+			// Initialize OAuth refresh if configured
+			if ($this->authBuilder->hasOAuthRefresh()) {
+				$this->setupOAuthRefresh();
+			}
 
 			// Log sanitized auth info
 			$authInfo = $this->getSanitizedAuthInfo();
 			$this->log('info', 'Authentication configured', $authInfo);
 		}
 
+		// Validate the final configuration
 		$this->validateConfiguration();
 
-		$this->log('info', 'API client built successfully', [
-			'host' => $this->config->getHost(),
-			'debug' => $this->config->getDebug(),
-			'retries' => $this->config->getRetries()
-		]);
+		$this->log('info', 'API client built successfully');
 
 		return $this;
 	}
@@ -484,6 +551,105 @@ class ApiClient {
 	 */
 	public function getLogger(): ?LoggerInterface {
 		return $this->logger;
+	}
+
+	/**
+	 * Setup OAuth token refresh functionality
+	 *
+	 * Creates TokenManager and RefreshProvider when OAuth refresh is configured
+	 *
+	 * @return void
+	 */
+	private function setupOAuthRefresh(): void {
+		if ($this->authBuilder === null) {
+			return;
+		}
+
+		$refreshToken = $this->authBuilder->getRefreshToken();
+		$clientId = $this->authBuilder->getClientId();
+		$clientSecret = $this->authBuilder->getClientSecret();
+		$expiresIn = $this->authBuilder->getExpiresIn();
+		$accessToken = $this->config->getAccessToken();
+
+		if ($refreshToken === null || $clientId === null || $clientSecret === null) {
+			$this->log('warning', 'OAuth refresh configured but missing required parameters');
+			return;
+		}
+
+		// Create TokenManager
+		$this->tokenManager = new TokenManager(
+			$accessToken,
+			$refreshToken,
+			$expiresIn,
+			$this->authBuilder->getTokenRefreshCallback()
+		);
+
+		// Create RefreshProvider with API host
+		$apiHost = $this->config->getHost();
+		$this->refreshProvider = new BambooHRTokenRefreshProvider(
+			$clientId,
+			$clientSecret,
+			$apiHost
+		);
+
+		// Create OAuth2 middleware and add it to HTTP client
+		$middleware = new OAuth2Middleware(
+			$this->tokenManager,
+			$this->refreshProvider,
+			$this->config
+		);
+
+		// Create HTTP client with middleware if not already created
+		if ($this->httpClient === null) {
+			$stack = HandlerStack::create();
+
+			// Wrap middleware in a callable for Guzzle
+			$stack->push(function (callable $handler) use ($middleware) {
+				return function ($request, array $options) use ($handler, $middleware) {
+					// Create a sendRequest callable that unwraps Guzzle promises
+					$sendRequest = function ($req, $opts) use ($handler) {
+						$promise = $handler($req, $opts);
+						// Wait for the promise to resolve and return the response
+						return $promise->wait();
+					};
+
+					// Let middleware handle the request (returns ResponseInterface)
+					$response = $middleware->handle($sendRequest, $request, null, $options);
+
+					// Wrap response back in a promise for Guzzle
+					return \GuzzleHttp\Promise\Create::promiseFor($response);
+				};
+			});
+
+			$this->httpClient = new Client(['handler' => $stack]);
+
+			$this->log('info', 'HTTP client created with OAuth2 middleware');
+		} else {
+			$this->log('warning', 'HTTP client already exists, OAuth2 middleware not added');
+		}
+
+		$this->log('info', 'OAuth token refresh enabled', [
+			'has_expiry' => $expiresIn !== null,
+			'has_callback' => $this->authBuilder !== null && $this->authBuilder->getTokenRefreshCallback() !== null
+		]);
+	}
+
+	/**
+	 * Get the TokenManager instance
+	 *
+	 * @return TokenManager|null Token manager if OAuth refresh is configured
+	 */
+	public function getTokenManager(): ?TokenManager {
+		return $this->tokenManager;
+	}
+
+	/**
+	 * Get the RefreshProvider instance
+	 *
+	 * @return BambooHRTokenRefreshProvider|null Refresh provider if OAuth refresh is configured
+	 */
+	public function getRefreshProvider(): ?BambooHRTokenRefreshProvider {
+		return $this->refreshProvider;
 	}
 
 	/**
