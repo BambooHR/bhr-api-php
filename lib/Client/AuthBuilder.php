@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AuthBuilder
  * PHP version 8.1
@@ -28,6 +29,15 @@ class AuthBuilder {
 	private ?string $authType = null;
 	private ?string $apiKey = null;
 	private ?string $oauthToken = null;
+	private ?string $refreshToken = null;
+	private ?string $clientId = null;
+	private ?string $clientSecret = null;
+	private ?int $expiresIn = null;
+
+	/**
+	 * @var callable|null Callback for token refresh notifications
+	 */
+	private $onTokenRefresh = null;
 
 	/**
 	 * Configure authentication using an API key (recommended)
@@ -50,6 +60,49 @@ class AuthBuilder {
 	public function withOAuth(string $token): self {
 		$this->authType = 'oauth';
 		$this->oauthToken = $token;
+		return $this;
+	}
+
+	/**
+	 * Configure authentication using OAuth with automatic token refresh
+	 *
+	 * @param string   $accessToken Your OAuth access token
+	 * @param string   $refreshToken Your OAuth refresh token
+	 * @param string   $clientId Your OAuth client ID
+	 * @param string   $clientSecret Your OAuth client secret
+	 * @param int|null $expiresIn Number of seconds until access token expires (optional)
+	 * @return self
+	 */
+	public function withOAuthRefresh(
+		string $accessToken,
+		string $refreshToken,
+		string $clientId,
+		string $clientSecret,
+		?int $expiresIn = null
+	): self {
+		$this->authType = 'oauth_refresh';
+		$this->oauthToken = $accessToken;
+		$this->refreshToken = $refreshToken;
+		$this->clientId = $clientId;
+		$this->clientSecret = $clientSecret;
+		$this->expiresIn = $expiresIn;
+		return $this;
+	}
+
+	/**
+	 * Set a callback to be invoked when tokens are refreshed
+	 *
+	 * The callback receives four parameters:
+	 * 1. string $newAccessToken
+	 * 2. string|null $newRefreshToken
+	 * 3. string $oldAccessToken
+	 * 4. string|null $oldRefreshToken
+	 *
+	 * @param callable $callback Function to call on token refresh
+	 * @return self
+	 */
+	public function onTokenRefresh(callable $callback): self {
+		$this->onTokenRefresh = $callback;
 		return $this;
 	}
 
@@ -77,6 +130,7 @@ class AuthBuilder {
 				break;
 
 			case 'oauth':
+			case 'oauth_refresh':
 				if ($this->oauthToken === null) {
 					throw new \InvalidArgumentException('OAuth token cannot be null');
 				}
@@ -100,10 +154,64 @@ class AuthBuilder {
 	/**
 	 * Get the authentication type
 	 *
-	 * @return string|null The authentication type ('api_key', 'oauth') or null if not configured
+	 * @return string|null The authentication type ('api_key', 'oauth', 'oauth_refresh') or null if not configured
 	 */
 	public function getAuthType(): ?string {
 		return $this->authType;
+	}
+
+	/**
+	 * Check if OAuth refresh is configured
+	 *
+	 * @return bool True if OAuth with refresh capability is configured
+	 */
+	public function hasOAuthRefresh(): bool {
+		return $this->authType === 'oauth_refresh';
+	}
+
+	/**
+	 * Get the refresh token
+	 *
+	 * @return string|null The refresh token, or null if not configured
+	 */
+	public function getRefreshToken(): ?string {
+		return $this->refreshToken;
+	}
+
+	/**
+	 * Get the OAuth client ID
+	 *
+	 * @return string|null The client ID, or null if not configured
+	 */
+	public function getClientId(): ?string {
+		return $this->clientId;
+	}
+
+	/**
+	 * Get the OAuth client secret
+	 *
+	 * @return string|null The client secret, or null if not configured
+	 */
+	public function getClientSecret(): ?string {
+		return $this->clientSecret;
+	}
+
+	/**
+	 * Get the token expiration time
+	 *
+	 * @return int|null Seconds until expiration, or null if not configured
+	 */
+	public function getExpiresIn(): ?int {
+		return $this->expiresIn;
+	}
+
+	/**
+	 * Get the token refresh callback
+	 *
+	 * @return callable|null The callback, or null if not configured
+	 */
+	public function getTokenRefreshCallback() {
+		return $this->onTokenRefresh;
 	}
 
 	/**
@@ -127,6 +235,21 @@ class AuthBuilder {
 			case 'oauth':
 				if (empty($this->oauthToken)) {
 					throw new \InvalidArgumentException('OAuth token cannot be empty');
+				}
+				break;
+
+			case 'oauth_refresh':
+				if (empty($this->oauthToken)) {
+					throw new \InvalidArgumentException('OAuth access token cannot be empty');
+				}
+				if (empty($this->refreshToken)) {
+					throw new \InvalidArgumentException('OAuth refresh token cannot be empty');
+				}
+				if (empty($this->clientId)) {
+					throw new \InvalidArgumentException('OAuth client ID cannot be empty');
+				}
+				if (empty($this->clientSecret)) {
+					throw new \InvalidArgumentException('OAuth client secret cannot be empty');
 				}
 				break;
 
@@ -160,6 +283,13 @@ class AuthBuilder {
 
 			case 'oauth':
 				$info['oauth_token'] = $this->maskSensitiveData($this->oauthToken);
+				break;
+
+			case 'oauth_refresh':
+				$info['oauth_token'] = $this->maskSensitiveData($this->oauthToken);
+				$info['refresh_token'] = $this->maskSensitiveData($this->refreshToken);
+				$info['client_id'] = $this->clientId;
+				$info['has_callback'] = $this->onTokenRefresh !== null;
 				break;
 		}
 
@@ -196,6 +326,11 @@ class AuthBuilder {
 		$this->authType = null;
 		$this->apiKey = null;
 		$this->oauthToken = null;
+		$this->refreshToken = null;
+		$this->clientId = null;
+		$this->clientSecret = null;
+		$this->expiresIn = null;
+		$this->onTokenRefresh = null;
 		return $this;
 	}
 }
