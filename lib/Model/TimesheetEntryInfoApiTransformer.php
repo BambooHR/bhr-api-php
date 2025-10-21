@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimesheetEntryInfoApiTransformer
  *
@@ -91,7 +92,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
@@ -109,7 +111,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -143,7 +146,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -152,7 +156,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -175,7 +180,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -270,7 +275,6 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -308,7 +312,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -334,7 +338,6 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -454,12 +457,11 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 */
 	public function setStart($start) {
 		if (is_null($start)) {
-			array_push($this->openApiNullablesSetToNull, 'start');
+			$this->openApiNullablesSetToNull['start'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('start', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['start'])) {
+				unset($nullablesSetToNull['start']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -486,12 +488,11 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 */
 	public function setEnd($end) {
 		if (is_null($end)) {
-			array_push($this->openApiNullablesSetToNull, 'end');
+			$this->openApiNullablesSetToNull['end'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('end', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['end'])) {
+				unset($nullablesSetToNull['end']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -518,12 +519,11 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 */
 	public function setTimezone($timezone) {
 		if (is_null($timezone)) {
-			array_push($this->openApiNullablesSetToNull, 'timezone');
+			$this->openApiNullablesSetToNull['timezone'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('timezone', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['timezone'])) {
+				unset($nullablesSetToNull['timezone']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -550,12 +550,11 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 */
 	public function setHours($hours) {
 		if (is_null($hours)) {
-			array_push($this->openApiNullablesSetToNull, 'hours');
+			$this->openApiNullablesSetToNull['hours'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('hours', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['hours'])) {
+				unset($nullablesSetToNull['hours']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -582,12 +581,11 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 */
 	public function setNote($note) {
 		if (is_null($note)) {
-			array_push($this->openApiNullablesSetToNull, 'note');
+			$this->openApiNullablesSetToNull['note'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('note', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['note'])) {
+				unset($nullablesSetToNull['note']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -614,12 +612,11 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 */
 	public function setProjectInfo($project_info) {
 		if (is_null($project_info)) {
-			array_push($this->openApiNullablesSetToNull, 'project_info');
+			$this->openApiNullablesSetToNull['project_info'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('project_info', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['project_info'])) {
+				unset($nullablesSetToNull['project_info']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -630,7 +627,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -641,7 +638,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -653,7 +650,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -669,7 +666,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -694,11 +691,12 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -706,9 +704,9 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

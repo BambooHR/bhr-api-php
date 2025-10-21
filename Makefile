@@ -13,7 +13,7 @@ PACKAGE_URL = https://www.bamboohr.com/
 DEVELOPER_URL = https://github.com/BambooHR/bhr-api-php
 COMPOSER_PACKAGE_NAME = bamboohr/bhr-sdk
 
-.PHONY: help generate clean test
+.PHONY: help generate clean test phpstan
 
 help:
 	@echo "BambooHR API PHP SDK - Available commands:"
@@ -21,6 +21,8 @@ help:
 	@echo "  make generate OPENAPI_SPEC_PATH=/path/to/spec.yaml - Generate using a custom spec path"
 	@echo "  make clean             - Remove generated files"
 	@echo "  make test              - Run tests"
+	@echo "  make phpcs             - Run PHP Code Sniffer"
+	@echo "  make phpstan           - Run PHPStan static analysis"
 
 generate:
 	@echo "Generating PHP SDK from OpenAPI spec at $(OPENAPI_SPEC_PATH)..."
@@ -36,6 +38,7 @@ generate:
 		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
 		&& sed -i '' '/\*PublicAPIApi\*/d' README.md \
 		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
+		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh
 	@echo "SDK generation complete!"
 
@@ -49,3 +52,13 @@ test:
 	@echo "Running tests..."
 	./vendor/bin/phpunit
 	@echo "Tests complete!"
+
+phpcs:
+	@echo "Running PHP Code Sniffer..."
+	./vendor/bin/phpcs --standard=phpcs.xml lib
+	@echo "PHP Code Sniffer complete!"
+
+phpstan:
+	@echo "Running PHPStan..."
+	./vendor/bin/phpstan analyse --memory-limit=1024M
+	@echo "PHPStan complete!"

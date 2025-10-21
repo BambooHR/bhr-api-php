@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ClockInRequestSchemaTest
  *
@@ -39,97 +40,85 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ClockInRequestSchemaTest extends TestCase
-{
+class ClockInRequestSchemaTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "ClockInRequestSchema"
-     */
-    public function testClockInRequestSchema()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "ClockInRequestSchema"
+	 */
+	public function testClockInRequestSchema(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "project_id"
-     */
-    public function testPropertyProjectId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "project_id"
+	 */
+	public function testPropertyProjectId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "task_id"
-     */
-    public function testPropertyTaskId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "task_id"
+	 */
+	public function testPropertyTaskId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "note"
-     */
-    public function testPropertyNote()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "note"
+	 */
+	public function testPropertyNote(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "date"
-     */
-    public function testPropertyDate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "date"
+	 */
+	public function testPropertyDate(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "start"
-     */
-    public function testPropertyStart()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "start"
+	 */
+	public function testPropertyStart(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "timezone"
-     */
-    public function testPropertyTimezone()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "timezone"
+	 */
+	public function testPropertyTimezone(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

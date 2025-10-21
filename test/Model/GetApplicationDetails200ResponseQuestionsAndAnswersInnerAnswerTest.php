@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswerTest
  *
@@ -39,61 +40,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswerTest extends TestCase
-{
+class GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer"
-     */
-    public function testGetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "GetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer"
+	 */
+	public function testGetApplicationDetails200ResponseQuestionsAndAnswersInnerAnswer(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "id"
+	 */
+	public function testPropertyId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "label"
-     */
-    public function testPropertyLabel()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "label"
+	 */
+	public function testPropertyLabel(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

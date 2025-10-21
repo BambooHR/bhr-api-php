@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostGoalRequestMilestonesInnerTest
  *
@@ -39,52 +40,45 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PostGoalRequestMilestonesInnerTest extends TestCase
-{
+class PostGoalRequestMilestonesInnerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "PostGoalRequestMilestonesInner"
-     */
-    public function testPostGoalRequestMilestonesInner()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "PostGoalRequestMilestonesInner"
+	 */
+	public function testPostGoalRequestMilestonesInner(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "title"
-     */
-    public function testPropertyTitle()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "title"
+	 */
+	public function testPropertyTitle(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

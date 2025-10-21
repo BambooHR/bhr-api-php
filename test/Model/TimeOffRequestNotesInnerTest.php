@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffRequestNotesInnerTest
  *
@@ -39,61 +40,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TimeOffRequestNotesInnerTest extends TestCase
-{
+class TimeOffRequestNotesInnerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "TimeOffRequestNotesInner"
-     */
-    public function testTimeOffRequestNotesInner()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "TimeOffRequestNotesInner"
+	 */
+	public function testTimeOffRequestNotesInner(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "from"
-     */
-    public function testPropertyFrom()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "from"
+	 */
+	public function testPropertyFrom(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "note"
-     */
-    public function testPropertyNote()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "note"
+	 */
+	public function testPropertyNote(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

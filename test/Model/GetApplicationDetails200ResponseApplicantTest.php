@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200ResponseApplicantTest
  *
@@ -39,97 +40,85 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetApplicationDetails200ResponseApplicantTest extends TestCase
-{
+class GetApplicationDetails200ResponseApplicantTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "GetApplicationDetails200ResponseApplicant"
-     */
-    public function testGetApplicationDetails200ResponseApplicant()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "GetApplicationDetails200ResponseApplicant"
+	 */
+	public function testGetApplicationDetails200ResponseApplicant(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "id"
+	 */
+	public function testPropertyId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "first_name"
-     */
-    public function testPropertyFirstName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "first_name"
+	 */
+	public function testPropertyFirstName(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "last_name"
-     */
-    public function testPropertyLastName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "last_name"
+	 */
+	public function testPropertyLastName(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "email"
-     */
-    public function testPropertyEmail()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "email"
+	 */
+	public function testPropertyEmail(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "phone"
-     */
-    public function testPropertyPhone()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "phone"
+	 */
+	public function testPropertyPhone(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "address"
-     */
-    public function testPropertyAddress()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "address"
+	 */
+	public function testPropertyAddress(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

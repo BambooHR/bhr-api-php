@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetApplicationDetails200Response
  *
@@ -111,7 +112,8 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
@@ -139,7 +141,8 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -173,7 +176,8 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -182,7 +186,8 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -205,7 +210,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -330,7 +335,6 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -378,7 +382,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -404,7 +408,6 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -499,12 +502,11 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 */
 	public function setRating($rating) {
 		if (is_null($rating)) {
-			array_push($this->openApiNullablesSetToNull, 'rating');
+			$this->openApiNullablesSetToNull['rating'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('rating', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['rating'])) {
+				unset($nullablesSetToNull['rating']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -556,12 +558,11 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 */
 	public function setResumeFileId($resume_file_id) {
 		if (is_null($resume_file_id)) {
-			array_push($this->openApiNullablesSetToNull, 'resume_file_id');
+			$this->openApiNullablesSetToNull['resume_file_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('resume_file_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['resume_file_id'])) {
+				unset($nullablesSetToNull['resume_file_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -588,12 +589,11 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 */
 	public function setCoverLetterFileId($cover_letter_file_id) {
 		if (is_null($cover_letter_file_id)) {
-			array_push($this->openApiNullablesSetToNull, 'cover_letter_file_id');
+			$this->openApiNullablesSetToNull['cover_letter_file_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('cover_letter_file_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['cover_letter_file_id'])) {
+				unset($nullablesSetToNull['cover_letter_file_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -720,12 +720,11 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 */
 	public function setReferredBy($referred_by) {
 		if (is_null($referred_by)) {
-			array_push($this->openApiNullablesSetToNull, 'referred_by');
+			$this->openApiNullablesSetToNull['referred_by'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('referred_by', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['referred_by'])) {
+				unset($nullablesSetToNull['referred_by']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -752,12 +751,11 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 */
 	public function setDesiredSalary($desired_salary) {
 		if (is_null($desired_salary)) {
-			array_push($this->openApiNullablesSetToNull, 'desired_salary');
+			$this->openApiNullablesSetToNull['desired_salary'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('desired_salary', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['desired_salary'])) {
+				unset($nullablesSetToNull['desired_salary']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -943,7 +941,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -954,7 +952,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -966,7 +964,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -982,7 +980,7 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -1007,11 +1005,12 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -1019,9 +1018,9 @@ class GetApplicationDetails200Response implements ModelInterface, ArrayAccess, \
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

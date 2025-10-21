@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AddNewEmployeeTrainingRecordRequestCostTest
  *
@@ -39,61 +40,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class AddNewEmployeeTrainingRecordRequestCostTest extends TestCase
-{
+class AddNewEmployeeTrainingRecordRequestCostTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "AddNewEmployeeTrainingRecordRequestCost"
-     */
-    public function testAddNewEmployeeTrainingRecordRequestCost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "AddNewEmployeeTrainingRecordRequestCost"
+	 */
+	public function testAddNewEmployeeTrainingRecordRequestCost(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "currency"
-     */
-    public function testPropertyCurrency()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "currency"
+	 */
+	public function testPropertyCurrency(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "cost"
-     */
-    public function testPropertyCost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "cost"
+	 */
+	public function testPropertyCost(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

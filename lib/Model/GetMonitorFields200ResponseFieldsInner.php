@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetMonitorFields200ResponseFieldsInner
  *
@@ -77,7 +78,8 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
@@ -88,7 +90,8 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -122,7 +125,8 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -131,7 +135,8 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -154,7 +159,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -228,7 +233,6 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -259,7 +263,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -285,7 +289,6 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -364,7 +367,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -375,7 +378,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -387,7 +390,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -403,7 +406,7 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -428,11 +431,12 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -440,9 +444,9 @@ class GetMonitorFields200ResponseFieldsInner implements ModelInterface, ArrayAcc
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

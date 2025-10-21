@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingDeleteResponseSchemaTest
  *
@@ -39,61 +40,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TimeTrackingDeleteResponseSchemaTest extends TestCase
-{
+class TimeTrackingDeleteResponseSchemaTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "TimeTrackingDeleteResponseSchema"
-     */
-    public function testTimeTrackingDeleteResponseSchema()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "TimeTrackingDeleteResponseSchema"
+	 */
+	public function testTimeTrackingDeleteResponseSchema(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "status"
+	 */
+	public function testPropertyStatus(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "message"
-     */
-    public function testPropertyMessage()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "message"
+	 */
+	public function testPropertyMessage(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

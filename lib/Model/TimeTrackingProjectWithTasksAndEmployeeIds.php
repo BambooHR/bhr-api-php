@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingProjectWithTasksAndEmployeeIds
  *
@@ -79,7 +80,8 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
@@ -91,7 +93,8 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -125,7 +128,8 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -134,7 +138,8 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -157,7 +162,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -234,7 +239,6 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -266,7 +270,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -292,7 +296,6 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets id
@@ -396,7 +399,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -407,7 +410,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -419,7 +422,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -435,7 +438,7 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -460,11 +463,12 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -472,9 +476,9 @@ class TimeTrackingProjectWithTasksAndEmployeeIds implements ModelInterface, Arra
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

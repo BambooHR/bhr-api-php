@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GoalsApi
  * PHP version 8.1
@@ -237,7 +238,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -331,9 +331,6 @@ class GoalsApi {
 			methodName: 'deleteGoal'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
 		
 		$queryParams = [];
@@ -341,13 +338,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -355,18 +350,16 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -392,7 +385,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -402,7 +397,7 @@ class GoalsApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -446,7 +441,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -545,10 +539,6 @@ class GoalsApi {
 			methodName: 'deleteGoalComment'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
 		
 		$queryParams = [];
@@ -556,13 +546,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -570,7 +558,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -578,18 +566,16 @@ class GoalsApi {
 		if ($comment_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'commentId' . '}',
-				ObjectSerializer::toPathValue($comment_id),
+				ObjectSerializer::toPathValue((string) $comment_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -615,7 +601,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -625,7 +613,7 @@ class GoalsApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -665,7 +653,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -756,8 +743,6 @@ class GoalsApi {
 			methodName: 'getCanCreateGoal'
 		);
 
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
 		
 		$queryParams = [];
@@ -765,24 +750,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -808,7 +789,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -818,7 +801,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -862,7 +845,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -871,8 +853,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -982,9 +962,6 @@ class GoalsApi {
 			methodName: 'getGoalAggregate'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
 		
 		$queryParams = [];
@@ -992,13 +969,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -1006,18 +981,16 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1043,7 +1016,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1053,7 +1028,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1095,7 +1070,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1190,9 +1164,6 @@ class GoalsApi {
 			methodName: 'getGoalComments'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
 		
 		$queryParams = [];
@@ -1200,13 +1171,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -1214,18 +1183,16 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1251,7 +1218,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1261,7 +1230,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1305,7 +1274,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1314,8 +1282,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1424,9 +1390,6 @@ class GoalsApi {
 			methodName: 'getGoals'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
 		
 		$queryParams = [];
@@ -1450,23 +1413,20 @@ class GoalsApi {
 			}
 		}
 
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1492,7 +1452,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1502,7 +1464,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1546,7 +1508,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1555,8 +1516,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1665,8 +1624,6 @@ class GoalsApi {
 			methodName: 'getGoalsAggregateV1'
 		);
 
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
 		
 		$queryParams = [];
@@ -1674,24 +1631,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1717,7 +1670,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1727,7 +1682,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1771,7 +1726,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1780,8 +1734,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1890,8 +1842,6 @@ class GoalsApi {
 			methodName: 'getGoalsAggregateV11'
 		);
 
-
-
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
 		
 		$queryParams = [];
@@ -1899,24 +1849,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1942,7 +1888,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1952,7 +1900,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1994,7 +1942,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2003,8 +1950,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2110,8 +2055,6 @@ class GoalsApi {
 			methodName: 'getGoalsAggregateV12'
 		);
 
-
-
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
 		
 		$queryParams = [];
@@ -2119,24 +2062,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2162,7 +2101,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2172,7 +2113,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2214,7 +2155,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2308,9 +2248,6 @@ class GoalsApi {
 			methodName: 'getGoalsAlignmentOptions'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/alignmentOptions';
 		
 		$queryParams = [];
@@ -2318,17 +2255,14 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -2342,7 +2276,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -2370,7 +2304,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2380,7 +2316,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2424,7 +2360,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2433,8 +2368,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2543,8 +2476,6 @@ class GoalsApi {
 			methodName: 'getGoalsFiltersV1'
 		);
 
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
 		
 		$queryParams = [];
@@ -2552,24 +2483,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2595,7 +2522,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2605,7 +2534,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2649,7 +2578,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2658,8 +2586,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2768,8 +2694,6 @@ class GoalsApi {
 			methodName: 'getGoalsFiltersV11'
 		);
 
-
-
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
 		
 		$queryParams = [];
@@ -2777,24 +2701,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2820,7 +2740,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2830,7 +2752,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2872,7 +2794,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2881,8 +2802,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2988,8 +2907,6 @@ class GoalsApi {
 			methodName: 'getGoalsFiltersV12'
 		);
 
-
-
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
 		
 		$queryParams = [];
@@ -2997,24 +2914,20 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -3040,7 +2953,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3050,7 +2965,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3094,7 +3009,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -3191,10 +3105,6 @@ class GoalsApi {
 			methodName: 'getGoalsShareOptions'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/shareOptions';
 		
 		$queryParams = [];
@@ -3219,23 +3129,20 @@ class GoalsApi {
 			}
 		}
 
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -3261,7 +3168,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3271,7 +3180,7 @@ class GoalsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3317,7 +3226,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -3326,8 +3234,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -3440,10 +3346,6 @@ class GoalsApi {
 			methodName: 'postCloseGoal'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/close';
 		
 		$queryParams = [];
@@ -3451,13 +3353,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -3465,11 +3365,10 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -3483,7 +3382,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -3511,7 +3410,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3521,7 +3422,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3565,7 +3466,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -3574,8 +3474,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -3685,9 +3583,6 @@ class GoalsApi {
 			methodName: 'postGoal'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
 		
 		$queryParams = [];
@@ -3695,17 +3590,14 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -3719,7 +3611,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_goal_request));
 			} else {
-				$httpBody = $post_goal_request;
+				$httpBody = is_array($post_goal_request) ? json_encode($post_goal_request) : $post_goal_request;
 			}
 		} 
 
@@ -3747,7 +3639,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3757,7 +3651,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -3801,7 +3695,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -3900,10 +3793,6 @@ class GoalsApi {
 			methodName: 'postGoalComment'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
 		
 		$queryParams = [];
@@ -3911,13 +3800,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -3925,11 +3812,10 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -3943,7 +3829,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -3971,7 +3857,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -3981,7 +3869,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4025,7 +3913,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -4034,8 +3921,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -4145,9 +4030,6 @@ class GoalsApi {
 			methodName: 'postReopenGoal'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
 		
 		$queryParams = [];
@@ -4155,13 +4037,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4169,18 +4049,16 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -4206,7 +4084,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4216,7 +4096,7 @@ class GoalsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4262,7 +4142,6 @@ class GoalsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -4365,11 +4244,6 @@ class GoalsApi {
 			methodName: 'putGoalComment'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
 		
 		$queryParams = [];
@@ -4377,13 +4251,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4391,7 +4263,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -4399,11 +4271,10 @@ class GoalsApi {
 		if ($comment_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'commentId' . '}',
-				ObjectSerializer::toPathValue($comment_id),
+				ObjectSerializer::toPathValue((string) $comment_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -4417,7 +4288,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
 			} else {
-				$httpBody = $body;
+				$httpBody = is_array($body) ? json_encode($body) : $body;
 			}
 		} 
 
@@ -4445,7 +4316,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4455,7 +4328,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4503,7 +4376,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -4512,8 +4384,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -4631,11 +4501,6 @@ class GoalsApi {
 			methodName: 'putGoalMilestoneProgress'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
 		
 		$queryParams = [];
@@ -4643,13 +4508,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4657,7 +4520,7 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
@@ -4665,11 +4528,10 @@ class GoalsApi {
 		if ($milestone_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'milestoneId' . '}',
-				ObjectSerializer::toPathValue($milestone_id),
+				ObjectSerializer::toPathValue((string) $milestone_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -4683,7 +4545,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_milestone_progress_request));
 			} else {
-				$httpBody = $put_goal_milestone_progress_request;
+				$httpBody = is_array($put_goal_milestone_progress_request) ? json_encode($put_goal_milestone_progress_request) : $put_goal_milestone_progress_request;
 			}
 		} 
 
@@ -4711,7 +4573,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4721,7 +4585,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -4767,7 +4631,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -4776,8 +4639,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -4891,10 +4752,6 @@ class GoalsApi {
 			methodName: 'putGoalProgress'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
 		
 		$queryParams = [];
@@ -4902,13 +4759,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -4916,11 +4771,10 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -4934,7 +4788,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_progress_request));
 			} else {
-				$httpBody = $put_goal_progress_request;
+				$httpBody = is_array($put_goal_progress_request) ? json_encode($put_goal_progress_request) : $put_goal_progress_request;
 			}
 		} 
 
@@ -4962,7 +4816,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -4972,7 +4828,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -5018,7 +4874,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -5027,8 +4882,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -5142,10 +4995,6 @@ class GoalsApi {
 			methodName: 'putGoalSharedWith'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
 		
 		$queryParams = [];
@@ -5153,13 +5002,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -5167,11 +5014,10 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -5185,7 +5031,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_shared_with_request));
 			} else {
-				$httpBody = $put_goal_shared_with_request;
+				$httpBody = is_array($put_goal_shared_with_request) ? json_encode($put_goal_shared_with_request) : $put_goal_shared_with_request;
 			}
 		} 
 
@@ -5213,7 +5059,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -5223,7 +5071,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -5271,7 +5119,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -5280,8 +5127,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -5398,10 +5243,6 @@ class GoalsApi {
 			methodName: 'putGoalV1'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
 		
 		$queryParams = [];
@@ -5409,13 +5250,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -5423,11 +5262,10 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -5441,7 +5279,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($goal));
 			} else {
-				$httpBody = $goal;
+				$httpBody = is_array($goal) ? json_encode($goal) : $goal;
 			}
 		} 
 
@@ -5469,7 +5307,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -5479,7 +5319,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -5525,7 +5365,6 @@ class GoalsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -5534,8 +5373,6 @@ class GoalsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -5649,10 +5486,6 @@ class GoalsApi {
 			methodName: 'putGoalV11'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
 		
 		$queryParams = [];
@@ -5660,13 +5493,11 @@ class GoalsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -5674,11 +5505,10 @@ class GoalsApi {
 		if ($goal_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'goalId' . '}',
-				ObjectSerializer::toPathValue($goal_id),
+				ObjectSerializer::toPathValue((string) $goal_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -5692,7 +5522,7 @@ class GoalsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($put_goal_v11_request));
 			} else {
-				$httpBody = $put_goal_v11_request;
+				$httpBody = is_array($put_goal_v11_request) ? json_encode($put_goal_v11_request) : $put_goal_v11_request;
 			}
 		} 
 
@@ -5720,7 +5550,9 @@ class GoalsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -5730,7 +5562,7 @@ class GoalsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

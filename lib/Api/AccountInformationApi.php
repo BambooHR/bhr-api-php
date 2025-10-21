@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AccountInformationApi
  * PHP version 8.1
@@ -39,8 +40,8 @@ use BhrSdk\Configuration;
 use BhrSdk\FormDataProcessor;
 use BhrSdk\HeaderSelector;
 use BhrSdk\ObjectSerializer;
-use BhrSdk\ApiHelper;
 use BhrSdk\Client\Logger\LoggerInterface;
+use BhrSdk\ApiHelper;
 
 /**
  * AccountInformationApi Class Doc Comment
@@ -183,7 +184,6 @@ class AccountInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -192,8 +192,6 @@ class AccountInformationApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -289,7 +287,6 @@ class AccountInformationApi {
 	 */
 	public function getCountriesOptionsRequest(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 
-
 		$resourcePath = '/api/v1/meta/countries/options';
 		
 		$queryParams = [];
@@ -297,16 +294,11 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -332,7 +324,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -342,7 +336,7 @@ class AccountInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -380,7 +374,6 @@ class AccountInformationApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -461,7 +454,6 @@ class AccountInformationApi {
 	 */
 	public function getListOfUsersRequest(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
 
-
 		$resourcePath = '/api/v1/meta/users';
 		
 		$queryParams = [];
@@ -469,16 +461,11 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -504,7 +491,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -514,7 +503,7 @@ class AccountInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -556,7 +545,6 @@ class AccountInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -565,8 +553,6 @@ class AccountInformationApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -672,8 +658,6 @@ class AccountInformationApi {
 			methodName: 'getStatesByCountryId'
 		);
 
-
-
 		$resourcePath = '/api/v1/meta/provinces/{countryId}';
 		
 		$queryParams = [];
@@ -681,24 +665,20 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($country_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'countryId' . '}',
-				ObjectSerializer::toPathValue($country_id),
+				ObjectSerializer::toPathValue((string) $country_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -724,7 +704,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -734,7 +716,7 @@ class AccountInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -776,7 +758,6 @@ class AccountInformationApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -871,9 +852,6 @@ class AccountInformationApi {
 			methodName: 'metadataAddOrUpdateValuesForListFields'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/meta/lists/{listFieldId}';
 		
 		$queryParams = [];
@@ -881,17 +859,14 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($list_field_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'listFieldId' . '}',
-				ObjectSerializer::toPathValue($list_field_id),
+				ObjectSerializer::toPathValue((string) $list_field_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -905,7 +880,7 @@ class AccountInformationApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($list_field_values));
 			} else {
-				$httpBody = $list_field_values;
+				$httpBody = is_array($list_field_values) ? json_encode($list_field_values) : $list_field_values;
 			}
 		} 
 
@@ -933,7 +908,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -943,7 +920,7 @@ class AccountInformationApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -983,7 +960,6 @@ class AccountInformationApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1067,8 +1043,6 @@ class AccountInformationApi {
 	 */
 	public function metadataGetAListOfFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
 
-
-
 		$resourcePath = '/api/v1/meta/fields';
 		
 		$queryParams = [];
@@ -1076,20 +1050,16 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1115,7 +1085,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1125,7 +1097,7 @@ class AccountInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1165,7 +1137,6 @@ class AccountInformationApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1249,8 +1220,6 @@ class AccountInformationApi {
 	 */
 	public function metadataGetAListOfTabularFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
 
-
-
 		$resourcePath = '/api/v1/meta/tables';
 		
 		$queryParams = [];
@@ -1258,20 +1227,16 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1297,7 +1262,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1307,7 +1274,7 @@ class AccountInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1347,7 +1314,6 @@ class AccountInformationApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1431,8 +1397,6 @@ class AccountInformationApi {
 	 */
 	public function metadataGetDetailsForListFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
 
-
-
 		$resourcePath = '/api/v1/meta/lists';
 		
 		$queryParams = [];
@@ -1440,20 +1404,16 @@ class AccountInformationApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1479,7 +1439,9 @@ class AccountInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1489,7 +1451,7 @@ class AccountInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

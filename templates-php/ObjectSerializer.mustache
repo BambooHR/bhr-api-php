@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ObjectSerializer
  *
@@ -39,8 +40,10 @@ class ObjectSerializer {
 	 * Change the date format
 	 *
 	 * @param string $format the new date format to use
+	 *
+	 * @return void
 	 */
-	public static function setDateTimeFormat($format) {
+	public static function setDateTimeFormat($format): void {
 		self::$dateTimeFormat = $format;
 	}
 
@@ -92,8 +95,10 @@ class ObjectSerializer {
 					}
 				}
 			} else {
-				foreach ($data as $property => $value) {
-					$values[$property] = self::sanitizeForSerialization($value);
+				if (is_iterable($data) || $data instanceof \Traversable) {
+					foreach ($data as $property => $value) {
+						$values[$property] = self::sanitizeForSerialization($value);
+					}
 				}
 			}
 			return (object)$values;
@@ -121,16 +126,16 @@ class ObjectSerializer {
 	/**
 	 * Shorter timestamp microseconds to 6 digits length.
 	 *
-	 * @param string $timestamp Original timestamp
+	 * @param string|mixed $timestamp Original timestamp
 	 *
 	 * @return string the shorten timestamp
 	 */
-	public static function sanitizeTimestamp($timestamp) {
+	public static function sanitizeTimestamp($timestamp): string {
 		if (!is_string($timestamp)) {
-			return $timestamp;
+			return (string)$timestamp;
 		}
 
-		return preg_replace('/(:\d{2}.\d{6})\d*/', '$1', $timestamp);
+		return (string)preg_replace('/(:\d{2}.\d{6})\d*/', '$1', $timestamp);
 	}
 
 	/**
@@ -316,11 +321,11 @@ class ObjectSerializer {
 	 * If it's a datetime object, format it in ISO8601
 	 * If it's a boolean, convert it to "true" or "false".
 	 *
-	 * @param float|int|bool|\DateTime $value the value of the parameter
+	 * @param mixed $value the value of the parameter
 	 *
 	 * @return string the header string
 	 */
-	public static function toString($value) {
+	public static function toString($value): string {
 		if ($value instanceof \DateTime) { // datetime in ISO8601 format
 			return $value->format(self::$dateTimeFormat);
 		} elseif (is_bool($value)) {
@@ -340,11 +345,11 @@ class ObjectSerializer {
 	 *
 	 * @return string
 	 */
-	public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false) {
+	public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false): string {
 		if ($allowCollectionFormatMulti && ('multi' === $style)) {
 			// http_build_query() almost does the job for us. We just
 			// need to fix the result of multidimensional arrays.
-			return preg_replace('/%5B[0-9]+%5D=/', '=', http_build_query($collection, '', '&'));
+			return (string)preg_replace('/%5B[0-9]+%5D=/', '=', http_build_query($collection, '', '&'));
 		}
 		switch ($style) {
 			case 'pipeDelimited':
@@ -369,9 +374,9 @@ class ObjectSerializer {
 	/**
 	 * Deserialize a JSON string into an object
 	 *
-	 * @param mixed         $data        object or primitive to be deserialized
-	 * @param string        $class       class name is passed as a string
-	 * @param string[]|null $httpHeaders HTTP headers
+	 * @param mixed                    $data object or primitive to be deserialized
+	 * @param string                   $class class name is passed as a string
+	 * @param string[]|string[][]|null $httpHeaders HTTP headers
 	 *
 	 * @return object|array|null a single or an array of $class instances
 	 */
@@ -381,7 +386,7 @@ class ObjectSerializer {
 		}
 
 		// Handle empty class name (typically from error responses)
-		if (empty($class) || $class === '') {
+		if (empty($class)) {
 			return $data;
 		}
 
@@ -450,19 +455,27 @@ class ObjectSerializer {
 			/** @var \Psr\Http\Message\StreamInterface $data */
 
 			// determine file name
-			if (
-				is_array($httpHeaders)
-				&& array_key_exists('Content-Disposition', $httpHeaders)
-				&& preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)
-			) {
+			// Handle both string[] and string[][] header formats
+			$contentDisposition = null;
+			if (is_array($httpHeaders) && array_key_exists('Content-Disposition', $httpHeaders)) {
+				$contentDisposition = is_array($httpHeaders['Content-Disposition']) ? ($httpHeaders['Content-Disposition'][0] ?? null) : $httpHeaders['Content-Disposition'];
+			}
+
+			if ($contentDisposition !== null && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $contentDisposition, $match)) {
 				$filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
 			} else {
 				$filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');
 			}
 
 			$file = fopen($filename, 'w');
+			if ($file === false) {
+				throw new \RuntimeException("Failed to open file for writing: $filename");
+			}
 			while ($chunk = $data->read(200)) {
-				fwrite($file, $chunk);
+				if (fwrite($file, $chunk) === false) {
+					fclose($file);
+					throw new \RuntimeException("Failed to write to file: $filename");
+				}
 			}
 			fclose($file);
 

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ApplicantTrackingApiTest
  * PHP version 8.1
@@ -40,142 +41,128 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ApplicantTrackingApiTest extends TestCase
-{
+class ApplicantTrackingApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addNewCandidate
-     *
-     * Add New Candidate.
-     *
-     */
-    public function testAddNewCandidate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addNewCandidate
+	 *
+	 * Add New Candidate.
+	 *
+	 */
+	public function testAddNewCandidate(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addNewJobOpening
-     *
-     * Add New Job Opening.
-     *
-     */
-    public function testAddNewJobOpening()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addNewJobOpening
+	 *
+	 * Add New Job Opening.
+	 *
+	 */
+	public function testAddNewJobOpening(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getApplications
-     *
-     * Get Applications.
-     *
-     */
-    public function testGetApplications()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getApplications
+	 *
+	 * Get Applications.
+	 *
+	 */
+	public function testGetApplications(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getCompanyLocations
-     *
-     * Get Company Locations.
-     *
-     */
-    public function testGetCompanyLocations()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getCompanyLocations
+	 *
+	 * Get Company Locations.
+	 *
+	 */
+	public function testGetCompanyLocations(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getHiringLeads
-     *
-     * Get Hiring Leads.
-     *
-     */
-    public function testGetHiringLeads()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getHiringLeads
+	 *
+	 * Get Hiring Leads.
+	 *
+	 */
+	public function testGetHiringLeads(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getJobSummaries
-     *
-     * Get Job Summaries.
-     *
-     */
-    public function testGetJobSummaries()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getJobSummaries
+	 *
+	 * Get Job Summaries.
+	 *
+	 */
+	public function testGetJobSummaries(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getStatuses
-     *
-     * Get Statuses.
-     *
-     */
-    public function testGetStatuses()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getStatuses
+	 *
+	 * Get Statuses.
+	 *
+	 */
+	public function testGetStatuses(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for postApplicantStatus
-     *
-     * Change Applicant's Status.
-     *
-     */
-    public function testPostApplicantStatus()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for postApplicantStatus
+	 *
+	 * Change Applicant's Status.
+	 *
+	 */
+	public function testPostApplicantStatus(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for postApplicationComment
-     *
-     * Add Application Comment.
-     *
-     */
-    public function testPostApplicationComment()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for postApplicationComment
+	 *
+	 * Add Application Comment.
+	 *
+	 */
+	public function testPostApplicationComment(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

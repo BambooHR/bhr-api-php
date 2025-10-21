@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ReportsApi
  * PHP version 8.1
@@ -177,7 +178,6 @@ class ReportsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -280,12 +280,6 @@ class ReportsApi {
 			methodName: 'getCompanyReport'
 		);
 
-
-
-
-
-
-
 		$resourcePath = '/api/v1/reports/{id}';
 		
 		$queryParams = [];
@@ -320,18 +314,16 @@ class ReportsApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -357,7 +349,9 @@ class ReportsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -367,7 +361,7 @@ class ReportsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -411,7 +405,6 @@ class ReportsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -509,10 +502,6 @@ class ReportsApi {
 			methodName: 'requestCustomReport'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/reports/custom';
 		
 		$queryParams = [];
@@ -537,9 +526,6 @@ class ReportsApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
@@ -552,7 +538,7 @@ class ReportsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_custom_report));
 			} else {
-				$httpBody = $request_custom_report;
+				$httpBody = is_array($request_custom_report) ? json_encode($request_custom_report) : $request_custom_report;
 			}
 		} 
 
@@ -580,7 +566,9 @@ class ReportsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -590,7 +578,7 @@ class ReportsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

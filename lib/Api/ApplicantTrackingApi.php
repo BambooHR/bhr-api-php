@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ApplicantTrackingApi
  * PHP version 8.1
@@ -230,7 +231,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -382,28 +382,6 @@ class ApplicantTrackingApi {
 			methodName: 'addNewCandidate'
 		);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/application';
 		$formParams = [];
 		$queryParams = [];
@@ -411,34 +389,31 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
 		// form params
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			$first_name,
-			$last_name,
-			$email,
-			$phone_number,
-			$source,
-			$job_id,
-			$address,
-			$city,
-			$state,
-			$zip,
-			$country,
-			$linkedin_url,
-			$date_available,
-			$desired_salary,
-			$referred_by,
-			$website_url,
-			$highest_education,
-			$college_name,
-			$references,
-			$resume,
-			$cover_letter,
+			'firstName' => $first_name,
+			'lastName' => $last_name,
+			'email' => $email,
+			'phoneNumber' => $phone_number,
+			'source' => $source,
+			'jobId' => $job_id,
+			'address' => $address,
+			'city' => $city,
+			'state' => $state,
+			'zip' => $zip,
+			'country' => $country,
+			'linkedinUrl' => $linkedin_url,
+			'dateAvailable' => $date_available,
+			'desiredSalary' => $desired_salary,
+			'referredBy' => $referred_by,
+			'websiteUrl' => $website_url,
+			'highestEducation' => $highest_education,
+			'collegeName' => $college_name,
+			'references' => $references,
+			'resume' => $resume,
+			'coverLetter' => $cover_letter,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -451,6 +426,7 @@ class ApplicantTrackingApi {
 		);
 
 		if (count($formParams) > 0) {
+			/* @phpstan-ignore-next-line */
 			if ($multipart) {
 				$multipartContents = [];
 				foreach ($formParams as $formParamName => $formParamValue) {
@@ -498,7 +474,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -508,7 +486,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -588,7 +566,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -743,28 +720,6 @@ class ApplicantTrackingApi {
 			methodName: 'addNewJobOpening'
 		);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/job_opening';
 		$formParams = [];
 		$queryParams = [];
@@ -772,34 +727,31 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
 		// form params
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			$posting_title,
-			$job_status,
-			$hiring_lead,
-			$department,
-			$employment_type,
-			$minimum_experience,
-			$compensation,
-			$job_location,
-			$job_description,
-			$application_question_resume,
-			$application_question_address,
-			$application_question_linkedin_url,
-			$application_question_date_available,
-			$application_question_desired_salary,
-			$application_question_cover_letter,
-			$application_question_referred_by,
-			$application_question_website_url,
-			$application_question_highest_education,
-			$application_question_college,
-			$application_question_references,
-			$internal_job_code,
+			'postingTitle' => $posting_title,
+			'jobStatus' => $job_status,
+			'hiringLead' => $hiring_lead,
+			'department' => $department,
+			'employmentType' => $employment_type,
+			'minimumExperience' => $minimum_experience,
+			'compensation' => $compensation,
+			'jobLocation' => $job_location,
+			'jobDescription' => $job_description,
+			'applicationQuestionResume' => $application_question_resume,
+			'applicationQuestionAddress' => $application_question_address,
+			'applicationQuestionLinkedinUrl' => $application_question_linkedin_url,
+			'applicationQuestionDateAvailable' => $application_question_date_available,
+			'applicationQuestionDesiredSalary' => $application_question_desired_salary,
+			'applicationQuestionCoverLetter' => $application_question_cover_letter,
+			'applicationQuestionReferredBy' => $application_question_referred_by,
+			'applicationQuestionWebsiteUrl' => $application_question_website_url,
+			'applicationQuestionHighestEducation' => $application_question_highest_education,
+			'applicationQuestionCollege' => $application_question_college,
+			'applicationQuestionReferences' => $application_question_references,
+			'internalJobCode' => $internal_job_code,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -812,6 +764,7 @@ class ApplicantTrackingApi {
 		);
 
 		if (count($formParams) > 0) {
+			/* @phpstan-ignore-next-line */
 			if ($multipart) {
 				$multipartContents = [];
 				foreach ($formParams as $formParamName => $formParamValue) {
@@ -859,7 +812,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -869,7 +824,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -927,7 +882,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -936,8 +890,6 @@ class ApplicantTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1060,16 +1012,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getApplicationsRequest($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 
-
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications';
 		
 		$queryParams = [];
@@ -1101,15 +1043,11 @@ class ApplicantTrackingApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1135,7 +1073,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1145,7 +1085,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1185,7 +1125,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1194,8 +1133,6 @@ class ApplicantTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1291,7 +1228,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getCompanyLocationsRequest(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 
-
 		$resourcePath = '/api/v1/applicant_tracking/locations';
 		
 		$queryParams = [];
@@ -1299,16 +1235,11 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1334,7 +1265,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1344,7 +1277,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1384,7 +1317,6 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1393,8 +1325,6 @@ class ApplicantTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1490,7 +1420,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getHiringLeadsRequest(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 
-
 		$resourcePath = '/api/v1/applicant_tracking/hiring_leads';
 		
 		$queryParams = [];
@@ -1498,16 +1427,11 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1533,7 +1457,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1543,7 +1469,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1587,7 +1513,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1677,10 +1602,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getJobSummariesRequest($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 
-
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/jobs';
 		
 		$queryParams = [];
@@ -1706,15 +1627,11 @@ class ApplicantTrackingApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1740,7 +1657,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1750,7 +1669,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1788,7 +1707,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1869,7 +1787,6 @@ class ApplicantTrackingApi {
 	 */
 	public function getStatusesRequest(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 
-
 		$resourcePath = '/api/v1/applicant_tracking/statuses';
 		
 		$queryParams = [];
@@ -1877,16 +1794,11 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1912,7 +1824,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1922,7 +1836,7 @@ class ApplicantTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1964,7 +1878,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2059,9 +1972,6 @@ class ApplicantTrackingApi {
 			methodName: 'postApplicantStatus'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
 		
 		$queryParams = [];
@@ -2069,17 +1979,14 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($application_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'applicationId' . '}',
-				ObjectSerializer::toPathValue($application_id),
+				ObjectSerializer::toPathValue((string) $application_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -2093,7 +2000,7 @@ class ApplicantTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_applicant_status_request));
 			} else {
-				$httpBody = $post_applicant_status_request;
+				$httpBody = is_array($post_applicant_status_request) ? json_encode($post_applicant_status_request) : $post_applicant_status_request;
 			}
 		} 
 
@@ -2121,7 +2028,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2131,7 +2040,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2173,7 +2082,6 @@ class ApplicantTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2268,9 +2176,6 @@ class ApplicantTrackingApi {
 			methodName: 'postApplicationComment'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
 		
 		$queryParams = [];
@@ -2278,17 +2183,14 @@ class ApplicantTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($application_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'applicationId' . '}',
-				ObjectSerializer::toPathValue($application_id),
+				ObjectSerializer::toPathValue((string) $application_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -2302,7 +2204,7 @@ class ApplicantTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_application_comment_request));
 			} else {
-				$httpBody = $post_application_comment_request;
+				$httpBody = is_array($post_application_comment_request) ? json_encode($post_application_comment_request) : $post_application_comment_request;
 			}
 		} 
 
@@ -2330,7 +2232,9 @@ class ApplicantTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2340,7 +2244,7 @@ class ApplicantTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

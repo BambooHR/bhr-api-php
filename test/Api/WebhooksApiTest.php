@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebhooksApiTest
  * PHP version 8.1
@@ -40,118 +41,106 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class WebhooksApiTest extends TestCase
-{
+class WebhooksApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for deleteWebhook
-     *
-     * Delete Webhook.
-     *
-     */
-    public function testDeleteWebhook()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteWebhook
+	 *
+	 * Delete Webhook.
+	 *
+	 */
+	public function testDeleteWebhook(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getMonitorFields
-     *
-     * Get monitor fields.
-     *
-     */
-    public function testGetMonitorFields()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getMonitorFields
+	 *
+	 * Get monitor fields.
+	 *
+	 */
+	public function testGetMonitorFields(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getWebhook
-     *
-     * Get Webhook.
-     *
-     */
-    public function testGetWebhook()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getWebhook
+	 *
+	 * Get Webhook.
+	 *
+	 */
+	public function testGetWebhook(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getWebhookList
-     *
-     * Gets as list of webhooks for the user API key..
-     *
-     */
-    public function testGetWebhookList()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getWebhookList
+	 *
+	 * Gets as list of webhooks for the user API key..
+	 *
+	 */
+	public function testGetWebhookList(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getWebhookLogs
-     *
-     * Get Webhook Logs.
-     *
-     */
-    public function testGetWebhookLogs()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getWebhookLogs
+	 *
+	 * Get Webhook Logs.
+	 *
+	 */
+	public function testGetWebhookLogs(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for postWebhook
-     *
-     * Add Webhook.
-     *
-     */
-    public function testPostWebhook()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for postWebhook
+	 *
+	 * Add Webhook.
+	 *
+	 */
+	public function testPostWebhook(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for putWebhook
-     *
-     * Update Webhook.
-     *
-     */
-    public function testPutWebhook()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for putWebhook
+	 *
+	 * Update Webhook.
+	 *
+	 */
+	public function testPutWebhook(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

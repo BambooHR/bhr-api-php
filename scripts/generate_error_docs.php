@@ -43,21 +43,21 @@ foreach ($errorMessages as $code => $info) {
 	if (!isset($info['type'])) {
 		continue;
 	}
-	
+
 	// Create exception entry
 	$exceptionEntry = [
 		'name' => $info['type'],
 		'code' => $code,
 		'title' => $info['title']
 	];
-	
+
 	// Add to the appropriate exception list
 	if ($code >= 500) {
 		$serverExceptions[] = $exceptionEntry;
 	} else {
 		$clientExceptions[] = $exceptionEntry;
 	}
-	
+
 	// Add to the error codes list
 	$data['errorCodes'][] = [
 		'code' => $code,

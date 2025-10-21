@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeesApi
  * PHP version 8.1
@@ -181,7 +182,6 @@ class EmployeesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -271,18 +271,12 @@ class EmployeesApi {
 			methodName: 'addEmployee'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -296,7 +290,7 @@ class EmployeesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_new_employee));
 			} else {
-				$httpBody = $post_new_employee;
+				$httpBody = is_array($post_new_employee) ? json_encode($post_new_employee) : $post_new_employee;
 			}
 		} 
 
@@ -324,7 +318,9 @@ class EmployeesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -334,7 +330,7 @@ class EmployeesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -374,7 +370,6 @@ class EmployeesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -383,8 +378,6 @@ class EmployeesApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -480,7 +473,6 @@ class EmployeesApi {
 	 */
 	public function getCompanyInformationRequest(string $contentType = self::CONTENT_TYPES['getCompanyInformation'][0]) {
 
-
 		$resourcePath = '/api/v1/company_information';
 		
 		$queryParams = [];
@@ -488,16 +480,11 @@ class EmployeesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -523,7 +510,9 @@ class EmployeesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -533,7 +522,7 @@ class EmployeesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -581,7 +570,6 @@ class EmployeesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -590,8 +578,6 @@ class EmployeesApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -707,11 +693,6 @@ class EmployeesApi {
 			methodName: 'getEmployee'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}';
 		
 		$queryParams = [];
@@ -745,18 +726,16 @@ class EmployeesApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -782,7 +761,9 @@ class EmployeesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -792,7 +773,7 @@ class EmployeesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -834,7 +815,6 @@ class EmployeesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -843,8 +823,6 @@ class EmployeesApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -943,8 +921,6 @@ class EmployeesApi {
 	 */
 	public function getEmployeesDirectoryRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 
-
-
 		$resourcePath = '/api/v1/employees/directory';
 		
 		$queryParams = [];
@@ -952,20 +928,16 @@ class EmployeesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -991,7 +963,9 @@ class EmployeesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1001,7 +975,7 @@ class EmployeesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1047,7 +1021,6 @@ class EmployeesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1062,8 +1035,6 @@ class EmployeesApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1168,10 +1139,6 @@ class EmployeesApi {
 	 */
 	public function getEmployeesListRequest($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
 
-
-
-
-
 		$resourcePath = '/api/v1/employees';
 		
 		$queryParams = [];
@@ -1197,15 +1164,11 @@ class EmployeesApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1231,7 +1194,9 @@ class EmployeesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1241,7 +1206,7 @@ class EmployeesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1283,7 +1248,6 @@ class EmployeesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1378,9 +1342,6 @@ class EmployeesApi {
 			methodName: 'updateEmployee'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}';
 		
 		$queryParams = [];
@@ -1388,17 +1349,14 @@ class EmployeesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -1412,7 +1370,7 @@ class EmployeesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee));
 			} else {
-				$httpBody = $employee;
+				$httpBody = is_array($employee) ? json_encode($employee) : $employee;
 			}
 		} 
 
@@ -1440,7 +1398,9 @@ class EmployeesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1450,7 +1410,7 @@ class EmployeesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

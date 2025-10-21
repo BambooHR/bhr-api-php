@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingApiTest
  * PHP version 8.1
@@ -40,130 +41,117 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TimeTrackingApiTest extends TestCase
-{
+class TimeTrackingApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addEditTimesheetClockEntries
-     *
-     * Add/Edit Timesheet Clock Entries.
-     *
-     */
-    public function testAddEditTimesheetClockEntries()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addEditTimesheetClockEntries
+	 *
+	 * Add/Edit Timesheet Clock Entries.
+	 *
+	 */
+	public function testAddEditTimesheetClockEntries(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addEditTimesheetHourEntries
-     *
-     * Add/Edit Timesheet Hour Entries.
-     *
-     */
-    public function testAddEditTimesheetHourEntries()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addEditTimesheetHourEntries
+	 *
+	 * Add/Edit Timesheet Hour Entries.
+	 *
+	 */
+	public function testAddEditTimesheetHourEntries(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addTimesheetClockInEntry
-     *
-     * Add Timesheet Clock-In Entry.
-     *
-     */
-    public function testAddTimesheetClockInEntry()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addTimesheetClockInEntry
+	 *
+	 * Add Timesheet Clock-In Entry.
+	 *
+	 */
+	public function testAddTimesheetClockInEntry(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addTimesheetClockOutEntry
-     *
-     * Add Timesheet Clock-Out Entry.
-     *
-     */
-    public function testAddTimesheetClockOutEntry()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addTimesheetClockOutEntry
+	 *
+	 * Add Timesheet Clock-Out Entry.
+	 *
+	 */
+	public function testAddTimesheetClockOutEntry(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for createTimeTrackingProject
-     *
-     * Create Time Tracking Project.
-     *
-     */
-    public function testCreateTimeTrackingProject()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for createTimeTrackingProject
+	 *
+	 * Create Time Tracking Project.
+	 *
+	 */
+	public function testCreateTimeTrackingProject(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteTimesheetClockEntriesViaPost
-     *
-     * Delete Timesheet Clock Entries.
-     *
-     */
-    public function testDeleteTimesheetClockEntriesViaPost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteTimesheetClockEntriesViaPost
+	 *
+	 * Delete Timesheet Clock Entries.
+	 *
+	 */
+	public function testDeleteTimesheetClockEntriesViaPost(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteTimesheetHourEntriesViaPost
-     *
-     * Delete Timesheet Hour Entries.
-     *
-     */
-    public function testDeleteTimesheetHourEntriesViaPost()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteTimesheetHourEntriesViaPost
+	 *
+	 * Delete Timesheet Hour Entries.
+	 *
+	 */
+	public function testDeleteTimesheetHourEntriesViaPost(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getTimesheetEntries
-     *
-     * Get Timesheet Entries.
-     *
-     */
-    public function testGetTimesheetEntries()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getTimesheetEntries
+	 *
+	 * Get Timesheet Entries.
+	 *
+	 */
+	public function testGetTimesheetEntries(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalsAggregateV1200ResponseCommentsInnerTest
  *
@@ -39,61 +40,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetGoalsAggregateV1200ResponseCommentsInnerTest extends TestCase
-{
+class GetGoalsAggregateV1200ResponseCommentsInnerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "GetGoalsAggregateV1200ResponseCommentsInner"
-     */
-    public function testGetGoalsAggregateV1200ResponseCommentsInner()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "GetGoalsAggregateV1200ResponseCommentsInner"
+	 */
+	public function testGetGoalsAggregateV1200ResponseCommentsInner(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "goal_id"
-     */
-    public function testPropertyGoalId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "goal_id"
+	 */
+	public function testPropertyGoalId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "comment_count"
-     */
-    public function testPropertyCommentCount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "comment_count"
+	 */
+	public function testPropertyCommentCount(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

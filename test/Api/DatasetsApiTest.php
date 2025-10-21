@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DatasetsApiTest
  * PHP version 8.1
@@ -40,70 +41,62 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DatasetsApiTest extends TestCase
-{
+class DatasetsApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for getDataFromDataset
-     *
-     * Get Data from Dataset.
-     *
-     */
-    public function testGetDataFromDataset()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getDataFromDataset
+	 *
+	 * Get Data from Dataset.
+	 *
+	 */
+	public function testGetDataFromDataset(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getDataSets
-     *
-     * Get Data Sets.
-     *
-     */
-    public function testGetDataSets()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getDataSets
+	 *
+	 * Get Data Sets.
+	 *
+	 */
+	public function testGetDataSets(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getFieldsFromDataset
-     *
-     * Get Fields from Dataset.
-     *
-     */
-    public function testGetFieldsFromDataset()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getFieldsFromDataset
+	 *
+	 * Get Fields from Dataset.
+	 *
+	 */
+	public function testGetFieldsFromDataset(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

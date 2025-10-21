@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * LoginApi
  * PHP version 8.1
@@ -174,7 +175,6 @@ class LoginApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -269,11 +269,6 @@ class LoginApi {
 	 */
 	public function loginRequest($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
 
-
-
-
-
-
 		$resourcePath = '/api/v1/login';
 		$formParams = [];
 		$queryParams = [];
@@ -281,20 +276,18 @@ class LoginApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
 		// form params
 		$formDataProcessor = new FormDataProcessor();
 
 		$formData = $formDataProcessor->prepare([
-			$application_key,
-			$user,
-			$password,
+			'applicationKey' => $application_key,
+			'user' => $user,
+			'password' => $password,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -307,6 +300,7 @@ class LoginApi {
 		);
 
 		if (count($formParams) > 0) {
+			/* @phpstan-ignore-next-line */
 			if ($multipart) {
 				$multipartContents = [];
 				foreach ($formParams as $formParamName => $formParamValue) {
@@ -354,7 +348,9 @@ class LoginApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -364,7 +360,7 @@ class LoginApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

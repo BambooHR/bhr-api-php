@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingApi
  * PHP version 8.1
@@ -188,7 +189,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -233,8 +233,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -333,18 +331,12 @@ class TimeTrackingApi {
 	 */
 	public function addEditTimesheetClockEntriesRequest($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/clock_entries/store';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -358,7 +350,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_entries_schema));
 			} else {
-				$httpBody = $clock_entries_schema;
+				$httpBody = is_array($clock_entries_schema) ? json_encode($clock_entries_schema) : $clock_entries_schema;
 			}
 		} 
 
@@ -386,7 +378,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -396,7 +390,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -437,7 +431,6 @@ class TimeTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		switch($statusCode) {
 			case 201:
@@ -483,8 +476,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -583,18 +574,12 @@ class TimeTrackingApi {
 	 */
 	public function addEditTimesheetHourEntriesRequest($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/hour_entries/store';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -608,7 +593,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($hour_entries_request_schema));
 			} else {
-				$httpBody = $hour_entries_request_schema;
+				$httpBody = is_array($hour_entries_request_schema) ? json_encode($hour_entries_request_schema) : $hour_entries_request_schema;
 			}
 		} 
 
@@ -636,7 +621,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -646,7 +633,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -690,7 +677,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -729,8 +715,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -839,9 +823,6 @@ class TimeTrackingApi {
 			methodName: 'addTimesheetClockInEntry'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
 		
 		$queryParams = [];
@@ -849,17 +830,14 @@ class TimeTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -873,7 +851,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_in_request_schema));
 			} else {
-				$httpBody = $clock_in_request_schema;
+				$httpBody = is_array($clock_in_request_schema) ? json_encode($clock_in_request_schema) : $clock_in_request_schema;
 			}
 		} 
 
@@ -901,7 +879,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -911,7 +891,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -954,7 +934,6 @@ class TimeTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		switch($statusCode) {
 			case 200:
@@ -1000,8 +979,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1110,9 +1087,6 @@ class TimeTrackingApi {
 			methodName: 'addTimesheetClockOutEntry'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_out';
 		
 		$queryParams = [];
@@ -1120,17 +1094,14 @@ class TimeTrackingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1144,7 +1115,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_out_request_schema));
 			} else {
-				$httpBody = $clock_out_request_schema;
+				$httpBody = is_array($clock_out_request_schema) ? json_encode($clock_out_request_schema) : $clock_out_request_schema;
 			}
 		} 
 
@@ -1172,7 +1143,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1182,7 +1155,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1224,7 +1197,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -1233,8 +1205,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1333,18 +1303,12 @@ class TimeTrackingApi {
 	 */
 	public function createTimeTrackingProjectRequest($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/projects';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1358,7 +1322,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_create_request_schema));
 			} else {
-				$httpBody = $project_create_request_schema;
+				$httpBody = is_array($project_create_request_schema) ? json_encode($project_create_request_schema) : $project_create_request_schema;
 			}
 		} 
 
@@ -1386,7 +1350,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1396,7 +1362,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1437,7 +1403,6 @@ class TimeTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		switch($statusCode) {
 			case 204:
@@ -1483,8 +1448,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1590,18 +1553,12 @@ class TimeTrackingApi {
 			methodName: 'deleteTimesheetClockEntriesViaPost'
 		);
 
-
-
 		$resourcePath = '/api/v1/time_tracking/clock_entries/delete';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1615,7 +1572,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clock_entry_ids_schema));
 			} else {
-				$httpBody = $clock_entry_ids_schema;
+				$httpBody = is_array($clock_entry_ids_schema) ? json_encode($clock_entry_ids_schema) : $clock_entry_ids_schema;
 			}
 		} 
 
@@ -1643,7 +1600,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1653,7 +1612,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1694,7 +1653,6 @@ class TimeTrackingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		switch($statusCode) {
 			case 204:
@@ -1746,8 +1704,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1846,18 +1802,12 @@ class TimeTrackingApi {
 	 */
 	public function deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 
-
-
 		$resourcePath = '/api/v1/time_tracking/hour_entries/delete';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1871,7 +1821,7 @@ class TimeTrackingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($hour_entry_ids_schema));
 			} else {
-				$httpBody = $hour_entry_ids_schema;
+				$httpBody = is_array($hour_entry_ids_schema) ? json_encode($hour_entry_ids_schema) : $hour_entry_ids_schema;
 			}
 		} 
 
@@ -1899,7 +1849,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1909,7 +1861,7 @@ class TimeTrackingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1955,7 +1907,6 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1988,8 +1939,6 @@ class TimeTrackingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2102,13 +2051,10 @@ class TimeTrackingApi {
 			methodName: 'getTimesheetEntries'
 		);
 
-
-
 		if ($employee_ids !== null && !preg_match("/^\\d+(,\\d+)*$/", $employee_ids)) {
 			throw new \InvalidArgumentException("invalid value for \"employee_ids\" when calling TimeTrackingApi.getTimesheetEntries, must conform to the pattern /^\\d+(,\\d+)*$/.");
 		}
 		
-
 		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
 		
 		$queryParams = [];
@@ -2134,15 +2080,11 @@ class TimeTrackingApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2168,7 +2110,9 @@ class TimeTrackingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2178,7 +2122,7 @@ class TimeTrackingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

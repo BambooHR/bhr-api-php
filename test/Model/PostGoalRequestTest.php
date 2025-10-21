@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PostGoalRequestTest
  *
@@ -39,115 +40,101 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PostGoalRequestTest extends TestCase
-{
+class PostGoalRequestTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "PostGoalRequest"
-     */
-    public function testPostGoalRequest()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "PostGoalRequest"
+	 */
+	public function testPostGoalRequest(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "title"
-     */
-    public function testPropertyTitle()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "title"
+	 */
+	public function testPropertyTitle(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "description"
+	 */
+	public function testPropertyDescription(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "due_date"
-     */
-    public function testPropertyDueDate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "due_date"
+	 */
+	public function testPropertyDueDate(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "percent_complete"
-     */
-    public function testPropertyPercentComplete()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "percent_complete"
+	 */
+	public function testPropertyPercentComplete(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "completion_date"
-     */
-    public function testPropertyCompletionDate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "completion_date"
+	 */
+	public function testPropertyCompletionDate(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "shared_with_employee_ids"
-     */
-    public function testPropertySharedWithEmployeeIds()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "shared_with_employee_ids"
+	 */
+	public function testPropertySharedWithEmployeeIds(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "aligns_with_option_id"
-     */
-    public function testPropertyAlignsWithOptionId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "aligns_with_option_id"
+	 */
+	public function testPropertyAlignsWithOptionId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "milestones"
-     */
-    public function testPropertyMilestones()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "milestones"
+	 */
+	public function testPropertyMilestones(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

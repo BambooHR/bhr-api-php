@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeFilesApiTest
  * PHP version 8.1
@@ -40,106 +41,95 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class EmployeeFilesApiTest extends TestCase
-{
+class EmployeeFilesApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addEmployeeFileCategory
-     *
-     * Add Employee File Category.
-     *
-     */
-    public function testAddEmployeeFileCategory()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addEmployeeFileCategory
+	 *
+	 * Add Employee File Category.
+	 *
+	 */
+	public function testAddEmployeeFileCategory(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteEmployeeFile
-     *
-     * Delete Employee File.
-     *
-     */
-    public function testDeleteEmployeeFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteEmployeeFile
+	 *
+	 * Delete Employee File.
+	 *
+	 */
+	public function testDeleteEmployeeFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getEmployeeFile
-     *
-     * Get an Employee File.
-     *
-     */
-    public function testGetEmployeeFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getEmployeeFile
+	 *
+	 * Get an Employee File.
+	 *
+	 */
+	public function testGetEmployeeFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for listEmployeeFiles
-     *
-     * List employee files and categories.
-     *
-     */
-    public function testListEmployeeFiles()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for listEmployeeFiles
+	 *
+	 * List employee files and categories.
+	 *
+	 */
+	public function testListEmployeeFiles(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateEmployeeFile
-     *
-     * Update Employee File.
-     *
-     */
-    public function testUpdateEmployeeFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateEmployeeFile
+	 *
+	 * Update Employee File.
+	 *
+	 */
+	public function testUpdateEmployeeFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for uploadEmployeeFile
-     *
-     * Upload Employee File.
-     *
-     */
-    public function testUploadEmployeeFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for uploadEmployeeFile
+	 *
+	 * Upload Employee File.
+	 *
+	 */
+	public function testUploadEmployeeFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

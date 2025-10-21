@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetGoalAggregate200ResponsePersonsInner
  *
@@ -81,7 +82,8 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'employee_id' => false,
@@ -94,7 +96,8 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -128,7 +131,8 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -137,7 +141,8 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -160,7 +165,7 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -240,7 +245,6 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -273,7 +277,7 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -299,7 +303,6 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets employee_id
@@ -428,7 +431,7 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -439,7 +442,7 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -451,7 +454,7 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -467,7 +470,7 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -492,11 +495,12 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -504,9 +508,9 @@ class GetGoalAggregate200ResponsePersonsInner implements ModelInterface, ArrayAc
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

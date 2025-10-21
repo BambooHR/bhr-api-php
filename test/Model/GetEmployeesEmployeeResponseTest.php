@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * GetEmployeesEmployeeResponseTest
  *
@@ -39,115 +40,101 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetEmployeesEmployeeResponseTest extends TestCase
-{
+class GetEmployeesEmployeeResponseTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "GetEmployeesEmployeeResponse"
-     */
-    public function testGetEmployeesEmployeeResponse()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "GetEmployeesEmployeeResponse"
+	 */
+	public function testGetEmployeesEmployeeResponse(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "employee_id"
-     */
-    public function testPropertyEmployeeId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "employee_id"
+	 */
+	public function testPropertyEmployeeId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "first_name"
-     */
-    public function testPropertyFirstName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "first_name"
+	 */
+	public function testPropertyFirstName(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "last_name"
-     */
-    public function testPropertyLastName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "last_name"
+	 */
+	public function testPropertyLastName(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "preferred_name"
-     */
-    public function testPropertyPreferredName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "preferred_name"
+	 */
+	public function testPropertyPreferredName(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "photo_url"
-     */
-    public function testPropertyPhotoUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "photo_url"
+	 */
+	public function testPropertyPhotoUrl(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "job_title_name"
-     */
-    public function testPropertyJobTitleName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "job_title_name"
+	 */
+	public function testPropertyJobTitleName(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "status"
+	 */
+	public function testPropertyStatus(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "_restricted_fields"
-     */
-    public function testPropertyRestrictedFields()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "_restricted_fields"
+	 */
+	public function testPropertyRestrictedFields(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

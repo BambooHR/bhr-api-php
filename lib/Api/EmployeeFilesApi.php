@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * EmployeeFilesApi
  * PHP version 8.1
@@ -181,7 +182,6 @@ class EmployeeFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -271,18 +271,12 @@ class EmployeeFilesApi {
 			methodName: 'addEmployeeFileCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/files/categories';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -296,7 +290,7 @@ class EmployeeFilesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
 			} else {
-				$httpBody = $request_body;
+				$httpBody = is_array($request_body) ? json_encode($request_body) : $request_body;
 			}
 		} 
 
@@ -324,7 +318,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -334,7 +330,7 @@ class EmployeeFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -376,7 +372,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -471,9 +466,6 @@ class EmployeeFilesApi {
 			methodName: 'deleteEmployeeFile'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
 		
 		$queryParams = [];
@@ -481,13 +473,11 @@ class EmployeeFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -495,18 +485,16 @@ class EmployeeFilesApi {
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -532,7 +520,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -542,7 +532,7 @@ class EmployeeFilesApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -584,7 +574,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -679,9 +668,6 @@ class EmployeeFilesApi {
 			methodName: 'getEmployeeFile'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
 		
 		$queryParams = [];
@@ -689,13 +675,11 @@ class EmployeeFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -703,18 +687,16 @@ class EmployeeFilesApi {
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -740,7 +722,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -750,7 +734,7 @@ class EmployeeFilesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -790,7 +774,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -881,8 +864,6 @@ class EmployeeFilesApi {
 			methodName: 'listEmployeeFiles'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/view';
 		
 		$queryParams = [];
@@ -890,24 +871,20 @@ class EmployeeFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -933,7 +910,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -943,7 +922,7 @@ class EmployeeFilesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -987,7 +966,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1086,10 +1064,6 @@ class EmployeeFilesApi {
 			methodName: 'updateEmployeeFile'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
 		
 		$queryParams = [];
@@ -1097,13 +1071,11 @@ class EmployeeFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1111,11 +1083,10 @@ class EmployeeFilesApi {
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1129,7 +1100,7 @@ class EmployeeFilesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_file_update));
 			} else {
-				$httpBody = $employee_file_update;
+				$httpBody = is_array($employee_file_update) ? json_encode($employee_file_update) : $employee_file_update;
 			}
 		} 
 
@@ -1157,7 +1128,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1167,7 +1140,7 @@ class EmployeeFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1207,7 +1180,6 @@ class EmployeeFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1298,8 +1270,6 @@ class EmployeeFilesApi {
 			methodName: 'uploadEmployeeFile'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{id}/files';
 		
 		$queryParams = [];
@@ -1307,24 +1277,20 @@ class EmployeeFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1350,7 +1316,9 @@ class EmployeeFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1360,7 +1328,7 @@ class EmployeeFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

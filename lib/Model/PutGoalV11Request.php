@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PutGoalV11Request
  *
@@ -91,7 +92,8 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'title' => false,
@@ -109,7 +111,8 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -143,7 +146,8 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -152,7 +156,8 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -175,7 +180,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -270,7 +275,6 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -308,7 +312,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -351,7 +355,6 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets title
@@ -479,12 +482,11 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 */
 	public function setCompletionDate($completion_date) {
 		if (is_null($completion_date)) {
-			array_push($this->openApiNullablesSetToNull, 'completion_date');
+			$this->openApiNullablesSetToNull['completion_date'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('completion_date', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['completion_date'])) {
+				unset($nullablesSetToNull['completion_date']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -536,12 +538,11 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 */
 	public function setAlignsWithOptionId($aligns_with_option_id) {
 		if (is_null($aligns_with_option_id)) {
-			array_push($this->openApiNullablesSetToNull, 'aligns_with_option_id');
+			$this->openApiNullablesSetToNull['aligns_with_option_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('aligns_with_option_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['aligns_with_option_id'])) {
+				unset($nullablesSetToNull['aligns_with_option_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -593,12 +594,11 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 */
 	public function setDeletedMilestoneIds($deleted_milestone_ids) {
 		if (is_null($deleted_milestone_ids)) {
-			array_push($this->openApiNullablesSetToNull, 'deleted_milestone_ids');
+			$this->openApiNullablesSetToNull['deleted_milestone_ids'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('deleted_milestone_ids', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['deleted_milestone_ids'])) {
+				unset($nullablesSetToNull['deleted_milestone_ids']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -625,12 +625,11 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 */
 	public function setMilestones($milestones) {
 		if (is_null($milestones)) {
-			array_push($this->openApiNullablesSetToNull, 'milestones');
+			$this->openApiNullablesSetToNull['milestones'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('milestones', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['milestones'])) {
+				unset($nullablesSetToNull['milestones']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -641,7 +640,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -652,7 +651,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -664,7 +663,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -680,7 +679,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -705,11 +704,12 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -717,9 +717,9 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * HoursApi
  * PHP version 8.1
@@ -179,7 +180,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -188,8 +188,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -295,18 +293,12 @@ class HoursApi {
 			methodName: 'addTimeTrackingBulk'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/record';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -320,7 +312,7 @@ class HoursApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
 			} else {
-				$httpBody = $time_tracking_record;
+				$httpBody = is_array($time_tracking_record) ? json_encode($time_tracking_record) : $time_tracking_record;
 			}
 		} 
 
@@ -348,7 +340,9 @@ class HoursApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -358,7 +352,7 @@ class HoursApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -400,7 +394,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -415,8 +408,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -522,18 +513,12 @@ class HoursApi {
 			methodName: 'addTimeTrackingHourRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/add';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -547,7 +532,7 @@ class HoursApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_record));
 			} else {
-				$httpBody = $time_tracking_record;
+				$httpBody = is_array($time_tracking_record) ? json_encode($time_tracking_record) : $time_tracking_record;
 			}
 		} 
 
@@ -575,7 +560,9 @@ class HoursApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -585,7 +572,7 @@ class HoursApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -627,7 +614,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -642,8 +628,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -749,8 +733,6 @@ class HoursApi {
 			methodName: 'deleteTimeTrackingById'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/delete/{id}';
 		
 		$queryParams = [];
@@ -758,24 +740,20 @@ class HoursApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -801,7 +779,9 @@ class HoursApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -811,7 +791,7 @@ class HoursApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -853,7 +833,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -868,8 +847,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -975,18 +952,12 @@ class HoursApi {
 			methodName: 'editTimeTrackingRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/adjust';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1000,7 +971,7 @@ class HoursApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_tracking_request_schema));
 			} else {
-				$httpBody = $adjust_time_tracking_request_schema;
+				$httpBody = is_array($adjust_time_tracking_request_schema) ? json_encode($adjust_time_tracking_request_schema) : $adjust_time_tracking_request_schema;
 			}
 		} 
 
@@ -1028,7 +999,9 @@ class HoursApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1038,7 +1011,7 @@ class HoursApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1080,7 +1053,6 @@ class HoursApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1095,8 +1067,6 @@ class HoursApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1202,8 +1172,6 @@ class HoursApi {
 			methodName: 'getTimeTrackingRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/timetracking/record/{id}';
 		
 		$queryParams = [];
@@ -1211,24 +1179,20 @@ class HoursApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1254,7 +1218,9 @@ class HoursApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1264,7 +1230,7 @@ class HoursApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

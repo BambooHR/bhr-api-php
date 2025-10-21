@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ListEmployeeTrainings200ResponseInnerTest
  *
@@ -39,52 +40,45 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ListEmployeeTrainings200ResponseInnerTest extends TestCase
-{
+class ListEmployeeTrainings200ResponseInnerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "ListEmployeeTrainings200ResponseInner"
-     */
-    public function testListEmployeeTrainings200ResponseInner()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "ListEmployeeTrainings200ResponseInner"
+	 */
+	public function testListEmployeeTrainings200ResponseInner(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "training_id"
-     */
-    public function testPropertyTrainingId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "training_id"
+	 */
+	public function testPropertyTrainingId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

@@ -50,8 +50,10 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with a 401 status code
+	 *
+	 * @return void
 	 */
-	public function testFormatErrorMessage401() {
+	public function testFormatErrorMessage401(): void {
 		$code = 12345;
 		$baseMessage = "Authentication error";
 		$statusCode = 401;
@@ -76,8 +78,10 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with a 404 status code
+	 *
+	 * @return void
 	 */
-	public function testFormatErrorMessage404() {
+	public function testFormatErrorMessage404(): void {
 		$code = 67890;
 		$baseMessage = "Resource not found";
 		$statusCode = 404;
@@ -102,8 +106,10 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with a 500 status code
+	 *
+	 * @return void
 	 */
-	public function testFormatErrorMessage500() {
+	public function testFormatErrorMessage500(): void {
 		$code = 54321;
 		$baseMessage = "Internal server error";
 		$statusCode = 500;
@@ -128,8 +134,10 @@ class ApiErrorHelperTest extends TestCase {
 
 	/**
 	 * Test formatErrorMessage with an unknown status code
+	 *
+	 * @return void
 	 */
-	public function testFormatErrorMessageUnknownStatusCode() {
+	public function testFormatErrorMessageUnknownStatusCode(): void {
 		$code = 99999;
 		$baseMessage = "Unknown error";
 		$statusCode = 599; // A status code that doesn't exist in the ERROR_MESSAGES array

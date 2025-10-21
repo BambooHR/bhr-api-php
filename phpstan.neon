@@ -1,0 +1,16 @@
+parameters:
+	level: 8
+	paths:
+		- lib/
+		- test/
+	excludePaths:
+		- vendor/
+	reportUnmatchedIgnoredErrors: false
+	treatPhpDocTypesAsCertain: false
+	ignoreErrors:
+		-
+			identifier: missingType.iterableValue
+		-
+			identifier: missingType.generics
+		-
+			identifier: method.unused

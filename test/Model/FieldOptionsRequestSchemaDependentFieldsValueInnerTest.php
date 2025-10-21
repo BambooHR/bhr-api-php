@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FieldOptionsRequestSchemaDependentFieldsValueInnerTest
  *
@@ -39,61 +40,53 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class FieldOptionsRequestSchemaDependentFieldsValueInnerTest extends TestCase
-{
+class FieldOptionsRequestSchemaDependentFieldsValueInnerTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "FieldOptionsRequestSchemaDependentFieldsValueInner"
-     */
-    public function testFieldOptionsRequestSchemaDependentFieldsValueInner()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "FieldOptionsRequestSchemaDependentFieldsValueInner"
+	 */
+	public function testFieldOptionsRequestSchemaDependentFieldsValueInner(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "field"
-     */
-    public function testPropertyField()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "field"
+	 */
+	public function testPropertyField(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "value"
+	 */
+	public function testPropertyValue(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

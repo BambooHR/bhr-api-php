@@ -2,6 +2,12 @@
     "name": "bamboohr/bhr-sdk",
     "version": "2.0.0",
     "description": "BambooHR API documentation. https://www.bamboohr.com/api/documentation/",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.ci.bamboohr.net"
+        }
+    ],
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -29,8 +35,17 @@
         "mustache/mustache": "^2.14"
     },
     "require-dev": {
+        "bamboohr/phpcs": "^1.0.0",
         "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^3.5"
+        "phpstan/phpstan": "^1.10"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "./vendor/bin/phpcs --config-set installed_paths ${PWD}/vendor/bamboohr/phpcs"
+        ],
+        "post-update-cmd": [
+            "./vendor/bin/phpcs --config-set installed_paths ${PWD}/vendor/bamboohr/phpcs"
+        ]
     },
     "autoload": {
         "psr-4": { "BhrSdk\\" : "lib/" }
