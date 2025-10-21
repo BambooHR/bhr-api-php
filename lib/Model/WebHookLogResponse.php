@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * WebHookLogResponse
  *
@@ -85,7 +86,8 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'webhook_id' => false,
@@ -100,7 +102,8 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -134,7 +137,8 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -143,7 +147,8 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -166,7 +171,7 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -252,7 +257,6 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -287,7 +291,7 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -313,7 +317,6 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets webhook_id
@@ -492,7 +495,7 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -503,7 +506,7 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -515,7 +518,7 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -531,7 +534,7 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -556,11 +559,12 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -568,9 +572,9 @@ class WebHookLogResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

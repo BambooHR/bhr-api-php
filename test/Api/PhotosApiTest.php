@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PhotosApiTest
  * PHP version 8.1
@@ -40,58 +41,51 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PhotosApiTest extends TestCase
-{
+class PhotosApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for getEmployeePhoto
-     *
-     * Get an employee photo.
-     *
-     */
-    public function testGetEmployeePhoto()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getEmployeePhoto
+	 *
+	 * Get an employee photo.
+	 *
+	 */
+	public function testGetEmployeePhoto(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for uploadEmployeePhoto
-     *
-     * Store a new employee photo.
-     *
-     */
-    public function testUploadEmployeePhoto()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for uploadEmployeePhoto
+	 *
+	 * Store a new employee photo.
+	 *
+	 */
+	public function testUploadEmployeePhoto(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

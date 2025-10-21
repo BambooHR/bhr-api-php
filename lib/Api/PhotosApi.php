@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PhotosApi
  * PHP version 8.1
@@ -171,7 +172,6 @@ class PhotosApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -265,9 +265,6 @@ class PhotosApi {
 			methodName: 'getEmployeePhoto'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/photo/{size}';
 		
 		$queryParams = [];
@@ -275,13 +272,11 @@ class PhotosApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
@@ -289,18 +284,16 @@ class PhotosApi {
 		if ($size !== null) {
 			$resourcePath = str_replace(
 				'{' . 'size' . '}',
-				ObjectSerializer::toPathValue($size),
+				ObjectSerializer::toPathValue((string) $size),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -326,7 +319,9 @@ class PhotosApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -336,7 +331,7 @@ class PhotosApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -376,7 +371,6 @@ class PhotosApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -467,8 +461,6 @@ class PhotosApi {
 			methodName: 'uploadEmployeePhoto'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/photo';
 		
 		$queryParams = [];
@@ -476,24 +468,20 @@ class PhotosApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -519,7 +507,9 @@ class PhotosApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -529,7 +519,7 @@ class PhotosApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

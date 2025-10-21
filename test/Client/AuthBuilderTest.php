@@ -23,250 +23,231 @@ use PHPUnit\Framework\TestCase;
  * @author   BambooHR
  * @link     https://www.bamboohr.com/api/documentation/
  */
-class AuthBuilderTest extends TestCase
-{
-    /**
-     * Test that AuthBuilder can be instantiated
-     */
-    public function testCanInstantiateAuthBuilder(): void
-    {
-        $builder = new AuthBuilder();
-        $this->assertInstanceOf(AuthBuilder::class, $builder);
-    }
+class AuthBuilderTest extends TestCase {
+	/**
+	 * Test that AuthBuilder can be instantiated
+	 */
+	public function testCanInstantiateAuthBuilder(): void {
+		$builder = new AuthBuilder();
+		$this->assertInstanceOf(AuthBuilder::class, $builder);
+	}
 
-    /**
-     * Test fluent interface returns self
-     */
-    public function testFluentInterfaceReturnsSelf(): void
-    {
-        $builder = new AuthBuilder();
-        
-        $result = $builder->withApiKey('test-key');
-        $this->assertSame($builder, $result);
+	/**
+	 * Test fluent interface returns self
+	 */
+	public function testFluentInterfaceReturnsSelf(): void {
+		$builder = new AuthBuilder();
 
-        $builder = new AuthBuilder();
-        $result = $builder->withOAuth('test-token');
-        $this->assertSame($builder, $result);
-    }
+		$result = $builder->withApiKey('test-key');
+		$this->assertSame($builder, $result);
 
-    /**
-     * Test API key authentication configuration
-     */
-    public function testWithApiKey(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withApiKey('my-api-key');
+		$builder = new AuthBuilder();
+		$result = $builder->withOAuth('test-token');
+		$this->assertSame($builder, $result);
+	}
 
-        $this->assertTrue($builder->isConfigured());
-        $this->assertEquals('api_key', $builder->getAuthType());
-        $this->assertTrue($builder->validate());
-    }
+	/**
+	 * Test API key authentication configuration
+	 */
+	public function testWithApiKey(): void {
+		$builder = new AuthBuilder();
+		$builder->withApiKey('my-api-key');
 
-    /**
-     * Test OAuth authentication configuration
-     */
-    public function testWithOAuth(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withOAuth('my-oauth-token');
+		$this->assertTrue($builder->isConfigured());
+		$this->assertEquals('api_key', $builder->getAuthType());
+		$this->assertTrue($builder->validate());
+	}
 
-        $this->assertTrue($builder->isConfigured());
-        $this->assertEquals('oauth', $builder->getAuthType());
-        $this->assertTrue($builder->validate());
-    }
+	/**
+	 * Test OAuth authentication configuration
+	 */
+	public function testWithOAuth(): void {
+		$builder = new AuthBuilder();
+		$builder->withOAuth('my-oauth-token');
 
-    /**
-     * Test that unconfigured builder reports not configured
-     */
-    public function testIsNotConfiguredByDefault(): void
-    {
-        $builder = new AuthBuilder();
-        $this->assertFalse($builder->isConfigured());
-        $this->assertNull($builder->getAuthType());
-    }
+		$this->assertTrue($builder->isConfigured());
+		$this->assertEquals('oauth', $builder->getAuthType());
+		$this->assertTrue($builder->validate());
+	}
 
-    /**
-     * Test applying API key auth to Configuration
-     */
-    public function testApplyApiKeyToConfiguration(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withApiKey('test-api-key');
+	/**
+	 * Test that unconfigured builder reports not configured
+	 */
+	public function testIsNotConfiguredByDefault(): void {
+		$builder = new AuthBuilder();
+		$this->assertFalse($builder->isConfigured());
+		$this->assertNull($builder->getAuthType());
+	}
 
-        $config = new Configuration();
-        $builder->applyTo($config);
+	/**
+	 * Test applying API key auth to Configuration
+	 */
+	public function testApplyApiKeyToConfiguration(): void {
+		$builder = new AuthBuilder();
+		$builder->withApiKey('test-api-key');
 
-        $this->assertEquals('test-api-key', $config->getUsername());
-        $this->assertEquals('x', $config->getPassword());
-    }
+		$config = new Configuration();
+		$builder->applyTo($config);
 
-    /**
-     * Test applying OAuth auth to Configuration
-     */
-    public function testApplyOAuthToConfiguration(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withOAuth('test-oauth-token');
+		$this->assertEquals('test-api-key', $config->getUsername());
+		$this->assertEquals('x', $config->getPassword());
+	}
 
-        $config = new Configuration();
-        $builder->applyTo($config);
+	/**
+	 * Test applying OAuth auth to Configuration
+	 */
+	public function testApplyOAuthToConfiguration(): void {
+		$builder = new AuthBuilder();
+		$builder->withOAuth('test-oauth-token');
 
-        $this->assertEquals('test-oauth-token', $config->getAccessToken());
-    }
+		$config = new Configuration();
+		$builder->applyTo($config);
 
-    /**
-     * Test that applyTo throws exception when not configured
-     */
-    public function testApplyToThrowsExceptionWhenNotConfigured(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('No authentication method configured');
+		$this->assertEquals('test-oauth-token', $config->getAccessToken());
+	}
 
-        $builder = new AuthBuilder();
-        $config = new Configuration();
-        $builder->applyTo($config);
-    }
+	/**
+	 * Test that applyTo throws exception when not configured
+	 */
+	public function testApplyToThrowsExceptionWhenNotConfigured(): void {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('No authentication method configured');
 
-    /**
-     * Test validate throws exception when not configured
-     */
-    public function testValidateThrowsExceptionWhenNotConfigured(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('No authentication method configured');
+		$builder = new AuthBuilder();
+		$config = new Configuration();
+		$builder->applyTo($config);
+	}
 
-        $builder = new AuthBuilder();
-        $builder->validate();
-    }
+	/**
+	 * Test validate throws exception when not configured
+	 */
+	public function testValidateThrowsExceptionWhenNotConfigured(): void {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('No authentication method configured');
 
-    /**
-     * Test validate throws exception for empty API key
-     */
-    public function testValidateThrowsExceptionForEmptyApiKey(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('API key cannot be empty');
+		$builder = new AuthBuilder();
+		$builder->validate();
+	}
 
-        $builder = new AuthBuilder();
-        $builder->withApiKey('');
-        $builder->validate();
-    }
+	/**
+	 * Test validate throws exception for empty API key
+	 */
+	public function testValidateThrowsExceptionForEmptyApiKey(): void {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('API key cannot be empty');
 
-    /**
-     * Test validate throws exception for empty OAuth token
-     */
-    public function testValidateThrowsExceptionForEmptyOAuthToken(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('OAuth token cannot be empty');
+		$builder = new AuthBuilder();
+		$builder->withApiKey('');
+		$builder->validate();
+	}
 
-        $builder = new AuthBuilder();
-        $builder->withOAuth('');
-        $builder->validate();
-    }
+	/**
+	 * Test validate throws exception for empty OAuth token
+	 */
+	public function testValidateThrowsExceptionForEmptyOAuthToken(): void {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('OAuth token cannot be empty');
 
-    /**
-     * Test getSanitizedInfo masks API key
-     */
-    public function testGetSanitizedInfoMasksApiKey(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withApiKey('abcd1234567890wxyz');
+		$builder = new AuthBuilder();
+		$builder->withOAuth('');
+		$builder->validate();
+	}
 
-        $info = $builder->getSanitizedInfo();
+	/**
+	 * Test getSanitizedInfo masks API key
+	 */
+	public function testGetSanitizedInfoMasksApiKey(): void {
+		$builder = new AuthBuilder();
+		$builder->withApiKey('abcd1234567890wxyz');
 
-        $this->assertEquals('api_key', $info['type']);
-        $this->assertTrue($info['configured']);
-        $this->assertEquals('abcd********wxyz', $info['api_key']);
-    }
+		$info = $builder->getSanitizedInfo();
 
-    /**
-     * Test getSanitizedInfo masks short API key completely
-     */
-    public function testGetSanitizedInfoMasksShortApiKey(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withApiKey('short');
+		$this->assertEquals('api_key', $info['type']);
+		$this->assertTrue($info['configured']);
+		$this->assertEquals('abcd********wxyz', $info['api_key']);
+	}
 
-        $info = $builder->getSanitizedInfo();
+	/**
+	 * Test getSanitizedInfo masks short API key completely
+	 */
+	public function testGetSanitizedInfoMasksShortApiKey(): void {
+		$builder = new AuthBuilder();
+		$builder->withApiKey('short');
 
-        $this->assertEquals('********', $info['api_key']);
-    }
+		$info = $builder->getSanitizedInfo();
 
-    /**
-     * Test getSanitizedInfo masks OAuth token
-     */
-    public function testGetSanitizedInfoMasksOAuthToken(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withOAuth('token1234567890abcd');
+		$this->assertEquals('********', $info['api_key']);
+	}
 
-        $info = $builder->getSanitizedInfo();
+	/**
+	 * Test getSanitizedInfo masks OAuth token
+	 */
+	public function testGetSanitizedInfoMasksOAuthToken(): void {
+		$builder = new AuthBuilder();
+		$builder->withOAuth('token1234567890abcd');
 
-        $this->assertEquals('oauth', $info['type']);
-        $this->assertTrue($info['configured']);
-        $this->assertEquals('toke********abcd', $info['oauth_token']);
-    }
+		$info = $builder->getSanitizedInfo();
 
-    /**
-     * Test getSanitizedInfo for unconfigured builder
-     */
-    public function testGetSanitizedInfoForUnconfigured(): void
-    {
-        $builder = new AuthBuilder();
+		$this->assertEquals('oauth', $info['type']);
+		$this->assertTrue($info['configured']);
+		$this->assertEquals('toke********abcd', $info['oauth_token']);
+	}
 
-        $info = $builder->getSanitizedInfo();
+	/**
+	 * Test getSanitizedInfo for unconfigured builder
+	 */
+	public function testGetSanitizedInfoForUnconfigured(): void {
+		$builder = new AuthBuilder();
 
-        $this->assertEquals('none', $info['type']);
-        $this->assertFalse($info['configured']);
-    }
+		$info = $builder->getSanitizedInfo();
 
-    /**
-     * Test reset clears all configuration
-     */
-    public function testResetClearsConfiguration(): void
-    {
-        $builder = new AuthBuilder();
-        $builder->withApiKey('test-key');
+		$this->assertEquals('none', $info['type']);
+		$this->assertFalse($info['configured']);
+	}
 
-        $this->assertTrue($builder->isConfigured());
+	/**
+	 * Test reset clears all configuration
+	 */
+	public function testResetClearsConfiguration(): void {
+		$builder = new AuthBuilder();
+		$builder->withApiKey('test-key');
 
-        $result = $builder->reset();
+		$this->assertTrue($builder->isConfigured());
 
-        $this->assertSame($builder, $result);
-        $this->assertFalse($builder->isConfigured());
-        $this->assertNull($builder->getAuthType());
-    }
+		$result = $builder->reset();
 
-    /**
-     * Test switching between auth methods
-     */
-    public function testSwitchingBetweenAuthMethods(): void
-    {
-        $builder = new AuthBuilder();
+		$this->assertSame($builder, $result);
+		$this->assertFalse($builder->isConfigured());
+		$this->assertNull($builder->getAuthType());
+	}
 
-        // Start with API key
-        $builder->withApiKey('api-key');
-        $this->assertEquals('api_key', $builder->getAuthType());
+	/**
+	 * Test switching between auth methods
+	 */
+	public function testSwitchingBetweenAuthMethods(): void {
+		$builder = new AuthBuilder();
 
-        // Switch to OAuth
-        $builder->withOAuth('oauth-token');
-        $this->assertEquals('oauth', $builder->getAuthType());
-    }
+		// Start with API key
+		$builder->withApiKey('api-key');
+		$this->assertEquals('api_key', $builder->getAuthType());
 
-    /**
-     * Test that last auth method wins when multiple are set
-     */
-    public function testLastAuthMethodWins(): void
-    {
-        $builder = new AuthBuilder();
-        
-        $builder->withApiKey('api-key');
-        $builder->withOAuth('oauth-token'); // This should win
+		// Switch to OAuth
+		$builder->withOAuth('oauth-token');
+		$this->assertEquals('oauth', $builder->getAuthType());
+	}
 
-        $config = new Configuration();
-        $builder->applyTo($config);
+	/**
+	 * Test that last auth method wins when multiple are set
+	 */
+	public function testLastAuthMethodWins(): void {
+		$builder = new AuthBuilder();
 
-        $this->assertEquals('oauth-token', $config->getAccessToken());
-    }
+		$builder->withApiKey('api-key');
+		$builder->withOAuth('oauth-token'); // This should win
+
+		$config = new Configuration();
+		$builder->applyTo($config);
+
+		$this->assertEquals('oauth-token', $config->getAccessToken());
+	}
 }

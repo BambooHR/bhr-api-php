@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ClockInRequestSchema
  *
@@ -84,7 +85,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'project_id' => true,
@@ -98,7 +100,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -132,7 +135,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -141,7 +145,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -164,7 +169,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -247,7 +252,6 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -281,7 +285,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -312,7 +316,6 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets project_id
 	 *
@@ -331,12 +334,11 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 */
 	public function setProjectId($project_id) {
 		if (is_null($project_id)) {
-			array_push($this->openApiNullablesSetToNull, 'project_id');
+			$this->openApiNullablesSetToNull['project_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('project_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['project_id'])) {
+				unset($nullablesSetToNull['project_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -363,12 +365,11 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 */
 	public function setTaskId($task_id) {
 		if (is_null($task_id)) {
-			array_push($this->openApiNullablesSetToNull, 'task_id');
+			$this->openApiNullablesSetToNull['task_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('task_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['task_id'])) {
+				unset($nullablesSetToNull['task_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -395,12 +396,11 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 */
 	public function setNote($note) {
 		if (is_null($note)) {
-			array_push($this->openApiNullablesSetToNull, 'note');
+			$this->openApiNullablesSetToNull['note'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('note', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['note'])) {
+				unset($nullablesSetToNull['note']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -427,12 +427,11 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 */
 	public function setDate($date) {
 		if (is_null($date)) {
-			array_push($this->openApiNullablesSetToNull, 'date');
+			$this->openApiNullablesSetToNull['date'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('date', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['date'])) {
+				unset($nullablesSetToNull['date']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -459,12 +458,11 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 */
 	public function setStart($start) {
 		if (is_null($start)) {
-			array_push($this->openApiNullablesSetToNull, 'start');
+			$this->openApiNullablesSetToNull['start'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('start', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['start'])) {
+				unset($nullablesSetToNull['start']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -496,12 +494,11 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 */
 	public function setTimezone($timezone) {
 		if (is_null($timezone)) {
-			array_push($this->openApiNullablesSetToNull, 'timezone');
+			$this->openApiNullablesSetToNull['timezone'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('timezone', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['timezone'])) {
+				unset($nullablesSetToNull['timezone']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -512,7 +509,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -523,7 +520,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -535,7 +532,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -551,7 +548,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -576,11 +573,12 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -588,9 +586,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

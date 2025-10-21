@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * BenefitsApi
  * PHP version 8.1
@@ -184,7 +185,6 @@ class BenefitsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -274,18 +274,12 @@ class BenefitsApi {
 			methodName: 'addEmployeeDependent'
 		);
 
-
-
 		$resourcePath = '/api/v1/employeedependents';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -299,7 +293,7 @@ class BenefitsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_dependent));
 			} else {
-				$httpBody = $employee_dependent;
+				$httpBody = is_array($employee_dependent) ? json_encode($employee_dependent) : $employee_dependent;
 			}
 		} 
 
@@ -327,7 +321,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -337,7 +333,7 @@ class BenefitsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -377,7 +373,6 @@ class BenefitsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -461,8 +456,6 @@ class BenefitsApi {
 	 */
 	public function getBenefitCoveragesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getBenefitCoverages'][0]) {
 
-
-
 		$resourcePath = '/api/v1/benefitcoverages';
 		
 		$queryParams = [];
@@ -470,20 +463,16 @@ class BenefitsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -509,7 +498,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -519,7 +510,7 @@ class BenefitsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -557,7 +548,6 @@ class BenefitsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -638,7 +628,6 @@ class BenefitsApi {
 	 */
 	public function getBenefitDeductionTypesRequest(string $contentType = self::CONTENT_TYPES['getBenefitDeductionTypes'][0]) {
 
-
 		$resourcePath = '/api/v1/benefits/settings/deduction_types/all';
 		
 		$queryParams = [];
@@ -646,16 +635,11 @@ class BenefitsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -681,7 +665,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -691,7 +677,7 @@ class BenefitsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -733,7 +719,6 @@ class BenefitsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -827,16 +812,12 @@ class BenefitsApi {
 			methodName: 'getEmployeeDependent'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employeedependents/{id}';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -847,18 +828,16 @@ class BenefitsApi {
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -884,7 +863,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -894,7 +875,7 @@ class BenefitsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -936,7 +917,6 @@ class BenefitsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1030,9 +1010,6 @@ class BenefitsApi {
 			methodName: 'getEmployeeDependents'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employeedependents';
 		
 		$queryParams = [];
@@ -1061,14 +1038,11 @@ class BenefitsApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1094,7 +1068,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1104,7 +1080,7 @@ class BenefitsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1144,7 +1120,6 @@ class BenefitsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1153,8 +1128,6 @@ class BenefitsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1250,7 +1223,6 @@ class BenefitsApi {
 	 */
 	public function getMemberBenefitRequest(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 
-
 		$resourcePath = '/api/v1/benefit/member_benefit';
 		
 		$queryParams = [];
@@ -1258,16 +1230,11 @@ class BenefitsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1293,7 +1260,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1303,7 +1272,7 @@ class BenefitsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1345,7 +1314,6 @@ class BenefitsApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1440,9 +1408,6 @@ class BenefitsApi {
 			methodName: 'updateEmployeeDependent'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employeedependents/{id}';
 		
 		$queryParams = [];
@@ -1450,17 +1415,14 @@ class BenefitsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1474,7 +1436,7 @@ class BenefitsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_dependent));
 			} else {
-				$httpBody = $employee_dependent;
+				$httpBody = is_array($employee_dependent) ? json_encode($employee_dependent) : $employee_dependent;
 			}
 		} 
 
@@ -1502,7 +1464,9 @@ class BenefitsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1512,7 +1476,7 @@ class BenefitsApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

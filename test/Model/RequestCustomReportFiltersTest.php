@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * RequestCustomReportFiltersTest
  *
@@ -39,52 +40,45 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RequestCustomReportFiltersTest extends TestCase
-{
+class RequestCustomReportFiltersTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "RequestCustomReportFilters"
-     */
-    public function testRequestCustomReportFilters()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "RequestCustomReportFilters"
+	 */
+	public function testRequestCustomReportFilters(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "last_changed"
-     */
-    public function testPropertyLastChanged()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "last_changed"
+	 */
+	public function testPropertyLastChanged(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

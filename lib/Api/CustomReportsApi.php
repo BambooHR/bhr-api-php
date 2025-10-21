@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CustomReportsApi
  * PHP version 8.1
@@ -170,7 +171,6 @@ class CustomReportsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -179,8 +179,6 @@ class CustomReportsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -286,8 +284,6 @@ class CustomReportsApi {
 			methodName: 'getByReportId'
 		);
 
-
-
 		$resourcePath = '/api/v1/custom-reports/{reportId}';
 		
 		$queryParams = [];
@@ -295,24 +291,20 @@ class CustomReportsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($report_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'reportId' . '}',
-				ObjectSerializer::toPathValue($report_id),
+				ObjectSerializer::toPathValue((string) $report_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -338,7 +330,9 @@ class CustomReportsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -348,7 +342,7 @@ class CustomReportsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -392,7 +386,6 @@ class CustomReportsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -401,8 +394,6 @@ class CustomReportsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -504,9 +495,6 @@ class CustomReportsApi {
 	 */
 	public function listReportsRequest($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 
-
-
-
 		$resourcePath = '/api/v1/custom-reports';
 		
 		$queryParams = [];
@@ -531,15 +519,11 @@ class CustomReportsApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -565,7 +549,9 @@ class CustomReportsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -575,7 +561,7 @@ class CustomReportsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

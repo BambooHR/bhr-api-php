@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CompanyFilesApi
  * PHP version 8.1
@@ -181,7 +182,6 @@ class CompanyFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -271,18 +271,12 @@ class CompanyFilesApi {
 			methodName: 'addCompanyFileCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/files/categories';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -296,7 +290,7 @@ class CompanyFilesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
 			} else {
-				$httpBody = $request_body;
+				$httpBody = is_array($request_body) ? json_encode($request_body) : $request_body;
 			}
 		} 
 
@@ -324,7 +318,9 @@ class CompanyFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -334,7 +330,7 @@ class CompanyFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -374,7 +370,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -465,8 +460,6 @@ class CompanyFilesApi {
 			methodName: 'deleteCompanyFile'
 		);
 
-
-
 		$resourcePath = '/api/v1/files/{fileId}';
 		
 		$queryParams = [];
@@ -474,24 +467,20 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -517,7 +506,9 @@ class CompanyFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -527,7 +518,7 @@ class CompanyFilesApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -567,7 +558,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -658,8 +648,6 @@ class CompanyFilesApi {
 			methodName: 'getCompanyFile'
 		);
 
-
-
 		$resourcePath = '/api/v1/files/{fileId}';
 		
 		$queryParams = [];
@@ -667,24 +655,20 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -710,7 +694,9 @@ class CompanyFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -720,7 +706,7 @@ class CompanyFilesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -758,7 +744,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -839,7 +824,6 @@ class CompanyFilesApi {
 	 */
 	public function listCompanyFilesRequest(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
 
-
 		$resourcePath = '/api/v1/files/view';
 		
 		$queryParams = [];
@@ -847,16 +831,11 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -882,7 +861,9 @@ class CompanyFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -892,7 +873,7 @@ class CompanyFilesApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -934,7 +915,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1029,9 +1009,6 @@ class CompanyFilesApi {
 			methodName: 'updateCompanyFile'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/files/{fileId}';
 		
 		$queryParams = [];
@@ -1039,17 +1016,14 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($file_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'fileId' . '}',
-				ObjectSerializer::toPathValue($file_id),
+				ObjectSerializer::toPathValue((string) $file_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1063,7 +1037,7 @@ class CompanyFilesApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company_file_update));
 			} else {
-				$httpBody = $company_file_update;
+				$httpBody = is_array($company_file_update) ? json_encode($company_file_update) : $company_file_update;
 			}
 		} 
 
@@ -1091,7 +1065,9 @@ class CompanyFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1101,7 +1077,7 @@ class CompanyFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1139,7 +1115,6 @@ class CompanyFilesApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1220,7 +1195,6 @@ class CompanyFilesApi {
 	 */
 	public function uploadCompanyFileRequest(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
 
-
 		$resourcePath = '/api/v1/files';
 		
 		$queryParams = [];
@@ -1228,16 +1202,11 @@ class CompanyFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1263,7 +1232,9 @@ class CompanyFilesApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1273,7 +1244,7 @@ class CompanyFilesApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

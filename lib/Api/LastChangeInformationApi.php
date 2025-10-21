@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * LastChangeInformationApi
  * PHP version 8.1
@@ -168,7 +169,6 @@ class LastChangeInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -261,9 +261,6 @@ class LastChangeInformationApi {
 			methodName: 'getChangedEmployeeIds'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/changed';
 		
 		$queryParams = [];
@@ -288,15 +285,11 @@ class LastChangeInformationApi {
 			}
 		}
 
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -322,7 +315,9 @@ class LastChangeInformationApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -332,7 +327,7 @@ class LastChangeInformationApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

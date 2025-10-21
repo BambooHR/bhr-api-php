@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffApiTest
  * PHP version 8.1
@@ -40,190 +41,172 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TimeOffApiTest extends TestCase
-{
+class TimeOffApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for getAListOfWhoIsOut
-     *
-     * Get a list of Who's Out.
-     *
-     */
-    public function testGetAListOfWhoIsOut()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getAListOfWhoIsOut
+	 *
+	 * Get a list of Who's Out.
+	 *
+	 */
+	public function testGetAListOfWhoIsOut(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getTimeOffPolicies
-     *
-     * Get Time Off Policies.
-     *
-     */
-    public function testGetTimeOffPolicies()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getTimeOffPolicies
+	 *
+	 * Get Time Off Policies.
+	 *
+	 */
+	public function testGetTimeOffPolicies(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getTimeOffTypes
-     *
-     * Get Time Off Types.
-     *
-     */
-    public function testGetTimeOffTypes()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getTimeOffTypes
+	 *
+	 * Get Time Off Types.
+	 *
+	 */
+	public function testGetTimeOffTypes(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffAddATimeOffHistoryItemForTimeOffRequest
-     *
-     * Add a Time Off History Item For Time Off Request.
-     *
-     */
-    public function testTimeOffAddATimeOffHistoryItemForTimeOffRequest()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffAddATimeOffHistoryItemForTimeOffRequest
+	 *
+	 * Add a Time Off History Item For Time Off Request.
+	 *
+	 */
+	public function testTimeOffAddATimeOffHistoryItemForTimeOffRequest(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffAddATimeOffRequest
-     *
-     * Add a Time Off Request.
-     *
-     */
-    public function testTimeOffAddATimeOffRequest()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffAddATimeOffRequest
+	 *
+	 * Add a Time Off Request.
+	 *
+	 */
+	public function testTimeOffAddATimeOffRequest(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffAdjustTimeOffBalance
-     *
-     * Adjust Time Off Balance.
-     *
-     */
-    public function testTimeOffAdjustTimeOffBalance()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffAdjustTimeOffBalance
+	 *
+	 * Adjust Time Off Balance.
+	 *
+	 */
+	public function testTimeOffAdjustTimeOffBalance(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffAssignTimeOffPoliciesForAnEmployee
-     *
-     * Assign Time Off Policies for an Employee.
-     *
-     */
-    public function testTimeOffAssignTimeOffPoliciesForAnEmployee()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffAssignTimeOffPoliciesForAnEmployee
+	 *
+	 * Assign Time Off Policies for an Employee.
+	 *
+	 */
+	public function testTimeOffAssignTimeOffPoliciesForAnEmployee(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffAssignTimeOffPoliciesForAnEmployeeV11
-     *
-     * Assign Time Off Policies for an Employee, Version 1.1.
-     *
-     */
-    public function testTimeOffAssignTimeOffPoliciesForAnEmployeeV11()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffAssignTimeOffPoliciesForAnEmployeeV11
+	 *
+	 * Assign Time Off Policies for an Employee, Version 1.1.
+	 *
+	 */
+	public function testTimeOffAssignTimeOffPoliciesForAnEmployeeV11(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffChangeARequestStatus
-     *
-     * Change a Request Status.
-     *
-     */
-    public function testTimeOffChangeARequestStatus()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffChangeARequestStatus
+	 *
+	 * Change a Request Status.
+	 *
+	 */
+	public function testTimeOffChangeARequestStatus(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffEstimateFutureTimeOffBalances
-     *
-     * Estimate Future Time Off Balances.
-     *
-     */
-    public function testTimeOffEstimateFutureTimeOffBalances()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffEstimateFutureTimeOffBalances
+	 *
+	 * Estimate Future Time Off Balances.
+	 *
+	 */
+	public function testTimeOffEstimateFutureTimeOffBalances(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffGetTimeOffRequests
-     *
-     * Get Time Off Requests.
-     *
-     */
-    public function testTimeOffGetTimeOffRequests()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffGetTimeOffRequests
+	 *
+	 * Get Time Off Requests.
+	 *
+	 */
+	public function testTimeOffGetTimeOffRequests(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffListTimeOffPoliciesForEmployee
-     *
-     * List Time Off Policies for Employee.
-     *
-     */
-    public function testTimeOffListTimeOffPoliciesForEmployee()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffListTimeOffPoliciesForEmployee
+	 *
+	 * List Time Off Policies for Employee.
+	 *
+	 */
+	public function testTimeOffListTimeOffPoliciesForEmployee(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for timeOffListTimeOffPoliciesForEmployeeV11
-     *
-     * List Time Off Policies for Employee, Version 1.1.
-     *
-     */
-    public function testTimeOffListTimeOffPoliciesForEmployeeV11()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for timeOffListTimeOffPoliciesForEmployeeV11
+	 *
+	 * List Time Off Policies for Employee, Version 1.1.
+	 *
+	 */
+	public function testTimeOffListTimeOffPoliciesForEmployeeV11(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

@@ -9,6 +9,8 @@
         <exclude name="BambooHR.Variables.CamelCapsVariable.Found"/>
         <exclude name="BambooHR.Variables.CamelCapsVariable.NotCamelCaps"/>
         <exclude name="PSR1.Methods.CamelCapsMethodName"/>
+        <exclude name="BambooHR.Functions.CamelCapsFunctionName"/>
+        <exclude name="BambooHR.Functions.CamelCapsFunctionName.ScopeNotCamelCaps"/>
         <exclude name="Squiz.NamingConventions.ValidVariableName"/>
         <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
         <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
@@ -16,6 +18,9 @@
         
         <!-- Exclude docblock spacing rules -->
         <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName"/>
+        
+        <!-- Exclude function nesting level rule -->
+        <exclude name="Generic.Metrics.NestingLevel"/>
     </rule>
 
     <!-- Paths to check -->

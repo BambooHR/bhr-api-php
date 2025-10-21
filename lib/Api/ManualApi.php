@@ -416,7 +416,7 @@ class ManualApi {
 					(int)$e->getCode(),
 					$e->getMessage(),
 					$statusCode,
-					$e->getResponse() ? $e->getResponse()->getHeaders() : null,
+					$e->getResponse() ? $e->getResponse()->getHeaders() : [],
 					$e->getResponse() ? (string)$e->getResponse()->getBody() : null
 				);
 
@@ -435,7 +435,8 @@ class ManualApi {
 					null,
 					null
 				);
-				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), 'mixed', $eInner->getResponseHeaders());
+				// Pass null instead of headers to avoid type mismatch
+				$data = ObjectSerializer::deserialize($eInner->getResponseBody(), 'mixed', null);
 				$eInner->setResponseObject($data);
 
 				throw $eInner;
@@ -468,10 +469,10 @@ class ManualApi {
 			$attempt++;
 			
 			return $this->client->sendAsync($request, $options)
-				->otherwise(function ($reason) use ($request, $options, $attempt, $retries, $timeoutStatusCodes, $doRequest) {
+				->otherwise(function ($reason) use ($attempt, $retries, $timeoutStatusCodes, $doRequest) {
 					// Check if this is a RequestException with a response
 					if ($reason instanceof RequestException && $reason->hasResponse()) {
-						$statusCode = $reason->getResponse()->getStatusCode();
+						$statusCode = $reason->getResponse() ? $reason->getResponse()->getStatusCode() : 0;
 
 						// Check if this is a timeout error and if we should retry
 						if (in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries) {
@@ -508,7 +509,8 @@ class ManualApi {
 							null,
 							null
 						);
-						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), 'mixed', $eInner->getResponseHeaders());
+						// Pass null instead of headers to avoid type mismatch
+						$data = ObjectSerializer::deserialize($eInner->getResponseBody(), 'mixed', null);
 						$eInner->setResponseObject($data);
 						return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
 					} else {

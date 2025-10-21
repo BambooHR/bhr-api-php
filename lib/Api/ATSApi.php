@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * ATSApi
  * PHP version 8.1
@@ -167,7 +168,6 @@ class ATSApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -176,8 +176,6 @@ class ATSApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -283,8 +281,6 @@ class ATSApi {
 			methodName: 'getApplicationDetails'
 		);
 
-
-
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}';
 		
 		$queryParams = [];
@@ -292,24 +288,20 @@ class ATSApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($application_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'applicationId' . '}',
-				ObjectSerializer::toPathValue($application_id),
+				ObjectSerializer::toPathValue((string) $application_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -335,7 +327,9 @@ class ATSApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -345,7 +339,7 @@ class ATSApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

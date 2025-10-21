@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * DatasetsApi
  * PHP version 8.1
@@ -175,7 +176,6 @@ class DatasetsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -184,8 +184,6 @@ class DatasetsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -295,9 +293,6 @@ class DatasetsApi {
 			methodName: 'getDataFromDataset'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/datasets/{datasetName}';
 		
 		$queryParams = [];
@@ -305,17 +300,14 @@ class DatasetsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($dataset_name !== null) {
 			$resourcePath = str_replace(
 				'{' . 'datasetName' . '}',
-				ObjectSerializer::toPathValue($dataset_name),
+				ObjectSerializer::toPathValue((string) $dataset_name),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -329,7 +321,7 @@ class DatasetsApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($data_request));
 			} else {
-				$httpBody = $data_request;
+				$httpBody = is_array($data_request) ? json_encode($data_request) : $data_request;
 			}
 		} 
 
@@ -357,7 +349,9 @@ class DatasetsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -367,7 +361,7 @@ class DatasetsApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -407,7 +401,6 @@ class DatasetsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -416,8 +409,6 @@ class DatasetsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -513,7 +504,6 @@ class DatasetsApi {
 	 */
 	public function getDataSetsRequest(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 
-
 		$resourcePath = '/api/v1/datasets';
 		
 		$queryParams = [];
@@ -521,16 +511,11 @@ class DatasetsApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -556,7 +541,9 @@ class DatasetsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -566,7 +553,7 @@ class DatasetsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -612,7 +599,6 @@ class DatasetsApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -621,8 +607,6 @@ class DatasetsApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -734,10 +718,6 @@ class DatasetsApi {
 			methodName: 'getFieldsFromDataset'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/datasets/{datasetName}/fields';
 		
 		$queryParams = [];
@@ -762,23 +742,20 @@ class DatasetsApi {
 			}
 		}
 
-
 		// path params
 		if ($dataset_name !== null) {
 			$resourcePath = str_replace(
 				'{' . 'datasetName' . '}',
-				ObjectSerializer::toPathValue($dataset_name),
+				ObjectSerializer::toPathValue((string) $dataset_name),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -804,7 +781,9 @@ class DatasetsApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -814,7 +793,7 @@ class DatasetsApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

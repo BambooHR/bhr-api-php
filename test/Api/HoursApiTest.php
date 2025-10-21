@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * HoursApiTest
  * PHP version 8.1
@@ -40,94 +41,84 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HoursApiTest extends TestCase
-{
+class HoursApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addTimeTrackingBulk
-     *
-     * Add/Edit Hour Records.
-     *
-     */
-    public function testAddTimeTrackingBulk()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addTimeTrackingBulk
+	 *
+	 * Add/Edit Hour Records.
+	 *
+	 */
+	public function testAddTimeTrackingBulk(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addTimeTrackingHourRecord
-     *
-     * Add Hour Record.
-     *
-     */
-    public function testAddTimeTrackingHourRecord()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addTimeTrackingHourRecord
+	 *
+	 * Add Hour Record.
+	 *
+	 */
+	public function testAddTimeTrackingHourRecord(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteTimeTrackingById
-     *
-     * Delete Hour Record.
-     *
-     */
-    public function testDeleteTimeTrackingById()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteTimeTrackingById
+	 *
+	 * Delete Hour Record.
+	 *
+	 */
+	public function testDeleteTimeTrackingById(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for editTimeTrackingRecord
-     *
-     * Edit Hour Record.
-     *
-     */
-    public function testEditTimeTrackingRecord()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for editTimeTrackingRecord
+	 *
+	 * Edit Hour Record.
+	 *
+	 */
+	public function testEditTimeTrackingRecord(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getTimeTrackingRecord
-     *
-     * Get Hour Record.
-     *
-     */
-    public function testGetTimeTrackingRecord()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getTimeTrackingRecord
+	 *
+	 * Get Hour Record.
+	 *
+	 */
+	public function testGetTimeTrackingRecord(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeOffApi
  * PHP version 8.1
@@ -206,7 +207,6 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -295,10 +295,6 @@ class TimeOffApi {
 	 */
 	public function getAListOfWhoIsOutRequest($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
 
-
-
-
-
 		$resourcePath = '/api/v1/time_off/whos_out';
 		
 		$queryParams = [];
@@ -328,14 +324,11 @@ class TimeOffApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -361,7 +354,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -371,7 +366,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -411,7 +406,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -495,8 +489,6 @@ class TimeOffApi {
 	 */
 	public function getTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
 
-
-
 		$resourcePath = '/api/v1/meta/time_off/policies';
 		
 		$queryParams = [];
@@ -504,20 +496,16 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
 		// header params
 		if ($accept_header_parameter !== null) {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -543,7 +531,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -553,7 +543,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -595,7 +585,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -682,9 +671,6 @@ class TimeOffApi {
 	 */
 	public function getTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 
-
-
-
 		$resourcePath = '/api/v1/meta/time_off/types';
 		
 		$queryParams = [];
@@ -713,14 +699,11 @@ class TimeOffApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -746,7 +729,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -756,7 +741,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -798,7 +783,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -893,9 +877,6 @@ class TimeOffApi {
 			methodName: 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
 		
 		$queryParams = [];
@@ -903,17 +884,14 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -927,7 +905,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_history));
 			} else {
-				$httpBody = $time_off_history;
+				$httpBody = is_array($time_off_history) ? json_encode($time_off_history) : $time_off_history;
 			}
 		} 
 
@@ -955,7 +933,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -965,7 +945,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1007,7 +987,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1102,9 +1081,6 @@ class TimeOffApi {
 			methodName: 'timeOffAddATimeOffRequest'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
 		
 		$queryParams = [];
@@ -1112,17 +1088,14 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1136,7 +1109,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_request));
 			} else {
-				$httpBody = $time_off_request;
+				$httpBody = is_array($time_off_request) ? json_encode($time_off_request) : $time_off_request;
 			}
 		} 
 
@@ -1164,7 +1137,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1174,7 +1149,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1216,7 +1191,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1311,9 +1285,6 @@ class TimeOffApi {
 			methodName: 'timeOffAdjustTimeOffBalance'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
 		
 		$queryParams = [];
@@ -1321,17 +1292,14 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1345,7 +1313,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_off_balance));
 			} else {
-				$httpBody = $adjust_time_off_balance;
+				$httpBody = is_array($adjust_time_off_balance) ? json_encode($adjust_time_off_balance) : $adjust_time_off_balance;
 			}
 		} 
 
@@ -1373,7 +1341,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1383,7 +1353,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1425,7 +1395,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1520,9 +1489,6 @@ class TimeOffApi {
 			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployee'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
@@ -1530,17 +1496,14 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1554,7 +1517,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
 			} else {
-				$httpBody = $time_off_assign_time_off_policies_for_an_employee_request_inner;
+				$httpBody = is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) ? json_encode($time_off_assign_time_off_policies_for_an_employee_request_inner) : $time_off_assign_time_off_policies_for_an_employee_request_inner;
 			}
 		} 
 
@@ -1582,7 +1545,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1592,7 +1557,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1634,7 +1599,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1729,9 +1693,6 @@ class TimeOffApi {
 			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
 		);
 
-
-
-
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
@@ -1739,17 +1700,14 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1763,7 +1721,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
 			} else {
-				$httpBody = $time_off_assign_time_off_policies_for_an_employee_request_inner;
+				$httpBody = is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) ? json_encode($time_off_assign_time_off_policies_for_an_employee_request_inner) : $time_off_assign_time_off_policies_for_an_employee_request_inner;
 			}
 		} 
 
@@ -1791,7 +1749,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1801,7 +1761,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1843,7 +1803,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1938,9 +1897,6 @@ class TimeOffApi {
 			methodName: 'timeOffChangeARequestStatus'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/time_off/requests/{requestId}/status';
 		
 		$queryParams = [];
@@ -1948,17 +1904,14 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($request_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'requestId' . '}',
-				ObjectSerializer::toPathValue($request_id),
+				ObjectSerializer::toPathValue((string) $request_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -1972,7 +1925,7 @@ class TimeOffApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request));
 			} else {
-				$httpBody = $request;
+				$httpBody = is_array($request) ? json_encode($request) : $request;
 			}
 		} 
 
@@ -2000,7 +1953,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2010,7 +1965,7 @@ class TimeOffApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2054,7 +2009,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2152,10 +2106,6 @@ class TimeOffApi {
 			methodName: 'timeOffEstimateFutureTimeOffBalances'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
 		
 		$queryParams = [];
@@ -2188,18 +2138,16 @@ class TimeOffApi {
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2225,7 +2173,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2235,7 +2185,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2289,7 +2239,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2402,15 +2351,6 @@ class TimeOffApi {
 			methodName: 'timeOffGetTimeOffRequests'
 		);
 
-
-
-
-
-
-
-
-
-
 		$resourcePath = '/api/v1/time_off/requests';
 		
 		$queryParams = [];
@@ -2445,14 +2385,11 @@ class TimeOffApi {
 			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2478,7 +2415,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2488,7 +2427,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2528,7 +2467,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2619,8 +2557,6 @@ class TimeOffApi {
 			methodName: 'timeOffListTimeOffPoliciesForEmployee'
 		);
 
-
-
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
@@ -2628,24 +2564,20 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2671,7 +2603,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2681,7 +2615,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2721,7 +2655,6 @@ class TimeOffApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -2812,8 +2745,6 @@ class TimeOffApi {
 			methodName: 'timeOffListTimeOffPoliciesForEmployeeV11'
 		);
 
-
-
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
 		
 		$queryParams = [];
@@ -2821,24 +2752,20 @@ class TimeOffApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2864,7 +2791,9 @@ class TimeOffApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2874,7 +2803,7 @@ class TimeOffApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

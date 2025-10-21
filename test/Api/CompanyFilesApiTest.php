@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CompanyFilesApiTest
  * PHP version 8.1
@@ -40,106 +41,95 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CompanyFilesApiTest extends TestCase
-{
+class CompanyFilesApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addCompanyFileCategory
-     *
-     * Add Company File Category.
-     *
-     */
-    public function testAddCompanyFileCategory()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addCompanyFileCategory
+	 *
+	 * Add Company File Category.
+	 *
+	 */
+	public function testAddCompanyFileCategory(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteCompanyFile
-     *
-     * Delete Company File.
-     *
-     */
-    public function testDeleteCompanyFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteCompanyFile
+	 *
+	 * Delete Company File.
+	 *
+	 */
+	public function testDeleteCompanyFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getCompanyFile
-     *
-     * Get an Company File.
-     *
-     */
-    public function testGetCompanyFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getCompanyFile
+	 *
+	 * Get an Company File.
+	 *
+	 */
+	public function testGetCompanyFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for listCompanyFiles
-     *
-     * List company files and categories.
-     *
-     */
-    public function testListCompanyFiles()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for listCompanyFiles
+	 *
+	 * List company files and categories.
+	 *
+	 */
+	public function testListCompanyFiles(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateCompanyFile
-     *
-     * Update Company File.
-     *
-     */
-    public function testUpdateCompanyFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateCompanyFile
+	 *
+	 * Update Company File.
+	 *
+	 */
+	public function testUpdateCompanyFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for uploadCompanyFile
-     *
-     * Upload Company File.
-     *
-     */
-    public function testUploadCompanyFile()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for uploadCompanyFile
+	 *
+	 * Upload Company File.
+	 *
+	 */
+	public function testUploadCompanyFile(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

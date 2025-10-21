@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * FormDataProcessor
  * PHP version 7.4
@@ -54,7 +55,7 @@ class FormDataProcessor {
 	 * the http body (form parameter). If it's a string, pass through unchanged
 	 * If it's a datetime object, format it in ISO8601
 	 *
-	 * @param array<string|bool|array|DateTime|ArrayAccess|SplFileObject> $values the value of the form parameter
+	 * @param array<string|bool|int|array|DateTime|ArrayAccess|SplFileObject|null> $values the value of the form parameter
 	 *
 	 * @return array [key => value] of formdata
 	 */
@@ -135,8 +136,11 @@ class FormDataProcessor {
 	 * formdata must be limited to scalars or arrays of scalar values,
 	 * or a resource for a file upload. Here we iterate through all available
 	 * data and identify how to handle each scenario
+	 *
+	 * @param mixed $value The value to make form safe
+	 * @return mixed The form safe value
 	 */
-	protected function makeFormSafe($value) {
+	protected function makeFormSafe(mixed $value): mixed {
 		if ($value instanceof SplFileObject) {
 			return $this->processFiles([$value])[0];
 		}
@@ -151,7 +155,7 @@ class FormDataProcessor {
 			return $this->processModel($value);
 		}
 
-		if (is_array($value) || (is_object($value) && !$value instanceof \DateTimeInterface)) {
+		if (is_array($value) || (is_object($value) && !$value instanceof \DateTimeInterface && (is_iterable($value) || $value instanceof \Traversable))) {
 			$data = [];
 
 			foreach ($value as $key => $val) {
@@ -246,7 +250,13 @@ class FormDataProcessor {
 		return $result;
 	}
 
-	private function tryFopen(SplFileObject $file) {
+	/**
+	 * Try to open a file for reading
+	 *
+	 * @param SplFileObject $file The file to open
+	 * @return resource The opened file resource
+	 */
+	private function tryFopen(SplFileObject $file): mixed {
 		return Utils::tryFopen($file->getRealPath(), 'rb');
 	}
 }

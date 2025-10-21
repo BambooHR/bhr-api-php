@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TabularDataApi
  * PHP version 8.1
@@ -188,7 +189,6 @@ class TabularDataApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
 			$request,
@@ -286,10 +286,6 @@ class TabularDataApi {
 			methodName: 'addEmployeeTableRow'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
 		
 		$queryParams = [];
@@ -297,13 +293,11 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -311,11 +305,10 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -329,7 +322,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -357,7 +350,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -367,7 +362,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -411,7 +406,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -510,10 +504,6 @@ class TabularDataApi {
 			methodName: 'addEmployeeTableRowV1'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
 		
 		$queryParams = [];
@@ -521,13 +511,11 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -535,11 +523,10 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
@@ -553,7 +540,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -581,7 +568,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -591,7 +580,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -637,7 +626,6 @@ class TabularDataApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -646,8 +634,6 @@ class TabularDataApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -761,10 +747,6 @@ class TabularDataApi {
 			methodName: 'deleteEmployeeTableRowV1'
 		);
 
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
 		
 		$queryParams = [];
@@ -772,13 +754,11 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -786,7 +766,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -794,18 +774,16 @@ class TabularDataApi {
 		if ($row_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'rowId' . '}',
-				ObjectSerializer::toPathValue($row_id),
+				ObjectSerializer::toPathValue((string) $row_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -831,7 +809,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -841,7 +821,7 @@ class TabularDataApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -883,7 +863,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -978,9 +957,6 @@ class TabularDataApi {
 			methodName: 'getChangedEmployeeTableData'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/changed/tables/{table}';
 		
 		$queryParams = [];
@@ -1004,23 +980,20 @@ class TabularDataApi {
 			}
 		}
 
-
 		// path params
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1046,7 +1019,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1056,7 +1031,7 @@ class TabularDataApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1098,7 +1073,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1193,9 +1167,6 @@ class TabularDataApi {
 			methodName: 'getEmployeeTableRow'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
 		
 		$queryParams = [];
@@ -1203,13 +1174,11 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1217,18 +1186,16 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1254,7 +1221,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1264,7 +1233,7 @@ class TabularDataApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1310,7 +1279,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1413,11 +1381,6 @@ class TabularDataApi {
 			methodName: 'updateEmployeeTableRow'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
 		
 		$queryParams = [];
@@ -1425,13 +1388,11 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1439,7 +1400,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -1447,11 +1408,10 @@ class TabularDataApi {
 		if ($row_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'rowId' . '}',
-				ObjectSerializer::toPathValue($row_id),
+				ObjectSerializer::toPathValue((string) $row_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -1465,7 +1425,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -1493,7 +1453,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1503,7 +1465,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1549,7 +1511,6 @@ class TabularDataApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1652,11 +1613,6 @@ class TabularDataApi {
 			methodName: 'updateEmployeeTableRowV'
 		);
 
-
-
-
-
-
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
 		
 		$queryParams = [];
@@ -1664,13 +1620,11 @@ class TabularDataApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'id' . '}',
-				ObjectSerializer::toPathValue($id),
+				ObjectSerializer::toPathValue((string) $id),
 				$resourcePath
 			);
 		}
@@ -1678,7 +1632,7 @@ class TabularDataApi {
 		if ($table !== null) {
 			$resourcePath = str_replace(
 				'{' . 'table' . '}',
-				ObjectSerializer::toPathValue($table),
+				ObjectSerializer::toPathValue((string) $table),
 				$resourcePath
 			);
 		}
@@ -1686,11 +1640,10 @@ class TabularDataApi {
 		if ($row_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'rowId' . '}',
-				ObjectSerializer::toPathValue($row_id),
+				ObjectSerializer::toPathValue((string) $row_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/xml', 'application/json', ],
@@ -1704,7 +1657,7 @@ class TabularDataApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_row_update));
 			} else {
-				$httpBody = $table_row_update;
+				$httpBody = is_array($table_row_update) ? json_encode($table_row_update) : $table_row_update;
 			}
 		} 
 
@@ -1732,7 +1685,9 @@ class TabularDataApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1742,7 +1697,7 @@ class TabularDataApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

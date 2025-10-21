@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * AdjustTimeTrackingRequestSchemaTest
  *
@@ -39,97 +40,85 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class AdjustTimeTrackingRequestSchemaTest extends TestCase
-{
+class AdjustTimeTrackingRequestSchemaTest extends TestCase {
 
-    /**
-     * Setup before running any test case
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test case
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test "AdjustTimeTrackingRequestSchema"
-     */
-    public function testAdjustTimeTrackingRequestSchema()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test "AdjustTimeTrackingRequestSchema"
+	 */
+	public function testAdjustTimeTrackingRequestSchema(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "time_tracking_id"
-     */
-    public function testPropertyTimeTrackingId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "time_tracking_id"
+	 */
+	public function testPropertyTimeTrackingId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "hours_worked"
-     */
-    public function testPropertyHoursWorked()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "hours_worked"
+	 */
+	public function testPropertyHoursWorked(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "project_id"
-     */
-    public function testPropertyProjectId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "project_id"
+	 */
+	public function testPropertyProjectId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "task_id"
-     */
-    public function testPropertyTaskId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "task_id"
+	 */
+	public function testPropertyTaskId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "shift_differential_id"
-     */
-    public function testPropertyShiftDifferentialId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "shift_differential_id"
+	 */
+	public function testPropertyShiftDifferentialId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test attribute "holiday_id"
-     */
-    public function testPropertyHolidayId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test attribute "holiday_id"
+	 */
+	public function testPropertyHolidayId(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

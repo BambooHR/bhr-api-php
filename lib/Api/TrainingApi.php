@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TrainingApi
  * PHP version 8.1
@@ -202,7 +203,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -211,8 +211,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -322,9 +320,6 @@ class TrainingApi {
 			methodName: 'addNewEmployeeTrainingRecord'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
 		
 		$queryParams = [];
@@ -332,17 +327,14 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -356,7 +348,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_new_employee_training_record_request));
 			} else {
-				$httpBody = $add_new_employee_training_record_request;
+				$httpBody = is_array($add_new_employee_training_record_request) ? json_encode($add_new_employee_training_record_request) : $add_new_employee_training_record_request;
 			}
 		} 
 
@@ -384,7 +376,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -394,7 +388,7 @@ class TrainingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -436,7 +430,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -445,8 +438,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -552,18 +543,12 @@ class TrainingApi {
 			methodName: 'addTrainingCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/category';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -577,7 +562,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_training_category_request));
 			} else {
-				$httpBody = $add_training_category_request;
+				$httpBody = is_array($add_training_category_request) ? json_encode($add_training_category_request) : $add_training_category_request;
 			}
 		} 
 
@@ -605,7 +590,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -615,7 +602,7 @@ class TrainingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -657,7 +644,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
@@ -666,8 +652,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -773,18 +757,12 @@ class TrainingApi {
 			methodName: 'addTrainingType'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/type';
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
-
-
-
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -798,7 +776,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_training_type_request));
 			} else {
-				$httpBody = $add_training_type_request;
+				$httpBody = is_array($add_training_type_request) ? json_encode($add_training_type_request) : $add_training_type_request;
 			}
 		} 
 
@@ -826,7 +804,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -836,7 +816,7 @@ class TrainingApi {
 			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -876,7 +856,6 @@ class TrainingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -967,8 +946,6 @@ class TrainingApi {
 			methodName: 'deleteEmployeeTrainingRecord'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
 		
 		$queryParams = [];
@@ -976,24 +953,20 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_training_record_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeTrainingRecordId' . '}',
-				ObjectSerializer::toPathValue($employee_training_record_id),
+				ObjectSerializer::toPathValue((string) $employee_training_record_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1019,7 +992,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1029,7 +1004,7 @@ class TrainingApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1069,7 +1044,6 @@ class TrainingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1160,8 +1134,6 @@ class TrainingApi {
 			methodName: 'deleteTrainingCategory'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
 		
 		$queryParams = [];
@@ -1169,24 +1141,20 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($training_category_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'trainingCategoryId' . '}',
-				ObjectSerializer::toPathValue($training_category_id),
+				ObjectSerializer::toPathValue((string) $training_category_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1212,7 +1180,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1222,7 +1192,7 @@ class TrainingApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1262,7 +1232,6 @@ class TrainingApi {
 		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
-
 
 		return ApiHelper::handleResponseWithDataType(
 			'object', // or 'mixed' or any other generic type
@@ -1353,8 +1322,6 @@ class TrainingApi {
 			methodName: 'deleteTrainingType'
 		);
 
-
-
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
 		
 		$queryParams = [];
@@ -1362,24 +1329,20 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($training_type_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'trainingTypeId' . '}',
-				ObjectSerializer::toPathValue($training_type_id),
+				ObjectSerializer::toPathValue((string) $training_type_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1405,7 +1368,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1415,7 +1380,7 @@ class TrainingApi {
 			'DELETE',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1459,7 +1424,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1468,8 +1432,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1578,9 +1540,6 @@ class TrainingApi {
 			methodName: 'listEmployeeTrainings'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
 		
 		$queryParams = [];
@@ -1604,23 +1563,20 @@ class TrainingApi {
 			}
 		}
 
-
 		// path params
 		if ($employee_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue($employee_id),
+				ObjectSerializer::toPathValue((string) $employee_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1646,7 +1602,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1656,7 +1614,7 @@ class TrainingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1696,7 +1654,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1705,8 +1662,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -1802,7 +1757,6 @@ class TrainingApi {
 	 */
 	public function listTrainingCategoriesRequest(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 
-
 		$resourcePath = '/api/v1/training/category';
 		
 		$queryParams = [];
@@ -1810,16 +1764,11 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -1845,7 +1794,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -1855,7 +1806,7 @@ class TrainingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -1895,7 +1846,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -1904,8 +1854,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2001,7 +1949,6 @@ class TrainingApi {
 	 */
 	public function listTrainingTypesRequest(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 
-
 		$resourcePath = '/api/v1/training/type';
 		
 		$queryParams = [];
@@ -2009,16 +1956,11 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
-
-
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
 			$contentType,
 			$multipart
 		);
-
 
 		// Authentication methods
 		
@@ -2044,7 +1986,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2054,7 +1998,7 @@ class TrainingApi {
 			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2098,7 +2042,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2107,8 +2050,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2218,9 +2159,6 @@ class TrainingApi {
 			methodName: 'updateEmployeeTrainingRecord'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
 		
 		$queryParams = [];
@@ -2228,17 +2166,14 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($employee_training_record_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'employeeTrainingRecordId' . '}',
-				ObjectSerializer::toPathValue($employee_training_record_id),
+				ObjectSerializer::toPathValue((string) $employee_training_record_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -2252,7 +2187,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_employee_training_record_request));
 			} else {
-				$httpBody = $update_employee_training_record_request;
+				$httpBody = is_array($update_employee_training_record_request) ? json_encode($update_employee_training_record_request) : $update_employee_training_record_request;
 			}
 		} 
 
@@ -2280,7 +2215,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2290,7 +2227,7 @@ class TrainingApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2334,7 +2271,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2343,8 +2279,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2454,9 +2388,6 @@ class TrainingApi {
 			methodName: 'updateTrainingCategory'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
 		
 		$queryParams = [];
@@ -2464,17 +2395,14 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($training_category_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'trainingCategoryId' . '}',
-				ObjectSerializer::toPathValue($training_category_id),
+				ObjectSerializer::toPathValue((string) $training_category_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -2488,7 +2416,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_training_category_request));
 			} else {
-				$httpBody = $update_training_category_request;
+				$httpBody = is_array($update_training_category_request) ? json_encode($update_training_category_request) : $update_training_category_request;
 			}
 		} 
 
@@ -2516,7 +2444,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2526,7 +2456,7 @@ class TrainingApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 
@@ -2570,7 +2500,6 @@ class TrainingApi {
 
 		$statusCode = $response->getStatusCode();
 
-
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
@@ -2579,8 +2508,6 @@ class TrainingApi {
 					$response,
 				);
 		}
-
-		
 
 		if ($statusCode < 200 || $statusCode > 299) {
 			throw new ApiException(
@@ -2690,9 +2617,6 @@ class TrainingApi {
 			methodName: 'updateTrainingType'
 		);
 
-
-
-
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
 		
 		$queryParams = [];
@@ -2700,17 +2624,14 @@ class TrainingApi {
 		$httpBody = '';
 		$multipart = false;
 
-
-
 		// path params
 		if ($training_type_id !== null) {
 			$resourcePath = str_replace(
 				'{' . 'trainingTypeId' . '}',
-				ObjectSerializer::toPathValue($training_type_id),
+				ObjectSerializer::toPathValue((string) $training_type_id),
 				$resourcePath
 			);
 		}
-
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', 'application/xml', ],
@@ -2724,7 +2645,7 @@ class TrainingApi {
 				# if Content-Type contains "application/json", json_encode the body
 				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_training_type_request));
 			} else {
-				$httpBody = $update_training_type_request;
+				$httpBody = is_array($update_training_type_request) ? json_encode($update_training_type_request) : $update_training_type_request;
 			}
 		} 
 
@@ -2752,7 +2673,9 @@ class TrainingApi {
 		);
 		
 		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
@@ -2762,7 +2685,7 @@ class TrainingApi {
 			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
-			$httpBody
+			is_string($httpBody) ? $httpBody : (string)$httpBody
 		);
 	}
 

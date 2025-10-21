@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TabularDataApiTest
  * PHP version 8.1
@@ -40,118 +41,106 @@ use PHPUnit\Framework\TestCase;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TabularDataApiTest extends TestCase
-{
+class TabularDataApiTest extends TestCase {
 
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass(): void
-    {
-    }
+	/**
+	 * Setup before running any test cases
+	 */
+	public static function setUpBeforeClass(): void {
+	}
 
-    /**
-     * Setup before running each test case
-     */
-    public function setUp(): void
-    {
-    }
+	/**
+	 * Setup before running each test case
+	 */
+	public function setUp(): void {
+	}
 
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown(): void
-    {
-    }
+	/**
+	 * Clean up after running each test case
+	 */
+	public function tearDown(): void {
+	}
 
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass(): void
-    {
-    }
+	/**
+	 * Clean up after running all test cases
+	 */
+	public static function tearDownAfterClass(): void {
+	}
 
-    /**
-     * Test case for addEmployeeTableRow
-     *
-     * Adds a table row.
-     *
-     */
-    public function testAddEmployeeTableRow()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addEmployeeTableRow
+	 *
+	 * Adds a table row.
+	 *
+	 */
+	public function testAddEmployeeTableRow(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for addEmployeeTableRowV1
-     *
-     * Adds a table row.
-     *
-     */
-    public function testAddEmployeeTableRowV1()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for addEmployeeTableRowV1
+	 *
+	 * Adds a table row.
+	 *
+	 */
+	public function testAddEmployeeTableRowV1(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for deleteEmployeeTableRowV1
-     *
-     * Deletes a table row.
-     *
-     */
-    public function testDeleteEmployeeTableRowV1()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for deleteEmployeeTableRowV1
+	 *
+	 * Deletes a table row.
+	 *
+	 */
+	public function testDeleteEmployeeTableRowV1(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getChangedEmployeeTableData
-     *
-     * Gets all updated employee table data.
-     *
-     */
-    public function testGetChangedEmployeeTableData()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getChangedEmployeeTableData
+	 *
+	 * Gets all updated employee table data.
+	 *
+	 */
+	public function testGetChangedEmployeeTableData(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for getEmployeeTableRow
-     *
-     * Gets table rows for a given employee and table combination.
-     *
-     */
-    public function testGetEmployeeTableRow()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for getEmployeeTableRow
+	 *
+	 * Gets table rows for a given employee and table combination.
+	 *
+	 */
+	public function testGetEmployeeTableRow(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateEmployeeTableRow
-     *
-     * Updates a table row..
-     *
-     */
-    public function testUpdateEmployeeTableRow()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateEmployeeTableRow
+	 *
+	 * Updates a table row..
+	 *
+	 */
+	public function testUpdateEmployeeTableRow(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 
-    /**
-     * Test case for updateEmployeeTableRowV
-     *
-     * Updates a table row..
-     *
-     */
-    public function testUpdateEmployeeTableRowV()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
+	/**
+	 * Test case for updateEmployeeTableRowV
+	 *
+	 * Updates a table row..
+	 *
+	 */
+	public function testUpdateEmployeeTableRowV(): void {
+		// TODO: implement
+		self::markTestIncomplete('Not implemented');
+	}
 }

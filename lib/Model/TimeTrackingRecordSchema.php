@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * TimeTrackingRecordSchema
  *
@@ -114,7 +115,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'time_tracking_id' => false,
@@ -143,7 +145,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -177,7 +180,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -186,7 +190,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -209,7 +214,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -337,7 +342,6 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -386,7 +390,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -412,7 +416,6 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets time_tracking_id
@@ -482,12 +485,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setDivisionId($division_id) {
 		if (is_null($division_id)) {
-			array_push($this->openApiNullablesSetToNull, 'division_id');
+			$this->openApiNullablesSetToNull['division_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('division_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['division_id'])) {
+				unset($nullablesSetToNull['division_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -514,12 +516,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setDepartmentId($department_id) {
 		if (is_null($department_id)) {
-			array_push($this->openApiNullablesSetToNull, 'department_id');
+			$this->openApiNullablesSetToNull['department_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('department_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['department_id'])) {
+				unset($nullablesSetToNull['department_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -546,12 +547,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setJobTitleId($job_title_id) {
 		if (is_null($job_title_id)) {
-			array_push($this->openApiNullablesSetToNull, 'job_title_id');
+			$this->openApiNullablesSetToNull['job_title_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('job_title_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['job_title_id'])) {
+				unset($nullablesSetToNull['job_title_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -578,12 +578,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setPayCode($pay_code) {
 		if (is_null($pay_code)) {
-			array_push($this->openApiNullablesSetToNull, 'pay_code');
+			$this->openApiNullablesSetToNull['pay_code'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('pay_code', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['pay_code'])) {
+				unset($nullablesSetToNull['pay_code']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -785,12 +784,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setJobCode($job_code) {
 		if (is_null($job_code)) {
-			array_push($this->openApiNullablesSetToNull, 'job_code');
+			$this->openApiNullablesSetToNull['job_code'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('job_code', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['job_code'])) {
+				unset($nullablesSetToNull['job_code']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -817,12 +815,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setJobData($job_data) {
 		if (is_null($job_data)) {
-			array_push($this->openApiNullablesSetToNull, 'job_data');
+			$this->openApiNullablesSetToNull['job_data'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('job_data', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['job_data'])) {
+				unset($nullablesSetToNull['job_data']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -849,12 +846,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setProjectId($project_id) {
 		if (is_null($project_id)) {
-			array_push($this->openApiNullablesSetToNull, 'project_id');
+			$this->openApiNullablesSetToNull['project_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('project_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['project_id'])) {
+				unset($nullablesSetToNull['project_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -881,12 +877,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setTaskId($task_id) {
 		if (is_null($task_id)) {
-			array_push($this->openApiNullablesSetToNull, 'task_id');
+			$this->openApiNullablesSetToNull['task_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('task_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['task_id'])) {
+				unset($nullablesSetToNull['task_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -913,12 +908,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setShiftDifferentialId($shift_differential_id) {
 		if (is_null($shift_differential_id)) {
-			array_push($this->openApiNullablesSetToNull, 'shift_differential_id');
+			$this->openApiNullablesSetToNull['shift_differential_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('shift_differential_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['shift_differential_id'])) {
+				unset($nullablesSetToNull['shift_differential_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -945,12 +939,11 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 */
 	public function setHolidayId($holiday_id) {
 		if (is_null($holiday_id)) {
-			array_push($this->openApiNullablesSetToNull, 'holiday_id');
+			$this->openApiNullablesSetToNull['holiday_id'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('holiday_id', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['holiday_id'])) {
+				unset($nullablesSetToNull['holiday_id']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -1011,7 +1004,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -1022,7 +1015,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -1034,7 +1027,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -1050,7 +1043,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -1075,11 +1068,12 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -1087,9 +1081,9 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

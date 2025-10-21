@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CursorPagesResponse
  *
@@ -78,7 +79,8 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'limit' => true,
@@ -89,7 +91,8 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -123,7 +126,8 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -132,7 +136,8 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -155,7 +160,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -229,7 +234,6 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -260,7 +264,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -296,7 +300,6 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 		return count($this->listInvalidProperties()) === 0;
 	}
 
-
 	/**
 	 * Gets limit
 	 *
@@ -315,12 +318,11 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	public function setLimit($limit) {
 		if (is_null($limit)) {
-			array_push($this->openApiNullablesSetToNull, 'limit');
+			$this->openApiNullablesSetToNull['limit'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('limit', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['limit'])) {
+				unset($nullablesSetToNull['limit']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -347,12 +349,11 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	public function setNextCursor($next_cursor) {
 		if (is_null($next_cursor)) {
-			array_push($this->openApiNullablesSetToNull, 'next_cursor');
+			$this->openApiNullablesSetToNull['next_cursor'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('next_cursor', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['next_cursor'])) {
+				unset($nullablesSetToNull['next_cursor']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -379,12 +380,11 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	public function setPrevCursor($prev_cursor) {
 		if (is_null($prev_cursor)) {
-			array_push($this->openApiNullablesSetToNull, 'prev_cursor');
+			$this->openApiNullablesSetToNull['prev_cursor'] = true;
 		} else {
 			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			$index = array_search('prev_cursor', $nullablesSetToNull);
-			if ($index !== FALSE) {
-				unset($nullablesSetToNull[$index]);
+			if (isset($nullablesSetToNull['prev_cursor'])) {
+				unset($nullablesSetToNull['prev_cursor']);
 				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
 			}
 		}
@@ -395,7 +395,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -406,7 +406,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -418,7 +418,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -434,7 +434,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -459,11 +459,12 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -471,9 +472,9 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 

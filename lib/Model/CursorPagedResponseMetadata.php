@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * CursorPagedResponseMetadata
  *
@@ -76,7 +77,8 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	  * Array of nullable properties. Used for (de)serialization
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
 		'total' => false,
@@ -86,7 +88,8 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	  * If a nullable field gets set to null, insert it here
 	  *
-	  * @var boolean[]
+	  * @var bool[]
+	  * @phpstan-var array<string, bool>
 	  */
 	protected array $openApiNullablesSetToNull = [];
 
@@ -120,7 +123,8 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Array of nullable field names deliberately set to null
 	 *
-	 * @return boolean[]
+	 * @return bool[]
+	 * @phpstan-return array<string, bool>
 	 */
 	private function getOpenApiNullablesSetToNull(): array {
 		return $this->openApiNullablesSetToNull;
@@ -129,7 +133,8 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Setter - Array of nullable field names deliberately set to null
 	 *
-	 * @param boolean[] $openApiNullablesSetToNull
+	 * @param bool[] $openApiNullablesSetToNull
+	 * @phpstan-param array<string, bool> $openApiNullablesSetToNull
 	 */
 	private function setOpenApiNullablesSetToNull(array $openApiNullablesSetToNull): void {
 		$this->openApiNullablesSetToNull = $openApiNullablesSetToNull;
@@ -152,7 +157,7 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	 * @return bool
 	 */
 	public function isNullableSetToNull(string $property): bool {
-		return in_array($property, $this->getOpenApiNullablesSetToNull(), true);
+		return isset($this->getOpenApiNullablesSetToNull()[$property]);
 	}
 
 	/**
@@ -223,7 +228,6 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 		return self::$openApiModelName;
 	}
 
-
 	/**
 	 * Associative array for storing property values
 	 *
@@ -253,7 +257,7 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	*/
 	private function setIfExists(string $variableName, array $fields, $defaultValue): void {
 		if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-			$this->openApiNullablesSetToNull[] = $variableName;
+			$this->openApiNullablesSetToNull[$variableName] = true;
 		}
 
 		$this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
@@ -285,7 +289,6 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
 	}
-
 
 	/**
 	 * Gets total
@@ -339,7 +342,7 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return boolean
 	 */
@@ -350,7 +353,7 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Gets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return mixed|null
 	 */
@@ -362,7 +365,7 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets value based on offset.
 	 *
-	 * @param int|null $offset Offset
+	 * @param string|null $offset Offset
 	 * @param mixed    $value  Value to be set
 	 *
 	 * @return void
@@ -378,7 +381,7 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Unsets offset.
 	 *
-	 * @param integer $offset Offset
+	 * @param string $offset Offset
 	 *
 	 * @return void
 	 */
@@ -403,11 +406,12 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	 *
 	 * @return string
 	 */
-	public function __toString() {
-		return json_encode(
+	public function __toString(): string {
+		$jsonEncoded = json_encode(
 			ObjectSerializer::sanitizeForSerialization($this),
 			JSON_PRETTY_PRINT
 		);
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 
 	/**
@@ -415,9 +419,9 @@ class CursorPagedResponseMetadata implements ModelInterface, ArrayAccess, \JsonS
 	 *
 	 * @return string
 	 */
-	public function toHeaderValue() {
-		return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+	public function toHeaderValue(): string {
+		$jsonEncoded = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+		return $jsonEncoded === false ? '{}' : $jsonEncoded;
 	}
 }
-
 
