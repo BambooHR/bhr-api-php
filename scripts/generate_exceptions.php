@@ -28,10 +28,6 @@ if (!file_exists($templateDir . '/' . $docTemplateName)) {
 	die("Error: Doc template file not found at {$templateDir}/{$docTemplateName}\n");
 }
 
-if (!file_exists($templateDir . '/' . $baseDocTemplateName)) {
-	die("Error: Base doc template file not found at {$templateDir}/{$baseDocTemplateName}\n");
-}
-
 if (!file_exists($templateDir . '/' . $clientDocTemplateName)) {
 	die("Error: Client doc template file not found at {$templateDir}/{$clientDocTemplateName}\n");
 }

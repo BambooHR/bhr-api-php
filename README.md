@@ -218,6 +218,49 @@ $apiInstance = new BhrSdk\Api\EmployeesApi(
 );
 ```
 
+### OAuth Token Refresh
+
+The SDK supports automatic OAuth token refresh when using BambooHR's OAuth 2.0 flow:
+
+```php
+$client = (new ApiClient())
+    ->withOAuthRefresh(
+        accessToken: 'your-access-token',
+        refreshToken: 'your-refresh-token',
+        clientId: 'your-oauth-client-id',
+        clientSecret: 'your-oauth-client-secret',
+        expiresIn: 3600  // Optional: seconds until token expires
+    )
+    ->forCompany('acme')
+    ->build();
+
+// SDK automatically refreshes the token when:
+// 1. The token is about to expire (proactive refresh)
+// 2. A 401 Unauthorized response is received (reactive refresh)
+```
+
+**Persisting Refreshed Tokens:**
+
+When tokens are refreshed, you'll need to save the new tokens. Use the callback:
+
+```php
+$client = (new ApiClient())
+    ->withOAuthRefresh(
+        accessToken: $accessToken,
+        refreshToken: $refreshToken,
+        clientId: $clientId,
+        clientSecret: $clientSecret
+    )
+    ->onTokenRefresh(function($newAccessToken, $newRefreshToken, $oldAccessToken, $oldRefreshToken) {
+        // Save to database, session, cache, etc.
+        saveUserTokens($userId, $newAccessToken, $newRefreshToken);
+    })
+    ->forCompany('acme')
+    ->build();
+```
+
+**Note:** Token refresh only activates when both `accessToken` AND `refreshToken` are provided via `withOAuthRefresh()`. Using the standard `withOAuth()` method will not enable automatic refresh.
+
 ## API Endpoints
 
 All URIs are relative to *https://companySubDomain.bamboohr.com*
