@@ -573,25 +573,27 @@ Class | Method | HTTP request | Description
 - [Exceptions](docs/Exceptions/Exceptions.md) - Information about exceptions, potential causes, and debugging tips
 
 ## Authorization
-
 Authentication schemes defined for the API:
-### oauth
-
-- **Type**: `OAuth`
-- **Flow**: `application`
-- **Authorization URL**: ``
-- **Scopes**: N/A
 
 ### oauth
+- Type: OAuth
+- Flow: client credentials
+- Authorization URL: https://{companyDomain}.bamboohr.com/authorize.php
+- Scopes: N/A
 
-- **Type**: `OAuth`
-- **Flow**: `accessCode`
-- **Authorization URL**: `https://{companyDomain}.bamboohr.com/authorize.php`
-- **Scopes**: N/A
+To authenticate with OAuth, use the `withOAuth()` method outlined in the [Authentication Methods](#authentication-methods) section.
 
-### basic
+Or use the `withOAuthRefresh()` method to enable automatic token refresh, as outlined in the [OAuth Token Refresh](#oauth-token-refresh) section.
 
-- **Type**: HTTP basic authentication
+### api key
+- Type: HTTP Basic Authentication
+- The API key is used as the username with a fixed password of 'x'
+- API keys provide full access to your BambooHR account
+- Generate API keys in your BambooHR account under Account > API Keys
+
+To authenticate with an API key, use the `withApiKey()` method, as outlined in the [Authentication Methods](#authentication-methods) section.
+
+**Security Note:** Store your API key securely and never expose it in client-side code.
 
 ## Tests
 
@@ -608,11 +610,6 @@ make test
 vendor/bin/phpunit test/path/to/TestFile.php
 vendor/bin/phpunit --filter=testMethodName
 ```
-
-## Author
-
-
-
 
 ## Contributing
 

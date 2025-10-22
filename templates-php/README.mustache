@@ -288,8 +288,19 @@ Authentication schemes defined for the API:
 - Authorization URL: https://{companyDomain}.bamboohr.com/authorize.php
 - Scopes: N/A
 
+To authenticate with OAuth, use the `withOAuth()` method outlined in the [Authentication Methods](#authentication-methods) section.
+
+Or use the `withOAuthRefresh()` method to enable automatic token refresh, as outlined in the [OAuth Token Refresh](#oauth-token-refresh) section.
+
 ### api key
-- 
+- Type: HTTP Basic Authentication
+- The API key is used as the username with a fixed password of 'x'
+- API keys provide full access to your BambooHR account
+- Generate API keys in your BambooHR account under Account > API Keys
+
+To authenticate with an API key, use the `withApiKey()` method, as outlined in the [Authentication Methods](#authentication-methods) section.
+
+**Security Note:** Store your API key securely and never expose it in client-side code.
 
 ## Tests
 
