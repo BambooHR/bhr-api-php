@@ -237,43 +237,17 @@ Class | Method | HTTP request | Description
 - [Exceptions](docs/Exceptions/Exceptions.md) - Information about exceptions, potential causes, and debugging tips
 
 ## Authorization
-{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
-{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
-{{#authMethods}}
-### {{{name}}}
-{{#isApiKey}}
+Authentication schemes defined for the API:
 
-- **Type**: API key
-- **API key parameter name**: {{{keyParamName}}}
-- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
+### oauth
+- Type: OAuth
+- Flow: client credentials
+- Authorization URL: https://{companyDomain}.bamboohr.com/authorize.php
+- Scopes: N/A
 
-{{/isApiKey}}
-{{#isBasic}}
-{{#isBasicBasic}}
+### api key
+- 
 
-- **Type**: HTTP basic authentication
-{{/isBasicBasic}}
-{{#isBasicBearer}}
-
-- **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
-{{/isBasicBearer}}
-{{#isHttpSignature}}
-
-- **Type**: HTTP signature authentication
-{{/isHttpSignature}}
-{{/isBasic}}
-{{#isOAuth}}
-
-- **Type**: `OAuth`
-- **Flow**: `{{{flow}}}`
-- **Authorization URL**: `{{{authorizationUrl}}}`
-- **Scopes**: {{^scopes}}N/A{{/scopes}}
-{{#scopes}}
-    - **{{{scope}}}**: {{{description}}}
-{{/scopes}}
-{{/isOAuth}}
-
-{{/authMethods}}
 ## Tests
 
 To run the tests, use:
@@ -289,11 +263,6 @@ make test
 vendor/bin/phpunit test/path/to/TestFile.php
 vendor/bin/phpunit --filter=testMethodName
 ```
-
-## Author
-
-{{#apiInfo}}{{#apis}}{{#-last}}{{infoEmail}}
-{{/-last}}{{/apis}}{{/apiInfo}}
 
 ## Contributing
 
