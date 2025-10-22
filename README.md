@@ -14,7 +14,7 @@ PHP 8.1 and later.
 To install the bindings via [Composer](https://getcomposer.org/), simply run:
 
 ```bash
-composer require bamboohr/bhr-sdk
+composer require bamboohr/api
 ```
 
 This will install the latest version of the SDK from [Packagist](https://packagist.org/), the main Composer repository.

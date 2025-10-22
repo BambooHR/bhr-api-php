@@ -11,7 +11,7 @@ PACKAGE_NAME = BhrSdk
 PACKAGE_VERSION = 2.0.0
 PACKAGE_URL = https://www.bamboohr.com/
 DEVELOPER_URL = https://github.com/BambooHR/bhr-api-php
-COMPOSER_PACKAGE_NAME = bamboohr/bhr-sdk
+COMPOSER_PACKAGE_NAME = bamboohr/api
 
 .PHONY: help generate clean test phpstan
 
