@@ -53,7 +53,6 @@ clean:
 	rm -rf lib docs test .openapi-generator
 	@echo "Clean complete!"
 
-
 test:
 	@echo "Running tests..."
 	./vendor/bin/phpunit

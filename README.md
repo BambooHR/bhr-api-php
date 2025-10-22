@@ -555,13 +555,79 @@ Authentication schemes defined for the API:
 To run the tests, use:
 
 ```bash
+# First, install dependencies if you haven't already
 composer install
-vendor/bin/phpunit
+
+# Then run the test suite
+make test
+
+# To run specific tests with phpunit directly
+vendor/bin/phpunit test/path/to/TestFile.php
+vendor/bin/phpunit --filter=testMethodName
 ```
 
 ## Author
 
 
+
+
+## Contributing
+
+We welcome contributions to improve this SDK! Here's how you can help:
+
+### Bug Reports and Feature Requests
+
+Please use the issue tracker to report any bugs or request features.
+
+### Pull Requests
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run the tests to ensure everything works
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style and conventions
+- Add/update tests for any new or changed functionality
+- Update documentation as needed
+- Keep pull requests focused on a single topic
+- Run code quality tools before submitting your code:
+
+```bash
+# Check code style with PHP_CodeSniffer
+make phpcs
+
+# Run static analysis with PHPStan
+make phpstan
+```
+
+### Testing
+
+Before submitting a pull request, make sure all tests pass:
+
+```bash
+# First, install dependencies if you haven't already
+composer install
+
+# Then run the test suite
+make test
+
+# To run specific tests with phpunit directly
+vendor/bin/phpunit tests/path/to/TestFile.php
+vendor/bin/phpunit --filter=testMethodName
+```
+
+## Support
+
+If you encounter any issues or need assistance with this SDK, please contact us through one of these channels:
+
+- **Documentation**: Refer to the [official documentation](https://www.bamboohr.com/api/documentation)
+- **Community**: Check existing issues and discussions for similar problems
+- **Issue Tracker**: Submit bugs and feature requests through our GitHub issue tracker
 
 ## About this package
 
