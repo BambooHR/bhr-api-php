@@ -28,40 +28,7 @@ Download the files and include `autoload.php`:
 require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
-## Getting Started
-
-Please follow the [installation procedure](#installation--usage) and then run the following:
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basic
-$config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new BhrSdk\Api\ATSApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$application_id = 56; // int | The ID of the application to look up details.
-
-try {
-    $result = $apiInstance->getApplicationDetails($application_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ATSApi->getApplicationDetails: ', $e->getMessage(), PHP_EOL;
-}
-
-```
-
-## Using the Fluent API Client (Recommended)
+## Getting Started using the Fluent API Client (Recommended)
 
 The SDK provides a modern, fluent interface for easier configuration and usage:
 
@@ -595,22 +562,6 @@ To authenticate with an API key, use the `withApiKey()` method, as outlined in t
 
 **Security Note:** Store your API key securely and never expose it in client-side code.
 
-## Tests
-
-To run the tests, use:
-
-```bash
-# First, install dependencies if you haven't already
-composer install
-
-# Then run the test suite
-make test
-
-# To run specific tests with phpunit directly
-vendor/bin/phpunit test/path/to/TestFile.php
-vendor/bin/phpunit --filter=testMethodName
-```
-
 ## Contributing
 
 We welcome contributions to improve this SDK! Here's how you can help:
@@ -633,7 +584,7 @@ Please use the issue tracker to report any bugs or request features.
 
 - Follow the existing code style and conventions
 - Add/update tests for any new or changed functionality
-- Update documentation as needed
+- Update documentation as needed (if updating this readme, update the mustache template and run `make generate`)
 - Keep pull requests focused on a single topic
 - Run code quality tools before submitting your code:
 
