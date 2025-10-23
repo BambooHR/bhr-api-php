@@ -16,23 +16,13 @@ PHP 8.1 and later.
 
 ### Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+To install the bindings via [Composer](https://getcomposer.org/), simply run:
 
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://{{gitHost}}/{{gitUserId}}/{{gitRepoId}}.git"
-    }
-  ],
-  "require": {
-    "{{gitUserId}}/{{gitRepoId}}": "*@dev"
-  }
-}
+```bash
+composer require {{composerPackageName}}
 ```
 
-Then run `composer install`
+This will install the latest version of the SDK from [Packagist](https://packagist.org/), the main Composer repository.
 
 ### Manual Installation
 
@@ -43,36 +33,7 @@ Download the files and include `autoload.php`:
 require_once('/path/to/{{packageName}}/vendor/autoload.php');
 ```
 
-## Getting Started
-
-Please follow the [installation procedure](#installation--usage) and then run the following:
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-{{> php_doc_auth_partial}}
-
-$apiInstance = new {{invokerPackage}}\Api\{{classname}}(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(){{#hasAuthMethods}},
-    $config{{/hasAuthMethods}}
-);
-{{#allParams}}${{paramName}} = {{{example}}}; // {{{dataType}}}{{#description}} | {{{.}}}{{/description}}
-{{/allParams}}
-
-try {
-    {{#returnType}}$result = {{/returnType}}$apiInstance->{{{operationId}}}({{#allParams}}${{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
-    print_r($result);{{/returnType}}
-} catch (Exception $e) {
-    echo 'Exception when calling {{classname}}->{{operationId}}: ', $e->getMessage(), PHP_EOL;
-}
-{{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
-```
-
-## Using the Fluent API Client (Recommended)
+## Getting Started using the Fluent API Client (Recommended)
 
 The SDK provides a modern, fluent interface for easier configuration and usage:
 
@@ -290,56 +251,131 @@ Class | Method | HTTP request | Description
 - [Exceptions](docs/Exceptions/Exceptions.md) - Information about exceptions, potential causes, and debugging tips
 
 ## Authorization
-{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
-{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
-{{#authMethods}}
-### {{{name}}}
-{{#isApiKey}}
+Authentication schemes defined for the API:
 
-- **Type**: API key
-- **API key parameter name**: {{{keyParamName}}}
-- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
+### oauth
+- Type: OAuth
+- Flow: client credentials
+- Authorization URL: https://{companyDomain}.bamboohr.com/authorize.php
+- Scopes: N/A
 
-{{/isApiKey}}
-{{#isBasic}}
-{{#isBasicBasic}}
+To authenticate with OAuth, use the `withOAuth()` method outlined in the [Authentication Methods](#authentication-methods) section.
 
-- **Type**: HTTP basic authentication
-{{/isBasicBasic}}
-{{#isBasicBearer}}
+Or use the `withOAuthRefresh()` method to enable automatic token refresh, as outlined in the [OAuth Token Refresh](#oauth-token-refresh) section.
 
-- **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
-{{/isBasicBearer}}
-{{#isHttpSignature}}
+### api key
+- Type: HTTP Basic Authentication
+- The API key is used as the username with a fixed password of 'x'
+- API keys provide full access to your BambooHR account
+- Generate API keys in your BambooHR account under Account > API Keys
 
-- **Type**: HTTP signature authentication
-{{/isHttpSignature}}
-{{/isBasic}}
-{{#isOAuth}}
+To authenticate with an API key, use the `withApiKey()` method, as outlined in the [Authentication Methods](#authentication-methods) section.
 
-- **Type**: `OAuth`
-- **Flow**: `{{{flow}}}`
-- **Authorization URL**: `{{{authorizationUrl}}}`
-- **Scopes**: {{^scopes}}N/A{{/scopes}}
-{{#scopes}}
-    - **{{{scope}}}**: {{{description}}}
-{{/scopes}}
-{{/isOAuth}}
+**Security Note:** Store your API key securely and never expose it in client-side code.
 
-{{/authMethods}}
-## Tests
+## Contributing
 
-To run the tests, use:
+We welcome contributions to improve this SDK! Here's how you can help:
+
+### Bug Reports and Feature Requests
+
+Please use the issue tracker to report any bugs or request features.
+
+### Pull Requests
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run the tests to ensure everything works
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style and conventions
+- Add/update tests for any new or changed functionality
+- Update documentation as needed (if updating this readme, update the mustache template and run `make generate`)
+- Keep pull requests focused on a single topic
+- Run code quality tools before submitting your code:
 
 ```bash
-composer install
-vendor/bin/phpunit
+# Check code style with PHP_CodeSniffer
+make phpcs
+
+# Run static analysis with PHPStan
+make phpstan
 ```
 
-## Author
+### Testing
 
-{{#apiInfo}}{{#apis}}{{#-last}}{{infoEmail}}
-{{/-last}}{{/apis}}{{/apiInfo}}
+Before submitting a pull request, make sure all tests pass:
+
+```bash
+# First, install dependencies if you haven't already
+composer install
+
+# Then run the test suite
+make test
+
+# To run specific tests with phpunit directly
+vendor/bin/phpunit tests/path/to/TestFile.php
+vendor/bin/phpunit --filter=testMethodName
+```
+
+## Generating SDK
+
+NOTE: this requires a public OpenAPI spec file, which is only available to BambooHR developers.
+The path to the spec file is specified by the `OPENAPI_SPEC_PATH` environment variable.
+
+To generate the SDK, run:
+
+```bash
+make generate
+```
+
+### Manual changes to the auto-generated code
+
+If you need to make manual changes to the auto-generated code, update the corresponding template in the `templates-php` directory and run `make generate` to regenerate the SDK.
+We have updated most of the templates fairly extensively to conform to our coding standards.
+
+Nearly all files under `lib` and `test` are generated by the `make generate` command, with the following exceptions and notes:
+- `lib/Api/ManualApi.php`
+- `lib/ApiErrorHelper.php`
+- `lib/ApiHelper.php`
+- `lib/Client/*` (all files in this directory)
+- `test/Client/*` (all files in this directory)
+- `test/ApiErrorHelperTest.php`
+
+*Note: regeneration will not force an overwrite of tests in the `test` directory, unless tests are deleted first.*
+
+### Generating Error Documentation
+
+The error documentation is automatically generated from the error messages defined in `ApiErrorHelper.php`. To update the documentation when error messages are added or modified, run:
+
+```bash
+make generate-error-docs
+```
+
+Note that this script will also run as part of the `make generate` command.
+
+This will:
+
+1. Regenerate the `docs/Exceptions/Exceptions.md` file with the latest error information
+2. Generate exception classes in `lib/Exceptions/` for each error type
+3. Generate exception documentation in `docs/Exceptions/Classes/`
+
+## Support
+
+If you encounter any issues or need assistance with this SDK, please contact us through one of these channels:
+
+{{#infoEmail}}
+- **Email Support**: [{{infoEmail}}](mailto:{{infoEmail}})
+{{/infoEmail}}
+- **Documentation**: Refer to the [official documentation]({{#infoUrl}}{{infoUrl}}{{/infoUrl}}{{^infoUrl}}https://www.bamboohr.com/api/documentation{{/infoUrl}})
+- **Community**: Check existing issues and discussions for similar problems
+- **Issue Tracker**: Submit bugs and feature requests through our GitHub issue tracker
+
 ## About this package
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
@@ -353,45 +389,3 @@ This PHP package is automatically generated by the [OpenAPI Generator](https://o
 {{/hideGenerationTimestamp}}
     - Generator version: `{{generatorVersion}}`
 - Build package: `{{generatorClass}}`
-
-- To generate, run:
-```
-openapi-generator generate \
-    -i /path/to/openapi.yaml \
-    -g php \
-    -t ./templates-php \
-    --additional-properties=invokerPackage=BhrSdk,artifactUrl=https://www.bamboohr.com/,developerOrganizationUrl=https://github.com/BambooHR/bhr-api-php,artifactVersion=2.0.0 \
-    && sed -i '' '/\*PublicAPIApi\*/d' README.md \
-    && sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES
-    && ./scripts/update_error_docs.sh
-```
-
-### Generating Error Documentation
-
-The error documentation is automatically generated from the error messages defined in `ApiErrorHelper.php`. To update the documentation when error messages are added or modified, run:
-
-```bash
-./scripts/update_error_docs.sh
-```
-
-This will:
-
-1. Regenerate the `docs/Exceptions/Exceptions.md` file with the latest error information
-2. Generate exception classes in `lib/Exceptions/` for each error type
-3. Generate exception documentation in `docs/Exceptions/Classes/`
-
-#### Exception Hierarchy
-
-The SDK provides a robust exception hierarchy for handling API errors:
-
-- `ApiException` - Base class for all exceptions
-  - `ClientException` - Base class for 4xx errors
-    - `BadRequestException` - 400 Bad Request
-    - `AuthenticationFailedException` - 401 Unauthorized
-    - And other specific 4xx exceptions
-  - `ServerException` - Base class for 5xx errors
-    - `InternalServerErrorException` - 500 Internal Server Error
-    - `ServiceUnavailableException` - 503 Service Unavailable
-    - And other specific 5xx exceptions
-
-See the [Exception Classes Documentation](docs/Exceptions/Exceptions.md) for details on all available exception types.

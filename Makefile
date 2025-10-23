@@ -11,7 +11,7 @@ PACKAGE_NAME = BhrSdk
 PACKAGE_VERSION = 2.0.0
 PACKAGE_URL = https://www.bamboohr.com/
 DEVELOPER_URL = https://github.com/BambooHR/bhr-api-php
-COMPOSER_PACKAGE_NAME = bamboohr/bhr-sdk
+COMPOSER_PACKAGE_NAME = bamboohr/api
 
 .PHONY: help generate clean test phpstan
 
@@ -38,15 +38,20 @@ generate:
 		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
 		&& sed -i '' '/\*PublicAPIApi\*/d' README.md \
 		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
+		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh
 	@echo "SDK generation complete!"
+
+generate-error-docs:
+	@echo "Generating error documentation..."
+	./scripts/update_error_docs.sh
+	@echo "Error documentation generated!"
 
 clean:
 	@echo "Cleaning generated files..."
 	rm -rf lib docs test .openapi-generator
 	@echo "Clean complete!"
-
 
 test:
 	@echo "Running tests..."
