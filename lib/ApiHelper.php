@@ -41,7 +41,7 @@ class ApiHelper {
 	 * @throws ApiException on non-2xx response
 	 * @return ResponseInterface
 	 */
-	public static function sendRequestWithRetries(LoggerInterface $logger, ClientInterface $client, Configuration $config, RequestInterface $request, array $options): ResponseInterface {
+	public static function sendRequestWithRetries(?LoggerInterface $logger, ClientInterface $client, Configuration $config, RequestInterface $request, array $options): ResponseInterface {
 		// Get the configured number of retries for timeout errors
 		$retries = $config->getRetries();
 		$attempt = 0;
@@ -49,7 +49,7 @@ class ApiHelper {
 
 		// Log the request with redacted sensitive information
 		$requestData = self::redactSensitiveInfo($request);
-		$logger->info('API Request', [
+		$logger?->info('API Request', [
 			'method' => $requestData['method'],
 			'uri' => $requestData['uri'],
 			'headers' => $requestData['headers'],
@@ -71,7 +71,7 @@ class ApiHelper {
 
 				// Log the successful response with redacted sensitive information
 				$responseData = self::redactSensitiveInfo($response);
-				$logger->info('API Response', [
+				$logger?->info('API Response', [
 					'method' => $requestData['method'],
 					'uri' => $requestData['uri'],
 					'status_code' => $responseData['status_code'],
@@ -91,7 +91,7 @@ class ApiHelper {
 
 				// Log the failed response
 				$responseData = $e->getResponse() ? self::redactSensitiveInfo($e->getResponse()) : [];
-				$logger->error('API Error Response', [
+				$logger?->error('API Error Response', [
 					'method' => $requestData['method'],
 					'uri' => $requestData['uri'],
 					'status_code' => $statusCode,
@@ -124,7 +124,7 @@ class ApiHelper {
 				$attemptDuration = (microtime(true) - $attemptStartTime) * 1000; // This attempt time in milliseconds
 
 				// Log the connection exception
-				$logger->error('API Connection Error', [
+				$logger?->error('API Connection Error', [
 					'method' => $requestData['method'],
 					'uri' => $requestData['uri'],
 					'error' => $e->getMessage(),
@@ -154,7 +154,7 @@ class ApiHelper {
 			}
 		} while ($attempt <= $retries);
 
-		$logger->error('API Request Failed', [
+		$logger?->error('API Request Failed', [
 			'method' => $requestData['method'],
 			'uri' => $requestData['uri'],
 			'error' => 'Request failed after maximum retries',
@@ -181,7 +181,7 @@ class ApiHelper {
 	 *
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public static function sendRequestWithRetriesAsync(LoggerInterface $logger, ClientInterface $client, Configuration $config, RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
+	public static function sendRequestWithRetriesAsync(?LoggerInterface $logger, ClientInterface $client, Configuration $config, RequestInterface $request, array $options): \GuzzleHttp\Promise\PromiseInterface {
 		// Get the configured number of retries for timeout errors
 		$retries = $config->getRetries();
 		$timeoutStatusCodes = $config->getRetryableStatusCodes();
@@ -189,7 +189,7 @@ class ApiHelper {
 
 		// Log the request with redacted sensitive information
 		$requestData = self::redactSensitiveInfo($request);
-		$logger->info('API Async Request', [
+		$logger?->info('API Async Request', [
 			'method' => $requestData['method'],
 			'uri' => $requestData['uri'],
 			'headers' => $requestData['headers'],
@@ -203,7 +203,7 @@ class ApiHelper {
 
 			$attemptStartTime = microtime(true);
 
-			$logger->debug('API Async Attempt', [
+			$logger?->debug('API Async Attempt', [
 				'method' => $requestData['method'],
 				'uri' => $requestData['uri'],
 				'attempt' => $attempt,
@@ -219,7 +219,7 @@ class ApiHelper {
 
 						// Log the successful response with redacted sensitive information
 						$responseData = self::redactSensitiveInfo($response);
-						$logger->info('API Async Response', [
+						$logger?->info('API Async Response', [
 							'method' => $requestData['method'],
 							'uri' => $requestData['uri'],
 							'status_code' => $responseData['status_code'],
@@ -245,7 +245,7 @@ class ApiHelper {
 							$responseData = $reason->getResponse() ? self::redactSensitiveInfo($reason->getResponse()) : [];
 							$willRetry = in_array($statusCode, $timeoutStatusCodes) && $attempt <= $retries;
 
-							$logger->error('API Async Error Response', [
+							$logger?->error('API Async Error Response', [
 								'method' => $requestData['method'],
 								'uri' => $requestData['uri'],
 								'status_code' => $statusCode,
@@ -271,7 +271,7 @@ class ApiHelper {
 							$willRetry = $attempt <= $retries;
 
 							// Log the connection exception
-							$logger->error('API Async Connection Error', [
+							$logger?->error('API Async Connection Error', [
 								'method' => $requestData['method'],
 								'uri' => $requestData['uri'],
 								'error' => $reason->getMessage(),
@@ -313,7 +313,7 @@ class ApiHelper {
 							return \GuzzleHttp\Promise\Create::rejectionFor($eInner);
 						} else {
 							// Log other types of exceptions
-							$logger->error('API Async Unknown Error', [
+							$logger?->error('API Async Unknown Error', [
 								'method' => $requestData['method'],
 								'uri' => $requestData['uri'],
 								'error' => $reason->getMessage(),
@@ -451,7 +451,7 @@ class ApiHelper {
 
 			// Redact query parameters and sensitive path segments
 			$uri = $message->getUri();
-			$path = $uri->getPath();
+			$path = (string) $uri->getPath();
 
 			// Redact potentially sensitive path segments
 			// Look for common patterns like IDs in paths (e.g., /users/12345/profile)
@@ -462,7 +462,7 @@ class ApiHelper {
 			];
 
 			foreach ($sensitivePathPatterns as $pattern => $replacement) {
-				$path = preg_replace($pattern, $replacement, $path);
+				$path = preg_replace($pattern, $replacement, (string) $path);
 			}
 
 			// Build the redacted URI
