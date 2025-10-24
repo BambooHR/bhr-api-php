@@ -52,7 +52,7 @@ $client = (new ApiClient())
     ->build();
 
 // Use convenience methods to access APIs
-$employee = $client->employees()->getEmployee('123');
+$employee = $client->employees()->getEmployee('firstName,lastName', '123');
 $timeOffRequests = $client->timeOff()->getTimeOffRequests();
 ```
 
@@ -157,8 +157,9 @@ $client = (new ApiClient())
 
 try {
     // Get employee information
-    $employee = $client->employees()->getEmployee('123');
-    echo "Employee: {$employee->getFirstName()} {$employee->getLastName()}\n";
+    // Note: getEmployee returns array<string,mixed>, use array access
+    $employee = $client->employees()->getEmployee('firstName,lastName', '123');
+    echo "Employee: {$employee['firstName']} {$employee['lastName']}\n";
     
     // Get time off requests
     $requests = $client->timeOff()->getTimeOffRequests();
@@ -189,6 +190,33 @@ $apiInstance = new BhrSdk\Api\EmployeesApi(
     $config
 );
 ```
+
+## Migration Guide
+
+If you're upgrading from an older version of the SDK or transitioning from direct API calls:
+
+- **[Complete Migration Guide](MIGRATION.md)** - Comprehensive guide for upgrading
+- **[Migration Examples](examples/)** - Practical code examples showing before/after patterns
+
+### ⚠️ Critical: Return Types
+
+**Returns are arrays, not objects:**
+```php
+// ✓ Correct - use array access
+$employee = $api->getEmployee('firstName,lastName', '123');
+echo $employee['firstName'];
+
+// ✗ Wrong - will cause fatal error
+echo $employee->getFirstName();
+```
+
+**Method name changes:**
+```php
+$client->employeeFiles()  // ✓ Correct
+$client->files()          // ✗ Doesn't exist
+```
+
+For detailed migration steps and troubleshooting, see [MIGRATION.md](MIGRATION.md).
 
 ### OAuth Token Refresh
 
