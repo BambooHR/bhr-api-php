@@ -181,7 +181,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -227,7 +227,7 @@ class BenefitsApi {
 		
 		$request = $this->addEmployeeDependentRequest($employee_dependent, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -370,7 +370,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -416,7 +416,7 @@ class BenefitsApi {
 		
 		$request = $this->getBenefitCoveragesRequest($accept_header_parameter, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -545,7 +545,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -589,7 +589,7 @@ class BenefitsApi {
 		
 		$request = $this->getBenefitDeductionTypesRequest($contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -716,7 +716,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -764,7 +764,7 @@ class BenefitsApi {
 		
 		$request = $this->getEmployeeDependentRequest($id, $accept_header_parameter, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -914,7 +914,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -962,7 +962,7 @@ class BenefitsApi {
 		
 		$request = $this->getEmployeeDependentsRequest($employeeid, $accept_header_parameter, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1116,7 +1116,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1182,7 +1182,7 @@ class BenefitsApi {
 		$returnType = '\BhrSdk\Model\MemberBenefitEvent[]';
 		$request = $this->getMemberBenefitRequest($contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1311,7 +1311,7 @@ class BenefitsApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1359,7 +1359,7 @@ class BenefitsApi {
 		
 		$request = $this->updateEmployeeDependentRequest($id, $employee_dependent, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();

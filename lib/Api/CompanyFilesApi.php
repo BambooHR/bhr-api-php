@@ -178,7 +178,7 @@ class CompanyFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -224,7 +224,7 @@ class CompanyFilesApi {
 		
 		$request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -367,7 +367,7 @@ class CompanyFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -413,7 +413,7 @@ class CompanyFilesApi {
 		
 		$request = $this->deleteCompanyFileRequest($file_id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -555,7 +555,7 @@ class CompanyFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -601,7 +601,7 @@ class CompanyFilesApi {
 		
 		$request = $this->getCompanyFileRequest($file_id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -741,7 +741,7 @@ class CompanyFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -785,7 +785,7 @@ class CompanyFilesApi {
 		
 		$request = $this->listCompanyFilesRequest($contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -912,7 +912,7 @@ class CompanyFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -960,7 +960,7 @@ class CompanyFilesApi {
 		
 		$request = $this->updateCompanyFileRequest($file_id, $company_file_update, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1112,7 +1112,7 @@ class CompanyFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1156,7 +1156,7 @@ class CompanyFilesApi {
 		
 		$request = $this->uploadCompanyFileRequest($contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();

@@ -178,7 +178,7 @@ class EmployeeFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -224,7 +224,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -369,7 +369,7 @@ class EmployeeFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -417,7 +417,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->deleteEmployeeFileRequest($id, $file_id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -571,7 +571,7 @@ class EmployeeFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -619,7 +619,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -771,7 +771,7 @@ class EmployeeFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -817,7 +817,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->listEmployeeFilesRequest($id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -963,7 +963,7 @@ class EmployeeFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1013,7 +1013,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->updateEmployeeFileRequest($id, $file_id, $employee_file_update, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1177,7 +1177,7 @@ class EmployeeFilesApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1223,7 +1223,7 @@ class EmployeeFilesApi {
 		
 		$request = $this->uploadEmployeeFileRequest($id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();

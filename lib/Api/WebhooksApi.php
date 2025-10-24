@@ -181,7 +181,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -227,7 +227,7 @@ class WebhooksApi {
 		
 		$request = $this->deleteWebhookRequest($id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -368,7 +368,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -440,7 +440,7 @@ class WebhooksApi {
 		$returnType = '\BhrSdk\Model\GetMonitorFields200Response';
 		$request = $this->getMonitorFieldsRequest($contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -568,7 +568,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -654,7 +654,7 @@ class WebhooksApi {
 		$returnType = '\BhrSdk\Model\WebHookResponse';
 		$request = $this->getWebhookRequest($id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -797,7 +797,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -869,7 +869,7 @@ class WebhooksApi {
 		$returnType = '\BhrSdk\Model\GetWebhookList200Response';
 		$request = $this->getWebhookListRequest($contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -997,7 +997,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1083,7 +1083,7 @@ class WebhooksApi {
 		$returnType = '\BhrSdk\Model\WebHookLogResponse';
 		$request = $this->getWebhookLogsRequest($id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1228,7 +1228,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1314,7 +1314,7 @@ class WebhooksApi {
 		$returnType = '\BhrSdk\Model\PostWebhook201Response';
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -1462,7 +1462,7 @@ class WebhooksApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1556,7 +1556,7 @@ class WebhooksApi {
 		$returnType = '\BhrSdk\Model\WebHookResponse';
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();

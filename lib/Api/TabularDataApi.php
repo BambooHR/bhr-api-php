@@ -185,7 +185,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -235,7 +235,7 @@ class TabularDataApi {
 		
 		$request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -403,7 +403,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -453,7 +453,7 @@ class TabularDataApi {
 		
 		$request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -622,7 +622,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -694,7 +694,7 @@ class TabularDataApi {
 		$returnType = '\BhrSdk\Model\DeleteEmployeeTableRowV1200Response';
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
@@ -860,7 +860,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -908,7 +908,7 @@ class TabularDataApi {
 		
 		$request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1070,7 +1070,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1118,7 +1118,7 @@ class TabularDataApi {
 		
 		$request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1276,7 +1276,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1328,7 +1328,7 @@ class TabularDataApi {
 		
 		$request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
@@ -1508,7 +1508,7 @@ class TabularDataApi {
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->client, $this->config, $request, $options);
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
 
 		$statusCode = $response->getStatusCode();
 
@@ -1560,7 +1560,7 @@ class TabularDataApi {
 		
 		$request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
 
-		return ApiHelper::sendRequestWithRetriesAsync($this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
 				function ($response) {
 					$content = (string) $response->getBody();
