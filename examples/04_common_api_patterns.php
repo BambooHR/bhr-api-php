@@ -1,9 +1,12 @@
 <?php
 /**
- * Example 4: Common API Patterns - Old vs New
+ * Example 4: Common API Patterns - SDK v1 to SDK v2 Migration
  * 
  * Side-by-side comparison of common BambooHR API operations
- * showing migration from direct API calls to SDK v2.
+ * showing migration from SDK v1 (BambooAPI class) to SDK v2.
+ * 
+ * If you're migrating from direct cURL calls instead, see MIGRATION.md
+ * for cURL-specific examples.
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -28,15 +31,12 @@ echo "=== Common API Patterns: Migration Examples ===\n\n";
 echo "1. GET EMPLOYEE DIRECTORY\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Direct cURL):\n";
+echo "OLD (SDK v1):\n";
 echo <<<'PHP'
-$url = "https://mycompany.bamboohr.com/v1/employees/directory";
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-$directory = json_decode($response, true);
+use BambooHR\API\BambooAPI;
+
+$bamboo = new BambooAPI('mycompany', 'api_key');
+$directory = $bamboo->getDirectory();
 
 foreach ($directory['employees'] as $employee) {
     echo $employee['displayName'] . "\n";
@@ -49,7 +49,6 @@ echo <<<'PHP'
 $employeesApi = $client->employees();
 $directory = $employeesApi->getEmployeesDirectory();
 
-// Use array access since SDK model may be incomplete
 $employees = $directory['employees'] ?? [];
 foreach ($employees as $employee) {
     $displayName = $employee['displayName'] ?? $employee->displayName ?? 'Unknown';
@@ -73,24 +72,14 @@ try {
 echo "\n2. UPDATE EMPLOYEE INFORMATION\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Direct cURL):\n";
+echo "OLD (SDK v1):\n";
 echo <<<'PHP'
-$url = "https://mycompany.bamboohr.com/v1/employees/123";
-$data = json_encode([
+$bamboo = new BambooAPI('mycompany', 'api_key');
+$bamboo->updateEmployee('123', [
     'firstName' => 'John',
     'lastName' => 'Doe',
     'jobTitle' => 'Senior Developer'
 ]);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen($data)
-]);
-curl_exec($ch);
 
 PHP;
 
@@ -116,10 +105,10 @@ echo "\n✓ No manual JSON encoding or HTTP header management!\n\n";
 echo "\n3. CREATE TIME OFF REQUEST\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Direct cURL):\n";
+echo "OLD (SDK v1):\n";
 echo <<<'PHP'
-$url = "https://mycompany.bamboohr.com/v1/employees/123/time_off/request";
-$data = json_encode([
+$bamboo = new BambooAPI('mycompany', 'api_key');
+$response = $bamboo->requestTimeOff('123', [
     'start' => '2024-12-20',
     'end' => '2024-12-27',
     'timeOffTypeId' => 1,
@@ -127,14 +116,6 @@ $data = json_encode([
     'amount' => 5.0,
     'notes' => 'Holiday vacation'
 ]);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
 
 PHP;
 
@@ -164,17 +145,10 @@ echo "\n✓ Type-safe request objects with validation!\n\n";
 echo "\n4. GET CUSTOM REPORT\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Direct cURL):\n";
+echo "OLD (SDK v1):\n";
 echo <<<'PHP'
-$reportId = 123;
-$format = 'JSON';
-$url = "https://mycompany.bamboohr.com/v1/reports/{$reportId}?format={$format}";
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/json']);
-$report = json_decode(curl_exec($ch), true);
+$bamboo = new BambooAPI('mycompany', 'api_key');
+$report = $bamboo->getReport(123, 'JSON');
 
 PHP;
 
@@ -200,20 +174,13 @@ echo "\n✓ Named parameters make intent clear!\n\n";
 echo "\n5. UPLOAD EMPLOYEE FILE\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Direct cURL):\n";
+echo "OLD (SDK v1):\n";
 echo <<<'PHP'
-$url = "https://mycompany.bamboohr.com/v1/employees/123/files";
-$filePath = '/path/to/document.pdf';
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, [
-    'file' => new CURLFile($filePath),
+$bamboo = new BambooAPI('mycompany', 'api_key');
+$bamboo->uploadFile('123', '/path/to/document.pdf', [
     'fileName' => 'document.pdf',
     'category' => 'contract'
 ]);
-curl_exec($ch);
 
 PHP;
 
@@ -240,19 +207,18 @@ echo "\n✓ Works with SplFileObject - no cURL file handling!\n\n";
 echo "\n6. BATCH OPERATIONS\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Multiple cURL requests):\n";
+echo "OLD (SDK v1 - Multiple requests):\n";
 echo <<<'PHP'
+$bamboo = new BambooAPI('mycompany', 'api_key');
 $employeeIds = [101, 102, 103, 104, 105];
 $employees = [];
 
 foreach ($employeeIds as $id) {
-    $url = "https://mycompany.bamboohr.com/v1/employees/{$id}";
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    $employees[] = json_decode($response, true);
-    curl_close($ch);
+    try {
+        $employees[] = $bamboo->getEmployee($id);
+    } catch (Exception $e) {
+        // Handle errors
+    }
 }
 
 PHP;
@@ -288,22 +254,15 @@ echo "\n✓ Connection reuse and better error handling!\n\n";
 echo "\n7. CREATE WEBHOOK\n";
 echo str_repeat('-', 70) . "\n\n";
 
-echo "OLD (Direct cURL):\n";
+echo "OLD (SDK v1):\n";
 echo <<<'PHP'
-$url = "https://mycompany.bamboohr.com/v1/webhooks";
-$data = json_encode([
+$bamboo = new BambooAPI('mycompany', 'api_key');
+$webhook = $bamboo->addWebhook([
     'name' => 'Employee Changes',
     'monitorFields' => ['firstName', 'lastName', 'jobTitle'],
     'url' => 'https://myapp.com/webhooks/bamboo',
     'format' => 'json'
 ]);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_exec($ch);
 
 PHP;
 
@@ -331,32 +290,32 @@ echo "\n✓ Typed response with webhook ID!\n\n";
 // ============================================================================
 
 echo "\n" . str_repeat('=', 70) . "\n";
-echo "MIGRATION BENEFITS SUMMARY\n";
+echo "SDK v1 → v2 MIGRATION BENEFITS\n";
 echo str_repeat('=', 70) . "\n\n";
 
-echo "Code Quality:\n";
-echo "  ✓ Type-safe requests and responses\n";
-echo "  ✓ IDE autocompletion support\n";
-echo "  ✓ No manual JSON encoding/decoding\n";
-echo "  ✓ No HTTP header management\n";
-echo "  ✓ Built-in validation\n\n";
+echo "New Features:\n";
+echo "  ✓ OAuth 2.0 support with automatic token refresh\n";
+echo "  ✓ Built-in retry with exponential backoff\n";
+echo "  ✓ Specific exception types (BadRequestException, etc.)\n";
+echo "  ✓ getPotentialCauses() and getDebuggingTips() on errors\n";
+echo "  ✓ PHP 8.1+ features (enums, union types, named params)\n\n";
 
 echo "Developer Experience:\n";
-echo "  ✓ Fluent, readable API\n";
-echo "  ✓ Named parameters\n";
-echo "  ✓ Clear method names\n";
-echo "  ✓ Comprehensive error handling\n";
-echo "  ✓ OAuth with auto-refresh\n\n";
+echo "  ✓ Fluent builder pattern for configuration\n";
+echo "  ✓ Named parameters for clarity\n";
+echo "  ✓ Type-safe requests and responses\n";
+echo "  ✓ IDE autocompletion support\n";
+echo "  ✓ Better error messages with context\n\n";
 
-echo "Maintenance:\n";
-echo "  ✓ Less code to maintain\n";
-echo "  ✓ Easier to test\n";
-echo "  ✓ Better error messages\n";
-echo "  ✓ Automatic SDK updates\n";
-echo "  ✓ Community support\n\n";
+echo "Code Quality:\n";
+echo "  ✓ Strict type checking\n";
+echo "  ✓ Built-in validation\n";
+echo "  ✓ Easier to test with dependency injection\n";
+echo "  ✓ Modern coding standards\n";
+echo "  ✓ Comprehensive documentation\n\n";
 
-echo "Performance:\n";
-echo "  ✓ HTTP connection pooling\n";
-echo "  ✓ Efficient serialization\n";
-echo "  ✓ Automatic retry logic\n";
-echo "  ✓ Request/response caching options\n";
+echo "Migration Notes:\n";
+echo "  → Most method names are similar: getEmployee(), getDirectory(), etc.\n";
+echo "  → Main difference: fluent API client builder vs constructor\n";
+echo "  → See MIGRATION.md for detailed mapping of all v1 → v2 methods\n";
+echo "  → Examples in this file show side-by-side comparisons\n";

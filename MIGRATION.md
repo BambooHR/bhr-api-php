@@ -524,48 +524,144 @@ $directory = $employeesApi->getEmployeesDirectory();
 
 ## Error Handling
 
-### Exception Hierarchy
+The SDK provides **two approaches** for error handling: single catch with switch statement, or multiple specific exception catches.
+
+### Approach 1: Single Catch with Switch (Traditional)
 
 ```php
 use BhrSdk\ApiException;
-use BhrSdk\Exceptions\AuthenticationFailedException;
 
 try {
-    $client = (new ApiClient())
-        ->withOAuth($accessToken)
-        ->forCompany('mycompany')
-        ->build();
-    
-    $employeesApi = $client->employees();
     $employee = $employeesApi->getEmployee('firstName,lastName', '123');
     
-} catch (AuthenticationFailedException $e) {
-    // 401 Unauthorized - Token expired or invalid
-    error_log("Authentication failed: " . $e->getMessage());
-    
-    // Redirect to login or refresh token
-    redirectToLogin();
-    
 } catch (ApiException $e) {
-    // Other API errors (400, 403, 404, 500, etc.)
     $statusCode = $e->getCode();
-    $message = $e->getMessage();
-    $responseBody = $e->getResponseBody();
     
-    error_log("API Error [$statusCode]: $message");
+    switch ($statusCode) {
+        case 400:
+            // Bad request
+            break;
+        case 401:
+            // Authentication failed
+            redirectToLogin();
+            break;
+        case 404:
+            // Not found
+            break;
+        case 429:
+            // Rate limited
+            retryWithBackoff();
+            break;
+        default:
+            error_log("API Error [$statusCode]: {$e->getMessage()}");
+    }
+}
+```
+
+### Approach 2: Specific Exception Types (Recommended)
+
+SDK v2 provides **dedicated exception classes for each HTTP status code**:
+
+```php
+use BhrSdk\ApiException;
+use BhrSdk\Exceptions\BadRequestException;
+use BhrSdk\Exceptions\AuthenticationFailedException;
+use BhrSdk\Exceptions\PermissionDeniedException;
+use BhrSdk\Exceptions\ResourceNotFoundException;
+use BhrSdk\Exceptions\RateLimitExceededException;
+
+try {
+    $employee = $employeesApi->getEmployee('firstName,lastName', '123');
     
-    if ($statusCode === 404) {
-        // Handle not found
-    } elseif ($statusCode === 403) {
-        // Handle forbidden
-    } elseif ($statusCode >= 500) {
-        // Handle server error
-        retryRequest();
+} catch (BadRequestException $e) {
+    // 400 - Invalid request parameters
+    echo "Bad Request:\n";
+    foreach ($e->getPotentialCauses() as $cause) {
+        echo "  - {$cause}\n";
+    }
+    foreach ($e->getDebuggingTips() as $tip) {
+        echo "  - {$tip}\n";
     }
     
-} catch (\Exception $e) {
-    // Network errors, etc.
-    error_log("Unexpected error: " . $e->getMessage());
+} catch (AuthenticationFailedException $e) {
+    // 401 - Authentication failed
+    error_log("Authentication failed: " . $e->getMessage());
+    redirectToLogin();
+    
+} catch (PermissionDeniedException $e) {
+    // 403 - Insufficient permissions
+    error_log("Permission denied: " . $e->getMessage());
+    showPermissionError();
+    
+} catch (ResourceNotFoundException $e) {
+    // 404 - Resource not found
+    error_log("Resource not found: " . $e->getMessage());
+    show404Page();
+    
+} catch (RateLimitExceededException $e) {
+    // 429 - Too many requests
+    error_log("Rate limited: " . $e->getMessage());
+    retryWithBackoff();
+    
+} catch (ApiException $e) {
+    // Fallback for other status codes
+    error_log("API Error [{$e->getCode()}]: {$e->getMessage()}");
+}
+```
+
+### Available Specific Exceptions
+
+| Exception | Status | Description |
+|-----------|--------|-------------|
+| `BadRequestException` | 400 | Invalid request parameters |
+| `AuthenticationFailedException` | 401 | Authentication failed |
+| `PermissionDeniedException` | 403 | Insufficient permissions |
+| `ResourceNotFoundException` | 404 | Resource not found |
+| `MethodNotAllowedException` | 405 | HTTP method not allowed |
+| `RequestTimeoutException` | 408 | Request timeout |
+| `ConflictException` | 409 | Resource conflict |
+| `PayloadTooLargeException` | 413 | Request payload too large |
+| `UnsupportedMediaTypeException` | 415 | Unsupported media type |
+| `UnprocessableEntityException` | 422 | Validation errors |
+| `RateLimitExceededException` | 429 | Rate limit exceeded |
+| `InternalServerErrorException` | 500 | Server error |
+| `NotImplementedException` | 501 | Not implemented |
+| `BadGatewayException` | 502 | Bad gateway |
+| `ServiceUnavailableException` | 503 | Service unavailable |
+| `GatewayTimeoutException` | 504 | Gateway timeout |
+| `InsufficientStorageException` | 507 | Insufficient storage |
+| `NetworkReadTimeoutException` | 598 | Network read timeout |
+
+All exceptions are in the `BhrSdk\Exceptions` namespace and extend either `ClientException` (4xx) or `ServerException` (5xx).
+
+### Exception Helper Methods
+
+Each specific exception provides:
+
+- **`getPotentialCauses()`**: Array of possible reasons for the error
+- **`getDebuggingTips()`**: Array of suggestions for fixing the error
+- **`getCode()`**: HTTP status code
+- **`getMessage()`**: Error message
+- **`getResponseBody()`**: Raw response body
+- **`getResponseHeaders()`**: Response headers
+
+**Example using helper methods:**
+
+```php
+try {
+    $employee = $employeesApi->getEmployee('firstName,lastName', '123');
+} catch (BadRequestException $e) {
+    echo "Error: {$e->getMessage()}\n\n";
+    
+    echo "Potential causes:\n";
+    foreach ($e->getPotentialCauses() as $cause) {
+        echo "  • {$cause}\n";
+    }
+    
+    echo "\nDebugging tips:\n";
+    foreach ($e->getDebuggingTips() as $tip) {
+        echo "  • {$tip}\n";
+    }
 }
 ```
 
@@ -635,7 +731,49 @@ $client = (new ApiClient())
     ->build();
 ```
 
-### 3. Logging
+### 3. Retry Configuration
+
+The SDK includes **built-in automatic retry** with exponential backoff:
+
+**✅ Recommended - Use built-in retry:**
+```php
+$client = (new ApiClient())
+    ->withApiKey($_ENV['BAMBOO_API_KEY'])
+    ->forCompany($_ENV['BAMBOO_COMPANY'])
+    ->withRetries(3)  // Retry up to 3 times (max 5)
+    ->build();
+
+// Default retryable status codes: [408, 429, 504, 598]
+// Automatically retried with exponential backoff
+
+// Customize which status codes trigger retries:
+$client->getConfig()->setRetryableStatusCodes([429, 500, 502, 503]);
+```
+
+**Benefits:**
+- Automatic exponential backoff (1s, 2s, 4s, 8s...)
+- Configurable retry count (0-5)
+- Configurable status codes to retry
+- No manual retry logic needed
+- Works across all API calls
+
+**❌ Avoid - Manual retry logic:**
+```php
+// Don't write custom retry loops unless you need
+// very specific retry behavior beyond what's built-in
+function manualRetry($api, $id) {
+    for ($i = 0; $i < 3; $i++) {
+        try {
+            return $api->getEmployee('firstName,lastName', $id);
+        } catch (ApiException $e) {
+            if ($i === 2) throw $e;
+            sleep(pow(2, $i));
+        }
+    }
+}
+```
+
+### 4. Logging
 
 **Enable SDK logging for debugging:**
 ```php
@@ -659,7 +797,7 @@ $client = (new ApiClient())
 // Note: Sensitive data (tokens, passwords) are automatically redacted
 ```
 
-### 4. Testing
+### 5. Testing
 
 **Use dependency injection for testability:**
 ```php
