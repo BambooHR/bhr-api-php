@@ -2,8 +2,11 @@
 /**
  * Example 1: Basic API Key Migration
  * 
- * This example shows how to migrate from direct cURL API calls
- * or SDK v1 to SDK v2 using API key authentication.
+ * This example shows how to migrate from SDK v1 (BambooAPI class) or
+ * direct cURL API calls to SDK v2 using API key authentication.
+ * 
+ * Most users are migrating from SDK v1. If you're using cURL directly,
+ * you'll see those patterns referenced as well.
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -12,8 +15,31 @@ use BhrSdk\Client\ApiClient;
 use BhrSdk\ApiException;
 
 // ============================================================================
-// OLD WAY: Direct cURL API calls
+// OLD WAY 1: SDK v1 (BambooAPI class)
 // ============================================================================
+// Many users are migrating from the old PHP SDK v1:
+// https://github.com/BambooHR/bhr-api-php/blob/master/BambooHR/BambooAPI.php
+
+/*
+// SDK v1 example (if you're currently using this):
+use BambooHR\API\BambooAPI;
+
+$bamboo = new BambooAPI($subdomain, $apiKey);
+$employee = $bamboo->getEmployee($employeeId);
+$directory = $bamboo->getDirectory();
+
+// Issues with v1:
+// - Limited type safety
+// - No OAuth support
+// - Basic error handling
+// - PHP 7.4 only
+// - No automatic token refresh
+*/
+
+// ============================================================================
+// OLD WAY 2: Direct cURL API calls
+// ============================================================================
+// If you're using raw cURL (no SDK):
 
 function oldWay_getEmployee(string $subdomain, string $apiKey, string $employeeId): array {
 	$url = "https://{$subdomain}.bamboohr.com/v1/employees/{$employeeId}";
@@ -97,13 +123,24 @@ try {
 }
 
 // ============================================================================
-// KEY BENEFITS OF NEW APPROACH
+// KEY BENEFITS OF SDK v2 (vs. cURL and SDK v1)
 // ============================================================================
 
-echo "\n=== Benefits of SDK v2 ===\n";
-echo "✓ Structured array responses with consistent field names\n";
-echo "✓ Better error handling with specific exceptions\n";
-echo "✓ No manual cURL configuration\n";
+echo "\n=== Benefits of SDK v2 ===\n\n";
+
+echo "Improvements over SDK v1 (BambooAPI):\n";
+echo "✓ OAuth 2.0 support with automatic token refresh\n";
+echo "✓ PHP 8.1+ with strict types and modern features\n";
+echo "✓ Specific exception types (BadRequestException, etc.)\n";
+echo "✓ Built-in retry with exponential backoff\n";
+echo "✓ Comprehensive error context (getPotentialCauses, getDebuggingTips)\n";
+echo "✓ Fluent builder pattern for configuration\n\n";
+
+echo "Improvements over raw cURL:\n";
+echo "✓ No manual HTTP configuration or header management\n";
 echo "✓ Automatic request/response serialization\n";
-echo "✓ Built-in retry logic and error handling\n";
-echo "✓ Fluent, readable API\n";
+echo "✓ Type-safe API methods with IDE autocomplete\n";
+echo "✓ Consistent error handling across all endpoints\n";
+echo "✓ Built-in logging and debugging support\n\n";
+
+echo "See MIGRATION.md for complete migration guide.\n";

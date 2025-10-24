@@ -217,32 +217,32 @@ done
 
 We recommend following this migration path:
 
-### Phase 1: Learn (Week 1)
+### Phase 1: Learn
 1. **Read** [MIGRATION.md](../MIGRATION.md) for overview
 2. **Run** Example 01 - Basic API Key Migration
 3. **Run** Example 04 - Common API Patterns
 4. **Identify** which patterns match your use case
 
-### Phase 2: Plan (Week 2)
+### Phase 2: Plan
 1. **Audit** your current BambooHR integration points
 2. **Map** old code to new SDK equivalents
 3. **Review** Example 05 - Complete Application Migration
 4. **Create** migration checklist for your application
 
-### Phase 3: OAuth Setup (Week 3, if needed)
+### Phase 3: OAuth Setup
 1. **Register** OAuth application in BambooHR
 2. **Implement** OAuth authorization flow
 3. **Run** Example 02 - OAuth with Auto Refresh
 4. **Set up** token storage (database)
 
-### Phase 4: Migrate (Weeks 4-6)
+### Phase 4: Migrate
 1. **Start** with low-risk, read-only endpoints
 2. **Update** one feature at a time
 3. **Test** thoroughly in staging
 4. **Review** Example 03 - Error Handling Migration
 5. **Deploy** to production incrementally
 
-### Phase 5: Optimize (Week 7)
+### Phase 5: Optimize
 1. **Monitor** error rates and performance
 2. **Refactor** based on SDK best practices
 3. **Add** comprehensive logging
@@ -251,7 +251,6 @@ We recommend following this migration path:
 ## Common Migration Scenarios
 
 ### Scenario A: Simple Integration (< 10 API calls)
-**Estimated Time:** 1-2 days
 
 1. Read MIGRATION.md
 2. Follow Example 01
@@ -260,7 +259,6 @@ We recommend following this migration path:
 5. Test and deploy
 
 ### Scenario B: Medium Integration (10-50 API calls)
-**Estimated Time:** 1-2 weeks
 
 1. Read MIGRATION.md and run all examples
 2. Create wrapper class (see Example 05)
@@ -270,7 +268,6 @@ We recommend following this migration path:
 6. Staged rollout
 
 ### Scenario C: Large Integration (50+ API calls)
-**Estimated Time:** 4-8 weeks
 
 1. Complete audit of existing integration
 2. Create detailed migration plan
@@ -281,7 +278,6 @@ We recommend following this migration path:
 7. Team training
 
 ### Scenario D: OAuth Migration Required
-**Estimated Time:** Add 1-2 weeks to above
 
 1. Register OAuth app in BambooHR
 2. Implement authorization flow
