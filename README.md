@@ -228,6 +228,72 @@ $client = (new ApiClient())
 
 **Note:** Token refresh only activates when both `accessToken` AND `refreshToken` are provided via `withOAuthRefresh()`. Using the standard `withOAuth()` method will not enable automatic refresh.
 
+## Migrating from SDK v1 or Direct API Usage
+
+If you're migrating from the old BambooHR PHP SDK (v1) or direct API calls, we've created comprehensive resources to help you:
+
+### 📚 Migration Documentation
+
+- **[MIGRATION.md](MIGRATION.md)** - Complete migration guide with:
+  - Breaking changes and how to handle them
+  - Side-by-side code comparisons (old vs new)
+  - Authentication migration (API key to OAuth)
+  - Common patterns and best practices
+  - Error handling improvements
+  - Performance benefits
+
+### 💡 Practical Examples
+
+The [`examples/`](examples/) directory contains real-world migration scenarios:
+
+| Example | Description | Difficulty |
+|---------|-------------|------------|
+| [01_basic_api_key_migration.php](examples/01_basic_api_key_migration.php) | Simple migration from cURL/SDK v1 to SDK v2 | Beginner |
+| [02_oauth_with_auto_refresh.php](examples/02_oauth_with_auto_refresh.php) | OAuth authentication with automatic token refresh | Intermediate |
+| [03_error_handling_migration.php](examples/03_error_handling_migration.php) | Improved error handling and retry strategies | Intermediate |
+| [04_common_api_patterns.php](examples/04_common_api_patterns.php) | Common API operations (old vs new) | Beginner |
+| [05_complete_application_migration.php](examples/05_complete_application_migration.php) | Full application migration example | Advanced |
+| [06_testing_patterns.php](examples/06_testing_patterns.php) | Testing strategies for SDK v2 | Intermediate |
+
+### 🚀 Quick Migration Example
+
+**Before (Direct API / SDK v1):**
+```php
+// Old cURL approach
+$ch = curl_init('https://mycompany.bamboohr.com/v1/employees/directory');
+curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+$directory = json_decode($response, true);
+```
+
+**After (SDK v2):**
+```php
+$client = (new ApiClient())
+    ->withApiKey($apiKey)
+    ->forCompany('mycompany')
+    ->build();
+
+$directory = $client->employees()->getEmployeesDirectory();
+```
+
+**Key Benefits:**
+- ✅ 70% less code
+- ✅ Type-safe responses
+- ✅ Better error handling
+- ✅ OAuth with auto-refresh
+- ✅ Built-in retry logic
+- ✅ Easy to test
+
+### 🎯 Migration Path
+
+1. **Learn** - Read [MIGRATION.md](MIGRATION.md) and run example 01
+2. **Plan** - Map your current API usage to SDK v2 equivalents
+3. **Migrate** - Update one feature at a time, test thoroughly
+4. **Optimize** - Leverage OAuth, error handling, and logging features
+
+See the [examples/README.md](examples/README.md) for detailed guidance.
+
 ## API Endpoints
 
 All URIs are relative to *https://companySubDomain.bamboohr.com*
