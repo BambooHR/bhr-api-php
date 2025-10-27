@@ -40,7 +40,8 @@ generate:
 		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
-		&& ./scripts/update_error_docs.sh
+		&& ./scripts/update_error_docs.sh \
+		&& ./scripts/add_custom_headers_to_api_docs.sh
 	@echo "SDK generation complete!"
 
 generate-error-docs:
