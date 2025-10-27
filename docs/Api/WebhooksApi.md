@@ -1,5 +1,8 @@
 # BhrSdk\WebhooksApi
 
+
+Please also refer to this link for notes on security and an explanation of global & permissioned webhooks: https://documentation.bamboohr.com/docs/webhooks
+
 All URIs are relative to https://companySubDomain.bamboohr.com, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
