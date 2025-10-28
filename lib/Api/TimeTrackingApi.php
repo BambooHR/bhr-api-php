@@ -332,6 +332,7 @@ class TimeTrackingApi {
 	public function addEditTimesheetClockEntriesRequest($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/store';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -358,16 +359,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -380,6 +384,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -575,6 +580,7 @@ class TimeTrackingApi {
 	public function addEditTimesheetHourEntriesRequest($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/hour_entries/store';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -601,16 +607,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -623,6 +632,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -824,6 +834,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -859,16 +870,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -881,6 +895,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1088,6 +1103,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_out';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1123,16 +1139,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1145,6 +1164,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1304,6 +1324,7 @@ class TimeTrackingApi {
 	public function createTimeTrackingProjectRequest($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/projects';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1330,16 +1351,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1352,6 +1376,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1376,11 +1401,10 @@ class TimeTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return void
 	 */
 	public function deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema, string $contentType = self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'][0]) {
-		list($response) = $this->deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, $contentType);
-		return $response;
+		$this->deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, $contentType);
 	}
 
 	/**
@@ -1393,7 +1417,7 @@ class TimeTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, string $contentType = self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'][0]) {
 		$request = $this->deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, $contentType);
@@ -1404,66 +1428,8 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-		switch($statusCode) {
-			case 204:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 400:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 403:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 404:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 409:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 412:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 500:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-		}
-
-		if ($statusCode < 200 || $statusCode > 299) {
-			throw new ApiException(
-				sprintf(
-					'[%d] Error connecting to the API (%s)',
-					$statusCode,
-					(string) $request->getUri()
-				),
-				$statusCode,
-				$response->getHeaders(),
-				(string) $response->getBody()
-			);
-		}
-
 		return ApiHelper::handleResponseWithDataType(
-			'mixed',
+			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
 		);
@@ -1501,19 +1467,17 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTimesheetClockEntriesViaPostAsyncWithHttpInfo($clock_entry_ids_schema, string $contentType = self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'][0]) {
-		$returnType = 'mixed';
+		
 		$request = $this->deleteTimesheetClockEntriesViaPostRequest($clock_entry_ids_schema, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					$content = (string) $response->getBody();
-					if ($returnType !== 'string') {
-						$content = json_decode($content);
-					}
+					$content = json_decode($content);
 
 					return [
-						ObjectSerializer::deserialize($content, $returnType, []),
+						ObjectSerializer::deserialize($content, 'object', []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -1554,6 +1518,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/delete';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1580,16 +1545,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1602,6 +1570,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1626,11 +1595,10 @@ class TimeTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed
+	 * @return void
 	 */
 	public function deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
-		list($response) = $this->deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema, $contentType);
-		return $response;
+		$this->deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema, $contentType);
 	}
 
 	/**
@@ -1643,7 +1611,7 @@ class TimeTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of mixed|mixed|mixed|mixed|mixed|mixed|mixed|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 		$request = $this->deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema, $contentType);
@@ -1654,72 +1622,8 @@ class TimeTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
-		switch($statusCode) {
-			case 204:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 400:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 401:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 403:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 406:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 409:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 412:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-			case 500:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-		}
-
-		if ($statusCode < 200 || $statusCode > 299) {
-			throw new ApiException(
-				sprintf(
-					'[%d] Error connecting to the API (%s)',
-					$statusCode,
-					(string) $request->getUri()
-				),
-				$statusCode,
-				$response->getHeaders(),
-				(string) $response->getBody()
-			);
-		}
-
 		return ApiHelper::handleResponseWithDataType(
-			'mixed',
+			'object', // or 'mixed' or any other generic type
 			$request,
 			$response,
 		);
@@ -1757,19 +1661,17 @@ class TimeTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteTimesheetHourEntriesViaPostAsyncWithHttpInfo($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
-		$returnType = 'mixed';
+		
 		$request = $this->deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) use ($returnType) {
+				function ($response) {
 					$content = (string) $response->getBody();
-					if ($returnType !== 'string') {
-						$content = json_decode($content);
-					}
+					$content = json_decode($content);
 
 					return [
-						ObjectSerializer::deserialize($content, $returnType, []),
+						ObjectSerializer::deserialize($content, 'object', []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -1803,6 +1705,7 @@ class TimeTrackingApi {
 	public function deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/hour_entries/delete';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1829,16 +1732,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1851,6 +1757,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2056,6 +1963,7 @@ class TimeTrackingApi {
 		}
 		
 		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2090,16 +1998,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2112,6 +2023,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
