@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * NewWebHookTest
+ * ForbiddenTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace BhrSdk\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NewWebHookTest Class Doc Comment
+ * ForbiddenTest Class Doc Comment
  *
  * @category    Class
- * @description NewWebHook
+ * @description Forbidden
  * @package     BhrSdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NewWebHookTest extends TestCase {
+class ForbiddenTest extends TestCase {
 
 	/**
 	 * Setup before running any test case
@@ -67,57 +67,17 @@ class NewWebHookTest extends TestCase {
 	}
 
 	/**
-	 * Test "NewWebHook"
+	 * Test "Forbidden"
 	 */
-	public function testNewWebHook(): void {
+	public function testForbidden(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
 
 	/**
-	 * Test attribute "name"
+	 * Test attribute "error"
 	 */
-	public function testPropertyName(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "monitor_fields"
-	 */
-	public function testPropertyMonitorFields(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "post_fields"
-	 */
-	public function testPropertyPostFields(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "url"
-	 */
-	public function testPropertyUrl(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "format"
-	 */
-	public function testPropertyFormat(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "include_company_domain"
-	 */
-	public function testPropertyIncludeCompanyDomain(): void {
+	public function testPropertyError(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

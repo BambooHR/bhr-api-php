@@ -139,22 +139,6 @@ class PostWebhook201ResponseTest extends TestCase {
 	}
 
 	/**
-	 * Test attribute "frequency"
-	 */
-	public function testPropertyFrequency(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "limit"
-	 */
-	public function testPropertyLimit(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
 	 * Test attribute "private_key"
 	 */
 	public function testPropertyPrivateKey(): void {

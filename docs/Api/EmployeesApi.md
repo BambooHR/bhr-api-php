@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 ## `getEmployee()`
 
 ```php
-getEmployee($fields, $id, $only_current, $accept_header_parameter): array<string,mixed>
+getEmployee($fields, $id, $only_current, $accept_header_parameter): object
 ```
 
 Get Employee
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-**array<string,mixed>**
+**object**
 
 ### Authorization
 

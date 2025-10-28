@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * WebhookSubErrorProperty
+ * GetGoalsAlignmentOptionsRequest
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * WebhookSubErrorProperty Class Doc Comment
+ * GetGoalsAlignmentOptionsRequest Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSerializable {
+class GetGoalsAlignmentOptionsRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'WebhookSubErrorProperty';
+	protected static $openApiModelName = 'get_goals_alignment_options_request';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'error' => 'string',
-		'unknown_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'monitor_fields' => '\BhrSdk\Model\TimeTrackingRecordSchemaProjectTask[]',
-		'duplicate_post_string' => 'string[]',
-		'post_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyPostFieldsInner[]'
+		'goal_id' => 'int'
 	];
 
 	/**
@@ -72,11 +68,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'error' => null,
-		'unknown_fields' => null,
-		'monitor_fields' => null,
-		'duplicate_post_string' => null,
-		'post_fields' => null
+		'goal_id' => null
 	];
 
 	/**
@@ -86,11 +78,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'error' => false,
-		'unknown_fields' => false,
-		'monitor_fields' => false,
-		'duplicate_post_string' => false,
-		'post_fields' => false
+		'goal_id' => false
 	];
 
 	/**
@@ -175,11 +163,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'error' => 'error',
-		'unknown_fields' => 'unknownFields',
-		'monitor_fields' => 'monitorFields',
-		'duplicate_post_string' => 'duplicatePostString',
-		'post_fields' => 'postFields'
+		'goal_id' => 'goalId'
 	];
 
 	/**
@@ -188,11 +172,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'error' => 'setError',
-		'unknown_fields' => 'setUnknownFields',
-		'monitor_fields' => 'setMonitorFields',
-		'duplicate_post_string' => 'setDuplicatePostString',
-		'post_fields' => 'setPostFields'
+		'goal_id' => 'setGoalId'
 	];
 
 	/**
@@ -201,11 +181,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'error' => 'getError',
-		'unknown_fields' => 'getUnknownFields',
-		'monitor_fields' => 'getMonitorFields',
-		'duplicate_post_string' => 'getDuplicatePostString',
-		'post_fields' => 'getPostFields'
+		'goal_id' => 'getGoalId'
 	];
 
 	/**
@@ -259,11 +235,7 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('error', $data ?? [], null);
-		$this->setIfExists('unknown_fields', $data ?? [], null);
-		$this->setIfExists('monitor_fields', $data ?? [], null);
-		$this->setIfExists('duplicate_post_string', $data ?? [], null);
-		$this->setIfExists('post_fields', $data ?? [], null);
+		$this->setIfExists('goal_id', $data ?? [], null);
 	}
 
 	/**
@@ -305,126 +277,26 @@ class WebhookSubErrorProperty implements ModelInterface, ArrayAccess, \JsonSeria
 	}
 
 	/**
-	 * Gets error
+	 * Gets goal_id
 	 *
-	 * @return string|null
+	 * @return int|null
 	 */
-	public function getError() {
-		return $this->container['error'];
+	public function getGoalId() {
+		return $this->container['goal_id'];
 	}
 
 	/**
-	 * Sets error
+	 * Sets goal_id
 	 *
-	 * @param string|null $error error
+	 * @param int|null $goal_id The goal ID to get alignment options for
 	 *
 	 * @return self
 	 */
-	public function setError($error) {
-		if (is_null($error)) {
-			throw new \InvalidArgumentException('non-nullable error cannot be null');
+	public function setGoalId($goal_id) {
+		if (is_null($goal_id)) {
+			throw new \InvalidArgumentException('non-nullable goal_id cannot be null');
 		}
-		$this->container['error'] = $error;
-
-		return $this;
-	}
-
-	/**
-	 * Gets unknown_fields
-	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
-	 */
-	public function getUnknownFields() {
-		return $this->container['unknown_fields'];
-	}
-
-	/**
-	 * Sets unknown_fields
-	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $unknown_fields unknown_fields
-	 *
-	 * @return self
-	 */
-	public function setUnknownFields($unknown_fields) {
-		if (is_null($unknown_fields)) {
-			throw new \InvalidArgumentException('non-nullable unknown_fields cannot be null');
-		}
-		$this->container['unknown_fields'] = $unknown_fields;
-
-		return $this;
-	}
-
-	/**
-	 * Gets monitor_fields
-	 *
-	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaProjectTask[]|null
-	 */
-	public function getMonitorFields() {
-		return $this->container['monitor_fields'];
-	}
-
-	/**
-	 * Sets monitor_fields
-	 *
-	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaProjectTask[]|null $monitor_fields monitor_fields
-	 *
-	 * @return self
-	 */
-	public function setMonitorFields($monitor_fields) {
-		if (is_null($monitor_fields)) {
-			throw new \InvalidArgumentException('non-nullable monitor_fields cannot be null');
-		}
-		$this->container['monitor_fields'] = $monitor_fields;
-
-		return $this;
-	}
-
-	/**
-	 * Gets duplicate_post_string
-	 *
-	 * @return string[]|null
-	 */
-	public function getDuplicatePostString() {
-		return $this->container['duplicate_post_string'];
-	}
-
-	/**
-	 * Sets duplicate_post_string
-	 *
-	 * @param string[]|null $duplicate_post_string duplicate_post_string
-	 *
-	 * @return self
-	 */
-	public function setDuplicatePostString($duplicate_post_string) {
-		if (is_null($duplicate_post_string)) {
-			throw new \InvalidArgumentException('non-nullable duplicate_post_string cannot be null');
-		}
-		$this->container['duplicate_post_string'] = $duplicate_post_string;
-
-		return $this;
-	}
-
-	/**
-	 * Gets post_fields
-	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null
-	 */
-	public function getPostFields() {
-		return $this->container['post_fields'];
-	}
-
-	/**
-	 * Sets post_fields
-	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null $post_fields post_fields
-	 *
-	 * @return self
-	 */
-	public function setPostFields($post_fields) {
-		if (is_null($post_fields)) {
-			throw new \InvalidArgumentException('non-nullable post_fields cannot be null');
-		}
-		$this->container['post_fields'] = $post_fields;
+		$this->container['goal_id'] = $goal_id;
 
 		return $this;
 	}

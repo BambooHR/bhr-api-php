@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * WebHookResponseTest
+ * ApplicationDetailsJobTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace BhrSdk\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * WebHookResponseTest Class Doc Comment
+ * ApplicationDetailsJobTest Class Doc Comment
  *
  * @category    Class
- * @description WebHookResponse
+ * @description Job details
  * @package     BhrSdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class WebHookResponseTest extends TestCase {
+class ApplicationDetailsJobTest extends TestCase {
 
 	/**
 	 * Setup before running any test case
@@ -67,9 +67,9 @@ class WebHookResponseTest extends TestCase {
 	}
 
 	/**
-	 * Test "WebHookResponse"
+	 * Test "ApplicationDetailsJob"
 	 */
-	public function testWebHookResponse(): void {
+	public function testApplicationDetailsJob(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
@@ -83,65 +83,33 @@ class WebHookResponseTest extends TestCase {
 	}
 
 	/**
-	 * Test attribute "name"
+	 * Test attribute "title"
 	 */
-	public function testPropertyName(): void {
+	public function testPropertyTitle(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
 
 	/**
-	 * Test attribute "created"
+	 * Test attribute "department"
 	 */
-	public function testPropertyCreated(): void {
+	public function testPropertyDepartment(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
 
 	/**
-	 * Test attribute "last_sent"
+	 * Test attribute "location"
 	 */
-	public function testPropertyLastSent(): void {
+	public function testPropertyLocation(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
 
 	/**
-	 * Test attribute "monitor_fields"
+	 * Test attribute "hiring_lead"
 	 */
-	public function testPropertyMonitorFields(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "post_fields"
-	 */
-	public function testPropertyPostFields(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "url"
-	 */
-	public function testPropertyUrl(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "format"
-	 */
-	public function testPropertyFormat(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "include_company_domain"
-	 */
-	public function testPropertyIncludeCompanyDomain(): void {
+	public function testPropertyHiringLead(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}

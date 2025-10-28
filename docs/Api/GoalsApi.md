@@ -599,7 +599,7 @@ try {
 ## `getGoalsAlignmentOptions()`
 
 ```php
-getGoalsAlignmentOptions($employee_id, $body)
+getGoalsAlignmentOptions($employee_id, $goal_id, $get_goals_alignment_options_request)
 ```
 
 Alignable Goal Options
@@ -626,10 +626,11 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to get alignable goal options for.
-$body = 'body_example'; // string | Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user.
+$goal_id = 56; // int | Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body.
+$get_goals_alignment_options_request = new \BhrSdk\Model\GetGoalsAlignmentOptionsRequest(); // \BhrSdk\Model\GetGoalsAlignmentOptionsRequest | Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter.
 
 try {
-    $apiInstance->getGoalsAlignmentOptions($employee_id, $body);
+    $apiInstance->getGoalsAlignmentOptions($employee_id, $goal_id, $get_goals_alignment_options_request);
 } catch (Exception $e) {
     echo 'Exception when calling GoalsApi->getGoalsAlignmentOptions: ', $e->getMessage(), PHP_EOL;
 }
@@ -640,7 +641,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID to get alignable goal options for. | |
-| **body** | **string**| Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. | [optional] |
+| **goal_id** | **int**| Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. | [optional] |
+| **get_goals_alignment_options_request** | [**\BhrSdk\Model\GetGoalsAlignmentOptionsRequest**](../Model/GetGoalsAlignmentOptionsRequest.md)| Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. | [optional] |
 
 ### Return type
 

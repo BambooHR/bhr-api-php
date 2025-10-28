@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * NewWebHookTest
+ * InvalidRequestErrorTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace BhrSdk\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NewWebHookTest Class Doc Comment
+ * InvalidRequestErrorTest Class Doc Comment
  *
  * @category    Class
- * @description NewWebHook
+ * @description Error details.
  * @package     BhrSdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NewWebHookTest extends TestCase {
+class InvalidRequestErrorTest extends TestCase {
 
 	/**
 	 * Setup before running any test case
@@ -67,57 +67,25 @@ class NewWebHookTest extends TestCase {
 	}
 
 	/**
-	 * Test "NewWebHook"
+	 * Test "InvalidRequestError"
 	 */
-	public function testNewWebHook(): void {
+	public function testInvalidRequestError(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
 
 	/**
-	 * Test attribute "name"
+	 * Test attribute "code"
 	 */
-	public function testPropertyName(): void {
+	public function testPropertyCode(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
 
 	/**
-	 * Test attribute "monitor_fields"
+	 * Test attribute "message"
 	 */
-	public function testPropertyMonitorFields(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "post_fields"
-	 */
-	public function testPropertyPostFields(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "url"
-	 */
-	public function testPropertyUrl(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "format"
-	 */
-	public function testPropertyFormat(): void {
-		// TODO: implement
-		self::markTestIncomplete('Not implemented');
-	}
-
-	/**
-	 * Test attribute "include_company_domain"
-	 */
-	public function testPropertyIncludeCompanyDomain(): void {
+	public function testPropertyMessage(): void {
 		// TODO: implement
 		self::markTestIncomplete('Not implemented');
 	}
