@@ -294,7 +294,7 @@ class HoursApi {
 		);
 
 		$resourcePath = '/api/v1/timetracking/record';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -519,7 +519,7 @@ class HoursApi {
 		);
 
 		$resourcePath = '/api/v1/timetracking/add';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -744,7 +744,7 @@ class HoursApi {
 		);
 
 		$resourcePath = '/api/v1/timetracking/delete/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -968,7 +968,7 @@ class HoursApi {
 		);
 
 		$resourcePath = '/api/v1/timetracking/adjust';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1193,7 +1193,7 @@ class HoursApi {
 		);
 
 		$resourcePath = '/api/v1/timetracking/record/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

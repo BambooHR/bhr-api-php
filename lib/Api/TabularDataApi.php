@@ -287,7 +287,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -510,7 +510,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -758,7 +758,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -973,7 +973,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/changed/tables/{table}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1188,7 +1188,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1407,7 +1407,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1644,7 +1644,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

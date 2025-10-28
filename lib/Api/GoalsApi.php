@@ -332,7 +332,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -545,7 +545,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -754,7 +754,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -978,7 +978,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1185,7 +1185,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1416,7 +1416,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1655,7 +1655,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1878,7 +1878,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2096,7 +2096,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2299,7 +2299,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/alignmentOptions';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2548,7 +2548,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2771,7 +2771,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2989,7 +2989,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3192,7 +3192,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/shareOptions';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3438,7 +3438,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/close';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3680,7 +3680,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3895,7 +3895,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4137,7 +4137,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4356,7 +4356,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4618,7 +4618,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4874,7 +4874,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5122,7 +5122,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5375,7 +5375,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5623,7 +5623,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

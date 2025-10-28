@@ -272,7 +272,7 @@ class EmployeeFilesApi {
 		);
 
 		$resourcePath = '/api/v1/employees/files/categories';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -472,7 +472,7 @@ class EmployeeFilesApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -679,7 +679,7 @@ class EmployeeFilesApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -880,7 +880,7 @@ class EmployeeFilesApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/files/view';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1085,7 +1085,7 @@ class EmployeeFilesApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/files/{fileId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1296,7 +1296,7 @@ class EmployeeFilesApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/files';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

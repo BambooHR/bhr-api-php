@@ -294,7 +294,7 @@ class DatasetsApi {
 		);
 
 		$resourcePath = '/api/v1/datasets/{datasetName}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -510,7 +510,7 @@ class DatasetsApi {
 	public function getDataSetsRequest(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 
 		$resourcePath = '/api/v1/datasets';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -729,7 +729,7 @@ class DatasetsApi {
 		);
 
 		$resourcePath = '/api/v1/datasets/{datasetName}/fields';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

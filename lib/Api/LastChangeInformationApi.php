@@ -262,7 +262,7 @@ class LastChangeInformationApi {
 		);
 
 		$resourcePath = '/api/v1/employees/changed';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

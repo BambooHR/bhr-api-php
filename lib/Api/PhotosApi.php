@@ -266,7 +266,7 @@ class PhotosApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/photo/{size}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -467,7 +467,7 @@ class PhotosApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/photo';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
