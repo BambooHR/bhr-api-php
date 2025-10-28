@@ -80,7 +80,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'id' => true,
+		'id' => false,
 		'name' => false
 	];
 
@@ -301,13 +301,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 	 */
 	public function setId($id) {
 		if (is_null($id)) {
-			$this->openApiNullablesSetToNull['id'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['id'])) {
-				unset($nullablesSetToNull['id']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
 		}
 		$this->container['id'] = $id;
 

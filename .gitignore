@@ -23,3 +23,7 @@ composer.phar
 **/PublicAPIApi.php
 **/PublicAPIApiTest.php
 **/PublicAPIApi.md
+
+# OpenAPI Generator cleanup backup file
+
+.openapi-generator/FILES.old

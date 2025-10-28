@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * WebhookErrorErrors
+ * GetApplicationDetails200ResponseJob
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * WebhookErrorErrors Class Doc Comment
+ * GetApplicationDetails200ResponseJob Class Doc Comment
  *
  * @category Class
+ * @description Job details
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializable {
+class GetApplicationDetails200ResponseJob implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +50,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'WebhookError_errors';
+	protected static $openApiModelName = 'get_application_details_200_response_job';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'error' => 'string',
-		'unknown_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'monitor_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'duplicate_post_string' => 'string[]',
-		'post_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]'
+		'id' => 'int',
+		'title' => 'string',
+		'department' => 'object',
+		'location' => 'object',
+		'hiring_lead' => 'object'
 	];
 
 	/**
@@ -72,11 +73,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'error' => null,
-		'unknown_fields' => null,
-		'monitor_fields' => null,
-		'duplicate_post_string' => null,
-		'post_fields' => null
+		'id' => null,
+		'title' => null,
+		'department' => null,
+		'location' => null,
+		'hiring_lead' => null
 	];
 
 	/**
@@ -86,11 +87,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'error' => false,
-		'unknown_fields' => false,
-		'monitor_fields' => false,
-		'duplicate_post_string' => false,
-		'post_fields' => false
+		'id' => false,
+		'title' => false,
+		'department' => false,
+		'location' => false,
+		'hiring_lead' => false
 	];
 
 	/**
@@ -175,11 +176,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'error' => 'error',
-		'unknown_fields' => 'unknownFields',
-		'monitor_fields' => 'monitorFields',
-		'duplicate_post_string' => 'duplicatePostString',
-		'post_fields' => 'postFields'
+		'id' => 'id',
+		'title' => 'title',
+		'department' => 'department',
+		'location' => 'location',
+		'hiring_lead' => 'hiringLead'
 	];
 
 	/**
@@ -188,11 +189,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'error' => 'setError',
-		'unknown_fields' => 'setUnknownFields',
-		'monitor_fields' => 'setMonitorFields',
-		'duplicate_post_string' => 'setDuplicatePostString',
-		'post_fields' => 'setPostFields'
+		'id' => 'setId',
+		'title' => 'setTitle',
+		'department' => 'setDepartment',
+		'location' => 'setLocation',
+		'hiring_lead' => 'setHiringLead'
 	];
 
 	/**
@@ -201,11 +202,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'error' => 'getError',
-		'unknown_fields' => 'getUnknownFields',
-		'monitor_fields' => 'getMonitorFields',
-		'duplicate_post_string' => 'getDuplicatePostString',
-		'post_fields' => 'getPostFields'
+		'id' => 'getId',
+		'title' => 'getTitle',
+		'department' => 'getDepartment',
+		'location' => 'getLocation',
+		'hiring_lead' => 'getHiringLead'
 	];
 
 	/**
@@ -259,11 +260,11 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('error', $data ?? [], null);
-		$this->setIfExists('unknown_fields', $data ?? [], null);
-		$this->setIfExists('monitor_fields', $data ?? [], null);
-		$this->setIfExists('duplicate_post_string', $data ?? [], null);
-		$this->setIfExists('post_fields', $data ?? [], null);
+		$this->setIfExists('id', $data ?? [], null);
+		$this->setIfExists('title', $data ?? [], null);
+		$this->setIfExists('department', $data ?? [], null);
+		$this->setIfExists('location', $data ?? [], null);
+		$this->setIfExists('hiring_lead', $data ?? [], null);
 	}
 
 	/**
@@ -305,126 +306,126 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	}
 
 	/**
-	 * Gets error
+	 * Gets id
+	 *
+	 * @return int|null
+	 */
+	public function getId() {
+		return $this->container['id'];
+	}
+
+	/**
+	 * Sets id
+	 *
+	 * @param int|null $id Job ID
+	 *
+	 * @return self
+	 */
+	public function setId($id) {
+		if (is_null($id)) {
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
+		}
+		$this->container['id'] = $id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets title
 	 *
 	 * @return string|null
 	 */
-	public function getError() {
-		return $this->container['error'];
+	public function getTitle() {
+		return $this->container['title'];
 	}
 
 	/**
-	 * Sets error
+	 * Sets title
 	 *
-	 * @param string|null $error error
+	 * @param string|null $title Job title
 	 *
 	 * @return self
 	 */
-	public function setError($error) {
-		if (is_null($error)) {
-			throw new \InvalidArgumentException('non-nullable error cannot be null');
+	public function setTitle($title) {
+		if (is_null($title)) {
+			throw new \InvalidArgumentException('non-nullable title cannot be null');
 		}
-		$this->container['error'] = $error;
+		$this->container['title'] = $title;
 
 		return $this;
 	}
 
 	/**
-	 * Gets unknown_fields
+	 * Gets department
 	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
+	 * @return object|null
 	 */
-	public function getUnknownFields() {
-		return $this->container['unknown_fields'];
+	public function getDepartment() {
+		return $this->container['department'];
 	}
 
 	/**
-	 * Sets unknown_fields
+	 * Sets department
 	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $unknown_fields unknown_fields
+	 * @param object|null $department Department information
 	 *
 	 * @return self
 	 */
-	public function setUnknownFields($unknown_fields) {
-		if (is_null($unknown_fields)) {
-			throw new \InvalidArgumentException('non-nullable unknown_fields cannot be null');
+	public function setDepartment($department) {
+		if (is_null($department)) {
+			throw new \InvalidArgumentException('non-nullable department cannot be null');
 		}
-		$this->container['unknown_fields'] = $unknown_fields;
+		$this->container['department'] = $department;
 
 		return $this;
 	}
 
 	/**
-	 * Gets monitor_fields
+	 * Gets location
 	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
+	 * @return object|null
 	 */
-	public function getMonitorFields() {
-		return $this->container['monitor_fields'];
+	public function getLocation() {
+		return $this->container['location'];
 	}
 
 	/**
-	 * Sets monitor_fields
+	 * Sets location
 	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $monitor_fields monitor_fields
+	 * @param object|null $location Location information
 	 *
 	 * @return self
 	 */
-	public function setMonitorFields($monitor_fields) {
-		if (is_null($monitor_fields)) {
-			throw new \InvalidArgumentException('non-nullable monitor_fields cannot be null');
+	public function setLocation($location) {
+		if (is_null($location)) {
+			throw new \InvalidArgumentException('non-nullable location cannot be null');
 		}
-		$this->container['monitor_fields'] = $monitor_fields;
+		$this->container['location'] = $location;
 
 		return $this;
 	}
 
 	/**
-	 * Gets duplicate_post_string
+	 * Gets hiring_lead
 	 *
-	 * @return string[]|null
+	 * @return object|null
 	 */
-	public function getDuplicatePostString() {
-		return $this->container['duplicate_post_string'];
+	public function getHiringLead() {
+		return $this->container['hiring_lead'];
 	}
 
 	/**
-	 * Sets duplicate_post_string
+	 * Sets hiring_lead
 	 *
-	 * @param string[]|null $duplicate_post_string duplicate_post_string
+	 * @param object|null $hiring_lead Hiring lead information
 	 *
 	 * @return self
 	 */
-	public function setDuplicatePostString($duplicate_post_string) {
-		if (is_null($duplicate_post_string)) {
-			throw new \InvalidArgumentException('non-nullable duplicate_post_string cannot be null');
+	public function setHiringLead($hiring_lead) {
+		if (is_null($hiring_lead)) {
+			throw new \InvalidArgumentException('non-nullable hiring_lead cannot be null');
 		}
-		$this->container['duplicate_post_string'] = $duplicate_post_string;
-
-		return $this;
-	}
-
-	/**
-	 * Gets post_fields
-	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
-	 */
-	public function getPostFields() {
-		return $this->container['post_fields'];
-	}
-
-	/**
-	 * Sets post_fields
-	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $post_fields post_fields
-	 *
-	 * @return self
-	 */
-	public function setPostFields($post_fields) {
-		if (is_null($post_fields)) {
-			throw new \InvalidArgumentException('non-nullable post_fields cannot be null');
-		}
-		$this->container['post_fields'] = $post_fields;
+		$this->container['hiring_lead'] = $hiring_lead;
 
 		return $this;
 	}

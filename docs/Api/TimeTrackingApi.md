@@ -331,7 +331,7 @@ try {
 ## `deleteTimesheetClockEntriesViaPost()`
 
 ```php
-deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema)
+deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema): mixed
 ```
 
 Delete Timesheet Clock Entries
@@ -360,7 +360,8 @@ $apiInstance = new BhrSdk\Api\TimeTrackingApi(
 $clock_entry_ids_schema = new \BhrSdk\Model\ClockEntryIdsSchema(); // \BhrSdk\Model\ClockEntryIdsSchema
 
 try {
-    $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
+    $result = $apiInstance->deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeTrackingApi->deleteTimesheetClockEntriesViaPost: ', $e->getMessage(), PHP_EOL;
 }
@@ -374,7 +375,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**mixed**
 
 ### Authorization
 
@@ -392,7 +393,7 @@ void (empty response body)
 ## `deleteTimesheetHourEntriesViaPost()`
 
 ```php
-deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema)
+deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema): mixed
 ```
 
 Delete Timesheet Hour Entries
@@ -421,7 +422,8 @@ $apiInstance = new BhrSdk\Api\TimeTrackingApi(
 $hour_entry_ids_schema = new \BhrSdk\Model\HourEntryIdsSchema(); // \BhrSdk\Model\HourEntryIdsSchema
 
 try {
-    $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
+    $result = $apiInstance->deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeTrackingApi->deleteTimesheetHourEntriesViaPost: ', $e->getMessage(), PHP_EOL;
 }
@@ -435,7 +437,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**mixed**
 
 ### Authorization
 

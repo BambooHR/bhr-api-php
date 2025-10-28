@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * WebhookErrorErrors
+ * GetEmployeesList400Response
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * WebhookErrorErrors Class Doc Comment
+ * GetEmployeesList400Response Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializable {
+class GetEmployeesList400Response implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'WebhookError_errors';
+	protected static $openApiModelName = 'get_employees_list_400_response';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'error' => 'string',
-		'unknown_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'monitor_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'duplicate_post_string' => 'string[]',
-		'post_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]'
+		'error' => '\BhrSdk\Model\GetEmployeesList400ResponseError'
 	];
 
 	/**
@@ -72,11 +68,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'error' => null,
-		'unknown_fields' => null,
-		'monitor_fields' => null,
-		'duplicate_post_string' => null,
-		'post_fields' => null
+		'error' => null
 	];
 
 	/**
@@ -86,11 +78,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'error' => false,
-		'unknown_fields' => false,
-		'monitor_fields' => false,
-		'duplicate_post_string' => false,
-		'post_fields' => false
+		'error' => false
 	];
 
 	/**
@@ -175,11 +163,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'error' => 'error',
-		'unknown_fields' => 'unknownFields',
-		'monitor_fields' => 'monitorFields',
-		'duplicate_post_string' => 'duplicatePostString',
-		'post_fields' => 'postFields'
+		'error' => 'error'
 	];
 
 	/**
@@ -188,11 +172,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'error' => 'setError',
-		'unknown_fields' => 'setUnknownFields',
-		'monitor_fields' => 'setMonitorFields',
-		'duplicate_post_string' => 'setDuplicatePostString',
-		'post_fields' => 'setPostFields'
+		'error' => 'setError'
 	];
 
 	/**
@@ -201,11 +181,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'error' => 'getError',
-		'unknown_fields' => 'getUnknownFields',
-		'monitor_fields' => 'getMonitorFields',
-		'duplicate_post_string' => 'getDuplicatePostString',
-		'post_fields' => 'getPostFields'
+		'error' => 'getError'
 	];
 
 	/**
@@ -260,10 +236,6 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	 */
 	public function __construct(?array $data = null) {
 		$this->setIfExists('error', $data ?? [], null);
-		$this->setIfExists('unknown_fields', $data ?? [], null);
-		$this->setIfExists('monitor_fields', $data ?? [], null);
-		$this->setIfExists('duplicate_post_string', $data ?? [], null);
-		$this->setIfExists('post_fields', $data ?? [], null);
 	}
 
 	/**
@@ -307,7 +279,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets error
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\GetEmployeesList400ResponseError|null
 	 */
 	public function getError() {
 		return $this->container['error'];
@@ -316,7 +288,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets error
 	 *
-	 * @param string|null $error error
+	 * @param \BhrSdk\Model\GetEmployeesList400ResponseError|null $error error
 	 *
 	 * @return self
 	 */
@@ -325,106 +297,6 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 			throw new \InvalidArgumentException('non-nullable error cannot be null');
 		}
 		$this->container['error'] = $error;
-
-		return $this;
-	}
-
-	/**
-	 * Gets unknown_fields
-	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
-	 */
-	public function getUnknownFields() {
-		return $this->container['unknown_fields'];
-	}
-
-	/**
-	 * Sets unknown_fields
-	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $unknown_fields unknown_fields
-	 *
-	 * @return self
-	 */
-	public function setUnknownFields($unknown_fields) {
-		if (is_null($unknown_fields)) {
-			throw new \InvalidArgumentException('non-nullable unknown_fields cannot be null');
-		}
-		$this->container['unknown_fields'] = $unknown_fields;
-
-		return $this;
-	}
-
-	/**
-	 * Gets monitor_fields
-	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
-	 */
-	public function getMonitorFields() {
-		return $this->container['monitor_fields'];
-	}
-
-	/**
-	 * Sets monitor_fields
-	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $monitor_fields monitor_fields
-	 *
-	 * @return self
-	 */
-	public function setMonitorFields($monitor_fields) {
-		if (is_null($monitor_fields)) {
-			throw new \InvalidArgumentException('non-nullable monitor_fields cannot be null');
-		}
-		$this->container['monitor_fields'] = $monitor_fields;
-
-		return $this;
-	}
-
-	/**
-	 * Gets duplicate_post_string
-	 *
-	 * @return string[]|null
-	 */
-	public function getDuplicatePostString() {
-		return $this->container['duplicate_post_string'];
-	}
-
-	/**
-	 * Sets duplicate_post_string
-	 *
-	 * @param string[]|null $duplicate_post_string duplicate_post_string
-	 *
-	 * @return self
-	 */
-	public function setDuplicatePostString($duplicate_post_string) {
-		if (is_null($duplicate_post_string)) {
-			throw new \InvalidArgumentException('non-nullable duplicate_post_string cannot be null');
-		}
-		$this->container['duplicate_post_string'] = $duplicate_post_string;
-
-		return $this;
-	}
-
-	/**
-	 * Gets post_fields
-	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null
-	 */
-	public function getPostFields() {
-		return $this->container['post_fields'];
-	}
-
-	/**
-	 * Sets post_fields
-	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]|null $post_fields post_fields
-	 *
-	 * @return self
-	 */
-	public function setPostFields($post_fields) {
-		if (is_null($post_fields)) {
-			throw new \InvalidArgumentException('non-nullable post_fields cannot be null');
-		}
-		$this->container['post_fields'] = $post_fields;
 
 		return $this;
 	}

@@ -140,7 +140,7 @@ class ATSApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\ApplicationDetails
+	 * @return \BhrSdk\Model\GetApplicationDetails200Response
 	 */
 	public function getApplicationDetails($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
 		list($response) = $this->getApplicationDetailsWithHttpInfo($application_id, $contentType);
@@ -157,7 +157,7 @@ class ATSApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\ApplicationDetails, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetApplicationDetails200Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getApplicationDetailsWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
 		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
@@ -171,7 +171,7 @@ class ATSApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\ApplicationDetails',
+					'\BhrSdk\Model\GetApplicationDetails200Response',
 					$request,
 					$response,
 				);
@@ -191,7 +191,7 @@ class ATSApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\ApplicationDetails',
+			'\BhrSdk\Model\GetApplicationDetails200Response',
 			$request,
 			$response,
 		);
@@ -229,7 +229,7 @@ class ATSApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getApplicationDetailsAsyncWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
-		$returnType = '\BhrSdk\Model\ApplicationDetails';
+		$returnType = '\BhrSdk\Model\GetApplicationDetails200Response';
 		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))

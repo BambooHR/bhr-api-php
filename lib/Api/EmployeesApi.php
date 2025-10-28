@@ -549,7 +549,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return object
+	 * @return array<string,mixed>
 	 */
 	public function getEmployee($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		list($response) = $this->getEmployeeWithHttpInfo($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -569,7 +569,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of object, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeeWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
@@ -583,7 +583,7 @@ class EmployeesApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'object',
+					'array<string,mixed>',
 					$request,
 					$response,
 				);
@@ -603,7 +603,7 @@ class EmployeesApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'object',
+			'array<string,mixed>',
 			$request,
 			$response,
 		);
@@ -647,7 +647,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeAsyncWithHttpInfo($fields, $id, $only_current = false, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployee'][0]) {
-		$returnType = 'object';
+		$returnType = 'array<string,mixed>';
 		$request = $this->getEmployeeRequest($fields, $id, $only_current, $accept_header_parameter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1011,7 +1011,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\InvalidRequest
+	 * @return \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\GetEmployeesList400Response
 	 */
 	public function getEmployeesList($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
 		list($response) = $this->getEmployeesListWithHttpInfo($filter, $sort, $page, $contentType);
@@ -1030,7 +1030,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\InvalidRequest, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\GetEmployeesList400Response, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeesListWithHttpInfo($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
 		$request = $this->getEmployeesListRequest($filter, $sort, $page, $contentType);
@@ -1050,7 +1050,7 @@ class EmployeesApi {
 				);
 			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\InvalidRequest',
+					'\BhrSdk\Model\GetEmployeesList400Response',
 					$request,
 					$response,
 				);
