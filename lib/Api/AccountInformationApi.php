@@ -288,7 +288,7 @@ class AccountInformationApi {
 	public function getCountriesOptionsRequest(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
 
 		$resourcePath = '/api/v1/meta/countries/options';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -460,7 +460,7 @@ class AccountInformationApi {
 	public function getListOfUsersRequest(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
 
 		$resourcePath = '/api/v1/meta/users';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -669,7 +669,7 @@ class AccountInformationApi {
 		);
 
 		$resourcePath = '/api/v1/meta/provinces/{countryId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -868,7 +868,7 @@ class AccountInformationApi {
 		);
 
 		$resourcePath = '/api/v1/meta/lists/{listFieldId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1064,7 +1064,7 @@ class AccountInformationApi {
 	public function metadataGetAListOfFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
 
 		$resourcePath = '/api/v1/meta/fields';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1246,7 +1246,7 @@ class AccountInformationApi {
 	public function metadataGetAListOfTabularFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
 
 		$resourcePath = '/api/v1/meta/tables';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1428,7 +1428,7 @@ class AccountInformationApi {
 	public function metadataGetDetailsForListFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
 
 		$resourcePath = '/api/v1/meta/lists';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

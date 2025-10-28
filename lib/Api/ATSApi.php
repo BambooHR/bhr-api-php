@@ -282,7 +282,7 @@ class ATSApi {
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

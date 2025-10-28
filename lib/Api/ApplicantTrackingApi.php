@@ -383,7 +383,7 @@ class ApplicantTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/application';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
@@ -726,7 +726,7 @@ class ApplicantTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/job_opening';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
@@ -1023,7 +1023,7 @@ class ApplicantTrackingApi {
 	public function getApplicationsRequest($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 
 		$resourcePath = '/api/v1/applicant_tracking/applications';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1244,7 +1244,7 @@ class ApplicantTrackingApi {
 	public function getCompanyLocationsRequest(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 
 		$resourcePath = '/api/v1/applicant_tracking/locations';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1441,7 +1441,7 @@ class ApplicantTrackingApi {
 	public function getHiringLeadsRequest(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 
 		$resourcePath = '/api/v1/applicant_tracking/hiring_leads';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1628,7 +1628,7 @@ class ApplicantTrackingApi {
 	public function getJobSummariesRequest($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 
 		$resourcePath = '/api/v1/applicant_tracking/jobs';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1818,7 +1818,7 @@ class ApplicantTrackingApi {
 	public function getStatusesRequest(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 
 		$resourcePath = '/api/v1/applicant_tracking/statuses';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2008,7 +2008,7 @@ class ApplicantTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2217,7 +2217,7 @@ class ApplicantTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

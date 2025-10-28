@@ -275,7 +275,7 @@ class WebhooksApi {
 		);
 
 		$resourcePath = '/api/v1/webhooks/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -487,7 +487,7 @@ class WebhooksApi {
 	public function getMonitorFieldsRequest(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 
 		$resourcePath = '/api/v1/webhooks/monitor_fields';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -714,7 +714,7 @@ class WebhooksApi {
 		);
 
 		$resourcePath = '/api/v1/webhooks/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -926,7 +926,7 @@ class WebhooksApi {
 	public function getWebhookListRequest(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 
 		$resourcePath = '/api/v1/webhooks';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1153,7 +1153,7 @@ class WebhooksApi {
 		);
 
 		$resourcePath = '/api/v1/webhooks/{id}/log';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1389,7 +1389,7 @@ class WebhooksApi {
 		);
 
 		$resourcePath = '/api/v1/webhooks';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1638,7 +1638,7 @@ class WebhooksApi {
 		);
 
 		$resourcePath = '/api/v1/webhooks/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

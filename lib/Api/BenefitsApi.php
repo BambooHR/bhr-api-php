@@ -275,7 +275,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -462,7 +462,7 @@ class BenefitsApi {
 	public function getBenefitCoveragesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getBenefitCoverages'][0]) {
 
 		$resourcePath = '/api/v1/benefitcoverages';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -639,7 +639,7 @@ class BenefitsApi {
 	public function getBenefitDeductionTypesRequest(string $contentType = self::CONTENT_TYPES['getBenefitDeductionTypes'][0]) {
 
 		$resourcePath = '/api/v1/benefits/settings/deduction_types/all';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -828,7 +828,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1031,7 +1031,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1249,7 +1249,7 @@ class BenefitsApi {
 	public function getMemberBenefitRequest(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 
 		$resourcePath = '/api/v1/benefit/member_benefit';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1439,7 +1439,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

@@ -568,7 +568,7 @@ use BhrSdk\ApiHelper;
 		{{/hasValidation}}{{/allParams}}
 
 		$resourcePath = '{{{path}}}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [{{httpMethod}}], URL: ' . $resourcePath);
 		{{#hasFormParams}}$formParams = [];{{/hasFormParams}}
 		$queryParams = [];
 		$headerParams = [];

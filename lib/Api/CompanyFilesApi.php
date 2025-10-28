@@ -272,7 +272,7 @@ class CompanyFilesApi {
 		);
 
 		$resourcePath = '/api/v1/files/categories';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -466,7 +466,7 @@ class CompanyFilesApi {
 		);
 
 		$resourcePath = '/api/v1/files/{fileId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -659,7 +659,7 @@ class CompanyFilesApi {
 		);
 
 		$resourcePath = '/api/v1/files/{fileId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -840,7 +840,7 @@ class CompanyFilesApi {
 	public function listCompanyFilesRequest(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
 
 		$resourcePath = '/api/v1/files/view';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1030,7 +1030,7 @@ class CompanyFilesApi {
 		);
 
 		$resourcePath = '/api/v1/files/{fileId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1221,7 +1221,7 @@ class CompanyFilesApi {
 	public function uploadCompanyFileRequest(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
 
 		$resourcePath = '/api/v1/files';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

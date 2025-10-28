@@ -296,7 +296,7 @@ class TimeOffApi {
 	public function getAListOfWhoIsOutRequest($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
 
 		$resourcePath = '/api/v1/time_off/whos_out';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -495,7 +495,7 @@ class TimeOffApi {
 	public function getTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
 
 		$resourcePath = '/api/v1/meta/time_off/policies';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -682,7 +682,7 @@ class TimeOffApi {
 	public function getTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 
 		$resourcePath = '/api/v1/meta/time_off/types';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -893,7 +893,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1102,7 +1102,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1311,7 +1311,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1520,7 +1520,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1729,7 +1729,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1938,7 +1938,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/time_off/requests/{requestId}/status';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2152,7 +2152,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2402,7 +2402,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/time_off/requests';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2613,7 +2613,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2806,7 +2806,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
