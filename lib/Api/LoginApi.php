@@ -270,7 +270,7 @@ class LoginApi {
 	public function loginRequest($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
 
 		$resourcePath = '/api/v1/login';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];

@@ -281,7 +281,7 @@ class ReportsApi {
 		);
 
 		$resourcePath = '/api/v1/reports/{id}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -508,7 +508,7 @@ class ReportsApi {
 		);
 
 		$resourcePath = '/api/v1/reports/custom';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

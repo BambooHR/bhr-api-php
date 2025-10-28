@@ -332,7 +332,7 @@ class TimeTrackingApi {
 	public function addEditTimesheetClockEntriesRequest($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/store';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -580,7 +580,7 @@ class TimeTrackingApi {
 	public function addEditTimesheetHourEntriesRequest($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/hour_entries/store';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -834,7 +834,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1103,7 +1103,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_out';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1324,7 +1324,7 @@ class TimeTrackingApi {
 	public function createTimeTrackingProjectRequest($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/projects';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1579,7 +1579,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/delete';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1833,7 +1833,7 @@ class TimeTrackingApi {
 	public function deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/hour_entries/delete';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2091,7 +2091,7 @@ class TimeTrackingApi {
 		}
 		
 		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

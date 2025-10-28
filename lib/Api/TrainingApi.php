@@ -321,7 +321,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -549,7 +549,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/category';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -768,7 +768,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/type';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -962,7 +962,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1155,7 +1155,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1348,7 +1348,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1571,7 +1571,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1793,7 +1793,7 @@ class TrainingApi {
 	public function listTrainingCategoriesRequest(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 
 		$resourcePath = '/api/v1/training/category';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1990,7 +1990,7 @@ class TrainingApi {
 	public function listTrainingTypesRequest(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 
 		$resourcePath = '/api/v1/training/type';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2205,7 +2205,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/record/{employeeTrainingRecordId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2439,7 +2439,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/category/{trainingCategoryId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2673,7 +2673,7 @@ class TrainingApi {
 		);
 
 		$resourcePath = '/api/v1/training/type/{trainingTypeId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];

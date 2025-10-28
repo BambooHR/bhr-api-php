@@ -285,7 +285,7 @@ class CustomReportsApi {
 		);
 
 		$resourcePath = '/api/v1/custom-reports/{reportId}';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -501,7 +501,7 @@ class CustomReportsApi {
 	public function listReportsRequest($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 
 		$resourcePath = '/api/v1/custom-reports';
-		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
+		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
