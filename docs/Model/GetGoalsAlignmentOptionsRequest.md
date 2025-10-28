@@ -1,10 +1,9 @@
-# # NewWebHookLimit
+# # GetGoalsAlignmentOptionsRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**times** | **int** | The amount of records to send | [optional]
-**seconds** | **int** | The minimum amount of seconds between requests | [optional]
+**goal_id** | **int** | The goal ID to get alignment options for | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

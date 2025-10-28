@@ -47,7 +47,7 @@ $client = (new ApiClient())
     ->build();
 
 // Use convenience methods to access APIs
-$employee = $client->employees()->getEmployee('123');
+$employee = $client->employees()->getEmployee('firstName,lastName', '123');
 $timeOffRequests = $client->timeOff()->getTimeOffRequests();
 ```
 
@@ -154,8 +154,9 @@ $client = (new ApiClient())
 
 try {
     // Get employee information
-    $employee = $client->employees()->getEmployee('123');
-    echo "Employee: {$employee->getFirstName()} {$employee->getLastName()}\n";
+    // Note: getEmployee returns array<string,mixed>, use array access
+    $employee = $client->employees()->getEmployee('firstName,lastName', '123');
+    echo "Employee: {$employee['firstName']} {$employee['lastName']}\n";
     
     // Get time off requests
     $requests = $client->timeOff()->getTimeOffRequests();
@@ -186,6 +187,33 @@ $apiInstance = new BhrSdk\Api\EmployeesApi(
     $config
 );
 ```
+
+## Migration Guide
+
+If you're upgrading from an older version of the SDK or transitioning from direct API calls:
+
+- **[Complete Migration Guide](MIGRATION.md)** - Comprehensive guide for upgrading
+- **[Migration Examples](examples/)** - Practical code examples showing before/after patterns
+
+### ⚠️ Critical: Return Types
+
+**Returns are arrays, not objects:**
+```php
+// ✓ Correct - use array access
+$employee = $api->getEmployee('firstName,lastName', '123');
+echo $employee['firstName'];
+
+// ✗ Wrong - will cause fatal error
+echo $employee->getFirstName();
+```
+
+**Method name changes:**
+```php
+$client->employeeFiles()  // ✓ Correct
+$client->files()          // ✗ Doesn't exist
+```
+
+For detailed migration steps and troubleshooting, see [MIGRATION.md](MIGRATION.md).
 
 ### OAuth Token Refresh
 
@@ -229,72 +257,6 @@ $client = (new ApiClient())
 ```
 
 **Note:** Token refresh only activates when both `accessToken` AND `refreshToken` are provided via `withOAuthRefresh()`. Using the standard `withOAuth()` method will not enable automatic refresh.
-
-## Migrating from SDK v1 or Direct API Usage
-
-If you're migrating from the old BambooHR PHP SDK (v1) or direct API calls, we've created comprehensive resources to help you:
-
-### 📚 Migration Documentation
-
-- **[MIGRATION.md](MIGRATION.md)** - Complete migration guide with:
-  - Breaking changes and how to handle them
-  - Side-by-side code comparisons (old vs new)
-  - Authentication migration (API key to OAuth)
-  - Common patterns and best practices
-  - Error handling improvements
-  - Performance benefits
-
-### 💡 Practical Examples
-
-The [`examples/`](examples/) directory contains real-world migration scenarios:
-
-| Example | Description | Difficulty |
-|---------|-------------|------------|
-| [01_basic_api_key_migration.php](examples/01_basic_api_key_migration.php) | Simple migration from cURL/SDK v1 to SDK v2 | Beginner |
-| [02_oauth_with_auto_refresh.php](examples/02_oauth_with_auto_refresh.php) | OAuth authentication with automatic token refresh | Intermediate |
-| [03_error_handling_migration.php](examples/03_error_handling_migration.php) | Improved error handling and retry strategies | Intermediate |
-| [04_common_api_patterns.php](examples/04_common_api_patterns.php) | Common API operations (old vs new) | Beginner |
-| [05_complete_application_migration.php](examples/05_complete_application_migration.php) | Full application migration example | Advanced |
-| [06_testing_patterns.php](examples/06_testing_patterns.php) | Testing strategies for SDK v2 | Intermediate |
-
-### 🚀 Quick Migration Example
-
-**Before (Direct API / SDK v1):**
-```php
-// Old cURL approach
-$ch = curl_init('https://mycompany.bamboohr.com/v1/employees/directory');
-curl_setopt($ch, CURLOPT_USERPWD, "$apiKey:x");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-$directory = json_decode($response, true);
-```
-
-**After (SDK v2):**
-```php
-$client = (new ApiClient())
-    ->withApiKey($apiKey)
-    ->forCompany('mycompany')
-    ->build();
-
-$directory = $client->employees()->getEmployeesDirectory();
-```
-
-**Key Benefits:**
-- ✅ 70% less code
-- ✅ Type-safe responses
-- ✅ Better error handling
-- ✅ OAuth with auto-refresh
-- ✅ Built-in retry logic
-- ✅ Easy to test
-
-### 🎯 Migration Path
-
-1. **Learn** - Read [MIGRATION.md](MIGRATION.md) and run example 01
-2. **Plan** - Map your current API usage to SDK v2 equivalents
-3. **Migrate** - Update one feature at a time, test thoroughly
-4. **Optimize** - Leverage OAuth, error handling, and logging features
-
-See the [examples/README.md](examples/README.md) for detailed guidance.
 
 ## API Endpoints
 
@@ -506,6 +468,7 @@ Class | Method | HTTP request | Description
 - [GetGoalsAggregateV1200ResponsePersonsInner](docs/Model/GetGoalsAggregateV1200ResponsePersonsInner.md)
 - [GetGoalsAggregateV12200Response](docs/Model/GetGoalsAggregateV12200Response.md)
 - [GetGoalsAggregateV12200ResponseCommentsInner](docs/Model/GetGoalsAggregateV12200ResponseCommentsInner.md)
+- [GetGoalsAlignmentOptionsRequest](docs/Model/GetGoalsAlignmentOptionsRequest.md)
 - [GetHiringLeads200ResponseInner](docs/Model/GetHiringLeads200ResponseInner.md)
 - [GetMonitorFields200Response](docs/Model/GetMonitorFields200Response.md)
 - [GetMonitorFields200ResponseFieldsInner](docs/Model/GetMonitorFields200ResponseFieldsInner.md)
@@ -532,8 +495,6 @@ Class | Method | HTTP request | Description
 - [MemberBenefitEventMembersInnerCoveragesInner](docs/Model/MemberBenefitEventMembersInnerCoveragesInner.md)
 - [MemberBenefitEventMembersInnerCoveragesInnerEventsInner](docs/Model/MemberBenefitEventMembersInnerCoveragesInnerEventsInner.md)
 - [NewWebHook](docs/Model/NewWebHook.md)
-- [NewWebHookFrequency](docs/Model/NewWebHookFrequency.md)
-- [NewWebHookLimit](docs/Model/NewWebHookLimit.md)
 - [Pagination](docs/Model/Pagination.md)
 - [PostApplicantStatusRequest](docs/Model/PostApplicantStatusRequest.md)
 - [PostApplicationCommentRequest](docs/Model/PostApplicationCommentRequest.md)
@@ -541,8 +502,6 @@ Class | Method | HTTP request | Description
 - [PostGoalRequestMilestonesInner](docs/Model/PostGoalRequestMilestonesInner.md)
 - [PostNewEmployee](docs/Model/PostNewEmployee.md)
 - [PostWebhook201Response](docs/Model/PostWebhook201Response.md)
-- [PostWebhook201ResponseFrequency](docs/Model/PostWebhook201ResponseFrequency.md)
-- [PostWebhook201ResponseLimit](docs/Model/PostWebhook201ResponseLimit.md)
 - [PostWebhook403Response](docs/Model/PostWebhook403Response.md)
 - [PostWebhook403ResponseErrorsInner](docs/Model/PostWebhook403ResponseErrorsInner.md)
 - [ProjectCreateRequestSchema](docs/Model/ProjectCreateRequestSchema.md)
@@ -596,7 +555,6 @@ Class | Method | HTTP request | Description
 - [UpdateTrainingTypeRequestCategory](docs/Model/UpdateTrainingTypeRequestCategory.md)
 - [WebHookLogResponse](docs/Model/WebHookLogResponse.md)
 - [WebHookResponse](docs/Model/WebHookResponse.md)
-- [WebHookResponseFrequency](docs/Model/WebHookResponseFrequency.md)
 - [Webhook400Error](docs/Model/Webhook400Error.md)
 - [WebhookError](docs/Model/WebhookError.md)
 - [WebhookErrorErrors](docs/Model/WebhookErrorErrors.md)

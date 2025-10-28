@@ -294,6 +294,7 @@ class DatasetsApi {
 		);
 
 		$resourcePath = '/api/v1/datasets/{datasetName}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -329,16 +330,19 @@ class DatasetsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -351,6 +355,7 @@ class DatasetsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -505,6 +510,7 @@ class DatasetsApi {
 	public function getDataSetsRequest(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
 
 		$resourcePath = '/api/v1/datasets';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -521,16 +527,19 @@ class DatasetsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -543,6 +552,7 @@ class DatasetsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -719,6 +729,7 @@ class DatasetsApi {
 		);
 
 		$resourcePath = '/api/v1/datasets/{datasetName}/fields';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -761,16 +772,19 @@ class DatasetsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -783,6 +797,7 @@ class DatasetsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}

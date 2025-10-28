@@ -332,6 +332,7 @@ class TimeTrackingApi {
 	public function addEditTimesheetClockEntriesRequest($clock_entries_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetClockEntries'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/store';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -358,16 +359,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -380,6 +384,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -575,6 +580,7 @@ class TimeTrackingApi {
 	public function addEditTimesheetHourEntriesRequest($hour_entries_request_schema = null, string $contentType = self::CONTENT_TYPES['addEditTimesheetHourEntries'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/hour_entries/store';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -601,16 +607,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -623,6 +632,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -824,6 +834,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_in';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -859,16 +870,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -881,6 +895,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1088,6 +1103,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/employees/{employeeId}/clock_out';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1123,16 +1139,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1145,6 +1164,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1304,6 +1324,7 @@ class TimeTrackingApi {
 	public function createTimeTrackingProjectRequest($project_create_request_schema = null, string $contentType = self::CONTENT_TYPES['createTimeTrackingProject'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/projects';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1330,16 +1351,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1352,6 +1376,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1554,6 +1579,7 @@ class TimeTrackingApi {
 		);
 
 		$resourcePath = '/api/v1/time_tracking/clock_entries/delete';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1580,16 +1606,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1602,6 +1631,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1803,6 +1833,7 @@ class TimeTrackingApi {
 	public function deleteTimesheetHourEntriesViaPostRequest($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
 
 		$resourcePath = '/api/v1/time_tracking/hour_entries/delete';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1829,16 +1860,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1851,6 +1885,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2056,6 +2091,7 @@ class TimeTrackingApi {
 		}
 		
 		$resourcePath = '/api/v1/time_tracking/timesheet_entries';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2090,16 +2126,19 @@ class TimeTrackingApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2112,6 +2151,7 @@ class TimeTrackingApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}

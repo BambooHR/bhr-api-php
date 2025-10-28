@@ -275,6 +275,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -301,16 +302,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -323,6 +327,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -457,6 +462,7 @@ class BenefitsApi {
 	public function getBenefitCoveragesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getBenefitCoverages'][0]) {
 
 		$resourcePath = '/api/v1/benefitcoverages';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -478,16 +484,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -500,6 +509,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -629,6 +639,7 @@ class BenefitsApi {
 	public function getBenefitDeductionTypesRequest(string $contentType = self::CONTENT_TYPES['getBenefitDeductionTypes'][0]) {
 
 		$resourcePath = '/api/v1/benefits/settings/deduction_types/all';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -645,16 +656,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -667,6 +681,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -813,6 +828,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents/{id}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -843,16 +859,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -865,6 +884,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1011,6 +1031,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1048,16 +1069,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1070,6 +1094,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1224,6 +1249,7 @@ class BenefitsApi {
 	public function getMemberBenefitRequest(string $contentType = self::CONTENT_TYPES['getMemberBenefit'][0]) {
 
 		$resourcePath = '/api/v1/benefit/member_benefit';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1240,16 +1266,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1262,6 +1291,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1409,6 +1439,7 @@ class BenefitsApi {
 		);
 
 		$resourcePath = '/api/v1/employeedependents/{id}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1444,16 +1475,19 @@ class BenefitsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1466,6 +1500,7 @@ class BenefitsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}

@@ -332,6 +332,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -365,16 +366,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -387,6 +391,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -540,6 +545,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -581,16 +587,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -603,6 +612,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -744,6 +754,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -769,16 +780,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -791,6 +805,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -963,6 +978,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -996,16 +1012,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1018,6 +1037,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1165,6 +1185,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1198,16 +1219,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1220,6 +1244,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1391,6 +1416,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1432,16 +1458,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1454,6 +1483,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1625,6 +1655,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1650,16 +1681,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1672,6 +1706,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1843,6 +1878,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1868,16 +1904,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1890,6 +1929,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2056,6 +2096,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2081,16 +2122,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2103,6 +2147,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2123,15 +2168,16 @@ class GoalsApi {
 	 * Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
+	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return void
 	 */
-	public function getGoalsAlignmentOptions($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
-		$this->getGoalsAlignmentOptionsWithHttpInfo($employee_id, $body, $contentType);
+	public function getGoalsAlignmentOptions($employee_id, $goal_id = null, $get_goals_alignment_options_request = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
+		$this->getGoalsAlignmentOptionsWithHttpInfo($employee_id, $goal_id, $get_goals_alignment_options_request, $contentType);
 	}
 
 	/**
@@ -2140,15 +2186,16 @@ class GoalsApi {
 	 * Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
+	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getGoalsAlignmentOptionsWithHttpInfo($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
-		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
+	public function getGoalsAlignmentOptionsWithHttpInfo($employee_id, $goal_id = null, $get_goals_alignment_options_request = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
+		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $goal_id, $get_goals_alignment_options_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -2169,14 +2216,15 @@ class GoalsApi {
 	 * Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
+	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getGoalsAlignmentOptionsAsync($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
-		return $this->getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $body, $contentType)
+	public function getGoalsAlignmentOptionsAsync($employee_id, $goal_id = null, $get_goals_alignment_options_request = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
+		return $this->getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $goal_id, $get_goals_alignment_options_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -2190,15 +2238,16 @@ class GoalsApi {
 	 * Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
+	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
+	public function getGoalsAlignmentOptionsAsyncWithHttpInfo($employee_id, $goal_id = null, $get_goals_alignment_options_request = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
 		
-		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $body, $contentType);
+		$request = $this->getGoalsAlignmentOptionsRequest($employee_id, $goal_id, $get_goals_alignment_options_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -2233,13 +2282,14 @@ class GoalsApi {
 	 * Create request for operation 'getGoalsAlignmentOptions'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  string|null $body Get alignment options including the option currently aligned with this goal (if applicable). If omitted, response will be alignment options belonging to the API user. (optional)
+	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getGoalsAlignmentOptionsRequest($employee_id, $body = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
+	public function getGoalsAlignmentOptionsRequest($employee_id, $goal_id = null, $get_goals_alignment_options_request = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -2249,11 +2299,28 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/alignmentOptions';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		$parameters = [
+			'goalId' => ['value' => $goal_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// path params
 		if ($employee_id !== null) {
@@ -2271,12 +2338,12 @@ class GoalsApi {
 		);
 
 		// for model (json/xml)
-		if (isset($body)) {
+		if (isset($get_goals_alignment_options_request)) {
 			if (stripos($headers['Content-Type'], 'application/json') !== false) {
 				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($get_goals_alignment_options_request));
 			} else {
-				$httpBody = is_array($body) ? json_encode($body) : $body;
+				$httpBody = is_array($get_goals_alignment_options_request) ? json_encode($get_goals_alignment_options_request) : $get_goals_alignment_options_request;
 			}
 		} 
 
@@ -2284,16 +2351,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2306,6 +2376,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2477,6 +2548,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2502,16 +2574,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2524,6 +2599,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2695,6 +2771,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2720,16 +2797,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2742,6 +2822,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2908,6 +2989,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2933,16 +3015,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2955,6 +3040,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3106,6 +3192,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/shareOptions';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3148,16 +3235,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3170,6 +3260,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3347,6 +3438,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/close';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3390,16 +3482,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3412,6 +3507,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3584,6 +3680,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3619,16 +3716,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3641,6 +3741,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3794,6 +3895,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3837,16 +3939,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3859,6 +3964,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4031,6 +4137,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4064,16 +4171,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4086,6 +4196,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4245,6 +4356,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4296,16 +4408,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4318,6 +4433,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4502,6 +4618,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4553,16 +4670,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4575,6 +4695,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4753,6 +4874,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4796,16 +4918,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4818,6 +4943,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4996,6 +5122,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5039,16 +5166,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -5061,6 +5191,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -5244,6 +5375,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5287,16 +5419,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -5309,6 +5444,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -5487,6 +5623,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
+		$this->logger->info('Request method: ' . $method . ', URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5530,16 +5667,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
+			$this->logger->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
+			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -5552,6 +5692,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}

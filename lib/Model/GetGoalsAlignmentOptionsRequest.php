@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * NewWebHookLimit
+ * GetGoalsAlignmentOptionsRequest
  *
  * PHP version 8.1
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * NewWebHookLimit Class Doc Comment
+ * GetGoalsAlignmentOptionsRequest Class Doc Comment
  *
  * @category Class
- * @description To limit how often to potentially fire a webhook, and maximum amount of records to send
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable {
+class GetGoalsAlignmentOptionsRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -50,7 +49,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'NewWebHook_limit';
+	protected static $openApiModelName = 'get_goals_alignment_options_request';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'times' => 'int',
-		'seconds' => 'int'
+		'goal_id' => 'int'
 	];
 
 	/**
@@ -70,8 +68,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'times' => null,
-		'seconds' => null
+		'goal_id' => null
 	];
 
 	/**
@@ -81,8 +78,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'times' => false,
-		'seconds' => false
+		'goal_id' => false
 	];
 
 	/**
@@ -167,8 +163,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'times' => 'times',
-		'seconds' => 'seconds'
+		'goal_id' => 'goalId'
 	];
 
 	/**
@@ -177,8 +172,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'times' => 'setTimes',
-		'seconds' => 'setSeconds'
+		'goal_id' => 'setGoalId'
 	];
 
 	/**
@@ -187,8 +181,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'times' => 'getTimes',
-		'seconds' => 'getSeconds'
+		'goal_id' => 'getGoalId'
 	];
 
 	/**
@@ -242,8 +235,7 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('times', $data ?? [], null);
-		$this->setIfExists('seconds', $data ?? [], null);
+		$this->setIfExists('goal_id', $data ?? [], null);
 	}
 
 	/**
@@ -285,51 +277,26 @@ class NewWebHookLimit implements ModelInterface, ArrayAccess, \JsonSerializable 
 	}
 
 	/**
-	 * Gets times
+	 * Gets goal_id
 	 *
 	 * @return int|null
 	 */
-	public function getTimes() {
-		return $this->container['times'];
+	public function getGoalId() {
+		return $this->container['goal_id'];
 	}
 
 	/**
-	 * Sets times
+	 * Sets goal_id
 	 *
-	 * @param int|null $times The amount of records to send
+	 * @param int|null $goal_id The goal ID to get alignment options for
 	 *
 	 * @return self
 	 */
-	public function setTimes($times) {
-		if (is_null($times)) {
-			throw new \InvalidArgumentException('non-nullable times cannot be null');
+	public function setGoalId($goal_id) {
+		if (is_null($goal_id)) {
+			throw new \InvalidArgumentException('non-nullable goal_id cannot be null');
 		}
-		$this->container['times'] = $times;
-
-		return $this;
-	}
-
-	/**
-	 * Gets seconds
-	 *
-	 * @return int|null
-	 */
-	public function getSeconds() {
-		return $this->container['seconds'];
-	}
-
-	/**
-	 * Sets seconds
-	 *
-	 * @param int|null $seconds The minimum amount of seconds between requests
-	 *
-	 * @return self
-	 */
-	public function setSeconds($seconds) {
-		if (is_null($seconds)) {
-			throw new \InvalidArgumentException('non-nullable seconds cannot be null');
-		}
-		$this->container['seconds'] = $seconds;
+		$this->container['goal_id'] = $goal_id;
 
 		return $this;
 	}
