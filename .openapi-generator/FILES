@@ -95,6 +95,7 @@ docs/Model/GetGoalsAggregateV1200ResponseCommentsInner.md
 docs/Model/GetGoalsAggregateV1200ResponsePersonsInner.md
 docs/Model/GetGoalsAggregateV12200Response.md
 docs/Model/GetGoalsAggregateV12200ResponseCommentsInner.md
+docs/Model/GetGoalsAlignmentOptionsRequest.md
 docs/Model/GetHiringLeads200ResponseInner.md
 docs/Model/GetMonitorFields200Response.md
 docs/Model/GetMonitorFields200ResponseFieldsInner.md
@@ -121,8 +122,6 @@ docs/Model/MemberBenefitEventMembersInner.md
 docs/Model/MemberBenefitEventMembersInnerCoveragesInner.md
 docs/Model/MemberBenefitEventMembersInnerCoveragesInnerEventsInner.md
 docs/Model/NewWebHook.md
-docs/Model/NewWebHookFrequency.md
-docs/Model/NewWebHookLimit.md
 docs/Model/Pagination.md
 docs/Model/PostApplicantStatusRequest.md
 docs/Model/PostApplicationCommentRequest.md
@@ -130,8 +129,6 @@ docs/Model/PostGoalRequest.md
 docs/Model/PostGoalRequestMilestonesInner.md
 docs/Model/PostNewEmployee.md
 docs/Model/PostWebhook201Response.md
-docs/Model/PostWebhook201ResponseFrequency.md
-docs/Model/PostWebhook201ResponseLimit.md
 docs/Model/PostWebhook403Response.md
 docs/Model/PostWebhook403ResponseErrorsInner.md
 docs/Model/ProjectCreateRequestSchema.md
@@ -185,7 +182,6 @@ docs/Model/UpdateTrainingTypeRequest.md
 docs/Model/UpdateTrainingTypeRequestCategory.md
 docs/Model/WebHookLogResponse.md
 docs/Model/WebHookResponse.md
-docs/Model/WebHookResponseFrequency.md
 docs/Model/Webhook400Error.md
 docs/Model/WebhookError.md
 docs/Model/WebhookErrorErrors.md
@@ -288,6 +284,7 @@ lib/Model/GetGoalsAggregateV1200ResponseCommentsInner.php
 lib/Model/GetGoalsAggregateV1200ResponsePersonsInner.php
 lib/Model/GetGoalsAggregateV12200Response.php
 lib/Model/GetGoalsAggregateV12200ResponseCommentsInner.php
+lib/Model/GetGoalsAlignmentOptionsRequest.php
 lib/Model/GetHiringLeads200ResponseInner.php
 lib/Model/GetMonitorFields200Response.php
 lib/Model/GetMonitorFields200ResponseFieldsInner.php
@@ -315,8 +312,6 @@ lib/Model/MemberBenefitEventMembersInnerCoveragesInner.php
 lib/Model/MemberBenefitEventMembersInnerCoveragesInnerEventsInner.php
 lib/Model/ModelInterface.php
 lib/Model/NewWebHook.php
-lib/Model/NewWebHookFrequency.php
-lib/Model/NewWebHookLimit.php
 lib/Model/Pagination.php
 lib/Model/PostApplicantStatusRequest.php
 lib/Model/PostApplicationCommentRequest.php
@@ -324,8 +319,6 @@ lib/Model/PostGoalRequest.php
 lib/Model/PostGoalRequestMilestonesInner.php
 lib/Model/PostNewEmployee.php
 lib/Model/PostWebhook201Response.php
-lib/Model/PostWebhook201ResponseFrequency.php
-lib/Model/PostWebhook201ResponseLimit.php
 lib/Model/PostWebhook403Response.php
 lib/Model/PostWebhook403ResponseErrorsInner.php
 lib/Model/ProjectCreateRequestSchema.php
@@ -379,7 +372,6 @@ lib/Model/UpdateTrainingTypeRequest.php
 lib/Model/UpdateTrainingTypeRequestCategory.php
 lib/Model/WebHookLogResponse.php
 lib/Model/WebHookResponse.php
-lib/Model/WebHookResponseFrequency.php
 lib/Model/Webhook400Error.php
 lib/Model/WebhookError.php
 lib/Model/WebhookErrorErrors.php

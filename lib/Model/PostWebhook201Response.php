@@ -65,8 +65,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => 'object',
 		'url' => 'string',
 		'format' => 'string',
-		'frequency' => '\BhrSdk\Model\PostWebhook201ResponseFrequency',
-		'limit' => '\BhrSdk\Model\PostWebhook201ResponseLimit',
 		'private_key' => 'string',
 		'include_company_domain' => 'bool'
 	];
@@ -87,8 +85,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => null,
 		'url' => null,
 		'format' => null,
-		'frequency' => null,
-		'limit' => null,
 		'private_key' => null,
 		'include_company_domain' => null
 	];
@@ -108,8 +104,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => false,
 		'url' => false,
 		'format' => false,
-		'frequency' => false,
-		'limit' => false,
 		'private_key' => false,
 		'include_company_domain' => false
 	];
@@ -204,8 +198,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => 'postFields',
 		'url' => 'url',
 		'format' => 'format',
-		'frequency' => 'frequency',
-		'limit' => 'limit',
 		'private_key' => 'privateKey',
 		'include_company_domain' => 'includeCompanyDomain'
 	];
@@ -224,8 +216,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => 'setPostFields',
 		'url' => 'setUrl',
 		'format' => 'setFormat',
-		'frequency' => 'setFrequency',
-		'limit' => 'setLimit',
 		'private_key' => 'setPrivateKey',
 		'include_company_domain' => 'setIncludeCompanyDomain'
 	];
@@ -244,8 +234,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		'post_fields' => 'getPostFields',
 		'url' => 'getUrl',
 		'format' => 'getFormat',
-		'frequency' => 'getFrequency',
-		'limit' => 'getLimit',
 		'private_key' => 'getPrivateKey',
 		'include_company_domain' => 'getIncludeCompanyDomain'
 	];
@@ -309,8 +297,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 		$this->setIfExists('post_fields', $data ?? [], null);
 		$this->setIfExists('url', $data ?? [], null);
 		$this->setIfExists('format', $data ?? [], null);
-		$this->setIfExists('frequency', $data ?? [], null);
-		$this->setIfExists('limit', $data ?? [], null);
 		$this->setIfExists('private_key', $data ?? [], null);
 		$this->setIfExists('include_company_domain', $data ?? [], null);
 	}
@@ -549,56 +535,6 @@ class PostWebhook201Response implements ModelInterface, ArrayAccess, \JsonSerial
 			throw new \InvalidArgumentException('non-nullable format cannot be null');
 		}
 		$this->container['format'] = $format;
-
-		return $this;
-	}
-
-	/**
-	 * Gets frequency
-	 *
-	 * @return \BhrSdk\Model\PostWebhook201ResponseFrequency|null
-	 */
-	public function getFrequency() {
-		return $this->container['frequency'];
-	}
-
-	/**
-	 * Sets frequency
-	 *
-	 * @param \BhrSdk\Model\PostWebhook201ResponseFrequency|null $frequency frequency
-	 *
-	 * @return self
-	 */
-	public function setFrequency($frequency) {
-		if (is_null($frequency)) {
-			throw new \InvalidArgumentException('non-nullable frequency cannot be null');
-		}
-		$this->container['frequency'] = $frequency;
-
-		return $this;
-	}
-
-	/**
-	 * Gets limit
-	 *
-	 * @return \BhrSdk\Model\PostWebhook201ResponseLimit|null
-	 */
-	public function getLimit() {
-		return $this->container['limit'];
-	}
-
-	/**
-	 * Sets limit
-	 *
-	 * @param \BhrSdk\Model\PostWebhook201ResponseLimit|null $limit limit
-	 *
-	 * @return self
-	 */
-	public function setLimit($limit) {
-		if (is_null($limit)) {
-			throw new \InvalidArgumentException('non-nullable limit cannot be null');
-		}
-		$this->container['limit'] = $limit;
 
 		return $this;
 	}

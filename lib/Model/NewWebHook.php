@@ -62,8 +62,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'object',
 		'url' => 'string',
 		'format' => 'string',
-		'frequency' => '\BhrSdk\Model\NewWebHookFrequency',
-		'limit' => '\BhrSdk\Model\NewWebHookLimit',
 		'include_company_domain' => 'bool'
 	];
 
@@ -80,8 +78,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => null,
 		'url' => null,
 		'format' => null,
-		'frequency' => null,
-		'limit' => null,
 		'include_company_domain' => null
 	];
 
@@ -97,8 +93,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => false,
 		'url' => false,
 		'format' => false,
-		'frequency' => false,
-		'limit' => false,
 		'include_company_domain' => false
 	];
 
@@ -189,8 +183,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'postFields',
 		'url' => 'url',
 		'format' => 'format',
-		'frequency' => 'frequency',
-		'limit' => 'limit',
 		'include_company_domain' => 'includeCompanyDomain'
 	];
 
@@ -205,8 +197,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'setPostFields',
 		'url' => 'setUrl',
 		'format' => 'setFormat',
-		'frequency' => 'setFrequency',
-		'limit' => 'setLimit',
 		'include_company_domain' => 'setIncludeCompanyDomain'
 	];
 
@@ -221,8 +211,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'getPostFields',
 		'url' => 'getUrl',
 		'format' => 'getFormat',
-		'frequency' => 'getFrequency',
-		'limit' => 'getLimit',
 		'include_company_domain' => 'getIncludeCompanyDomain'
 	];
 
@@ -297,8 +285,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('post_fields', $data ?? [], null);
 		$this->setIfExists('url', $data ?? [], null);
 		$this->setIfExists('format', $data ?? [], null);
-		$this->setIfExists('frequency', $data ?? [], null);
-		$this->setIfExists('limit', $data ?? [], null);
 		$this->setIfExists('include_company_domain', $data ?? [], null);
 	}
 
@@ -332,9 +318,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		}
 		if ($this->container['monitor_fields'] === null) {
 			$invalidProperties[] = "'monitor_fields' can't be null";
-		}
-		if ($this->container['post_fields'] === null) {
-			$invalidProperties[] = "'post_fields' can't be null";
 		}
 		if ($this->container['url'] === null) {
 			$invalidProperties[] = "'url' can't be null";
@@ -414,7 +397,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets post_fields
 	 *
-	 * @return object
+	 * @return object|null
 	 */
 	public function getPostFields() {
 		return $this->container['post_fields'];
@@ -423,7 +406,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets post_fields
 	 *
-	 * @param object $post_fields A list of fields to post to the webhook url. Field ID or alias: external name
+	 * @param object|null $post_fields A list of fields to post to the webhook url. Field ID or alias: external name
 	 *
 	 * @return self
 	 */
@@ -492,56 +475,6 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 			);
 		}
 		$this->container['format'] = $format;
-
-		return $this;
-	}
-
-	/**
-	 * Gets frequency
-	 *
-	 * @return \BhrSdk\Model\NewWebHookFrequency|null
-	 */
-	public function getFrequency() {
-		return $this->container['frequency'];
-	}
-
-	/**
-	 * Sets frequency
-	 *
-	 * @param \BhrSdk\Model\NewWebHookFrequency|null $frequency frequency
-	 *
-	 * @return self
-	 */
-	public function setFrequency($frequency) {
-		if (is_null($frequency)) {
-			throw new \InvalidArgumentException('non-nullable frequency cannot be null');
-		}
-		$this->container['frequency'] = $frequency;
-
-		return $this;
-	}
-
-	/**
-	 * Gets limit
-	 *
-	 * @return \BhrSdk\Model\NewWebHookLimit|null
-	 */
-	public function getLimit() {
-		return $this->container['limit'];
-	}
-
-	/**
-	 * Sets limit
-	 *
-	 * @param \BhrSdk\Model\NewWebHookLimit|null $limit limit
-	 *
-	 * @return self
-	 */
-	public function setLimit($limit) {
-		if (is_null($limit)) {
-			throw new \InvalidArgumentException('non-nullable limit cannot be null');
-		}
-		$this->container['limit'] = $limit;
 
 		return $this;
 	}
