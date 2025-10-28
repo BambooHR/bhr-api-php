@@ -4,12 +4,14 @@
     <include>
       <directory suffix=".php">{{#lambda.forwardslash}}{{apiSrcPath}}{{/lambda.forwardslash}}</directory>
       <directory suffix=".php">{{#lambda.forwardslash}}{{modelSrcPath}}{{/lambda.forwardslash}}</directory>
+      <directory suffix=".php">./lib/Client</directory>
     </include>
   </coverage>
   <testsuites>
     <testsuite name="tests">
       <directory>{{apiTestPath}}</directory>
       <directory>{{modelTestPath}}</directory>
+      <directory>./test/Client</directory>
     </testsuite>
   </testsuites>
   <php>
