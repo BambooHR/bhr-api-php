@@ -184,10 +184,11 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addNewCandidate($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
-		$this->addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+		list($response) = $this->addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -525,10 +526,11 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
-		$this->addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+		list($response) = $this->addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1510,10 +1512,11 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getJobSummaries($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
-		$this->getJobSummariesWithHttpInfo($status_groups, $sort_by, $sort_order, $contentType);
+		list($response) = $this->getJobSummariesWithHttpInfo($status_groups, $sort_by, $sort_order, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1712,10 +1715,11 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getStatuses(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
-		$this->getStatusesWithHttpInfo($contentType);
+		list($response) = $this->getStatusesWithHttpInfo($contentType);
+		return $response;
 	}
 
 	/**
@@ -1886,10 +1890,11 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function postApplicantStatus($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
-		$this->postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, $contentType);
+		list($response) = $this->postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, $contentType);
+		return $response;
 	}
 
 	/**
@@ -2095,10 +2100,11 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function postApplicationComment($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		$this->postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, $contentType);
+		list($response) = $this->postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, $contentType);
+		return $response;
 	}
 
 	/**

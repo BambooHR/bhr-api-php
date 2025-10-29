@@ -147,10 +147,11 @@ class ReportsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getCompanyReport($id, $format, $accept_header_parameter = null, $fd = null, $only_current = false, string $contentType = self::CONTENT_TYPES['getCompanyReport'][0]) {
-		$this->getCompanyReportWithHttpInfo($id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
+		list($response) = $this->getCompanyReportWithHttpInfo($id, $format, $accept_header_parameter, $fd, $only_current, $contentType);
+		return $response;
 	}
 
 	/**
@@ -382,10 +383,11 @@ class ReportsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function requestCustomReport($format, $request_custom_report, $only_current = false, string $contentType = self::CONTENT_TYPES['requestCustomReport'][0]) {
-		$this->requestCustomReportWithHttpInfo($format, $request_custom_report, $only_current, $contentType);
+		list($response) = $this->requestCustomReportWithHttpInfo($format, $request_custom_report, $only_current, $contentType);
+		return $response;
 	}
 
 	/**

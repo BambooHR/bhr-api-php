@@ -160,10 +160,11 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addEmployeeTableRow($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
-		$this->addEmployeeTableRowWithHttpInfo($id, $table, $table_row_update, $contentType);
+		list($response) = $this->addEmployeeTableRowWithHttpInfo($id, $table, $table_row_update, $contentType);
+		return $response;
 	}
 
 	/**
@@ -383,10 +384,11 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addEmployeeTableRowV1($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
-		$this->addEmployeeTableRowV1WithHttpInfo($id, $table, $table_row_update, $contentType);
+		list($response) = $this->addEmployeeTableRowV1WithHttpInfo($id, $table, $table_row_update, $contentType);
+		return $response;
 	}
 
 	/**
@@ -851,10 +853,11 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getChangedEmployeeTableData($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
-		$this->getChangedEmployeeTableDataWithHttpInfo($table, $since, $contentType);
+		list($response) = $this->getChangedEmployeeTableDataWithHttpInfo($table, $since, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1066,10 +1069,11 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getEmployeeTableRow($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		$this->getEmployeeTableRowWithHttpInfo($id, $table, $contentType);
+		list($response) = $this->getEmployeeTableRowWithHttpInfo($id, $table, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1275,10 +1279,11 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateEmployeeTableRow($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
-		$this->updateEmployeeTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
+		list($response) = $this->updateEmployeeTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1512,10 +1517,11 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateEmployeeTableRowV($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
-		$this->updateEmployeeTableRowVWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
+		list($response) = $this->updateEmployeeTableRowVWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
+		return $response;
 	}
 
 	/**
