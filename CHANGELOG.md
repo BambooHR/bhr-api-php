@@ -39,13 +39,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **BREAKING**: Minimum PHP version requirement increased to 8.1
 - **BREAKING**: Namespace changed from `BambooHR\API\` to `BhrSdk\`
 - **BREAKING**: Modernized API client architecture with fluent interface (builder pattern)
-- **BREAKING**: Method return types changed - many methods now return arrays instead of objects
+- **BREAKING**: Method return types changed
 - **BREAKING**: Parameter order changes in some methods (e.g., fields before ID)
 - Improved error handling and exception types with specific exceptions for each HTTP status code
 - Enhanced documentation with comprehensive examples and API endpoint reference
 - Updated authentication methods (OAuth now recommended over API keys)
 - Better type hints throughout the codebase for improved IDE support
-- Improved response handling with consistent array-based returns
 
 ### Deprecated
 
