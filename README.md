@@ -28,6 +28,10 @@ Download the files and include `autoload.php`:
 require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
+## Changelog
+
+For a detailed list of changes and version history, see [CHANGELOG.md](CHANGELOG.md).
+
 ## Getting Started using the Fluent API Client (Recommended)
 
 The SDK provides a modern, fluent interface for easier configuration and usage:
