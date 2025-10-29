@@ -155,10 +155,11 @@ class EmployeeFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addEmployeeFileCategory($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
-		$this->addEmployeeFileCategoryWithHttpInfo($request_body, $contentType);
+		list($response) = $this->addEmployeeFileCategoryWithHttpInfo($request_body, $contentType);
+		return $response;
 	}
 
 	/**
@@ -350,10 +351,11 @@ class EmployeeFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteEmployeeFile($id, $file_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeFile'][0]) {
-		$this->deleteEmployeeFileWithHttpInfo($id, $file_id, $contentType);
+		list($response) = $this->deleteEmployeeFileWithHttpInfo($id, $file_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -557,10 +559,11 @@ class EmployeeFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getEmployeeFile($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
-		$this->getEmployeeFileWithHttpInfo($id, $file_id, $contentType);
+		list($response) = $this->getEmployeeFileWithHttpInfo($id, $file_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -763,10 +766,11 @@ class EmployeeFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function listEmployeeFiles($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		$this->listEmployeeFilesWithHttpInfo($id, $contentType);
+		list($response) = $this->listEmployeeFilesWithHttpInfo($id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -958,10 +962,11 @@ class EmployeeFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateEmployeeFile($id, $file_id, $employee_file_update, string $contentType = self::CONTENT_TYPES['updateEmployeeFile'][0]) {
-		$this->updateEmployeeFileWithHttpInfo($id, $file_id, $employee_file_update, $contentType);
+		list($response) = $this->updateEmployeeFileWithHttpInfo($id, $file_id, $employee_file_update, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1179,10 +1184,11 @@ class EmployeeFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function uploadEmployeeFile($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
-		$this->uploadEmployeeFileWithHttpInfo($id, $contentType);
+		list($response) = $this->uploadEmployeeFileWithHttpInfo($id, $contentType);
+		return $response;
 	}
 
 	/**

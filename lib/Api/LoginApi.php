@@ -143,11 +143,12 @@ class LoginApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 * @deprecated
 	 */
 	public function login($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		$this->loginWithHttpInfo($accept_header_parameter, $application_key, $user, $password, $contentType);
+		list($response) = $this->loginWithHttpInfo($accept_header_parameter, $application_key, $user, $password, $contentType);
+		return $response;
 	}
 
 	/**

@@ -77,6 +77,13 @@ docs/Model/GetCompanyInformation200Response.md
 docs/Model/GetCompanyInformation200ResponseAddress.md
 docs/Model/GetCompanyLocations200ResponseInner.md
 docs/Model/GetEmployeesDirectory200Response.md
+docs/Model/GetEmployeesDirectory200Response1.md
+docs/Model/GetEmployeesDirectory200Response1Employees.md
+docs/Model/GetEmployeesDirectory200Response1EmployeesEmployeeInner.md
+docs/Model/GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner.md
+docs/Model/GetEmployeesDirectory200Response1Fieldset.md
+docs/Model/GetEmployeesDirectory200Response1FieldsetFieldInner.md
+docs/Model/GetEmployeesDirectory200ResponseFieldsInner.md
 docs/Model/GetEmployeesEmployeeResponse.md
 docs/Model/GetEmployeesFilterRequestObject.md
 docs/Model/GetEmployeesList400Response.md
@@ -266,6 +273,13 @@ lib/Model/GetCompanyInformation200Response.php
 lib/Model/GetCompanyInformation200ResponseAddress.php
 lib/Model/GetCompanyLocations200ResponseInner.php
 lib/Model/GetEmployeesDirectory200Response.php
+lib/Model/GetEmployeesDirectory200Response1.php
+lib/Model/GetEmployeesDirectory200Response1Employees.php
+lib/Model/GetEmployeesDirectory200Response1EmployeesEmployeeInner.php
+lib/Model/GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner.php
+lib/Model/GetEmployeesDirectory200Response1Fieldset.php
+lib/Model/GetEmployeesDirectory200Response1FieldsetFieldInner.php
+lib/Model/GetEmployeesDirectory200ResponseFieldsInner.php
 lib/Model/GetEmployeesEmployeeResponse.php
 lib/Model/GetEmployeesFilterRequestObject.php
 lib/Model/GetEmployeesList400Response.php
