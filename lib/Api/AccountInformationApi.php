@@ -354,10 +354,11 @@ class AccountInformationApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getListOfUsers(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		$this->getListOfUsersWithHttpInfo($contentType);
+		list($response) = $this->getListOfUsersWithHttpInfo($contentType);
+		return $response;
 	}
 
 	/**
@@ -746,10 +747,11 @@ class AccountInformationApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		$this->metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, $contentType);
+		list($response) = $this->metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, $contentType);
+		return $response;
 	}
 
 	/**
@@ -954,10 +956,11 @@ class AccountInformationApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function metadataGetAListOfFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		$this->metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		list($response) = $this->metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1136,10 +1139,11 @@ class AccountInformationApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function metadataGetAListOfTabularFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		$this->metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		list($response) = $this->metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1318,10 +1322,11 @@ class AccountInformationApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function metadataGetDetailsForListFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		$this->metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		list($response) = $this->metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**

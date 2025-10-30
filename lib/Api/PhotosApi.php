@@ -144,10 +144,11 @@ class PhotosApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getEmployeePhoto($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
-		$this->getEmployeePhotoWithHttpInfo($employee_id, $size, $contentType);
+		list($response) = $this->getEmployeePhotoWithHttpInfo($employee_id, $size, $contentType);
+		return $response;
 	}
 
 	/**
@@ -350,10 +351,11 @@ class PhotosApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function uploadEmployeePhoto($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
-		$this->uploadEmployeePhotoWithHttpInfo($employee_id, $contentType);
+		list($response) = $this->uploadEmployeePhotoWithHttpInfo($employee_id, $contentType);
+		return $response;
 	}
 
 	/**
