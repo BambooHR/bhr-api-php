@@ -351,7 +351,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetMonitorFields200Response|\BhrSdk\Model\WebhookError
+	 * @return \BhrSdk\Model\FieldList|\BhrSdk\Model\WebhookError
 	 */
 	public function getMonitorFields(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		list($response) = $this->getMonitorFieldsWithHttpInfo($contentType);
@@ -367,7 +367,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetMonitorFields200Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\FieldList|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getMonitorFieldsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
 		$request = $this->getMonitorFieldsRequest($contentType);
@@ -381,7 +381,7 @@ class WebhooksApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetMonitorFields200Response',
+					'\BhrSdk\Model\FieldList',
 					$request,
 					$response,
 				);
@@ -407,7 +407,7 @@ class WebhooksApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetMonitorFields200Response',
+			'\BhrSdk\Model\FieldList',
 			$request,
 			$response,
 		);
@@ -443,7 +443,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getMonitorFieldsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMonitorFields'][0]) {
-		$returnType = '\BhrSdk\Model\GetMonitorFields200Response';
+		$returnType = '\BhrSdk\Model\FieldList';
 		$request = $this->getMonitorFieldsRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -790,7 +790,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetWebhookList200Response|\BhrSdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebhooksList|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhookList(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		list($response) = $this->getWebhookListWithHttpInfo($contentType);
@@ -806,7 +806,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetWebhookList200Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebhooksList|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookListWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
 		$request = $this->getWebhookListRequest($contentType);
@@ -820,7 +820,7 @@ class WebhooksApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetWebhookList200Response',
+					'\BhrSdk\Model\WebhooksList',
 					$request,
 					$response,
 				);
@@ -846,7 +846,7 @@ class WebhooksApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetWebhookList200Response',
+			'\BhrSdk\Model\WebhooksList',
 			$request,
 			$response,
 		);
@@ -882,7 +882,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getWebhookListAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getWebhookList'][0]) {
-		$returnType = '\BhrSdk\Model\GetWebhookList200Response';
+		$returnType = '\BhrSdk\Model\WebhooksList';
 		$request = $this->getWebhookListRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1230,7 +1230,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\PostWebhook201Response|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PostWebhook403Response|\BhrSdk\Model\WebhookError
+	 * @return \BhrSdk\Model\Webhook|\BhrSdk\Model\WebhookBadRequest|\BhrSdk\Model\Unauthorized|\BhrSdk\Model\WebhookError
 	 */
 	public function postWebhook($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		list($response) = $this->postWebhookWithHttpInfo($new_web_hook, $contentType);
@@ -1247,7 +1247,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\PostWebhook201Response|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PostWebhook403Response|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\Webhook|\BhrSdk\Model\WebhookBadRequest|\BhrSdk\Model\Unauthorized|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postWebhookWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
@@ -1261,19 +1261,19 @@ class WebhooksApi {
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\PostWebhook201Response',
+					'\BhrSdk\Model\Webhook',
 					$request,
 					$response,
 				);
 			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\Webhook400Error',
+					'\BhrSdk\Model\WebhookBadRequest',
 					$request,
 					$response,
 				);
 			case 403:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\PostWebhook403Response',
+					'\BhrSdk\Model\Unauthorized',
 					$request,
 					$response,
 				);
@@ -1299,7 +1299,7 @@ class WebhooksApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\PostWebhook201Response',
+			'\BhrSdk\Model\Webhook',
 			$request,
 			$response,
 		);
@@ -1337,7 +1337,7 @@ class WebhooksApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postWebhookAsyncWithHttpInfo($new_web_hook, string $contentType = self::CONTENT_TYPES['postWebhook'][0]) {
-		$returnType = '\BhrSdk\Model\PostWebhook201Response';
+		$returnType = '\BhrSdk\Model\Webhook';
 		$request = $this->postWebhookRequest($new_web_hook, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1468,7 +1468,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PutWebhook403Response|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\WebhookBadRequest|\BhrSdk\Model\Unauthorized1|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function putWebhook($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		list($response) = $this->putWebhookWithHttpInfo($id, $new_web_hook, $contentType);
@@ -1486,7 +1486,7 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\Webhook400Error|\BhrSdk\Model\PutWebhook403Response|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookResponse|\BhrSdk\Model\WebhookBadRequest|\BhrSdk\Model\Unauthorized1|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putWebhookWithHttpInfo($id, $new_web_hook, string $contentType = self::CONTENT_TYPES['putWebhook'][0]) {
 		$request = $this->putWebhookRequest($id, $new_web_hook, $contentType);
@@ -1506,13 +1506,13 @@ class WebhooksApi {
 				);
 			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\Webhook400Error',
+					'\BhrSdk\Model\WebhookBadRequest',
 					$request,
 					$response,
 				);
 			case 403:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\PutWebhook403Response',
+					'\BhrSdk\Model\Unauthorized1',
 					$request,
 					$response,
 				);

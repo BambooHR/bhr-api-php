@@ -392,7 +392,7 @@ void (empty response body)
 ## `listEmployeeTrainings()`
 
 ```php
-listEmployeeTrainings($employee_id, $training_type_id): \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]
+listEmployeeTrainings($employee_id, $training_type_id): \BhrSdk\Model\TrainingRecordList[]
 ```
 
 List Employee Trainings
@@ -438,7 +438,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]**](../Model/ListEmployeeTrainings200ResponseInner.md)
+[**\BhrSdk\Model\TrainingRecordList[]**](../Model/TrainingRecordList.md)
 
 ### Authorization
 
@@ -456,7 +456,7 @@ try {
 ## `listTrainingCategories()`
 
 ```php
-listTrainingCategories(): \BhrSdk\Model\ListTrainingCategories200ResponseInner[]
+listTrainingCategories(): \BhrSdk\Model\TrainingCategoryList[]
 ```
 
 List Training Categories
@@ -497,7 +497,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\ListTrainingCategories200ResponseInner[]**](../Model/ListTrainingCategories200ResponseInner.md)
+[**\BhrSdk\Model\TrainingCategoryList[]**](../Model/TrainingCategoryList.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ This endpoint does not need any parameter.
 ## `listTrainingTypes()`
 
 ```php
-listTrainingTypes(): \BhrSdk\Model\ListTrainingTypes200ResponseInner[]
+listTrainingTypes(): \BhrSdk\Model\TrainingTypeList[]
 ```
 
 List Training Types
@@ -556,7 +556,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\ListTrainingTypes200ResponseInner[]**](../Model/ListTrainingTypes200ResponseInner.md)
+[**\BhrSdk\Model\TrainingTypeList[]**](../Model/TrainingTypeList.md)
 
 ### Authorization
 

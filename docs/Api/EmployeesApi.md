@@ -76,7 +76,7 @@ void (empty response body)
 ## `getCompanyInformation()`
 
 ```php
-getCompanyInformation(): \BhrSdk\Model\GetCompanyInformation200Response
+getCompanyInformation(): \BhrSdk\Model\CompanyInformation
 ```
 
 Get Company Information
@@ -117,7 +117,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\GetCompanyInformation200Response**](../Model/GetCompanyInformation200Response.md)
+[**\BhrSdk\Model\CompanyInformation**](../Model/CompanyInformation.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 ## `getEmployee()`
 
 ```php
-getEmployee($fields, $id, $only_current, $accept_header_parameter): array<string,mixed>
+getEmployee($fields, $id, $only_current, $accept_header_parameter): \BhrSdk\Model\Employee
 ```
 
 Get Employee
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-**array<string,mixed>**
+[**\BhrSdk\Model\Employee**](../Model/Employee.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ try {
 ## `getEmployeesDirectory()`
 
 ```php
-getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\GetEmployeesDirectory200Response
+getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\JsonDirectoryEmployee
 ```
 
 Get Employee Directory
@@ -247,7 +247,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetEmployeesDirectory200Response**](../Model/GetEmployeesDirectory200Response.md)
+[**\BhrSdk\Model\JsonDirectoryEmployee**](../Model/JsonDirectoryEmployee.md)
 
 ### Authorization
 

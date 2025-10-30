@@ -80,7 +80,7 @@ getListOfUsers()
 
 Get a List of Users
 
-
+Retrieves a list of all active users in the system with their basic information. This includes user IDs, names, and email addresses. The list can be used to map user IDs to user information throughout the API.
 
 ### Example
 

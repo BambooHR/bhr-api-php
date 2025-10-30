@@ -146,7 +146,7 @@ void (empty response body)
 ## `deleteEmployeeTableRowV1()`
 
 ```php
-deleteEmployeeTableRowV1($id, $table, $row_id): \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
+deleteEmployeeTableRowV1($id, $table, $row_id): \BhrSdk\Model\TableRowDeleteResponse
 ```
 
 Deletes a table row
@@ -194,7 +194,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\DeleteEmployeeTableRowV1200Response**](../Model/DeleteEmployeeTableRowV1200Response.md)
+[**\BhrSdk\Model\TableRowDeleteResponse**](../Model/TableRowDeleteResponse.md)
 
 ### Authorization
 
