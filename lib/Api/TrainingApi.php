@@ -845,10 +845,11 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteEmployeeTrainingRecord($employee_training_record_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTrainingRecord'][0]) {
-		$this->deleteEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $contentType);
+		list($response) = $this->deleteEmployeeTrainingRecordWithHttpInfo($employee_training_record_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1038,10 +1039,11 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteTrainingCategory($training_category_id, string $contentType = self::CONTENT_TYPES['deleteTrainingCategory'][0]) {
-		$this->deleteTrainingCategoryWithHttpInfo($training_category_id, $contentType);
+		list($response) = $this->deleteTrainingCategoryWithHttpInfo($training_category_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1231,10 +1233,11 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteTrainingType($training_type_id, string $contentType = self::CONTENT_TYPES['deleteTrainingType'][0]) {
-		$this->deleteTrainingTypeWithHttpInfo($training_type_id, $contentType);
+		list($response) = $this->deleteTrainingTypeWithHttpInfo($training_type_id, $contentType);
+		return $response;
 	}
 
 	/**

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200Response
+ * GetEmployeesDirectory200ResponseFieldsInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200Response Class Doc Comment
+ * GetEmployeesDirectory200ResponseFieldsInner Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \JsonSerializable {
+class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response';
+	protected static $openApiModelName = 'get_employees_directory_200_response_fields_inner';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'fields' => '\BhrSdk\Model\GetEmployeesDirectory200ResponseFieldsInner[]',
-		'employees' => 'array<string,mixed>[]'
+		'id' => 'string',
+		'type' => 'string',
+		'name' => 'string'
 	];
 
 	/**
@@ -69,8 +70,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'fields' => null,
-		'employees' => null
+		'id' => null,
+		'type' => null,
+		'name' => null
 	];
 
 	/**
@@ -80,8 +82,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'fields' => false,
-		'employees' => false
+		'id' => false,
+		'type' => false,
+		'name' => false
 	];
 
 	/**
@@ -166,8 +169,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'fields' => 'fields',
-		'employees' => 'employees'
+		'id' => 'id',
+		'type' => 'type',
+		'name' => 'name'
 	];
 
 	/**
@@ -176,8 +180,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'fields' => 'setFields',
-		'employees' => 'setEmployees'
+		'id' => 'setId',
+		'type' => 'setType',
+		'name' => 'setName'
 	];
 
 	/**
@@ -186,8 +191,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'fields' => 'getFields',
-		'employees' => 'getEmployees'
+		'id' => 'getId',
+		'type' => 'getType',
+		'name' => 'getName'
 	];
 
 	/**
@@ -241,8 +247,9 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('fields', $data ?? [], null);
-		$this->setIfExists('employees', $data ?? [], null);
+		$this->setIfExists('id', $data ?? [], null);
+		$this->setIfExists('type', $data ?? [], null);
+		$this->setIfExists('name', $data ?? [], null);
 	}
 
 	/**
@@ -284,51 +291,76 @@ class GetEmployeesDirectory200Response implements ModelInterface, ArrayAccess, \
 	}
 
 	/**
-	 * Gets fields
+	 * Gets id
 	 *
-	 * @return \BhrSdk\Model\GetEmployeesDirectory200ResponseFieldsInner[]|null
+	 * @return string|null
 	 */
-	public function getFields() {
-		return $this->container['fields'];
+	public function getId() {
+		return $this->container['id'];
 	}
 
 	/**
-	 * Sets fields
+	 * Sets id
 	 *
-	 * @param \BhrSdk\Model\GetEmployeesDirectory200ResponseFieldsInner[]|null $fields Array of field definitions
+	 * @param string|null $id Field identifier
 	 *
 	 * @return self
 	 */
-	public function setFields($fields) {
-		if (is_null($fields)) {
-			throw new \InvalidArgumentException('non-nullable fields cannot be null');
+	public function setId($id) {
+		if (is_null($id)) {
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
 		}
-		$this->container['fields'] = $fields;
+		$this->container['id'] = $id;
 
 		return $this;
 	}
 
 	/**
-	 * Gets employees
+	 * Gets type
 	 *
-	 * @return array<string,mixed>[]|null
+	 * @return string|null
 	 */
-	public function getEmployees() {
-		return $this->container['employees'];
+	public function getType() {
+		return $this->container['type'];
 	}
 
 	/**
-	 * Sets employees
+	 * Sets type
 	 *
-	 * @param array<string,mixed>[]|null $employees Array of employee records. Each employee object contains properties matching the 'id' values from the 'fields' array. Property names are dynamically determined by company configuration. Property values can be strings, numbers, booleans, or null. Common fields include: id, displayName, firstName, lastName, preferredName, jobTitle, workPhone, mobilePhone, workEmail, department, location, division, twitterFeed, pronouns, workPhoneExtension, photoUploaded, photoUrl, canUploadPhoto.
+	 * @param string|null $type Field data type
 	 *
 	 * @return self
 	 */
-	public function setEmployees($employees) {
-		if (is_null($employees)) {
-			throw new \InvalidArgumentException('non-nullable employees cannot be null');
+	public function setType($type) {
+		if (is_null($type)) {
+			throw new \InvalidArgumentException('non-nullable type cannot be null');
 		}
-		$this->container['employees'] = $employees;
+		$this->container['type'] = $type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets name
+	 *
+	 * @return string|null
+	 */
+	public function getName() {
+		return $this->container['name'];
+	}
+
+	/**
+	 * Sets name
+	 *
+	 * @param string|null $name Field display name
+	 *
+	 * @return self
+	 */
+	public function setName($name) {
+		if (is_null($name)) {
+			throw new \InvalidArgumentException('non-nullable name cannot be null');
+		}
+		$this->container['name'] = $name;
 
 		return $this;
 	}

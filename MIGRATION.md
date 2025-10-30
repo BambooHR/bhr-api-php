@@ -2,6 +2,8 @@
 
 This guide helps you migrate from the BambooHR PHP SDK v1 (or direct API usage) to v2.
 
+> **New to the SDK?** If you're starting fresh (not migrating), see **[GETTING_STARTED.md](GETTING_STARTED.md)** for a step-by-step guide to making your first API call.
+
 ## Table of Contents
 
 1. [Breaking Changes](#breaking-changes)

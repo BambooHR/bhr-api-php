@@ -141,10 +141,11 @@ class LastChangeInformationApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getChangedEmployeeIds($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
-		$this->getChangedEmployeeIdsWithHttpInfo($since, $type, $contentType);
+		list($response) = $this->getChangedEmployeeIdsWithHttpInfo($since, $type, $contentType);
+		return $response;
 	}
 
 	/**

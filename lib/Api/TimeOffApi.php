@@ -178,10 +178,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getAListOfWhoIsOut($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
-		$this->getAListOfWhoIsOutWithHttpInfo($accept_header_parameter, $start, $end, $contentType);
+		list($response) = $this->getAListOfWhoIsOutWithHttpInfo($accept_header_parameter, $start, $end, $contentType);
+		return $response;
 	}
 
 	/**
@@ -385,10 +386,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getTimeOffPolicies($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		$this->getTimeOffPoliciesWithHttpInfo($accept_header_parameter, $contentType);
+		list($response) = $this->getTimeOffPoliciesWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -568,10 +570,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getTimeOffTypes($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		$this->getTimeOffTypesWithHttpInfo($accept_header_parameter, $mode, $contentType);
+		list($response) = $this->getTimeOffTypesWithHttpInfo($accept_header_parameter, $mode, $contentType);
+		return $response;
 	}
 
 	/**
@@ -771,10 +774,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		$this->timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, $contentType);
+		list($response) = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, $contentType);
+		return $response;
 	}
 
 	/**
@@ -980,10 +984,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffAddATimeOffRequest($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		$this->timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, $contentType);
+		list($response) = $this->timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1189,10 +1194,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		$this->timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType);
+		list($response) = $this->timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1398,10 +1404,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		$this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
+		list($response) = $this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1607,10 +1614,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		$this->timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
+		list($response) = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1816,10 +1824,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffChangeARequestStatus($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
-		$this->timeOffChangeARequestStatusWithHttpInfo($request_id, $request, $contentType);
+		list($response) = $this->timeOffChangeARequestStatusWithHttpInfo($request_id, $request, $contentType);
+		return $response;
 	}
 
 	/**
@@ -2026,10 +2035,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		$this->timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType);
+		list($response) = $this->timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -2256,10 +2266,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffGetTimeOffRequests($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		$this->timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
+		list($response) = $this->timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
+		return $response;
 	}
 
 	/**
@@ -2496,10 +2507,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffListTimeOffPoliciesForEmployee($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		$this->timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, $contentType);
+		list($response) = $this->timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -2689,10 +2701,11 @@ class TimeOffApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function timeOffListTimeOffPoliciesForEmployeeV11($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		$this->timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, $contentType);
+		list($response) = $this->timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, $contentType);
+		return $response;
 	}
 
 	/**

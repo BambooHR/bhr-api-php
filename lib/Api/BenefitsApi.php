@@ -158,10 +158,11 @@ class BenefitsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addEmployeeDependent($employee_dependent, string $contentType = self::CONTENT_TYPES['addEmployeeDependent'][0]) {
-		$this->addEmployeeDependentWithHttpInfo($employee_dependent, $contentType);
+		list($response) = $this->addEmployeeDependentWithHttpInfo($employee_dependent, $contentType);
+		return $response;
 	}
 
 	/**
@@ -352,10 +353,11 @@ class BenefitsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getBenefitCoverages($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getBenefitCoverages'][0]) {
-		$this->getBenefitCoveragesWithHttpInfo($accept_header_parameter, $contentType);
+		list($response) = $this->getBenefitCoveragesWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -533,10 +535,11 @@ class BenefitsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getBenefitDeductionTypes(string $contentType = self::CONTENT_TYPES['getBenefitDeductionTypes'][0]) {
-		$this->getBenefitDeductionTypesWithHttpInfo($contentType);
+		list($response) = $this->getBenefitDeductionTypesWithHttpInfo($contentType);
+		return $response;
 	}
 
 	/**
@@ -707,10 +710,11 @@ class BenefitsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getEmployeeDependent($id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependent'][0]) {
-		$this->getEmployeeDependentWithHttpInfo($id, $accept_header_parameter, $contentType);
+		list($response) = $this->getEmployeeDependentWithHttpInfo($id, $accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -910,10 +914,11 @@ class BenefitsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getEmployeeDependents($employeeid, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeDependents'][0]) {
-		$this->getEmployeeDependentsWithHttpInfo($employeeid, $accept_header_parameter, $contentType);
+		list($response) = $this->getEmployeeDependentsWithHttpInfo($employeeid, $accept_header_parameter, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1317,10 +1322,11 @@ class BenefitsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateEmployeeDependent($id, $employee_dependent, string $contentType = self::CONTENT_TYPES['updateEmployeeDependent'][0]) {
-		$this->updateEmployeeDependentWithHttpInfo($id, $employee_dependent, $contentType);
+		list($response) = $this->updateEmployeeDependentWithHttpInfo($id, $employee_dependent, $contentType);
+		return $response;
 	}
 
 	/**

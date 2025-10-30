@@ -210,10 +210,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteGoal($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['deleteGoal'][0]) {
-		$this->deleteGoalWithHttpInfo($employee_id, $goal_id, $contentType);
+		list($response) = $this->deleteGoalWithHttpInfo($employee_id, $goal_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -418,10 +419,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteGoalComment($employee_id, $goal_id, $comment_id, string $contentType = self::CONTENT_TYPES['deleteGoalComment'][0]) {
-		$this->deleteGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $contentType);
+		list($response) = $this->deleteGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -637,10 +639,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getCanCreateGoal($employee_id, string $contentType = self::CONTENT_TYPES['getCanCreateGoal'][0]) {
-		$this->getCanCreateGoalWithHttpInfo($employee_id, $contentType);
+		list($response) = $this->getCanCreateGoalWithHttpInfo($employee_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1063,10 +1066,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getGoalComments($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalComments'][0]) {
-		$this->getGoalCommentsWithHttpInfo($employee_id, $goal_id, $contentType);
+		list($response) = $this->getGoalCommentsWithHttpInfo($employee_id, $goal_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -2174,10 +2178,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getGoalsAlignmentOptions($employee_id, $goal_id = null, $get_goals_alignment_options_request = null, string $contentType = self::CONTENT_TYPES['getGoalsAlignmentOptions'][0]) {
-		$this->getGoalsAlignmentOptionsWithHttpInfo($employee_id, $goal_id, $get_goals_alignment_options_request, $contentType);
+		list($response) = $this->getGoalsAlignmentOptionsWithHttpInfo($employee_id, $goal_id, $get_goals_alignment_options_request, $contentType);
+		return $response;
 	}
 
 	/**
@@ -3067,10 +3072,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getGoalsShareOptions($employee_id, $search = null, $limit = null, string $contentType = self::CONTENT_TYPES['getGoalsShareOptions'][0]) {
-		$this->getGoalsShareOptionsWithHttpInfo($employee_id, $search, $limit, $contentType);
+		list($response) = $this->getGoalsShareOptionsWithHttpInfo($employee_id, $search, $limit, $contentType);
+		return $response;
 	}
 
 	/**
@@ -3768,10 +3774,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function postGoalComment($employee_id, $goal_id, $body, string $contentType = self::CONTENT_TYPES['postGoalComment'][0]) {
-		$this->postGoalCommentWithHttpInfo($employee_id, $goal_id, $body, $contentType);
+		list($response) = $this->postGoalCommentWithHttpInfo($employee_id, $goal_id, $body, $contentType);
+		return $response;
 	}
 
 	/**
@@ -4224,10 +4231,11 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function putGoalComment($employee_id, $goal_id, $comment_id, $body, string $contentType = self::CONTENT_TYPES['putGoalComment'][0]) {
-		$this->putGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $body, $contentType);
+		list($response) = $this->putGoalCommentWithHttpInfo($employee_id, $goal_id, $comment_id, $body, $contentType);
+		return $response;
 	}
 
 	/**
