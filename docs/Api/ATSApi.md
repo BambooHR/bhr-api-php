@@ -10,7 +10,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 ## `getApplicationDetails()`
 
 ```php
-getApplicationDetails($application_id): \BhrSdk\Model\GetApplicationDetails200Response
+getApplicationDetails($application_id): \BhrSdk\Model\ApplicationDetails
 ```
 
 Get Application Details
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetApplicationDetails200Response**](../Model/GetApplicationDetails200Response.md)
+[**\BhrSdk\Model\ApplicationDetails**](../Model/ApplicationDetails.md)
 
 ### Authorization
 

@@ -831,7 +831,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetGoalAggregate200Response
+	 * @return \BhrSdk\Model\GoalAggregate
 	 */
 	public function getGoalAggregate($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		list($response) = $this->getGoalAggregateWithHttpInfo($employee_id, $goal_id, $contentType);
@@ -849,7 +849,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetGoalAggregate200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalAggregate, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalAggregateWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
@@ -863,7 +863,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetGoalAggregate200Response',
+					'\BhrSdk\Model\GoalAggregate',
 					$request,
 					$response,
 				);
@@ -883,7 +883,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetGoalAggregate200Response',
+			'\BhrSdk\Model\GoalAggregate',
 			$request,
 			$response,
 		);
@@ -923,7 +923,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalAggregateAsyncWithHttpInfo($employee_id, $goal_id, string $contentType = self::CONTENT_TYPES['getGoalAggregate'][0]) {
-		$returnType = '\BhrSdk\Model\GetGoalAggregate200Response';
+		$returnType = '\BhrSdk\Model\GoalAggregate';
 		$request = $this->getGoalAggregateRequest($employee_id, $goal_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1270,7 +1270,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetGoals200Response
+	 * @return \BhrSdk\Model\GoalsList
 	 */
 	public function getGoals($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		list($response) = $this->getGoalsWithHttpInfo($employee_id, $filter, $contentType);
@@ -1288,7 +1288,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetGoals200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalsList, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
@@ -1302,7 +1302,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetGoals200Response',
+					'\BhrSdk\Model\GoalsList',
 					$request,
 					$response,
 				);
@@ -1322,7 +1322,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetGoals200Response',
+			'\BhrSdk\Model\GoalsList',
 			$request,
 			$response,
 		);
@@ -1362,7 +1362,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAsyncWithHttpInfo($employee_id, $filter = null, string $contentType = self::CONTENT_TYPES['getGoals'][0]) {
-		$returnType = '\BhrSdk\Model\GetGoals200Response';
+		$returnType = '\BhrSdk\Model\GoalsList';
 		$request = $this->getGoalsRequest($employee_id, $filter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1508,7 +1508,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetGoalsAggregateV1200Response
+	 * @return \BhrSdk\Model\GoalsAggregateV1
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
@@ -1526,7 +1526,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetGoalsAggregateV1200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalsAggregateV1, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
@@ -1541,7 +1541,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetGoalsAggregateV1200Response',
+					'\BhrSdk\Model\GoalsAggregateV1',
 					$request,
 					$response,
 				);
@@ -1561,7 +1561,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetGoalsAggregateV1200Response',
+			'\BhrSdk\Model\GoalsAggregateV1',
 			$request,
 			$response,
 		);
@@ -1601,7 +1601,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV1AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV1'][0]) {
-		$returnType = '\BhrSdk\Model\GetGoalsAggregateV1200Response';
+		$returnType = '\BhrSdk\Model\GoalsAggregateV1';
 		$request = $this->getGoalsAggregateV1Request($employee_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1731,7 +1731,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetGoalsAggregateV11200Response
+	 * @return \BhrSdk\Model\GoalsAggregateV11
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
@@ -1749,7 +1749,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetGoalsAggregateV11200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalsAggregateV11, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
@@ -1764,7 +1764,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetGoalsAggregateV11200Response',
+					'\BhrSdk\Model\GoalsAggregateV11',
 					$request,
 					$response,
 				);
@@ -1784,7 +1784,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetGoalsAggregateV11200Response',
+			'\BhrSdk\Model\GoalsAggregateV11',
 			$request,
 			$response,
 		);
@@ -1824,7 +1824,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function getGoalsAggregateV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV11'][0]) {
-		$returnType = '\BhrSdk\Model\GetGoalsAggregateV11200Response';
+		$returnType = '\BhrSdk\Model\GoalsAggregateV11';
 		$request = $this->getGoalsAggregateV11Request($employee_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1954,7 +1954,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetGoalsAggregateV12200Response
+	 * @return \BhrSdk\Model\GoalsAggregateV12
 	 */
 	public function getGoalsAggregateV12($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		list($response) = $this->getGoalsAggregateV12WithHttpInfo($employee_id, $contentType);
@@ -1971,7 +1971,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetGoalsAggregateV12200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\GoalsAggregateV12, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getGoalsAggregateV12WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
@@ -1985,7 +1985,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetGoalsAggregateV12200Response',
+					'\BhrSdk\Model\GoalsAggregateV12',
 					$request,
 					$response,
 				);
@@ -2005,7 +2005,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetGoalsAggregateV12200Response',
+			'\BhrSdk\Model\GoalsAggregateV12',
 			$request,
 			$response,
 		);
@@ -2043,7 +2043,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getGoalsAggregateV12AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['getGoalsAggregateV12'][0]) {
-		$returnType = '\BhrSdk\Model\GetGoalsAggregateV12200Response';
+		$returnType = '\BhrSdk\Model\GoalsAggregateV12';
 		$request = $this->getGoalsAggregateV12Request($employee_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))

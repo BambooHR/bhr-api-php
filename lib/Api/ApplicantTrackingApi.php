@@ -856,7 +856,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetApplications200Response
+	 * @return \BhrSdk\Model\ApplicationsList
 	 */
 	public function getApplications($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		list($response) = $this->getApplicationsWithHttpInfo($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
@@ -881,7 +881,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetApplications200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ApplicationsList, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getApplicationsWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
@@ -895,7 +895,7 @@ class ApplicantTrackingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetApplications200Response',
+					'\BhrSdk\Model\ApplicationsList',
 					$request,
 					$response,
 				);
@@ -915,7 +915,7 @@ class ApplicantTrackingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetApplications200Response',
+			'\BhrSdk\Model\ApplicationsList',
 			$request,
 			$response,
 		);
@@ -969,7 +969,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getApplicationsAsyncWithHttpInfo($page = null, $job_id = null, $application_status_id = null, $application_status = null, $job_status_groups = null, $search_string = null, $sort_by = null, $sort_order = null, $new_since = null, string $contentType = self::CONTENT_TYPES['getApplications'][0]) {
-		$returnType = '\BhrSdk\Model\GetApplications200Response';
+		$returnType = '\BhrSdk\Model\ApplicationsList';
 		$request = $this->getApplicationsRequest($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1113,7 +1113,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
+	 * @return \BhrSdk\Model\LocationsList[]
 	 */
 	public function getCompanyLocations(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		list($response) = $this->getCompanyLocationsWithHttpInfo($contentType);
@@ -1129,7 +1129,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetCompanyLocations200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\LocationsList[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
@@ -1143,7 +1143,7 @@ class ApplicantTrackingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
+					'\BhrSdk\Model\LocationsList[]',
 					$request,
 					$response,
 				);
@@ -1163,7 +1163,7 @@ class ApplicantTrackingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetCompanyLocations200ResponseInner[]',
+			'\BhrSdk\Model\LocationsList[]',
 			$request,
 			$response,
 		);
@@ -1199,7 +1199,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyLocationsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
-		$returnType = '\BhrSdk\Model\GetCompanyLocations200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\LocationsList[]';
 		$request = $this->getCompanyLocationsRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1310,7 +1310,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\GetHiringLeads200ResponseInner[]
+	 * @return \BhrSdk\Model\HiringLeadsList[]
 	 */
 	public function getHiringLeads(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		list($response) = $this->getHiringLeadsWithHttpInfo($contentType);
@@ -1326,7 +1326,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\GetHiringLeads200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\HiringLeadsList[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
@@ -1340,7 +1340,7 @@ class ApplicantTrackingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
+					'\BhrSdk\Model\HiringLeadsList[]',
 					$request,
 					$response,
 				);
@@ -1360,7 +1360,7 @@ class ApplicantTrackingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\GetHiringLeads200ResponseInner[]',
+			'\BhrSdk\Model\HiringLeadsList[]',
 			$request,
 			$response,
 		);
@@ -1396,7 +1396,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getHiringLeadsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
-		$returnType = '\BhrSdk\Model\GetHiringLeads200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\HiringLeadsList[]';
 		$request = $this->getHiringLeadsRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))

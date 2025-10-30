@@ -80,7 +80,7 @@ void (empty response body)
 ## `getMonitorFields()`
 
 ```php
-getMonitorFields(): \BhrSdk\Model\GetMonitorFields200Response
+getMonitorFields(): \BhrSdk\Model\FieldList
 ```
 
 Get monitor fields
@@ -121,7 +121,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\GetMonitorFields200Response**](../Model/GetMonitorFields200Response.md)
+[**\BhrSdk\Model\FieldList**](../Model/FieldList.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ try {
 ## `getWebhookList()`
 
 ```php
-getWebhookList(): \BhrSdk\Model\GetWebhookList200Response
+getWebhookList(): \BhrSdk\Model\WebhooksList
 ```
 
 Gets as list of webhooks for the user API key.
@@ -242,7 +242,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\GetWebhookList200Response**](../Model/GetWebhookList200Response.md)
+[**\BhrSdk\Model\WebhooksList**](../Model/WebhooksList.md)
 
 ### Authorization
 
@@ -322,7 +322,7 @@ try {
 ## `postWebhook()`
 
 ```php
-postWebhook($new_web_hook): \BhrSdk\Model\PostWebhook201Response
+postWebhook($new_web_hook): \BhrSdk\Model\Webhook
 ```
 
 Add Webhook
@@ -366,7 +366,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\PostWebhook201Response**](../Model/PostWebhook201Response.md)
+[**\BhrSdk\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 

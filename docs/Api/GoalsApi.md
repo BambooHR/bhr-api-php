@@ -222,7 +222,7 @@ void (empty response body)
 ## `getGoalAggregate()`
 
 ```php
-getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GetGoalAggregate200Response
+getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GoalAggregate
 ```
 
 Get Aggregate Goal Info
@@ -268,7 +268,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetGoalAggregate200Response**](../Model/GetGoalAggregate200Response.md)
+[**\BhrSdk\Model\GoalAggregate**](../Model/GoalAggregate.md)
 
 ### Authorization
 
@@ -349,7 +349,7 @@ void (empty response body)
 ## `getGoals()`
 
 ```php
-getGoals($employee_id, $filter): \BhrSdk\Model\GetGoals200Response
+getGoals($employee_id, $filter): \BhrSdk\Model\GoalsList
 ```
 
 Get Goals
@@ -395,7 +395,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetGoals200Response**](../Model/GetGoals200Response.md)
+[**\BhrSdk\Model\GoalsList**](../Model/GoalsList.md)
 
 ### Authorization
 
@@ -413,7 +413,7 @@ try {
 ## `getGoalsAggregateV1()`
 
 ```php
-getGoalsAggregateV1($employee_id): \BhrSdk\Model\GetGoalsAggregateV1200Response
+getGoalsAggregateV1($employee_id): \BhrSdk\Model\GoalsAggregateV1
 ```
 
 Get All Aggregate Goal Info
@@ -457,7 +457,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetGoalsAggregateV1200Response**](../Model/GetGoalsAggregateV1200Response.md)
+[**\BhrSdk\Model\GoalsAggregateV1**](../Model/GoalsAggregateV1.md)
 
 ### Authorization
 
@@ -475,7 +475,7 @@ try {
 ## `getGoalsAggregateV11()`
 
 ```php
-getGoalsAggregateV11($employee_id): \BhrSdk\Model\GetGoalsAggregateV11200Response
+getGoalsAggregateV11($employee_id): \BhrSdk\Model\GoalsAggregateV11
 ```
 
 Get All Aggregate Goal Info, Version 1.1
@@ -519,7 +519,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetGoalsAggregateV11200Response**](../Model/GetGoalsAggregateV11200Response.md)
+[**\BhrSdk\Model\GoalsAggregateV11**](../Model/GoalsAggregateV11.md)
 
 ### Authorization
 
@@ -537,7 +537,7 @@ try {
 ## `getGoalsAggregateV12()`
 
 ```php
-getGoalsAggregateV12($employee_id): \BhrSdk\Model\GetGoalsAggregateV12200Response
+getGoalsAggregateV12($employee_id): \BhrSdk\Model\GoalsAggregateV12
 ```
 
 Get All Aggregate Goal Info, Version 1.2
@@ -581,7 +581,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetGoalsAggregateV12200Response**](../Model/GetGoalsAggregateV12200Response.md)
+[**\BhrSdk\Model\GoalsAggregateV12**](../Model/GoalsAggregateV12.md)
 
 ### Authorization
 

@@ -1425,7 +1425,7 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]
+	 * @return \BhrSdk\Model\TrainingRecordList[]
 	 */
 	public function listEmployeeTrainings($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		list($response) = $this->listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id, $contentType);
@@ -1443,7 +1443,7 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\ListEmployeeTrainings200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingRecordList[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
@@ -1457,7 +1457,7 @@ class TrainingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
+					'\BhrSdk\Model\TrainingRecordList[]',
 					$request,
 					$response,
 				);
@@ -1477,7 +1477,7 @@ class TrainingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]',
+			'\BhrSdk\Model\TrainingRecordList[]',
 			$request,
 			$response,
 		);
@@ -1517,7 +1517,7 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
-		$returnType = '\BhrSdk\Model\ListEmployeeTrainings200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\TrainingRecordList[]';
 		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1662,7 +1662,7 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\ListTrainingCategories200ResponseInner[]
+	 * @return \BhrSdk\Model\TrainingCategoryList[]
 	 */
 	public function listTrainingCategories(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		list($response) = $this->listTrainingCategoriesWithHttpInfo($contentType);
@@ -1678,7 +1678,7 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\ListTrainingCategories200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingCategoryList[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listTrainingCategoriesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		$request = $this->listTrainingCategoriesRequest($contentType);
@@ -1692,7 +1692,7 @@ class TrainingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
+					'\BhrSdk\Model\TrainingCategoryList[]',
 					$request,
 					$response,
 				);
@@ -1712,7 +1712,7 @@ class TrainingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\ListTrainingCategories200ResponseInner[]',
+			'\BhrSdk\Model\TrainingCategoryList[]',
 			$request,
 			$response,
 		);
@@ -1748,7 +1748,7 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listTrainingCategoriesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
-		$returnType = '\BhrSdk\Model\ListTrainingCategories200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\TrainingCategoryList[]';
 		$request = $this->listTrainingCategoriesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1859,7 +1859,7 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\ListTrainingTypes200ResponseInner[]
+	 * @return \BhrSdk\Model\TrainingTypeList[]
 	 */
 	public function listTrainingTypes(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		list($response) = $this->listTrainingTypesWithHttpInfo($contentType);
@@ -1875,7 +1875,7 @@ class TrainingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\ListTrainingTypes200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingTypeList[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listTrainingTypesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		$request = $this->listTrainingTypesRequest($contentType);
@@ -1889,7 +1889,7 @@ class TrainingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
+					'\BhrSdk\Model\TrainingTypeList[]',
 					$request,
 					$response,
 				);
@@ -1909,7 +1909,7 @@ class TrainingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\ListTrainingTypes200ResponseInner[]',
+			'\BhrSdk\Model\TrainingTypeList[]',
 			$request,
 			$response,
 		);
@@ -1945,7 +1945,7 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listTrainingTypesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
-		$returnType = '\BhrSdk\Model\ListTrainingTypes200ResponseInner[]';
+		$returnType = '\BhrSdk\Model\TrainingTypeList[]';
 		$request = $this->listTrainingTypesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))

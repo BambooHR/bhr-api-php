@@ -82,7 +82,7 @@ class DatasetsApi {
 		'getDataFromDataset' => [
 			'application/json',
         ],
-		'getDataSets' => [
+		'getDatasets' => [
 			'application/json',
         ],
 		'getFieldsFromDataset' => [
@@ -371,34 +371,34 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDataSets
+	 * Operation getDatasets
 	 *
 	 * Get Data Sets
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\DatasetResponse
 	 */
-	public function getDataSets(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
-		list($response) = $this->getDataSetsWithHttpInfo($contentType);
+	public function getDatasets(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
+		list($response) = $this->getDatasetsWithHttpInfo($contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getDataSetsWithHttpInfo
+	 * Operation getDatasetsWithHttpInfo
 	 *
 	 * Get Data Sets
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getDataSetsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
-		$request = $this->getDataSetsRequest($contentType);
+	public function getDatasetsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
+		$request = $this->getDatasetsRequest($contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -436,17 +436,17 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDataSetsAsync
+	 * Operation getDatasetsAsync
 	 *
 	 * Get Data Sets
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getDataSetsAsync(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
-		return $this->getDataSetsAsyncWithHttpInfo($contentType)
+	public function getDatasetsAsync(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
+		return $this->getDatasetsAsyncWithHttpInfo($contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -455,18 +455,18 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDataSetsAsyncWithHttpInfo
+	 * Operation getDatasetsAsyncWithHttpInfo
 	 *
 	 * Get Data Sets
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getDataSetsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
+	public function getDatasetsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
 		$returnType = '\BhrSdk\Model\DatasetResponse';
-		$request = $this->getDataSetsRequest($contentType);
+		$request = $this->getDatasetsRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -500,14 +500,14 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Create request for operation 'getDataSets'
+	 * Create request for operation 'getDatasets'
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataSets'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getDataSetsRequest(string $contentType = self::CONTENT_TYPES['getDataSets'][0]) {
+	public function getDatasetsRequest(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
 
 		$resourcePath = '/api/v1/datasets';
 		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);

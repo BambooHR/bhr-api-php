@@ -606,7 +606,7 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\DeleteEmployeeTableRowV1200Response
+	 * @return \BhrSdk\Model\TableRowDeleteResponse
 	 */
 	public function deleteEmployeeTableRowV1($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
 		list($response) = $this->deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, $contentType);
@@ -625,7 +625,7 @@ class TabularDataApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\DeleteEmployeeTableRowV1200Response, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TableRowDeleteResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
@@ -639,7 +639,7 @@ class TabularDataApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
+					'\BhrSdk\Model\TableRowDeleteResponse',
 					$request,
 					$response,
 				);
@@ -659,7 +659,7 @@ class TabularDataApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\DeleteEmployeeTableRowV1200Response',
+			'\BhrSdk\Model\TableRowDeleteResponse',
 			$request,
 			$response,
 		);
@@ -701,7 +701,7 @@ class TabularDataApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
-		$returnType = '\BhrSdk\Model\DeleteEmployeeTableRowV1200Response';
+		$returnType = '\BhrSdk\Model\TableRowDeleteResponse';
 		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
