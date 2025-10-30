@@ -659,7 +659,7 @@ timeOffGetTimeOffRequests($start, $end, $accept_header_parameter, $id, $action, 
 
 Get Time Off Requests
 
-
+Retrieves a list of time off requests based on specified filters. This endpoint allows filtering by date range, status, employee, and time off type. It's useful for generating time off reports or displaying a calendar of time off events.
 
 ### Example
 
@@ -734,7 +734,7 @@ timeOffListTimeOffPoliciesForEmployee($employee_id)
 
 List Time Off Policies for Employee
 
-
+Retrieves a list of time off policies assigned to a specific employee. This includes policy details such as name, type, and current balance. The response helps in displaying available time off options and balances to employees.
 
 ### Example
 
@@ -795,7 +795,7 @@ timeOffListTimeOffPoliciesForEmployeeV11($employee_id)
 
 List Time Off Policies for Employee, Version 1.1
 
-
+Version 1.1 of the endpoint that retrieves time off policies for a specific employee. This version includes additional policy details and enhanced filtering capabilities compared to v1. It provides comprehensive information about each policy including accrual rates, carryover rules, and policy-specific settings.
 
 ### Example
 

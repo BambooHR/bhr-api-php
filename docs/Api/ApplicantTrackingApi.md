@@ -220,7 +220,7 @@ void (empty response body)
 ## `getApplications()`
 
 ```php
-getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \BhrSdk\Model\GetApplications200Response
+getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \BhrSdk\Model\ApplicationsList
 ```
 
 Get Applications
@@ -280,7 +280,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\GetApplications200Response**](../Model/GetApplications200Response.md)
+[**\BhrSdk\Model\ApplicationsList**](../Model/ApplicationsList.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ try {
 ## `getCompanyLocations()`
 
 ```php
-getCompanyLocations(): \BhrSdk\Model\GetCompanyLocations200ResponseInner[]
+getCompanyLocations(): \BhrSdk\Model\LocationsList[]
 ```
 
 Get Company Locations
@@ -339,7 +339,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\GetCompanyLocations200ResponseInner[]**](../Model/GetCompanyLocations200ResponseInner.md)
+[**\BhrSdk\Model\LocationsList[]**](../Model/LocationsList.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ This endpoint does not need any parameter.
 ## `getHiringLeads()`
 
 ```php
-getHiringLeads(): \BhrSdk\Model\GetHiringLeads200ResponseInner[]
+getHiringLeads(): \BhrSdk\Model\HiringLeadsList[]
 ```
 
 Get Hiring Leads
@@ -398,7 +398,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\GetHiringLeads200ResponseInner[]**](../Model/GetHiringLeads200ResponseInner.md)
+[**\BhrSdk\Model\HiringLeadsList[]**](../Model/HiringLeadsList.md)
 
 ### Authorization
 

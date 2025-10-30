@@ -5,7 +5,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getDataFromDataset()**](DatasetsApi.md#getDataFromDataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset |
-| [**getDataSets()**](DatasetsApi.md#getDataSets) | **GET** /api/v1/datasets | Get Data Sets |
+| [**getDatasets()**](DatasetsApi.md#getDatasets) | **GET** /api/v1/datasets | Get Data Sets |
 | [**getFieldsFromDataset()**](DatasetsApi.md#getFieldsFromDataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset |
 
 
@@ -73,10 +73,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getDataSets()`
+## `getDatasets()`
 
 ```php
-getDataSets(): \BhrSdk\Model\DatasetResponse
+getDatasets(): \BhrSdk\Model\DatasetResponse
 ```
 
 Get Data Sets
@@ -104,10 +104,10 @@ $apiInstance = new BhrSdk\Api\DatasetsApi(
 );
 
 try {
-    $result = $apiInstance->getDataSets();
+    $result = $apiInstance->getDatasets();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DatasetsApi->getDataSets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DatasetsApi->getDatasets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
