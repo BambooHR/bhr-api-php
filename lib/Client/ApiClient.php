@@ -38,7 +38,7 @@ class ApiClient {
 	private Configuration $config;
 	private ?ClientInterface $httpClient = null;
 	private ?AuthBuilder $authBuilder = null;
-	private ?LoggerInterface $logger = null;
+	private LoggerInterface $logger;
 	private ?HeaderSelector $headerSelector = null;
 	private int $hostIndex = 0;
 	private ?TokenManager $tokenManager = null;
@@ -56,7 +56,8 @@ class ApiClient {
 	) {
 		$this->config = new Configuration();
 		$this->authBuilder = $authBuilder;
-		$this->logger = $logger;
+		// Always initialize logger - use disabled logger if none provided
+		$this->logger = $logger ?? new SecureLogger(false);
 	}
 
 	/**
@@ -661,9 +662,7 @@ class ApiClient {
 	 * @return void
 	 */
 	private function log(string $level, string $message, array $context = []): void {
-		if ($this->logger !== null) {
-			$this->logger->log($level, $message, $context);
-		}
+		$this->logger->log($level, $message, $context);
 	}
 
 	/**

@@ -158,10 +158,11 @@ class WebhooksApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteWebhook($id, string $contentType = self::CONTENT_TYPES['deleteWebhook'][0]) {
-		$this->deleteWebhookWithHttpInfo($id, $contentType);
+		list($response) = $this->deleteWebhookWithHttpInfo($id, $contentType);
+		return $response;
 	}
 
 	/**

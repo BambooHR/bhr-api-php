@@ -155,10 +155,11 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addCompanyFileCategory($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
-		$this->addCompanyFileCategoryWithHttpInfo($request_body, $contentType);
+		list($response) = $this->addCompanyFileCategoryWithHttpInfo($request_body, $contentType);
+		return $response;
 	}
 
 	/**
@@ -349,10 +350,11 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteCompanyFile($file_id, string $contentType = self::CONTENT_TYPES['deleteCompanyFile'][0]) {
-		$this->deleteCompanyFileWithHttpInfo($file_id, $contentType);
+		list($response) = $this->deleteCompanyFileWithHttpInfo($file_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -542,10 +544,11 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function getCompanyFile($file_id, string $contentType = self::CONTENT_TYPES['getCompanyFile'][0]) {
-		$this->getCompanyFileWithHttpInfo($file_id, $contentType);
+		list($response) = $this->getCompanyFileWithHttpInfo($file_id, $contentType);
+		return $response;
 	}
 
 	/**
@@ -734,10 +737,11 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function listCompanyFiles(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
-		$this->listCompanyFilesWithHttpInfo($contentType);
+		list($response) = $this->listCompanyFilesWithHttpInfo($contentType);
+		return $response;
 	}
 
 	/**
@@ -908,10 +912,11 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateCompanyFile($file_id, $company_file_update, string $contentType = self::CONTENT_TYPES['updateCompanyFile'][0]) {
-		$this->updateCompanyFileWithHttpInfo($file_id, $company_file_update, $contentType);
+		list($response) = $this->updateCompanyFileWithHttpInfo($file_id, $company_file_update, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1115,10 +1120,11 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function uploadCompanyFile(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
-		$this->uploadCompanyFileWithHttpInfo($contentType);
+		list($response) = $this->uploadCompanyFileWithHttpInfo($contentType);
+		return $response;
 	}
 
 	/**

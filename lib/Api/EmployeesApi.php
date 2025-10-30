@@ -155,10 +155,11 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function addEmployee($post_new_employee, string $contentType = self::CONTENT_TYPES['addEmployee'][0]) {
-		$this->addEmployeeWithHttpInfo($post_new_employee, $contentType);
+		list($response) = $this->addEmployeeWithHttpInfo($post_new_employee, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1246,10 +1247,11 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function updateEmployee($id, $employee, string $contentType = self::CONTENT_TYPES['updateEmployee'][0]) {
-		$this->updateEmployeeWithHttpInfo($id, $employee, $contentType);
+		list($response) = $this->updateEmployeeWithHttpInfo($id, $employee, $contentType);
+		return $response;
 	}
 
 	/**
