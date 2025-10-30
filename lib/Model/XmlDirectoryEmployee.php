@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200Response1
+ * XmlDirectoryEmployee
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200Response1 Class Doc Comment
+ * XmlDirectoryEmployee Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, \JsonSerializable {
+class XmlDirectoryEmployee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, 
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response_1';
+	protected static $openApiModelName = 'XmlDirectoryEmployee';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, 
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'fieldset' => '\BhrSdk\Model\GetEmployeesDirectory200Response1Fieldset',
-		'employees' => '\BhrSdk\Model\GetEmployeesDirectory200Response1Employees'
+		'fieldset' => '\BhrSdk\Model\XmlDirectoryEmployeeFieldset',
+		'employees' => '\BhrSdk\Model\XmlDirectoryEmployeeEmployees'
 	];
 
 	/**
@@ -286,7 +286,7 @@ class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, 
 	/**
 	 * Gets fieldset
 	 *
-	 * @return \BhrSdk\Model\GetEmployeesDirectory200Response1Fieldset|null
+	 * @return \BhrSdk\Model\XmlDirectoryEmployeeFieldset|null
 	 */
 	public function getFieldset() {
 		return $this->container['fieldset'];
@@ -295,7 +295,7 @@ class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, 
 	/**
 	 * Sets fieldset
 	 *
-	 * @param \BhrSdk\Model\GetEmployeesDirectory200Response1Fieldset|null $fieldset fieldset
+	 * @param \BhrSdk\Model\XmlDirectoryEmployeeFieldset|null $fieldset fieldset
 	 *
 	 * @return self
 	 */
@@ -311,7 +311,7 @@ class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, 
 	/**
 	 * Gets employees
 	 *
-	 * @return \BhrSdk\Model\GetEmployeesDirectory200Response1Employees|null
+	 * @return \BhrSdk\Model\XmlDirectoryEmployeeEmployees|null
 	 */
 	public function getEmployees() {
 		return $this->container['employees'];
@@ -320,7 +320,7 @@ class GetEmployeesDirectory200Response1 implements ModelInterface, ArrayAccess, 
 	/**
 	 * Sets employees
 	 *
-	 * @param \BhrSdk\Model\GetEmployeesDirectory200Response1Employees|null $employees employees
+	 * @param \BhrSdk\Model\XmlDirectoryEmployeeEmployees|null $employees employees
 	 *
 	 * @return self
 	 */

@@ -203,7 +203,7 @@ try {
 ## `getEmployeesDirectory()`
 
 ```php
-getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\DirectoryEmployee
+getEmployeesDirectory($accept_header_parameter): \BhrSdk\Model\JsonDirectoryEmployee
 ```
 
 Get Employee Directory
@@ -247,7 +247,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\DirectoryEmployee**](../Model/DirectoryEmployee.md)
+[**\BhrSdk\Model\JsonDirectoryEmployee**](../Model/JsonDirectoryEmployee.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/xml`, `application/json`
+- **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner
+ * XmlDirectoryEmployeeEmployees
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner Class Doc Comment
+ * XmlDirectoryEmployeeEmployees Class Doc Comment
  *
  * @category Class
+ * @description Employee records
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implements ModelInterface, ArrayAccess, \JsonSerializable {
+class XmlDirectoryEmployeeEmployees implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +50,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response_1_employees_employee_inner_field_inner';
+	protected static $openApiModelName = 'XmlDirectoryEmployee_employees';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'string',
-		'value' => 'string'
+		'employee' => '\BhrSdk\Model\XmlDirectoryEmployeeEmployeesEmployeeInner[]'
 	];
 
 	/**
@@ -69,8 +69,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'id' => null,
-		'value' => null
+		'employee' => null
 	];
 
 	/**
@@ -80,8 +79,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'id' => false,
-		'value' => false
+		'employee' => false
 	];
 
 	/**
@@ -166,8 +164,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'id' => 'id',
-		'value' => 'value'
+		'employee' => 'employee'
 	];
 
 	/**
@@ -176,8 +173,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'id' => 'setId',
-		'value' => 'setValue'
+		'employee' => 'setEmployee'
 	];
 
 	/**
@@ -186,8 +182,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'id' => 'getId',
-		'value' => 'getValue'
+		'employee' => 'getEmployee'
 	];
 
 	/**
@@ -241,8 +236,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('id', $data ?? [], null);
-		$this->setIfExists('value', $data ?? [], null);
+		$this->setIfExists('employee', $data ?? [], null);
 	}
 
 	/**
@@ -284,51 +278,26 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner implemen
 	}
 
 	/**
-	 * Gets id
+	 * Gets employee
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\XmlDirectoryEmployeeEmployeesEmployeeInner[]|null
 	 */
-	public function getId() {
-		return $this->container['id'];
+	public function getEmployee() {
+		return $this->container['employee'];
 	}
 
 	/**
-	 * Sets id
+	 * Sets employee
 	 *
-	 * @param string|null $id Field identifier (XML attribute). Array of employee records. Each employee object contains dynamic field values based on the fields defined in the 'fields' array. Common fields include: id, displayName, firstName, lastName, preferredName, jobTitle, workPhone, mobilePhone, workEmail, department, location, division, twitterFeed, pronouns, workPhoneExtension, photoUploaded, photoUrl, canUploadPhoto. Actual fields may vary by company configuration.
+	 * @param \BhrSdk\Model\XmlDirectoryEmployeeEmployeesEmployeeInner[]|null $employee employee
 	 *
 	 * @return self
 	 */
-	public function setId($id) {
-		if (is_null($id)) {
-			throw new \InvalidArgumentException('non-nullable id cannot be null');
+	public function setEmployee($employee) {
+		if (is_null($employee)) {
+			throw new \InvalidArgumentException('non-nullable employee cannot be null');
 		}
-		$this->container['id'] = $id;
-
-		return $this;
-	}
-
-	/**
-	 * Gets value
-	 *
-	 * @return string|null
-	 */
-	public function getValue() {
-		return $this->container['value'];
-	}
-
-	/**
-	 * Sets value
-	 *
-	 * @param string|null $value Field value (element text content)
-	 *
-	 * @return self
-	 */
-	public function setValue($value) {
-		if (is_null($value)) {
-			throw new \InvalidArgumentException('non-nullable value cannot be null');
-		}
-		$this->container['value'] = $value;
+		$this->container['employee'] = $employee;
 
 		return $this;
 	}

@@ -1,4 +1,4 @@
-# # GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner
+# # XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner
 
 ## Properties
 

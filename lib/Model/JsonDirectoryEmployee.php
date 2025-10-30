@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200Response1EmployeesEmployeeInner
+ * JsonDirectoryEmployee
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200Response1EmployeesEmployeeInner Class Doc Comment
+ * JsonDirectoryEmployee Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelInterface, ArrayAccess, \JsonSerializable {
+class JsonDirectoryEmployee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response_1_employees_employee_inner';
+	protected static $openApiModelName = 'JsonDirectoryEmployee';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'string',
-		'field' => '\BhrSdk\Model\GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner[]'
+		'fields' => '\BhrSdk\Model\JsonDirectoryEmployeeFieldsInner[]',
+		'employees' => 'object[]'
 	];
 
 	/**
@@ -69,8 +69,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'id' => null,
-		'field' => null
+		'fields' => null,
+		'employees' => null
 	];
 
 	/**
@@ -80,8 +80,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'id' => false,
-		'field' => false
+		'fields' => false,
+		'employees' => false
 	];
 
 	/**
@@ -166,8 +166,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'id' => 'id',
-		'field' => 'field'
+		'fields' => 'fields',
+		'employees' => 'employees'
 	];
 
 	/**
@@ -176,8 +176,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'id' => 'setId',
-		'field' => 'setField'
+		'fields' => 'setFields',
+		'employees' => 'setEmployees'
 	];
 
 	/**
@@ -186,8 +186,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'id' => 'getId',
-		'field' => 'getField'
+		'fields' => 'getFields',
+		'employees' => 'getEmployees'
 	];
 
 	/**
@@ -241,8 +241,8 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('id', $data ?? [], null);
-		$this->setIfExists('field', $data ?? [], null);
+		$this->setIfExists('fields', $data ?? [], null);
+		$this->setIfExists('employees', $data ?? [], null);
 	}
 
 	/**
@@ -284,51 +284,51 @@ class GetEmployeesDirectory200Response1EmployeesEmployeeInner implements ModelIn
 	}
 
 	/**
-	 * Gets id
+	 * Gets fields
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\JsonDirectoryEmployeeFieldsInner[]|null
 	 */
-	public function getId() {
-		return $this->container['id'];
+	public function getFields() {
+		return $this->container['fields'];
 	}
 
 	/**
-	 * Sets id
+	 * Sets fields
 	 *
-	 * @param string|null $id Employee ID (XML attribute)
+	 * @param \BhrSdk\Model\JsonDirectoryEmployeeFieldsInner[]|null $fields Array of field definitions
 	 *
 	 * @return self
 	 */
-	public function setId($id) {
-		if (is_null($id)) {
-			throw new \InvalidArgumentException('non-nullable id cannot be null');
+	public function setFields($fields) {
+		if (is_null($fields)) {
+			throw new \InvalidArgumentException('non-nullable fields cannot be null');
 		}
-		$this->container['id'] = $id;
+		$this->container['fields'] = $fields;
 
 		return $this;
 	}
 
 	/**
-	 * Gets field
+	 * Gets employees
 	 *
-	 * @return \BhrSdk\Model\GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner[]|null
+	 * @return object[]|null
 	 */
-	public function getField() {
-		return $this->container['field'];
+	public function getEmployees() {
+		return $this->container['employees'];
 	}
 
 	/**
-	 * Sets field
+	 * Sets employees
 	 *
-	 * @param \BhrSdk\Model\GetEmployeesDirectory200Response1EmployeesEmployeeInnerFieldInner[]|null $field Employee field values
+	 * @param object[]|null $employees Array of employee records. Each employee object contains properties matching the 'id' values from the 'fields' array. Property names are dynamically determined by company configuration. Property values can be strings, numbers, booleans, or null. Common fields include: id, displayName, firstName, lastName, preferredName, jobTitle, workPhone, mobilePhone, workEmail, department, location, division, twitterFeed, pronouns, workPhoneExtension, photoUploaded, photoUrl, canUploadPhoto.
 	 *
 	 * @return self
 	 */
-	public function setField($field) {
-		if (is_null($field)) {
-			throw new \InvalidArgumentException('non-nullable field cannot be null');
+	public function setEmployees($employees) {
+		if (is_null($employees)) {
+			throw new \InvalidArgumentException('non-nullable employees cannot be null');
 		}
-		$this->container['field'] = $field;
+		$this->container['employees'] = $employees;
 
 		return $this;
 	}

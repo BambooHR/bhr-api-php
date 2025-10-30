@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * Forbidden
+ * XmlDirectoryEmployeeFieldsetFieldInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * Forbidden Class Doc Comment
+ * XmlDirectoryEmployeeFieldsetFieldInner Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
+class XmlDirectoryEmployeeFieldsetFieldInner implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'Forbidden';
+	protected static $openApiModelName = 'XmlDirectoryEmployee_fieldset_field_inner';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'error' => 'string'
+		'id' => 'string',
+		'value' => 'string'
 	];
 
 	/**
@@ -68,7 +69,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'error' => null
+		'id' => null,
+		'value' => null
 	];
 
 	/**
@@ -78,7 +80,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'error' => false
+		'id' => false,
+		'value' => false
 	];
 
 	/**
@@ -163,7 +166,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'error' => 'error'
+		'id' => 'id',
+		'value' => 'value'
 	];
 
 	/**
@@ -172,7 +176,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'error' => 'setError'
+		'id' => 'setId',
+		'value' => 'setValue'
 	];
 
 	/**
@@ -181,7 +186,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'error' => 'getError'
+		'id' => 'getId',
+		'value' => 'getValue'
 	];
 
 	/**
@@ -235,7 +241,8 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('error', $data ?? [], null);
+		$this->setIfExists('id', $data ?? [], null);
+		$this->setIfExists('value', $data ?? [], null);
 	}
 
 	/**
@@ -277,26 +284,51 @@ class Forbidden implements ModelInterface, ArrayAccess, \JsonSerializable {
 	}
 
 	/**
-	 * Gets error
+	 * Gets id
 	 *
 	 * @return string|null
 	 */
-	public function getError() {
-		return $this->container['error'];
+	public function getId() {
+		return $this->container['id'];
 	}
 
 	/**
-	 * Sets error
+	 * Sets id
 	 *
-	 * @param string|null $error error
+	 * @param string|null $id Field identifier (XML attribute)
 	 *
 	 * @return self
 	 */
-	public function setError($error) {
-		if (is_null($error)) {
-			throw new \InvalidArgumentException('non-nullable error cannot be null');
+	public function setId($id) {
+		if (is_null($id)) {
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
 		}
-		$this->container['error'] = $error;
+		$this->container['id'] = $id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets value
+	 *
+	 * @return string|null
+	 */
+	public function getValue() {
+		return $this->container['value'];
+	}
+
+	/**
+	 * Sets value
+	 *
+	 * @param string|null $value Field display name (element text content)
+	 *
+	 * @return self
+	 */
+	public function setValue($value) {
+		if (is_null($value)) {
+			throw new \InvalidArgumentException('non-nullable value cannot be null');
+		}
+		$this->container['value'] = $value;
 
 		return $this;
 	}

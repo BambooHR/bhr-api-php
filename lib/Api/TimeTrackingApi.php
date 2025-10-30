@@ -1401,10 +1401,11 @@ class TimeTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteTimesheetClockEntriesViaPost($clock_entry_ids_schema, string $contentType = self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'][0]) {
-		$this->deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, $contentType);
+		list($response) = $this->deleteTimesheetClockEntriesViaPostWithHttpInfo($clock_entry_ids_schema, $contentType);
+		return $response;
 	}
 
 	/**
@@ -1595,10 +1596,11 @@ class TimeTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return void
+	 * @return mixed
 	 */
 	public function deleteTimesheetHourEntriesViaPost($hour_entry_ids_schema = null, string $contentType = self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'][0]) {
-		$this->deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema, $contentType);
+		list($response) = $this->deleteTimesheetHourEntriesViaPostWithHttpInfo($hour_entry_ids_schema, $contentType);
+		return $response;
 	}
 
 	/**

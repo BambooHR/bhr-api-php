@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200ResponseFieldsInner
+ * XmlDirectoryEmployeeFieldset
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200ResponseFieldsInner Class Doc Comment
+ * XmlDirectoryEmployeeFieldset Class Doc Comment
  *
  * @category Class
+ * @description Field definitions
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, ArrayAccess, \JsonSerializable {
+class XmlDirectoryEmployeeFieldset implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +50,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response_fields_inner';
+	protected static $openApiModelName = 'XmlDirectoryEmployee_fieldset';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'string',
-		'type' => 'string',
-		'name' => 'string'
+		'field' => '\BhrSdk\Model\XmlDirectoryEmployeeFieldsetFieldInner[]'
 	];
 
 	/**
@@ -70,9 +69,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'id' => null,
-		'type' => null,
-		'name' => null
+		'field' => null
 	];
 
 	/**
@@ -82,9 +79,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'id' => false,
-		'type' => false,
-		'name' => false
+		'field' => false
 	];
 
 	/**
@@ -169,9 +164,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'id' => 'id',
-		'type' => 'type',
-		'name' => 'name'
+		'field' => 'field'
 	];
 
 	/**
@@ -180,9 +173,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'id' => 'setId',
-		'type' => 'setType',
-		'name' => 'setName'
+		'field' => 'setField'
 	];
 
 	/**
@@ -191,9 +182,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'id' => 'getId',
-		'type' => 'getType',
-		'name' => 'getName'
+		'field' => 'getField'
 	];
 
 	/**
@@ -247,9 +236,7 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('id', $data ?? [], null);
-		$this->setIfExists('type', $data ?? [], null);
-		$this->setIfExists('name', $data ?? [], null);
+		$this->setIfExists('field', $data ?? [], null);
 	}
 
 	/**
@@ -291,76 +278,26 @@ class GetEmployeesDirectory200ResponseFieldsInner implements ModelInterface, Arr
 	}
 
 	/**
-	 * Gets id
+	 * Gets field
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\XmlDirectoryEmployeeFieldsetFieldInner[]|null
 	 */
-	public function getId() {
-		return $this->container['id'];
+	public function getField() {
+		return $this->container['field'];
 	}
 
 	/**
-	 * Sets id
+	 * Sets field
 	 *
-	 * @param string|null $id Field identifier
+	 * @param \BhrSdk\Model\XmlDirectoryEmployeeFieldsetFieldInner[]|null $field field
 	 *
 	 * @return self
 	 */
-	public function setId($id) {
-		if (is_null($id)) {
-			throw new \InvalidArgumentException('non-nullable id cannot be null');
+	public function setField($field) {
+		if (is_null($field)) {
+			throw new \InvalidArgumentException('non-nullable field cannot be null');
 		}
-		$this->container['id'] = $id;
-
-		return $this;
-	}
-
-	/**
-	 * Gets type
-	 *
-	 * @return string|null
-	 */
-	public function getType() {
-		return $this->container['type'];
-	}
-
-	/**
-	 * Sets type
-	 *
-	 * @param string|null $type Field data type
-	 *
-	 * @return self
-	 */
-	public function setType($type) {
-		if (is_null($type)) {
-			throw new \InvalidArgumentException('non-nullable type cannot be null');
-		}
-		$this->container['type'] = $type;
-
-		return $this;
-	}
-
-	/**
-	 * Gets name
-	 *
-	 * @return string|null
-	 */
-	public function getName() {
-		return $this->container['name'];
-	}
-
-	/**
-	 * Sets name
-	 *
-	 * @param string|null $name Field display name
-	 *
-	 * @return self
-	 */
-	public function setName($name) {
-		if (is_null($name)) {
-			throw new \InvalidArgumentException('non-nullable name cannot be null');
-		}
-		$this->container['name'] = $name;
+		$this->container['field'] = $field;
 
 		return $this;
 	}

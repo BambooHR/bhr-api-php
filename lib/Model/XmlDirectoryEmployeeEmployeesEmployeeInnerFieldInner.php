@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200Response1FieldsetFieldInner
+ * XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200Response1FieldsetFieldInner Class Doc Comment
+ * XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200Response1FieldsetFieldInner implements ModelInterface, ArrayAccess, \JsonSerializable {
+class XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class GetEmployeesDirectory200Response1FieldsetFieldInner implements ModelInterf
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response_1_fieldset_field_inner';
+	protected static $openApiModelName = 'XmlDirectoryEmployee_employees_employee_inner_field_inner';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -295,7 +295,7 @@ class GetEmployeesDirectory200Response1FieldsetFieldInner implements ModelInterf
 	/**
 	 * Sets id
 	 *
-	 * @param string|null $id Field identifier (XML attribute)
+	 * @param string|null $id Field identifier (XML attribute). Array of employee records. Each employee object contains dynamic field values based on the fields defined in the 'fields' array. Common fields include: id, displayName, firstName, lastName, preferredName, jobTitle, workPhone, mobilePhone, workEmail, department, location, division, twitterFeed, pronouns, workPhoneExtension, photoUploaded, photoUrl, canUploadPhoto. Actual fields may vary by company configuration.
 	 *
 	 * @return self
 	 */
@@ -320,7 +320,7 @@ class GetEmployeesDirectory200Response1FieldsetFieldInner implements ModelInterf
 	/**
 	 * Sets value
 	 *
-	 * @param string|null $value Field display name (element text content)
+	 * @param string|null $value Field value (element text content)
 	 *
 	 * @return self
 	 */

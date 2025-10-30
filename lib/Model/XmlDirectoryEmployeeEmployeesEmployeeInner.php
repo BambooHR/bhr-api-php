@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * GetEmployeesDirectory200Response1Fieldset
+ * XmlDirectoryEmployeeEmployeesEmployeeInner
  *
  * PHP version 8.1
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * GetEmployeesDirectory200Response1Fieldset Class Doc Comment
+ * XmlDirectoryEmployeeEmployeesEmployeeInner Class Doc Comment
  *
  * @category Class
- * @description Field definitions
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, ArrayAccess, \JsonSerializable {
+class XmlDirectoryEmployeeEmployeesEmployeeInner implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -50,7 +49,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'get_employees_directory_200_response_1_fieldset';
+	protected static $openApiModelName = 'XmlDirectoryEmployee_employees_employee_inner';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +57,8 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'field' => '\BhrSdk\Model\GetEmployeesDirectory200Response1FieldsetFieldInner[]'
+		'id' => 'string',
+		'field' => '\BhrSdk\Model\XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner[]'
 	];
 
 	/**
@@ -69,6 +69,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
+		'id' => null,
 		'field' => null
 	];
 
@@ -79,6 +80,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
+		'id' => false,
 		'field' => false
 	];
 
@@ -164,6 +166,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
+		'id' => 'id',
 		'field' => 'field'
 	];
 
@@ -173,6 +176,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	 * @var string[]
 	 */
 	protected static $setters = [
+		'id' => 'setId',
 		'field' => 'setField'
 	];
 
@@ -182,6 +186,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	 * @var string[]
 	 */
 	protected static $getters = [
+		'id' => 'getId',
 		'field' => 'getField'
 	];
 
@@ -236,6 +241,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
+		$this->setIfExists('id', $data ?? [], null);
 		$this->setIfExists('field', $data ?? [], null);
 	}
 
@@ -278,9 +284,34 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	}
 
 	/**
+	 * Gets id
+	 *
+	 * @return string|null
+	 */
+	public function getId() {
+		return $this->container['id'];
+	}
+
+	/**
+	 * Sets id
+	 *
+	 * @param string|null $id Employee ID (XML attribute)
+	 *
+	 * @return self
+	 */
+	public function setId($id) {
+		if (is_null($id)) {
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
+		}
+		$this->container['id'] = $id;
+
+		return $this;
+	}
+
+	/**
 	 * Gets field
 	 *
-	 * @return \BhrSdk\Model\GetEmployeesDirectory200Response1FieldsetFieldInner[]|null
+	 * @return \BhrSdk\Model\XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner[]|null
 	 */
 	public function getField() {
 		return $this->container['field'];
@@ -289,7 +320,7 @@ class GetEmployeesDirectory200Response1Fieldset implements ModelInterface, Array
 	/**
 	 * Sets field
 	 *
-	 * @param \BhrSdk\Model\GetEmployeesDirectory200Response1FieldsetFieldInner[]|null $field field
+	 * @param \BhrSdk\Model\XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner[]|null $field Employee field values
 	 *
 	 * @return self
 	 */

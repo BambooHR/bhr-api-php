@@ -803,7 +803,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\DirectoryEmployee
+	 * @return \BhrSdk\Model\JsonDirectoryEmployee
 	 */
 	public function getEmployeesDirectory($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		list($response) = $this->getEmployeesDirectoryWithHttpInfo($accept_header_parameter, $contentType);
@@ -820,7 +820,7 @@ class EmployeesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\DirectoryEmployee, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\JsonDirectoryEmployee, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeesDirectoryWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
@@ -834,7 +834,7 @@ class EmployeesApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\DirectoryEmployee',
+					'\BhrSdk\Model\JsonDirectoryEmployee',
 					$request,
 					$response,
 				);
@@ -854,7 +854,7 @@ class EmployeesApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\DirectoryEmployee',
+			'\BhrSdk\Model\JsonDirectoryEmployee',
 			$request,
 			$response,
 		);
@@ -892,7 +892,7 @@ class EmployeesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeesDirectoryAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeesDirectory'][0]) {
-		$returnType = '\BhrSdk\Model\DirectoryEmployee';
+		$returnType = '\BhrSdk\Model\JsonDirectoryEmployee';
 		$request = $this->getEmployeesDirectoryRequest($accept_header_parameter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -951,7 +951,7 @@ class EmployeesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
