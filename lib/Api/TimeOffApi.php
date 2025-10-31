@@ -297,7 +297,7 @@ class TimeOffApi {
 	public function getAListOfWhoIsOutRequest($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
 
 		$resourcePath = '/api/v1/time_off/whos_out';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -336,19 +336,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -361,7 +361,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -497,7 +497,7 @@ class TimeOffApi {
 	public function getTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
 
 		$resourcePath = '/api/v1/meta/time_off/policies';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -519,19 +519,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -544,7 +544,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -685,7 +685,7 @@ class TimeOffApi {
 	public function getTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 
 		$resourcePath = '/api/v1/meta/time_off/types';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -723,19 +723,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -748,7 +748,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -897,7 +897,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -933,19 +933,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -958,7 +958,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1107,7 +1107,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1143,19 +1143,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1168,7 +1168,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1317,7 +1317,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1353,19 +1353,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1378,7 +1378,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1527,7 +1527,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1563,19 +1563,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1588,7 +1588,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1737,7 +1737,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1773,19 +1773,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1798,7 +1798,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1947,7 +1947,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/time_off/requests/{requestId}/status';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1983,19 +1983,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2008,7 +2008,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2162,7 +2162,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2209,19 +2209,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2234,7 +2234,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2413,7 +2413,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/time_off/requests';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2457,19 +2457,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2482,7 +2482,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2625,7 +2625,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2651,19 +2651,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2676,7 +2676,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2819,7 +2819,7 @@ class TimeOffApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2845,19 +2845,19 @@ class TimeOffApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2870,7 +2870,7 @@ class TimeOffApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
