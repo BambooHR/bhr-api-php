@@ -333,7 +333,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
-		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -367,19 +367,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -392,7 +392,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -547,7 +547,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
-		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -589,19 +589,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -614,7 +614,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -757,7 +757,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/canCreateGoals';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -783,19 +783,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -808,7 +808,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -981,7 +981,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1015,19 +1015,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1040,7 +1040,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1189,7 +1189,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1223,19 +1223,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1248,7 +1248,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1420,7 +1420,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1462,19 +1462,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1487,7 +1487,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1659,7 +1659,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/aggregate';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1685,19 +1685,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1710,7 +1710,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1882,7 +1882,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/aggregate';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1908,19 +1908,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1933,7 +1933,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2100,7 +2100,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/aggregate';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2126,19 +2126,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2151,7 +2151,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2304,7 +2304,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/alignmentOptions';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2356,19 +2356,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2381,7 +2381,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2553,7 +2553,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/filters';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2579,19 +2579,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2604,7 +2604,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2776,7 +2776,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/filters';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -2802,19 +2802,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -2827,7 +2827,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -2994,7 +2994,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_2/performance/employees/{employeeId}/goals/filters';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3020,19 +3020,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3045,7 +3045,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3198,7 +3198,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/shareOptions';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3241,19 +3241,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3266,7 +3266,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3444,7 +3444,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/close';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3488,19 +3488,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3513,7 +3513,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3686,7 +3686,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3722,19 +3722,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3747,7 +3747,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -3902,7 +3902,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -3946,19 +3946,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -3971,7 +3971,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4144,7 +4144,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4178,19 +4178,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4203,7 +4203,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4364,7 +4364,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId}';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4416,19 +4416,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4441,7 +4441,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4626,7 +4626,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4678,19 +4678,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4703,7 +4703,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -4882,7 +4882,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/progress';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -4926,19 +4926,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -4951,7 +4951,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -5130,7 +5130,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5174,19 +5174,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -5199,7 +5199,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -5383,7 +5383,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1/performance/employees/{employeeId}/goals/{goalId}';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5427,19 +5427,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -5452,7 +5452,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -5631,7 +5631,7 @@ class GoalsApi {
 		);
 
 		$resourcePath = '/api/v1_1/performance/employees/{employeeId}/goals/{goalId}';
-		$this->logger->info('Request method: [PUT], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -5675,19 +5675,19 @@ class GoalsApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -5700,7 +5700,7 @@ class GoalsApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
