@@ -288,7 +288,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -332,19 +332,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -357,7 +357,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -512,7 +512,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -556,19 +556,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -581,7 +581,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -760,7 +760,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
-		$this->logger->info('Request method: [DELETE], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [DELETE], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -802,19 +802,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -827,7 +827,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -976,7 +976,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/changed/tables/{table}';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1018,19 +1018,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1043,7 +1043,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1192,7 +1192,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
-		$this->logger->info('Request method: [GET], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1226,19 +1226,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1251,7 +1251,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1412,7 +1412,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1464,19 +1464,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1489,7 +1489,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
@@ -1650,7 +1650,7 @@ class TabularDataApi {
 		);
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
-		$this->logger->info('Request method: [POST], URL: ' . $resourcePath);
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
@@ -1702,19 +1702,19 @@ class TabularDataApi {
 		
 		// Basic authentication
 		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger->info('Using Basic authentication');	
+			$this->logger?->info('Using Basic authentication');	
 			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
 		}
 		
 		// OAuth/Bearer authentication
 		if (!empty($this->config->getAccessToken())) {
-			$this->logger->info('Using Bearer authentication');
+			$this->logger?->info('Using Bearer authentication');
 			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
 		}
 
 		$defaultHeaders = [];
 		if ($this->config->getUserAgent()) {
-			$this->logger->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
 			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
 		}
 
@@ -1727,7 +1727,7 @@ class TabularDataApi {
 		// Special handling for accept_header_parameter to set the Accept header directly
 		/** @phpstan-ignore-next-line */
 		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger->debug('Overriding Accept header: ' . $accept_header_parameter);
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
 			/** @phpstan-ignore-next-line */
 			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
