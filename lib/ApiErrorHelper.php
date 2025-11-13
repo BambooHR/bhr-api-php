@@ -14,6 +14,7 @@ namespace BhrSdk;
 use BhrSdk\ApiException;
 use BhrSdk\Exceptions\ClientException;
 use BhrSdk\Exceptions\ServerException;
+use BhrSdk\Client\Middleware\RequestIdMiddleware;
 
 /**
  * ApiErrorHelper Class Doc Comment
@@ -300,15 +301,38 @@ class ApiErrorHelper {
 	/**
 	 * Creates an appropriate exception based on the status code
 	 *
-	 * @param int    $code The error code
-	 * @param string $message The error message
-	 * @param int    $statusCode  The HTTP status code
-	 * @param array  $responseHeaders The HTTP response headers
-	 * @param string $responseBody The HTTP response body
+	 * @param int                      $code The error code
+	 * @param string                   $message The error message
+	 * @param int                      $statusCode  The HTTP status code
+	 * @param array                    $responseHeaders The HTTP response headers
+	 * @param string                   $responseBody The HTTP response body
+	 * @param RequestIdMiddleware|null $requestIdMiddleware Optional middleware to get request ID
 	 * @return \Exception The appropriate exception for the status code
 	 */
-	public static function createException(int $code, string $message, int $statusCode, array $responseHeaders = [], $responseBody = null): \Exception {
-		$exceptionClass = null;
+	public static function createException(
+		int $code,
+		string $message,
+		int $statusCode,
+		array $responseHeaders = [],
+		$responseBody = null,
+		?RequestIdMiddleware $requestIdMiddleware = null
+	): \Exception {
+		// Extract request ID from headers or middleware
+		$requestId = null;
+
+		// First check response headers directly
+		$requestId = RequestIdMiddleware::extractRequestIdFromHeaders($responseHeaders);
+
+		// If not found in headers directly, use the last tracked request ID
+		if ($requestId === null) {
+			$requestId = RequestIdMiddleware::getLastRequestId();
+		}
+
+		// Append request ID to message if available
+		$messageWithRequestId = $message;
+		if ($requestId !== null) {
+			$messageWithRequestId = sprintf("%s [Request ID: %s]", $message, $requestId);
+		}
 
 		// Determine the appropriate exception class based on status code
 		if (isset(self::$ERROR_MESSAGES[$statusCode]) && isset(self::$ERROR_MESSAGES[$statusCode]['type'])) {
@@ -320,32 +344,58 @@ class ApiErrorHelper {
 				// For specific exception classes, we pass the message, previous exception, and error data
 				// The status code is already built into the specific exception class
 				/** @var \Exception $exception */
-				$exception = new $exceptionClass("[{$code}] {$message}", $responseHeaders, $responseBody);
+				$exception = new $exceptionClass("[{$code}] {$messageWithRequestId}", $responseHeaders, $responseBody);
+
+				// Set request ID if exception is ApiException or subclass
+				if ($exception instanceof ApiException) {
+					$exception->setRequestId($requestId);
+				}
+
 				return $exception;
 			}
 		} elseif ($statusCode >= 500) {
-			return new ServerException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+			$exception = new ServerException("[{$code}] {$messageWithRequestId}", $statusCode, $responseHeaders, $responseBody);
+			if ($exception instanceof ApiException) {
+				$exception->setRequestId($requestId);
+			}
+			return $exception;
 		} elseif ($statusCode >= 400) {
-			return new ClientException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+			$exception = new ClientException("[{$code}] {$messageWithRequestId}", $statusCode, $responseHeaders, $responseBody);
+			if ($exception instanceof ApiException) {
+				$exception->setRequestId($requestId);
+			}
+			return $exception;
 		} else {
-			return new ApiException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+			$exception = new ApiException("[{$code}] {$messageWithRequestId}", $statusCode, $responseHeaders, $responseBody, $requestId);
+			return $exception;
 		}
 
 		// Fallback to base exception if the specific class doesn't exist
 		// For ApiException, we need to explicitly pass the status code
-		return new ApiException("[{$code}] {$message}", $statusCode, $responseHeaders, $responseBody);
+		return new ApiException("[{$code}] {$messageWithRequestId}", $statusCode, $responseHeaders, $responseBody, $requestId);
 	}
 
 	/**
-	 * Formats a detailed error message with causes and tips
+	 * Formats a detailed error message with causes, tips, and request ID
 	 *
-	 * @param string $baseMessage The base error message
-	 * @param array  $causes      List of potential causes
-	 * @param array  $tips        List of debugging tips
-	 * @return string Formatted error message with causes and tips
+	 * @param string      $baseMessage The base error message
+	 * @param array       $causes      List of potential causes
+	 * @param array       $tips        List of debugging tips
+	 * @param string|null $requestId   Optional request ID to include in the message
+	 * @return string Formatted error message with causes, tips, and request ID
 	 */
-	public static function formatDetailedErrorMessage(string $baseMessage, array $causes = [], array $tips = []): string {
+	public static function formatDetailedErrorMessage(
+		string $baseMessage,
+		array $causes = [],
+		array $tips = [],
+		?string $requestId = null
+	): string {
 		$detailedMessage = $baseMessage;
+
+		// Add request ID if available
+		if ($requestId !== null) {
+			$detailedMessage .= " [Request ID: {$requestId}]";
+		}
 
 		// Add causes
 		if (!empty($causes)) {
@@ -360,6 +410,11 @@ class ApiErrorHelper {
 			$detailedMessage .= "\nDebugging tips:\n";
 			foreach ($tips as $tip) {
 				$detailedMessage .= "- {$tip}\n";
+			}
+
+			// Add request ID reference in debugging tips if available
+			if ($requestId !== null) {
+				$detailedMessage .= "- Include this Request ID ({$requestId}) when contacting support\n";
 			}
 		}
 

@@ -16,6 +16,7 @@ use BhrSdk\Configuration;
 use BhrSdk\Client\Auth\TokenManager;
 use BhrSdk\Client\Auth\BambooHRTokenRefreshProvider;
 use BhrSdk\Client\Middleware\OAuth2Middleware;
+use BhrSdk\Client\Middleware\RequestIdMiddleware;
 use BhrSdk\Client\Logger\LoggerInterface;
 use BhrSdk\Client\Logger\SecureLogger;
 use BhrSdk\HeaderSelector;
@@ -43,6 +44,23 @@ class ApiClient {
 	private int $hostIndex = 0;
 	private ?TokenManager $tokenManager = null;
 	private ?BambooHRTokenRefreshProvider $refreshProvider = null;
+
+	/**
+	 * Initialize RequestIdMiddleware for request ID tracking
+	 *
+	 * @return void
+	 */
+	private function initializeRequestIdMiddleware(): void {
+		// Set logger for RequestIdMiddleware (for debugging purposes)
+		RequestIdMiddleware::setLogger($this->logger);
+
+		// Ensure the RequestIdMiddleware is initialized and reset
+		RequestIdMiddleware::resetRequestId();
+
+		$this->log('debug', 'RequestIdMiddleware initialized', [
+			'middleware_status' => 'Initialized and reset'
+		]);
+	}
 
 	/**
 	 * Constructor
@@ -289,6 +307,10 @@ class ApiClient {
 		// Validate the final configuration
 		$this->validateConfiguration();
 
+		// Initialize RequestIdMiddleware
+		$this->initializeRequestIdMiddleware();
+		$this->log('debug', 'Request ID middleware initialized');
+
 		$this->log('info', 'API client built successfully');
 
 		return $this;
@@ -310,7 +332,30 @@ class ApiClient {
 
 		// Create HTTP client if not provided
 		if ($this->httpClient === null) {
-			$this->httpClient = new Client();
+			// Make sure RequestIdMiddleware is initialized
+			$this->initializeRequestIdMiddleware();
+
+			$stack = HandlerStack::create();
+
+			// Add request ID middleware handler
+			$stack->push(function (callable $handler) {
+				return function ($request, array $options) use ($handler) {
+					// Create a sendRequest callable that unwraps Guzzle promises
+					$sendRequest = function ($req, $opts) use ($handler) {
+						$promise = $handler($req, $opts);
+						// Wait for the promise to resolve and return the response
+						return $promise->wait();
+					};
+
+					// Let middleware handle the request (returns ResponseInterface)
+					$response = RequestIdMiddleware::handle($sendRequest, $request, null, $options);
+
+					// Wrap response back in a promise for Guzzle
+					return \GuzzleHttp\Promise\Create::promiseFor($response);
+				};
+			});
+
+			$this->httpClient = new Client(['handler' => $stack]);
 		}
 
 		$this->log('debug', 'Creating API instance', ['class' => $apiClass]);
