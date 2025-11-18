@@ -1,0 +1,428 @@
+# {{packageName}}
+
+{{#appDescriptionWithNewLines}}
+{{{.}}}
+{{/appDescriptionWithNewLines}}
+
+{{#infoUrl}}
+For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}}).
+{{/infoUrl}}
+
+## Installation & Usage
+
+### Requirements
+
+PHP 8.1 and later.
+
+### Composer
+
+To install the bindings via [Composer](https://getcomposer.org/), simply run:
+
+```bash
+composer require {{composerPackageName}}
+```
+
+This will install the latest version of the SDK from [Packagist](https://packagist.org/), the main Composer repository.
+
+### Manual Installation
+
+Download the files and include `autoload.php`:
+
+```php
+<?php
+require_once('/path/to/{{packageName}}/vendor/autoload.php');
+```
+## Changelog
+
+For a detailed list of changes and version history, see [CHANGELOG.md](CHANGELOG.md).
+
+## Getting Started using the Fluent API Client (Recommended)
+
+The SDK provides a modern, fluent interface for easier configuration and usage:
+
+### Quick Start with Fluent Interface
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use BhrSdk\Client\ApiClient;
+
+// Simple setup with OAuth authentication
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('your-company-subdomain')
+    ->build();
+
+// Use convenience methods to access APIs
+$employee = $client->employees()->getEmployee('firstName,lastName', '123');
+$timeOffRequests = $client->timeOff()->getTimeOffRequests();
+```
+
+### Authentication Methods
+
+#### OAuth (Recommended)
+```php
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->build();
+```
+
+#### API Key 
+```php
+$client = (new ApiClient())
+    ->withApiKey('your-api-key')
+    ->forCompany('acme')
+    ->build();
+```
+
+Also refer to the getting started docs found here: https://documentation.bamboohr.com/docs/getting-started
+
+### Convenience Methods
+
+Access commonly used APIs with simple method calls:
+
+```php
+$client->employees()           // EmployeesApi
+$client->timeOff()             // TimeOffApi
+$client->benefits()            // BenefitsApi
+$client->reports()             // ReportsApi
+$client->goals()               // GoalsApi
+$client->training()            // TrainingApi
+$client->timeTracking()        // TimeTrackingApi
+$client->photos()              // PhotosApi
+$client->webhooks()            // WebhooksApi
+$client->tabularData()         // TabularDataApi
+$client->accountInformation()  // AccountInformationApi
+$client->applicantTracking()   // ApplicantTrackingApi
+$client->companyFiles()        // CompanyFilesApi
+$client->employeeFiles()       // EmployeeFilesApi
+$client->ats()                 // ATSApi
+$client->customReports()       // CustomReportsApi
+$client->datasets()            // DatasetsApi
+$client->hours()               // HoursApi
+$client->lastChangeInformation() // LastChangeInformationApi
+$client->login()               // LoginApi
+$client->manual()              // ManualApi
+```
+
+### Advanced Configuration
+
+```php
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->withRetries(3)                    // Configure retry attempts
+    ->withDebug(true)                   // Enable debug mode
+    ->withLogging(null, 'debug')        // Enable secure logging
+    ->withHostIndex(1)                  // Set custom host index
+    ->build();
+```
+
+### Secure Logging
+
+The SDK includes secure logging with automatic sensitive data redaction:
+
+```php
+use BhrSdk\Client\Logger\SecureLogger;
+
+// Enable logging with default settings
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->withLogging()  // Defaults to 'info' level
+    ->build();
+
+// Custom log level
+$client->withLogging(null, 'debug');  // debug, info, warning, or error
+
+// Custom logger
+$customLogger = new SecureLogger(true, 'debug');
+$client->withLogging($customLogger);
+```
+
+**Note:** Sensitive data (API keys, tokens, passwords) is automatically masked in logs.
+
+### Complete Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+use BhrSdk\Client\ApiClient;
+
+// Configure the client
+$client = (new ApiClient())
+    ->withOAuth('your-oauth-token')
+    ->forCompany('acme')
+    ->withLogging(null, 'info')
+    ->withRetries(3)
+    ->build();
+
+try {
+    // Get employee information
+    // Note: getEmployee returns array<string,mixed>, use array access
+    $employee = $client->employees()->getEmployee('firstName,lastName', '123');
+    echo "Employee: {$employee['firstName']} {$employee['lastName']}\n";
+    
+    // Get time off requests
+    $requests = $client->timeOff()->getTimeOffRequests();
+    echo "Time off requests: " . count($requests) . "\n";
+    
+    // Get employee photo
+    $photo = $client->photos()->getEmployeePhoto('123', 'small');
+    
+    // Access any API using getApi()
+    $customApi = $client->getApi(\BhrSdk\Api\CustomReportsApi::class);
+    
+} catch (Exception $e) {
+    echo 'Error: ' . $e->getMessage() . PHP_EOL;
+}
+```
+
+### Backward Compatibility
+
+The traditional approach still works if you prefer it:
+
+```php
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+    ->setUsername('YOUR_API_KEY')
+    ->setPassword('x');
+
+$apiInstance = new BhrSdk\Api\EmployeesApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+```
+
+## Migration Guide
+
+If you're upgrading from an older version of the SDK or transitioning from direct API calls:
+
+- **[Complete Migration Guide](MIGRATION.md)** - Comprehensive guide for upgrading
+- **[Migration Examples](examples/)** - Practical code examples showing before/after patterns
+
+### ⚠️ Critical: Return Types
+
+**Returns are arrays, not objects:**
+```php
+// ✓ Correct - use array access
+$employee = $api->getEmployee('firstName,lastName', '123');
+echo $employee['firstName'];
+
+// ✗ Wrong - will cause fatal error
+echo $employee->getFirstName();
+```
+
+**Method name changes:**
+```php
+$client->employeeFiles()  // ✓ Correct
+$client->files()          // ✗ Doesn't exist
+```
+
+For detailed migration steps and troubleshooting, see [MIGRATION.md](MIGRATION.md).
+
+### OAuth Token Refresh
+
+The SDK supports automatic OAuth token refresh when using BambooHR's OAuth 2.0 flow:
+
+```php
+$client = (new ApiClient())
+    ->withOAuthRefresh(
+        accessToken: 'your-access-token',
+        refreshToken: 'your-refresh-token',
+        clientId: 'your-oauth-client-id',
+        clientSecret: 'your-oauth-client-secret',
+        expiresIn: 3600  // Optional: seconds until token expires
+    )
+    ->forCompany('acme')
+    ->build();
+
+// SDK automatically refreshes the token when:
+// 1. The token is about to expire (proactive refresh)
+// 2. A 401 Unauthorized response is received (reactive refresh)
+```
+
+**Persisting Refreshed Tokens:**
+
+When tokens are refreshed, you'll need to save the new tokens. Use the callback:
+
+```php
+$client = (new ApiClient())
+    ->withOAuthRefresh(
+        accessToken: $accessToken,
+        refreshToken: $refreshToken,
+        clientId: $clientId,
+        clientSecret: $clientSecret
+    )
+    ->onTokenRefresh(function($newAccessToken, $newRefreshToken, $oldAccessToken, $oldRefreshToken) {
+        // Save to database, session, cache, etc.
+        saveUserTokens($userId, $newAccessToken, $newRefreshToken);
+    })
+    ->forCompany('acme')
+    ->build();
+```
+
+**Note:** Token refresh only activates when both `accessToken` AND `refreshToken` are provided via `withOAuthRefresh()`. Using the standard `withOAuth()` method will not enable automatic refresh.
+
+## API Endpoints
+
+All URIs are relative to *{{basePath}}*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}/{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{summary}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+## Models
+
+{{#models}}{{#model}}- [{{{classname}}}]({{modelDocPath}}/{{{classname}}}.md){{/model}}
+{{/models}}
+
+## Exceptions
+
+- [Exceptions](docs/Exceptions/Exceptions.md) - Information about exceptions, potential causes, and debugging tips
+
+## Authorization
+Authentication schemes defined for the API:
+
+### oauth
+- Type: OAuth
+- Flow: client credentials
+- Authorization URL: https://{companyDomain}.bamboohr.com/authorize.php
+- Scopes: N/A
+
+To authenticate with OAuth, use the `withOAuth()` method outlined in the [Authentication Methods](#authentication-methods) section.
+
+Or use the `withOAuthRefresh()` method to enable automatic token refresh, as outlined in the [OAuth Token Refresh](#oauth-token-refresh) section.
+
+### api key
+- Type: HTTP Basic Authentication
+- The API key is used as the username with a fixed password of 'x'
+- API keys provide full access to your BambooHR account
+- Generate API keys in your BambooHR account under Account > API Keys
+
+To authenticate with an API key, use the `withApiKey()` method, as outlined in the [Authentication Methods](#authentication-methods) section.
+
+**Security Note:** Store your API key securely and never expose it in client-side code.
+
+Also refer to the getting started docs found here: https://documentation.bamboohr.com/docs/getting-started
+
+## Contributing
+
+We welcome contributions to improve this SDK! Here's how you can help:
+
+### Bug Reports and Feature Requests
+
+Please use the issue tracker to report any bugs or request features.
+
+### Pull Requests
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run the tests to ensure everything works
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style and conventions
+- Add/update tests for any new or changed functionality
+- Update documentation as needed (if updating this readme, update the mustache template and run `make generate`)
+- Keep pull requests focused on a single topic
+- Run code quality tools before submitting your code:
+
+```bash
+# Check code style with PHP_CodeSniffer
+make phpcs
+
+# Run static analysis with PHPStan
+make phpstan
+```
+
+### Testing
+
+Before submitting a pull request, make sure all tests pass:
+
+```bash
+# First, install dependencies if you haven't already
+composer install
+
+# Then run the test suite
+make test
+
+# To run specific tests with phpunit directly
+vendor/bin/phpunit tests/path/to/TestFile.php
+vendor/bin/phpunit --filter=testMethodName
+```
+
+## Generating SDK
+
+NOTE: this requires a public OpenAPI spec file, which is only available to BambooHR developers.
+The path to the spec file is specified by the `OPENAPI_SPEC_PATH` environment variable.
+
+To generate the SDK, run:
+
+```bash
+make generate
+```
+
+### Manual changes to the auto-generated code
+
+If you need to make manual changes to the auto-generated code, update the corresponding template in the `templates-php` directory and run `make generate` to regenerate the SDK.
+We have updated most of the templates fairly extensively to conform to our coding standards.
+
+Nearly all files under `lib` and `test` are generated by the `make generate` command, with the following exceptions and notes:
+- `lib/Api/ManualApi.php`
+- `lib/ApiErrorHelper.php`
+- `lib/ApiHelper.php`
+- `lib/Client/*` (all files in this directory)
+- `test/Client/*` (all files in this directory)
+- `test/ApiErrorHelperTest.php`
+
+Custom descriptions for some API docs are added in the `scripts/add_custom_headers_to_api_docs.sh` script, which is run as part of the `make generate` command.
+
+*Note: regeneration will not force an overwrite of tests in the `test` directory, unless tests are deleted first.*
+
+### Generating Error Documentation
+
+The error documentation is automatically generated from the error messages defined in `ApiErrorHelper.php`. To update the documentation when error messages are added or modified, run:
+
+```bash
+make generate-error-docs
+```
+
+Note that this script will also run as part of the `make generate` command.
+
+This will:
+
+1. Regenerate the `docs/Exceptions/Exceptions.md` file with the latest error information
+2. Generate exception classes in `lib/Exceptions/` for each error type
+3. Generate exception documentation in `docs/Exceptions/Classes/`
+
+## Support
+
+If you encounter any issues or need assistance with this SDK, please contact us through one of these channels:
+
+{{#infoEmail}}
+- **Email Support**: [{{infoEmail}}](mailto:{{infoEmail}})
+{{/infoEmail}}
+- **Documentation**: Refer to the [official documentation]({{#infoUrl}}{{infoUrl}}{{/infoUrl}}{{^infoUrl}}https://www.bamboohr.com/api/documentation{{/infoUrl}})
+- **Community**: Check existing issues and discussions for similar problems
+- **Issue Tracker**: Submit bugs and feature requests through our GitHub issue tracker
+
+## About this package
+
+This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
+
+- API version: `{{appVersion}}`
+{{#artifactVersion}}
+    - Package version: `{{.}}`
+{{/artifactVersion}}
+{{^hideGenerationTimestamp}}
+    - Build date: `{{generatedDate}}`
+{{/hideGenerationTimestamp}}
+    - Generator version: `{{generatorVersion}}`
+- Build package: `{{generatorClass}}`

@@ -1,0 +1,14 @@
+# # ProjectCreateRequestSchema
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **string** | Name of the project. |
+**billable** | **bool** | Indicates if the project is billable. Defaults to true if not provided. | [optional]
+**allow_all_employees** | **bool** | Indicates if all employees can log time for this project. Defaults to true if not provided. | [optional]
+**employee_ids** | **int[]** | A list of employee IDs that can log time for this project. | [optional]
+**has_tasks** | **bool** | Indicates if the project has tasks. Defaults to false if not provided. | [optional]
+**tasks** | [**\BhrSdk\Model\TaskCreateSchema[]**](TaskCreateSchema.md) | List of tasks to create and associate with the project. | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
