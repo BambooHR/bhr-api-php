@@ -1,34 +1,56 @@
 {
     "name": "bamboohr/api",
-    "require": {
-        "php": "^5.5 || ^7 || ^8",
-        "ext-curl": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "BambooHR\\API\\": "BambooHR",
-            "BambooHR\\API\\Tests\\": "tests"
+    "version": "2.0.0",
+    "description": "BambooHR API documentation. https://www.bamboohr.com/api/documentation/",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://REMOVED"
         }
+    ],
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://www.bamboohr.com/",
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "OpenAPI",
+            "homepage": "https://github.com/BambooHR/bhr-api-php"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0",
+        "mustache/mustache": "^2.14"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8|^5.4",
-        "sebastian/phpcpd": "^2.0",
-        "squizlabs/php_codesniffer": "^3.2",
-        "phpmd/phpmd": "^2.4",
-        "bamboohr/phpcs": "^1.0"
+        "bamboohr/phpcs": "^1.0.0",
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "phpstan/phpstan": "^1.10"
     },
     "scripts": {
-        "lint" : [
-            "find -L BambooHR tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l"
+        "post-install-cmd": [
+            "./vendor/bin/phpcs --config-set installed_paths ${PWD}/vendor/bamboohr/phpcs"
         ],
-        "test": [
-            "@lint",
-            "vendor/bin/phpunit --strict-coverage"
-        ],
-        "quality": [
-            "sh vendor/bin/phpcpd BambooHR",
-            "sh vendor/bin/phpcs --standard=phpcs.xml BambooHR",
-            "sh vendor/bin/phpmd BambooHR text phpmd.xml"
+        "post-update-cmd": [
+            "./vendor/bin/phpcs --config-set installed_paths ${PWD}/vendor/bamboohr/phpcs"
         ]
+    },
+    "autoload": {
+        "psr-4": { "BhrSdk\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "BhrSdk\\Test\\" : "test/" }
     }
 }
