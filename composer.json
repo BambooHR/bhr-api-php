@@ -18,7 +18,7 @@
         "api"
     ],
     "homepage": "https://www.bamboohr.com/",
-    "license": "unlicense",
+    "license": "MIT",
     "authors": [
         {
             "name": "BambooHR",
