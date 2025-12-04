@@ -11,6 +11,7 @@ PACKAGE_NAME = BhrSdk
 PACKAGE_VERSION = 2.0.0
 PACKAGE_URL = https://www.bamboohr.com/
 DEVELOPER_URL = https://github.com/BambooHR/bhr-api-php
+DEVELOPER = BambooHR
 COMPOSER_PACKAGE_NAME = bamboohr/api
 
 .PHONY: help generate clean cleanup-obsolete test phpstan
@@ -41,7 +42,7 @@ generate:
 		-g php \
 		-t ./templates-php \
 		--global-property modelTests=false \
-		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
+		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),developerOrganization=$(DEVELOPER),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
 		&& sed -i '' '/\*PublicAPIApi\*/d' README.md \
 		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
