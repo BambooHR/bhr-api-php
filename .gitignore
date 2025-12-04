@@ -27,6 +27,3 @@ composer.phar
 # OpenAPI Generator cleanup backup file
 
 .openapi-generator/FILES.old
-
-# Environment variables
-.env
