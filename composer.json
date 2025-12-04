@@ -2,12 +2,6 @@
     "name": "bamboohr/api",
     "version": "2.0.0",
     "description": "BambooHR API documentation. https://www.bamboohr.com/api/documentation/",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://REMOVED"
-        }
-    ],
     "keywords": [
         "openapitools",
         "openapi-generator",
