@@ -1,7 +1,5 @@
-# OpenAPIClient-php
-
-BambooHR API documentation. https://www.bamboohr.com/api/documentation/
-
+# BambooHR PHP SDK
+Official PHP SDK for the BambooHR API. For complete API documentation, visit https://documentation.bamboohr.com/
 
 ## Installation & Usage
 

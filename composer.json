@@ -21,7 +21,7 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "OpenAPI",
+            "name": "BambooHR",
             "homepage": "https://github.com/BambooHR/bhr-api-php"
         }
     ],
