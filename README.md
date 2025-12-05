@@ -653,7 +653,7 @@ vendor/bin/phpunit --filter=testMethodName
 
 ## Generating SDK
 
-NOTE: this requires a public OpenAPI spec file, which is only available to BambooHR developers.
+NOTE: this requires a public OpenAPI spec file, which is available here: https://openapi.bamboohr.io/main/latest/docs/openapi/public-openapi.yaml
 The path to the spec file is specified by the `OPENAPI_SPEC_PATH` environment variable.
 
 To generate the SDK, run:
