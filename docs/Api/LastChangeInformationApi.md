@@ -4,7 +4,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getChangedEmployeeIds()**](LastChangeInformationApi.md#getChangedEmployeeIds) | **GET** /api/v1/employees/changed | Gets all updated employee IDs |
+| [**getChangedEmployeeIds()**](LastChangeInformationApi.md#getChangedEmployeeIds) | **GET** /api/v1/employees/changed | Get Updated Employee IDs |
 
 
 ## `getChangedEmployeeIds()`
@@ -13,7 +13,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 getChangedEmployeeIds($since, $type)
 ```
 
-Gets all updated employee IDs
+Get Updated Employee IDs
 
 This API allows for efficient syncing of employee data. When you use this API you will provide a timestamp and the results will be limited to just the employees that have changed since the time you provided. This API operates on an employee-last-changed-timestamp, which means that a change in ANY individual field in the employee record, as well as any change to the employment status, job info, or compensation tables, will cause that employee to be returned via this API.
 
@@ -23,12 +23,12 @@ This API allows for efficient syncing of employee data. When you use this API yo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\LastChangeInformationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

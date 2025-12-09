@@ -345,7 +345,7 @@ class WebhooksApi {
 	/**
 	 * Operation getMonitorFields
 	 *
-	 * Get monitor fields
+	 * Get Monitor Fields
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
@@ -361,7 +361,7 @@ class WebhooksApi {
 	/**
 	 * Operation getMonitorFieldsWithHttpInfo
 	 *
-	 * Get monitor fields
+	 * Get Monitor Fields
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
@@ -416,7 +416,7 @@ class WebhooksApi {
 	/**
 	 * Operation getMonitorFieldsAsync
 	 *
-	 * Get monitor fields
+	 * Get Monitor Fields
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
@@ -435,7 +435,7 @@ class WebhooksApi {
 	/**
 	 * Operation getMonitorFieldsAsyncWithHttpInfo
 	 *
-	 * Get monitor fields
+	 * Get Monitor Fields
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMonitorFields'] to see the possible values for this operation
 	 *
@@ -784,7 +784,7 @@ class WebhooksApi {
 	/**
 	 * Operation getWebhookList
 	 *
-	 * Gets as list of webhooks for the user API key.
+	 * Get Webhooks
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
@@ -800,7 +800,7 @@ class WebhooksApi {
 	/**
 	 * Operation getWebhookListWithHttpInfo
 	 *
-	 * Gets as list of webhooks for the user API key.
+	 * Get Webhooks
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
@@ -855,7 +855,7 @@ class WebhooksApi {
 	/**
 	 * Operation getWebhookListAsync
 	 *
-	 * Gets as list of webhooks for the user API key.
+	 * Get Webhooks
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
@@ -874,7 +874,7 @@ class WebhooksApi {
 	/**
 	 * Operation getWebhookListAsyncWithHttpInfo
 	 *
-	 * Gets as list of webhooks for the user API key.
+	 * Get Webhooks
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookList'] to see the possible values for this operation
 	 *
@@ -1223,7 +1223,7 @@ class WebhooksApi {
 	/**
 	 * Operation postWebhook
 	 *
-	 * Add Webhook
+	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
@@ -1240,7 +1240,7 @@ class WebhooksApi {
 	/**
 	 * Operation postWebhookWithHttpInfo
 	 *
-	 * Add Webhook
+	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
@@ -1308,7 +1308,7 @@ class WebhooksApi {
 	/**
 	 * Operation postWebhookAsync
 	 *
-	 * Add Webhook
+	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
@@ -1328,7 +1328,7 @@ class WebhooksApi {
 	/**
 	 * Operation postWebhookAsyncWithHttpInfo
 	 *
-	 * Add Webhook
+	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation

@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **sort_by** | [**\BhrSdk\Model\DataRequestSortByInner[]**](DataRequestSortByInner.md) |  | [optional]
 **filters** | [**\BhrSdk\Model\DataRequestFilters**](DataRequestFilters.md) |  | [optional]
 **group_by** | **string[]** |  | [optional]
+**show_history** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

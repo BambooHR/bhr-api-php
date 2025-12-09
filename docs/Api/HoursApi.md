@@ -4,10 +4,10 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addTimeTrackingBulk()**](HoursApi.md#addTimeTrackingBulk) | **POST** /api/v1/timetracking/record | Add/Edit Hour Records |
-| [**addTimeTrackingHourRecord()**](HoursApi.md#addTimeTrackingHourRecord) | **POST** /api/v1/timetracking/add | Add Hour Record |
+| [**addTimeTrackingBulk()**](HoursApi.md#addTimeTrackingBulk) | **POST** /api/v1/timetracking/record | Create or Update Hour Records |
+| [**addTimeTrackingHourRecord()**](HoursApi.md#addTimeTrackingHourRecord) | **POST** /api/v1/timetracking/add | Create Hour Record |
 | [**deleteTimeTrackingById()**](HoursApi.md#deleteTimeTrackingById) | **DELETE** /api/v1/timetracking/delete/{id} | Delete Hour Record |
-| [**editTimeTrackingRecord()**](HoursApi.md#editTimeTrackingRecord) | **PUT** /api/v1/timetracking/adjust | Edit Hour Record |
+| [**editTimeTrackingRecord()**](HoursApi.md#editTimeTrackingRecord) | **PUT** /api/v1/timetracking/adjust | Update Hour Record |
 | [**getTimeTrackingRecord()**](HoursApi.md#getTimeTrackingRecord) | **GET** /api/v1/timetracking/record/{id} | Get Hour Record |
 
 
@@ -17,7 +17,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addTimeTrackingBulk($time_tracking_record): \BhrSdk\Model\TimeTrackingBulkResponseSchema
 ```
 
-Add/Edit Hour Records
+Create or Update Hour Records
 
 Bulk add/edit hour records
 
@@ -27,12 +27,12 @@ Bulk add/edit hour records
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -79,7 +79,7 @@ try {
 addTimeTrackingHourRecord($time_tracking_record): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
-Add Hour Record
+Create Hour Record
 
 Add an hour record
 
@@ -89,12 +89,12 @@ Add an hour record
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -151,12 +151,12 @@ Delete an hour record
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -203,7 +203,7 @@ try {
 editTimeTrackingRecord($adjust_time_tracking_request_schema): \BhrSdk\Model\TimeTrackingIdResponseSchema
 ```
 
-Edit Hour Record
+Update Hour Record
 
 Edit an hour record
 
@@ -213,12 +213,12 @@ Edit an hour record
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -275,12 +275,12 @@ Get an hour record
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\HoursApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

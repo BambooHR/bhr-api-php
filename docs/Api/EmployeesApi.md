@@ -4,7 +4,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addEmployee()**](EmployeesApi.md#addEmployee) | **POST** /api/v1/employees | Add Employee |
+| [**addEmployee()**](EmployeesApi.md#addEmployee) | **POST** /api/v1/employees | Create Employee |
 | [**getCompanyInformation()**](EmployeesApi.md#getCompanyInformation) | **GET** /api/v1/company_information | Get Company Information |
 | [**getEmployee()**](EmployeesApi.md#getEmployee) | **GET** /api/v1/employees/{id} | Get Employee |
 | [**getEmployeesDirectory()**](EmployeesApi.md#getEmployeesDirectory) | **GET** /api/v1/employees/directory | Get Employee Directory |
@@ -18,7 +18,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addEmployee($post_new_employee)
 ```
 
-Add Employee
+Create Employee
 
 Add a new employee. New employees must have at least a first name and a last name. The ID of the newly created employee is included in the Location header of the response. Other fields can be included. Please see the [fields](ref:metadata-get-a-list-of-fields) endpoint. New Employees added to a pay schedule synced with Trax Payroll must have the following required fields (listed by API field name): employeeNumber, firstName, lastName, dateOfBirth, ssn or ein, gender, maritalStatus, hireDate, address1, city, state, country, employmentHistoryStatus, exempt, payType, payRate, payPer, location, department, and division.
 
@@ -28,12 +28,12 @@ Add a new employee. New employees must have at least a first name and a last nam
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -89,12 +89,12 @@ Gets Company Information
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -148,12 +148,12 @@ Get employee data by specifying a set of fields. This is suitable for getting ba
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -216,12 +216,12 @@ Gets employee directory.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -278,8 +278,12 @@ Retrieve a paginated list of employees with optional filtering and sorting. Retu
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -340,12 +344,12 @@ Update an employee, based on employee ID. If employee is currently on a pay sche
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

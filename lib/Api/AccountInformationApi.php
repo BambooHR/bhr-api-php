@@ -151,7 +151,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getCountriesOptions
 	 *
-	 * Get all countries
+	 * Get Countries
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
@@ -167,7 +167,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getCountriesOptionsWithHttpInfo
 	 *
-	 * Get all countries
+	 * Get Countries
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
@@ -216,7 +216,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getCountriesOptionsAsync
 	 *
-	 * Get all countries
+	 * Get Countries
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
@@ -235,7 +235,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getCountriesOptionsAsyncWithHttpInfo
 	 *
-	 * Get all countries
+	 * Get Countries
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
 	 *
@@ -348,7 +348,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getListOfUsers
 	 *
-	 * Get a List of Users
+	 * Get Users
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
@@ -364,7 +364,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getListOfUsersWithHttpInfo
 	 *
-	 * Get a List of Users
+	 * Get Users
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
@@ -391,7 +391,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getListOfUsersAsync
 	 *
-	 * Get a List of Users
+	 * Get Users
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
@@ -410,7 +410,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getListOfUsersAsyncWithHttpInfo
 	 *
-	 * Get a List of Users
+	 * Get Users
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
 	 *
@@ -521,7 +521,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryId
 	 *
-	 * Get states by country ID
+	 * Get States by Country ID
 	 *
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
@@ -538,7 +538,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryIdWithHttpInfo
 	 *
-	 * Get states by country ID
+	 * Get States by Country ID
 	 *
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
@@ -588,7 +588,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryIdAsync
 	 *
-	 * Get states by country ID
+	 * Get States by Country ID
 	 *
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
@@ -608,7 +608,7 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryIdAsyncWithHttpInfo
 	 *
-	 * Get states by country ID
+	 * Get States by Country ID
 	 *
 	 * @param  int $country_id ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
@@ -739,7 +739,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataAddOrUpdateValuesForListFields
 	 *
-	 * Add or Update Values for List Fields
+	 * Create or Update List Field Values
 	 *
 	 * @param  string $list_field_id list_field_id (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values list_field_values (required)
@@ -757,7 +757,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataAddOrUpdateValuesForListFieldsWithHttpInfo
 	 *
-	 * Add or Update Values for List Fields
+	 * Create or Update List Field Values
 	 *
 	 * @param  string $list_field_id (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
@@ -786,7 +786,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataAddOrUpdateValuesForListFieldsAsync
 	 *
-	 * Add or Update Values for List Fields
+	 * Create or Update List Field Values
 	 *
 	 * @param  string $list_field_id (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
@@ -807,7 +807,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo
 	 *
-	 * Add or Update Values for List Fields
+	 * Create or Update List Field Values
 	 *
 	 * @param  string $list_field_id (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
@@ -949,7 +949,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfFields
 	 *
-	 * Get a list of fields
+	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
@@ -966,7 +966,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfFieldsWithHttpInfo
 	 *
-	 * Get a list of fields
+	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
@@ -994,7 +994,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfFieldsAsync
 	 *
-	 * Get a list of fields
+	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
@@ -1014,7 +1014,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfFieldsAsyncWithHttpInfo
 	 *
-	 * Get a list of fields
+	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
@@ -1132,7 +1132,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfTabularFields
 	 *
-	 * Get a list of tabular fields
+	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
@@ -1149,7 +1149,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfTabularFieldsWithHttpInfo
 	 *
-	 * Get a list of tabular fields
+	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
@@ -1177,7 +1177,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfTabularFieldsAsync
 	 *
-	 * Get a list of tabular fields
+	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
@@ -1197,7 +1197,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetAListOfTabularFieldsAsyncWithHttpInfo
 	 *
-	 * Get a list of tabular fields
+	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
@@ -1315,7 +1315,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetDetailsForListFields
 	 *
-	 * Get details for list fields
+	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
@@ -1332,7 +1332,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetDetailsForListFieldsWithHttpInfo
 	 *
-	 * Get details for list fields
+	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
@@ -1360,7 +1360,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetDetailsForListFieldsAsync
 	 *
-	 * Get details for list fields
+	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
@@ -1380,7 +1380,7 @@ class AccountInformationApi {
 	/**
 	 * Operation metadataGetDetailsForListFieldsAsyncWithHttpInfo
 	 *
-	 * Get details for list fields
+	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation

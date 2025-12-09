@@ -166,7 +166,7 @@ class TrainingApi {
 	/**
 	 * Operation addNewEmployeeTrainingRecord
 	 *
-	 * Add New Employee Training Record
+	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
@@ -184,7 +184,7 @@ class TrainingApi {
 	/**
 	 * Operation addNewEmployeeTrainingRecordWithHttpInfo
 	 *
-	 * Add New Employee Training Record
+	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
@@ -235,7 +235,7 @@ class TrainingApi {
 	/**
 	 * Operation addNewEmployeeTrainingRecordAsync
 	 *
-	 * Add New Employee Training Record
+	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
@@ -256,7 +256,7 @@ class TrainingApi {
 	/**
 	 * Operation addNewEmployeeTrainingRecordAsyncWithHttpInfo
 	 *
-	 * Add New Employee Training Record
+	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
@@ -400,7 +400,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingCategory
 	 *
-	 * Add Training Category
+	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
@@ -417,7 +417,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingCategoryWithHttpInfo
 	 *
-	 * Add Training Category
+	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
@@ -467,7 +467,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingCategoryAsync
 	 *
-	 * Add Training Category
+	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
@@ -487,7 +487,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingCategoryAsyncWithHttpInfo
 	 *
-	 * Add Training Category
+	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
@@ -619,7 +619,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingType
 	 *
-	 * Add Training Type
+	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
@@ -636,7 +636,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingTypeWithHttpInfo
 	 *
-	 * Add Training Type
+	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
@@ -686,7 +686,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingTypeAsync
 	 *
-	 * Add Training Type
+	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
@@ -706,7 +706,7 @@ class TrainingApi {
 	/**
 	 * Operation addTrainingTypeAsyncWithHttpInfo
 	 *
-	 * Add Training Type
+	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
@@ -1420,7 +1420,7 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainings
 	 *
-	 * List Employee Trainings
+	 * Get Employee Trainings
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
@@ -1438,7 +1438,7 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainingsWithHttpInfo
 	 *
-	 * List Employee Trainings
+	 * Get Employee Trainings
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
@@ -1489,7 +1489,7 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainingsAsync
 	 *
-	 * List Employee Trainings
+	 * Get Employee Trainings
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
@@ -1510,7 +1510,7 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainingsAsyncWithHttpInfo
 	 *
-	 * List Employee Trainings
+	 * Get Employee Trainings
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
@@ -1659,7 +1659,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategories
 	 *
-	 * List Training Categories
+	 * Get Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
@@ -1675,7 +1675,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategoriesWithHttpInfo
 	 *
-	 * List Training Categories
+	 * Get Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
@@ -1724,7 +1724,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategoriesAsync
 	 *
-	 * List Training Categories
+	 * Get Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
@@ -1743,7 +1743,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategoriesAsyncWithHttpInfo
 	 *
-	 * List Training Categories
+	 * Get Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
@@ -1856,7 +1856,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypes
 	 *
-	 * List Training Types
+	 * Get Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
@@ -1872,7 +1872,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypesWithHttpInfo
 	 *
-	 * List Training Types
+	 * Get Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
@@ -1921,7 +1921,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypesAsync
 	 *
-	 * List Training Types
+	 * Get Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
@@ -1940,7 +1940,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypesAsyncWithHttpInfo
 	 *
-	 * List Training Types
+	 * Get Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *

@@ -4,15 +4,15 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addNewEmployeeTrainingRecord()**](TrainingApi.md#addNewEmployeeTrainingRecord) | **POST** /api/v1/training/record/employee/{employeeId} | Add New Employee Training Record |
-| [**addTrainingCategory()**](TrainingApi.md#addTrainingCategory) | **POST** /api/v1/training/category | Add Training Category |
-| [**addTrainingType()**](TrainingApi.md#addTrainingType) | **POST** /api/v1/training/type | Add Training Type |
+| [**addNewEmployeeTrainingRecord()**](TrainingApi.md#addNewEmployeeTrainingRecord) | **POST** /api/v1/training/record/employee/{employeeId} | Create Employee Training Record |
+| [**addTrainingCategory()**](TrainingApi.md#addTrainingCategory) | **POST** /api/v1/training/category | Create Training Category |
+| [**addTrainingType()**](TrainingApi.md#addTrainingType) | **POST** /api/v1/training/type | Create Training Type |
 | [**deleteEmployeeTrainingRecord()**](TrainingApi.md#deleteEmployeeTrainingRecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record |
 | [**deleteTrainingCategory()**](TrainingApi.md#deleteTrainingCategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category |
 | [**deleteTrainingType()**](TrainingApi.md#deleteTrainingType) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type |
-| [**listEmployeeTrainings()**](TrainingApi.md#listEmployeeTrainings) | **GET** /api/v1/training/record/employee/{employeeId} | List Employee Trainings |
-| [**listTrainingCategories()**](TrainingApi.md#listTrainingCategories) | **GET** /api/v1/training/category | List Training Categories |
-| [**listTrainingTypes()**](TrainingApi.md#listTrainingTypes) | **GET** /api/v1/training/type | List Training Types |
+| [**listEmployeeTrainings()**](TrainingApi.md#listEmployeeTrainings) | **GET** /api/v1/training/record/employee/{employeeId} | Get Employee Trainings |
+| [**listTrainingCategories()**](TrainingApi.md#listTrainingCategories) | **GET** /api/v1/training/category | Get Training Categories |
+| [**listTrainingTypes()**](TrainingApi.md#listTrainingTypes) | **GET** /api/v1/training/type | Get Training Types |
 | [**updateEmployeeTrainingRecord()**](TrainingApi.md#updateEmployeeTrainingRecord) | **PUT** /api/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record |
 | [**updateTrainingCategory()**](TrainingApi.md#updateTrainingCategory) | **PUT** /api/v1/training/category/{trainingCategoryId} | Update Training Category |
 | [**updateTrainingType()**](TrainingApi.md#updateTrainingType) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type |
@@ -24,7 +24,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request): \BhrSdk\Model\TrainingRecord
 ```
 
-Add New Employee Training Record
+Create Employee Training Record
 
 Add a new employee training record. The owner of the API key used must have permission to add trainings for the selected employee.
 
@@ -34,12 +34,12 @@ Add a new employee training record. The owner of the API key used must have perm
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -88,7 +88,7 @@ try {
 addTrainingCategory($add_training_category_request): \BhrSdk\Model\TrainingCategory
 ```
 
-Add Training Category
+Create Training Category
 
 Add a training category. The owner of the API key used must have access to training settings.
 
@@ -98,12 +98,12 @@ Add a training category. The owner of the API key used must have access to train
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -150,7 +150,7 @@ try {
 addTrainingType($add_training_type_request): \BhrSdk\Model\TrainingType
 ```
 
-Add Training Type
+Create Training Type
 
 Add a training type. The owner of the API key used must have access to training settings.
 
@@ -160,12 +160,12 @@ Add a training type. The owner of the API key used must have access to training 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -222,12 +222,12 @@ Delete an existing employee training record. The owner of the API key used must 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -283,12 +283,12 @@ Delete an existing training category. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -344,12 +344,12 @@ Delete an existing training type. The owner of the API key used must have access
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -395,7 +395,7 @@ void (empty response body)
 listEmployeeTrainings($employee_id, $training_type_id): \BhrSdk\Model\TrainingRecordList[]
 ```
 
-List Employee Trainings
+Get Employee Trainings
 
 Get all employee training records. The owner of the API key used must have access to view the employee. The API will only return trainings for the employee that the owner of the API key has permission to see. Included with each employee training is the training information that has been selected for tracking in settings.
 
@@ -405,12 +405,12 @@ Get all employee training records. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -459,7 +459,7 @@ try {
 listTrainingCategories(): \BhrSdk\Model\TrainingCategoryList[]
 ```
 
-List Training Categories
+Get Training Categories
 
 Get a list of training categories. The owner of the API key used must have access to training settings.
 
@@ -469,12 +469,12 @@ Get a list of training categories. The owner of the API key used must have acces
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -518,7 +518,7 @@ This endpoint does not need any parameter.
 listTrainingTypes(): \BhrSdk\Model\TrainingTypeList[]
 ```
 
-List Training Types
+Get Training Types
 
 Get a list of training types. The owner of the API key used must have access to training settings.
 
@@ -528,12 +528,12 @@ Get a list of training types. The owner of the API key used must have access to 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -587,12 +587,12 @@ Update an existing exmployee training record. The owner of the API key used must
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -651,12 +651,12 @@ Update an existing training category. The owner of the API key used must have ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -715,12 +715,12 @@ Update an existing training type. The owner of the API key used must have access
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TrainingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

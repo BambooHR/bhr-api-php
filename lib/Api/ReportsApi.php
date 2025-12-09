@@ -136,7 +136,7 @@ class ReportsApi {
 	/**
 	 * Operation getCompanyReport
 	 *
-	 * Get company report
+	 * Get Company Report
 	 *
 	 * @param  string $id {id} is a report ID. (required)
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
@@ -157,7 +157,7 @@ class ReportsApi {
 	/**
 	 * Operation getCompanyReportWithHttpInfo
 	 *
-	 * Get company report
+	 * Get Company Report
 	 *
 	 * @param  string $id {id} is a report ID. (required)
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
@@ -189,7 +189,7 @@ class ReportsApi {
 	/**
 	 * Operation getCompanyReportAsync
 	 *
-	 * Get company report
+	 * Get Company Report
 	 *
 	 * @param  string $id {id} is a report ID. (required)
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
@@ -213,7 +213,7 @@ class ReportsApi {
 	/**
 	 * Operation getCompanyReportAsyncWithHttpInfo
 	 *
-	 * Get company report
+	 * Get Company Report
 	 *
 	 * @param  string $id {id} is a report ID. (required)
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
@@ -374,7 +374,7 @@ class ReportsApi {
 	/**
 	 * Operation requestCustomReport
 	 *
-	 * Request a custom report
+	 * Request Custom Report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
@@ -393,7 +393,7 @@ class ReportsApi {
 	/**
 	 * Operation requestCustomReportWithHttpInfo
 	 *
-	 * Request a custom report
+	 * Request Custom Report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
@@ -423,7 +423,7 @@ class ReportsApi {
 	/**
 	 * Operation requestCustomReportAsync
 	 *
-	 * Request a custom report
+	 * Request Custom Report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
@@ -445,7 +445,7 @@ class ReportsApi {
 	/**
 	 * Operation requestCustomReportAsyncWithHttpInfo
 	 *
-	 * Request a custom report
+	 * Request Custom Report
 	 *
 	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)

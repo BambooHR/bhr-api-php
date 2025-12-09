@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * PutGoalV11Request
+ * TransformedApiEmployeeGoalDetailsGoal
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * PutGoalV11Request Class Doc Comment
+ * TransformedApiEmployeeGoalDetailsGoal Class Doc Comment
  *
  * @category Class
+ * @description An individual goal
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializable {
+class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +50,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'put_goal_v1_1_request';
+	protected static $openApiModelName = 'TransformedApiEmployeeGoalDetails_goal';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,16 +58,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
+		'id' => 'string',
 		'title' => 'string',
 		'description' => 'string',
-		'due_date' => '\DateTime',
 		'percent_complete' => 'int',
-		'completion_date' => '\DateTime',
+		'aligns_with_option_id' => 'string',
 		'shared_with_employee_ids' => 'int[]',
-		'aligns_with_option_id' => 'int',
-		'milestones_enabled' => 'bool',
-		'deleted_milestone_ids' => 'int[]',
-		'milestones' => '\BhrSdk\Model\PutGoalV11RequestMilestonesInner[]'
+		'due_date' => 'string',
+		'completion_date' => 'string',
+		'status' => 'string',
+		'milestones' => '\BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]',
+		'actions' => '\BhrSdk\Model\TransformedApiGoalGoalActions'
 	];
 
 	/**
@@ -77,16 +79,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
+		'id' => null,
 		'title' => null,
 		'description' => null,
-		'due_date' => 'date',
 		'percent_complete' => null,
-		'completion_date' => 'date',
-		'shared_with_employee_ids' => null,
 		'aligns_with_option_id' => null,
-		'milestones_enabled' => null,
-		'deleted_milestone_ids' => null,
-		'milestones' => null
+		'shared_with_employee_ids' => null,
+		'due_date' => null,
+		'completion_date' => null,
+		'status' => null,
+		'milestones' => null,
+		'actions' => null
 	];
 
 	/**
@@ -96,16 +99,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
+		'id' => false,
 		'title' => false,
 		'description' => false,
-		'due_date' => false,
 		'percent_complete' => false,
-		'completion_date' => true,
-		'shared_with_employee_ids' => false,
 		'aligns_with_option_id' => true,
-		'milestones_enabled' => false,
-		'deleted_milestone_ids' => false,
-		'milestones' => false
+		'shared_with_employee_ids' => false,
+		'due_date' => false,
+		'completion_date' => true,
+		'status' => false,
+		'milestones' => true,
+		'actions' => false
 	];
 
 	/**
@@ -190,16 +194,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
+		'id' => 'id',
 		'title' => 'title',
 		'description' => 'description',
-		'due_date' => 'dueDate',
 		'percent_complete' => 'percentComplete',
-		'completion_date' => 'completionDate',
-		'shared_with_employee_ids' => 'sharedWithEmployeeIds',
 		'aligns_with_option_id' => 'alignsWithOptionId',
-		'milestones_enabled' => 'milestonesEnabled',
-		'deleted_milestone_ids' => 'deletedMilestoneIds',
-		'milestones' => 'milestones'
+		'shared_with_employee_ids' => 'sharedWithEmployeeIds',
+		'due_date' => 'dueDate',
+		'completion_date' => 'completionDate',
+		'status' => 'status',
+		'milestones' => 'milestones',
+		'actions' => 'actions'
 	];
 
 	/**
@@ -208,16 +213,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 * @var string[]
 	 */
 	protected static $setters = [
+		'id' => 'setId',
 		'title' => 'setTitle',
 		'description' => 'setDescription',
-		'due_date' => 'setDueDate',
 		'percent_complete' => 'setPercentComplete',
-		'completion_date' => 'setCompletionDate',
-		'shared_with_employee_ids' => 'setSharedWithEmployeeIds',
 		'aligns_with_option_id' => 'setAlignsWithOptionId',
-		'milestones_enabled' => 'setMilestonesEnabled',
-		'deleted_milestone_ids' => 'setDeletedMilestoneIds',
-		'milestones' => 'setMilestones'
+		'shared_with_employee_ids' => 'setSharedWithEmployeeIds',
+		'due_date' => 'setDueDate',
+		'completion_date' => 'setCompletionDate',
+		'status' => 'setStatus',
+		'milestones' => 'setMilestones',
+		'actions' => 'setActions'
 	];
 
 	/**
@@ -226,16 +232,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 * @var string[]
 	 */
 	protected static $getters = [
+		'id' => 'getId',
 		'title' => 'getTitle',
 		'description' => 'getDescription',
-		'due_date' => 'getDueDate',
 		'percent_complete' => 'getPercentComplete',
-		'completion_date' => 'getCompletionDate',
-		'shared_with_employee_ids' => 'getSharedWithEmployeeIds',
 		'aligns_with_option_id' => 'getAlignsWithOptionId',
-		'milestones_enabled' => 'getMilestonesEnabled',
-		'deleted_milestone_ids' => 'getDeletedMilestoneIds',
-		'milestones' => 'getMilestones'
+		'shared_with_employee_ids' => 'getSharedWithEmployeeIds',
+		'due_date' => 'getDueDate',
+		'completion_date' => 'getCompletionDate',
+		'status' => 'getStatus',
+		'milestones' => 'getMilestones',
+		'actions' => 'getActions'
 	];
 
 	/**
@@ -275,6 +282,23 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 		return self::$openApiModelName;
 	}
 
+	public const STATUS_IN_PROGRESS = 'in_progress';
+	public const STATUS_COMPLETED = 'completed';
+	public const STATUS_CLOSED = 'closed';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getStatusAllowableValues() {
+		return [
+			self::STATUS_IN_PROGRESS,
+			self::STATUS_COMPLETED,
+			self::STATUS_CLOSED,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -289,16 +313,17 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
+		$this->setIfExists('id', $data ?? [], null);
 		$this->setIfExists('title', $data ?? [], null);
 		$this->setIfExists('description', $data ?? [], null);
-		$this->setIfExists('due_date', $data ?? [], null);
 		$this->setIfExists('percent_complete', $data ?? [], null);
-		$this->setIfExists('completion_date', $data ?? [], null);
-		$this->setIfExists('shared_with_employee_ids', $data ?? [], null);
 		$this->setIfExists('aligns_with_option_id', $data ?? [], null);
-		$this->setIfExists('milestones_enabled', $data ?? [], null);
-		$this->setIfExists('deleted_milestone_ids', $data ?? [], null);
+		$this->setIfExists('shared_with_employee_ids', $data ?? [], null);
+		$this->setIfExists('due_date', $data ?? [], null);
+		$this->setIfExists('completion_date', $data ?? [], null);
+		$this->setIfExists('status', $data ?? [], null);
 		$this->setIfExists('milestones', $data ?? [], null);
+		$this->setIfExists('actions', $data ?? [], null);
 	}
 
 	/**
@@ -326,23 +351,15 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
-		if ($this->container['title'] === null) {
-			$invalidProperties[] = "'title' can't be null";
-		}
-		if ($this->container['due_date'] === null) {
-			$invalidProperties[] = "'due_date' can't be null";
-		}
-		if (!is_null($this->container['percent_complete']) && ($this->container['percent_complete'] > 100)) {
-			$invalidProperties[] = "invalid value for 'percent_complete', must be smaller than or equal to 100.";
-		}
-
-		if (!is_null($this->container['percent_complete']) && ($this->container['percent_complete'] < 0)) {
-			$invalidProperties[] = "invalid value for 'percent_complete', must be bigger than or equal to 0.";
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'status', must be one of '%s'",
+				$this->container['status'],
+				implode("', '", $allowedValues)
+			);
 		}
 
-		if ($this->container['shared_with_employee_ids'] === null) {
-			$invalidProperties[] = "'shared_with_employee_ids' can't be null";
-		}
 		return $invalidProperties;
 	}
 
@@ -357,9 +374,34 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	}
 
 	/**
+	 * Gets id
+	 *
+	 * @return string|null
+	 */
+	public function getId() {
+		return $this->container['id'];
+	}
+
+	/**
+	 * Sets id
+	 *
+	 * @param string|null $id The id of the goal.
+	 *
+	 * @return self
+	 */
+	public function setId($id) {
+		if (is_null($id)) {
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
+		}
+		$this->container['id'] = $id;
+
+		return $this;
+	}
+
+	/**
 	 * Gets title
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 	public function getTitle() {
 		return $this->container['title'];
@@ -368,7 +410,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets title
 	 *
-	 * @param string $title The title of the goal
+	 * @param string|null $title Title of the goal.
 	 *
 	 * @return self
 	 */
@@ -393,7 +435,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets description
 	 *
-	 * @param string|null $description A detailed description of the goal
+	 * @param string|null $description A description of the goal.
 	 *
 	 * @return self
 	 */
@@ -402,31 +444,6 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 			throw new \InvalidArgumentException('non-nullable description cannot be null');
 		}
 		$this->container['description'] = $description;
-
-		return $this;
-	}
-
-	/**
-	 * Gets due_date
-	 *
-	 * @return \DateTime
-	 */
-	public function getDueDate() {
-		return $this->container['due_date'];
-	}
-
-	/**
-	 * Sets due_date
-	 *
-	 * @param \DateTime $due_date The due date for the goal in YYYY-MM-DD format
-	 *
-	 * @return self
-	 */
-	public function setDueDate($due_date) {
-		if (is_null($due_date)) {
-			throw new \InvalidArgumentException('non-nullable due_date cannot be null');
-		}
-		$this->container['due_date'] = $due_date;
 
 		return $this;
 	}
@@ -443,7 +460,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets percent_complete
 	 *
-	 * @param int|null $percent_complete The percentage of completion for the goal (0-100). Required when milestonesEnabled is not true.
+	 * @param int|null $percent_complete A percentage (0-100) that denotes how complete the goal is.
 	 *
 	 * @return self
 	 */
@@ -451,71 +468,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 		if (is_null($percent_complete)) {
 			throw new \InvalidArgumentException('non-nullable percent_complete cannot be null');
 		}
-
-		if (($percent_complete > 100)) {
-			throw new \InvalidArgumentException('invalid value for $percent_complete when calling PutGoalV11Request., must be smaller than or equal to 100.');
-		}
-		if (($percent_complete < 0)) {
-			throw new \InvalidArgumentException('invalid value for $percent_complete when calling PutGoalV11Request., must be bigger than or equal to 0.');
-		}
-
 		$this->container['percent_complete'] = $percent_complete;
-
-		return $this;
-	}
-
-	/**
-	 * Gets completion_date
-	 *
-	 * @return \DateTime|null
-	 */
-	public function getCompletionDate() {
-		return $this->container['completion_date'];
-	}
-
-	/**
-	 * Sets completion_date
-	 *
-	 * @param \DateTime|null $completion_date The date when the goal was completed in YYYY-MM-DD format. Required when percentComplete is 100.
-	 *
-	 * @return self
-	 */
-	public function setCompletionDate($completion_date) {
-		if (is_null($completion_date)) {
-			$this->openApiNullablesSetToNull['completion_date'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['completion_date'])) {
-				unset($nullablesSetToNull['completion_date']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
-		}
-		$this->container['completion_date'] = $completion_date;
-
-		return $this;
-	}
-
-	/**
-	 * Gets shared_with_employee_ids
-	 *
-	 * @return int[]
-	 */
-	public function getSharedWithEmployeeIds() {
-		return $this->container['shared_with_employee_ids'];
-	}
-
-	/**
-	 * Sets shared_with_employee_ids
-	 *
-	 * @param int[] $shared_with_employee_ids List of employee IDs with whom the goal is shared. Must include the employee ID of the goal owner.
-	 *
-	 * @return self
-	 */
-	public function setSharedWithEmployeeIds($shared_with_employee_ids) {
-		if (is_null($shared_with_employee_ids)) {
-			throw new \InvalidArgumentException('non-nullable shared_with_employee_ids cannot be null');
-		}
-		$this->container['shared_with_employee_ids'] = $shared_with_employee_ids;
 
 		return $this;
 	}
@@ -523,7 +476,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets aligns_with_option_id
 	 *
-	 * @return int|null
+	 * @return string|null
 	 */
 	public function getAlignsWithOptionId() {
 		return $this->container['aligns_with_option_id'];
@@ -532,7 +485,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets aligns_with_option_id
 	 *
-	 * @param int|null $aligns_with_option_id ID of the option this goal aligns with
+	 * @param string|null $aligns_with_option_id aligns_with_option_id
 	 *
 	 * @return self
 	 */
@@ -552,51 +505,117 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	}
 
 	/**
-	 * Gets milestones_enabled
+	 * Gets shared_with_employee_ids
 	 *
-	 * @return bool|null
+	 * @return int[]|null
 	 */
-	public function getMilestonesEnabled() {
-		return $this->container['milestones_enabled'];
+	public function getSharedWithEmployeeIds() {
+		return $this->container['shared_with_employee_ids'];
 	}
 
 	/**
-	 * Sets milestones_enabled
+	 * Sets shared_with_employee_ids
 	 *
-	 * @param bool|null $milestones_enabled Flag indicating whether milestones are enabled for this goal
+	 * @param int[]|null $shared_with_employee_ids Ids of the employees that have access to this goal.
 	 *
 	 * @return self
 	 */
-	public function setMilestonesEnabled($milestones_enabled) {
-		if (is_null($milestones_enabled)) {
-			throw new \InvalidArgumentException('non-nullable milestones_enabled cannot be null');
+	public function setSharedWithEmployeeIds($shared_with_employee_ids) {
+		if (is_null($shared_with_employee_ids)) {
+			throw new \InvalidArgumentException('non-nullable shared_with_employee_ids cannot be null');
 		}
-		$this->container['milestones_enabled'] = $milestones_enabled;
+		$this->container['shared_with_employee_ids'] = $shared_with_employee_ids;
 
 		return $this;
 	}
 
 	/**
-	 * Gets deleted_milestone_ids
+	 * Gets due_date
 	 *
-	 * @return int[]|null
+	 * @return string|null
 	 */
-	public function getDeletedMilestoneIds() {
-		return $this->container['deleted_milestone_ids'];
+	public function getDueDate() {
+		return $this->container['due_date'];
 	}
 
 	/**
-	 * Sets deleted_milestone_ids
+	 * Sets due_date
 	 *
-	 * @param int[]|null $deleted_milestone_ids List of milestone IDs to be deleted from the goal
+	 * @param string|null $due_date The due date of the goal.
 	 *
 	 * @return self
 	 */
-	public function setDeletedMilestoneIds($deleted_milestone_ids) {
-		if (is_null($deleted_milestone_ids)) {
-			throw new \InvalidArgumentException('non-nullable deleted_milestone_ids cannot be null');
+	public function setDueDate($due_date) {
+		if (is_null($due_date)) {
+			throw new \InvalidArgumentException('non-nullable due_date cannot be null');
 		}
-		$this->container['deleted_milestone_ids'] = $deleted_milestone_ids;
+		$this->container['due_date'] = $due_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets completion_date
+	 *
+	 * @return string|null
+	 */
+	public function getCompletionDate() {
+		return $this->container['completion_date'];
+	}
+
+	/**
+	 * Sets completion_date
+	 *
+	 * @param string|null $completion_date The date the goal was completed.
+	 *
+	 * @return self
+	 */
+	public function setCompletionDate($completion_date) {
+		if (is_null($completion_date)) {
+			$this->openApiNullablesSetToNull['completion_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['completion_date'])) {
+				unset($nullablesSetToNull['completion_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['completion_date'] = $completion_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets status
+	 *
+	 * @return string|null
+	 */
+	public function getStatus() {
+		return $this->container['status'];
+	}
+
+	/**
+	 * Sets status
+	 *
+	 * @param string|null $status The status of the goal.
+	 *
+	 * @return self
+	 */
+	public function setStatus($status) {
+		if (is_null($status)) {
+			throw new \InvalidArgumentException('non-nullable status cannot be null');
+		}
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!in_array($status, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'status', must be one of '%s'",
+					$status,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['status'] = $status;
 
 		return $this;
 	}
@@ -604,7 +623,7 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets milestones
 	 *
-	 * @return \BhrSdk\Model\PutGoalV11RequestMilestonesInner[]|null
+	 * @return \BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]|null
 	 */
 	public function getMilestones() {
 		return $this->container['milestones'];
@@ -613,15 +632,46 @@ class PutGoalV11Request implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets milestones
 	 *
-	 * @param \BhrSdk\Model\PutGoalV11RequestMilestonesInner[]|null $milestones List of milestones to add to this goal
+	 * @param \BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]|null $milestones All milestones for the individual goal. This array will not exist if milestones are not selected for this goal.
 	 *
 	 * @return self
 	 */
 	public function setMilestones($milestones) {
 		if (is_null($milestones)) {
-			throw new \InvalidArgumentException('non-nullable milestones cannot be null');
+			$this->openApiNullablesSetToNull['milestones'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['milestones'])) {
+				unset($nullablesSetToNull['milestones']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['milestones'] = $milestones;
+
+		return $this;
+	}
+
+	/**
+	 * Gets actions
+	 *
+	 * @return \BhrSdk\Model\TransformedApiGoalGoalActions|null
+	 */
+	public function getActions() {
+		return $this->container['actions'];
+	}
+
+	/**
+	 * Sets actions
+	 *
+	 * @param \BhrSdk\Model\TransformedApiGoalGoalActions|null $actions actions
+	 *
+	 * @return self
+	 */
+	public function setActions($actions) {
+		if (is_null($actions)) {
+			throw new \InvalidArgumentException('non-nullable actions cannot be null');
+		}
+		$this->container['actions'] = $actions;
 
 		return $this;
 	}

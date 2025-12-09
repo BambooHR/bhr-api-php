@@ -4,19 +4,19 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAListOfWhoIsOut()**](TimeOffApi.md#getAListOfWhoIsOut) | **GET** /api/v1/time_off/whos_out | Get a list of Who&#39;s Out |
+| [**getAListOfWhoIsOut()**](TimeOffApi.md#getAListOfWhoIsOut) | **GET** /api/v1/time_off/whos_out | Get Who’s Out |
 | [**getTimeOffPolicies()**](TimeOffApi.md#getTimeOffPolicies) | **GET** /api/v1/meta/time_off/policies | Get Time Off Policies |
 | [**getTimeOffTypes()**](TimeOffApi.md#getTimeOffTypes) | **GET** /api/v1/meta/time_off/types | Get Time Off Types |
-| [**timeOffAddATimeOffHistoryItemForTimeOffRequest()**](TimeOffApi.md#timeOffAddATimeOffHistoryItemForTimeOffRequest) | **PUT** /api/v1/employees/{employeeId}/time_off/history | Add a Time Off History Item For Time Off Request |
-| [**timeOffAddATimeOffRequest()**](TimeOffApi.md#timeOffAddATimeOffRequest) | **PUT** /api/v1/employees/{employeeId}/time_off/request | Add a Time Off Request |
-| [**timeOffAdjustTimeOffBalance()**](TimeOffApi.md#timeOffAdjustTimeOffBalance) | **PUT** /api/v1/employees/{employeeId}/time_off/balance_adjustment | Adjust Time Off Balance |
-| [**timeOffAssignTimeOffPoliciesForAnEmployee()**](TimeOffApi.md#timeOffAssignTimeOffPoliciesForAnEmployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee |
-| [**timeOffAssignTimeOffPoliciesForAnEmployeeV11()**](TimeOffApi.md#timeOffAssignTimeOffPoliciesForAnEmployeeV11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies for an Employee, Version 1.1 |
-| [**timeOffChangeARequestStatus()**](TimeOffApi.md#timeOffChangeARequestStatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Change a Request Status |
+| [**timeOffAddATimeOffHistoryItemForTimeOffRequest()**](TimeOffApi.md#timeOffAddATimeOffHistoryItemForTimeOffRequest) | **PUT** /api/v1/employees/{employeeId}/time_off/history | Create Time Off Request History Item |
+| [**timeOffAddATimeOffRequest()**](TimeOffApi.md#timeOffAddATimeOffRequest) | **PUT** /api/v1/employees/{employeeId}/time_off/request | Create Time Off Request |
+| [**timeOffAdjustTimeOffBalance()**](TimeOffApi.md#timeOffAdjustTimeOffBalance) | **PUT** /api/v1/employees/{employeeId}/time_off/balance_adjustment | Update Time Off Balance |
+| [**timeOffAssignTimeOffPoliciesForAnEmployee()**](TimeOffApi.md#timeOffAssignTimeOffPoliciesForAnEmployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies |
+| [**timeOffAssignTimeOffPoliciesForAnEmployeeV11()**](TimeOffApi.md#timeOffAssignTimeOffPoliciesForAnEmployeeV11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies v1.1 |
+| [**timeOffChangeARequestStatus()**](TimeOffApi.md#timeOffChangeARequestStatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Update Time Off Request Status |
 | [**timeOffEstimateFutureTimeOffBalances()**](TimeOffApi.md#timeOffEstimateFutureTimeOffBalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances |
 | [**timeOffGetTimeOffRequests()**](TimeOffApi.md#timeOffGetTimeOffRequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests |
-| [**timeOffListTimeOffPoliciesForEmployee()**](TimeOffApi.md#timeOffListTimeOffPoliciesForEmployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee |
-| [**timeOffListTimeOffPoliciesForEmployeeV11()**](TimeOffApi.md#timeOffListTimeOffPoliciesForEmployeeV11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | List Time Off Policies for Employee, Version 1.1 |
+| [**timeOffListTimeOffPoliciesForEmployee()**](TimeOffApi.md#timeOffListTimeOffPoliciesForEmployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | Get Time Off Policies for Employee |
+| [**timeOffListTimeOffPoliciesForEmployeeV11()**](TimeOffApi.md#timeOffListTimeOffPoliciesForEmployeeV11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | Get Time Off Policies for Employee v1.1 |
 
 
 ## `getAListOfWhoIsOut()`
@@ -25,7 +25,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 getAListOfWhoIsOut($accept_header_parameter, $start, $end)
 ```
 
-Get a list of Who's Out
+Get Who’s Out
 
 This endpoint will return a list, sorted by date, of employees who will be out, and company holidays, for a period of time.
 
@@ -35,12 +35,12 @@ This endpoint will return a list, sorted by date, of employees who will be out, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -100,12 +100,12 @@ This endpoint gets a list of time off policies.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -161,12 +161,12 @@ This endpoint gets a list of time off types.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -214,7 +214,7 @@ void (empty response body)
 timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history)
 ```
 
-Add a Time Off History Item For Time Off Request
+Create Time Off Request History Item
 
 To use this API make an HTTP PUT where the body of the request is the JSON documented below. A new time off history item will be inserted into the database. On success, a 201 Created code is returned and the \"Location\" header of the response will contain a URL that identifies the new history item.
 
@@ -224,12 +224,12 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -277,7 +277,7 @@ void (empty response body)
 timeOffAddATimeOffRequest($employee_id, $time_off_request)
 ```
 
-Add a Time Off Request
+Create Time Off Request
 
 A time off request is an entity that describes the decision making process for approving time off. Once a request has been created, a history entry can be created documenting the actual use of time off.
 
@@ -287,12 +287,12 @@ A time off request is an entity that describes the decision making process for a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -340,7 +340,7 @@ void (empty response body)
 timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance)
 ```
 
-Adjust Time Off Balance
+Update Time Off Balance
 
 To use this API make an HTTP PUT where the body of the request is the JSON documented below. A time off balance adjustment will be inserted into the database. On success, a 201 Created code is returned and the \"Location\" header of the response will contain a URL that identifies the new history item.
 
@@ -350,12 +350,12 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -403,7 +403,7 @@ void (empty response body)
 timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
-Assign Time Off Policies for an Employee
+Assign Time Off Policies
 
 To use this API make an HTTP PUT where the body of the request is the JSON documented below. A time off policy will be assigned to the employee with accruals starting on the date specified. A null start date will remove the assignment. On success, a 200 Success code is returned and the content of the response will be the same as the List Time off Policies API.
 
@@ -413,12 +413,12 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -466,7 +466,7 @@ void (empty response body)
 timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner)
 ```
 
-Assign Time Off Policies for an Employee, Version 1.1
+Assign Time Off Policies v1.1
 
 To use this API make an HTTP PUT where the body of the request is the JSON documented below. A time off policy will be assigned to the employee with accruals starting on the date specified. On success, a 200 Success code is returned and the content of the response will be the same as the List Time off Policies API.
 
@@ -476,12 +476,12 @@ To use this API make an HTTP PUT where the body of the request is the JSON docum
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -529,7 +529,7 @@ void (empty response body)
 timeOffChangeARequestStatus($request_id, $request)
 ```
 
-Change a Request Status
+Update Time Off Request Status
 
 This endpoint allows you to change the status of a request in the system. You can use this to approve, deny, or cancel a time off request.
 
@@ -539,12 +539,12 @@ This endpoint allows you to change the status of a request in the system. You ca
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -602,12 +602,12 @@ This endpoint will sum future time off accruals, scheduled time off, and carry-o
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -667,12 +667,12 @@ Retrieves a list of time off requests based on specified filters. This endpoint 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -732,7 +732,7 @@ void (empty response body)
 timeOffListTimeOffPoliciesForEmployee($employee_id)
 ```
 
-List Time Off Policies for Employee
+Get Time Off Policies for Employee
 
 Retrieves a list of time off policies assigned to a specific employee. This includes policy details such as name, type, and current balance. The response helps in displaying available time off options and balances to employees.
 
@@ -742,12 +742,12 @@ Retrieves a list of time off policies assigned to a specific employee. This incl
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -793,7 +793,7 @@ void (empty response body)
 timeOffListTimeOffPoliciesForEmployeeV11($employee_id)
 ```
 
-List Time Off Policies for Employee, Version 1.1
+Get Time Off Policies for Employee v1.1
 
 Version 1.1 of the endpoint that retrieves time off policies for a specific employee. This version includes additional policy details and enhanced filtering capabilities compared to v1. It provides comprehensive information about each policy including accrual rates, carryover rules, and policy-specific settings.
 
@@ -803,12 +803,12 @@ Version 1.1 of the endpoint that retrieves time off policies for a specific empl
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\TimeOffApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

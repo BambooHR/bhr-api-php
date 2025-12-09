@@ -148,7 +148,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation addCompanyFileCategory
 	 *
-	 * Add Company File Category
+	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
@@ -165,7 +165,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation addCompanyFileCategoryWithHttpInfo
 	 *
-	 * Add Company File Category
+	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
@@ -193,7 +193,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation addCompanyFileCategoryAsync
 	 *
-	 * Add Company File Category
+	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
@@ -213,7 +213,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation addCompanyFileCategoryAsyncWithHttpInfo
 	 *
-	 * Add Company File Category
+	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
@@ -537,7 +537,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation getCompanyFile
 	 *
-	 * Get an Company File
+	 * Get Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
@@ -554,7 +554,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation getCompanyFileWithHttpInfo
 	 *
-	 * Get an Company File
+	 * Get Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
@@ -582,7 +582,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation getCompanyFileAsync
 	 *
-	 * Get an Company File
+	 * Get Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
@@ -602,7 +602,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation getCompanyFileAsyncWithHttpInfo
 	 *
-	 * Get an Company File
+	 * Get Company File
 	 *
 	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
@@ -731,7 +731,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation listCompanyFiles
 	 *
-	 * List company files and categories
+	 * Get Company Files and Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
@@ -747,7 +747,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation listCompanyFilesWithHttpInfo
 	 *
-	 * List company files and categories
+	 * Get Company Files and Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
@@ -774,7 +774,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation listCompanyFilesAsync
 	 *
-	 * List company files and categories
+	 * Get Company Files and Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *
@@ -793,7 +793,7 @@ class CompanyFilesApi {
 	/**
 	 * Operation listCompanyFilesAsyncWithHttpInfo
 	 *
-	 * List company files and categories
+	 * Get Company Files and Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listCompanyFiles'] to see the possible values for this operation
 	 *

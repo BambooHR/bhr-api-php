@@ -4,8 +4,8 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getEmployeePhoto()**](PhotosApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
-| [**uploadEmployeePhoto()**](PhotosApi.md#uploadEmployeePhoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo |
+| [**getEmployeePhoto()**](PhotosApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get Employee Photo |
+| [**uploadEmployeePhoto()**](PhotosApi.md#uploadEmployeePhoto) | **POST** /api/v1/employees/{employeeId}/photo | Upload Employee Photo |
 
 
 ## `getEmployeePhoto()`
@@ -14,7 +14,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 getEmployeePhoto($employee_id, $size)
 ```
 
-Get an employee photo
+Get Employee Photo
 
 Get an employee photo
 
@@ -24,12 +24,12 @@ Get an employee photo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\PhotosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -77,7 +77,7 @@ void (empty response body)
 uploadEmployeePhoto($employee_id)
 ```
 
-Store a new employee photo
+Upload Employee Photo
 
 Store a new employee photo
 
@@ -87,12 +87,12 @@ Store a new employee photo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\PhotosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

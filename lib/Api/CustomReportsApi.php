@@ -354,7 +354,7 @@ class CustomReportsApi {
 	/**
 	 * Operation listReports
 	 *
-	 * List Reports
+	 * Get Reports
 	 *
 	 * @param  int|null $page The page number to retrieve (optional)
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -372,7 +372,7 @@ class CustomReportsApi {
 	/**
 	 * Operation listReportsWithHttpInfo
 	 *
-	 * List Reports
+	 * Get Reports
 	 *
 	 * @param  int|null $page The page number to retrieve (optional)
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -423,7 +423,7 @@ class CustomReportsApi {
 	/**
 	 * Operation listReportsAsync
 	 *
-	 * List Reports
+	 * Get Reports
 	 *
 	 * @param  int|null $page The page number to retrieve (optional)
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
@@ -444,7 +444,7 @@ class CustomReportsApi {
 	/**
 	 * Operation listReportsAsyncWithHttpInfo
 	 *
-	 * List Reports
+	 * Get Reports
 	 *
 	 * @param  int|null $page The page number to retrieve (optional)
 	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)

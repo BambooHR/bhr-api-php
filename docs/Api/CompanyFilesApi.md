@@ -4,10 +4,10 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addCompanyFileCategory()**](CompanyFilesApi.md#addCompanyFileCategory) | **POST** /api/v1/files/categories | Add Company File Category |
+| [**addCompanyFileCategory()**](CompanyFilesApi.md#addCompanyFileCategory) | **POST** /api/v1/files/categories | Create Company File Category |
 | [**deleteCompanyFile()**](CompanyFilesApi.md#deleteCompanyFile) | **DELETE** /api/v1/files/{fileId} | Delete Company File |
-| [**getCompanyFile()**](CompanyFilesApi.md#getCompanyFile) | **GET** /api/v1/files/{fileId} | Get an Company File |
-| [**listCompanyFiles()**](CompanyFilesApi.md#listCompanyFiles) | **GET** /api/v1/files/view | List company files and categories |
+| [**getCompanyFile()**](CompanyFilesApi.md#getCompanyFile) | **GET** /api/v1/files/{fileId} | Get Company File |
+| [**listCompanyFiles()**](CompanyFilesApi.md#listCompanyFiles) | **GET** /api/v1/files/view | Get Company Files and Categories |
 | [**updateCompanyFile()**](CompanyFilesApi.md#updateCompanyFile) | **POST** /api/v1/files/{fileId} | Update Company File |
 | [**uploadCompanyFile()**](CompanyFilesApi.md#uploadCompanyFile) | **POST** /api/v1/files | Upload Company File |
 
@@ -18,7 +18,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addCompanyFileCategory($request_body)
 ```
 
-Add Company File Category
+Create Company File Category
 
 Add a company file category.
 
@@ -28,12 +28,12 @@ Add a company file category.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\CompanyFilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -89,12 +89,12 @@ Delete a company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\CompanyFilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -140,7 +140,7 @@ void (empty response body)
 getCompanyFile($file_id)
 ```
 
-Get an Company File
+Get Company File
 
 Gets an company file
 
@@ -150,12 +150,12 @@ Gets an company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\CompanyFilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -201,7 +201,7 @@ void (empty response body)
 listCompanyFiles()
 ```
 
-List company files and categories
+Get Company Files and Categories
 
 Lists company files and categories
 
@@ -211,12 +211,12 @@ Lists company files and categories
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\CompanyFilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -269,12 +269,12 @@ Update a company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\CompanyFilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -332,12 +332,12 @@ Upload a company file
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\CompanyFilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

@@ -4,13 +4,13 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addEmployeeDependent()**](BenefitsApi.md#addEmployeeDependent) | **POST** /api/v1/employeedependents | Add an employee dependent |
-| [**getBenefitCoverages()**](BenefitsApi.md#getBenefitCoverages) | **GET** /api/v1/benefitcoverages | Get benefit coverages |
-| [**getBenefitDeductionTypes()**](BenefitsApi.md#getBenefitDeductionTypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get benefit deduction types |
-| [**getEmployeeDependent()**](BenefitsApi.md#getEmployeeDependent) | **GET** /api/v1/employeedependents/{id} | Get employee dependent |
-| [**getEmployeeDependents()**](BenefitsApi.md#getEmployeeDependents) | **GET** /api/v1/employeedependents | Get all employee dependents |
-| [**getMemberBenefit()**](BenefitsApi.md#getMemberBenefit) | **GET** /api/v1/benefit/member_benefit | Get a list of member benefit events |
-| [**updateEmployeeDependent()**](BenefitsApi.md#updateEmployeeDependent) | **PUT** /api/v1/employeedependents/{id} | Update an employee dependent |
+| [**addEmployeeDependent()**](BenefitsApi.md#addEmployeeDependent) | **POST** /api/v1/employeedependents | Create Employee Dependent |
+| [**getBenefitCoverages()**](BenefitsApi.md#getBenefitCoverages) | **GET** /api/v1/benefitcoverages | Get Benefit Coverages |
+| [**getBenefitDeductionTypes()**](BenefitsApi.md#getBenefitDeductionTypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get Benefit Deduction Types |
+| [**getEmployeeDependent()**](BenefitsApi.md#getEmployeeDependent) | **GET** /api/v1/employeedependents/{id} | Get Employee Dependent |
+| [**getEmployeeDependents()**](BenefitsApi.md#getEmployeeDependents) | **GET** /api/v1/employeedependents | Get Employee Dependents |
+| [**getMemberBenefit()**](BenefitsApi.md#getMemberBenefit) | **GET** /api/v1/benefit/member_benefit | Get Member Benefit Events |
+| [**updateEmployeeDependent()**](BenefitsApi.md#updateEmployeeDependent) | **PUT** /api/v1/employeedependents/{id} | Update Employee Dependent |
 
 
 ## `addEmployeeDependent()`
@@ -19,7 +19,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addEmployeeDependent($employee_dependent)
 ```
 
-Add an employee dependent
+Create Employee Dependent
 
 Adds an employee dependent
 
@@ -29,12 +29,12 @@ Adds an employee dependent
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -80,7 +80,7 @@ void (empty response body)
 getBenefitCoverages($accept_header_parameter)
 ```
 
-Get benefit coverages
+Get Benefit Coverages
 
 Get benefit coverages
 
@@ -90,12 +90,12 @@ Get benefit coverages
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -141,7 +141,7 @@ void (empty response body)
 getBenefitDeductionTypes()
 ```
 
-Get benefit deduction types
+Get Benefit Deduction Types
 
 Get benefit deduction types
 
@@ -151,12 +151,12 @@ Get benefit deduction types
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -199,7 +199,7 @@ void (empty response body)
 getEmployeeDependent($id, $accept_header_parameter)
 ```
 
-Get employee dependent
+Get Employee Dependent
 
 Get employee dependent
 
@@ -209,12 +209,12 @@ Get employee dependent
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -262,7 +262,7 @@ void (empty response body)
 getEmployeeDependents($employeeid, $accept_header_parameter)
 ```
 
-Get all employee dependents
+Get Employee Dependents
 
 Get all employee dependents
 
@@ -272,12 +272,12 @@ Get all employee dependents
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -325,7 +325,7 @@ void (empty response body)
 getMemberBenefit(): \BhrSdk\Model\MemberBenefitEvent[]
 ```
 
-Get a list of member benefit events
+Get Member Benefit Events
 
 Get a list of member benefit events
 
@@ -335,12 +335,12 @@ Get a list of member benefit events
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -384,7 +384,7 @@ This endpoint does not need any parameter.
 updateEmployeeDependent($id, $employee_dependent)
 ```
 
-Update an employee dependent
+Update Employee Dependent
 
 This API allows you to change the information for a given dependent ID.
 
@@ -394,12 +394,12 @@ This API allows you to change the information for a given dependent ID.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure HTTP basic authorization: basic
+// Configure API key authorization
 $config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-// Configure OAuth2 access token for authorization: oauth
-$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $apiInstance = new BhrSdk\Api\BenefitsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

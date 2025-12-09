@@ -154,7 +154,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetClockEntries
 	 *
-	 * Add/Edit Timesheet Clock Entries
+	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
@@ -171,7 +171,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetClockEntriesWithHttpInfo
 	 *
-	 * Add/Edit Timesheet Clock Entries
+	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
@@ -257,7 +257,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetClockEntriesAsync
 	 *
-	 * Add/Edit Timesheet Clock Entries
+	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
@@ -277,7 +277,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetClockEntriesAsyncWithHttpInfo
 	 *
-	 * Add/Edit Timesheet Clock Entries
+	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
@@ -402,7 +402,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetHourEntries
 	 *
-	 * Add/Edit Timesheet Hour Entries
+	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
@@ -419,7 +419,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetHourEntriesWithHttpInfo
 	 *
-	 * Add/Edit Timesheet Hour Entries
+	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
@@ -505,7 +505,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetHourEntriesAsync
 	 *
-	 * Add/Edit Timesheet Hour Entries
+	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
@@ -525,7 +525,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addEditTimesheetHourEntriesAsyncWithHttpInfo
 	 *
-	 * Add/Edit Timesheet Hour Entries
+	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
@@ -650,7 +650,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockInEntry
 	 *
-	 * Add Timesheet Clock-In Entry
+	 * Create Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
@@ -668,7 +668,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockInEntryWithHttpInfo
 	 *
-	 * Add Timesheet Clock-In Entry
+	 * Create Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
@@ -749,7 +749,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockInEntryAsync
 	 *
-	 * Add Timesheet Clock-In Entry
+	 * Create Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
@@ -770,7 +770,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockInEntryAsyncWithHttpInfo
 	 *
-	 * Add Timesheet Clock-In Entry
+	 * Create Timesheet Clock-In Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
@@ -913,7 +913,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockOutEntry
 	 *
-	 * Add Timesheet Clock-Out Entry
+	 * Create Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
@@ -931,7 +931,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockOutEntryWithHttpInfo
 	 *
-	 * Add Timesheet Clock-Out Entry
+	 * Create Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
@@ -1018,7 +1018,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockOutEntryAsync
 	 *
-	 * Add Timesheet Clock-Out Entry
+	 * Create Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
@@ -1039,7 +1039,7 @@ class TimeTrackingApi {
 	/**
 	 * Operation addTimesheetClockOutEntryAsyncWithHttpInfo
 	 *
-	 * Add Timesheet Clock-Out Entry
+	 * Create Timesheet Clock-Out Entry
 	 *
 	 * @param  int $employee_id ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)

@@ -169,7 +169,7 @@ class TimeOffApi {
 	/**
 	 * Operation getAListOfWhoIsOut
 	 *
-	 * Get a list of Who&#39;s Out
+	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
@@ -188,7 +188,7 @@ class TimeOffApi {
 	/**
 	 * Operation getAListOfWhoIsOutWithHttpInfo
 	 *
-	 * Get a list of Who&#39;s Out
+	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
@@ -218,7 +218,7 @@ class TimeOffApi {
 	/**
 	 * Operation getAListOfWhoIsOutAsync
 	 *
-	 * Get a list of Who&#39;s Out
+	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
@@ -240,7 +240,7 @@ class TimeOffApi {
 	/**
 	 * Operation getAListOfWhoIsOutAsyncWithHttpInfo
 	 *
-	 * Get a list of Who&#39;s Out
+	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
@@ -766,7 +766,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequest
 	 *
-	 * Add a Time Off History Item For Time Off Request
+	 * Create Time Off Request History Item
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history time_off_history (required)
@@ -784,7 +784,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo
 	 *
-	 * Add a Time Off History Item For Time Off Request
+	 * Create Time Off Request History Item
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
@@ -813,7 +813,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequestAsync
 	 *
-	 * Add a Time Off History Item For Time Off Request
+	 * Create Time Off Request History Item
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
@@ -834,7 +834,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo
 	 *
-	 * Add a Time Off History Item For Time Off Request
+	 * Create Time Off Request History Item
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
@@ -976,7 +976,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffRequest
 	 *
-	 * Add a Time Off Request
+	 * Create Time Off Request
 	 *
 	 * @param  string $employee_id employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request time_off_request (required)
@@ -994,7 +994,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffRequestWithHttpInfo
 	 *
-	 * Add a Time Off Request
+	 * Create Time Off Request
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
@@ -1023,7 +1023,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffRequestAsync
 	 *
-	 * Add a Time Off Request
+	 * Create Time Off Request
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
@@ -1044,7 +1044,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAddATimeOffRequestAsyncWithHttpInfo
 	 *
-	 * Add a Time Off Request
+	 * Create Time Off Request
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
@@ -1186,7 +1186,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAdjustTimeOffBalance
 	 *
-	 * Adjust Time Off Balance
+	 * Update Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
@@ -1204,7 +1204,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAdjustTimeOffBalanceWithHttpInfo
 	 *
-	 * Adjust Time Off Balance
+	 * Update Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
@@ -1233,7 +1233,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAdjustTimeOffBalanceAsync
 	 *
-	 * Adjust Time Off Balance
+	 * Update Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
@@ -1254,7 +1254,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAdjustTimeOffBalanceAsyncWithHttpInfo
 	 *
-	 * Adjust Time Off Balance
+	 * Update Time Off Balance
 	 *
 	 * @param  int $employee_id The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
@@ -1396,7 +1396,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployee
 	 *
-	 * Assign Time Off Policies for an Employee
+	 * Assign Time Off Policies
 	 *
 	 * @param  string $employee_id employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1414,7 +1414,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo
 	 *
-	 * Assign Time Off Policies for an Employee
+	 * Assign Time Off Policies
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1443,7 +1443,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeAsync
 	 *
-	 * Assign Time Off Policies for an Employee
+	 * Assign Time Off Policies
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1464,7 +1464,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo
 	 *
-	 * Assign Time Off Policies for an Employee
+	 * Assign Time Off Policies
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1606,7 +1606,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11
 	 *
-	 * Assign Time Off Policies for an Employee, Version 1.1
+	 * Assign Time Off Policies v1.1
 	 *
 	 * @param  string $employee_id employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1624,7 +1624,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo
 	 *
-	 * Assign Time Off Policies for an Employee, Version 1.1
+	 * Assign Time Off Policies v1.1
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1653,7 +1653,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11Async
 	 *
-	 * Assign Time Off Policies for an Employee, Version 1.1
+	 * Assign Time Off Policies v1.1
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1674,7 +1674,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo
 	 *
-	 * Assign Time Off Policies for an Employee, Version 1.1
+	 * Assign Time Off Policies v1.1
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
@@ -1816,7 +1816,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffChangeARequestStatus
 	 *
-	 * Change a Request Status
+	 * Update Time Off Request Status
 	 *
 	 * @param  string $request_id request_id (required)
 	 * @param  \BhrSdk\Model\Request $request request (required)
@@ -1834,7 +1834,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffChangeARequestStatusWithHttpInfo
 	 *
-	 * Change a Request Status
+	 * Update Time Off Request Status
 	 *
 	 * @param  string $request_id (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
@@ -1863,7 +1863,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffChangeARequestStatusAsync
 	 *
-	 * Change a Request Status
+	 * Update Time Off Request Status
 	 *
 	 * @param  string $request_id (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
@@ -1884,7 +1884,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffChangeARequestStatusAsyncWithHttpInfo
 	 *
-	 * Change a Request Status
+	 * Update Time Off Request Status
 	 *
 	 * @param  string $request_id (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
@@ -2500,7 +2500,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployee
 	 *
-	 * List Time Off Policies for Employee
+	 * Get Time Off Policies for Employee
 	 *
 	 * @param  string $employee_id employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
@@ -2517,7 +2517,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeWithHttpInfo
 	 *
-	 * List Time Off Policies for Employee
+	 * Get Time Off Policies for Employee
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
@@ -2545,7 +2545,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeAsync
 	 *
-	 * List Time Off Policies for Employee
+	 * Get Time Off Policies for Employee
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
@@ -2565,7 +2565,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo
 	 *
-	 * List Time Off Policies for Employee
+	 * Get Time Off Policies for Employee
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
@@ -2694,7 +2694,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeV11
 	 *
-	 * List Time Off Policies for Employee, Version 1.1
+	 * Get Time Off Policies for Employee v1.1
 	 *
 	 * @param  string $employee_id employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
@@ -2711,7 +2711,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo
 	 *
-	 * List Time Off Policies for Employee, Version 1.1
+	 * Get Time Off Policies for Employee v1.1
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
@@ -2739,7 +2739,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeV11Async
 	 *
-	 * List Time Off Policies for Employee, Version 1.1
+	 * Get Time Off Policies for Employee v1.1
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
@@ -2759,7 +2759,7 @@ class TimeOffApi {
 	/**
 	 * Operation timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo
 	 *
-	 * List Time Off Policies for Employee, Version 1.1
+	 * Get Time Off Policies for Employee v1.1
 	 *
 	 * @param  string $employee_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation

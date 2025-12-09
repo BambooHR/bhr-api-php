@@ -85,6 +85,9 @@ class DatasetsApi {
 		'getDatasets' => [
 			'application/json',
         ],
+		'getFieldOptions' => [
+			'application/json',
+        ],
 		'getFieldsFromDataset' => [
 			'application/json',
         ],
@@ -373,7 +376,7 @@ class DatasetsApi {
 	/**
 	 * Operation getDatasets
 	 *
-	 * Get Data Sets
+	 * Get Datasets
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
@@ -389,7 +392,7 @@ class DatasetsApi {
 	/**
 	 * Operation getDatasetsWithHttpInfo
 	 *
-	 * Get Data Sets
+	 * Get Datasets
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
@@ -438,7 +441,7 @@ class DatasetsApi {
 	/**
 	 * Operation getDatasetsAsync
 	 *
-	 * Get Data Sets
+	 * Get Datasets
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
@@ -457,7 +460,7 @@ class DatasetsApi {
 	/**
 	 * Operation getDatasetsAsyncWithHttpInfo
 	 *
-	 * Get Data Sets
+	 * Get Datasets
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
 	 *
@@ -561,6 +564,252 @@ class DatasetsApi {
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
 			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getFieldOptions
+	 *
+	 * Get Field Options
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\FieldOptionsTransformer[]|\BhrSdk\Model\InternalServerError|\BhrSdk\Model\Forbidden
+	 */
+	public function getFieldOptions($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
+		list($response) = $this->getFieldOptionsWithHttpInfo($dataset_name, $field_options_request_schema, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getFieldOptionsWithHttpInfo
+	 *
+	 * Get Field Options
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\FieldOptionsTransformer[]|\BhrSdk\Model\InternalServerError|\BhrSdk\Model\Forbidden, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getFieldOptionsWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
+		$request = $this->getFieldOptionsRequest($dataset_name, $field_options_request_schema, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\FieldOptionsTransformer[]',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\InternalServerError',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\Forbidden',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\FieldOptionsTransformer[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getFieldOptionsAsync
+	 *
+	 * Get Field Options
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getFieldOptionsAsync($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
+		return $this->getFieldOptionsAsyncWithHttpInfo($dataset_name, $field_options_request_schema, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getFieldOptionsAsyncWithHttpInfo
+	 *
+	 * Get Field Options
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getFieldOptionsAsyncWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
+		$returnType = '\BhrSdk\Model\FieldOptionsTransformer[]';
+		$request = $this->getFieldOptionsRequest($dataset_name, $field_options_request_schema, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getFieldOptions'
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getFieldOptionsRequest($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'dataset_name' => $dataset_name,
+				'field_options_request_schema' => $field_options_request_schema,
+			],
+			methodName: 'getFieldOptions'
+		);
+
+		$resourcePath = '/api/v1/datasets/{datasetName}/field-options';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($dataset_name !== null) {
+			$resourcePath = str_replace(
+				'{' . 'datasetName' . '}',
+				ObjectSerializer::toPathValue((string) $dataset_name),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($field_options_request_schema)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($field_options_request_schema));
+			} else {
+				$httpBody = is_array($field_options_request_schema) ? json_encode($field_options_request_schema) : $field_options_request_schema;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody

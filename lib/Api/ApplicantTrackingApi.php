@@ -85,6 +85,9 @@ class ApplicantTrackingApi {
 		'addNewJobOpening' => [
 			'multipart/form-data',
         ],
+		'getApplicationDetails' => [
+			'application/json',
+        ],
 		'getApplications' => [
 			'application/json',
         ],
@@ -157,7 +160,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewCandidate
 	 *
-	 * Add New Candidate
+	 * Create Candidate
 	 *
 	 * @param  string $first_name The first name of the candidate. (required)
 	 * @param  string $last_name The last name of the candidate. (required)
@@ -194,7 +197,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewCandidateWithHttpInfo
 	 *
-	 * Add New Candidate
+	 * Create Candidate
 	 *
 	 * @param  string $first_name The first name of the candidate. (required)
 	 * @param  string $last_name The last name of the candidate. (required)
@@ -242,7 +245,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewCandidateAsync
 	 *
-	 * Add New Candidate
+	 * Create Candidate
 	 *
 	 * @param  string $first_name The first name of the candidate. (required)
 	 * @param  string $last_name The last name of the candidate. (required)
@@ -282,7 +285,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewCandidateAsyncWithHttpInfo
 	 *
-	 * Add New Candidate
+	 * Create Candidate
 	 *
 	 * @param  string $first_name The first name of the candidate. (required)
 	 * @param  string $last_name The last name of the candidate. (required)
@@ -499,7 +502,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewJobOpening
 	 *
-	 * Add New Job Opening
+	 * Create Job Opening
 	 *
 	 * @param  string $posting_title The posting title of the job opening. (required)
 	 * @param  string $job_status The status of the job opening. (required)
@@ -536,7 +539,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewJobOpeningWithHttpInfo
 	 *
-	 * Add New Job Opening
+	 * Create Job Opening
 	 *
 	 * @param  string $posting_title The posting title of the job opening. (required)
 	 * @param  string $job_status The status of the job opening. (required)
@@ -584,7 +587,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewJobOpeningAsync
 	 *
-	 * Add New Job Opening
+	 * Create Job Opening
 	 *
 	 * @param  string $posting_title The posting title of the job opening. (required)
 	 * @param  string $job_status The status of the job opening. (required)
@@ -624,7 +627,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation addNewJobOpeningAsyncWithHttpInfo
 	 *
-	 * Add New Job Opening
+	 * Create Job Opening
 	 *
 	 * @param  string $posting_title The posting title of the job opening. (required)
 	 * @param  string $job_status The status of the job opening. (required)
@@ -841,9 +844,227 @@ class ApplicantTrackingApi {
 	}
 
 	/**
+	 * Operation getApplicationDetails
+	 *
+	 * Get Job Application Details
+	 *
+	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\ApplicationDetails
+	 */
+	public function getApplicationDetails($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
+		list($response) = $this->getApplicationDetailsWithHttpInfo($application_id, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getApplicationDetailsWithHttpInfo
+	 *
+	 * Get Job Application Details
+	 *
+	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\ApplicationDetails, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getApplicationDetailsWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
+		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ApplicationDetails',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\ApplicationDetails',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getApplicationDetailsAsync
+	 *
+	 * Get Job Application Details
+	 *
+	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getApplicationDetailsAsync($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
+		return $this->getApplicationDetailsAsyncWithHttpInfo($application_id, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getApplicationDetailsAsyncWithHttpInfo
+	 *
+	 * Get Job Application Details
+	 *
+	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getApplicationDetailsAsyncWithHttpInfo($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
+		$returnType = '\BhrSdk\Model\ApplicationDetails';
+		$request = $this->getApplicationDetailsRequest($application_id, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getApplicationDetails'
+	 *
+	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getApplicationDetailsRequest($application_id, string $contentType = self::CONTENT_TYPES['getApplicationDetails'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'application_id' => $application_id,
+			],
+			methodName: 'getApplicationDetails'
+		);
+
+		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($application_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'applicationId' . '}',
+				ObjectSerializer::toPathValue((string) $application_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
 	 * Operation getApplications
 	 *
-	 * Get Applications
+	 * Get Job Applications
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
@@ -868,7 +1089,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getApplicationsWithHttpInfo
 	 *
-	 * Get Applications
+	 * Get Job Applications
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
@@ -926,7 +1147,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getApplicationsAsync
 	 *
-	 * Get Applications
+	 * Get Job Applications
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
@@ -954,7 +1175,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getApplicationsAsyncWithHttpInfo
 	 *
-	 * Get Applications
+	 * Get Job Applications
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
@@ -1709,7 +1930,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getStatuses
 	 *
-	 * Get Statuses
+	 * Get Applicant Statuses
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
@@ -1725,7 +1946,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getStatusesWithHttpInfo
 	 *
-	 * Get Statuses
+	 * Get Applicant Statuses
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
@@ -1752,7 +1973,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getStatusesAsync
 	 *
-	 * Get Statuses
+	 * Get Applicant Statuses
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
@@ -1771,7 +1992,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation getStatusesAsyncWithHttpInfo
 	 *
-	 * Get Statuses
+	 * Get Applicant Statuses
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatuses'] to see the possible values for this operation
 	 *
@@ -1882,7 +2103,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicantStatus
 	 *
-	 * Change Applicant&#39;s Status
+	 * Update Applicant Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
@@ -1900,7 +2121,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicantStatusWithHttpInfo
 	 *
-	 * Change Applicant&#39;s Status
+	 * Update Applicant Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
@@ -1929,7 +2150,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicantStatusAsync
 	 *
-	 * Change Applicant&#39;s Status
+	 * Update Applicant Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
@@ -1950,7 +2171,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicantStatusAsyncWithHttpInfo
 	 *
-	 * Change Applicant&#39;s Status
+	 * Update Applicant Status
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
@@ -2092,7 +2313,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicationComment
 	 *
-	 * Add Application Comment
+	 * Create Job Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
@@ -2110,7 +2331,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicationCommentWithHttpInfo
 	 *
-	 * Add Application Comment
+	 * Create Job Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
@@ -2139,7 +2360,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicationCommentAsync
 	 *
-	 * Add Application Comment
+	 * Create Job Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
@@ -2160,7 +2381,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Operation postApplicationCommentAsyncWithHttpInfo
 	 *
-	 * Add Application Comment
+	 * Create Job Application Comment
 	 *
 	 * @param  int $application_id The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)

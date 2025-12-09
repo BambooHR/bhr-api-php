@@ -133,7 +133,7 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIds
 	 *
-	 * Gets all updated employee IDs
+	 * Get Updated Employee IDs
 	 *
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
@@ -151,7 +151,7 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIdsWithHttpInfo
 	 *
-	 * Gets all updated employee IDs
+	 * Get Updated Employee IDs
 	 *
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
@@ -180,7 +180,7 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIdsAsync
 	 *
-	 * Gets all updated employee IDs
+	 * Get Updated Employee IDs
 	 *
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
@@ -201,7 +201,7 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIdsAsyncWithHttpInfo
 	 *
-	 * Gets all updated employee IDs
+	 * Get Updated Employee IDs
 	 *
 	 * @param  string $since URL encoded iso8601 timestamp (required)
 	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
