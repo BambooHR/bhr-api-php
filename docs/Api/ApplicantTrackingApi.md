@@ -4,15 +4,16 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addNewCandidate()**](ApplicantTrackingApi.md#addNewCandidate) | **POST** /api/v1/applicant_tracking/application | Add New Candidate |
-| [**addNewJobOpening()**](ApplicantTrackingApi.md#addNewJobOpening) | **POST** /api/v1/applicant_tracking/job_opening | Add New Job Opening |
-| [**getApplications()**](ApplicantTrackingApi.md#getApplications) | **GET** /api/v1/applicant_tracking/applications | Get Applications |
+| [**addNewCandidate()**](ApplicantTrackingApi.md#addNewCandidate) | **POST** /api/v1/applicant_tracking/application | Create Candidate |
+| [**addNewJobOpening()**](ApplicantTrackingApi.md#addNewJobOpening) | **POST** /api/v1/applicant_tracking/job_opening | Create Job Opening |
+| [**getApplicationDetails()**](ApplicantTrackingApi.md#getApplicationDetails) | **GET** /api/v1/applicant_tracking/applications/{applicationId} | Get Job Application Details |
+| [**getApplications()**](ApplicantTrackingApi.md#getApplications) | **GET** /api/v1/applicant_tracking/applications | Get Job Applications |
 | [**getCompanyLocations()**](ApplicantTrackingApi.md#getCompanyLocations) | **GET** /api/v1/applicant_tracking/locations | Get Company Locations |
 | [**getHiringLeads()**](ApplicantTrackingApi.md#getHiringLeads) | **GET** /api/v1/applicant_tracking/hiring_leads | Get Hiring Leads |
 | [**getJobSummaries()**](ApplicantTrackingApi.md#getJobSummaries) | **GET** /api/v1/applicant_tracking/jobs | Get Job Summaries |
-| [**getStatuses()**](ApplicantTrackingApi.md#getStatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Statuses |
-| [**postApplicantStatus()**](ApplicantTrackingApi.md#postApplicantStatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Change Applicant&#39;s Status |
-| [**postApplicationComment()**](ApplicantTrackingApi.md#postApplicationComment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Add Application Comment |
+| [**getStatuses()**](ApplicantTrackingApi.md#getStatuses) | **GET** /api/v1/applicant_tracking/statuses | Get Applicant Statuses |
+| [**postApplicantStatus()**](ApplicantTrackingApi.md#postApplicantStatus) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/status | Update Applicant Status |
+| [**postApplicationComment()**](ApplicantTrackingApi.md#postApplicationComment) | **POST** /api/v1/applicant_tracking/applications/{applicationId}/comments | Create Job Application Comment |
 
 
 ## `addNewCandidate()`
@@ -21,7 +22,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addNewCandidate($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter)
 ```
 
-Add New Candidate
+Create Candidate
 
 Add a new candidate application to a job opening. The owner of the API key used must have access to ATS settings.
 
@@ -122,7 +123,7 @@ void (empty response body)
 addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code)
 ```
 
-Add New Job Opening
+Create Job Opening
 
 Add a new job opening. The owner of the API key used must have access to ATS settings.
 
@@ -217,13 +218,75 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getApplicationDetails()`
+
+```php
+getApplicationDetails($application_id): \BhrSdk\Model\ApplicationDetails
+```
+
+Get Job Application Details
+
+Get the details of an application. The owner of the API key used must have access to ATS settings.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+// Configure OAuth2 access token for authorization: oauth
+$config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\ApplicantTrackingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$application_id = 56; // int | The ID of the application to look up details.
+
+try {
+    $result = $apiInstance->getApplicationDetails($application_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicantTrackingApi->getApplicationDetails: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **application_id** | **int**| The ID of the application to look up details. | |
+
+### Return type
+
+[**\BhrSdk\Model\ApplicationDetails**](../Model/ApplicationDetails.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getApplications()`
 
 ```php
 getApplications($page, $job_id, $application_status_id, $application_status, $job_status_groups, $search_string, $sort_by, $sort_order, $new_since): \BhrSdk\Model\ApplicationsList
 ```
 
-Get Applications
+Get Job Applications
 
 Get a list of applications. The owner of the API key used must have access to ATS settings. Combine as many different optional parameter filters as you like.
 
@@ -484,7 +547,7 @@ void (empty response body)
 getStatuses()
 ```
 
-Get Statuses
+Get Applicant Statuses
 
 Get a list of statuses for a company. The owner of the API key used must have access to ATS settings.
 
@@ -542,7 +605,7 @@ void (empty response body)
 postApplicantStatus($application_id, $post_applicant_status_request)
 ```
 
-Change Applicant's Status
+Update Applicant Status
 
 Change applicant\\'s status. The owner of the API key used must have access to ATS settings.
 
@@ -605,7 +668,7 @@ void (empty response body)
 postApplicationComment($application_id, $post_application_comment_request)
 ```
 
-Add Application Comment
+Create Job Application Comment
 
 Add a comment to an application. The owner of the API key used must have access to ATS settings.
 

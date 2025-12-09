@@ -4,8 +4,8 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCompanyReport()**](ReportsApi.md#getCompanyReport) | **GET** /api/v1/reports/{id} | Get company report |
-| [**requestCustomReport()**](ReportsApi.md#requestCustomReport) | **POST** /api/v1/reports/custom | Request a custom report |
+| [**getCompanyReport()**](ReportsApi.md#getCompanyReport) | **GET** /api/v1/reports/{id} | Get Company Report |
+| [**requestCustomReport()**](ReportsApi.md#requestCustomReport) | **POST** /api/v1/reports/custom | Request Custom Report |
 
 
 ## `getCompanyReport()`
@@ -14,7 +14,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current)
 ```
 
-Get company report
+Get Company Report
 
 **Warning: This endpoint will soon be deprecated and replaced with Custom Reports - Get Report by ID.**   Use this resource to request one of your existing custom company reports from the My Reports or Manage Reports sections in the Reports tab. You can get the report number by hovering over the report name and noting the ID from the URL. At present, only reports from the My Reports or Manage Reports sections are supported. In the future we may implement reports from the Standard Reports section if there is enough demand for it. The report numbers used in this request are different in each company.
 
@@ -83,7 +83,7 @@ void (empty response body)
 requestCustomReport($format, $request_custom_report, $only_current)
 ```
 
-Request a custom report
+Request Custom Report
 
 **Warning: This endpoint will soon be deprecated and replaced with Datasets - Get Data from Dataset.**   Use this resource to request BambooHR generate a report. You must specify a type of either \"PDF\", \"XLS\", \"CSV\", \"JSON\", or \"XML\". You must specify a list of fields to show on the report. The list of fields is available here. The custom report will return employees regardless of their status, \"Active\" or \"Inactive\". This differs from the UI, which by default applies a quick filter to display only \"Active\" employees.
 

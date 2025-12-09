@@ -61,7 +61,8 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'aggregations' => '\BhrSdk\Model\DataRequestAggregationsInner[]',
 		'sort_by' => '\BhrSdk\Model\DataRequestSortByInner[]',
 		'filters' => '\BhrSdk\Model\DataRequestFilters',
-		'group_by' => 'string[]'
+		'group_by' => 'string[]',
+		'show_history' => 'string[]'
 	];
 
 	/**
@@ -76,7 +77,8 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'aggregations' => null,
 		'sort_by' => null,
 		'filters' => null,
-		'group_by' => null
+		'group_by' => null,
+		'show_history' => null
 	];
 
 	/**
@@ -90,7 +92,8 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'aggregations' => false,
 		'sort_by' => false,
 		'filters' => false,
-		'group_by' => false
+		'group_by' => false,
+		'show_history' => false
 	];
 
 	/**
@@ -179,7 +182,8 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'aggregations' => 'aggregations',
 		'sort_by' => 'sortBy',
 		'filters' => 'filters',
-		'group_by' => 'groupBy'
+		'group_by' => 'groupBy',
+		'show_history' => 'showHistory'
 	];
 
 	/**
@@ -192,7 +196,8 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'aggregations' => 'setAggregations',
 		'sort_by' => 'setSortBy',
 		'filters' => 'setFilters',
-		'group_by' => 'setGroupBy'
+		'group_by' => 'setGroupBy',
+		'show_history' => 'setShowHistory'
 	];
 
 	/**
@@ -205,7 +210,8 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'aggregations' => 'getAggregations',
 		'sort_by' => 'getSortBy',
 		'filters' => 'getFilters',
-		'group_by' => 'getGroupBy'
+		'group_by' => 'getGroupBy',
+		'show_history' => 'getShowHistory'
 	];
 
 	/**
@@ -264,6 +270,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('sort_by', $data ?? [], null);
 		$this->setIfExists('filters', $data ?? [], null);
 		$this->setIfExists('group_by', $data ?? [], null);
+		$this->setIfExists('show_history', $data ?? [], null);
 	}
 
 	/**
@@ -428,6 +435,31 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable group_by cannot be null');
 		}
 		$this->container['group_by'] = $group_by;
+
+		return $this;
+	}
+
+	/**
+	 * Gets show_history
+	 *
+	 * @return string[]|null
+	 */
+	public function getShowHistory() {
+		return $this->container['show_history'];
+	}
+
+	/**
+	 * Sets show_history
+	 *
+	 * @param string[]|null $show_history show_history
+	 *
+	 * @return self
+	 */
+	public function setShowHistory($show_history) {
+		if (is_null($show_history)) {
+			throw new \InvalidArgumentException('non-nullable show_history cannot be null');
+		}
+		$this->container['show_history'] = $show_history;
 
 		return $this;
 	}

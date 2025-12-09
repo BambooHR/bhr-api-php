@@ -4,10 +4,10 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addEmployeeFileCategory()**](EmployeeFilesApi.md#addEmployeeFileCategory) | **POST** /api/v1/employees/files/categories | Add Employee File Category |
+| [**addEmployeeFileCategory()**](EmployeeFilesApi.md#addEmployeeFileCategory) | **POST** /api/v1/employees/files/categories | Create Employee File Category |
 | [**deleteEmployeeFile()**](EmployeeFilesApi.md#deleteEmployeeFile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File |
-| [**getEmployeeFile()**](EmployeeFilesApi.md#getEmployeeFile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get an Employee File |
-| [**listEmployeeFiles()**](EmployeeFilesApi.md#listEmployeeFiles) | **GET** /api/v1/employees/{id}/files/view | List employee files and categories |
+| [**getEmployeeFile()**](EmployeeFilesApi.md#getEmployeeFile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get Employee File |
+| [**listEmployeeFiles()**](EmployeeFilesApi.md#listEmployeeFiles) | **GET** /api/v1/employees/{id}/files/view | Get Employee Files and Categories |
 | [**updateEmployeeFile()**](EmployeeFilesApi.md#updateEmployeeFile) | **POST** /api/v1/employees/{id}/files/{fileId} | Update Employee File |
 | [**uploadEmployeeFile()**](EmployeeFilesApi.md#uploadEmployeeFile) | **POST** /api/v1/employees/{id}/files | Upload Employee File |
 
@@ -18,7 +18,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addEmployeeFileCategory($request_body)
 ```
 
-Add Employee File Category
+Create Employee File Category
 
 Add an employee file category.
 
@@ -142,7 +142,7 @@ void (empty response body)
 getEmployeeFile($id, $file_id)
 ```
 
-Get an Employee File
+Get Employee File
 
 Gets an employee file
 
@@ -205,7 +205,7 @@ void (empty response body)
 listEmployeeFiles($id)
 ```
 
-List employee files and categories
+Get Employee Files and Categories
 
 Lists employee files and categories
 

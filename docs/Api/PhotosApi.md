@@ -4,8 +4,8 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getEmployeePhoto()**](PhotosApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get an employee photo |
-| [**uploadEmployeePhoto()**](PhotosApi.md#uploadEmployeePhoto) | **POST** /api/v1/employees/{employeeId}/photo | Store a new employee photo |
+| [**getEmployeePhoto()**](PhotosApi.md#getEmployeePhoto) | **GET** /api/v1/employees/{employeeId}/photo/{size} | Get Employee Photo |
+| [**uploadEmployeePhoto()**](PhotosApi.md#uploadEmployeePhoto) | **POST** /api/v1/employees/{employeeId}/photo | Upload Employee Photo |
 
 
 ## `getEmployeePhoto()`
@@ -14,7 +14,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 getEmployeePhoto($employee_id, $size)
 ```
 
-Get an employee photo
+Get Employee Photo
 
 Get an employee photo
 
@@ -77,7 +77,7 @@ void (empty response body)
 uploadEmployeePhoto($employee_id)
 ```
 
-Store a new employee photo
+Upload Employee Photo
 
 Store a new employee photo
 

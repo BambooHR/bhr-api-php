@@ -151,7 +151,7 @@ class BenefitsApi {
 	/**
 	 * Operation addEmployeeDependent
 	 *
-	 * Add an employee dependent
+	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
@@ -168,7 +168,7 @@ class BenefitsApi {
 	/**
 	 * Operation addEmployeeDependentWithHttpInfo
 	 *
-	 * Add an employee dependent
+	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
@@ -196,7 +196,7 @@ class BenefitsApi {
 	/**
 	 * Operation addEmployeeDependentAsync
 	 *
-	 * Add an employee dependent
+	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
@@ -216,7 +216,7 @@ class BenefitsApi {
 	/**
 	 * Operation addEmployeeDependentAsyncWithHttpInfo
 	 *
-	 * Add an employee dependent
+	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
@@ -346,7 +346,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitCoverages
 	 *
-	 * Get benefit coverages
+	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
@@ -363,7 +363,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitCoveragesWithHttpInfo
 	 *
-	 * Get benefit coverages
+	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
@@ -391,7 +391,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitCoveragesAsync
 	 *
-	 * Get benefit coverages
+	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
@@ -411,7 +411,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitCoveragesAsyncWithHttpInfo
 	 *
-	 * Get benefit coverages
+	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
@@ -529,7 +529,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitDeductionTypes
 	 *
-	 * Get benefit deduction types
+	 * Get Benefit Deduction Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
@@ -545,7 +545,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitDeductionTypesWithHttpInfo
 	 *
-	 * Get benefit deduction types
+	 * Get Benefit Deduction Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
@@ -572,7 +572,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitDeductionTypesAsync
 	 *
-	 * Get benefit deduction types
+	 * Get Benefit Deduction Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
@@ -591,7 +591,7 @@ class BenefitsApi {
 	/**
 	 * Operation getBenefitDeductionTypesAsyncWithHttpInfo
 	 *
-	 * Get benefit deduction types
+	 * Get Benefit Deduction Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitDeductionTypes'] to see the possible values for this operation
 	 *
@@ -702,7 +702,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependent
 	 *
-	 * Get employee dependent
+	 * Get Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -720,7 +720,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependentWithHttpInfo
 	 *
-	 * Get employee dependent
+	 * Get Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -749,7 +749,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependentAsync
 	 *
-	 * Get employee dependent
+	 * Get Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -770,7 +770,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependentAsyncWithHttpInfo
 	 *
-	 * Get employee dependent
+	 * Get Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -906,7 +906,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependents
 	 *
-	 * Get all employee dependents
+	 * Get Employee Dependents
 	 *
 	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -924,7 +924,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependentsWithHttpInfo
 	 *
-	 * Get all employee dependents
+	 * Get Employee Dependents
 	 *
 	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -953,7 +953,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependentsAsync
 	 *
-	 * Get all employee dependents
+	 * Get Employee Dependents
 	 *
 	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -974,7 +974,7 @@ class BenefitsApi {
 	/**
 	 * Operation getEmployeeDependentsAsyncWithHttpInfo
 	 *
-	 * Get all employee dependents
+	 * Get Employee Dependents
 	 *
 	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
@@ -1117,7 +1117,7 @@ class BenefitsApi {
 	/**
 	 * Operation getMemberBenefit
 	 *
-	 * Get a list of member benefit events
+	 * Get Member Benefit Events
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
@@ -1133,7 +1133,7 @@ class BenefitsApi {
 	/**
 	 * Operation getMemberBenefitWithHttpInfo
 	 *
-	 * Get a list of member benefit events
+	 * Get Member Benefit Events
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
@@ -1182,7 +1182,7 @@ class BenefitsApi {
 	/**
 	 * Operation getMemberBenefitAsync
 	 *
-	 * Get a list of member benefit events
+	 * Get Member Benefit Events
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
@@ -1201,7 +1201,7 @@ class BenefitsApi {
 	/**
 	 * Operation getMemberBenefitAsyncWithHttpInfo
 	 *
-	 * Get a list of member benefit events
+	 * Get Member Benefit Events
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefit'] to see the possible values for this operation
 	 *
@@ -1314,7 +1314,7 @@ class BenefitsApi {
 	/**
 	 * Operation updateEmployeeDependent
 	 *
-	 * Update an employee dependent
+	 * Update Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
@@ -1332,7 +1332,7 @@ class BenefitsApi {
 	/**
 	 * Operation updateEmployeeDependentWithHttpInfo
 	 *
-	 * Update an employee dependent
+	 * Update Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
@@ -1361,7 +1361,7 @@ class BenefitsApi {
 	/**
 	 * Operation updateEmployeeDependentAsync
 	 *
-	 * Update an employee dependent
+	 * Update Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
@@ -1382,7 +1382,7 @@ class BenefitsApi {
 	/**
 	 * Operation updateEmployeeDependentAsyncWithHttpInfo
 	 *
-	 * Update an employee dependent
+	 * Update Employee Dependent
 	 *
 	 * @param  string $id {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)

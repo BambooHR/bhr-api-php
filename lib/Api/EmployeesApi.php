@@ -148,7 +148,7 @@ class EmployeesApi {
 	/**
 	 * Operation addEmployee
 	 *
-	 * Add Employee
+	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
@@ -165,7 +165,7 @@ class EmployeesApi {
 	/**
 	 * Operation addEmployeeWithHttpInfo
 	 *
-	 * Add Employee
+	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
@@ -193,7 +193,7 @@ class EmployeesApi {
 	/**
 	 * Operation addEmployeeAsync
 	 *
-	 * Add Employee
+	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
@@ -213,7 +213,7 @@ class EmployeesApi {
 	/**
 	 * Operation addEmployeeAsyncWithHttpInfo
 	 *
-	 * Add Employee
+	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation

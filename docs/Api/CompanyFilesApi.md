@@ -4,10 +4,10 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addCompanyFileCategory()**](CompanyFilesApi.md#addCompanyFileCategory) | **POST** /api/v1/files/categories | Add Company File Category |
+| [**addCompanyFileCategory()**](CompanyFilesApi.md#addCompanyFileCategory) | **POST** /api/v1/files/categories | Create Company File Category |
 | [**deleteCompanyFile()**](CompanyFilesApi.md#deleteCompanyFile) | **DELETE** /api/v1/files/{fileId} | Delete Company File |
-| [**getCompanyFile()**](CompanyFilesApi.md#getCompanyFile) | **GET** /api/v1/files/{fileId} | Get an Company File |
-| [**listCompanyFiles()**](CompanyFilesApi.md#listCompanyFiles) | **GET** /api/v1/files/view | List company files and categories |
+| [**getCompanyFile()**](CompanyFilesApi.md#getCompanyFile) | **GET** /api/v1/files/{fileId} | Get Company File |
+| [**listCompanyFiles()**](CompanyFilesApi.md#listCompanyFiles) | **GET** /api/v1/files/view | Get Company Files and Categories |
 | [**updateCompanyFile()**](CompanyFilesApi.md#updateCompanyFile) | **POST** /api/v1/files/{fileId} | Update Company File |
 | [**uploadCompanyFile()**](CompanyFilesApi.md#uploadCompanyFile) | **POST** /api/v1/files | Upload Company File |
 
@@ -18,7 +18,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addCompanyFileCategory($request_body)
 ```
 
-Add Company File Category
+Create Company File Category
 
 Add a company file category.
 
@@ -140,7 +140,7 @@ void (empty response body)
 getCompanyFile($file_id)
 ```
 
-Get an Company File
+Get Company File
 
 Gets an company file
 
@@ -201,7 +201,7 @@ void (empty response body)
 listCompanyFiles()
 ```
 
-List company files and categories
+Get Company Files and Categories
 
 Lists company files and categories
 

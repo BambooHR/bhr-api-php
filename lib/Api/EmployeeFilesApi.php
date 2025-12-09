@@ -148,7 +148,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation addEmployeeFileCategory
 	 *
-	 * Add Employee File Category
+	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
@@ -165,7 +165,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation addEmployeeFileCategoryWithHttpInfo
 	 *
-	 * Add Employee File Category
+	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
@@ -193,7 +193,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation addEmployeeFileCategoryAsync
 	 *
-	 * Add Employee File Category
+	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
@@ -213,7 +213,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation addEmployeeFileCategoryAsyncWithHttpInfo
 	 *
-	 * Add Employee File Category
+	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
@@ -551,7 +551,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation getEmployeeFile
 	 *
-	 * Get an Employee File
+	 * Get Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
@@ -569,7 +569,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation getEmployeeFileWithHttpInfo
 	 *
-	 * Get an Employee File
+	 * Get Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
@@ -598,7 +598,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation getEmployeeFileAsync
 	 *
-	 * Get an Employee File
+	 * Get Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
@@ -619,7 +619,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation getEmployeeFileAsyncWithHttpInfo
 	 *
-	 * Get an Employee File
+	 * Get Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
@@ -759,7 +759,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFiles
 	 *
-	 * List employee files and categories
+	 * Get Employee Files and Categories
 	 *
 	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
@@ -776,7 +776,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFilesWithHttpInfo
 	 *
-	 * List employee files and categories
+	 * Get Employee Files and Categories
 	 *
 	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
@@ -804,7 +804,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFilesAsync
 	 *
-	 * List employee files and categories
+	 * Get Employee Files and Categories
 	 *
 	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
@@ -824,7 +824,7 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFilesAsyncWithHttpInfo
 	 *
-	 * List employee files and categories
+	 * Get Employee Files and Categories
 	 *
 	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation

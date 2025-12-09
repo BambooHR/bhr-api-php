@@ -145,7 +145,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingBulk
 	 *
-	 * Add/Edit Hour Records
+	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
@@ -162,7 +162,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingBulkWithHttpInfo
 	 *
-	 * Add/Edit Hour Records
+	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
@@ -212,7 +212,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingBulkAsync
 	 *
-	 * Add/Edit Hour Records
+	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
@@ -232,7 +232,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingBulkAsyncWithHttpInfo
 	 *
-	 * Add/Edit Hour Records
+	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
@@ -364,7 +364,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingHourRecord
 	 *
-	 * Add Hour Record
+	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
@@ -381,7 +381,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingHourRecordWithHttpInfo
 	 *
-	 * Add Hour Record
+	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
@@ -437,7 +437,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingHourRecordAsync
 	 *
-	 * Add Hour Record
+	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
@@ -457,7 +457,7 @@ class HoursApi {
 	/**
 	 * Operation addTimeTrackingHourRecordAsyncWithHttpInfo
 	 *
-	 * Add Hour Record
+	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
@@ -813,7 +813,7 @@ class HoursApi {
 	/**
 	 * Operation editTimeTrackingRecord
 	 *
-	 * Edit Hour Record
+	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
@@ -830,7 +830,7 @@ class HoursApi {
 	/**
 	 * Operation editTimeTrackingRecordWithHttpInfo
 	 *
-	 * Edit Hour Record
+	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
@@ -886,7 +886,7 @@ class HoursApi {
 	/**
 	 * Operation editTimeTrackingRecordAsync
 	 *
-	 * Edit Hour Record
+	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
@@ -906,7 +906,7 @@ class HoursApi {
 	/**
 	 * Operation editTimeTrackingRecordAsyncWithHttpInfo
 	 *
-	 * Edit Hour Record
+	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation

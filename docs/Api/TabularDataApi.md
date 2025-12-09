@@ -4,13 +4,13 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addEmployeeTableRow()**](TabularDataApi.md#addEmployeeTableRow) | **POST** /api/v1/employees/{id}/tables/{table} | Adds a table row |
-| [**addEmployeeTableRowV1()**](TabularDataApi.md#addEmployeeTableRowV1) | **POST** /api/v1_1/employees/{id}/tables/{table} | Adds a table row |
-| [**deleteEmployeeTableRowV1()**](TabularDataApi.md#deleteEmployeeTableRowV1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Deletes a table row |
-| [**getChangedEmployeeTableData()**](TabularDataApi.md#getChangedEmployeeTableData) | **GET** /api/v1/employees/changed/tables/{table} | Gets all updated employee table data |
-| [**getEmployeeTableRow()**](TabularDataApi.md#getEmployeeTableRow) | **GET** /api/v1/employees/{id}/tables/{table} | Gets table rows for a given employee and table combination |
-| [**updateEmployeeTableRow()**](TabularDataApi.md#updateEmployeeTableRow) | **POST** /api/v1/employees/{id}/tables/{table}/{rowId} | Updates a table row. |
-| [**updateEmployeeTableRowV()**](TabularDataApi.md#updateEmployeeTableRowV) | **POST** /api/v1_1/employees/{id}/tables/{table}/{rowId} | Updates a table row. |
+| [**addEmployeeTableRow()**](TabularDataApi.md#addEmployeeTableRow) | **POST** /api/v1/employees/{id}/tables/{table} | Create Table Row |
+| [**addEmployeeTableRowV1()**](TabularDataApi.md#addEmployeeTableRowV1) | **POST** /api/v1_1/employees/{id}/tables/{table} | Create Table Row v1.1 |
+| [**deleteEmployeeTableRowV1()**](TabularDataApi.md#deleteEmployeeTableRowV1) | **DELETE** /api/v1/employees/{id}/tables/{table}/{rowId} | Delete Table Row |
+| [**getChangedEmployeeTableData()**](TabularDataApi.md#getChangedEmployeeTableData) | **GET** /api/v1/employees/changed/tables/{table} | Get Changed Employee Table Data |
+| [**getEmployeeTableRow()**](TabularDataApi.md#getEmployeeTableRow) | **GET** /api/v1/employees/{id}/tables/{table} | Get Employee Table Rows |
+| [**updateEmployeeTableRow()**](TabularDataApi.md#updateEmployeeTableRow) | **POST** /api/v1/employees/{id}/tables/{table}/{rowId} | Update Table Row |
+| [**updateEmployeeTableRowV()**](TabularDataApi.md#updateEmployeeTableRowV) | **POST** /api/v1_1/employees/{id}/tables/{table}/{rowId} | Update Table Row v1.1 |
 
 
 ## `addEmployeeTableRow()`
@@ -19,7 +19,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 addEmployeeTableRow($id, $table, $table_row_update)
 ```
 
-Adds a table row
+Create Table Row
 
 Adds a table row. If employee is currently on a pay schedule syncing with Trax Payroll, or being added to one, the row cannot be added if they are missing any required fields for that table. If the API user is adding a row on the compensation table, the row cannot be added if they are missing any of the required employee fields (including fields not on that table).
 
@@ -84,7 +84,7 @@ void (empty response body)
 addEmployeeTableRowV1($id, $table, $table_row_update)
 ```
 
-Adds a table row
+Create Table Row v1.1
 
 Adds a table row. Fundamentally the same as version 1 so choose a version and stay with it unless other changes occur. Changes from version 1 are now minor with a few variations limited to ACA, payroll, terminated rehire, gusto, benetrac, and final pay date.
 
@@ -149,7 +149,7 @@ void (empty response body)
 deleteEmployeeTableRowV1($id, $table, $row_id): \BhrSdk\Model\TableRowDeleteResponse
 ```
 
-Deletes a table row
+Delete Table Row
 
 Deletes a table row
 
@@ -215,7 +215,7 @@ try {
 getChangedEmployeeTableData($table, $since)
 ```
 
-Gets all updated employee table data
+Get Changed Employee Table Data
 
 This API is merely an optimization to avoid downloading all table data for all employees. When you use this API you will provide a timestamp and the results will be limited to just the employees that have changed since the time you provided. This API operates on an employee-last-changed-timestamp, which means that a change in ANY field in the employee record will cause ALL of that employees table rows to show up via this API.
 
@@ -278,7 +278,7 @@ void (empty response body)
 getEmployeeTableRow($id, $table)
 ```
 
-Gets table rows for a given employee and table combination
+Get Employee Table Rows
 
 Returns a data structure representing all the table rows for a given employee and table combination. The result is not sorted in any particular order.
 
@@ -341,7 +341,7 @@ void (empty response body)
 updateEmployeeTableRow($id, $table, $row_id, $table_row_update)
 ```
 
-Updates a table row.
+Update Table Row
 
 Updates a table row. If employee is currently on a pay schedule syncing with Trax Payroll, or being added to one, the row cannot be added if they are missing any required fields for that table. If the API user is updating a row on the compensation table, the row cannot be updated if they are missing any of the required employee fields (including fields not on that table).
 
@@ -408,7 +408,7 @@ void (empty response body)
 updateEmployeeTableRowV($id, $table, $row_id, $table_row_update)
 ```
 
-Updates a table row.
+Update Table Row v1.1
 
 Updates a table row. Fundamentally the same as version 1 so choose a version and stay with it unless other changes occur. Changes from version 1 are now minor with a few variations limited to ACA, payroll, terminated rehire, gusto, benetrac, and final pay date.
 

@@ -6,28 +6,28 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | ------------- | ------------- | ------------- |
 | [**deleteGoal()**](GoalsApi.md#deleteGoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal |
 | [**deleteGoalComment()**](GoalsApi.md#deleteGoalComment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment |
-| [**getCanCreateGoal()**](GoalsApi.md#getCanCreateGoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Can Create a Goal |
-| [**getGoalAggregate()**](GoalsApi.md#getGoalAggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Aggregate Goal Info |
+| [**getCanCreateGoal()**](GoalsApi.md#getCanCreateGoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Check Goal Creation Permission |
+| [**getGoalAggregate()**](GoalsApi.md#getGoalAggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Goal Aggregate |
 | [**getGoalComments()**](GoalsApi.md#getGoalComments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments |
 | [**getGoals()**](GoalsApi.md#getGoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | Get Goals |
-| [**getGoalsAggregateV1()**](GoalsApi.md#getGoalsAggregateV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info |
-| [**getGoalsAggregateV11()**](GoalsApi.md#getGoalsAggregateV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.1 |
-| [**getGoalsAggregateV12()**](GoalsApi.md#getGoalsAggregateV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get All Aggregate Goal Info, Version 1.2 |
-| [**getGoalsAlignmentOptions()**](GoalsApi.md#getGoalsAlignmentOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Alignable Goal Options |
-| [**getGoalsFiltersV1()**](GoalsApi.md#getGoalsFiltersV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goals Filters |
-| [**getGoalsFiltersV11()**](GoalsApi.md#getGoalsFiltersV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goals Filters |
-| [**getGoalsFiltersV12()**](GoalsApi.md#getGoalsFiltersV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts, Version 1.2 |
-| [**getGoalsShareOptions()**](GoalsApi.md#getGoalsShareOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Available Goal Sharing Options |
+| [**getGoalsAggregateV1()**](GoalsApi.md#getGoalsAggregateV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate |
+| [**getGoalsAggregateV11()**](GoalsApi.md#getGoalsAggregateV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate v1.1 |
+| [**getGoalsAggregateV12()**](GoalsApi.md#getGoalsAggregateV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate v1.2 |
+| [**getGoalsAlignmentOptions()**](GoalsApi.md#getGoalsAlignmentOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Get Alignable Goal Options |
+| [**getGoalsFiltersV1()**](GoalsApi.md#getGoalsFiltersV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goal Filters |
+| [**getGoalsFiltersV11()**](GoalsApi.md#getGoalsFiltersV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goal Filters v1.1 |
+| [**getGoalsFiltersV12()**](GoalsApi.md#getGoalsFiltersV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts v1.2 |
+| [**getGoalsShareOptions()**](GoalsApi.md#getGoalsShareOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Get Available Goal Sharing Options |
 | [**postCloseGoal()**](GoalsApi.md#postCloseGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal |
 | [**postGoal()**](GoalsApi.md#postGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal |
 | [**postGoalComment()**](GoalsApi.md#postGoalComment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment |
-| [**postReopenGoal()**](GoalsApi.md#postReopenGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen a Goal |
+| [**postReopenGoal()**](GoalsApi.md#postReopenGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen Goal |
 | [**putGoalComment()**](GoalsApi.md#putGoalComment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment |
 | [**putGoalMilestoneProgress()**](GoalsApi.md#putGoalMilestoneProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress |
 | [**putGoalProgress()**](GoalsApi.md#putGoalProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress |
 | [**putGoalSharedWith()**](GoalsApi.md#putGoalSharedWith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing |
 | [**putGoalV1()**](GoalsApi.md#putGoalV1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal |
-| [**putGoalV11()**](GoalsApi.md#putGoalV11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal, V1.1 |
+| [**putGoalV11()**](GoalsApi.md#putGoalV11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal v1.1 |
 
 
 ## `deleteGoal()`
@@ -164,7 +164,7 @@ void (empty response body)
 getCanCreateGoal($employee_id)
 ```
 
-Can Create a Goal
+Check Goal Creation Permission
 
 Determine if the API user has permission to create a goal for this employee.
 
@@ -225,7 +225,7 @@ void (empty response body)
 getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GoalAggregate
 ```
 
-Get Aggregate Goal Info
+Get Goal Aggregate
 
 Provides goal information, goal comments, and employees shared with goals or who have commented on the given goal.
 
@@ -416,7 +416,7 @@ try {
 getGoalsAggregateV1($employee_id): \BhrSdk\Model\GoalsAggregateV1
 ```
 
-Get All Aggregate Goal Info
+Get Goals Aggregate
 
 Provides a list of all goals, type counts, goal comment counts, and employees shared with goals for the given employee. This version of the endpoint will not return any goals with milestones. Milestone functionality for this endpoint begins in version 1.2.
 
@@ -478,7 +478,7 @@ try {
 getGoalsAggregateV11($employee_id): \BhrSdk\Model\GoalsAggregateV11
 ```
 
-Get All Aggregate Goal Info, Version 1.1
+Get Goals Aggregate v1.1
 
 Provides a list of all goals, type counts, filter actions, goal comment counts, and employees shared with goals for the given employee. Difference from Version 1: Returns goals in the closed filter and provides filter actions for each filter. This version of the endpoint will not return any goals with milestones. Milestone functionality for this endpoint begins in version 1.2.
 
@@ -540,7 +540,7 @@ try {
 getGoalsAggregateV12($employee_id): \BhrSdk\Model\GoalsAggregateV12
 ```
 
-Get All Aggregate Goal Info, Version 1.2
+Get Goals Aggregate v1.2
 
 Provides a list of all goals, type counts, filter actions, goal comment counts, and employees shared with goals for the given employee. Difference from Version 1.1: Returns all goals, including goals that contain milestones.
 
@@ -602,7 +602,7 @@ try {
 getGoalsAlignmentOptions($employee_id, $goal_id, $get_goals_alignment_options_request)
 ```
 
-Alignable Goal Options
+Get Alignable Goal Options
 
 Get alignable goal options for an employee.
 
@@ -667,7 +667,7 @@ void (empty response body)
 getGoalsFiltersV1($employee_id): \BhrSdk\Model\GoalFiltersV1
 ```
 
-Get Goals Filters
+Get Goal Filters
 
 Get the number of goals per status for an employee.
 
@@ -729,7 +729,7 @@ try {
 getGoalsFiltersV11($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
-Get Goals Filters
+Get Goal Filters v1.1
 
 Get the number of goals per status for an employee. Difference from Version 1: Includes actions.
 
@@ -791,7 +791,7 @@ try {
 getGoalsFiltersV12($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
-Get Goal Status Counts, Version 1.2
+Get Goal Status Counts v1.2
 
 Get the number of goals per status for an employee. Difference from Version 1_1: Returns goals with milestones.
 
@@ -853,7 +853,7 @@ try {
 getGoalsShareOptions($employee_id, $search, $limit)
 ```
 
-Available Goal Sharing Options
+Get Available Goal Sharing Options
 
 Provides a list of employees with whom the specified employee\\'s goals may be shared.
 
@@ -981,7 +981,7 @@ try {
 ## `postGoal()`
 
 ```php
-postGoal($employee_id, $post_goal_request): \BhrSdk\Model\TransformedApiGoal
+postGoal($employee_id, $post_goal_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
 Create Goal
@@ -1027,7 +1027,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
 
 ### Authorization
 
@@ -1113,7 +1113,7 @@ void (empty response body)
 postReopenGoal($employee_id, $goal_id): \BhrSdk\Model\TransformedApiGoal
 ```
 
-Reopen a Goal
+Reopen Goal
 
 Reopen a goal.
 
@@ -1241,7 +1241,7 @@ void (empty response body)
 ## `putGoalMilestoneProgress()`
 
 ```php
-putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request): object
+putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
 Update Milestone Progress
@@ -1291,7 +1291,7 @@ try {
 
 ### Return type
 
-**object**
+[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
 
 ### Authorization
 
@@ -1309,7 +1309,7 @@ try {
 ## `putGoalProgress()`
 
 ```php
-putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \BhrSdk\Model\TransformedApiGoal
+putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
 Update Goal Progress
@@ -1357,7 +1357,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
 
 ### Authorization
 
@@ -1441,7 +1441,7 @@ try {
 ## `putGoalV1()`
 
 ```php
-putGoalV1($employee_id, $goal_id, $goal): \BhrSdk\Model\TransformedApiGoal
+putGoalV1($employee_id, $goal_id, $goal): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
 Update Goal
@@ -1489,7 +1489,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
 
 ### Authorization
 
@@ -1507,10 +1507,10 @@ try {
 ## `putGoalV11()`
 
 ```php
-putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \BhrSdk\Model\TransformedApiGoal
+putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
-Update Goal, V1.1
+Update Goal v1.1
 
 Update a goal. Version 1.1 allows the updating of the milestones contained within the goal, unlike Version 1.
 
@@ -1555,7 +1555,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
 
 ### Authorization
 

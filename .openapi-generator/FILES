@@ -3,7 +3,6 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/ATSApi.md
 docs/Api/AccountInformationApi.md
 docs/Api/ApplicantTrackingApi.md
 docs/Api/BenefitsApi.md
@@ -169,6 +168,8 @@ docs/Model/TrainingRecord.md
 docs/Model/TrainingRecordList.md
 docs/Model/TrainingType.md
 docs/Model/TrainingTypeList.md
+docs/Model/TransformedApiEmployeeGoalDetails.md
+docs/Model/TransformedApiEmployeeGoalDetailsGoal.md
 docs/Model/TransformedApiGoal.md
 docs/Model/TransformedApiGoalGoal.md
 docs/Model/TransformedApiGoalGoalActions.md
@@ -198,7 +199,6 @@ docs/Model/XmlDirectoryEmployeeEmployeesEmployeeInnerFieldInner.md
 docs/Model/XmlDirectoryEmployeeFieldset.md
 docs/Model/XmlDirectoryEmployeeFieldsetFieldInner.md
 git_push.sh
-lib/Api/ATSApi.php
 lib/Api/AccountInformationApi.php
 lib/Api/ApplicantTrackingApi.php
 lib/Api/BenefitsApi.php
@@ -369,6 +369,8 @@ lib/Model/TrainingRecord.php
 lib/Model/TrainingRecordList.php
 lib/Model/TrainingType.php
 lib/Model/TrainingTypeList.php
+lib/Model/TransformedApiEmployeeGoalDetails.php
+lib/Model/TransformedApiEmployeeGoalDetailsGoal.php
 lib/Model/TransformedApiGoal.php
 lib/Model/TransformedApiGoalGoal.php
 lib/Model/TransformedApiGoalGoalActions.php

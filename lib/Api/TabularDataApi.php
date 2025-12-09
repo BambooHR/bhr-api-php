@@ -151,7 +151,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRow
 	 *
-	 * Adds a table row
+	 * Create Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -170,7 +170,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowWithHttpInfo
 	 *
-	 * Adds a table row
+	 * Create Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -200,7 +200,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowAsync
 	 *
-	 * Adds a table row
+	 * Create Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -222,7 +222,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowAsyncWithHttpInfo
 	 *
-	 * Adds a table row
+	 * Create Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -375,7 +375,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowV1
 	 *
-	 * Adds a table row
+	 * Create Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -394,7 +394,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowV1WithHttpInfo
 	 *
-	 * Adds a table row
+	 * Create Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -424,7 +424,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowV1Async
 	 *
-	 * Adds a table row
+	 * Create Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -446,7 +446,7 @@ class TabularDataApi {
 	/**
 	 * Operation addEmployeeTableRowV1AsyncWithHttpInfo
 	 *
-	 * Adds a table row
+	 * Create Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -599,7 +599,7 @@ class TabularDataApi {
 	/**
 	 * Operation deleteEmployeeTableRowV1
 	 *
-	 * Deletes a table row
+	 * Delete Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -618,7 +618,7 @@ class TabularDataApi {
 	/**
 	 * Operation deleteEmployeeTableRowV1WithHttpInfo
 	 *
-	 * Deletes a table row
+	 * Delete Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -670,7 +670,7 @@ class TabularDataApi {
 	/**
 	 * Operation deleteEmployeeTableRowV1Async
 	 *
-	 * Deletes a table row
+	 * Delete Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -692,7 +692,7 @@ class TabularDataApi {
 	/**
 	 * Operation deleteEmployeeTableRowV1AsyncWithHttpInfo
 	 *
-	 * Deletes a table row
+	 * Delete Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -845,7 +845,7 @@ class TabularDataApi {
 	/**
 	 * Operation getChangedEmployeeTableData
 	 *
-	 * Gets all updated employee table data
+	 * Get Changed Employee Table Data
 	 *
 	 * @param  string $table Table name (required)
 	 * @param  string $since URL encoded iso8601 timestamp (required)
@@ -863,7 +863,7 @@ class TabularDataApi {
 	/**
 	 * Operation getChangedEmployeeTableDataWithHttpInfo
 	 *
-	 * Gets all updated employee table data
+	 * Get Changed Employee Table Data
 	 *
 	 * @param  string $table Table name (required)
 	 * @param  string $since URL encoded iso8601 timestamp (required)
@@ -892,7 +892,7 @@ class TabularDataApi {
 	/**
 	 * Operation getChangedEmployeeTableDataAsync
 	 *
-	 * Gets all updated employee table data
+	 * Get Changed Employee Table Data
 	 *
 	 * @param  string $table Table name (required)
 	 * @param  string $since URL encoded iso8601 timestamp (required)
@@ -913,7 +913,7 @@ class TabularDataApi {
 	/**
 	 * Operation getChangedEmployeeTableDataAsyncWithHttpInfo
 	 *
-	 * Gets all updated employee table data
+	 * Get Changed Employee Table Data
 	 *
 	 * @param  string $table Table name (required)
 	 * @param  string $since URL encoded iso8601 timestamp (required)
@@ -1061,7 +1061,7 @@ class TabularDataApi {
 	/**
 	 * Operation getEmployeeTableRow
 	 *
-	 * Gets table rows for a given employee and table combination
+	 * Get Employee Table Rows
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1079,7 +1079,7 @@ class TabularDataApi {
 	/**
 	 * Operation getEmployeeTableRowWithHttpInfo
 	 *
-	 * Gets table rows for a given employee and table combination
+	 * Get Employee Table Rows
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1108,7 +1108,7 @@ class TabularDataApi {
 	/**
 	 * Operation getEmployeeTableRowAsync
 	 *
-	 * Gets table rows for a given employee and table combination
+	 * Get Employee Table Rows
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1129,7 +1129,7 @@ class TabularDataApi {
 	/**
 	 * Operation getEmployeeTableRowAsyncWithHttpInfo
 	 *
-	 * Gets table rows for a given employee and table combination
+	 * Get Employee Table Rows
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1269,7 +1269,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRow
 	 *
-	 * Updates a table row.
+	 * Update Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1289,7 +1289,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowWithHttpInfo
 	 *
-	 * Updates a table row.
+	 * Update Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1320,7 +1320,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowAsync
 	 *
-	 * Updates a table row.
+	 * Update Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1343,7 +1343,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowAsyncWithHttpInfo
 	 *
-	 * Updates a table row.
+	 * Update Table Row
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1507,7 +1507,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowV
 	 *
-	 * Updates a table row.
+	 * Update Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1527,7 +1527,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowVWithHttpInfo
 	 *
-	 * Updates a table row.
+	 * Update Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1558,7 +1558,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowVAsync
 	 *
-	 * Updates a table row.
+	 * Update Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)
@@ -1581,7 +1581,7 @@ class TabularDataApi {
 	/**
 	 * Operation updateEmployeeTableRowVAsyncWithHttpInfo
 	 *
-	 * Updates a table row.
+	 * Update Table Row v1.1
 	 *
 	 * @param  string $id {id} is the employee ID. (required)
 	 * @param  string $table Table name (required)

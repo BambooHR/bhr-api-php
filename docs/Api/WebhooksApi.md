@@ -8,11 +8,11 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook |
-| [**getMonitorFields()**](WebhooksApi.md#getMonitorFields) | **GET** /api/v1/webhooks/monitor_fields | Get monitor fields |
+| [**getMonitorFields()**](WebhooksApi.md#getMonitorFields) | **GET** /api/v1/webhooks/monitor_fields | Get Monitor Fields |
 | [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook |
-| [**getWebhookList()**](WebhooksApi.md#getWebhookList) | **GET** /api/v1/webhooks | Gets as list of webhooks for the user API key. |
+| [**getWebhookList()**](WebhooksApi.md#getWebhookList) | **GET** /api/v1/webhooks | Get Webhooks |
 | [**getWebhookLogs()**](WebhooksApi.md#getWebhookLogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs |
-| [**postWebhook()**](WebhooksApi.md#postWebhook) | **POST** /api/v1/webhooks | Add Webhook |
+| [**postWebhook()**](WebhooksApi.md#postWebhook) | **POST** /api/v1/webhooks | Create Webhook |
 | [**putWebhook()**](WebhooksApi.md#putWebhook) | **PUT** /api/v1/webhooks/{id} | Update Webhook |
 
 
@@ -83,9 +83,9 @@ void (empty response body)
 getMonitorFields(): \BhrSdk\Model\FieldList
 ```
 
-Get monitor fields
+Get Monitor Fields
 
-Get a list fields webhooks can monitor monitor
+Get a list fields webhooks can monitor
 
 ### Example
 
@@ -204,7 +204,7 @@ try {
 getWebhookList(): \BhrSdk\Model\WebhooksList
 ```
 
-Gets as list of webhooks for the user API key.
+Get Webhooks
 
 Gets as list of webhooks for the user API key.
 
@@ -325,7 +325,7 @@ try {
 postWebhook($new_web_hook): \BhrSdk\Model\Webhook
 ```
 
-Add Webhook
+Create Webhook
 
 Add a new Webhook. For more details or instructions you can refer to the [webhooks documentation](https://documentation.bamboohr.com/docs/webhooks-2).
 

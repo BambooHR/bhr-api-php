@@ -1,13 +1,9 @@
-# # Field
+# # TransformedApiEmployeeGoalDetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [optional]
-**label** | **string** |  | [optional]
-**parent_type** | **string** |  | [optional]
-**parent_name** | **string** |  | [optional]
-**entity_name** | **string** |  | [optional]
+**goal** | [**\BhrSdk\Model\TransformedApiEmployeeGoalDetailsGoal**](TransformedApiEmployeeGoalDetailsGoal.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

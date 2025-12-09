@@ -632,7 +632,7 @@ class GoalsApi {
 	/**
 	 * Operation getCanCreateGoal
 	 *
-	 * Can Create a Goal
+	 * Check Goal Creation Permission
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
@@ -649,7 +649,7 @@ class GoalsApi {
 	/**
 	 * Operation getCanCreateGoalWithHttpInfo
 	 *
-	 * Can Create a Goal
+	 * Check Goal Creation Permission
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
@@ -677,7 +677,7 @@ class GoalsApi {
 	/**
 	 * Operation getCanCreateGoalAsync
 	 *
-	 * Can Create a Goal
+	 * Check Goal Creation Permission
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
@@ -697,7 +697,7 @@ class GoalsApi {
 	/**
 	 * Operation getCanCreateGoalAsyncWithHttpInfo
 	 *
-	 * Can Create a Goal
+	 * Check Goal Creation Permission
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCanCreateGoal'] to see the possible values for this operation
@@ -826,7 +826,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalAggregate
 	 *
-	 * Get Aggregate Goal Info
+	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
@@ -844,7 +844,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalAggregateWithHttpInfo
 	 *
-	 * Get Aggregate Goal Info
+	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
@@ -895,7 +895,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalAggregateAsync
 	 *
-	 * Get Aggregate Goal Info
+	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
@@ -916,7 +916,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalAggregateAsyncWithHttpInfo
 	 *
-	 * Get Aggregate Goal Info
+	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
@@ -1505,7 +1505,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV1
 	 *
-	 * Get All Aggregate Goal Info
+	 * Get Goals Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
@@ -1523,7 +1523,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV1WithHttpInfo
 	 *
-	 * Get All Aggregate Goal Info
+	 * Get Goals Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
@@ -1574,7 +1574,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV1Async
 	 *
-	 * Get All Aggregate Goal Info
+	 * Get Goals Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
@@ -1595,7 +1595,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV1AsyncWithHttpInfo
 	 *
-	 * Get All Aggregate Goal Info
+	 * Get Goals Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV1'] to see the possible values for this operation
@@ -1728,7 +1728,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV11
 	 *
-	 * Get All Aggregate Goal Info, Version 1.1
+	 * Get Goals Aggregate v1.1
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
@@ -1746,7 +1746,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV11WithHttpInfo
 	 *
-	 * Get All Aggregate Goal Info, Version 1.1
+	 * Get Goals Aggregate v1.1
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
@@ -1797,7 +1797,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV11Async
 	 *
-	 * Get All Aggregate Goal Info, Version 1.1
+	 * Get Goals Aggregate v1.1
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
@@ -1818,7 +1818,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV11AsyncWithHttpInfo
 	 *
-	 * Get All Aggregate Goal Info, Version 1.1
+	 * Get Goals Aggregate v1.1
 	 *
 	 * @param  string $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV11'] to see the possible values for this operation
@@ -1951,7 +1951,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV12
 	 *
-	 * Get All Aggregate Goal Info, Version 1.2
+	 * Get Goals Aggregate v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
@@ -1968,7 +1968,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV12WithHttpInfo
 	 *
-	 * Get All Aggregate Goal Info, Version 1.2
+	 * Get Goals Aggregate v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
@@ -2018,7 +2018,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV12Async
 	 *
-	 * Get All Aggregate Goal Info, Version 1.2
+	 * Get Goals Aggregate v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
@@ -2038,7 +2038,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAggregateV12AsyncWithHttpInfo
 	 *
-	 * Get All Aggregate Goal Info, Version 1.2
+	 * Get Goals Aggregate v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
@@ -2169,7 +2169,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAlignmentOptions
 	 *
-	 * Alignable Goal Options
+	 * Get Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
 	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
@@ -2188,7 +2188,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAlignmentOptionsWithHttpInfo
 	 *
-	 * Alignable Goal Options
+	 * Get Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
 	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
@@ -2218,7 +2218,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAlignmentOptionsAsync
 	 *
-	 * Alignable Goal Options
+	 * Get Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
 	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
@@ -2240,7 +2240,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsAlignmentOptionsAsyncWithHttpInfo
 	 *
-	 * Alignable Goal Options
+	 * Get Alignable Goal Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
 	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
@@ -2399,7 +2399,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV1
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
@@ -2417,7 +2417,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV1WithHttpInfo
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
@@ -2468,7 +2468,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV1Async
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
@@ -2489,7 +2489,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV1AsyncWithHttpInfo
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
@@ -2622,7 +2622,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV11
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
@@ -2640,7 +2640,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV11WithHttpInfo
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
@@ -2691,7 +2691,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV11Async
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
@@ -2712,7 +2712,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV11AsyncWithHttpInfo
 	 *
-	 * Get Goals Filters
+	 * Get Goal Filters v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
@@ -2845,7 +2845,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV12
 	 *
-	 * Get Goal Status Counts, Version 1.2
+	 * Get Goal Status Counts v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
@@ -2862,7 +2862,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV12WithHttpInfo
 	 *
-	 * Get Goal Status Counts, Version 1.2
+	 * Get Goal Status Counts v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
@@ -2912,7 +2912,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV12Async
 	 *
-	 * Get Goal Status Counts, Version 1.2
+	 * Get Goal Status Counts v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
@@ -2932,7 +2932,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsFiltersV12AsyncWithHttpInfo
 	 *
-	 * Get Goal Status Counts, Version 1.2
+	 * Get Goal Status Counts v1.2
 	 *
 	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
@@ -3063,7 +3063,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsShareOptions
 	 *
-	 * Available Goal Sharing Options
+	 * Get Available Goal Sharing Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
 	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
@@ -3082,7 +3082,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsShareOptionsWithHttpInfo
 	 *
-	 * Available Goal Sharing Options
+	 * Get Available Goal Sharing Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
 	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
@@ -3112,7 +3112,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsShareOptionsAsync
 	 *
-	 * Available Goal Sharing Options
+	 * Get Available Goal Sharing Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
 	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
@@ -3134,7 +3134,7 @@ class GoalsApi {
 	/**
 	 * Operation getGoalsShareOptionsAsyncWithHttpInfo
 	 *
-	 * Available Goal Sharing Options
+	 * Get Available Goal Sharing Options
 	 *
 	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
 	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
@@ -3539,7 +3539,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 	 */
 	public function postGoal($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		list($response) = $this->postGoalWithHttpInfo($employee_id, $post_goal_request, $contentType);
@@ -3557,7 +3557,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiEmployeeGoalDetails, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function postGoalWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
@@ -3571,7 +3571,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TransformedApiGoal',
+					'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 					$request,
 					$response,
 				);
@@ -3591,7 +3591,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TransformedApiGoal',
+			'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 			$request,
 			$response,
 		);
@@ -3631,7 +3631,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function postGoalAsyncWithHttpInfo($employee_id, $post_goal_request, string $contentType = self::CONTENT_TYPES['postGoal'][0]) {
-		$returnType = '\BhrSdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiEmployeeGoalDetails';
 		$request = $this->postGoalRequest($employee_id, $post_goal_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -3989,7 +3989,7 @@ class GoalsApi {
 	/**
 	 * Operation postReopenGoal
 	 *
-	 * Reopen a Goal
+	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
@@ -4007,7 +4007,7 @@ class GoalsApi {
 	/**
 	 * Operation postReopenGoalWithHttpInfo
 	 *
-	 * Reopen a Goal
+	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
@@ -4058,7 +4058,7 @@ class GoalsApi {
 	/**
 	 * Operation postReopenGoalAsync
 	 *
-	 * Reopen a Goal
+	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
@@ -4079,7 +4079,7 @@ class GoalsApi {
 	/**
 	 * Operation postReopenGoalAsyncWithHttpInfo
 	 *
-	 * Reopen a Goal
+	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
@@ -4469,7 +4469,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return object
+	 * @return \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 	 */
 	public function putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::CONTENT_TYPES['putGoalMilestoneProgress'][0]) {
 		list($response) = $this->putGoalMilestoneProgressWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
@@ -4489,7 +4489,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of object, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiEmployeeGoalDetails, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalMilestoneProgressWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::CONTENT_TYPES['putGoalMilestoneProgress'][0]) {
 		$request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
@@ -4503,7 +4503,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'object',
+					'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 					$request,
 					$response,
 				);
@@ -4523,7 +4523,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'object',
+			'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 			$request,
 			$response,
 		);
@@ -4567,7 +4567,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalMilestoneProgressAsyncWithHttpInfo($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, string $contentType = self::CONTENT_TYPES['putGoalMilestoneProgress'][0]) {
-		$returnType = 'object';
+		$returnType = '\BhrSdk\Model\TransformedApiEmployeeGoalDetails';
 		$request = $this->putGoalMilestoneProgressRequest($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -4730,7 +4730,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 	 */
 	public function putGoalProgress($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		list($response) = $this->putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, $contentType);
@@ -4749,7 +4749,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiEmployeeGoalDetails, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalProgressWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
@@ -4763,7 +4763,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TransformedApiGoal',
+					'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 					$request,
 					$response,
 				);
@@ -4783,7 +4783,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TransformedApiGoal',
+			'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 			$request,
 			$response,
 		);
@@ -4825,7 +4825,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalProgressAsyncWithHttpInfo($employee_id, $goal_id, $put_goal_progress_request, string $contentType = self::CONTENT_TYPES['putGoalProgress'][0]) {
-		$returnType = '\BhrSdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiEmployeeGoalDetails';
 		$request = $this->putGoalProgressRequest($employee_id, $goal_id, $put_goal_progress_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -5226,7 +5226,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 	 * @deprecated
 	 */
 	public function putGoalV1($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
@@ -5246,7 +5246,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiEmployeeGoalDetails, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
 	public function putGoalV1WithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
@@ -5261,7 +5261,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TransformedApiGoal',
+					'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 					$request,
 					$response,
 				);
@@ -5281,7 +5281,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TransformedApiGoal',
+			'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 			$request,
 			$response,
 		);
@@ -5325,7 +5325,7 @@ class GoalsApi {
 	 * @deprecated
 	 */
 	public function putGoalV1AsyncWithHttpInfo($employee_id, $goal_id, $goal, string $contentType = self::CONTENT_TYPES['putGoalV1'][0]) {
-		$returnType = '\BhrSdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiEmployeeGoalDetails';
 		$request = $this->putGoalV1Request($employee_id, $goal_id, $goal, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -5470,7 +5470,7 @@ class GoalsApi {
 	/**
 	 * Operation putGoalV11
 	 *
-	 * Update Goal, V1.1
+	 * Update Goal v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
@@ -5479,7 +5479,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TransformedApiGoal
+	 * @return \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 	 */
 	public function putGoalV11($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		list($response) = $this->putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, $contentType);
@@ -5489,7 +5489,7 @@ class GoalsApi {
 	/**
 	 * Operation putGoalV11WithHttpInfo
 	 *
-	 * Update Goal, V1.1
+	 * Update Goal v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
@@ -5498,7 +5498,7 @@ class GoalsApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TransformedApiGoal, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TransformedApiEmployeeGoalDetails, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function putGoalV11WithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
@@ -5512,7 +5512,7 @@ class GoalsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TransformedApiGoal',
+					'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 					$request,
 					$response,
 				);
@@ -5532,7 +5532,7 @@ class GoalsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TransformedApiGoal',
+			'\BhrSdk\Model\TransformedApiEmployeeGoalDetails',
 			$request,
 			$response,
 		);
@@ -5541,7 +5541,7 @@ class GoalsApi {
 	/**
 	 * Operation putGoalV11Async
 	 *
-	 * Update Goal, V1.1
+	 * Update Goal v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
@@ -5563,7 +5563,7 @@ class GoalsApi {
 	/**
 	 * Operation putGoalV11AsyncWithHttpInfo
 	 *
-	 * Update Goal, V1.1
+	 * Update Goal v1.1
 	 *
 	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
@@ -5574,7 +5574,7 @@ class GoalsApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function putGoalV11AsyncWithHttpInfo($employee_id, $goal_id, $put_goal_v11_request, string $contentType = self::CONTENT_TYPES['putGoalV11'][0]) {
-		$returnType = '\BhrSdk\Model\TransformedApiGoal';
+		$returnType = '\BhrSdk\Model\TransformedApiEmployeeGoalDetails';
 		$request = $this->putGoalV11Request($employee_id, $goal_id, $put_goal_v11_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))

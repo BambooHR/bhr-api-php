@@ -60,13 +60,6 @@ class ApiException extends Exception {
 	 */
 	protected $responseObject;
 
-    /**
-     * The request ID from the API response
-     *
-     * @var string|null
-     */
-    protected $requestId;
-
 	/**
 	 * Constructor
 	 *
@@ -74,13 +67,11 @@ class ApiException extends Exception {
 	 * @param int                   $code            HTTP status code
 	 * @param string[][]|null       $responseHeaders HTTP response header
 	 * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
-	 * @param string|null           $requestId       The request ID from the API response
 	 */
-	public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null, $requestId = null) {
+	public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null) {
 		parent::__construct($message, $code);
 		$this->responseHeaders = $responseHeaders;
 		$this->responseBody = $responseBody;
-		$this->requestId = $requestId;
 	}
 
 	/**
@@ -120,37 +111,4 @@ class ApiException extends Exception {
 	public function getResponseObject() {
 		return $this->responseObject;
 	}
-
-    /**
-     * Gets the request ID from the API response
-     *
-     * @return string|null The request ID or null if not available
-     */
-    public function getRequestId() {
-        return $this->requestId;
-    }
-    
-    /**
-     * Sets the request ID from the API response
-     *
-     * @param string|null $requestId The request ID
-     *
-     * @return void
-     */
-    public function setRequestId($requestId) {
-        $this->requestId = $requestId;
-    }
-    
-    /**
-     * Gets a message string with request ID included
-     *
-     * @return string The error message with request ID if available
-     */
-    public function getMessageWithRequestId() {
-        if ($this->requestId) {
-            return sprintf("%s [Request ID: %s]", $this->getMessage(), $this->requestId);
-        }
-        
-        return $this->getMessage();
-    }
 }

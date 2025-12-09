@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * Field
+ * TransformedApiEmployeeGoalDetails
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \BhrSdk\ObjectSerializer;
 
 /**
- * Field Class Doc Comment
+ * TransformedApiEmployeeGoalDetails Class Doc Comment
  *
  * @category Class
  * @package  BhrSdk
@@ -41,7 +41,7 @@ use \BhrSdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
+class TransformedApiEmployeeGoalDetails implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public const DISCRIMINATOR = null;
 
 	/**
@@ -49,7 +49,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'Field';
+	protected static $openApiModelName = 'TransformedApiEmployeeGoalDetails';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'name' => 'string',
-		'label' => 'string',
-		'parent_type' => 'string',
-		'parent_name' => 'string',
-		'entity_name' => 'string'
+		'goal' => '\BhrSdk\Model\TransformedApiEmployeeGoalDetailsGoal'
 	];
 
 	/**
@@ -72,11 +68,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'name' => null,
-		'label' => null,
-		'parent_type' => null,
-		'parent_name' => null,
-		'entity_name' => null
+		'goal' => null
 	];
 
 	/**
@@ -86,11 +78,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'name' => false,
-		'label' => false,
-		'parent_type' => false,
-		'parent_name' => false,
-		'entity_name' => false
+		'goal' => false
 	];
 
 	/**
@@ -175,11 +163,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'name' => 'name',
-		'label' => 'label',
-		'parent_type' => 'parentType',
-		'parent_name' => 'parentName',
-		'entity_name' => 'entityName'
+		'goal' => 'goal'
 	];
 
 	/**
@@ -188,11 +172,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'name' => 'setName',
-		'label' => 'setLabel',
-		'parent_type' => 'setParentType',
-		'parent_name' => 'setParentName',
-		'entity_name' => 'setEntityName'
+		'goal' => 'setGoal'
 	];
 
 	/**
@@ -201,11 +181,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'name' => 'getName',
-		'label' => 'getLabel',
-		'parent_type' => 'getParentType',
-		'parent_name' => 'getParentName',
-		'entity_name' => 'getEntityName'
+		'goal' => 'getGoal'
 	];
 
 	/**
@@ -259,11 +235,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('name', $data ?? [], null);
-		$this->setIfExists('label', $data ?? [], null);
-		$this->setIfExists('parent_type', $data ?? [], null);
-		$this->setIfExists('parent_name', $data ?? [], null);
-		$this->setIfExists('entity_name', $data ?? [], null);
+		$this->setIfExists('goal', $data ?? [], null);
 	}
 
 	/**
@@ -305,126 +277,26 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	}
 
 	/**
-	 * Gets name
+	 * Gets goal
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\TransformedApiEmployeeGoalDetailsGoal|null
 	 */
-	public function getName() {
-		return $this->container['name'];
+	public function getGoal() {
+		return $this->container['goal'];
 	}
 
 	/**
-	 * Sets name
+	 * Sets goal
 	 *
-	 * @param string|null $name name
+	 * @param \BhrSdk\Model\TransformedApiEmployeeGoalDetailsGoal|null $goal goal
 	 *
 	 * @return self
 	 */
-	public function setName($name) {
-		if (is_null($name)) {
-			throw new \InvalidArgumentException('non-nullable name cannot be null');
+	public function setGoal($goal) {
+		if (is_null($goal)) {
+			throw new \InvalidArgumentException('non-nullable goal cannot be null');
 		}
-		$this->container['name'] = $name;
-
-		return $this;
-	}
-
-	/**
-	 * Gets label
-	 *
-	 * @return string|null
-	 */
-	public function getLabel() {
-		return $this->container['label'];
-	}
-
-	/**
-	 * Sets label
-	 *
-	 * @param string|null $label label
-	 *
-	 * @return self
-	 */
-	public function setLabel($label) {
-		if (is_null($label)) {
-			throw new \InvalidArgumentException('non-nullable label cannot be null');
-		}
-		$this->container['label'] = $label;
-
-		return $this;
-	}
-
-	/**
-	 * Gets parent_type
-	 *
-	 * @return string|null
-	 */
-	public function getParentType() {
-		return $this->container['parent_type'];
-	}
-
-	/**
-	 * Sets parent_type
-	 *
-	 * @param string|null $parent_type parent_type
-	 *
-	 * @return self
-	 */
-	public function setParentType($parent_type) {
-		if (is_null($parent_type)) {
-			throw new \InvalidArgumentException('non-nullable parent_type cannot be null');
-		}
-		$this->container['parent_type'] = $parent_type;
-
-		return $this;
-	}
-
-	/**
-	 * Gets parent_name
-	 *
-	 * @return string|null
-	 */
-	public function getParentName() {
-		return $this->container['parent_name'];
-	}
-
-	/**
-	 * Sets parent_name
-	 *
-	 * @param string|null $parent_name parent_name
-	 *
-	 * @return self
-	 */
-	public function setParentName($parent_name) {
-		if (is_null($parent_name)) {
-			throw new \InvalidArgumentException('non-nullable parent_name cannot be null');
-		}
-		$this->container['parent_name'] = $parent_name;
-
-		return $this;
-	}
-
-	/**
-	 * Gets entity_name
-	 *
-	 * @return string|null
-	 */
-	public function getEntityName() {
-		return $this->container['entity_name'];
-	}
-
-	/**
-	 * Sets entity_name
-	 *
-	 * @param string|null $entity_name entity_name
-	 *
-	 * @return self
-	 */
-	public function setEntityName($entity_name) {
-		if (is_null($entity_name)) {
-			throw new \InvalidArgumentException('non-nullable entity_name cannot be null');
-		}
-		$this->container['entity_name'] = $entity_name;
+		$this->container['goal'] = $goal;
 
 		return $this;
 	}

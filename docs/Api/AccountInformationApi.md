@@ -4,13 +4,13 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCountriesOptions()**](AccountInformationApi.md#getCountriesOptions) | **GET** /api/v1/meta/countries/options | Get all countries |
-| [**getListOfUsers()**](AccountInformationApi.md#getListOfUsers) | **GET** /api/v1/meta/users | Get a List of Users |
-| [**getStatesByCountryId()**](AccountInformationApi.md#getStatesByCountryId) | **GET** /api/v1/meta/provinces/{countryId} | Get states by country ID |
-| [**metadataAddOrUpdateValuesForListFields()**](AccountInformationApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /api/v1/meta/lists/{listFieldId} | Add or Update Values for List Fields |
-| [**metadataGetAListOfFields()**](AccountInformationApi.md#metadataGetAListOfFields) | **GET** /api/v1/meta/fields | Get a list of fields |
-| [**metadataGetAListOfTabularFields()**](AccountInformationApi.md#metadataGetAListOfTabularFields) | **GET** /api/v1/meta/tables | Get a list of tabular fields |
-| [**metadataGetDetailsForListFields()**](AccountInformationApi.md#metadataGetDetailsForListFields) | **GET** /api/v1/meta/lists | Get details for list fields |
+| [**getCountriesOptions()**](AccountInformationApi.md#getCountriesOptions) | **GET** /api/v1/meta/countries/options | Get Countries |
+| [**getListOfUsers()**](AccountInformationApi.md#getListOfUsers) | **GET** /api/v1/meta/users | Get Users |
+| [**getStatesByCountryId()**](AccountInformationApi.md#getStatesByCountryId) | **GET** /api/v1/meta/provinces/{countryId} | Get States by Country ID |
+| [**metadataAddOrUpdateValuesForListFields()**](AccountInformationApi.md#metadataAddOrUpdateValuesForListFields) | **PUT** /api/v1/meta/lists/{listFieldId} | Create or Update List Field Values |
+| [**metadataGetAListOfFields()**](AccountInformationApi.md#metadataGetAListOfFields) | **GET** /api/v1/meta/fields | Get Fields |
+| [**metadataGetAListOfTabularFields()**](AccountInformationApi.md#metadataGetAListOfTabularFields) | **GET** /api/v1/meta/tables | Get Tabular Fields |
+| [**metadataGetDetailsForListFields()**](AccountInformationApi.md#metadataGetDetailsForListFields) | **GET** /api/v1/meta/lists | Get List Field Details |
 
 
 ## `getCountriesOptions()`
@@ -19,7 +19,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 getCountriesOptions(): \BhrSdk\Model\CountrySchema[]
 ```
 
-Get all countries
+Get Countries
 
 Get all available countries as options. Returns a list of countries with ID and name for use in forms and dropdowns.
 
@@ -78,7 +78,7 @@ This endpoint does not need any parameter.
 getListOfUsers()
 ```
 
-Get a List of Users
+Get Users
 
 Retrieves a list of all active users in the system with their basic information. This includes user IDs, names, and email addresses. The list can be used to map user IDs to user information throughout the API.
 
@@ -136,7 +136,7 @@ void (empty response body)
 getStatesByCountryId($country_id): \BhrSdk\Model\StateProvinceResponseSchema
 ```
 
-Get states by country ID
+Get States by Country ID
 
 Get states/provinces for a specific country. Returns a list of state/province options with ID, label, ISO code, and name.
 
@@ -198,7 +198,7 @@ try {
 metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values)
 ```
 
-Add or Update Values for List Fields
+Create or Update List Field Values
 
 This resource accepts one or more options. To update an option, specify an ID. You may also remove an option from the list of current values by archiving the value. To create a new option, do not specify an \"id\" attribute.
 
@@ -261,7 +261,7 @@ void (empty response body)
 metadataGetAListOfFields($accept_header_parameter)
 ```
 
-Get a list of fields
+Get Fields
 
 This endpoint can help with discovery of fields that are available in an account.
 
@@ -322,7 +322,7 @@ void (empty response body)
 metadataGetAListOfTabularFields($accept_header_parameter)
 ```
 
-Get a list of tabular fields
+Get Tabular Fields
 
 This endpoint can help discover table fields available in your BambooHR account.
 
@@ -383,7 +383,7 @@ void (empty response body)
 metadataGetDetailsForListFields($accept_header_parameter)
 ```
 
-Get details for list fields
+Get List Field Details
 
 This endpoint will return details for all list fields. Lists that can be edited will have the \"manageable\" attribute set to yes. Lists with the \"multiple\" attribute set to yes are fields that can have multiple values. Options with the \"archived\" attribute set to yes should not appear as current options, but are included so that historical data can reference the value.
 

@@ -5,7 +5,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getByReportId()**](CustomReportsApi.md#getByReportId) | **GET** /api/v1/custom-reports/{reportId} | Get Report by ID |
-| [**listReports()**](CustomReportsApi.md#listReports) | **GET** /api/v1/custom-reports | List Reports |
+| [**listReports()**](CustomReportsApi.md#listReports) | **GET** /api/v1/custom-reports | Get Reports |
 
 
 ## `getByReportId()`
@@ -76,7 +76,7 @@ try {
 listReports($page, $page_size): \BhrSdk\Model\ReportsResponse
 ```
 
-List Reports
+Get Reports
 
 Use this resource to retrieve a list of available reports.
 

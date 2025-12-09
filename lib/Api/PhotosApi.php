@@ -136,7 +136,7 @@ class PhotosApi {
 	/**
 	 * Operation getEmployeePhoto
 	 *
-	 * Get an employee photo
+	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
 	 * @param  string $size Photo size (required)
@@ -154,7 +154,7 @@ class PhotosApi {
 	/**
 	 * Operation getEmployeePhotoWithHttpInfo
 	 *
-	 * Get an employee photo
+	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
 	 * @param  string $size Photo size (required)
@@ -183,7 +183,7 @@ class PhotosApi {
 	/**
 	 * Operation getEmployeePhotoAsync
 	 *
-	 * Get an employee photo
+	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
 	 * @param  string $size Photo size (required)
@@ -204,7 +204,7 @@ class PhotosApi {
 	/**
 	 * Operation getEmployeePhotoAsyncWithHttpInfo
 	 *
-	 * Get an employee photo
+	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
 	 * @param  string $size Photo size (required)
@@ -344,7 +344,7 @@ class PhotosApi {
 	/**
 	 * Operation uploadEmployeePhoto
 	 *
-	 * Store a new employee photo
+	 * Upload Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
@@ -361,7 +361,7 @@ class PhotosApi {
 	/**
 	 * Operation uploadEmployeePhotoWithHttpInfo
 	 *
-	 * Store a new employee photo
+	 * Upload Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
@@ -389,7 +389,7 @@ class PhotosApi {
 	/**
 	 * Operation uploadEmployeePhotoAsync
 	 *
-	 * Store a new employee photo
+	 * Upload Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
@@ -409,7 +409,7 @@ class PhotosApi {
 	/**
 	 * Operation uploadEmployeePhotoAsyncWithHttpInfo
 	 *
-	 * Store a new employee photo
+	 * Upload Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
