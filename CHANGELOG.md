@@ -11,6 +11,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changelog file to track version history
 
+## [2.0.1] - 2025-12-09
+
+### Added
+
+- New `TransformedApiEmployeeGoalDetails` and `TransformedApiEmployeeGoalDetailsGoal` models for Goals API
+- New endpoints in `DatasetsApi` for enhanced data querying
+- New endpoints in `ApplicantTrackingApi` for improved ATS functionality
+
+### Changed
+
+- Updated API documentation with improved authentication examples
+- Improved `Field` and `DataRequest` models with additional properties
+- Updated `GoalsApi` with refined endpoint implementations
+- Regenerated SDK from latest OpenAPI specifications
+
+### Fixed
+
+- Authentication documentation clarity across all API endpoint docs
+
 ## [2.0.0] - 2025-11-28
 
 ### Added
@@ -78,5 +97,6 @@ For changes in version 1.x.x and earlier, please refer to the git commit history
 
 ## Version History Links
 
-[Unreleased]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/BambooHR/bhr-api-php/releases/tag/v2.0.0
