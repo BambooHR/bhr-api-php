@@ -27,6 +27,7 @@ php -v
 ```
 
 You should see something like:
+
 ```
 PHP 8.1.x (cli) ...
 ```
@@ -81,10 +82,11 @@ composer show bamboohr/api
 ```
 
 You should see:
+
 ```
 name     : bamboohr/api
 descrip. : BambooHR API documentation...
-versions : * 2.0.0
+versions : * 2.0.1
 ```
 
 ### Set Up Autoloading
@@ -105,6 +107,7 @@ That's it! The SDK is now installed and ready to use.
 You'll need two things to make API calls:
 
 1. **Your Company Subdomain** - The part before `.bamboohr.com` in your BambooHR URL
+
    - Example: If your URL is `acme.bamboohr.com`, your subdomain is `acme`
 
 2. **Your API Key** - A secret token that authenticates your requests
@@ -172,41 +175,41 @@ $client = (new ApiClient())
 try {
     // Step 2: Get the Employees API
     $employeesApi = $client->employees();
-    
+
     // Step 3: Make the API call
     $directory = $employeesApi->getEmployeesDirectory();
-    
+
     // Step 4: Process the response
     $employees = $directory['employees'] ?? [];
     echo "Found " . count($employees) . " employees\n";
-    
+
     foreach ($employees as $employee) {
         $name = $employee['displayName'] ?? 'Unknown';
         echo "  • {$name}\n";
     }
-    
+
 } catch (AuthenticationFailedException $e) {
     // Specific exception for 401 errors with helpful debugging tips
     echo "Authentication Failed!\n";
     echo "Message: " . $e->getMessage() . "\n\n";
-    
+
     echo "Potential Causes:\n";
     foreach ($e->getPotentialCauses() as $cause) {
         echo "  • {$cause}\n";
     }
-    
+
 } catch (PermissionDeniedException $e) {
     // Specific exception for 403 errors
     echo "Permission Denied!\n";
     echo "Your API key doesn't have permission for this action.\n";
     echo "Tip: Check your API key permissions in BambooHR settings.\n";
-    
+
 } catch (RateLimitExceededException $e) {
     // Specific exception for 429 errors
     echo "Rate Limit Exceeded!\n";
     echo "You've made too many requests. Please wait and try again.\n";
     echo "Tip: Use \$client->withRetries(3) for automatic retry with backoff.\n";
-    
+
 } catch (ApiException $e) {
     // Generic fallback for other errors
     echo "API Error: " . $e->getMessage() . "\n";
@@ -338,16 +341,16 @@ use BhrSdk\ApiException;
 
 try {
     $result = $api->someMethod();
-    
+
 } catch (AuthenticationFailedException $e) {
     // Get automatic debugging help
     foreach ($e->getPotentialCauses() as $cause) {
         echo "• {$cause}\n";
     }
-    
+
 } catch (PermissionDeniedException $e) {
     echo "Permission denied: " . $e->getMessage();
-    
+
 } catch (ApiException $e) {
     // Generic fallback
     echo "Error: " . $e->getMessage();
@@ -366,10 +369,10 @@ try {
 } catch (RateLimitExceededException $e) {
     $headers = $e->getResponseHeaders();
     $retryAfter = $headers['Retry-After'][0] ?? 60;
-    
+
     echo "Rate limited. Retry after {$retryAfter} seconds\n";
     sleep($retryAfter);
-    
+
     // Retry the request
     $result = $api->someMethod();
 }
@@ -393,6 +396,7 @@ Now that you've made your first API call, explore these topics:
 #### 2. Common Use Cases
 
 Learn how to:
+
 - Update employee information
 - Manage time off requests
 - Upload and download files
@@ -404,6 +408,7 @@ Learn how to:
 #### 3. Error Handling
 
 Learn about:
+
 - Specific exception types
 - Retry strategies
 - Graceful degradation
@@ -436,6 +441,7 @@ The `examples/` directory has complete, runnable examples:
 The SDK provides **specific exception types** that automatically include debugging help:
 
 **Authentication Error (401)** - `AuthenticationFailedException`
+
 ```php
 catch (AuthenticationFailedException $e) {
     // Exception includes getPotentialCauses() and getDebuggingTips()
@@ -446,21 +452,25 @@ catch (AuthenticationFailedException $e) {
 ```
 
 **Permission Denied (403)** - `PermissionDeniedException`
+
 - Your API key may not have permission for this operation
 - Check API key permissions in BambooHR settings
 - Use `$e->getPotentialCauses()` for specific guidance
 
 **Not Found (404)** - `ResourceNotFoundException`
+
 - Verify the employee ID exists
 - Check your company subdomain is correct
 
 **Rate Limited (429)** - `RateLimitExceededException`
+
 - You're making too many requests
 - Wait a few minutes and try again
 - Use built-in retry: `$client->withRetries(3)`
 - Implement exponential backoff
 
 **Connection Errors?**
+
 - Check your internet connection
 - Verify BambooHR API is operational
 - Check for firewall issues
@@ -505,17 +515,17 @@ use BhrSdk\Exceptions\RateLimitExceededException;
 
 try {
     $result = $api->someMethod();
-    
+
 } catch (AuthenticationFailedException $e) {
     // Specific exception with helpful methods
     foreach ($e->getPotentialCauses() as $cause) {
         echo "• {$cause}\n";
     }
-    
+
 } catch (RateLimitExceededException $e) {
     // Rate limit - consider retry
     echo "Rate limited. Use \$client->withRetries(3)\n";
-    
+
 } catch (ApiException $e) {
     // Generic fallback
     echo "Error [{$e->getCode()}]: {$e->getMessage()}\n";
