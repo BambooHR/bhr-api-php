@@ -85,11 +85,11 @@ class LastChangeInformationApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -135,9 +135,9 @@ class LastChangeInformationApi {
 	 *
 	 * Get Updated Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
+	 * @param  string      $since       URL encoded iso8601 timestamp (required)
+	 * @param  string|null $type        Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -153,9 +153,9 @@ class LastChangeInformationApi {
 	 *
 	 * Get Updated Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
+	 * @param  string      $since       URL encoded iso8601 timestamp (required)
+	 * @param  string|null $type        Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -182,9 +182,9 @@ class LastChangeInformationApi {
 	 *
 	 * Get Updated Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
+	 * @param  string      $since       URL encoded iso8601 timestamp (required)
+	 * @param  string|null $type        Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -203,9 +203,9 @@ class LastChangeInformationApi {
 	 *
 	 * Get Updated Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
+	 * @param  string      $since       URL encoded iso8601 timestamp (required)
+	 * @param  string|null $type        Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -246,9 +246,9 @@ class LastChangeInformationApi {
 	/**
 	 * Create request for operation 'getChangedEmployeeIds'
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
+	 * @param  string      $since       URL encoded iso8601 timestamp (required)
+	 * @param  string|null $type        Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

@@ -277,6 +277,14 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		if (!is_null($this->container['limit']) && ($this->container['limit'] > 100)) {
+			$invalidProperties[] = "invalid value for 'limit', must be smaller than or equal to 100.";
+		}
+
+		if (!is_null($this->container['limit']) && ($this->container['limit'] < 1)) {
+			$invalidProperties[] = "invalid value for 'limit', must be bigger than or equal to 1.";
+		}
+
 		return $invalidProperties;
 	}
 
@@ -360,6 +368,14 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 		if (is_null($limit)) {
 			throw new \InvalidArgumentException('non-nullable limit cannot be null');
 		}
+
+		if (($limit > 100)) {
+			throw new \InvalidArgumentException('invalid value for $limit when calling CursorPaginationQueryObject., must be smaller than or equal to 100.');
+		}
+		if (($limit < 1)) {
+			throw new \InvalidArgumentException('invalid value for $limit when calling CursorPaginationQueryObject., must be bigger than or equal to 1.');
+		}
+
 		$this->container['limit'] = $limit;
 
 		return $this;
@@ -391,7 +407,7 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

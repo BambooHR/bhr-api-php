@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **hours** | **float** | Hours worked | [optional]
 **note** | **string** | Note | [optional]
 **project_info** | [**\BhrSdk\Model\ProjectInfoApiTransformer**](ProjectInfoApiTransformer.md) |  | [optional]
+**break_info** | [**\BhrSdk\Model\TimesheetEntryInfoApiTransformerBreakInfo**](TimesheetEntryInfoApiTransformerBreakInfo.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

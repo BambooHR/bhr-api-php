@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * GetEmployeesEmployeeResponse Class Doc Comment
  *
  * @category Class
- * @description Employee data response object containing basic employee information and permission-restricted fields
+ * @description Employee data response object containing basic employee information and permission-restricted fields. When the &#x60;fields&#x60; parameter is provided, additional requested fields will be included in the response. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,21 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'string',
 		'job_title_name' => 'string',
 		'status' => 'string',
-		'_restricted_fields' => 'string[]'
+		'_restricted_fields' => 'string[]',
+		'work_email' => 'string',
+		'home_email' => 'string',
+		'best_email' => 'string',
+		'middle_name' => 'string',
+		'work_phone' => 'string',
+		'work_phone_extension' => 'string',
+		'mobile_phone' => 'string',
+		'home_phone' => 'string',
+		'skype_username' => 'string',
+		'linkedin_url' => 'string',
+		'facebook_url' => 'string',
+		'instagram_url' => 'string',
+		'twitter_url' => 'string',
+		'pinterest_url' => 'string'
 	];
 
 	/**
@@ -83,7 +97,21 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => null,
 		'job_title_name' => null,
 		'status' => null,
-		'_restricted_fields' => null
+		'_restricted_fields' => null,
+		'work_email' => null,
+		'home_email' => null,
+		'best_email' => null,
+		'middle_name' => null,
+		'work_phone' => null,
+		'work_phone_extension' => null,
+		'mobile_phone' => null,
+		'home_phone' => null,
+		'skype_username' => null,
+		'linkedin_url' => null,
+		'facebook_url' => null,
+		'instagram_url' => null,
+		'twitter_url' => null,
+		'pinterest_url' => null
 	];
 
 	/**
@@ -100,7 +128,21 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => true,
 		'job_title_name' => true,
 		'status' => true,
-		'_restricted_fields' => false
+		'_restricted_fields' => false,
+		'work_email' => true,
+		'home_email' => true,
+		'best_email' => true,
+		'middle_name' => true,
+		'work_phone' => true,
+		'work_phone_extension' => true,
+		'mobile_phone' => true,
+		'home_phone' => true,
+		'skype_username' => true,
+		'linkedin_url' => true,
+		'facebook_url' => true,
+		'instagram_url' => true,
+		'twitter_url' => true,
+		'pinterest_url' => true
 	];
 
 	/**
@@ -192,7 +234,21 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'photoUrl',
 		'job_title_name' => 'jobTitleName',
 		'status' => 'status',
-		'_restricted_fields' => '_restrictedFields'
+		'_restricted_fields' => '_restrictedFields',
+		'work_email' => 'workEmail',
+		'home_email' => 'homeEmail',
+		'best_email' => 'bestEmail',
+		'middle_name' => 'middleName',
+		'work_phone' => 'workPhone',
+		'work_phone_extension' => 'workPhoneExtension',
+		'mobile_phone' => 'mobilePhone',
+		'home_phone' => 'homePhone',
+		'skype_username' => 'skypeUsername',
+		'linkedin_url' => 'linkedinUrl',
+		'facebook_url' => 'facebookUrl',
+		'instagram_url' => 'instagramUrl',
+		'twitter_url' => 'twitterUrl',
+		'pinterest_url' => 'pinterestUrl'
 	];
 
 	/**
@@ -208,7 +264,21 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'setPhotoUrl',
 		'job_title_name' => 'setJobTitleName',
 		'status' => 'setStatus',
-		'_restricted_fields' => 'setRestrictedFields'
+		'_restricted_fields' => 'setRestrictedFields',
+		'work_email' => 'setWorkEmail',
+		'home_email' => 'setHomeEmail',
+		'best_email' => 'setBestEmail',
+		'middle_name' => 'setMiddleName',
+		'work_phone' => 'setWorkPhone',
+		'work_phone_extension' => 'setWorkPhoneExtension',
+		'mobile_phone' => 'setMobilePhone',
+		'home_phone' => 'setHomePhone',
+		'skype_username' => 'setSkypeUsername',
+		'linkedin_url' => 'setLinkedinUrl',
+		'facebook_url' => 'setFacebookUrl',
+		'instagram_url' => 'setInstagramUrl',
+		'twitter_url' => 'setTwitterUrl',
+		'pinterest_url' => 'setPinterestUrl'
 	];
 
 	/**
@@ -224,7 +294,21 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'getPhotoUrl',
 		'job_title_name' => 'getJobTitleName',
 		'status' => 'getStatus',
-		'_restricted_fields' => 'getRestrictedFields'
+		'_restricted_fields' => 'getRestrictedFields',
+		'work_email' => 'getWorkEmail',
+		'home_email' => 'getHomeEmail',
+		'best_email' => 'getBestEmail',
+		'middle_name' => 'getMiddleName',
+		'work_phone' => 'getWorkPhone',
+		'work_phone_extension' => 'getWorkPhoneExtension',
+		'mobile_phone' => 'getMobilePhone',
+		'home_phone' => 'getHomePhone',
+		'skype_username' => 'getSkypeUsername',
+		'linkedin_url' => 'getLinkedinUrl',
+		'facebook_url' => 'getFacebookUrl',
+		'instagram_url' => 'getInstagramUrl',
+		'twitter_url' => 'getTwitterUrl',
+		'pinterest_url' => 'getPinterestUrl'
 	];
 
 	/**
@@ -286,6 +370,20 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		$this->setIfExists('job_title_name', $data ?? [], null);
 		$this->setIfExists('status', $data ?? [], null);
 		$this->setIfExists('_restricted_fields', $data ?? [], null);
+		$this->setIfExists('work_email', $data ?? [], null);
+		$this->setIfExists('home_email', $data ?? [], null);
+		$this->setIfExists('best_email', $data ?? [], null);
+		$this->setIfExists('middle_name', $data ?? [], null);
+		$this->setIfExists('work_phone', $data ?? [], null);
+		$this->setIfExists('work_phone_extension', $data ?? [], null);
+		$this->setIfExists('mobile_phone', $data ?? [], null);
+		$this->setIfExists('home_phone', $data ?? [], null);
+		$this->setIfExists('skype_username', $data ?? [], null);
+		$this->setIfExists('linkedin_url', $data ?? [], null);
+		$this->setIfExists('facebook_url', $data ?? [], null);
+		$this->setIfExists('instagram_url', $data ?? [], null);
+		$this->setIfExists('twitter_url', $data ?? [], null);
+		$this->setIfExists('pinterest_url', $data ?? [], null);
 	}
 
 	/**
@@ -585,6 +683,440 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 
 		return $this;
 	}
+
+	/**
+	 * Gets work_email
+	 *
+	 * @return string|null
+	 */
+	public function getWorkEmail() {
+		return $this->container['work_email'];
+	}
+
+	/**
+	 * Sets work_email
+	 *
+	 * @param string|null $work_email Employee's work email address. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setWorkEmail($work_email) {
+		if (is_null($work_email)) {
+			$this->openApiNullablesSetToNull['work_email'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['work_email'])) {
+				unset($nullablesSetToNull['work_email']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['work_email'] = $work_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_email
+	 *
+	 * @return string|null
+	 */
+	public function getHomeEmail() {
+		return $this->container['home_email'];
+	}
+
+	/**
+	 * Sets home_email
+	 *
+	 * @param string|null $home_email Employee's home email address. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setHomeEmail($home_email) {
+		if (is_null($home_email)) {
+			$this->openApiNullablesSetToNull['home_email'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['home_email'])) {
+				unset($nullablesSetToNull['home_email']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['home_email'] = $home_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets best_email
+	 *
+	 * @return string|null
+	 */
+	public function getBestEmail() {
+		return $this->container['best_email'];
+	}
+
+	/**
+	 * Sets best_email
+	 *
+	 * @param string|null $best_email Employee's best email address. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setBestEmail($best_email) {
+		if (is_null($best_email)) {
+			$this->openApiNullablesSetToNull['best_email'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['best_email'])) {
+				unset($nullablesSetToNull['best_email']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['best_email'] = $best_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets middle_name
+	 *
+	 * @return string|null
+	 */
+	public function getMiddleName() {
+		return $this->container['middle_name'];
+	}
+
+	/**
+	 * Sets middle_name
+	 *
+	 * @param string|null $middle_name Employee's middle name. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setMiddleName($middle_name) {
+		if (is_null($middle_name)) {
+			$this->openApiNullablesSetToNull['middle_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['middle_name'])) {
+				unset($nullablesSetToNull['middle_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['middle_name'] = $middle_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhone() {
+		return $this->container['work_phone'];
+	}
+
+	/**
+	 * Sets work_phone
+	 *
+	 * @param string|null $work_phone Employee's work phone number. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setWorkPhone($work_phone) {
+		if (is_null($work_phone)) {
+			$this->openApiNullablesSetToNull['work_phone'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['work_phone'])) {
+				unset($nullablesSetToNull['work_phone']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['work_phone'] = $work_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone_extension
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhoneExtension() {
+		return $this->container['work_phone_extension'];
+	}
+
+	/**
+	 * Sets work_phone_extension
+	 *
+	 * @param string|null $work_phone_extension Employee's work phone extension. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setWorkPhoneExtension($work_phone_extension) {
+		if (is_null($work_phone_extension)) {
+			$this->openApiNullablesSetToNull['work_phone_extension'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['work_phone_extension'])) {
+				unset($nullablesSetToNull['work_phone_extension']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['work_phone_extension'] = $work_phone_extension;
+
+		return $this;
+	}
+
+	/**
+	 * Gets mobile_phone
+	 *
+	 * @return string|null
+	 */
+	public function getMobilePhone() {
+		return $this->container['mobile_phone'];
+	}
+
+	/**
+	 * Sets mobile_phone
+	 *
+	 * @param string|null $mobile_phone Employee's mobile phone number. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setMobilePhone($mobile_phone) {
+		if (is_null($mobile_phone)) {
+			$this->openApiNullablesSetToNull['mobile_phone'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['mobile_phone'])) {
+				unset($nullablesSetToNull['mobile_phone']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['mobile_phone'] = $mobile_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_phone
+	 *
+	 * @return string|null
+	 */
+	public function getHomePhone() {
+		return $this->container['home_phone'];
+	}
+
+	/**
+	 * Sets home_phone
+	 *
+	 * @param string|null $home_phone Employee's home phone number. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setHomePhone($home_phone) {
+		if (is_null($home_phone)) {
+			$this->openApiNullablesSetToNull['home_phone'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['home_phone'])) {
+				unset($nullablesSetToNull['home_phone']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['home_phone'] = $home_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets skype_username
+	 *
+	 * @return string|null
+	 */
+	public function getSkypeUsername() {
+		return $this->container['skype_username'];
+	}
+
+	/**
+	 * Sets skype_username
+	 *
+	 * @param string|null $skype_username Employee's Skype username. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setSkypeUsername($skype_username) {
+		if (is_null($skype_username)) {
+			$this->openApiNullablesSetToNull['skype_username'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['skype_username'])) {
+				unset($nullablesSetToNull['skype_username']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['skype_username'] = $skype_username;
+
+		return $this;
+	}
+
+	/**
+	 * Gets linkedin_url
+	 *
+	 * @return string|null
+	 */
+	public function getLinkedinUrl() {
+		return $this->container['linkedin_url'];
+	}
+
+	/**
+	 * Sets linkedin_url
+	 *
+	 * @param string|null $linkedin_url Employee's LinkedIn profile URL. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setLinkedinUrl($linkedin_url) {
+		if (is_null($linkedin_url)) {
+			$this->openApiNullablesSetToNull['linkedin_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['linkedin_url'])) {
+				unset($nullablesSetToNull['linkedin_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['linkedin_url'] = $linkedin_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets facebook_url
+	 *
+	 * @return string|null
+	 */
+	public function getFacebookUrl() {
+		return $this->container['facebook_url'];
+	}
+
+	/**
+	 * Sets facebook_url
+	 *
+	 * @param string|null $facebook_url Employee's Facebook profile URL. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setFacebookUrl($facebook_url) {
+		if (is_null($facebook_url)) {
+			$this->openApiNullablesSetToNull['facebook_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['facebook_url'])) {
+				unset($nullablesSetToNull['facebook_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['facebook_url'] = $facebook_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets instagram_url
+	 *
+	 * @return string|null
+	 */
+	public function getInstagramUrl() {
+		return $this->container['instagram_url'];
+	}
+
+	/**
+	 * Sets instagram_url
+	 *
+	 * @param string|null $instagram_url Employee's Instagram profile URL. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setInstagramUrl($instagram_url) {
+		if (is_null($instagram_url)) {
+			$this->openApiNullablesSetToNull['instagram_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['instagram_url'])) {
+				unset($nullablesSetToNull['instagram_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['instagram_url'] = $instagram_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets twitter_url
+	 *
+	 * @return string|null
+	 */
+	public function getTwitterUrl() {
+		return $this->container['twitter_url'];
+	}
+
+	/**
+	 * Sets twitter_url
+	 *
+	 * @param string|null $twitter_url Employee's Twitter/X profile URL. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setTwitterUrl($twitter_url) {
+		if (is_null($twitter_url)) {
+			$this->openApiNullablesSetToNull['twitter_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['twitter_url'])) {
+				unset($nullablesSetToNull['twitter_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['twitter_url'] = $twitter_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pinterest_url
+	 *
+	 * @return string|null
+	 */
+	public function getPinterestUrl() {
+		return $this->container['pinterest_url'];
+	}
+
+	/**
+	 * Sets pinterest_url
+	 *
+	 * @param string|null $pinterest_url Employee's Pinterest profile URL. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setPinterestUrl($pinterest_url) {
+		if (is_null($pinterest_url)) {
+			$this->openApiNullablesSetToNull['pinterest_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pinterest_url'])) {
+				unset($nullablesSetToNull['pinterest_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pinterest_url'] = $pinterest_url;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -612,7 +1144,7 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

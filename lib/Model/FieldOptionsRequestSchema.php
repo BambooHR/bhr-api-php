@@ -59,7 +59,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static $openApiTypes = [
 		'fields' => 'string[]',
-		'dependent_fields' => 'array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>'
+		'dependent_fields' => 'array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>',
+		'filters' => 'object'
 	];
 
 	/**
@@ -71,7 +72,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static $openApiFormats = [
 		'fields' => null,
-		'dependent_fields' => null
+		'dependent_fields' => null,
+		'filters' => null
 	];
 
 	/**
@@ -82,7 +84,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static array $openApiNullables = [
 		'fields' => false,
-		'dependent_fields' => false
+		'dependent_fields' => false,
+		'filters' => true
 	];
 
 	/**
@@ -168,7 +171,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 */
 	protected static $attributeMap = [
 		'fields' => 'fields',
-		'dependent_fields' => 'dependentFields'
+		'dependent_fields' => 'dependentFields',
+		'filters' => 'filters'
 	];
 
 	/**
@@ -178,7 +182,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 */
 	protected static $setters = [
 		'fields' => 'setFields',
-		'dependent_fields' => 'setDependentFields'
+		'dependent_fields' => 'setDependentFields',
+		'filters' => 'setFilters'
 	];
 
 	/**
@@ -188,7 +193,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 */
 	protected static $getters = [
 		'fields' => 'getFields',
-		'dependent_fields' => 'getDependentFields'
+		'dependent_fields' => 'getDependentFields',
+		'filters' => 'getFilters'
 	];
 
 	/**
@@ -244,6 +250,7 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	public function __construct(?array $data = null) {
 		$this->setIfExists('fields', $data ?? [], null);
 		$this->setIfExists('dependent_fields', $data ?? [], null);
+		$this->setIfExists('filters', $data ?? [], null);
 	}
 
 	/**
@@ -336,6 +343,37 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 
 		return $this;
 	}
+
+	/**
+	 * Gets filters
+	 *
+	 * @return object|null
+	 */
+	public function getFilters() {
+		return $this->container['filters'];
+	}
+
+	/**
+	 * Sets filters
+	 *
+	 * @param object|null $filters Optional filters to apply when retrieving field options. Filters limit the returned options based on other field values.
+	 *
+	 * @return self
+	 */
+	public function setFilters($filters) {
+		if (is_null($filters)) {
+			$this->openApiNullablesSetToNull['filters'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['filters'])) {
+				unset($nullablesSetToNull['filters']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['filters'] = $filters;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -363,7 +401,7 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

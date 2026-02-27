@@ -97,11 +97,11 @@ class HoursApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -148,7 +148,7 @@ class HoursApi {
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string                             $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -165,7 +165,7 @@ class HoursApi {
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string                             $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -215,7 +215,7 @@ class HoursApi {
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string                             $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -235,7 +235,7 @@ class HoursApi {
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string                             $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -279,7 +279,7 @@ class HoursApi {
 	 * Create request for operation 'addTimeTrackingBulk'
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string                             $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -367,7 +367,7 @@ class HoursApi {
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -384,7 +384,7 @@ class HoursApi {
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -440,7 +440,7 @@ class HoursApi {
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -460,7 +460,7 @@ class HoursApi {
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -504,7 +504,7 @@ class HoursApi {
 	 * Create request for operation 'addTimeTrackingHourRecord'
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -591,7 +591,7 @@ class HoursApi {
 	 *
 	 * Delete Hour Record
 	 *
-	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+	 * @param  string $id          The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -608,7 +608,7 @@ class HoursApi {
 	 *
 	 * Delete Hour Record
 	 *
-	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+	 * @param  string $id          The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -664,7 +664,7 @@ class HoursApi {
 	 *
 	 * Delete Hour Record
 	 *
-	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+	 * @param  string $id          The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -684,7 +684,7 @@ class HoursApi {
 	 *
 	 * Delete Hour Record
 	 *
-	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+	 * @param  string $id          The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -728,7 +728,7 @@ class HoursApi {
 	/**
 	 * Create request for operation 'deleteTimeTrackingById'
 	 *
-	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
+	 * @param  string $id          The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -816,7 +816,7 @@ class HoursApi {
 	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -833,7 +833,7 @@ class HoursApi {
 	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -889,7 +889,7 @@ class HoursApi {
 	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -909,7 +909,7 @@ class HoursApi {
 	 * Update Hour Record
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -953,7 +953,7 @@ class HoursApi {
 	 * Create request for operation 'editTimeTrackingRecord'
 	 *
 	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1040,7 +1040,7 @@ class HoursApi {
 	 *
 	 * Get Hour Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id          {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1057,7 +1057,7 @@ class HoursApi {
 	 *
 	 * Get Hour Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id          {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1113,7 +1113,7 @@ class HoursApi {
 	 *
 	 * Get Hour Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id          {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1133,7 +1133,7 @@ class HoursApi {
 	 *
 	 * Get Hour Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id          {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1177,7 +1177,7 @@ class HoursApi {
 	/**
 	 * Create request for operation 'getTimeTrackingRecord'
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id          {id} is the time tracking ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

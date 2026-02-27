@@ -103,11 +103,11 @@ class TabularDataApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -153,10 +153,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -172,10 +172,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -202,10 +202,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -224,10 +224,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -268,10 +268,10 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'addEmployeeTableRow'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -377,10 +377,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -396,10 +396,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -426,10 +426,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -448,10 +448,10 @@ class TabularDataApi {
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -492,10 +492,10 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'addEmployeeTableRowV1'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -601,9 +601,9 @@ class TabularDataApi {
 	 *
 	 * Delete Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $row_id      Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -620,9 +620,9 @@ class TabularDataApi {
 	 *
 	 * Delete Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $row_id      Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -672,9 +672,9 @@ class TabularDataApi {
 	 *
 	 * Delete Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $row_id      Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -694,9 +694,9 @@ class TabularDataApi {
 	 *
 	 * Delete Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $row_id      Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -740,9 +740,9 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'deleteEmployeeTableRowV1'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $row_id      Row ID (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -847,8 +847,8 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $since       URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -865,8 +865,8 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $since       URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -894,8 +894,8 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $since       URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -915,8 +915,8 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $since       URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -958,8 +958,8 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'getChangedEmployeeTableData'
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table       Table name (required)
+	 * @param  string $since       URL encoded iso8601 timestamp (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1063,8 +1063,8 @@ class TabularDataApi {
 	 *
 	 * Get Employee Table Rows
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1081,8 +1081,8 @@ class TabularDataApi {
 	 *
 	 * Get Employee Table Rows
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1110,8 +1110,8 @@ class TabularDataApi {
 	 *
 	 * Get Employee Table Rows
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1131,8 +1131,8 @@ class TabularDataApi {
 	 *
 	 * Get Employee Table Rows
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1174,8 +1174,8 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'getEmployeeTableRow'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id          {id} is the employee ID. (required)
+	 * @param  string $table       Table name (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1271,11 +1271,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1291,11 +1291,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1322,11 +1322,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1345,11 +1345,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1390,11 +1390,11 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'updateEmployeeTableRow'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1509,11 +1509,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1529,11 +1529,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1560,11 +1560,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1583,11 +1583,11 @@ class TabularDataApi {
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1628,11 +1628,11 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'updateEmployeeTableRowV'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string                       $id               {id} is the employee ID. (required)
+	 * @param  string                       $table            Table name (required)
+	 * @param  string                       $row_id           Row ID (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

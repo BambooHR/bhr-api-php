@@ -88,11 +88,11 @@ class CustomReportsApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -138,7 +138,7 @@ class CustomReportsApi {
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id report_id (required)
+	 * @param  int    $report_id   report_id (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -155,7 +155,7 @@ class CustomReportsApi {
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id (required)
+	 * @param  int    $report_id   (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -205,7 +205,7 @@ class CustomReportsApi {
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id (required)
+	 * @param  int    $report_id   (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -225,7 +225,7 @@ class CustomReportsApi {
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id (required)
+	 * @param  int    $report_id   (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -269,7 +269,7 @@ class CustomReportsApi {
 	/**
 	 * Create request for operation 'getByReportId'
 	 *
-	 * @param  int $report_id (required)
+	 * @param  int    $report_id   (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -356,9 +356,9 @@ class CustomReportsApi {
 	 *
 	 * Get Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
+	 * @param  int|null $page        The page number to retrieve (optional)
+	 * @param  int|null $page_size   The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -374,9 +374,9 @@ class CustomReportsApi {
 	 *
 	 * Get Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
+	 * @param  int|null $page        The page number to retrieve (optional)
+	 * @param  int|null $page_size   The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -425,9 +425,9 @@ class CustomReportsApi {
 	 *
 	 * Get Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
+	 * @param  int|null $page        The page number to retrieve (optional)
+	 * @param  int|null $page_size   The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -446,9 +446,9 @@ class CustomReportsApi {
 	 *
 	 * Get Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
+	 * @param  int|null $page        The page number to retrieve (optional)
+	 * @param  int|null $page_size   The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -491,9 +491,9 @@ class CustomReportsApi {
 	/**
 	 * Create request for operation 'listReports'
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
+	 * @param  int|null $page        The page number to retrieve (optional)
+	 * @param  int|null $page_size   The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

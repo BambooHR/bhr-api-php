@@ -60,7 +60,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	protected static $openApiTypes = [
 		'data' => '\BhrSdk\Model\GetEmployeesEmployeeResponse[]',
 		'meta' => '\BhrSdk\Model\CursorPagedResponseMetadata',
-		'links' => '\BhrSdk\Model\GetEmployeesResponseObjectLinks'
+		'_links' => '\BhrSdk\Model\GetEmployeesResponseObjectLinks'
 	];
 
 	/**
@@ -73,7 +73,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	protected static $openApiFormats = [
 		'data' => null,
 		'meta' => null,
-		'links' => null
+		'_links' => null
 	];
 
 	/**
@@ -85,7 +85,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	protected static array $openApiNullables = [
 		'data' => false,
 		'meta' => false,
-		'links' => false
+		'_links' => false
 	];
 
 	/**
@@ -172,7 +172,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	protected static $attributeMap = [
 		'data' => 'data',
 		'meta' => 'meta',
-		'links' => 'links'
+		'_links' => '_links'
 	];
 
 	/**
@@ -183,7 +183,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	protected static $setters = [
 		'data' => 'setData',
 		'meta' => 'setMeta',
-		'links' => 'setLinks'
+		'_links' => 'setLinks'
 	];
 
 	/**
@@ -194,7 +194,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	protected static $getters = [
 		'data' => 'getData',
 		'meta' => 'getMeta',
-		'links' => 'getLinks'
+		'_links' => 'getLinks'
 	];
 
 	/**
@@ -250,7 +250,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	public function __construct(?array $data = null) {
 		$this->setIfExists('data', $data ?? [], null);
 		$this->setIfExists('meta', $data ?? [], null);
-		$this->setIfExists('links', $data ?? [], null);
+		$this->setIfExists('_links', $data ?? [], null);
 	}
 
 	/**
@@ -284,8 +284,8 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 		if ($this->container['meta'] === null) {
 			$invalidProperties[] = "'meta' can't be null";
 		}
-		if ($this->container['links'] === null) {
-			$invalidProperties[] = "'links' can't be null";
+		if ($this->container['_links'] === null) {
+			$invalidProperties[] = "'_links' can't be null";
 		}
 		return $invalidProperties;
 	}
@@ -351,26 +351,26 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	}
 
 	/**
-	 * Gets links
+	 * Gets _links
 	 *
 	 * @return \BhrSdk\Model\GetEmployeesResponseObjectLinks
 	 */
 	public function getLinks() {
-		return $this->container['links'];
+		return $this->container['_links'];
 	}
 
 	/**
-	 * Sets links
+	 * Sets _links
 	 *
-	 * @param \BhrSdk\Model\GetEmployeesResponseObjectLinks $links links
+	 * @param \BhrSdk\Model\GetEmployeesResponseObjectLinks $_links _links
 	 *
 	 * @return self
 	 */
-	public function setLinks($links) {
-		if (is_null($links)) {
-			throw new \InvalidArgumentException('non-nullable links cannot be null');
+	public function setLinks($_links) {
+		if (is_null($_links)) {
+			throw new \InvalidArgumentException('non-nullable _links cannot be null');
 		}
-		$this->container['links'] = $links;
+		$this->container['_links'] = $_links;
 
 		return $this;
 	}
@@ -401,7 +401,7 @@ class GetEmployeesResponseObject implements ModelInterface, ArrayAccess, \JsonSe
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

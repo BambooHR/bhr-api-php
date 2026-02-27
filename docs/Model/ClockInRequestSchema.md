@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **date** | **\DateTime** | Date for the timesheet entry. Must be in YYYY-MM-DD format. | [optional]
 **start** | **string** | The time for the clock in. In 24 hour format HH:MM | [optional]
 **timezone** | **string** | The timezone associated with the clock in. | [optional]
+**break_id** | **string** | ID of the break that should be associated with the timesheet entry. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

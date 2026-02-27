@@ -103,14 +103,71 @@ class TimeTrackingApi {
 		'getTimesheetEntries' => [
 			'application/json',
         ],
+		'timeTrackingAssignEmployeesToBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingCreateBreak' => [
+			'application/json',
+        ],
+		'timeTrackingCreateBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingDeleteBreak' => [
+			'application/json',
+        ],
+		'timeTrackingDeleteBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingGetBreak' => [
+			'application/json',
+        ],
+		'timeTrackingGetBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingListBreakAssessments' => [
+			'application/json',
+        ],
+		'timeTrackingListBreakPolicies' => [
+			'application/json',
+        ],
+		'timeTrackingListBreakPolicyBreaks' => [
+			'application/json',
+        ],
+		'timeTrackingListBreakPolicyEmployees' => [
+			'application/json',
+        ],
+		'timeTrackingListEmployeeBreakAvailabilities' => [
+			'application/json',
+        ],
+		'timeTrackingListEmployeeBreakPolicies' => [
+			'application/json',
+        ],
+		'timeTrackingReplaceBreaksForBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingSetBreakPolicyEmployees' => [
+			'application/json',
+        ],
+		'timeTrackingSyncBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingUnassignEmployeesFromBreakPolicy' => [
+			'application/json',
+        ],
+		'timeTrackingUpdateBreak' => [
+			'application/json',
+        ],
+		'timeTrackingUpdateBreakPolicy' => [
+			'application/json',
+        ],
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -157,7 +214,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema clock_entries_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
+	 * @param  string                                $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -174,7 +231,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
+	 * @param  string                                $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -260,7 +317,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
+	 * @param  string                                $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -280,7 +337,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
+	 * @param  string                                $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -324,7 +381,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'addEditTimesheetClockEntries'
 	 *
 	 * @param  \BhrSdk\Model\ClockEntriesSchema|null $clock_entries_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
+	 * @param  string                                $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetClockEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -405,7 +462,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema hour_entries_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
+	 * @param  string                                      $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -422,7 +479,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
+	 * @param  string                                      $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -508,7 +565,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
+	 * @param  string                                      $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -528,7 +585,7 @@ class TimeTrackingApi {
 	 * Create or Update Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
+	 * @param  string                                      $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -572,7 +629,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'addEditTimesheetHourEntries'
 	 *
 	 * @param  \BhrSdk\Model\HourEntriesRequestSchema|null $hour_entries_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
+	 * @param  string                                      $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['addEditTimesheetHourEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -652,9 +709,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-In Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock in. (required)
+	 * @param  int                                     $employee_id             ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema clock_in_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
+	 * @param  string                                  $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -670,9 +727,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-In Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock in. (required)
+	 * @param  int                                     $employee_id             ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
+	 * @param  string                                  $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -751,9 +808,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-In Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock in. (required)
+	 * @param  int                                     $employee_id             ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
+	 * @param  string                                  $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -772,9 +829,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-In Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock in. (required)
+	 * @param  int                                     $employee_id             ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
+	 * @param  string                                  $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -817,9 +874,9 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'addTimesheetClockInEntry'
 	 *
-	 * @param  int $employee_id ID of the employee to clock in. (required)
+	 * @param  int                                     $employee_id             ID of the employee to clock in. (required)
 	 * @param  \BhrSdk\Model\ClockInRequestSchema|null $clock_in_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
+	 * @param  string                                  $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockInEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -915,9 +972,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-Out Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock out. (required)
+	 * @param  int                                      $employee_id              ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema clock_out_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
+	 * @param  string                                   $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -933,9 +990,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-Out Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock out. (required)
+	 * @param  int                                      $employee_id              ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
+	 * @param  string                                   $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1020,9 +1077,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-Out Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock out. (required)
+	 * @param  int                                      $employee_id              ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
+	 * @param  string                                   $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1041,9 +1098,9 @@ class TimeTrackingApi {
 	 *
 	 * Create Timesheet Clock-Out Entry
 	 *
-	 * @param  int $employee_id ID of the employee to clock out. (required)
+	 * @param  int                                      $employee_id              ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
+	 * @param  string                                   $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1086,9 +1143,9 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'addTimesheetClockOutEntry'
 	 *
-	 * @param  int $employee_id ID of the employee to clock out. (required)
+	 * @param  int                                      $employee_id              ID of the employee to clock out. (required)
 	 * @param  \BhrSdk\Model\ClockOutRequestSchema|null $clock_out_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
+	 * @param  string                                   $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['addTimesheetClockOutEntry'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1185,7 +1242,7 @@ class TimeTrackingApi {
 	 * Create Time Tracking Project
 	 *
 	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema project_create_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
+	 * @param  string                                        $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1202,7 +1259,7 @@ class TimeTrackingApi {
 	 * Create Time Tracking Project
 	 *
 	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
+	 * @param  string                                        $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1252,7 +1309,7 @@ class TimeTrackingApi {
 	 * Create Time Tracking Project
 	 *
 	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
+	 * @param  string                                        $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1272,7 +1329,7 @@ class TimeTrackingApi {
 	 * Create Time Tracking Project
 	 *
 	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
+	 * @param  string                                        $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1316,7 +1373,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'createTimeTrackingProject'
 	 *
 	 * @param  \BhrSdk\Model\ProjectCreateRequestSchema|null $project_create_request_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
+	 * @param  string                                        $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingProject'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1397,7 +1454,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema clock_entry_ids_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                            $contentType            The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1414,7 +1471,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                            $contentType            The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1442,7 +1499,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                            $contentType            The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1462,7 +1519,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Clock Entries
 	 *
 	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                            $contentType            The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1504,7 +1561,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'deleteTimesheetClockEntriesViaPost'
 	 *
 	 * @param  \BhrSdk\Model\ClockEntryIdsSchema $clock_entry_ids_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                            $contentType            The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetClockEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1592,7 +1649,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema hour_entry_ids_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                                $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1609,7 +1666,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                                $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1637,7 +1694,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                                $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1657,7 +1714,7 @@ class TimeTrackingApi {
 	 * Delete Timesheet Hour Entries
 	 *
 	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                                $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1699,7 +1756,7 @@ class TimeTrackingApi {
 	 * Create request for operation 'deleteTimesheetHourEntriesViaPost'
 	 *
 	 * @param  \BhrSdk\Model\HourEntryIdsSchema|null $hour_entry_ids_schema (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
+	 * @param  string                                $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimesheetHourEntriesViaPost'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1779,10 +1836,10 @@ class TimeTrackingApi {
 	 *
 	 * Get Timesheet Entries
 	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $start        YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $end          YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 * @param  string      $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1798,10 +1855,10 @@ class TimeTrackingApi {
 	 *
 	 * Get Timesheet Entries
 	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $start        YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $end          YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 * @param  string      $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1874,10 +1931,10 @@ class TimeTrackingApi {
 	 *
 	 * Get Timesheet Entries
 	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $start        YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $end          YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 * @param  string      $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1896,10 +1953,10 @@ class TimeTrackingApi {
 	 *
 	 * Get Timesheet Entries
 	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $start        YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $end          YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 * @param  string      $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1942,10 +1999,10 @@ class TimeTrackingApi {
 	/**
 	 * Create request for operation 'getTimesheetEntries'
 	 *
-	 * @param  \DateTime $start YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
-	 * @param  \DateTime $end YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $start        YYYY-MM-DD. Only show timesheet entries on/after the specified start date. Must be within the last 365 days. (required)
+	 * @param  \DateTime   $end          YYYY-MM-DD. Only show timesheet entries on/before the specified end date. Must be within the last 365 days. (required)
 	 * @param  string|null $employee_ids A comma separated list of employee IDs. When specified, only entries that match these employee IDs are returned. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
+	 * @param  string      $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['getTimesheetEntries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2034,6 +2091,4539 @@ class TimeTrackingApi {
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
 			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingAssignEmployeesToBreakPolicy
+	 *
+	 * Assign Employees to Break Policy
+	 *
+	 * @param  string                                                        $id                                                     The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingAssignEmployeesToBreakPolicyRequest $time_tracking_assign_employees_to_break_policy_request time_tracking_assign_employees_to_break_policy_request (required)
+	 * @param  string                                                        $contentType                                            The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return mixed
+	 */
+	public function timeTrackingAssignEmployeesToBreakPolicy($id, $time_tracking_assign_employees_to_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingAssignEmployeesToBreakPolicyWithHttpInfo($id, $time_tracking_assign_employees_to_break_policy_request, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingAssignEmployeesToBreakPolicyWithHttpInfo
+	 *
+	 * Assign Employees to Break Policy
+	 *
+	 * @param  string                                                        $id                                                     The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingAssignEmployeesToBreakPolicyRequest $time_tracking_assign_employees_to_break_policy_request (required)
+	 * @param  string                                                        $contentType                                            The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingAssignEmployeesToBreakPolicyWithHttpInfo($id, $time_tracking_assign_employees_to_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'][0]) {
+		$request = $this->timeTrackingAssignEmployeesToBreakPolicyRequest($id, $time_tracking_assign_employees_to_break_policy_request, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		return ApiHelper::handleResponseWithDataType(
+			'object', // or 'mixed' or any other generic type
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingAssignEmployeesToBreakPolicyAsync
+	 *
+	 * Assign Employees to Break Policy
+	 *
+	 * @param  string                                                        $id                                                     The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingAssignEmployeesToBreakPolicyRequest $time_tracking_assign_employees_to_break_policy_request (required)
+	 * @param  string                                                        $contentType                                            The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingAssignEmployeesToBreakPolicyAsync($id, $time_tracking_assign_employees_to_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'][0]) {
+		return $this->timeTrackingAssignEmployeesToBreakPolicyAsyncWithHttpInfo($id, $time_tracking_assign_employees_to_break_policy_request, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingAssignEmployeesToBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Assign Employees to Break Policy
+	 *
+	 * @param  string                                                        $id                                                     The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingAssignEmployeesToBreakPolicyRequest $time_tracking_assign_employees_to_break_policy_request (required)
+	 * @param  string                                                        $contentType                                            The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingAssignEmployeesToBreakPolicyAsyncWithHttpInfo($id, $time_tracking_assign_employees_to_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'][0]) {
+		
+		$request = $this->timeTrackingAssignEmployeesToBreakPolicyRequest($id, $time_tracking_assign_employees_to_break_policy_request, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) {
+					$content = (string) $response->getBody();
+					$content = json_decode($content);
+
+					return [
+						ObjectSerializer::deserialize($content, 'object', []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingAssignEmployeesToBreakPolicy'
+	 *
+	 * @param  string                                                        $id                                                     The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingAssignEmployeesToBreakPolicyRequest $time_tracking_assign_employees_to_break_policy_request (required)
+	 * @param  string                                                        $contentType                                            The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingAssignEmployeesToBreakPolicyRequest($id, $time_tracking_assign_employees_to_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingAssignEmployeesToBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_assign_employees_to_break_policy_request' => $time_tracking_assign_employees_to_break_policy_request,
+			],
+			methodName: 'timeTrackingAssignEmployeesToBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/assign';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			[],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_assign_employees_to_break_policy_request)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_assign_employees_to_break_policy_request));
+			} else {
+				$httpBody = is_array($time_tracking_assign_employees_to_break_policy_request) ? json_encode($time_tracking_assign_employees_to_break_policy_request) : $time_tracking_assign_employees_to_break_policy_request;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreak
+	 *
+	 * Create Break
+	 *
+	 * @param  string                                              $id                                          The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakV1 $time_tracking_create_time_tracking_break_v1 time_tracking_create_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingCreateBreak($id, $time_tracking_create_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreak'][0]) {
+		list($response) = $this->timeTrackingCreateBreakWithHttpInfo($id, $time_tracking_create_time_tracking_break_v1, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakWithHttpInfo
+	 *
+	 * Create Break
+	 *
+	 * @param  string                                              $id                                          The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakV1 $time_tracking_create_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingCreateBreakWithHttpInfo($id, $time_tracking_create_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreak'][0]) {
+		$request = $this->timeTrackingCreateBreakRequest($id, $time_tracking_create_time_tracking_break_v1, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 201:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakAsync
+	 *
+	 * Create Break
+	 *
+	 * @param  string                                              $id                                          The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakV1 $time_tracking_create_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingCreateBreakAsync($id, $time_tracking_create_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreak'][0]) {
+		return $this->timeTrackingCreateBreakAsyncWithHttpInfo($id, $time_tracking_create_time_tracking_break_v1, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakAsyncWithHttpInfo
+	 *
+	 * Create Break
+	 *
+	 * @param  string                                              $id                                          The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakV1 $time_tracking_create_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingCreateBreakAsyncWithHttpInfo($id, $time_tracking_create_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreak'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1';
+		$request = $this->timeTrackingCreateBreakRequest($id, $time_tracking_create_time_tracking_break_v1, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingCreateBreak'
+	 *
+	 * @param  string                                              $id                                          The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakV1 $time_tracking_create_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingCreateBreakRequest($id, $time_tracking_create_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreak'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_create_time_tracking_break_v1' => $time_tracking_create_time_tracking_break_v1,
+			],
+			methodName: 'timeTrackingCreateBreak'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/breaks';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_create_time_tracking_break_v1)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_create_time_tracking_break_v1));
+			} else {
+				$httpBody = is_array($time_tracking_create_time_tracking_break_v1) ? json_encode($time_tracking_create_time_tracking_break_v1) : $time_tracking_create_time_tracking_break_v1;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakPolicy
+	 *
+	 * Create Break Policy
+	 *
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakPolicyV1 $time_tracking_create_time_tracking_break_policy_v1 time_tracking_create_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingCreateBreakPolicy($time_tracking_create_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingCreateBreakPolicyWithHttpInfo($time_tracking_create_time_tracking_break_policy_v1, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakPolicyWithHttpInfo
+	 *
+	 * Create Break Policy
+	 *
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakPolicyV1 $time_tracking_create_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingCreateBreakPolicyWithHttpInfo($time_tracking_create_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'][0]) {
+		$request = $this->timeTrackingCreateBreakPolicyRequest($time_tracking_create_time_tracking_break_policy_v1, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 201:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakPolicyAsync
+	 *
+	 * Create Break Policy
+	 *
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakPolicyV1 $time_tracking_create_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingCreateBreakPolicyAsync($time_tracking_create_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'][0]) {
+		return $this->timeTrackingCreateBreakPolicyAsyncWithHttpInfo($time_tracking_create_time_tracking_break_policy_v1, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingCreateBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Create Break Policy
+	 *
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakPolicyV1 $time_tracking_create_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingCreateBreakPolicyAsyncWithHttpInfo($time_tracking_create_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1';
+		$request = $this->timeTrackingCreateBreakPolicyRequest($time_tracking_create_time_tracking_break_policy_v1, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingCreateBreakPolicy'
+	 *
+	 * @param  \BhrSdk\Model\TimeTrackingCreateTimeTrackingBreakPolicyV1 $time_tracking_create_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingCreateBreakPolicyRequest($time_tracking_create_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingCreateBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'time_tracking_create_time_tracking_break_policy_v1' => $time_tracking_create_time_tracking_break_policy_v1,
+			],
+			methodName: 'timeTrackingCreateBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_create_time_tracking_break_policy_v1)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_create_time_tracking_break_policy_v1));
+			} else {
+				$httpBody = is_array($time_tracking_create_time_tracking_break_policy_v1) ? json_encode($time_tracking_create_time_tracking_break_policy_v1) : $time_tracking_create_time_tracking_break_policy_v1;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreak
+	 *
+	 * Delete Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return mixed
+	 */
+	public function timeTrackingDeleteBreak($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreak'][0]) {
+		list($response) = $this->timeTrackingDeleteBreakWithHttpInfo($id, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakWithHttpInfo
+	 *
+	 * Delete Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingDeleteBreakWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreak'][0]) {
+		$request = $this->timeTrackingDeleteBreakRequest($id, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		return ApiHelper::handleResponseWithDataType(
+			'object', // or 'mixed' or any other generic type
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakAsync
+	 *
+	 * Delete Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingDeleteBreakAsync($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreak'][0]) {
+		return $this->timeTrackingDeleteBreakAsyncWithHttpInfo($id, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakAsyncWithHttpInfo
+	 *
+	 * Delete Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingDeleteBreakAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreak'][0]) {
+		
+		$request = $this->timeTrackingDeleteBreakRequest($id, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) {
+					$content = (string) $response->getBody();
+					$content = json_decode($content);
+
+					return [
+						ObjectSerializer::deserialize($content, 'object', []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingDeleteBreak'
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingDeleteBreakRequest($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreak'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingDeleteBreak'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/breaks/{id}';
+		$this->logger?->info('Request method: [DELETE], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'DELETE',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakPolicy
+	 *
+	 * Delete Break Policy
+	 *
+	 * @param  string $id          The break policy ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return mixed
+	 */
+	public function timeTrackingDeleteBreakPolicy($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingDeleteBreakPolicyWithHttpInfo($id, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakPolicyWithHttpInfo
+	 *
+	 * Delete Break Policy
+	 *
+	 * @param  string $id          The break policy ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingDeleteBreakPolicyWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'][0]) {
+		$request = $this->timeTrackingDeleteBreakPolicyRequest($id, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		return ApiHelper::handleResponseWithDataType(
+			'object', // or 'mixed' or any other generic type
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakPolicyAsync
+	 *
+	 * Delete Break Policy
+	 *
+	 * @param  string $id          The break policy ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingDeleteBreakPolicyAsync($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'][0]) {
+		return $this->timeTrackingDeleteBreakPolicyAsyncWithHttpInfo($id, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingDeleteBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Delete Break Policy
+	 *
+	 * @param  string $id          The break policy ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingDeleteBreakPolicyAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'][0]) {
+		
+		$request = $this->timeTrackingDeleteBreakPolicyRequest($id, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) {
+					$content = (string) $response->getBody();
+					$content = json_decode($content);
+
+					return [
+						ObjectSerializer::deserialize($content, 'object', []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingDeleteBreakPolicy'
+	 *
+	 * @param  string $id          The break policy ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingDeleteBreakPolicyRequest($id, string $contentType = self::CONTENT_TYPES['timeTrackingDeleteBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingDeleteBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}';
+		$this->logger?->info('Request method: [DELETE], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'DELETE',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingGetBreak
+	 *
+	 * Get Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingGetBreak($id, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreak'][0]) {
+		list($response) = $this->timeTrackingGetBreakWithHttpInfo($id, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakWithHttpInfo
+	 *
+	 * Get Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingGetBreakWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreak'][0]) {
+		$request = $this->timeTrackingGetBreakRequest($id, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakAsync
+	 *
+	 * Get Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingGetBreakAsync($id, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreak'][0]) {
+		return $this->timeTrackingGetBreakAsyncWithHttpInfo($id, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakAsyncWithHttpInfo
+	 *
+	 * Get Break
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingGetBreakAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreak'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1';
+		$request = $this->timeTrackingGetBreakRequest($id, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingGetBreak'
+	 *
+	 * @param  string $id          The break ID. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingGetBreakRequest($id, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreak'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingGetBreak'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/breaks/{id}';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakPolicy
+	 *
+	 * Get Break Policy
+	 *
+	 * @param  string    $id             The break policy ID. (required)
+	 * @param  bool|null $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string    $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingGetBreakPolicy($id, $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingGetBreakPolicyWithHttpInfo($id, $include_counts, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakPolicyWithHttpInfo
+	 *
+	 * Get Break Policy
+	 *
+	 * @param  string    $id             The break policy ID. (required)
+	 * @param  bool|null $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string    $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingGetBreakPolicyWithHttpInfo($id, $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreakPolicy'][0]) {
+		$request = $this->timeTrackingGetBreakPolicyRequest($id, $include_counts, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakPolicyAsync
+	 *
+	 * Get Break Policy
+	 *
+	 * @param  string    $id             The break policy ID. (required)
+	 * @param  bool|null $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string    $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingGetBreakPolicyAsync($id, $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreakPolicy'][0]) {
+		return $this->timeTrackingGetBreakPolicyAsyncWithHttpInfo($id, $include_counts, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingGetBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Get Break Policy
+	 *
+	 * @param  string    $id             The break policy ID. (required)
+	 * @param  bool|null $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string    $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingGetBreakPolicyAsyncWithHttpInfo($id, $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreakPolicy'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1';
+		$request = $this->timeTrackingGetBreakPolicyRequest($id, $include_counts, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingGetBreakPolicy'
+	 *
+	 * @param  string    $id             The break policy ID. (required)
+	 * @param  bool|null $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string    $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingGetBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingGetBreakPolicyRequest($id, $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingGetBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingGetBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'includeCounts' => ['value' => $include_counts, 'type' => 'boolean', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakAssessments
+	 *
+	 * List Break Assessments
+	 *
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakAssessments'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingPaginatedBreakAssessmentsResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingListBreakAssessments($offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakAssessments'][0]) {
+		list($response) = $this->timeTrackingListBreakAssessmentsWithHttpInfo($offset, $limit, $filter, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingListBreakAssessmentsWithHttpInfo
+	 *
+	 * List Break Assessments
+	 *
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakAssessments'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingPaginatedBreakAssessmentsResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingListBreakAssessmentsWithHttpInfo($offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakAssessments'][0]) {
+		$request = $this->timeTrackingListBreakAssessmentsRequest($offset, $limit, $filter, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingPaginatedBreakAssessmentsResponseV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingPaginatedBreakAssessmentsResponseV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakAssessmentsAsync
+	 *
+	 * List Break Assessments
+	 *
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakAssessments'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakAssessmentsAsync($offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakAssessments'][0]) {
+		return $this->timeTrackingListBreakAssessmentsAsyncWithHttpInfo($offset, $limit, $filter, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakAssessmentsAsyncWithHttpInfo
+	 *
+	 * List Break Assessments
+	 *
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakAssessments'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakAssessmentsAsyncWithHttpInfo($offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakAssessments'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingPaginatedBreakAssessmentsResponseV1';
+		$request = $this->timeTrackingListBreakAssessmentsRequest($offset, $limit, $filter, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingListBreakAssessments'
+	 *
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakAssessments'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingListBreakAssessmentsRequest($offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakAssessments'][0]) {
+
+		if ($limit !== null && $limit > 500) {
+			throw new \InvalidArgumentException('invalid value for "$limit" when calling TimeTrackingApi.timeTrackingListBreakAssessments, must be smaller than or equal to 500.');
+		}
+		
+		$resourcePath = '/api/v1/time-tracking/break-assessments';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'offset' => ['value' => $offset, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicies
+	 *
+	 * List Break Policies
+	 *
+	 * @param  int|null    $offset         The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit          The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter         Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  bool|null   $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string      $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingListBreakPolicies($offset = 0, $limit = 100, $filter = '', $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicies'][0]) {
+		list($response) = $this->timeTrackingListBreakPoliciesWithHttpInfo($offset, $limit, $filter, $include_counts, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPoliciesWithHttpInfo
+	 *
+	 * List Break Policies
+	 *
+	 * @param  int|null    $offset         The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit          The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter         Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  bool|null   $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string      $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingListBreakPoliciesWithHttpInfo($offset = 0, $limit = 100, $filter = '', $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicies'][0]) {
+		$request = $this->timeTrackingListBreakPoliciesRequest($offset, $limit, $filter, $include_counts, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPoliciesAsync
+	 *
+	 * List Break Policies
+	 *
+	 * @param  int|null    $offset         The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit          The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter         Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  bool|null   $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string      $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakPoliciesAsync($offset = 0, $limit = 100, $filter = '', $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicies'][0]) {
+		return $this->timeTrackingListBreakPoliciesAsyncWithHttpInfo($offset, $limit, $filter, $include_counts, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPoliciesAsyncWithHttpInfo
+	 *
+	 * List Break Policies
+	 *
+	 * @param  int|null    $offset         The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit          The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter         Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  bool|null   $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string      $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakPoliciesAsyncWithHttpInfo($offset = 0, $limit = 100, $filter = '', $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicies'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1';
+		$request = $this->timeTrackingListBreakPoliciesRequest($offset, $limit, $filter, $include_counts, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingListBreakPolicies'
+	 *
+	 * @param  int|null    $offset         The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit          The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter         Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  bool|null   $include_counts Include employee and break counts (optional, default to false)
+	 * @param  string      $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingListBreakPoliciesRequest($offset = 0, $limit = 100, $filter = '', $include_counts = false, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicies'][0]) {
+
+		if ($limit !== null && $limit > 500) {
+			throw new \InvalidArgumentException('invalid value for "$limit" when calling TimeTrackingApi.timeTrackingListBreakPolicies, must be smaller than or equal to 500.');
+		}
+		
+		$resourcePath = '/api/v1/time-tracking/break-policies';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'offset' => ['value' => $offset, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'includeCounts' => ['value' => $include_counts, 'type' => 'boolean', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyBreaks
+	 *
+	 * List Breaks for Break Policy
+	 *
+	 * @param  string      $id          The break policy ID. (required)
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingPaginatedBreaksResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingListBreakPolicyBreaks($id, $offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'][0]) {
+		list($response) = $this->timeTrackingListBreakPolicyBreaksWithHttpInfo($id, $offset, $limit, $filter, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyBreaksWithHttpInfo
+	 *
+	 * List Breaks for Break Policy
+	 *
+	 * @param  string      $id          The break policy ID. (required)
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingPaginatedBreaksResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingListBreakPolicyBreaksWithHttpInfo($id, $offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'][0]) {
+		$request = $this->timeTrackingListBreakPolicyBreaksRequest($id, $offset, $limit, $filter, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingPaginatedBreaksResponseV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingPaginatedBreaksResponseV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyBreaksAsync
+	 *
+	 * List Breaks for Break Policy
+	 *
+	 * @param  string      $id          The break policy ID. (required)
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakPolicyBreaksAsync($id, $offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'][0]) {
+		return $this->timeTrackingListBreakPolicyBreaksAsyncWithHttpInfo($id, $offset, $limit, $filter, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyBreaksAsyncWithHttpInfo
+	 *
+	 * List Breaks for Break Policy
+	 *
+	 * @param  string      $id          The break policy ID. (required)
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakPolicyBreaksAsyncWithHttpInfo($id, $offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingPaginatedBreaksResponseV1';
+		$request = $this->timeTrackingListBreakPolicyBreaksRequest($id, $offset, $limit, $filter, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingListBreakPolicyBreaks'
+	 *
+	 * @param  string      $id          The break policy ID. (required)
+	 * @param  int|null    $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null    $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string|null $filter      Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingListBreakPolicyBreaksRequest($id, $offset = 0, $limit = 100, $filter = '', string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyBreaks'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingListBreakPolicyBreaks'
+		);
+
+		if ($limit !== null && $limit > 500) {
+			throw new \InvalidArgumentException('invalid value for "$limit" when calling TimeTrackingApi.timeTrackingListBreakPolicyBreaks, must be smaller than or equal to 500.');
+		}
+		
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/breaks';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'offset' => ['value' => $offset, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyEmployees
+	 *
+	 * List Break Policy Employees
+	 *
+	 * @param  string   $id          The break policy ID. (required)
+	 * @param  int|null $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingPaginatedBreakPolicyEmployeesResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingListBreakPolicyEmployees($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'][0]) {
+		list($response) = $this->timeTrackingListBreakPolicyEmployeesWithHttpInfo($id, $offset, $limit, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyEmployeesWithHttpInfo
+	 *
+	 * List Break Policy Employees
+	 *
+	 * @param  string   $id          The break policy ID. (required)
+	 * @param  int|null $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingPaginatedBreakPolicyEmployeesResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingListBreakPolicyEmployeesWithHttpInfo($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'][0]) {
+		$request = $this->timeTrackingListBreakPolicyEmployeesRequest($id, $offset, $limit, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingPaginatedBreakPolicyEmployeesResponseV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingPaginatedBreakPolicyEmployeesResponseV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyEmployeesAsync
+	 *
+	 * List Break Policy Employees
+	 *
+	 * @param  string   $id          The break policy ID. (required)
+	 * @param  int|null $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakPolicyEmployeesAsync($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'][0]) {
+		return $this->timeTrackingListBreakPolicyEmployeesAsyncWithHttpInfo($id, $offset, $limit, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingListBreakPolicyEmployeesAsyncWithHttpInfo
+	 *
+	 * List Break Policy Employees
+	 *
+	 * @param  string   $id          The break policy ID. (required)
+	 * @param  int|null $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListBreakPolicyEmployeesAsyncWithHttpInfo($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingPaginatedBreakPolicyEmployeesResponseV1';
+		$request = $this->timeTrackingListBreakPolicyEmployeesRequest($id, $offset, $limit, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingListBreakPolicyEmployees'
+	 *
+	 * @param  string   $id          The break policy ID. (required)
+	 * @param  int|null $offset      The offset of items to retrieve (optional, default to 0)
+	 * @param  int|null $limit       The maximum items to retrieve (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingListBreakPolicyEmployeesRequest($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListBreakPolicyEmployees'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingListBreakPolicyEmployees'
+		);
+
+		if ($limit !== null && $limit > 500) {
+			throw new \InvalidArgumentException('invalid value for "$limit" when calling TimeTrackingApi.timeTrackingListBreakPolicyEmployees, must be smaller than or equal to 500.');
+		}
+		
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/employees';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'offset' => ['value' => $offset, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakAvailabilities
+	 *
+	 * List Employee Break Availability
+	 *
+	 * @param  int         $id          The employee ID. (required)
+	 * @param  string|null $effective   The employee&#39;s local time that should be used to calculate availability. Defaults to the current time. Must be in Y-m-d\\TH:i:s format (no timezone offset). (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakAvailabilityV1[]|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingListEmployeeBreakAvailabilities($id, $effective = null, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'][0]) {
+		list($response) = $this->timeTrackingListEmployeeBreakAvailabilitiesWithHttpInfo($id, $effective, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakAvailabilitiesWithHttpInfo
+	 *
+	 * List Employee Break Availability
+	 *
+	 * @param  int         $id          The employee ID. (required)
+	 * @param  string|null $effective   The employee&#39;s local time that should be used to calculate availability. Defaults to the current time. Must be in Y-m-d\\TH:i:s format (no timezone offset). (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakAvailabilityV1[]|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingListEmployeeBreakAvailabilitiesWithHttpInfo($id, $effective = null, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'][0]) {
+		$request = $this->timeTrackingListEmployeeBreakAvailabilitiesRequest($id, $effective, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakAvailabilityV1[]',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakAvailabilityV1[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakAvailabilitiesAsync
+	 *
+	 * List Employee Break Availability
+	 *
+	 * @param  int         $id          The employee ID. (required)
+	 * @param  string|null $effective   The employee&#39;s local time that should be used to calculate availability. Defaults to the current time. Must be in Y-m-d\\TH:i:s format (no timezone offset). (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListEmployeeBreakAvailabilitiesAsync($id, $effective = null, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'][0]) {
+		return $this->timeTrackingListEmployeeBreakAvailabilitiesAsyncWithHttpInfo($id, $effective, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakAvailabilitiesAsyncWithHttpInfo
+	 *
+	 * List Employee Break Availability
+	 *
+	 * @param  int         $id          The employee ID. (required)
+	 * @param  string|null $effective   The employee&#39;s local time that should be used to calculate availability. Defaults to the current time. Must be in Y-m-d\\TH:i:s format (no timezone offset). (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListEmployeeBreakAvailabilitiesAsyncWithHttpInfo($id, $effective = null, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakAvailabilityV1[]';
+		$request = $this->timeTrackingListEmployeeBreakAvailabilitiesRequest($id, $effective, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingListEmployeeBreakAvailabilities'
+	 *
+	 * @param  int         $id          The employee ID. (required)
+	 * @param  string|null $effective   The employee&#39;s local time that should be used to calculate availability. Defaults to the current time. Must be in Y-m-d\\TH:i:s format (no timezone offset). (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingListEmployeeBreakAvailabilitiesRequest($id, $effective = null, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakAvailabilities'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingListEmployeeBreakAvailabilities'
+		);
+
+		if ($effective !== null && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$/", $effective)) {
+			throw new \InvalidArgumentException("invalid value for \"effective\" when calling TimeTrackingApi.timeTrackingListEmployeeBreakAvailabilities, must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$/.");
+		}
+		
+		$resourcePath = '/api/v1/time-tracking/employees/{id}/break-availabilities';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'effective' => ['value' => $effective, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakPolicies
+	 *
+	 * List Employee Break Policies
+	 *
+	 * @param  int      $id          The employee ID. (required)
+	 * @param  int|null $offset      The number of items to skip before starting to collect the result set. Minimum 0. Defaults to 0. (optional, default to 0)
+	 * @param  int|null $limit       The maximum number of items to return. Must be between 0 and 500. Defaults to 100. (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingListEmployeeBreakPolicies($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'][0]) {
+		list($response) = $this->timeTrackingListEmployeeBreakPoliciesWithHttpInfo($id, $offset, $limit, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakPoliciesWithHttpInfo
+	 *
+	 * List Employee Break Policies
+	 *
+	 * @param  int      $id          The employee ID. (required)
+	 * @param  int|null $offset      The number of items to skip before starting to collect the result set. Minimum 0. Defaults to 0. (optional, default to 0)
+	 * @param  int|null $limit       The maximum number of items to return. Must be between 0 and 500. Defaults to 100. (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingListEmployeeBreakPoliciesWithHttpInfo($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'][0]) {
+		$request = $this->timeTrackingListEmployeeBreakPoliciesRequest($id, $offset, $limit, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakPoliciesAsync
+	 *
+	 * List Employee Break Policies
+	 *
+	 * @param  int      $id          The employee ID. (required)
+	 * @param  int|null $offset      The number of items to skip before starting to collect the result set. Minimum 0. Defaults to 0. (optional, default to 0)
+	 * @param  int|null $limit       The maximum number of items to return. Must be between 0 and 500. Defaults to 100. (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListEmployeeBreakPoliciesAsync($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'][0]) {
+		return $this->timeTrackingListEmployeeBreakPoliciesAsyncWithHttpInfo($id, $offset, $limit, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingListEmployeeBreakPoliciesAsyncWithHttpInfo
+	 *
+	 * List Employee Break Policies
+	 *
+	 * @param  int      $id          The employee ID. (required)
+	 * @param  int|null $offset      The number of items to skip before starting to collect the result set. Minimum 0. Defaults to 0. (optional, default to 0)
+	 * @param  int|null $limit       The maximum number of items to return. Must be between 0 and 500. Defaults to 100. (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingListEmployeeBreakPoliciesAsyncWithHttpInfo($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingPaginatedBreakPoliciesResponseV1';
+		$request = $this->timeTrackingListEmployeeBreakPoliciesRequest($id, $offset, $limit, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingListEmployeeBreakPolicies'
+	 *
+	 * @param  int      $id          The employee ID. (required)
+	 * @param  int|null $offset      The number of items to skip before starting to collect the result set. Minimum 0. Defaults to 0. (optional, default to 0)
+	 * @param  int|null $limit       The maximum number of items to return. Must be between 0 and 500. Defaults to 100. (optional, default to 100)
+	 * @param  string   $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingListEmployeeBreakPoliciesRequest($id, $offset = 0, $limit = 100, string $contentType = self::CONTENT_TYPES['timeTrackingListEmployeeBreakPolicies'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'timeTrackingListEmployeeBreakPolicies'
+		);
+
+		if ($offset !== null && $offset < 0) {
+			throw new \InvalidArgumentException('invalid value for "$offset" when calling TimeTrackingApi.timeTrackingListEmployeeBreakPolicies, must be bigger than or equal to 0.');
+		}
+		
+		if ($limit !== null && $limit > 500) {
+			throw new \InvalidArgumentException('invalid value for "$limit" when calling TimeTrackingApi.timeTrackingListEmployeeBreakPolicies, must be smaller than or equal to 500.');
+		}
+		if ($limit !== null && $limit < 0) {
+			throw new \InvalidArgumentException('invalid value for "$limit" when calling TimeTrackingApi.timeTrackingListEmployeeBreakPolicies, must be bigger than or equal to 0.');
+		}
+		
+		$resourcePath = '/api/v1/time-tracking/employees/{id}/break-policies';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'offset' => ['value' => $offset, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'limit' => ['value' => $limit, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingReplaceBreaksForBreakPolicy
+	 *
+	 * Replace Breaks for Break Policy
+	 *
+	 * @param  string                                                                     $id                                                                   The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1[] $time_tracking_create_or_update_time_tracking_break_without_policy_v1 time_tracking_create_or_update_time_tracking_break_without_policy_v1 (required)
+	 * @param  string                                                                     $contentType                                                          The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1[]
+	 */
+	public function timeTrackingReplaceBreaksForBreakPolicy($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingReplaceBreaksForBreakPolicyWithHttpInfo($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingReplaceBreaksForBreakPolicyWithHttpInfo
+	 *
+	 * Replace Breaks for Break Policy
+	 *
+	 * @param  string                                                                     $id                                                                   The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1[] $time_tracking_create_or_update_time_tracking_break_without_policy_v1 (required)
+	 * @param  string                                                                     $contentType                                                          The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingReplaceBreaksForBreakPolicyWithHttpInfo($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'][0]) {
+		$request = $this->timeTrackingReplaceBreaksForBreakPolicyRequest($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingReplaceBreaksForBreakPolicyAsync
+	 *
+	 * Replace Breaks for Break Policy
+	 *
+	 * @param  string                                                                     $id                                                                   The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1[] $time_tracking_create_or_update_time_tracking_break_without_policy_v1 (required)
+	 * @param  string                                                                     $contentType                                                          The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingReplaceBreaksForBreakPolicyAsync($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'][0]) {
+		return $this->timeTrackingReplaceBreaksForBreakPolicyAsyncWithHttpInfo($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingReplaceBreaksForBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Replace Breaks for Break Policy
+	 *
+	 * @param  string                                                                     $id                                                                   The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1[] $time_tracking_create_or_update_time_tracking_break_without_policy_v1 (required)
+	 * @param  string                                                                     $contentType                                                          The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingReplaceBreaksForBreakPolicyAsyncWithHttpInfo($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1[]';
+		$request = $this->timeTrackingReplaceBreaksForBreakPolicyRequest($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingReplaceBreaksForBreakPolicy'
+	 *
+	 * @param  string                                                                     $id                                                                   The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1[] $time_tracking_create_or_update_time_tracking_break_without_policy_v1 (required)
+	 * @param  string                                                                     $contentType                                                          The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingReplaceBreaksForBreakPolicyRequest($id, $time_tracking_create_or_update_time_tracking_break_without_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingReplaceBreaksForBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_create_or_update_time_tracking_break_without_policy_v1' => $time_tracking_create_or_update_time_tracking_break_without_policy_v1,
+			],
+			methodName: 'timeTrackingReplaceBreaksForBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/breaks';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_create_or_update_time_tracking_break_without_policy_v1)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_create_or_update_time_tracking_break_without_policy_v1));
+			} else {
+				$httpBody = is_array($time_tracking_create_or_update_time_tracking_break_without_policy_v1) ? json_encode($time_tracking_create_or_update_time_tracking_break_without_policy_v1) : $time_tracking_create_or_update_time_tracking_break_without_policy_v1;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingSetBreakPolicyEmployees
+	 *
+	 * Set Employees for Break Policy
+	 *
+	 * @param  string                                                   $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSetBreakPolicyEmployeesRequest $time_tracking_set_break_policy_employees_request time_tracking_set_break_policy_employees_request (required)
+	 * @param  string                                                   $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return mixed
+	 */
+	public function timeTrackingSetBreakPolicyEmployees($id, $time_tracking_set_break_policy_employees_request, string $contentType = self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'][0]) {
+		list($response) = $this->timeTrackingSetBreakPolicyEmployeesWithHttpInfo($id, $time_tracking_set_break_policy_employees_request, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingSetBreakPolicyEmployeesWithHttpInfo
+	 *
+	 * Set Employees for Break Policy
+	 *
+	 * @param  string                                                   $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSetBreakPolicyEmployeesRequest $time_tracking_set_break_policy_employees_request (required)
+	 * @param  string                                                   $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingSetBreakPolicyEmployeesWithHttpInfo($id, $time_tracking_set_break_policy_employees_request, string $contentType = self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'][0]) {
+		$request = $this->timeTrackingSetBreakPolicyEmployeesRequest($id, $time_tracking_set_break_policy_employees_request, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		return ApiHelper::handleResponseWithDataType(
+			'object', // or 'mixed' or any other generic type
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingSetBreakPolicyEmployeesAsync
+	 *
+	 * Set Employees for Break Policy
+	 *
+	 * @param  string                                                   $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSetBreakPolicyEmployeesRequest $time_tracking_set_break_policy_employees_request (required)
+	 * @param  string                                                   $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingSetBreakPolicyEmployeesAsync($id, $time_tracking_set_break_policy_employees_request, string $contentType = self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'][0]) {
+		return $this->timeTrackingSetBreakPolicyEmployeesAsyncWithHttpInfo($id, $time_tracking_set_break_policy_employees_request, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingSetBreakPolicyEmployeesAsyncWithHttpInfo
+	 *
+	 * Set Employees for Break Policy
+	 *
+	 * @param  string                                                   $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSetBreakPolicyEmployeesRequest $time_tracking_set_break_policy_employees_request (required)
+	 * @param  string                                                   $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingSetBreakPolicyEmployeesAsyncWithHttpInfo($id, $time_tracking_set_break_policy_employees_request, string $contentType = self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'][0]) {
+		
+		$request = $this->timeTrackingSetBreakPolicyEmployeesRequest($id, $time_tracking_set_break_policy_employees_request, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) {
+					$content = (string) $response->getBody();
+					$content = json_decode($content);
+
+					return [
+						ObjectSerializer::deserialize($content, 'object', []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingSetBreakPolicyEmployees'
+	 *
+	 * @param  string                                                   $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSetBreakPolicyEmployeesRequest $time_tracking_set_break_policy_employees_request (required)
+	 * @param  string                                                   $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingSetBreakPolicyEmployeesRequest($id, $time_tracking_set_break_policy_employees_request, string $contentType = self::CONTENT_TYPES['timeTrackingSetBreakPolicyEmployees'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_set_break_policy_employees_request' => $time_tracking_set_break_policy_employees_request,
+			],
+			methodName: 'timeTrackingSetBreakPolicyEmployees'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/assign';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_set_break_policy_employees_request)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_set_break_policy_employees_request));
+			} else {
+				$httpBody = is_array($time_tracking_set_break_policy_employees_request) ? json_encode($time_tracking_set_break_policy_employees_request) : $time_tracking_set_break_policy_employees_request;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingSyncBreakPolicy
+	 *
+	 * Sync Break Policy
+	 *
+	 * @param  string                                                  $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSyncTimeTrackingBreakPolicyV1 $time_tracking_sync_time_tracking_break_policy_v1 time_tracking_sync_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                  $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingSyncBreakPolicy($id, $time_tracking_sync_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingSyncBreakPolicyWithHttpInfo($id, $time_tracking_sync_time_tracking_break_policy_v1, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingSyncBreakPolicyWithHttpInfo
+	 *
+	 * Sync Break Policy
+	 *
+	 * @param  string                                                  $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSyncTimeTrackingBreakPolicyV1 $time_tracking_sync_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                  $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingSyncBreakPolicyWithHttpInfo($id, $time_tracking_sync_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'][0]) {
+		$request = $this->timeTrackingSyncBreakPolicyRequest($id, $time_tracking_sync_time_tracking_break_policy_v1, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingSyncBreakPolicyAsync
+	 *
+	 * Sync Break Policy
+	 *
+	 * @param  string                                                  $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSyncTimeTrackingBreakPolicyV1 $time_tracking_sync_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                  $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingSyncBreakPolicyAsync($id, $time_tracking_sync_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'][0]) {
+		return $this->timeTrackingSyncBreakPolicyAsyncWithHttpInfo($id, $time_tracking_sync_time_tracking_break_policy_v1, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingSyncBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Sync Break Policy
+	 *
+	 * @param  string                                                  $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSyncTimeTrackingBreakPolicyV1 $time_tracking_sync_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                  $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingSyncBreakPolicyAsyncWithHttpInfo($id, $time_tracking_sync_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyWithRelationsV1';
+		$request = $this->timeTrackingSyncBreakPolicyRequest($id, $time_tracking_sync_time_tracking_break_policy_v1, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingSyncBreakPolicy'
+	 *
+	 * @param  string                                                  $id                                               The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingSyncTimeTrackingBreakPolicyV1 $time_tracking_sync_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                  $contentType                                      The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingSyncBreakPolicyRequest($id, $time_tracking_sync_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingSyncBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_sync_time_tracking_break_policy_v1' => $time_tracking_sync_time_tracking_break_policy_v1,
+			],
+			methodName: 'timeTrackingSyncBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/sync';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_sync_time_tracking_break_policy_v1)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_sync_time_tracking_break_policy_v1));
+			} else {
+				$httpBody = is_array($time_tracking_sync_time_tracking_break_policy_v1) ? json_encode($time_tracking_sync_time_tracking_break_policy_v1) : $time_tracking_sync_time_tracking_break_policy_v1;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingUnassignEmployeesFromBreakPolicy
+	 *
+	 * Unassign Employees from Break Policy
+	 *
+	 * @param  string                                                            $id                                                         The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUnassignEmployeesFromBreakPolicyRequest $time_tracking_unassign_employees_from_break_policy_request time_tracking_unassign_employees_from_break_policy_request (required)
+	 * @param  string                                                            $contentType                                                The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return mixed
+	 */
+	public function timeTrackingUnassignEmployeesFromBreakPolicy($id, $time_tracking_unassign_employees_from_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingUnassignEmployeesFromBreakPolicyWithHttpInfo($id, $time_tracking_unassign_employees_from_break_policy_request, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingUnassignEmployeesFromBreakPolicyWithHttpInfo
+	 *
+	 * Unassign Employees from Break Policy
+	 *
+	 * @param  string                                                            $id                                                         The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUnassignEmployeesFromBreakPolicyRequest $time_tracking_unassign_employees_from_break_policy_request (required)
+	 * @param  string                                                            $contentType                                                The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingUnassignEmployeesFromBreakPolicyWithHttpInfo($id, $time_tracking_unassign_employees_from_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'][0]) {
+		$request = $this->timeTrackingUnassignEmployeesFromBreakPolicyRequest($id, $time_tracking_unassign_employees_from_break_policy_request, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		return ApiHelper::handleResponseWithDataType(
+			'object', // or 'mixed' or any other generic type
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingUnassignEmployeesFromBreakPolicyAsync
+	 *
+	 * Unassign Employees from Break Policy
+	 *
+	 * @param  string                                                            $id                                                         The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUnassignEmployeesFromBreakPolicyRequest $time_tracking_unassign_employees_from_break_policy_request (required)
+	 * @param  string                                                            $contentType                                                The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingUnassignEmployeesFromBreakPolicyAsync($id, $time_tracking_unassign_employees_from_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'][0]) {
+		return $this->timeTrackingUnassignEmployeesFromBreakPolicyAsyncWithHttpInfo($id, $time_tracking_unassign_employees_from_break_policy_request, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingUnassignEmployeesFromBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Unassign Employees from Break Policy
+	 *
+	 * @param  string                                                            $id                                                         The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUnassignEmployeesFromBreakPolicyRequest $time_tracking_unassign_employees_from_break_policy_request (required)
+	 * @param  string                                                            $contentType                                                The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingUnassignEmployeesFromBreakPolicyAsyncWithHttpInfo($id, $time_tracking_unassign_employees_from_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'][0]) {
+		
+		$request = $this->timeTrackingUnassignEmployeesFromBreakPolicyRequest($id, $time_tracking_unassign_employees_from_break_policy_request, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) {
+					$content = (string) $response->getBody();
+					$content = json_decode($content);
+
+					return [
+						ObjectSerializer::deserialize($content, 'object', []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingUnassignEmployeesFromBreakPolicy'
+	 *
+	 * @param  string                                                            $id                                                         The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUnassignEmployeesFromBreakPolicyRequest $time_tracking_unassign_employees_from_break_policy_request (required)
+	 * @param  string                                                            $contentType                                                The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingUnassignEmployeesFromBreakPolicyRequest($id, $time_tracking_unassign_employees_from_break_policy_request, string $contentType = self::CONTENT_TYPES['timeTrackingUnassignEmployeesFromBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_unassign_employees_from_break_policy_request' => $time_tracking_unassign_employees_from_break_policy_request,
+			],
+			methodName: 'timeTrackingUnassignEmployeesFromBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}/unassign';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			[],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_unassign_employees_from_break_policy_request)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_unassign_employees_from_break_policy_request));
+			} else {
+				$httpBody = is_array($time_tracking_unassign_employees_from_break_policy_request) ? json_encode($time_tracking_unassign_employees_from_break_policy_request) : $time_tracking_unassign_employees_from_break_policy_request;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreak
+	 *
+	 * Update Break
+	 *
+	 * @param  string                                              $id                                          The break ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakV1 $time_tracking_update_time_tracking_break_v1 time_tracking_update_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingUpdateBreak($id, $time_tracking_update_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreak'][0]) {
+		list($response) = $this->timeTrackingUpdateBreakWithHttpInfo($id, $time_tracking_update_time_tracking_break_v1, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakWithHttpInfo
+	 *
+	 * Update Break
+	 *
+	 * @param  string                                              $id                                          The break ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakV1 $time_tracking_update_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingUpdateBreakWithHttpInfo($id, $time_tracking_update_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreak'][0]) {
+		$request = $this->timeTrackingUpdateBreakRequest($id, $time_tracking_update_time_tracking_break_v1, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakAsync
+	 *
+	 * Update Break
+	 *
+	 * @param  string                                              $id                                          The break ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakV1 $time_tracking_update_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingUpdateBreakAsync($id, $time_tracking_update_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreak'][0]) {
+		return $this->timeTrackingUpdateBreakAsyncWithHttpInfo($id, $time_tracking_update_time_tracking_break_v1, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakAsyncWithHttpInfo
+	 *
+	 * Update Break
+	 *
+	 * @param  string                                              $id                                          The break ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakV1 $time_tracking_update_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingUpdateBreakAsyncWithHttpInfo($id, $time_tracking_update_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreak'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakV1';
+		$request = $this->timeTrackingUpdateBreakRequest($id, $time_tracking_update_time_tracking_break_v1, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingUpdateBreak'
+	 *
+	 * @param  string                                              $id                                          The break ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakV1 $time_tracking_update_time_tracking_break_v1 (required)
+	 * @param  string                                              $contentType                                 The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreak'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingUpdateBreakRequest($id, $time_tracking_update_time_tracking_break_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreak'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_update_time_tracking_break_v1' => $time_tracking_update_time_tracking_break_v1,
+			],
+			methodName: 'timeTrackingUpdateBreak'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/breaks/{id}';
+		$this->logger?->info('Request method: [PATCH], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_update_time_tracking_break_v1)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_update_time_tracking_break_v1));
+			} else {
+				$httpBody = is_array($time_tracking_update_time_tracking_break_v1) ? json_encode($time_tracking_update_time_tracking_break_v1) : $time_tracking_update_time_tracking_break_v1;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PATCH',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakPolicy
+	 *
+	 * Update Break Policy
+	 *
+	 * @param  string                                                    $id                                                 The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakPolicyV1 $time_tracking_update_time_tracking_break_policy_v1 time_tracking_update_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function timeTrackingUpdateBreakPolicy($id, $time_tracking_update_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'][0]) {
+		list($response) = $this->timeTrackingUpdateBreakPolicyWithHttpInfo($id, $time_tracking_update_time_tracking_break_policy_v1, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakPolicyWithHttpInfo
+	 *
+	 * Update Break Policy
+	 *
+	 * @param  string                                                    $id                                                 The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakPolicyV1 $time_tracking_update_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function timeTrackingUpdateBreakPolicyWithHttpInfo($id, $time_tracking_update_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'][0]) {
+		$request = $this->timeTrackingUpdateBreakPolicyRequest($id, $time_tracking_update_time_tracking_break_policy_v1, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakPolicyAsync
+	 *
+	 * Update Break Policy
+	 *
+	 * @param  string                                                    $id                                                 The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakPolicyV1 $time_tracking_update_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingUpdateBreakPolicyAsync($id, $time_tracking_update_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'][0]) {
+		return $this->timeTrackingUpdateBreakPolicyAsyncWithHttpInfo($id, $time_tracking_update_time_tracking_break_policy_v1, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation timeTrackingUpdateBreakPolicyAsyncWithHttpInfo
+	 *
+	 * Update Break Policy
+	 *
+	 * @param  string                                                    $id                                                 The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakPolicyV1 $time_tracking_update_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function timeTrackingUpdateBreakPolicyAsyncWithHttpInfo($id, $time_tracking_update_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingTimeTrackingBreakPolicyV1';
+		$request = $this->timeTrackingUpdateBreakPolicyRequest($id, $time_tracking_update_time_tracking_break_policy_v1, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'timeTrackingUpdateBreakPolicy'
+	 *
+	 * @param  string                                                    $id                                                 The break policy ID. (required)
+	 * @param  \BhrSdk\Model\TimeTrackingUpdateTimeTrackingBreakPolicyV1 $time_tracking_update_time_tracking_break_policy_v1 (required)
+	 * @param  string                                                    $contentType                                        The value for the Content-Type header. Check self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function timeTrackingUpdateBreakPolicyRequest($id, $time_tracking_update_time_tracking_break_policy_v1, string $contentType = self::CONTENT_TYPES['timeTrackingUpdateBreakPolicy'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+				'time_tracking_update_time_tracking_break_policy_v1' => $time_tracking_update_time_tracking_break_policy_v1,
+			],
+			methodName: 'timeTrackingUpdateBreakPolicy'
+		);
+
+		$resourcePath = '/api/v1/time-tracking/break-policies/{id}';
+		$this->logger?->info('Request method: [PATCH], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_tracking_update_time_tracking_break_policy_v1)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_tracking_update_time_tracking_break_policy_v1));
+			} else {
+				$httpBody = is_array($time_tracking_update_time_tracking_break_policy_v1) ? json_encode($time_tracking_update_time_tracking_break_policy_v1) : $time_tracking_update_time_tracking_break_policy_v1;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PATCH',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody

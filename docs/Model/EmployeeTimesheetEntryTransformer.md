@@ -16,5 +16,7 @@ Name | Type | Description | Notes
 **project_info** | [**\BhrSdk\Model\ProjectInfoApiTransformer**](ProjectInfoApiTransformer.md) |  | [optional]
 **approved_at** | **\DateTime** | Approved time | [optional]
 **approved** | **bool** | Whether the timesheet entry is approved | [optional]
+**created_at** | **\DateTime** | Created time | [optional]
+**updated_at** | **\DateTime** | Updated time | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

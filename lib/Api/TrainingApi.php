@@ -118,11 +118,11 @@ class TrainingApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -168,9 +168,9 @@ class TrainingApi {
 	 *
 	 * Create Employee Training Record
 	 *
-	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
+	 * @param  int                                               $employee_id                              The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                              The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -186,9 +186,9 @@ class TrainingApi {
 	 *
 	 * Create Employee Training Record
 	 *
-	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
+	 * @param  int                                               $employee_id                              The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                              The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -237,9 +237,9 @@ class TrainingApi {
 	 *
 	 * Create Employee Training Record
 	 *
-	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
+	 * @param  int                                               $employee_id                              The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                              The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -258,9 +258,9 @@ class TrainingApi {
 	 *
 	 * Create Employee Training Record
 	 *
-	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
+	 * @param  int                                               $employee_id                              The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                              The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -303,9 +303,9 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'addNewEmployeeTrainingRecord'
 	 *
-	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
+	 * @param  int                                               $employee_id                              The ID of the employee to add a training record to. (required)
 	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                              The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -403,7 +403,7 @@ class TrainingApi {
 	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -420,7 +420,7 @@ class TrainingApi {
 	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -470,7 +470,7 @@ class TrainingApi {
 	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -490,7 +490,7 @@ class TrainingApi {
 	 * Create Training Category
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -534,7 +534,7 @@ class TrainingApi {
 	 * Create request for operation 'addTrainingCategory'
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -622,7 +622,7 @@ class TrainingApi {
 	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -639,7 +639,7 @@ class TrainingApi {
 	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -689,7 +689,7 @@ class TrainingApi {
 	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -709,7 +709,7 @@ class TrainingApi {
 	 * Create Training Type
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -753,7 +753,7 @@ class TrainingApi {
 	 * Create request for operation 'addTrainingType'
 	 *
 	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -840,8 +840,8 @@ class TrainingApi {
 	 *
 	 * Delete Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  int    $employee_training_record_id The ID of the training record to delete. (required)
+	 * @param  string $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -857,8 +857,8 @@ class TrainingApi {
 	 *
 	 * Delete Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  int    $employee_training_record_id The ID of the training record to delete. (required)
+	 * @param  string $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -885,8 +885,8 @@ class TrainingApi {
 	 *
 	 * Delete Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  int    $employee_training_record_id The ID of the training record to delete. (required)
+	 * @param  string $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -905,8 +905,8 @@ class TrainingApi {
 	 *
 	 * Delete Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  int    $employee_training_record_id The ID of the training record to delete. (required)
+	 * @param  string $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -947,8 +947,8 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'deleteEmployeeTrainingRecord'
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  int    $employee_training_record_id The ID of the training record to delete. (required)
+	 * @param  string $contentType                 The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1034,8 +1034,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
+	 * @param  int    $training_category_id The ID of the training category to delete. (required)
+	 * @param  string $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1051,8 +1051,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
+	 * @param  int    $training_category_id The ID of the training category to delete. (required)
+	 * @param  string $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1079,8 +1079,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
+	 * @param  int    $training_category_id The ID of the training category to delete. (required)
+	 * @param  string $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1099,8 +1099,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
+	 * @param  int    $training_category_id The ID of the training category to delete. (required)
+	 * @param  string $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1141,8 +1141,8 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'deleteTrainingCategory'
 	 *
-	 * @param  int $training_category_id The ID of the training category to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
+	 * @param  int    $training_category_id The ID of the training category to delete. (required)
+	 * @param  string $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1228,8 +1228,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
+	 * @param  int    $training_type_id The ID of the training type to delete. (required)
+	 * @param  string $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1245,8 +1245,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
+	 * @param  int    $training_type_id The ID of the training type to delete. (required)
+	 * @param  string $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1273,8 +1273,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
+	 * @param  int    $training_type_id The ID of the training type to delete. (required)
+	 * @param  string $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1293,8 +1293,8 @@ class TrainingApi {
 	 *
 	 * Delete Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
+	 * @param  int    $training_type_id The ID of the training type to delete. (required)
+	 * @param  string $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1335,8 +1335,8 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'deleteTrainingType'
 	 *
-	 * @param  int $training_type_id The ID of the training type to delete. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
+	 * @param  int    $training_type_id The ID of the training type to delete. (required)
+	 * @param  string $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1422,9 +1422,9 @@ class TrainingApi {
 	 *
 	 * Get Employee Trainings
 	 *
-	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
+	 * @param  int      $employee_id      The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
+	 * @param  string   $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1440,9 +1440,9 @@ class TrainingApi {
 	 *
 	 * Get Employee Trainings
 	 *
-	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
+	 * @param  int      $employee_id      The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
+	 * @param  string   $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1491,9 +1491,9 @@ class TrainingApi {
 	 *
 	 * Get Employee Trainings
 	 *
-	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
+	 * @param  int      $employee_id      The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
+	 * @param  string   $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1512,9 +1512,9 @@ class TrainingApi {
 	 *
 	 * Get Employee Trainings
 	 *
-	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
+	 * @param  int      $employee_id      The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
+	 * @param  string   $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1557,9 +1557,9 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'listEmployeeTrainings'
 	 *
-	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
+	 * @param  int      $employee_id      The ID of the employee to get a list of trainings for. (required)
 	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
+	 * @param  string   $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2055,9 +2055,9 @@ class TrainingApi {
 	 *
 	 * Update Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
+	 * @param  int                                               $employee_training_record_id             The ID of the training record to update. (required)
 	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                             The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2073,9 +2073,9 @@ class TrainingApi {
 	 *
 	 * Update Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
+	 * @param  int                                               $employee_training_record_id             The ID of the training record to update. (required)
 	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                             The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2124,9 +2124,9 @@ class TrainingApi {
 	 *
 	 * Update Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
+	 * @param  int                                               $employee_training_record_id             The ID of the training record to update. (required)
 	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                             The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2145,9 +2145,9 @@ class TrainingApi {
 	 *
 	 * Update Employee Training Record
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
+	 * @param  int                                               $employee_training_record_id             The ID of the training record to update. (required)
 	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                             The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2190,9 +2190,9 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'updateEmployeeTrainingRecord'
 	 *
-	 * @param  int $employee_training_record_id The ID of the training record to update. (required)
+	 * @param  int                                               $employee_training_record_id             The ID of the training record to update. (required)
 	 * @param  \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest $update_employee_training_record_request Training object to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  string                                            $contentType                             The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2289,9 +2289,9 @@ class TrainingApi {
 	 *
 	 * Update Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to update. (required)
+	 * @param  int                                         $training_category_id             The ID of the training category to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2307,9 +2307,9 @@ class TrainingApi {
 	 *
 	 * Update Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to update. (required)
+	 * @param  int                                         $training_category_id             The ID of the training category to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2358,9 +2358,9 @@ class TrainingApi {
 	 *
 	 * Update Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to update. (required)
+	 * @param  int                                         $training_category_id             The ID of the training category to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2379,9 +2379,9 @@ class TrainingApi {
 	 *
 	 * Update Training Category
 	 *
-	 * @param  int $training_category_id The ID of the training category to update. (required)
+	 * @param  int                                         $training_category_id             The ID of the training category to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2424,9 +2424,9 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'updateTrainingCategory'
 	 *
-	 * @param  int $training_category_id The ID of the training category to update. (required)
+	 * @param  int                                         $training_category_id             The ID of the training category to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingCategoryRequest $update_training_category_request Training category to update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2523,9 +2523,9 @@ class TrainingApi {
 	 *
 	 * Update Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to update. (required)
+	 * @param  int                                     $training_type_id             The ID of the training type to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
+	 * @param  string                                  $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2541,9 +2541,9 @@ class TrainingApi {
 	 *
 	 * Update Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to update. (required)
+	 * @param  int                                     $training_type_id             The ID of the training type to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
+	 * @param  string                                  $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2592,9 +2592,9 @@ class TrainingApi {
 	 *
 	 * Update Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to update. (required)
+	 * @param  int                                     $training_type_id             The ID of the training type to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
+	 * @param  string                                  $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2613,9 +2613,9 @@ class TrainingApi {
 	 *
 	 * Update Training Type
 	 *
-	 * @param  int $training_type_id The ID of the training type to update. (required)
+	 * @param  int                                     $training_type_id             The ID of the training type to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
+	 * @param  string                                  $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2658,9 +2658,9 @@ class TrainingApi {
 	/**
 	 * Create request for operation 'updateTrainingType'
 	 *
-	 * @param  int $training_type_id The ID of the training type to update. (required)
+	 * @param  int                                     $training_type_id             The ID of the training type to update. (required)
 	 * @param  \BhrSdk\Model\UpdateTrainingTypeRequest $update_training_type_request Training type object to update to (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
+	 * @param  string                                  $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['updateTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

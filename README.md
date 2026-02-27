@@ -285,9 +285,12 @@ Class | Method | HTTP request | Description
 *BenefitsApi* | [**addEmployeeDependent**](docs/Api/BenefitsApi.md#addemployeedependent) | **POST** /api/v1/employeedependents | Create Employee Dependent
 *BenefitsApi* | [**getBenefitCoverages**](docs/Api/BenefitsApi.md#getbenefitcoverages) | **GET** /api/v1/benefitcoverages | Get Benefit Coverages
 *BenefitsApi* | [**getBenefitDeductionTypes**](docs/Api/BenefitsApi.md#getbenefitdeductiontypes) | **GET** /api/v1/benefits/settings/deduction_types/all | Get Benefit Deduction Types
+*BenefitsApi* | [**getCompanyBenefits**](docs/Api/BenefitsApi.md#getcompanybenefits) | **GET** /api/v1/benefit/company_benefit | Get Company Benefits
+*BenefitsApi* | [**getEmployeeBenefit**](docs/Api/BenefitsApi.md#getemployeebenefit) | **GET** /api/v1/benefit/employee_benefit | Get Employee Benefits
 *BenefitsApi* | [**getEmployeeDependent**](docs/Api/BenefitsApi.md#getemployeedependent) | **GET** /api/v1/employeedependents/{id} | Get Employee Dependent
 *BenefitsApi* | [**getEmployeeDependents**](docs/Api/BenefitsApi.md#getemployeedependents) | **GET** /api/v1/employeedependents | Get Employee Dependents
 *BenefitsApi* | [**getMemberBenefit**](docs/Api/BenefitsApi.md#getmemberbenefit) | **GET** /api/v1/benefit/member_benefit | Get Member Benefit Events
+*BenefitsApi* | [**getMemberBenefits**](docs/Api/BenefitsApi.md#getmemberbenefits) | **GET** /api/v1/benefits/member-benefits | Get Member Benefits
 *BenefitsApi* | [**updateEmployeeDependent**](docs/Api/BenefitsApi.md#updateemployeedependent) | **PUT** /api/v1/employeedependents/{id} | Update Employee Dependent
 *CompanyFilesApi* | [**addCompanyFileCategory**](docs/Api/CompanyFilesApi.md#addcompanyfilecategory) | **POST** /api/v1/files/categories | Create Company File Category
 *CompanyFilesApi* | [**deleteCompanyFile**](docs/Api/CompanyFilesApi.md#deletecompanyfile) | **DELETE** /api/v1/files/{fileId} | Delete Company File
@@ -299,8 +302,11 @@ Class | Method | HTTP request | Description
 *CustomReportsApi* | [**listReports**](docs/Api/CustomReportsApi.md#listreports) | **GET** /api/v1/custom-reports | Get Reports
 *DatasetsApi* | [**getDataFromDataset**](docs/Api/DatasetsApi.md#getdatafromdataset) | **POST** /api/v1/datasets/{datasetName} | Get Data from Dataset
 *DatasetsApi* | [**getDatasets**](docs/Api/DatasetsApi.md#getdatasets) | **GET** /api/v1/datasets | Get Datasets
+*DatasetsApi* | [**getDatasetsV12**](docs/Api/DatasetsApi.md#getdatasetsv12) | **GET** /api/v1_2/datasets | Get Datasets v1.2
 *DatasetsApi* | [**getFieldOptions**](docs/Api/DatasetsApi.md#getfieldoptions) | **POST** /api/v1/datasets/{datasetName}/field-options | Get Field Options
+*DatasetsApi* | [**getFieldOptionsV12**](docs/Api/DatasetsApi.md#getfieldoptionsv12) | **POST** /api/v1_2/datasets/{datasetName}/field-options | Get Field Options v1.2
 *DatasetsApi* | [**getFieldsFromDataset**](docs/Api/DatasetsApi.md#getfieldsfromdataset) | **GET** /api/v1/datasets/{datasetName}/fields | Get Fields from Dataset
+*DatasetsApi* | [**getFieldsFromDatasetV12**](docs/Api/DatasetsApi.md#getfieldsfromdatasetv12) | **GET** /api/v1_2/datasets/{datasetName}/fields | Get Fields from Dataset v1.2
 *EmployeeFilesApi* | [**addEmployeeFileCategory**](docs/Api/EmployeeFilesApi.md#addemployeefilecategory) | **POST** /api/v1/employees/files/categories | Create Employee File Category
 *EmployeeFilesApi* | [**deleteEmployeeFile**](docs/Api/EmployeeFilesApi.md#deleteemployeefile) | **DELETE** /api/v1/employees/{id}/files/{fileId} | Delete Employee File
 *EmployeeFilesApi* | [**getEmployeeFile**](docs/Api/EmployeeFilesApi.md#getemployeefile) | **GET** /api/v1/employees/{id}/files/{fileId} | Get Employee File
@@ -364,7 +370,7 @@ Class | Method | HTTP request | Description
 *TimeOffApi* | [**timeOffAssignTimeOffPoliciesForAnEmployee**](docs/Api/TimeOffApi.md#timeoffassigntimeoffpoliciesforanemployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies
 *TimeOffApi* | [**timeOffAssignTimeOffPoliciesForAnEmployeeV11**](docs/Api/TimeOffApi.md#timeoffassigntimeoffpoliciesforanemployeev11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies v1.1
 *TimeOffApi* | [**timeOffChangeARequestStatus**](docs/Api/TimeOffApi.md#timeoffchangearequeststatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Update Time Off Request Status
-*TimeOffApi* | [**timeOffEstimateFutureTimeOffBalances**](docs/Api/TimeOffApi.md#timeoffestimatefuturetimeoffbalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances
+*TimeOffApi* | [**timeOffGetTimeOffBalance**](docs/Api/TimeOffApi.md#timeoffgettimeoffbalance) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Get Time Off Balance
 *TimeOffApi* | [**timeOffGetTimeOffRequests**](docs/Api/TimeOffApi.md#timeoffgettimeoffrequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests
 *TimeOffApi* | [**timeOffListTimeOffPoliciesForEmployee**](docs/Api/TimeOffApi.md#timeofflisttimeoffpoliciesforemployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | Get Time Off Policies for Employee
 *TimeOffApi* | [**timeOffListTimeOffPoliciesForEmployeeV11**](docs/Api/TimeOffApi.md#timeofflisttimeoffpoliciesforemployeev11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | Get Time Off Policies for Employee v1.1
@@ -376,6 +382,25 @@ Class | Method | HTTP request | Description
 *TimeTrackingApi* | [**deleteTimesheetClockEntriesViaPost**](docs/Api/TimeTrackingApi.md#deletetimesheetclockentriesviapost) | **POST** /api/v1/time_tracking/clock_entries/delete | Delete Timesheet Clock Entries
 *TimeTrackingApi* | [**deleteTimesheetHourEntriesViaPost**](docs/Api/TimeTrackingApi.md#deletetimesheethourentriesviapost) | **POST** /api/v1/time_tracking/hour_entries/delete | Delete Timesheet Hour Entries
 *TimeTrackingApi* | [**getTimesheetEntries**](docs/Api/TimeTrackingApi.md#gettimesheetentries) | **GET** /api/v1/time_tracking/timesheet_entries | Get Timesheet Entries
+*TimeTrackingApi* | [**timeTrackingAssignEmployeesToBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingassignemployeestobreakpolicy) | **POST** /api/v1/time-tracking/break-policies/{id}/assign | Assign Employees to Break Policy
+*TimeTrackingApi* | [**timeTrackingCreateBreak**](docs/Api/TimeTrackingApi.md#timetrackingcreatebreak) | **POST** /api/v1/time-tracking/break-policies/{id}/breaks | Create Break
+*TimeTrackingApi* | [**timeTrackingCreateBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingcreatebreakpolicy) | **POST** /api/v1/time-tracking/break-policies | Create Break Policy
+*TimeTrackingApi* | [**timeTrackingDeleteBreak**](docs/Api/TimeTrackingApi.md#timetrackingdeletebreak) | **DELETE** /api/v1/time-tracking/breaks/{id} | Delete Break
+*TimeTrackingApi* | [**timeTrackingDeleteBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingdeletebreakpolicy) | **DELETE** /api/v1/time-tracking/break-policies/{id} | Delete Break Policy
+*TimeTrackingApi* | [**timeTrackingGetBreak**](docs/Api/TimeTrackingApi.md#timetrackinggetbreak) | **GET** /api/v1/time-tracking/breaks/{id} | Get Break
+*TimeTrackingApi* | [**timeTrackingGetBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackinggetbreakpolicy) | **GET** /api/v1/time-tracking/break-policies/{id} | Get Break Policy
+*TimeTrackingApi* | [**timeTrackingListBreakAssessments**](docs/Api/TimeTrackingApi.md#timetrackinglistbreakassessments) | **GET** /api/v1/time-tracking/break-assessments | List Break Assessments
+*TimeTrackingApi* | [**timeTrackingListBreakPolicies**](docs/Api/TimeTrackingApi.md#timetrackinglistbreakpolicies) | **GET** /api/v1/time-tracking/break-policies | List Break Policies
+*TimeTrackingApi* | [**timeTrackingListBreakPolicyBreaks**](docs/Api/TimeTrackingApi.md#timetrackinglistbreakpolicybreaks) | **GET** /api/v1/time-tracking/break-policies/{id}/breaks | List Breaks for Break Policy
+*TimeTrackingApi* | [**timeTrackingListBreakPolicyEmployees**](docs/Api/TimeTrackingApi.md#timetrackinglistbreakpolicyemployees) | **GET** /api/v1/time-tracking/break-policies/{id}/employees | List Break Policy Employees
+*TimeTrackingApi* | [**timeTrackingListEmployeeBreakAvailabilities**](docs/Api/TimeTrackingApi.md#timetrackinglistemployeebreakavailabilities) | **GET** /api/v1/time-tracking/employees/{id}/break-availabilities | List Employee Break Availability
+*TimeTrackingApi* | [**timeTrackingListEmployeeBreakPolicies**](docs/Api/TimeTrackingApi.md#timetrackinglistemployeebreakpolicies) | **GET** /api/v1/time-tracking/employees/{id}/break-policies | List Employee Break Policies
+*TimeTrackingApi* | [**timeTrackingReplaceBreaksForBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingreplacebreaksforbreakpolicy) | **PUT** /api/v1/time-tracking/break-policies/{id}/breaks | Replace Breaks for Break Policy
+*TimeTrackingApi* | [**timeTrackingSetBreakPolicyEmployees**](docs/Api/TimeTrackingApi.md#timetrackingsetbreakpolicyemployees) | **PUT** /api/v1/time-tracking/break-policies/{id}/assign | Set Employees for Break Policy
+*TimeTrackingApi* | [**timeTrackingSyncBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingsyncbreakpolicy) | **PUT** /api/v1/time-tracking/break-policies/{id}/sync | Sync Break Policy
+*TimeTrackingApi* | [**timeTrackingUnassignEmployeesFromBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingunassignemployeesfrombreakpolicy) | **POST** /api/v1/time-tracking/break-policies/{id}/unassign | Unassign Employees from Break Policy
+*TimeTrackingApi* | [**timeTrackingUpdateBreak**](docs/Api/TimeTrackingApi.md#timetrackingupdatebreak) | **PATCH** /api/v1/time-tracking/breaks/{id} | Update Break
+*TimeTrackingApi* | [**timeTrackingUpdateBreakPolicy**](docs/Api/TimeTrackingApi.md#timetrackingupdatebreakpolicy) | **PATCH** /api/v1/time-tracking/break-policies/{id} | Update Break Policy
 *TrainingApi* | [**addNewEmployeeTrainingRecord**](docs/Api/TrainingApi.md#addnewemployeetrainingrecord) | **POST** /api/v1/training/record/employee/{employeeId} | Create Employee Training Record
 *TrainingApi* | [**addTrainingCategory**](docs/Api/TrainingApi.md#addtrainingcategory) | **POST** /api/v1/training/category | Create Training Category
 *TrainingApi* | [**addTrainingType**](docs/Api/TrainingApi.md#addtrainingtype) | **POST** /api/v1/training/type | Create Training Type
@@ -390,6 +415,7 @@ Class | Method | HTTP request | Description
 *TrainingApi* | [**updateTrainingType**](docs/Api/TrainingApi.md#updatetrainingtype) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type
 *WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook
 *WebhooksApi* | [**getMonitorFields**](docs/Api/WebhooksApi.md#getmonitorfields) | **GET** /api/v1/webhooks/monitor_fields | Get Monitor Fields
+*WebhooksApi* | [**getPostFields**](docs/Api/WebhooksApi.md#getpostfields) | **GET** /api/v1/webhooks/post-fields | Get Post Fields
 *WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook
 *WebhooksApi* | [**getWebhookList**](docs/Api/WebhooksApi.md#getwebhooklist) | **GET** /api/v1/webhooks | Get Webhooks
 *WebhooksApi* | [**getWebhookLogs**](docs/Api/WebhooksApi.md#getwebhooklogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs
@@ -418,11 +444,13 @@ Class | Method | HTTP request | Description
 - [ApplicationsListApplicationsItemsInnerApplicant](docs/Model/ApplicationsListApplicationsItemsInnerApplicant.md)
 - [ApplicationsListApplicationsItemsInnerJob](docs/Model/ApplicationsListApplicationsItemsInnerJob.md)
 - [ApplicationsListApplicationsItemsInnerStatus](docs/Model/ApplicationsListApplicationsItemsInnerStatus.md)
+- [BadRequest](docs/Model/BadRequest.md)
 - [ClockEntriesSchema](docs/Model/ClockEntriesSchema.md)
 - [ClockEntryIdsSchema](docs/Model/ClockEntryIdsSchema.md)
 - [ClockEntrySchema](docs/Model/ClockEntrySchema.md)
 - [ClockInRequestSchema](docs/Model/ClockInRequestSchema.md)
 - [ClockOutRequestSchema](docs/Model/ClockOutRequestSchema.md)
+- [CompanyBenefitResponse](docs/Model/CompanyBenefitResponse.md)
 - [CompanyFileUpdate](docs/Model/CompanyFileUpdate.md)
 - [CompanyInformation](docs/Model/CompanyInformation.md)
 - [CompanyInformationAddress](docs/Model/CompanyInformationAddress.md)
@@ -439,12 +467,23 @@ Class | Method | HTTP request | Description
 - [Dataset](docs/Model/Dataset.md)
 - [DatasetFieldsResponse](docs/Model/DatasetFieldsResponse.md)
 - [DatasetResponse](docs/Model/DatasetResponse.md)
+- [DatasetsResponse](docs/Model/DatasetsResponse.md)
+- [DatasetsResponseDatasetsInner](docs/Model/DatasetsResponseDatasetsInner.md)
 - [Employee](docs/Model/Employee.md)
+- [EmployeeBenefit](docs/Model/EmployeeBenefit.md)
+- [EmployeeBenefitFilters](docs/Model/EmployeeBenefitFilters.md)
+- [EmployeeBenefitFiltersFilters](docs/Model/EmployeeBenefitFiltersFilters.md)
+- [EmployeeCreatedWebhookPayload](docs/Model/EmployeeCreatedWebhookPayload.md)
+- [EmployeeCreatedWebhookPayloadData](docs/Model/EmployeeCreatedWebhookPayloadData.md)
+- [EmployeeDeletedWebhookPayload](docs/Model/EmployeeDeletedWebhookPayload.md)
+- [EmployeeDeletedWebhookPayloadData](docs/Model/EmployeeDeletedWebhookPayloadData.md)
 - [EmployeeDependent](docs/Model/EmployeeDependent.md)
 - [EmployeeFileUpdate](docs/Model/EmployeeFileUpdate.md)
 - [EmployeeResponse](docs/Model/EmployeeResponse.md)
 - [EmployeeResponseAggregationsInner](docs/Model/EmployeeResponseAggregationsInner.md)
 - [EmployeeTimesheetEntryTransformer](docs/Model/EmployeeTimesheetEntryTransformer.md)
+- [EmployeeUpdatedWebhookPayload](docs/Model/EmployeeUpdatedWebhookPayload.md)
+- [EmployeeUpdatedWebhookPayloadData](docs/Model/EmployeeUpdatedWebhookPayloadData.md)
 - [Field](docs/Model/Field.md)
 - [FieldList](docs/Model/FieldList.md)
 - [FieldListFieldsInner](docs/Model/FieldListFieldsInner.md)
@@ -456,6 +495,9 @@ Class | Method | HTTP request | Description
 - [GetEmployeesFilterRequestObject](docs/Model/GetEmployeesFilterRequestObject.md)
 - [GetEmployeesResponseObject](docs/Model/GetEmployeesResponseObject.md)
 - [GetEmployeesResponseObjectLinks](docs/Model/GetEmployeesResponseObjectLinks.md)
+- [GetEmployeesResponseObjectLinksNext](docs/Model/GetEmployeesResponseObjectLinksNext.md)
+- [GetEmployeesResponseObjectLinksPrev](docs/Model/GetEmployeesResponseObjectLinksPrev.md)
+- [GetEmployeesResponseObjectLinksSelf](docs/Model/GetEmployeesResponseObjectLinksSelf.md)
 - [GetGoalsAlignmentOptionsRequest](docs/Model/GetGoalsAlignmentOptionsRequest.md)
 - [Goal](docs/Model/Goal.md)
 - [GoalAggregate](docs/Model/GoalAggregate.md)
@@ -493,6 +535,16 @@ Class | Method | HTTP request | Description
 - [MemberBenefitEventMembersInner](docs/Model/MemberBenefitEventMembersInner.md)
 - [MemberBenefitEventMembersInnerCoveragesInner](docs/Model/MemberBenefitEventMembersInnerCoveragesInner.md)
 - [MemberBenefitEventMembersInnerCoveragesInnerEventsInner](docs/Model/MemberBenefitEventMembersInnerCoveragesInnerEventsInner.md)
+- [MemberBenefitsGetPermissionDeniedResponse](docs/Model/MemberBenefitsGetPermissionDeniedResponse.md)
+- [MemberBenefitsGetSuccessResponse](docs/Model/MemberBenefitsGetSuccessResponse.md)
+- [MemberBenefitsGetSuccessResponseDataInner](docs/Model/MemberBenefitsGetSuccessResponseDataInner.md)
+- [MemberBenefitsGetSuccessResponseDataInnerPlansInner](docs/Model/MemberBenefitsGetSuccessResponseDataInnerPlansInner.md)
+- [MemberBenefitsGetSuccessResponseDataInnerPlansInnerDateRangesInner](docs/Model/MemberBenefitsGetSuccessResponseDataInnerPlansInnerDateRangesInner.md)
+- [MemberBenefitsGetSuccessResponseLinks](docs/Model/MemberBenefitsGetSuccessResponseLinks.md)
+- [MemberBenefitsGetSuccessResponseLinksNext](docs/Model/MemberBenefitsGetSuccessResponseLinksNext.md)
+- [MemberBenefitsGetSuccessResponseLinksPrev](docs/Model/MemberBenefitsGetSuccessResponseLinksPrev.md)
+- [MemberBenefitsGetSuccessResponseMeta](docs/Model/MemberBenefitsGetSuccessResponseMeta.md)
+- [MemberBenefitsGetValidationErrorResponse](docs/Model/MemberBenefitsGetValidationErrorResponse.md)
 - [NewWebHook](docs/Model/NewWebHook.md)
 - [Pagination](docs/Model/Pagination.md)
 - [PostApplicantStatusRequest](docs/Model/PostApplicantStatusRequest.md)
@@ -500,6 +552,7 @@ Class | Method | HTTP request | Description
 - [PostGoalRequest](docs/Model/PostGoalRequest.md)
 - [PostGoalRequestMilestonesInner](docs/Model/PostGoalRequestMilestonesInner.md)
 - [PostNewEmployee](docs/Model/PostNewEmployee.md)
+- [ProblemDetailsResponse](docs/Model/ProblemDetailsResponse.md)
 - [ProjectCreateRequestSchema](docs/Model/ProjectCreateRequestSchema.md)
 - [ProjectInfoApiTransformer](docs/Model/ProjectInfoApiTransformer.md)
 - [ProjectInfoApiTransformerProject](docs/Model/ProjectInfoApiTransformerProject.md)
@@ -522,22 +575,52 @@ Class | Method | HTTP request | Description
 - [TableRowUpdate](docs/Model/TableRowUpdate.md)
 - [TaskCreateSchema](docs/Model/TaskCreateSchema.md)
 - [TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner](docs/Model/TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner.md)
+- [TimeOffBalanceEntry](docs/Model/TimeOffBalanceEntry.md)
 - [TimeOffHistory](docs/Model/TimeOffHistory.md)
 - [TimeOffRequest](docs/Model/TimeOffRequest.md)
 - [TimeOffRequestDatesInner](docs/Model/TimeOffRequestDatesInner.md)
 - [TimeOffRequestNotesInner](docs/Model/TimeOffRequestNotesInner.md)
+- [TimeOffTypesAndDefaultHours](docs/Model/TimeOffTypesAndDefaultHours.md)
+- [TimeOffTypesAndDefaultHoursDefaultHoursInner](docs/Model/TimeOffTypesAndDefaultHoursDefaultHoursInner.md)
+- [TimeOffTypesAndDefaultHoursTimeOffTypesInner](docs/Model/TimeOffTypesAndDefaultHoursTimeOffTypesInner.md)
+- [TimeTrackingAssignEmployeesToBreakPolicyRequest](docs/Model/TimeTrackingAssignEmployeesToBreakPolicyRequest.md)
+- [TimeTrackingBreakPolicyEmployeeCollectionV1Inner](docs/Model/TimeTrackingBreakPolicyEmployeeCollectionV1Inner.md)
 - [TimeTrackingBulkResponseSchema](docs/Model/TimeTrackingBulkResponseSchema.md)
 - [TimeTrackingBulkResponseSchemaResponse](docs/Model/TimeTrackingBulkResponseSchemaResponse.md)
+- [TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1](docs/Model/TimeTrackingCreateOrUpdateTimeTrackingBreakWithoutPolicyV1.md)
+- [TimeTrackingCreateTimeTrackingBreakPolicyV1](docs/Model/TimeTrackingCreateTimeTrackingBreakPolicyV1.md)
+- [TimeTrackingCreateTimeTrackingBreakV1](docs/Model/TimeTrackingCreateTimeTrackingBreakV1.md)
 - [TimeTrackingDeleteResponseSchema](docs/Model/TimeTrackingDeleteResponseSchema.md)
 - [TimeTrackingIdResponseSchema](docs/Model/TimeTrackingIdResponseSchema.md)
+- [TimeTrackingOffsetPaginatedResponseDataV1](docs/Model/TimeTrackingOffsetPaginatedResponseDataV1.md)
+- [TimeTrackingOffsetPaginatedResponseDataV1Links](docs/Model/TimeTrackingOffsetPaginatedResponseDataV1Links.md)
+- [TimeTrackingOffsetPaginatedResponseDataV1LinksNext](docs/Model/TimeTrackingOffsetPaginatedResponseDataV1LinksNext.md)
+- [TimeTrackingOffsetPaginatedResponseDataV1LinksPrev](docs/Model/TimeTrackingOffsetPaginatedResponseDataV1LinksPrev.md)
+- [TimeTrackingOffsetPaginatedResponseDataV1Meta](docs/Model/TimeTrackingOffsetPaginatedResponseDataV1Meta.md)
+- [TimeTrackingPaginatedBreakAssessmentsResponseV1](docs/Model/TimeTrackingPaginatedBreakAssessmentsResponseV1.md)
+- [TimeTrackingPaginatedBreakPoliciesResponseV1](docs/Model/TimeTrackingPaginatedBreakPoliciesResponseV1.md)
+- [TimeTrackingPaginatedBreakPolicyEmployeesResponseV1](docs/Model/TimeTrackingPaginatedBreakPolicyEmployeesResponseV1.md)
+- [TimeTrackingPaginatedBreaksResponseV1](docs/Model/TimeTrackingPaginatedBreaksResponseV1.md)
 - [TimeTrackingProjectWithTasksAndEmployeeIds](docs/Model/TimeTrackingProjectWithTasksAndEmployeeIds.md)
 - [TimeTrackingRecord](docs/Model/TimeTrackingRecord.md)
 - [TimeTrackingRecordSchema](docs/Model/TimeTrackingRecordSchema.md)
 - [TimeTrackingRecordSchemaProject](docs/Model/TimeTrackingRecordSchemaProject.md)
 - [TimeTrackingRecordSchemaProjectTask](docs/Model/TimeTrackingRecordSchemaProjectTask.md)
 - [TimeTrackingRecordSchemaShiftDifferential](docs/Model/TimeTrackingRecordSchemaShiftDifferential.md)
+- [TimeTrackingSetBreakPolicyEmployeesRequest](docs/Model/TimeTrackingSetBreakPolicyEmployeesRequest.md)
+- [TimeTrackingSyncTimeTrackingBreakPolicyV1](docs/Model/TimeTrackingSyncTimeTrackingBreakPolicyV1.md)
 - [TimeTrackingTask](docs/Model/TimeTrackingTask.md)
+- [TimeTrackingTimeTrackingBreakAssessmentV1](docs/Model/TimeTrackingTimeTrackingBreakAssessmentV1.md)
+- [TimeTrackingTimeTrackingBreakAssessmentViolationV1](docs/Model/TimeTrackingTimeTrackingBreakAssessmentViolationV1.md)
+- [TimeTrackingTimeTrackingBreakAvailabilityV1](docs/Model/TimeTrackingTimeTrackingBreakAvailabilityV1.md)
+- [TimeTrackingTimeTrackingBreakPolicyV1](docs/Model/TimeTrackingTimeTrackingBreakPolicyV1.md)
+- [TimeTrackingTimeTrackingBreakPolicyWithRelationsV1](docs/Model/TimeTrackingTimeTrackingBreakPolicyWithRelationsV1.md)
+- [TimeTrackingTimeTrackingBreakV1](docs/Model/TimeTrackingTimeTrackingBreakV1.md)
+- [TimeTrackingUnassignEmployeesFromBreakPolicyRequest](docs/Model/TimeTrackingUnassignEmployeesFromBreakPolicyRequest.md)
+- [TimeTrackingUpdateTimeTrackingBreakPolicyV1](docs/Model/TimeTrackingUpdateTimeTrackingBreakPolicyV1.md)
+- [TimeTrackingUpdateTimeTrackingBreakV1](docs/Model/TimeTrackingUpdateTimeTrackingBreakV1.md)
 - [TimesheetEntryInfoApiTransformer](docs/Model/TimesheetEntryInfoApiTransformer.md)
+- [TimesheetEntryInfoApiTransformerBreakInfo](docs/Model/TimesheetEntryInfoApiTransformerBreakInfo.md)
 - [TrainingCategory](docs/Model/TrainingCategory.md)
 - [TrainingCategoryList](docs/Model/TrainingCategoryList.md)
 - [TrainingRecord](docs/Model/TrainingRecord.md)
@@ -558,11 +641,16 @@ Class | Method | HTTP request | Description
 - [UpdateTrainingTypeRequest](docs/Model/UpdateTrainingTypeRequest.md)
 - [UpdateTrainingTypeRequestCategory](docs/Model/UpdateTrainingTypeRequestCategory.md)
 - [WebHookLogResponse](docs/Model/WebHookLogResponse.md)
+- [WebHookPostFieldDataObject](docs/Model/WebHookPostFieldDataObject.md)
+- [WebHookPostFieldPageDataObject](docs/Model/WebHookPostFieldPageDataObject.md)
+- [WebHookPostFieldResponseObject](docs/Model/WebHookPostFieldResponseObject.md)
+- [WebHookPostFieldTableDataObject](docs/Model/WebHookPostFieldTableDataObject.md)
 - [WebHookResponse](docs/Model/WebHookResponse.md)
 - [Webhook](docs/Model/Webhook.md)
 - [WebhookBadRequest](docs/Model/WebhookBadRequest.md)
 - [WebhookError](docs/Model/WebhookError.md)
 - [WebhookErrorErrors](docs/Model/WebhookErrorErrors.md)
+- [WebhookEventType](docs/Model/WebhookEventType.md)
 - [WebhookSubErrorProperty](docs/Model/WebhookSubErrorProperty.md)
 - [WebhookSubErrorPropertyPostFieldsInner](docs/Model/WebhookSubErrorPropertyPostFieldsInner.md)
 - [WebhookSubErrorPropertyUnknownFieldsInner](docs/Model/WebhookSubErrorPropertyUnknownFieldsInner.md)

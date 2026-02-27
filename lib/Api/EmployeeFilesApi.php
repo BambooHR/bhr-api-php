@@ -100,11 +100,11 @@ class EmployeeFilesApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -151,7 +151,7 @@ class EmployeeFilesApi {
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -168,7 +168,7 @@ class EmployeeFilesApi {
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -196,7 +196,7 @@ class EmployeeFilesApi {
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,7 +216,7 @@ class EmployeeFilesApi {
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -258,7 +258,7 @@ class EmployeeFilesApi {
 	 * Create request for operation 'addEmployeeFileCategory'
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -345,8 +345,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -363,8 +363,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -392,8 +392,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -413,8 +413,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -456,8 +456,8 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'deleteEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being deleted. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -553,8 +553,8 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -571,8 +571,8 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -600,8 +600,8 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -621,8 +621,8 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -664,8 +664,8 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'getEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_id     {fileId} is the ID of the employee file being retrieved. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -761,7 +761,7 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee Files and Categories
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  string $id          Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -778,7 +778,7 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee Files and Categories
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  string $id          Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -806,7 +806,7 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee Files and Categories
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  string $id          Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -826,7 +826,7 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee Files and Categories
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  string $id          Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -868,7 +868,7 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'listEmployeeFiles'
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  string $id          Employee ID is required and needs to be a valid employee ID. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -955,10 +955,10 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  string                           $id                   {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string                           $file_id              {fileId} is the ID of the employee file being updated. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update employee_file_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -974,10 +974,10 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  string                           $id                   {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string                           $file_id              {fileId} is the ID of the employee file being updated. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1004,10 +1004,10 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  string                           $id                   {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string                           $file_id              {fileId} is the ID of the employee file being updated. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1026,10 +1026,10 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  string                           $id                   {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string                           $file_id              {fileId} is the ID of the employee file being updated. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1070,10 +1070,10 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'updateEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  string                           $id                   {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string                           $file_id              {fileId} is the ID of the employee file being updated. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
+	 * @param  string                           $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1179,7 +1179,7 @@ class EmployeeFilesApi {
 	 *
 	 * Upload Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1196,7 +1196,7 @@ class EmployeeFilesApi {
 	 *
 	 * Upload Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1224,7 +1224,7 @@ class EmployeeFilesApi {
 	 *
 	 * Upload Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1244,7 +1244,7 @@ class EmployeeFilesApi {
 	 *
 	 * Upload Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1286,7 +1286,7 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'uploadEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $id          {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

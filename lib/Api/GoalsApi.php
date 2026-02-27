@@ -154,11 +154,11 @@ class GoalsApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -205,7 +205,7 @@ class GoalsApi {
 	 * Delete Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -223,7 +223,7 @@ class GoalsApi {
 	 * Delete Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -252,7 +252,7 @@ class GoalsApi {
 	 * Delete Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -273,7 +273,7 @@ class GoalsApi {
 	 * Delete Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -316,7 +316,7 @@ class GoalsApi {
 	 * Create request for operation 'deleteGoal'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -413,8 +413,8 @@ class GoalsApi {
 	 * Delete Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -432,8 +432,8 @@ class GoalsApi {
 	 * Delete Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -462,8 +462,8 @@ class GoalsApi {
 	 * Delete Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -484,8 +484,8 @@ class GoalsApi {
 	 * Delete Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -528,8 +528,8 @@ class GoalsApi {
 	 * Create request for operation 'deleteGoalComment'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the ID of a specific comment for the specified goal. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the ID of a specific comment for the specified goal. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -829,7 +829,7 @@ class GoalsApi {
 	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
+	 * @param  string $goal_id     goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -847,7 +847,7 @@ class GoalsApi {
 	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
+	 * @param  string $goal_id     goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -898,7 +898,7 @@ class GoalsApi {
 	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
+	 * @param  string $goal_id     goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -919,7 +919,7 @@ class GoalsApi {
 	 * Get Goal Aggregate
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
+	 * @param  string $goal_id     goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -964,7 +964,7 @@ class GoalsApi {
 	 * Create request for operation 'getGoalAggregate'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the Goal ID used to generate the aggregate information. (required)
+	 * @param  string $goal_id     goalId is the Goal ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalAggregate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1061,7 +1061,7 @@ class GoalsApi {
 	 * Get Goal Comments
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1079,7 +1079,7 @@ class GoalsApi {
 	 * Get Goal Comments
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1108,7 +1108,7 @@ class GoalsApi {
 	 * Get Goal Comments
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1129,7 +1129,7 @@ class GoalsApi {
 	 * Get Goal Comments
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1172,7 +1172,7 @@ class GoalsApi {
 	 * Create request for operation 'getGoalComments'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalComments'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1268,9 +1268,9 @@ class GoalsApi {
 	 *
 	 * Get Goals
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string|null $filter      A filter that can be applied to only show the goals that are in a certain state. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1286,9 +1286,9 @@ class GoalsApi {
 	 *
 	 * Get Goals
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string|null $filter      A filter that can be applied to only show the goals that are in a certain state. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1337,9 +1337,9 @@ class GoalsApi {
 	 *
 	 * Get Goals
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string|null $filter      A filter that can be applied to only show the goals that are in a certain state. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1358,9 +1358,9 @@ class GoalsApi {
 	 *
 	 * Get Goals
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string|null $filter      A filter that can be applied to only show the goals that are in a certain state. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1403,9 +1403,9 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoals'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string|null $filter A filter that can be applied to only show the goals that are in a certain state. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string|null $filter      A filter that can be applied to only show the goals that are in a certain state. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoals'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1953,7 +1953,7 @@ class GoalsApi {
 	 *
 	 * Get Goals Aggregate v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
+	 * @param  int    $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1970,7 +1970,7 @@ class GoalsApi {
 	 *
 	 * Get Goals Aggregate v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
+	 * @param  int    $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2020,7 +2020,7 @@ class GoalsApi {
 	 *
 	 * Get Goals Aggregate v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
+	 * @param  int    $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2040,7 +2040,7 @@ class GoalsApi {
 	 *
 	 * Get Goals Aggregate v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
+	 * @param  int    $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2084,7 +2084,7 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoalsAggregateV12'
 	 *
-	 * @param  int $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
+	 * @param  int    $employee_id employeeId is the employee ID used to generate the aggregate information. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAggregateV12'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2171,10 +2171,10 @@ class GoalsApi {
 	 *
 	 * Get Alignable Goal Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  string                                             $employee_id                         employeeId is the employee ID to get alignable goal options for. (required)
+	 * @param  int|null                                           $goal_id                             Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
 	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
+	 * @param  string                                             $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2190,10 +2190,10 @@ class GoalsApi {
 	 *
 	 * Get Alignable Goal Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  string                                             $employee_id                         employeeId is the employee ID to get alignable goal options for. (required)
+	 * @param  int|null                                           $goal_id                             Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
 	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
+	 * @param  string                                             $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2220,10 +2220,10 @@ class GoalsApi {
 	 *
 	 * Get Alignable Goal Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  string                                             $employee_id                         employeeId is the employee ID to get alignable goal options for. (required)
+	 * @param  int|null                                           $goal_id                             Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
 	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
+	 * @param  string                                             $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2242,10 +2242,10 @@ class GoalsApi {
 	 *
 	 * Get Alignable Goal Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  string                                             $employee_id                         employeeId is the employee ID to get alignable goal options for. (required)
+	 * @param  int|null                                           $goal_id                             Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
 	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
+	 * @param  string                                             $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2286,10 +2286,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoalsAlignmentOptions'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get alignable goal options for. (required)
-	 * @param  int|null $goal_id Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
+	 * @param  string                                             $employee_id                         employeeId is the employee ID to get alignable goal options for. (required)
+	 * @param  int|null                                           $goal_id                             Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. (optional)
 	 * @param  \BhrSdk\Model\GetGoalsAlignmentOptionsRequest|null $get_goals_alignment_options_request Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
+	 * @param  string                                             $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsAlignmentOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2401,7 +2401,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2419,7 +2419,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2470,7 +2470,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2491,7 +2491,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2536,7 +2536,7 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoalsFiltersV1'
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2624,7 +2624,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2642,7 +2642,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2693,7 +2693,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2714,7 +2714,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Filters v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2759,7 +2759,7 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoalsFiltersV11'
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2847,7 +2847,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Status Counts v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2864,7 +2864,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Status Counts v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2914,7 +2914,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Status Counts v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2934,7 +2934,7 @@ class GoalsApi {
 	 *
 	 * Get Goal Status Counts v1.2
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -2978,7 +2978,7 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoalsFiltersV12'
 	 *
-	 * @param  int $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  int    $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsFiltersV12'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3065,10 +3065,10 @@ class GoalsApi {
 	 *
 	 * Get Available Goal Sharing Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
-	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
-	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to get sharing options for. (required)
+	 * @param  string|null $search      The search term used to filter employees returned. Will search name, employee ID and email. (optional)
+	 * @param  string|null $limit       Limit will restrict results to specified number. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -3084,10 +3084,10 @@ class GoalsApi {
 	 *
 	 * Get Available Goal Sharing Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
-	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
-	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to get sharing options for. (required)
+	 * @param  string|null $search      The search term used to filter employees returned. Will search name, employee ID and email. (optional)
+	 * @param  string|null $limit       Limit will restrict results to specified number. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -3114,10 +3114,10 @@ class GoalsApi {
 	 *
 	 * Get Available Goal Sharing Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
-	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
-	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to get sharing options for. (required)
+	 * @param  string|null $search      The search term used to filter employees returned. Will search name, employee ID and email. (optional)
+	 * @param  string|null $limit       Limit will restrict results to specified number. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3136,10 +3136,10 @@ class GoalsApi {
 	 *
 	 * Get Available Goal Sharing Options
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
-	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
-	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to get sharing options for. (required)
+	 * @param  string|null $search      The search term used to filter employees returned. Will search name, employee ID and email. (optional)
+	 * @param  string|null $limit       Limit will restrict results to specified number. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3180,10 +3180,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'getGoalsShareOptions'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to get sharing options for. (required)
-	 * @param  string|null $search The search term used to filter employees returned. Will search name, employee ID and email. (optional)
-	 * @param  string|null $limit Limit will restrict results to specified number. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID to get sharing options for. (required)
+	 * @param  string|null $search      The search term used to filter employees returned. Will search name, employee ID and email. (optional)
+	 * @param  string|null $limit       Limit will restrict results to specified number. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getGoalsShareOptions'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -3286,10 +3286,10 @@ class GoalsApi {
 	 *
 	 * Close Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string|null $body Comment field is optional. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string      $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string|null $body        Comment field is optional. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -3305,10 +3305,10 @@ class GoalsApi {
 	 *
 	 * Close Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string|null $body Comment field is optional. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string      $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string|null $body        Comment field is optional. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -3357,10 +3357,10 @@ class GoalsApi {
 	 *
 	 * Close Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string|null $body Comment field is optional. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string      $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string|null $body        Comment field is optional. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3379,10 +3379,10 @@ class GoalsApi {
 	 *
 	 * Close Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string|null $body Comment field is optional. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string      $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string|null $body        Comment field is optional. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3425,10 +3425,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'postCloseGoal'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string|null $body Comment field is optional. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
+	 * @param  string      $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string      $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string|null $body        Comment field is optional. (optional)
+	 * @param  string      $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postCloseGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -3533,9 +3533,9 @@ class GoalsApi {
 	 *
 	 * Create Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                        $employee_id       employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request post_goal_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -3551,9 +3551,9 @@ class GoalsApi {
 	 *
 	 * Create Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                        $employee_id       employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -3602,9 +3602,9 @@ class GoalsApi {
 	 *
 	 * Create Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                        $employee_id       employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3623,9 +3623,9 @@ class GoalsApi {
 	 *
 	 * Create Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                        $employee_id       employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3668,9 +3668,9 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'postGoal'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                        $employee_id       employeeId is the employee ID with whom the goal is associated. (required)
 	 * @param  \BhrSdk\Model\PostGoalRequest $post_goal_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['postGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -3768,8 +3768,8 @@ class GoalsApi {
 	 * Create Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $body body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $body        body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3787,8 +3787,8 @@ class GoalsApi {
 	 * Create Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3817,8 +3817,8 @@ class GoalsApi {
 	 * Create Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3839,8 +3839,8 @@ class GoalsApi {
 	 * Create Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3883,8 +3883,8 @@ class GoalsApi {
 	 * Create request for operation 'postGoalComment'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -3992,7 +3992,7 @@ class GoalsApi {
 	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4010,7 +4010,7 @@ class GoalsApi {
 	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4061,7 +4061,7 @@ class GoalsApi {
 	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4082,7 +4082,7 @@ class GoalsApi {
 	 * Reopen Goal
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4127,7 +4127,7 @@ class GoalsApi {
 	 * Create request for operation 'postReopenGoal'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postReopenGoal'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4224,9 +4224,9 @@ class GoalsApi {
 	 * Update Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
-	 * @param  string $body body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the comment ID for the specified goal. (required)
+	 * @param  string $body        body (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4244,9 +4244,9 @@ class GoalsApi {
 	 * Update Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the comment ID for the specified goal. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4275,9 +4275,9 @@ class GoalsApi {
 	 * Update Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the comment ID for the specified goal. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4298,9 +4298,9 @@ class GoalsApi {
 	 * Update Goal Comment
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the comment ID for the specified goal. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4343,9 +4343,9 @@ class GoalsApi {
 	 * Create request for operation 'putGoalComment'
 	 *
 	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $comment_id commentId is the comment ID for the specified goal. (required)
-	 * @param  string $body (required)
+	 * @param  string $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  string $comment_id  commentId is the comment ID for the specified goal. (required)
+	 * @param  string $body        (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -4461,11 +4461,11 @@ class GoalsApi {
 	 *
 	 * Update Milestone Progress
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
+	 * @param  string                                        $employee_id                         employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string                                        $goal_id                             goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                        $milestone_id                        milestoneId is the milestone ID for the specified goal. (required)
 	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request put_goal_milestone_progress_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -4481,11 +4481,11 @@ class GoalsApi {
 	 *
 	 * Update Milestone Progress
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
+	 * @param  string                                        $employee_id                         employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string                                        $goal_id                             goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                        $milestone_id                        milestoneId is the milestone ID for the specified goal. (required)
 	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -4534,11 +4534,11 @@ class GoalsApi {
 	 *
 	 * Update Milestone Progress
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
+	 * @param  string                                        $employee_id                         employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string                                        $goal_id                             goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                        $milestone_id                        milestoneId is the milestone ID for the specified goal. (required)
 	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4557,11 +4557,11 @@ class GoalsApi {
 	 *
 	 * Update Milestone Progress
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
+	 * @param  string                                        $employee_id                         employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string                                        $goal_id                             goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                        $milestone_id                        milestoneId is the milestone ID for the specified goal. (required)
 	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4604,11 +4604,11 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'putGoalMilestoneProgress'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID to whom the goals are assigned. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  string $milestone_id milestoneId is the milestone ID for the specified goal. (required)
+	 * @param  string                                        $employee_id                         employeeId is the employee ID to whom the goals are assigned. (required)
+	 * @param  string                                        $goal_id                             goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                        $milestone_id                        milestoneId is the milestone ID for the specified goal. (required)
 	 * @param  \BhrSdk\Model\PutGoalMilestoneProgressRequest $put_goal_milestone_progress_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
+	 * @param  string                                        $contentType                         The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalMilestoneProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -4723,10 +4723,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Progress
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                                  $employee_id               employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                                  $goal_id                   goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -4742,10 +4742,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Progress
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                                  $employee_id               employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                                  $goal_id                   goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -4794,10 +4794,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Progress
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                                  $employee_id               employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                                  $goal_id                   goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4816,10 +4816,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Progress
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                                  $employee_id               employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                                  $goal_id                   goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4862,10 +4862,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'putGoalProgress'
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                                  $employee_id               employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                                  $goal_id                   goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalProgressRequest $put_goal_progress_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
+	 * @param  string                               $contentType               The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalProgress'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -4971,10 +4971,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Sharing
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                 $employee_id                  employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                                 $goal_id                      goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
+	 * @param  string                                 $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -4990,10 +4990,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Sharing
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                 $employee_id                  employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                                 $goal_id                      goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
+	 * @param  string                                 $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -5042,10 +5042,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Sharing
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                 $employee_id                  employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                                 $goal_id                      goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
+	 * @param  string                                 $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5064,10 +5064,10 @@ class GoalsApi {
 	 *
 	 * Update Goal Sharing
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                 $employee_id                  employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                                 $goal_id                      goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
+	 * @param  string                                 $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5110,10 +5110,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'putGoalSharedWith'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  string                                 $employee_id                  employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string                                 $goal_id                      goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalSharedWithRequest $put_goal_shared_with_request Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
+	 * @param  string                                 $contentType                  The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalSharedWith'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -5219,10 +5219,10 @@ class GoalsApi {
 	 *
 	 * Update Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
+	 * @param  string             $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string             $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  \BhrSdk\Model\Goal $goal        Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  string             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -5239,10 +5239,10 @@ class GoalsApi {
 	 *
 	 * Update Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
+	 * @param  string             $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string             $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  \BhrSdk\Model\Goal $goal        Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  string             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -5292,10 +5292,10 @@ class GoalsApi {
 	 *
 	 * Update Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
+	 * @param  string             $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string             $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  \BhrSdk\Model\Goal $goal        Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  string             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5315,10 +5315,10 @@ class GoalsApi {
 	 *
 	 * Update Goal
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
+	 * @param  string             $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string             $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  \BhrSdk\Model\Goal $goal        Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  string             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5362,10 +5362,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'putGoalV1'
 	 *
-	 * @param  string $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  string $goal_id goalId is the goal ID for the specified employee. (required)
-	 * @param  \BhrSdk\Model\Goal $goal Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
+	 * @param  string             $employee_id employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  string             $goal_id     goalId is the goal ID for the specified employee. (required)
+	 * @param  \BhrSdk\Model\Goal $goal        Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
+	 * @param  string             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -5472,10 +5472,10 @@ class GoalsApi {
 	 *
 	 * Update Goal v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                             $employee_id          employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                             $goal_id              goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
+	 * @param  string                          $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -5491,10 +5491,10 @@ class GoalsApi {
 	 *
 	 * Update Goal v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                             $employee_id          employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                             $goal_id              goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
+	 * @param  string                          $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -5543,10 +5543,10 @@ class GoalsApi {
 	 *
 	 * Update Goal v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                             $employee_id          employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                             $goal_id              goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
+	 * @param  string                          $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5565,10 +5565,10 @@ class GoalsApi {
 	 *
 	 * Update Goal v1.1
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                             $employee_id          employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                             $goal_id              goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
+	 * @param  string                          $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5611,10 +5611,10 @@ class GoalsApi {
 	/**
 	 * Create request for operation 'putGoalV11'
 	 *
-	 * @param  int $employee_id employeeId is the employee ID with whom the goal is associated. (required)
-	 * @param  int $goal_id goalId is the goal ID for the specified employee. (required)
+	 * @param  int                             $employee_id          employeeId is the employee ID with whom the goal is associated. (required)
+	 * @param  int                             $goal_id              goalId is the goal ID for the specified employee. (required)
 	 * @param  \BhrSdk\Model\PutGoalV11Request $put_goal_v11_request Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
+	 * @param  string                          $contentType          The value for the Content-Type header. Check self::CONTENT_TYPES['putGoalV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

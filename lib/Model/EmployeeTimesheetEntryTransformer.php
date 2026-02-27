@@ -68,7 +68,9 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'note' => 'string',
 		'project_info' => '\BhrSdk\Model\ProjectInfoApiTransformer',
 		'approved_at' => '\DateTime',
-		'approved' => 'bool'
+		'approved' => 'bool',
+		'created_at' => '\DateTime',
+		'updated_at' => '\DateTime'
 	];
 
 	/**
@@ -90,7 +92,9 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'note' => null,
 		'project_info' => null,
 		'approved_at' => 'date-time',
-		'approved' => null
+		'approved' => null,
+		'created_at' => 'date-time',
+		'updated_at' => 'date-time'
 	];
 
 	/**
@@ -111,7 +115,9 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'note' => true,
 		'project_info' => true,
 		'approved_at' => true,
-		'approved' => false
+		'approved' => false,
+		'created_at' => false,
+		'updated_at' => true
 	];
 
 	/**
@@ -207,7 +213,9 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'note' => 'note',
 		'project_info' => 'projectInfo',
 		'approved_at' => 'approvedAt',
-		'approved' => 'approved'
+		'approved' => 'approved',
+		'created_at' => 'createdAt',
+		'updated_at' => 'updatedAt'
 	];
 
 	/**
@@ -227,7 +235,9 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'note' => 'setNote',
 		'project_info' => 'setProjectInfo',
 		'approved_at' => 'setApprovedAt',
-		'approved' => 'setApproved'
+		'approved' => 'setApproved',
+		'created_at' => 'setCreatedAt',
+		'updated_at' => 'setUpdatedAt'
 	];
 
 	/**
@@ -247,7 +257,9 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		'note' => 'getNote',
 		'project_info' => 'getProjectInfo',
 		'approved_at' => 'getApprovedAt',
-		'approved' => 'getApproved'
+		'approved' => 'getApproved',
+		'created_at' => 'getCreatedAt',
+		'updated_at' => 'getUpdatedAt'
 	];
 
 	/**
@@ -313,6 +325,8 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 		$this->setIfExists('project_info', $data ?? [], null);
 		$this->setIfExists('approved_at', $data ?? [], null);
 		$this->setIfExists('approved', $data ?? [], null);
+		$this->setIfExists('created_at', $data ?? [], null);
+		$this->setIfExists('updated_at', $data ?? [], null);
 	}
 
 	/**
@@ -694,6 +708,62 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 
 		return $this;
 	}
+
+	/**
+	 * Gets created_at
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getCreatedAt() {
+		return $this->container['created_at'];
+	}
+
+	/**
+	 * Sets created_at
+	 *
+	 * @param \DateTime|null $created_at Created time
+	 *
+	 * @return self
+	 */
+	public function setCreatedAt($created_at) {
+		if (is_null($created_at)) {
+			throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+		}
+		$this->container['created_at'] = $created_at;
+
+		return $this;
+	}
+
+	/**
+	 * Gets updated_at
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getUpdatedAt() {
+		return $this->container['updated_at'];
+	}
+
+	/**
+	 * Sets updated_at
+	 *
+	 * @param \DateTime|null $updated_at Updated time
+	 *
+	 * @return self
+	 */
+	public function setUpdatedAt($updated_at) {
+		if (is_null($updated_at)) {
+			$this->openApiNullablesSetToNull['updated_at'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['updated_at'])) {
+				unset($nullablesSetToNull['updated_at']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['updated_at'] = $updated_at;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -721,7 +791,7 @@ class EmployeeTimesheetEntryTransformer implements ModelInterface, ArrayAccess, 
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

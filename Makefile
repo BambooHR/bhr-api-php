@@ -1,7 +1,7 @@
 # Makefile for BambooHR API PHP SDK
 
 # Default OpenAPI spec path - you can override this with an environment variable
-OPENAPI_SPEC_PATH ?= $(shell echo ~/repos/main/publicOpenapi.yaml)
+OPENAPI_SPEC_PATH ?= $(shell echo ~/repos/main/docs/openapi/generated/public.yaml)
 
 # Set default PHP version
 PHP_VERSION ?= 8.1
@@ -48,6 +48,7 @@ generate:
 		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
+		&& (./vendor/bin/phpcbf --standard=BambooHR --sniffs=PEAR.Commenting.FunctionComment lib/Model/ lib/Api/ || true) \
 		&& ./scripts/update_error_docs.sh \
 		&& ./scripts/add_custom_headers_to_api_docs.sh \
 		&& ./scripts/cleanup_obsolete_files.sh --force

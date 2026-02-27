@@ -63,7 +63,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'string',
 		'date' => '\DateTime',
 		'start' => 'string',
-		'timezone' => 'string'
+		'timezone' => 'string',
+		'break_id' => 'string'
 	];
 
 	/**
@@ -79,7 +80,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => null,
 		'date' => 'date',
 		'start' => null,
-		'timezone' => null
+		'timezone' => null,
+		'break_id' => 'uuid'
 	];
 
 	/**
@@ -94,7 +96,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => true,
 		'date' => true,
 		'start' => true,
-		'timezone' => true
+		'timezone' => true,
+		'break_id' => true
 	];
 
 	/**
@@ -184,7 +187,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'note',
 		'date' => 'date',
 		'start' => 'start',
-		'timezone' => 'timezone'
+		'timezone' => 'timezone',
+		'break_id' => 'breakId'
 	];
 
 	/**
@@ -198,7 +202,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'setNote',
 		'date' => 'setDate',
 		'start' => 'setStart',
-		'timezone' => 'setTimezone'
+		'timezone' => 'setTimezone',
+		'break_id' => 'setBreakId'
 	];
 
 	/**
@@ -212,7 +217,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'getNote',
 		'date' => 'getDate',
 		'start' => 'getStart',
-		'timezone' => 'getTimezone'
+		'timezone' => 'getTimezone',
+		'break_id' => 'getBreakId'
 	];
 
 	/**
@@ -272,6 +278,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		$this->setIfExists('date', $data ?? [], null);
 		$this->setIfExists('start', $data ?? [], null);
 		$this->setIfExists('timezone', $data ?? [], null);
+		$this->setIfExists('break_id', $data ?? [], null);
 	}
 
 	/**
@@ -506,6 +513,37 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 
 		return $this;
 	}
+
+	/**
+	 * Gets break_id
+	 *
+	 * @return string|null
+	 */
+	public function getBreakId() {
+		return $this->container['break_id'];
+	}
+
+	/**
+	 * Sets break_id
+	 *
+	 * @param string|null $break_id ID of the break that should be associated with the timesheet entry.
+	 *
+	 * @return self
+	 */
+	public function setBreakId($break_id) {
+		if (is_null($break_id)) {
+			$this->openApiNullablesSetToNull['break_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['break_id'])) {
+				unset($nullablesSetToNull['break_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['break_id'] = $break_id;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -533,7 +571,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */
