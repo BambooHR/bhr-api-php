@@ -1,7 +1,7 @@
 # Makefile for BambooHR API PHP SDK
 
 # Default OpenAPI spec path - you can override this with an environment variable
-OPENAPI_SPEC_PATH ?= $(shell echo ~/repos/main/publicOpenapi.yaml)
+OPENAPI_SPEC_PATH ?= $(shell echo ~/repos/main/docs/openapi/generated/public.yaml)
 
 # Set default PHP version
 PHP_VERSION ?= 8.1
