@@ -265,7 +265,7 @@ try {
 ## `getEmployeesList()`
 
 ```php
-getEmployeesList($filter, $sort, $page): \BhrSdk\Model\GetEmployeesResponseObject
+getEmployeesList($filter, $sort, $page, $fields): \BhrSdk\Model\GetEmployeesResponseObject
 ```
 
 Get Employees
@@ -294,9 +294,10 @@ $apiInstance = new BhrSdk\Api\EmployeesApi(
 $filter = new \BhrSdk\Model\\BhrSdk\Model\GetEmployeesFilterRequestObject(); // \BhrSdk\Model\GetEmployeesFilterRequestObject | Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data.
 $sort = 'sort_example'; // string | Comma-separated list of sortable fields. Prefix a field with \"-\" for descending order. Allowed fields: `employeeId`, `firstName`, `lastName`, `preferredName`, `jobTitleName`, `status`. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information.
 $page = new \BhrSdk\Model\\BhrSdk\Model\CursorPaginationQueryObject(); // \BhrSdk\Model\CursorPaginationQueryObject | Cursor-based pagination parameters (`limit`, `after`, `before`).
+$fields = workEmail,hireDate,employeeNumber; // string | Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted.
 
 try {
-    $result = $apiInstance->getEmployeesList($filter, $sort, $page);
+    $result = $apiInstance->getEmployeesList($filter, $sort, $page, $fields);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeesApi->getEmployeesList: ', $e->getMessage(), PHP_EOL;
@@ -310,6 +311,7 @@ try {
 | **filter** | [**\BhrSdk\Model\GetEmployeesFilterRequestObject**](../Model/.md)| Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. | [optional] |
 | **sort** | **string**| Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. | [optional] |
 | **page** | [**\BhrSdk\Model\CursorPaginationQueryObject**](../Model/.md)| Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). | [optional] |
+| **fields** | **string**| Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted. | [optional] |
 
 ### Return type
 

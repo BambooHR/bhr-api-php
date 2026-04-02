@@ -106,7 +106,7 @@ class TimeOffApi {
 		'timeOffChangeARequestStatus' => [
 			'application/json',
         ],
-		'timeOffEstimateFutureTimeOffBalances' => [
+		'timeOffGetTimeOffBalance' => [
 			'application/json',
         ],
 		'timeOffGetTimeOffRequests' => [
@@ -121,11 +121,11 @@ class TimeOffApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -172,9 +172,9 @@ class TimeOffApi {
 	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  string|null $start                   A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+	 * @param  string|null $end                     A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -191,9 +191,9 @@ class TimeOffApi {
 	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  string|null $start                   A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+	 * @param  string|null $end                     A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -221,9 +221,9 @@ class TimeOffApi {
 	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  string|null $start                   A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+	 * @param  string|null $end                     A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -243,9 +243,9 @@ class TimeOffApi {
 	 * Get Who’s Out
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  string|null $start                   A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+	 * @param  string|null $end                     A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -287,9 +287,9 @@ class TimeOffApi {
 	 * Create request for operation 'getAListOfWhoIsOut'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  string|null $start                   A date in the form YYYY-MM-DD - defaults to the current date. (optional)
+	 * @param  string|null $end                     A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -382,7 +382,7 @@ class TimeOffApi {
 	 * Get Time Off Policies
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -399,7 +399,7 @@ class TimeOffApi {
 	 * Get Time Off Policies
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -427,7 +427,7 @@ class TimeOffApi {
 	 * Get Time Off Policies
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -447,7 +447,7 @@ class TimeOffApi {
 	 * Get Time Off Policies
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -489,7 +489,7 @@ class TimeOffApi {
 	 * Create request for operation 'getTimeOffPolicies'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -565,12 +565,12 @@ class TimeOffApi {
 	 * Get Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
+	 * @param  string|null $mode                    Set to &#39;request&#39; to filter down to time off types that the user has permission to request (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\TimeOffTypesAndDefaultHours
 	 */
 	public function getTimeOffTypes($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 		list($response) = $this->getTimeOffTypesWithHttpInfo($accept_header_parameter, $mode, $contentType);
@@ -583,12 +583,12 @@ class TimeOffApi {
 	 * Get Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
+	 * @param  string|null $mode                    Set to &#39;request&#39; to filter down to time off types that the user has permission to request (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeOffTypesAndDefaultHours, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getTimeOffTypesWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
 		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
@@ -599,8 +599,30 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeOffTypesAndDefaultHours',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\TimeOffTypesAndDefaultHours',
 			$request,
 			$response,
 		);
@@ -612,8 +634,8 @@ class TimeOffApi {
 	 * Get Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
+	 * @param  string|null $mode                    Set to &#39;request&#39; to filter down to time off types that the user has permission to request (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -633,24 +655,26 @@ class TimeOffApi {
 	 * Get Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
+	 * @param  string|null $mode                    Set to &#39;request&#39; to filter down to time off types that the user has permission to request (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		
+		$returnType = '\BhrSdk\Model\TimeOffTypesAndDefaultHours';
 		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -676,8 +700,8 @@ class TimeOffApi {
 	 * Create request for operation 'getTimeOffTypes'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
+	 * @param  string|null $mode                    Set to &#39;request&#39; to filter down to time off types that the user has permission to request (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -768,9 +792,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request History Item
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                          $employee_id      The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -786,9 +810,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request History Item
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                          $employee_id      The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -815,9 +839,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request History Item
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                          $employee_id      The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -836,9 +860,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request History Item
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                          $employee_id      The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -879,9 +903,9 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                          $employee_id      The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -978,9 +1002,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request
 	 *
-	 * @param  string $employee_id employee_id (required)
+	 * @param  string                       $employee_id      employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -996,9 +1020,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                       $employee_id      (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1025,9 +1049,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                       $employee_id      (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1046,9 +1070,9 @@ class TimeOffApi {
 	 *
 	 * Create Time Off Request
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                       $employee_id      (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1089,9 +1113,9 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffAddATimeOffRequest'
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                       $employee_id      (required)
 	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
+	 * @param  string                       $contentType      The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1188,9 +1212,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Balance
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                                $employee_id             The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
+	 * @param  string                             $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1206,9 +1230,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Balance
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                                $employee_id             The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
+	 * @param  string                             $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1235,9 +1259,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Balance
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                                $employee_id             The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
+	 * @param  string                             $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1256,9 +1280,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Balance
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                                $employee_id             The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
+	 * @param  string                             $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1299,9 +1323,9 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffAdjustTimeOffBalance'
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  int                                $employee_id             The ID of the employee. (required)
 	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
+	 * @param  string                             $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1398,9 +1422,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies
 	 *
-	 * @param  string $employee_id employee_id (required)
+	 * @param  string                                                                $employee_id                                                     employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1416,9 +1440,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1445,9 +1469,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1466,9 +1490,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1509,9 +1533,9 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployee'
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1608,9 +1632,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies v1.1
 	 *
-	 * @param  string $employee_id employee_id (required)
+	 * @param  string                                                                $employee_id                                                     employee_id (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1626,9 +1650,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies v1.1
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1655,9 +1679,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies v1.1
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1676,9 +1700,9 @@ class TimeOffApi {
 	 *
 	 * Assign Time Off Policies v1.1
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1719,9 +1743,9 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
 	 *
-	 * @param  string $employee_id (required)
+	 * @param  string                                                                $employee_id                                                     (required)
 	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
+	 * @param  string                                                                $contentType                                                     The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1818,9 +1842,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id request_id (required)
-	 * @param  \BhrSdk\Model\Request $request request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string                $request_id  request_id (required)
+	 * @param  \BhrSdk\Model\Request $request     request (required)
+	 * @param  string                $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1836,9 +1860,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id (required)
-	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string                $request_id  (required)
+	 * @param  \BhrSdk\Model\Request $request     (required)
+	 * @param  string                $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1865,9 +1889,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id (required)
-	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string                $request_id  (required)
+	 * @param  \BhrSdk\Model\Request $request     (required)
+	 * @param  string                $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1886,9 +1910,9 @@ class TimeOffApi {
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id (required)
-	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string                $request_id  (required)
+	 * @param  \BhrSdk\Model\Request $request     (required)
+	 * @param  string                $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1929,9 +1953,9 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffChangeARequestStatus'
 	 *
-	 * @param  string $request_id (required)
-	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string                $request_id  (required)
+	 * @param  \BhrSdk\Model\Request $request     (required)
+	 * @param  string                $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2024,40 +2048,42 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffEstimateFutureTimeOffBalances
+	 * Operation timeOffGetTimeOffBalance
 	 *
-	 * Estimate Future Time Off Balances
+	 * Get Time Off Balance
 	 *
-	 * @param  \DateTime $end end (required)
-	 * @param  string $employee_id employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+	 * @param  int            $employee_id             The ID of the employee to get time off balances for. (required)
+	 * @param  string|null    $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end                     The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. (optional)
+	 * @param  int|null       $precision               Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string         $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\TimeOffBalanceEntry[]
 	 */
-	public function timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		list($response) = $this->timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType);
+	public function timeOffGetTimeOffBalance($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffBalance'][0]) {
+		list($response) = $this->timeOffGetTimeOffBalanceWithHttpInfo($employee_id, $accept_header_parameter, $end, $precision, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation timeOffEstimateFutureTimeOffBalancesWithHttpInfo
+	 * Operation timeOffGetTimeOffBalanceWithHttpInfo
 	 *
-	 * Estimate Future Time Off Balances
+	 * Get Time Off Balance
 	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+	 * @param  int            $employee_id             The ID of the employee to get time off balances for. (required)
+	 * @param  string|null    $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end                     The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. (optional)
+	 * @param  int|null       $precision               Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string         $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeOffBalanceEntry[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
+	public function timeOffGetTimeOffBalanceWithHttpInfo($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffBalance'][0]) {
+		$request = $this->timeOffGetTimeOffBalanceRequest($employee_id, $accept_header_parameter, $end, $precision, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -2065,28 +2091,51 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeOffBalanceEntry[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\TimeOffBalanceEntry[]',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation timeOffEstimateFutureTimeOffBalancesAsync
+	 * Operation timeOffGetTimeOffBalanceAsync
 	 *
-	 * Estimate Future Time Off Balances
+	 * Get Time Off Balance
 	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+	 * @param  int            $employee_id             The ID of the employee to get time off balances for. (required)
+	 * @param  string|null    $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end                     The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. (optional)
+	 * @param  int|null       $precision               Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string         $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function timeOffEstimateFutureTimeOffBalancesAsync($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		return $this->timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType)
+	public function timeOffGetTimeOffBalanceAsync($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffBalance'][0]) {
+		return $this->timeOffGetTimeOffBalanceAsyncWithHttpInfo($employee_id, $accept_header_parameter, $end, $precision, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -2095,30 +2144,33 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo
+	 * Operation timeOffGetTimeOffBalanceAsyncWithHttpInfo
 	 *
-	 * Estimate Future Time Off Balances
+	 * Get Time Off Balance
 	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+	 * @param  int            $employee_id             The ID of the employee to get time off balances for. (required)
+	 * @param  string|null    $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end                     The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. (optional)
+	 * @param  int|null       $precision               Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string         $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		
-		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
+	public function timeOffGetTimeOffBalanceAsyncWithHttpInfo($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffBalance'][0]) {
+		$returnType = '\BhrSdk\Model\TimeOffBalanceEntry[]';
+		$request = $this->timeOffGetTimeOffBalanceRequest($employee_id, $accept_header_parameter, $end, $precision, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -2141,26 +2193,33 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Create request for operation 'timeOffEstimateFutureTimeOffBalances'
+	 * Create request for operation 'timeOffGetTimeOffBalance'
 	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
+	 * @param  int            $employee_id             The ID of the employee to get time off balances for. (required)
+	 * @param  string|null    $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end                     The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. (optional)
+	 * @param  int|null       $precision               Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string         $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
+	public function timeOffGetTimeOffBalanceRequest($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffBalance'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
-				'end' => $end,
 				'employee_id' => $employee_id,
 			],
-			methodName: 'timeOffEstimateFutureTimeOffBalances'
+			methodName: 'timeOffGetTimeOffBalance'
 		);
 
+		if ($precision !== null && $precision > 4) {
+			throw new \InvalidArgumentException('invalid value for "$precision" when calling TimeOffApi.timeOffGetTimeOffBalance, must be smaller than or equal to 4.');
+		}
+		if ($precision !== null && $precision < 0) {
+			throw new \InvalidArgumentException('invalid value for "$precision" when calling TimeOffApi.timeOffGetTimeOffBalance, must be bigger than or equal to 0.');
+		}
+		
 		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
@@ -2170,7 +2229,8 @@ class TimeOffApi {
 		$multipart = false;
 
 		$parameters = [
-			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'precision' => ['value' => $precision, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
 		];
 
 		// Process parameters and build query values directly
@@ -2254,15 +2314,15 @@ class TimeOffApi {
 	 *
 	 * Get Time Off Requests
 	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
+	 * @param  string      $start                   YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
+	 * @param  string      $end                     YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
+	 * @param  int|null    $id                      A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action                  Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
+	 * @param  string|null $employee_id             A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type                    A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status                  A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2278,15 +2338,15 @@ class TimeOffApi {
 	 *
 	 * Get Time Off Requests
 	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
+	 * @param  string      $start                   YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
+	 * @param  string      $end                     YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
+	 * @param  int|null    $id                      A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action                  Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
+	 * @param  string|null $employee_id             A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type                    A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status                  A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2313,15 +2373,15 @@ class TimeOffApi {
 	 *
 	 * Get Time Off Requests
 	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
+	 * @param  string      $start                   YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
+	 * @param  string      $end                     YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
+	 * @param  int|null    $id                      A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action                  Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
+	 * @param  string|null $employee_id             A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type                    A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status                  A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2340,15 +2400,15 @@ class TimeOffApi {
 	 *
 	 * Get Time Off Requests
 	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
+	 * @param  string      $start                   YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
+	 * @param  string      $end                     YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
+	 * @param  int|null    $id                      A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action                  Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
+	 * @param  string|null $employee_id             A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type                    A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status                  A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2389,15 +2449,15 @@ class TimeOffApi {
 	/**
 	 * Create request for operation 'timeOffGetTimeOffRequests'
 	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
+	 * @param  string      $start                   YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
+	 * @param  string      $end                     YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
+	 * @param  int|null    $id                      A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action                  Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
+	 * @param  string|null $employee_id             A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type                    A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status                  A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

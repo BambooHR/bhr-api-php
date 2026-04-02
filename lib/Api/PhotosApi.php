@@ -88,11 +88,11 @@ class PhotosApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -139,7 +139,7 @@ class PhotosApi {
 	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  string $size        Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -157,7 +157,7 @@ class PhotosApi {
 	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  string $size        Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -186,7 +186,7 @@ class PhotosApi {
 	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  string $size        Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -207,7 +207,7 @@ class PhotosApi {
 	 * Get Employee Photo
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  string $size        Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -250,7 +250,7 @@ class PhotosApi {
 	 * Create request for operation 'getEmployeePhoto'
 	 *
 	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  string $size        Photo size (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException

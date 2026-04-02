@@ -79,11 +79,11 @@ use BhrSdk\ApiHelper;
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,

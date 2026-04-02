@@ -50,7 +50,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	  *
 	  * @var string
 	  */
-	protected static $openApiModelName = 'GetEmployeesResponseObject_links';
+	protected static $openApiModelName = 'GetEmployeesResponseObject__links';
 
 	/**
 	  * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'self' => 'string',
-		'next' => 'string',
-		'prev' => 'string'
+		'self' => '\BhrSdk\Model\GetEmployeesResponseObjectLinksSelf',
+		'next' => '\BhrSdk\Model\GetEmployeesResponseObjectLinksNext',
+		'prev' => '\BhrSdk\Model\GetEmployeesResponseObjectLinksPrev'
 	];
 
 	/**
@@ -294,7 +294,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets self
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\GetEmployeesResponseObjectLinksSelf|null
 	 */
 	public function getSelf() {
 		return $this->container['self'];
@@ -303,7 +303,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets self
 	 *
-	 * @param string|null $self Link to current page
+	 * @param \BhrSdk\Model\GetEmployeesResponseObjectLinksSelf|null $self self
 	 *
 	 * @return self
 	 */
@@ -319,7 +319,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets next
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\GetEmployeesResponseObjectLinksNext|null
 	 */
 	public function getNext() {
 		return $this->container['next'];
@@ -328,7 +328,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets next
 	 *
-	 * @param string|null $next Link to next page
+	 * @param \BhrSdk\Model\GetEmployeesResponseObjectLinksNext|null $next next
 	 *
 	 * @return self
 	 */
@@ -344,7 +344,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Gets prev
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\GetEmployeesResponseObjectLinksPrev|null
 	 */
 	public function getPrev() {
 		return $this->container['prev'];
@@ -353,7 +353,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets prev
 	 *
-	 * @param string|null $prev Link to previous page
+	 * @param \BhrSdk\Model\GetEmployeesResponseObjectLinksPrev|null $prev prev
 	 *
 	 * @return self
 	 */
@@ -392,7 +392,7 @@ class GetEmployeesResponseObjectLinks implements ModelInterface, ArrayAccess, \J
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

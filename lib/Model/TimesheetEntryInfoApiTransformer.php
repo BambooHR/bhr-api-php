@@ -66,7 +66,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'string',
 		'hours' => 'float',
 		'note' => 'string',
-		'project_info' => '\BhrSdk\Model\ProjectInfoApiTransformer'
+		'project_info' => '\BhrSdk\Model\ProjectInfoApiTransformer',
+		'break_info' => '\BhrSdk\Model\TimesheetEntryInfoApiTransformerBreakInfo'
 	];
 
 	/**
@@ -86,7 +87,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => null,
 		'hours' => 'float',
 		'note' => null,
-		'project_info' => null
+		'project_info' => null,
+		'break_info' => null
 	];
 
 	/**
@@ -105,7 +107,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => true,
 		'hours' => true,
 		'note' => true,
-		'project_info' => true
+		'project_info' => true,
+		'break_info' => false
 	];
 
 	/**
@@ -199,7 +202,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'timezone',
 		'hours' => 'hours',
 		'note' => 'note',
-		'project_info' => 'projectInfo'
+		'project_info' => 'projectInfo',
+		'break_info' => 'breakInfo'
 	];
 
 	/**
@@ -217,7 +221,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'setTimezone',
 		'hours' => 'setHours',
 		'note' => 'setNote',
-		'project_info' => 'setProjectInfo'
+		'project_info' => 'setProjectInfo',
+		'break_info' => 'setBreakInfo'
 	];
 
 	/**
@@ -235,7 +240,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'getTimezone',
 		'hours' => 'getHours',
 		'note' => 'getNote',
-		'project_info' => 'getProjectInfo'
+		'project_info' => 'getProjectInfo',
+		'break_info' => 'getBreakInfo'
 	];
 
 	/**
@@ -299,6 +305,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		$this->setIfExists('hours', $data ?? [], null);
 		$this->setIfExists('note', $data ?? [], null);
 		$this->setIfExists('project_info', $data ?? [], null);
+		$this->setIfExists('break_info', $data ?? [], null);
 	}
 
 	/**
@@ -624,6 +631,31 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 
 		return $this;
 	}
+
+	/**
+	 * Gets break_info
+	 *
+	 * @return \BhrSdk\Model\TimesheetEntryInfoApiTransformerBreakInfo|null
+	 */
+	public function getBreakInfo() {
+		return $this->container['break_info'];
+	}
+
+	/**
+	 * Sets break_info
+	 *
+	 * @param \BhrSdk\Model\TimesheetEntryInfoApiTransformerBreakInfo|null $break_info break_info
+	 *
+	 * @return self
+	 */
+	public function setBreakInfo($break_info) {
+		if (is_null($break_info)) {
+			throw new \InvalidArgumentException('non-nullable break_info cannot be null');
+		}
+		$this->container['break_info'] = $break_info;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -651,7 +683,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

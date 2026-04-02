@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **project_id** | **int** | The ID of the project to associate with the timesheet entry. | [optional]
 **task_id** | **int** | The ID of the task to associate with the timesheet entry. | [optional]
 **note** | **string** | Optional note to associate with the timesheet entry. | [optional]
+**break_id** | **string** | Optional break id to associate with the timesheet entry. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

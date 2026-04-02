@@ -327,7 +327,7 @@ class TrainingCategoryList implements ModelInterface, ArrayAccess, \JsonSerializ
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

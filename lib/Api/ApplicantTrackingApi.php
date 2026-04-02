@@ -112,11 +112,11 @@ class ApplicantTrackingApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -162,28 +162,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Candidate
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
+	 * @param  string      $first_name        The first name of the candidate. (required)
+	 * @param  string      $last_name         The last name of the candidate. (required)
+	 * @param  int         $job_id            The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email             The email address of the candidate. (optional)
+	 * @param  string|null $phone_number      The phone number of the candidate. (optional)
+	 * @param  string|null $source            The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address           The street address of the candidate. (optional)
+	 * @param  string|null $city              The city of the candidate. (optional)
+	 * @param  string|null $state             The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip               The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country           The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url      The LinkedIn profile url of the candidate. (optional)
+	 * @param  string|null $date_available    The available start date of the candidate with the format YYYY-MM-DD. (optional)
+	 * @param  string|null $desired_salary    The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by       The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url       The personal website, blog, or online portfolio of the candidate. (optional)
 	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  string|null $college_name      The college or university of the candidate. (optional)
+	 * @param  string|null $references        A list of references supplied by the candidate. (optional)
+	 * @param  string|null $resume            Resume of the candidate. (optional)
+	 * @param  string|null $cover_letter      Cover letter of the candidate. (optional)
+	 * @param  string      $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -199,28 +199,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Candidate
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
+	 * @param  string      $first_name        The first name of the candidate. (required)
+	 * @param  string      $last_name         The last name of the candidate. (required)
+	 * @param  int         $job_id            The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email             The email address of the candidate. (optional)
+	 * @param  string|null $phone_number      The phone number of the candidate. (optional)
+	 * @param  string|null $source            The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address           The street address of the candidate. (optional)
+	 * @param  string|null $city              The city of the candidate. (optional)
+	 * @param  string|null $state             The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip               The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country           The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url      The LinkedIn profile url of the candidate. (optional)
+	 * @param  string|null $date_available    The available start date of the candidate with the format YYYY-MM-DD. (optional)
+	 * @param  string|null $desired_salary    The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by       The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url       The personal website, blog, or online portfolio of the candidate. (optional)
 	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  string|null $college_name      The college or university of the candidate. (optional)
+	 * @param  string|null $references        A list of references supplied by the candidate. (optional)
+	 * @param  string|null $resume            Resume of the candidate. (optional)
+	 * @param  string|null $cover_letter      Cover letter of the candidate. (optional)
+	 * @param  string      $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -247,28 +247,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Candidate
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
+	 * @param  string      $first_name        The first name of the candidate. (required)
+	 * @param  string      $last_name         The last name of the candidate. (required)
+	 * @param  int         $job_id            The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email             The email address of the candidate. (optional)
+	 * @param  string|null $phone_number      The phone number of the candidate. (optional)
+	 * @param  string|null $source            The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address           The street address of the candidate. (optional)
+	 * @param  string|null $city              The city of the candidate. (optional)
+	 * @param  string|null $state             The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip               The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country           The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url      The LinkedIn profile url of the candidate. (optional)
+	 * @param  string|null $date_available    The available start date of the candidate with the format YYYY-MM-DD. (optional)
+	 * @param  string|null $desired_salary    The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by       The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url       The personal website, blog, or online portfolio of the candidate. (optional)
 	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  string|null $college_name      The college or university of the candidate. (optional)
+	 * @param  string|null $references        A list of references supplied by the candidate. (optional)
+	 * @param  string|null $resume            Resume of the candidate. (optional)
+	 * @param  string|null $cover_letter      Cover letter of the candidate. (optional)
+	 * @param  string      $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -287,28 +287,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Candidate
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
+	 * @param  string      $first_name        The first name of the candidate. (required)
+	 * @param  string      $last_name         The last name of the candidate. (required)
+	 * @param  int         $job_id            The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email             The email address of the candidate. (optional)
+	 * @param  string|null $phone_number      The phone number of the candidate. (optional)
+	 * @param  string|null $source            The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address           The street address of the candidate. (optional)
+	 * @param  string|null $city              The city of the candidate. (optional)
+	 * @param  string|null $state             The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip               The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country           The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url      The LinkedIn profile url of the candidate. (optional)
+	 * @param  string|null $date_available    The available start date of the candidate with the format YYYY-MM-DD. (optional)
+	 * @param  string|null $desired_salary    The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by       The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url       The personal website, blog, or online portfolio of the candidate. (optional)
 	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  string|null $college_name      The college or university of the candidate. (optional)
+	 * @param  string|null $references        A list of references supplied by the candidate. (optional)
+	 * @param  string|null $resume            Resume of the candidate. (optional)
+	 * @param  string|null $cover_letter      Cover letter of the candidate. (optional)
+	 * @param  string      $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -349,28 +349,28 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'addNewCandidate'
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
+	 * @param  string      $first_name        The first name of the candidate. (required)
+	 * @param  string      $last_name         The last name of the candidate. (required)
+	 * @param  int         $job_id            The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email             The email address of the candidate. (optional)
+	 * @param  string|null $phone_number      The phone number of the candidate. (optional)
+	 * @param  string|null $source            The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address           The street address of the candidate. (optional)
+	 * @param  string|null $city              The city of the candidate. (optional)
+	 * @param  string|null $state             The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip               The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country           The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url      The LinkedIn profile url of the candidate. (optional)
+	 * @param  string|null $date_available    The available start date of the candidate with the format YYYY-MM-DD. (optional)
+	 * @param  string|null $desired_salary    The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by       The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url       The personal website, blog, or online portfolio of the candidate. (optional)
 	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  string|null $college_name      The college or university of the candidate. (optional)
+	 * @param  string|null $references        A list of references supplied by the candidate. (optional)
+	 * @param  string|null $resume            Resume of the candidate. (optional)
+	 * @param  string|null $cover_letter      Cover letter of the candidate. (optional)
+	 * @param  string      $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -504,28 +504,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Opening
 	 *
-	 * @param  string $posting_title The posting title of the job opening. (required)
-	 * @param  string $job_status The status of the job opening. (required)
-	 * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
-	 * @param  string $employment_type The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
-	 * @param  string $job_description The long-form text description of the job opening. (required)
-	 * @param  string|null $department The department of the job opening. (optional)
-	 * @param  string|null $minimum_experience The minimum experience level that qualifies a candidate for the job opening. (optional)
-	 * @param  string|null $compensation The pay rate or compensation for the job opening. (optional)
-	 * @param  int|null $job_location The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
-	 * @param  string|null $application_question_resume Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
-	 * @param  string|null $application_question_address Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
-	 * @param  string|null $application_question_linkedin_url Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
-	 * @param  string|null $application_question_date_available Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
-	 * @param  string|null $application_question_desired_salary Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
-	 * @param  string|null $application_question_cover_letter Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
-	 * @param  string|null $application_question_referred_by Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
-	 * @param  string|null $application_question_website_url Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
+	 * @param  string      $posting_title                          The posting title of the job opening. (required)
+	 * @param  string      $job_status                             The status of the job opening. (required)
+	 * @param  int         $hiring_lead                            The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
+	 * @param  string      $employment_type                        The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
+	 * @param  string      $job_description                        The long-form text description of the job opening. (required)
+	 * @param  string|null $department                             The department of the job opening. (optional)
+	 * @param  string|null $minimum_experience                     The minimum experience level that qualifies a candidate for the job opening. (optional)
+	 * @param  string|null $compensation                           The pay rate or compensation for the job opening. (optional)
+	 * @param  int|null    $job_location                           The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
+	 * @param  string|null $application_question_resume            Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
+	 * @param  string|null $application_question_address           Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
+	 * @param  string|null $application_question_linkedin_url      Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
+	 * @param  string|null $application_question_date_available    Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
+	 * @param  string|null $application_question_desired_salary    Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
+	 * @param  string|null $application_question_cover_letter      Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
+	 * @param  string|null $application_question_referred_by       Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
+	 * @param  string|null $application_question_website_url       Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
 	 * @param  string|null $application_question_highest_education Whether the job opening application has a standard question for highest education (true) or not (false) or if entering highest education is mandatory (required). (optional)
-	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
-	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
-	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  string|null $application_question_college           Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
+	 * @param  string|null $application_question_references        Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
+	 * @param  string|null $internal_job_code                      The internal job code for the job opening. (optional)
+	 * @param  string      $contentType                            The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -541,28 +541,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Opening
 	 *
-	 * @param  string $posting_title The posting title of the job opening. (required)
-	 * @param  string $job_status The status of the job opening. (required)
-	 * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
-	 * @param  string $employment_type The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
-	 * @param  string $job_description The long-form text description of the job opening. (required)
-	 * @param  string|null $department The department of the job opening. (optional)
-	 * @param  string|null $minimum_experience The minimum experience level that qualifies a candidate for the job opening. (optional)
-	 * @param  string|null $compensation The pay rate or compensation for the job opening. (optional)
-	 * @param  int|null $job_location The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
-	 * @param  string|null $application_question_resume Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
-	 * @param  string|null $application_question_address Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
-	 * @param  string|null $application_question_linkedin_url Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
-	 * @param  string|null $application_question_date_available Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
-	 * @param  string|null $application_question_desired_salary Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
-	 * @param  string|null $application_question_cover_letter Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
-	 * @param  string|null $application_question_referred_by Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
-	 * @param  string|null $application_question_website_url Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
+	 * @param  string      $posting_title                          The posting title of the job opening. (required)
+	 * @param  string      $job_status                             The status of the job opening. (required)
+	 * @param  int         $hiring_lead                            The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
+	 * @param  string      $employment_type                        The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
+	 * @param  string      $job_description                        The long-form text description of the job opening. (required)
+	 * @param  string|null $department                             The department of the job opening. (optional)
+	 * @param  string|null $minimum_experience                     The minimum experience level that qualifies a candidate for the job opening. (optional)
+	 * @param  string|null $compensation                           The pay rate or compensation for the job opening. (optional)
+	 * @param  int|null    $job_location                           The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
+	 * @param  string|null $application_question_resume            Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
+	 * @param  string|null $application_question_address           Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
+	 * @param  string|null $application_question_linkedin_url      Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
+	 * @param  string|null $application_question_date_available    Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
+	 * @param  string|null $application_question_desired_salary    Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
+	 * @param  string|null $application_question_cover_letter      Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
+	 * @param  string|null $application_question_referred_by       Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
+	 * @param  string|null $application_question_website_url       Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
 	 * @param  string|null $application_question_highest_education Whether the job opening application has a standard question for highest education (true) or not (false) or if entering highest education is mandatory (required). (optional)
-	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
-	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
-	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  string|null $application_question_college           Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
+	 * @param  string|null $application_question_references        Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
+	 * @param  string|null $internal_job_code                      The internal job code for the job opening. (optional)
+	 * @param  string      $contentType                            The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -589,28 +589,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Opening
 	 *
-	 * @param  string $posting_title The posting title of the job opening. (required)
-	 * @param  string $job_status The status of the job opening. (required)
-	 * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
-	 * @param  string $employment_type The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
-	 * @param  string $job_description The long-form text description of the job opening. (required)
-	 * @param  string|null $department The department of the job opening. (optional)
-	 * @param  string|null $minimum_experience The minimum experience level that qualifies a candidate for the job opening. (optional)
-	 * @param  string|null $compensation The pay rate or compensation for the job opening. (optional)
-	 * @param  int|null $job_location The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
-	 * @param  string|null $application_question_resume Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
-	 * @param  string|null $application_question_address Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
-	 * @param  string|null $application_question_linkedin_url Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
-	 * @param  string|null $application_question_date_available Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
-	 * @param  string|null $application_question_desired_salary Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
-	 * @param  string|null $application_question_cover_letter Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
-	 * @param  string|null $application_question_referred_by Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
-	 * @param  string|null $application_question_website_url Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
+	 * @param  string      $posting_title                          The posting title of the job opening. (required)
+	 * @param  string      $job_status                             The status of the job opening. (required)
+	 * @param  int         $hiring_lead                            The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
+	 * @param  string      $employment_type                        The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
+	 * @param  string      $job_description                        The long-form text description of the job opening. (required)
+	 * @param  string|null $department                             The department of the job opening. (optional)
+	 * @param  string|null $minimum_experience                     The minimum experience level that qualifies a candidate for the job opening. (optional)
+	 * @param  string|null $compensation                           The pay rate or compensation for the job opening. (optional)
+	 * @param  int|null    $job_location                           The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
+	 * @param  string|null $application_question_resume            Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
+	 * @param  string|null $application_question_address           Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
+	 * @param  string|null $application_question_linkedin_url      Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
+	 * @param  string|null $application_question_date_available    Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
+	 * @param  string|null $application_question_desired_salary    Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
+	 * @param  string|null $application_question_cover_letter      Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
+	 * @param  string|null $application_question_referred_by       Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
+	 * @param  string|null $application_question_website_url       Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
 	 * @param  string|null $application_question_highest_education Whether the job opening application has a standard question for highest education (true) or not (false) or if entering highest education is mandatory (required). (optional)
-	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
-	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
-	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  string|null $application_question_college           Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
+	 * @param  string|null $application_question_references        Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
+	 * @param  string|null $internal_job_code                      The internal job code for the job opening. (optional)
+	 * @param  string      $contentType                            The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -629,28 +629,28 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Opening
 	 *
-	 * @param  string $posting_title The posting title of the job opening. (required)
-	 * @param  string $job_status The status of the job opening. (required)
-	 * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
-	 * @param  string $employment_type The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
-	 * @param  string $job_description The long-form text description of the job opening. (required)
-	 * @param  string|null $department The department of the job opening. (optional)
-	 * @param  string|null $minimum_experience The minimum experience level that qualifies a candidate for the job opening. (optional)
-	 * @param  string|null $compensation The pay rate or compensation for the job opening. (optional)
-	 * @param  int|null $job_location The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
-	 * @param  string|null $application_question_resume Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
-	 * @param  string|null $application_question_address Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
-	 * @param  string|null $application_question_linkedin_url Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
-	 * @param  string|null $application_question_date_available Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
-	 * @param  string|null $application_question_desired_salary Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
-	 * @param  string|null $application_question_cover_letter Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
-	 * @param  string|null $application_question_referred_by Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
-	 * @param  string|null $application_question_website_url Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
+	 * @param  string      $posting_title                          The posting title of the job opening. (required)
+	 * @param  string      $job_status                             The status of the job opening. (required)
+	 * @param  int         $hiring_lead                            The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
+	 * @param  string      $employment_type                        The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
+	 * @param  string      $job_description                        The long-form text description of the job opening. (required)
+	 * @param  string|null $department                             The department of the job opening. (optional)
+	 * @param  string|null $minimum_experience                     The minimum experience level that qualifies a candidate for the job opening. (optional)
+	 * @param  string|null $compensation                           The pay rate or compensation for the job opening. (optional)
+	 * @param  int|null    $job_location                           The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
+	 * @param  string|null $application_question_resume            Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
+	 * @param  string|null $application_question_address           Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
+	 * @param  string|null $application_question_linkedin_url      Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
+	 * @param  string|null $application_question_date_available    Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
+	 * @param  string|null $application_question_desired_salary    Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
+	 * @param  string|null $application_question_cover_letter      Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
+	 * @param  string|null $application_question_referred_by       Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
+	 * @param  string|null $application_question_website_url       Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
 	 * @param  string|null $application_question_highest_education Whether the job opening application has a standard question for highest education (true) or not (false) or if entering highest education is mandatory (required). (optional)
-	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
-	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
-	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  string|null $application_question_college           Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
+	 * @param  string|null $application_question_references        Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
+	 * @param  string|null $internal_job_code                      The internal job code for the job opening. (optional)
+	 * @param  string      $contentType                            The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -691,28 +691,28 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'addNewJobOpening'
 	 *
-	 * @param  string $posting_title The posting title of the job opening. (required)
-	 * @param  string $job_status The status of the job opening. (required)
-	 * @param  int $hiring_lead The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
-	 * @param  string $employment_type The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
-	 * @param  string $job_description The long-form text description of the job opening. (required)
-	 * @param  string|null $department The department of the job opening. (optional)
-	 * @param  string|null $minimum_experience The minimum experience level that qualifies a candidate for the job opening. (optional)
-	 * @param  string|null $compensation The pay rate or compensation for the job opening. (optional)
-	 * @param  int|null $job_location The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
-	 * @param  string|null $application_question_resume Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
-	 * @param  string|null $application_question_address Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
-	 * @param  string|null $application_question_linkedin_url Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
-	 * @param  string|null $application_question_date_available Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
-	 * @param  string|null $application_question_desired_salary Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
-	 * @param  string|null $application_question_cover_letter Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
-	 * @param  string|null $application_question_referred_by Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
-	 * @param  string|null $application_question_website_url Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
+	 * @param  string      $posting_title                          The posting title of the job opening. (required)
+	 * @param  string      $job_status                             The status of the job opening. (required)
+	 * @param  int         $hiring_lead                            The employee id (from the v1/applicant_tracking/hiring_leads endpoint) of the hiring lead for the job opening. (required)
+	 * @param  string      $employment_type                        The type of employment offered in the job opening, e.g. Full-Time, Part-Time, Contractor, etc. (required)
+	 * @param  string      $job_description                        The long-form text description of the job opening. (required)
+	 * @param  string|null $department                             The department of the job opening. (optional)
+	 * @param  string|null $minimum_experience                     The minimum experience level that qualifies a candidate for the job opening. (optional)
+	 * @param  string|null $compensation                           The pay rate or compensation for the job opening. (optional)
+	 * @param  int|null    $job_location                           The location id (from the v1/applicant_tracking/locations endpoint) of the job opening. Omit this parameter for a remote job location. (optional)
+	 * @param  string|null $application_question_resume            Whether the job opening application has a standard question for resume (true) or not (false) or if uploading a resume is mandatory (required). (optional)
+	 * @param  string|null $application_question_address           Whether the job opening application has a standard question for address (true) or not (false) or if entering an address is mandatory (required). (optional)
+	 * @param  string|null $application_question_linkedin_url      Whether the job opening application has a standard question for LinkedIn profile url (true) or not (false) or if entering a LinkedIn profile url is mandatory (required). (optional)
+	 * @param  string|null $application_question_date_available    Whether the job opening application has a standard question for availability date (true) or not (false) or if entering an availability date is mandatory (required). (optional)
+	 * @param  string|null $application_question_desired_salary    Whether the job opening application has a standard question for desired salary (true) or not (false) or if entering a desired salary is mandatory (required). (optional)
+	 * @param  string|null $application_question_cover_letter      Whether the job opening application has a standard question for cover letter (true) or not (false) or if uploading a cover letter is mandatory (required). (optional)
+	 * @param  string|null $application_question_referred_by       Whether the job opening application has a standard question for referred by (true) or not (false) or if entering referred by is mandatory (required). (optional)
+	 * @param  string|null $application_question_website_url       Whether the job opening application has a standard question for website url (true) or not (false) or if entering a website url is mandatory (required). (optional)
 	 * @param  string|null $application_question_highest_education Whether the job opening application has a standard question for highest education (true) or not (false) or if entering highest education is mandatory (required). (optional)
-	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
-	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
-	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  string|null $application_question_college           Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
+	 * @param  string|null $application_question_references        Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
+	 * @param  string|null $internal_job_code                      The internal job code for the job opening. (optional)
+	 * @param  string      $contentType                            The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -848,8 +848,8 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 * @param  int    $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -865,8 +865,8 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 * @param  int    $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -915,8 +915,8 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 * @param  int    $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -935,8 +935,8 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 * @param  int    $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -979,8 +979,8 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'getApplicationDetails'
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
+	 * @param  int    $application_id The ID of the application to look up details. (required)
+	 * @param  string $contentType    The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1066,16 +1066,16 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Applications
 	 *
-	 * @param  int|null $page The page number (optional)
-	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
-	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
+	 * @param  int|null       $page                  The page number (optional)
+	 * @param  int|null       $job_id                A Job Id to limit results to (optional)
+	 * @param  int|null       $application_status_id Application status id to filter by. (optional)
+	 * @param  string|null    $application_status    A list of application status groups to filter by. (optional)
+	 * @param  string|null    $job_status_groups     A list of position status groups to filter by. (optional)
+	 * @param  string|null    $search_string         A general search criteria by which to find applications. (optional)
+	 * @param  string|null    $sort_by               A specific field to sort the results by. (optional)
+	 * @param  string|null    $sort_order            Order by which to sort results. (optional)
+	 * @param  \DateTime|null $new_since             Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string         $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1091,16 +1091,16 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Applications
 	 *
-	 * @param  int|null $page The page number (optional)
-	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
-	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
+	 * @param  int|null       $page                  The page number (optional)
+	 * @param  int|null       $job_id                A Job Id to limit results to (optional)
+	 * @param  int|null       $application_status_id Application status id to filter by. (optional)
+	 * @param  string|null    $application_status    A list of application status groups to filter by. (optional)
+	 * @param  string|null    $job_status_groups     A list of position status groups to filter by. (optional)
+	 * @param  string|null    $search_string         A general search criteria by which to find applications. (optional)
+	 * @param  string|null    $sort_by               A specific field to sort the results by. (optional)
+	 * @param  string|null    $sort_order            Order by which to sort results. (optional)
+	 * @param  \DateTime|null $new_since             Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string         $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1149,16 +1149,16 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Applications
 	 *
-	 * @param  int|null $page The page number (optional)
-	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
-	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
+	 * @param  int|null       $page                  The page number (optional)
+	 * @param  int|null       $job_id                A Job Id to limit results to (optional)
+	 * @param  int|null       $application_status_id Application status id to filter by. (optional)
+	 * @param  string|null    $application_status    A list of application status groups to filter by. (optional)
+	 * @param  string|null    $job_status_groups     A list of position status groups to filter by. (optional)
+	 * @param  string|null    $search_string         A general search criteria by which to find applications. (optional)
+	 * @param  string|null    $sort_by               A specific field to sort the results by. (optional)
+	 * @param  string|null    $sort_order            Order by which to sort results. (optional)
+	 * @param  \DateTime|null $new_since             Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string         $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1177,16 +1177,16 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Applications
 	 *
-	 * @param  int|null $page The page number (optional)
-	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
-	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
+	 * @param  int|null       $page                  The page number (optional)
+	 * @param  int|null       $job_id                A Job Id to limit results to (optional)
+	 * @param  int|null       $application_status_id Application status id to filter by. (optional)
+	 * @param  string|null    $application_status    A list of application status groups to filter by. (optional)
+	 * @param  string|null    $job_status_groups     A list of position status groups to filter by. (optional)
+	 * @param  string|null    $search_string         A general search criteria by which to find applications. (optional)
+	 * @param  string|null    $sort_by               A specific field to sort the results by. (optional)
+	 * @param  string|null    $sort_order            Order by which to sort results. (optional)
+	 * @param  \DateTime|null $new_since             Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string         $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1229,16 +1229,16 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'getApplications'
 	 *
-	 * @param  int|null $page The page number (optional)
-	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
-	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
+	 * @param  int|null       $page                  The page number (optional)
+	 * @param  int|null       $job_id                A Job Id to limit results to (optional)
+	 * @param  int|null       $application_status_id Application status id to filter by. (optional)
+	 * @param  string|null    $application_status    A list of application status groups to filter by. (optional)
+	 * @param  string|null    $job_status_groups     A list of position status groups to filter by. (optional)
+	 * @param  string|null    $search_string         A general search criteria by which to find applications. (optional)
+	 * @param  string|null    $sort_by               A specific field to sort the results by. (optional)
+	 * @param  string|null    $sort_order            Order by which to sort results. (optional)
+	 * @param  \DateTime|null $new_since             Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string         $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1727,9 +1727,9 @@ class ApplicantTrackingApi {
 	 * Get Job Summaries
 	 *
 	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
+	 * @param  string|null $sort_by       A specific field to sort the results by. (optional)
+	 * @param  string|null $sort_order    Order by which to sort results. (optional)
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1746,9 +1746,9 @@ class ApplicantTrackingApi {
 	 * Get Job Summaries
 	 *
 	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
+	 * @param  string|null $sort_by       A specific field to sort the results by. (optional)
+	 * @param  string|null $sort_order    Order by which to sort results. (optional)
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1776,9 +1776,9 @@ class ApplicantTrackingApi {
 	 * Get Job Summaries
 	 *
 	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
+	 * @param  string|null $sort_by       A specific field to sort the results by. (optional)
+	 * @param  string|null $sort_order    Order by which to sort results. (optional)
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1798,9 +1798,9 @@ class ApplicantTrackingApi {
 	 * Get Job Summaries
 	 *
 	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
+	 * @param  string|null $sort_by       A specific field to sort the results by. (optional)
+	 * @param  string|null $sort_order    Order by which to sort results. (optional)
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1842,9 +1842,9 @@ class ApplicantTrackingApi {
 	 * Create request for operation 'getJobSummaries'
 	 *
 	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
-	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
-	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
+	 * @param  string|null $sort_by       A specific field to sort the results by. (optional)
+	 * @param  string|null $sort_order    Order by which to sort results. (optional)
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2105,9 +2105,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                      $application_id                The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2123,9 +2123,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                      $application_id                The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2152,9 +2152,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                      $application_id                The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2173,9 +2173,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                      $application_id                The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2216,9 +2216,9 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'postApplicantStatus'
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                      $application_id                The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  string                                   $contentType                   The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -2315,9 +2315,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Application Comment
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                         $application_id                   The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2333,9 +2333,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Application Comment
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                         $application_id                   The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -2362,9 +2362,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Application Comment
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                         $application_id                   The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2383,9 +2383,9 @@ class ApplicantTrackingApi {
 	 *
 	 * Create Job Application Comment
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                         $application_id                   The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2426,9 +2426,9 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'postApplicationComment'
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  int                                         $application_id                   The ID of the application to add a comment to. (required)
 	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
+	 * @param  string                                      $contentType                      The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

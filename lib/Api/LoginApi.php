@@ -85,11 +85,11 @@ class LoginApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -136,10 +136,10 @@ class LoginApi {
 	 * User Login
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key application_key (optional)
-	 * @param  string|null $user user (optional)
-	 * @param  string|null $password password (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
+	 * @param  string|null $application_key         application_key (optional)
+	 * @param  string|null $user                    user (optional)
+	 * @param  string|null $password                password (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -157,10 +157,10 @@ class LoginApi {
 	 * User Login
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
+	 * @param  string|null $application_key         (optional)
+	 * @param  string|null $user                    (optional)
+	 * @param  string|null $password                (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -189,10 +189,10 @@ class LoginApi {
 	 * User Login
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
+	 * @param  string|null $application_key         (optional)
+	 * @param  string|null $user                    (optional)
+	 * @param  string|null $password                (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -213,10 +213,10 @@ class LoginApi {
 	 * User Login
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
+	 * @param  string|null $application_key         (optional)
+	 * @param  string|null $user                    (optional)
+	 * @param  string|null $password                (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -259,10 +259,10 @@ class LoginApi {
 	 * Create request for operation 'login'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
+	 * @param  string|null $application_key         (optional)
+	 * @param  string|null $user                    (optional)
+	 * @param  string|null $password                (optional)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

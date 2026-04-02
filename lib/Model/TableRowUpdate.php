@@ -62,7 +62,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'string',
 		'department' => 'string',
 		'job_title' => 'string',
-		'reports_to' => 'string'
+		'reports_to' => 'string',
+		'teams' => 'string[]'
 	];
 
 	/**
@@ -78,7 +79,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => null,
 		'department' => null,
 		'job_title' => null,
-		'reports_to' => null
+		'reports_to' => null,
+		'teams' => null
 	];
 
 	/**
@@ -93,7 +95,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => false,
 		'department' => false,
 		'job_title' => false,
-		'reports_to' => false
+		'reports_to' => false,
+		'teams' => false
 	];
 
 	/**
@@ -183,7 +186,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'division',
 		'department' => 'department',
 		'job_title' => 'jobTitle',
-		'reports_to' => 'reportsTo'
+		'reports_to' => 'reportsTo',
+		'teams' => 'teams'
 	];
 
 	/**
@@ -197,7 +201,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'setDivision',
 		'department' => 'setDepartment',
 		'job_title' => 'setJobTitle',
-		'reports_to' => 'setReportsTo'
+		'reports_to' => 'setReportsTo',
+		'teams' => 'setTeams'
 	];
 
 	/**
@@ -211,7 +216,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'getDivision',
 		'department' => 'getDepartment',
 		'job_title' => 'getJobTitle',
-		'reports_to' => 'getReportsTo'
+		'reports_to' => 'getReportsTo',
+		'teams' => 'getTeams'
 	];
 
 	/**
@@ -271,6 +277,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('department', $data ?? [], null);
 		$this->setIfExists('job_title', $data ?? [], null);
 		$this->setIfExists('reports_to', $data ?? [], null);
+		$this->setIfExists('teams', $data ?? [], null);
 	}
 
 	/**
@@ -460,6 +467,31 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 
 		return $this;
 	}
+
+	/**
+	 * Gets teams
+	 *
+	 * @return string[]|null
+	 */
+	public function getTeams() {
+		return $this->container['teams'];
+	}
+
+	/**
+	 * Sets teams
+	 *
+	 * @param string[]|null $teams teams
+	 *
+	 * @return self
+	 */
+	public function setTeams($teams) {
+		if (is_null($teams)) {
+			throw new \InvalidArgumentException('non-nullable teams cannot be null');
+		}
+		$this->container['teams'] = $teams;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -487,7 +519,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

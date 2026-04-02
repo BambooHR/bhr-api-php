@@ -13,7 +13,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | [**timeOffAssignTimeOffPoliciesForAnEmployee()**](TimeOffApi.md#timeOffAssignTimeOffPoliciesForAnEmployee) | **PUT** /api/v1/employees/{employeeId}/time_off/policies | Assign Time Off Policies |
 | [**timeOffAssignTimeOffPoliciesForAnEmployeeV11()**](TimeOffApi.md#timeOffAssignTimeOffPoliciesForAnEmployeeV11) | **PUT** /api/v1_1/employees/{employeeId}/time_off/policies | Assign Time Off Policies v1.1 |
 | [**timeOffChangeARequestStatus()**](TimeOffApi.md#timeOffChangeARequestStatus) | **PUT** /api/v1/time_off/requests/{requestId}/status | Update Time Off Request Status |
-| [**timeOffEstimateFutureTimeOffBalances()**](TimeOffApi.md#timeOffEstimateFutureTimeOffBalances) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Estimate Future Time Off Balances |
+| [**timeOffGetTimeOffBalance()**](TimeOffApi.md#timeOffGetTimeOffBalance) | **GET** /api/v1/employees/{employeeId}/time_off/calculator | Get Time Off Balance |
 | [**timeOffGetTimeOffRequests()**](TimeOffApi.md#timeOffGetTimeOffRequests) | **GET** /api/v1/time_off/requests | Get Time Off Requests |
 | [**timeOffListTimeOffPoliciesForEmployee()**](TimeOffApi.md#timeOffListTimeOffPoliciesForEmployee) | **GET** /api/v1/employees/{employeeId}/time_off/policies | Get Time Off Policies for Employee |
 | [**timeOffListTimeOffPoliciesForEmployeeV11()**](TimeOffApi.md#timeOffListTimeOffPoliciesForEmployeeV11) | **GET** /api/v1_1/employees/{employeeId}/time_off/policies | Get Time Off Policies for Employee v1.1 |
@@ -148,7 +148,7 @@ void (empty response body)
 ## `getTimeOffTypes()`
 
 ```php
-getTimeOffTypes($accept_header_parameter, $mode)
+getTimeOffTypes($accept_header_parameter, $mode): \BhrSdk\Model\TimeOffTypesAndDefaultHours
 ```
 
 Get Time Off Types
@@ -175,10 +175,11 @@ $apiInstance = new BhrSdk\Api\TimeOffApi(
     $config
 );
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
-$mode = 'mode_example'; // string | set to \\'request\\' to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\'t have permission to view balances and requests for.
+$mode = 'mode_example'; // string | Set to 'request' to filter down to time off types that the user has permission to request
 
 try {
-    $apiInstance->getTimeOffTypes($accept_header_parameter, $mode);
+    $result = $apiInstance->getTimeOffTypes($accept_header_parameter, $mode);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeOffApi->getTimeOffTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -189,11 +190,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
-| **mode** | **string**| set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. | [optional] |
+| **mode** | **string**| Set to &#39;request&#39; to filter down to time off types that the user has permission to request | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\TimeOffTypesAndDefaultHours**](../Model/TimeOffTypesAndDefaultHours.md)
 
 ### Authorization
 
@@ -586,15 +587,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `timeOffEstimateFutureTimeOffBalances()`
+## `timeOffGetTimeOffBalance()`
 
 ```php
-timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter)
+timeOffGetTimeOffBalance($employee_id, $accept_header_parameter, $end, $precision): \BhrSdk\Model\TimeOffBalanceEntry[]
 ```
 
-Estimate Future Time Off Balances
+Get Time Off Balance
 
-This endpoint will sum future time off accruals, scheduled time off, and carry-over events to produce estimates for the anticipated time off balance on a given date in the future.
+This endpoint returns time off balances for an employee for assigned categories as of a given date. Each category's balance is calculated by summing all historical balance events (accruals, manual adjustments, used time off, and carry-over events) plus any future accruals and adjustments up to the specified date. To get current balance, pass today's date in the 'end' parameter. To estimate a future balance, pass a future date. If no 'end' parameter is provided, it defaults to today.
 
 ### Example
 
@@ -615,14 +616,16 @@ $apiInstance = new BhrSdk\Api\TimeOffApi(
     new GuzzleHttp\Client(),
     $config
 );
-$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$employee_id = 'employee_id_example'; // string
+$employee_id = 56; // int | The ID of the employee to get time off balances for.
 $accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
+$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided.
+$precision = 2; // int | Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2.
 
 try {
-    $apiInstance->timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter);
+    $result = $apiInstance->timeOffGetTimeOffBalance($employee_id, $accept_header_parameter, $end, $precision);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeOffApi->timeOffEstimateFutureTimeOffBalances: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeOffApi->timeOffGetTimeOffBalance: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -630,13 +633,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **end** | **\DateTime**|  | |
-| **employee_id** | **string**|  | |
+| **employee_id** | **int**| The ID of the employee to get time off balances for. | |
 | **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
+| **end** | **\DateTime**| The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. | [optional] |
+| **precision** | **int**| Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. | [optional] [default to 2] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\TimeOffBalanceEntry[]**](../Model/TimeOffBalanceEntry.md)
 
 ### Authorization
 

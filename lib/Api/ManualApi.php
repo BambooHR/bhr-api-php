@@ -47,11 +47,11 @@ class ManualApi {
 	protected $logger;
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface      $client
+	 * @param Configuration        $config
+	 * @param HeaderSelector       $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -80,10 +80,10 @@ class ManualApi {
 	 * Perform a GET request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -99,10 +99,10 @@ class ManualApi {
 	 * Perform an async GET request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -117,10 +117,10 @@ class ManualApi {
 	 * Perform a POST request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -136,10 +136,10 @@ class ManualApi {
 	 * Perform an async POST request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -154,10 +154,10 @@ class ManualApi {
 	 * Perform a PUT request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -173,10 +173,10 @@ class ManualApi {
 	 * Perform an async PUT request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -191,10 +191,10 @@ class ManualApi {
 	 * Perform a DELETE request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -210,10 +210,10 @@ class ManualApi {
 	 * Perform an async DELETE request
 	 *
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -227,12 +227,12 @@ class ManualApi {
 	 *
 	 * Perform a request
 	 *
-	 * @param  string $verb the HTTP verb
+	 * @param  string $verb         the HTTP verb
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -265,12 +265,12 @@ class ManualApi {
 	 *
 	 * Perform an async request
 	 *
-	 * @param  string $verb the HTTP verb
+	 * @param  string $verb         the HTTP verb
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -318,12 +318,12 @@ class ManualApi {
 	/**
 	 * Create request object for operation
 	 *
-	 * @param  string $verb the HTTP verb
+	 * @param  string $verb         the HTTP verb
 	 * @param  string $resourcePath the resource path
-	 * @param  array $queryParams query parameters
-	 * @param  array $headerParams header parameters
-	 * @param  string $httpBody body of the request
-	 * @param  bool $multipart if the request is a multipart form
+	 * @param  array  $queryParams  query parameters
+	 * @param  array  $headerParams header parameters
+	 * @param  string $httpBody     body of the request
+	 * @param  bool   $multipart    if the request is a multipart form
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

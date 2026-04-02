@@ -88,11 +88,11 @@ class ReportsApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -138,12 +138,12 @@ class ReportsApi {
 	 *
 	 * Get Company Report
 	 *
-	 * @param  string $id {id} is a report ID. (required)
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string      $id                      {id} is a report ID. (required)
+	 * @param  string      $format                  The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $fd yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
+	 * @param  string|null $fd                      yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -159,12 +159,12 @@ class ReportsApi {
 	 *
 	 * Get Company Report
 	 *
-	 * @param  string $id {id} is a report ID. (required)
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string      $id                      {id} is a report ID. (required)
+	 * @param  string      $format                  The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $fd yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
+	 * @param  string|null $fd                      yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -191,12 +191,12 @@ class ReportsApi {
 	 *
 	 * Get Company Report
 	 *
-	 * @param  string $id {id} is a report ID. (required)
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string      $id                      {id} is a report ID. (required)
+	 * @param  string      $format                  The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $fd yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
+	 * @param  string|null $fd                      yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -215,12 +215,12 @@ class ReportsApi {
 	 *
 	 * Get Company Report
 	 *
-	 * @param  string $id {id} is a report ID. (required)
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string      $id                      {id} is a report ID. (required)
+	 * @param  string      $format                  The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $fd yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
+	 * @param  string|null $fd                      yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -261,12 +261,12 @@ class ReportsApi {
 	/**
 	 * Create request for operation 'getCompanyReport'
 	 *
-	 * @param  string $id {id} is a report ID. (required)
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string      $id                      {id} is a report ID. (required)
+	 * @param  string      $format                  The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $fd yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
+	 * @param  string|null $fd                      yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; (optional)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyReport'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -376,10 +376,10 @@ class ReportsApi {
 	 *
 	 * Request Custom Report
 	 *
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string                            $format                The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report request_custom_report (required)
-	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
+	 * @param  bool|null                         $only_current          Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
+	 * @param  string                            $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -395,10 +395,10 @@ class ReportsApi {
 	 *
 	 * Request Custom Report
 	 *
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string                            $format                The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
-	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
+	 * @param  bool|null                         $only_current          Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
+	 * @param  string                            $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -425,10 +425,10 @@ class ReportsApi {
 	 *
 	 * Request Custom Report
 	 *
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string                            $format                The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
-	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
+	 * @param  bool|null                         $only_current          Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
+	 * @param  string                            $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -447,10 +447,10 @@ class ReportsApi {
 	 *
 	 * Request Custom Report
 	 *
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string                            $format                The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
-	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
+	 * @param  bool|null                         $only_current          Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
+	 * @param  string                            $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -491,10 +491,10 @@ class ReportsApi {
 	/**
 	 * Create request for operation 'requestCustomReport'
 	 *
-	 * @param  string $format The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
+	 * @param  string                            $format                The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON (required)
 	 * @param  \BhrSdk\Model\RequestCustomReport $request_custom_report (required)
-	 * @param  bool|null $only_current Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
+	 * @param  bool|null                         $only_current          Limits the report to only current employees. Setting to false will include future-dated employees in the report. (optional, default to false)
+	 * @param  string                            $contentType           The value for the Content-Type header. Check self::CONTENT_TYPES['requestCustomReport'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

@@ -65,7 +65,8 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => 'int',
 		'project_id' => 'int',
 		'task_id' => 'int',
-		'note' => 'string'
+		'note' => 'string',
+		'break_id' => 'string'
 	];
 
 	/**
@@ -83,7 +84,8 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => null,
 		'project_id' => null,
 		'task_id' => null,
-		'note' => null
+		'note' => null,
+		'break_id' => 'uuid'
 	];
 
 	/**
@@ -100,7 +102,8 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => false,
 		'project_id' => false,
 		'task_id' => false,
-		'note' => false
+		'note' => false,
+		'break_id' => true
 	];
 
 	/**
@@ -192,7 +195,8 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => 'id',
 		'project_id' => 'projectId',
 		'task_id' => 'taskId',
-		'note' => 'note'
+		'note' => 'note',
+		'break_id' => 'breakId'
 	];
 
 	/**
@@ -208,7 +212,8 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => 'setId',
 		'project_id' => 'setProjectId',
 		'task_id' => 'setTaskId',
-		'note' => 'setNote'
+		'note' => 'setNote',
+		'break_id' => 'setBreakId'
 	];
 
 	/**
@@ -224,7 +229,8 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		'id' => 'getId',
 		'project_id' => 'getProjectId',
 		'task_id' => 'getTaskId',
-		'note' => 'getNote'
+		'note' => 'getNote',
+		'break_id' => 'getBreakId'
 	];
 
 	/**
@@ -286,6 +292,7 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 		$this->setIfExists('project_id', $data ?? [], null);
 		$this->setIfExists('task_id', $data ?? [], null);
 		$this->setIfExists('note', $data ?? [], null);
+		$this->setIfExists('break_id', $data ?? [], null);
 	}
 
 	/**
@@ -555,6 +562,37 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 
 		return $this;
 	}
+
+	/**
+	 * Gets break_id
+	 *
+	 * @return string|null
+	 */
+	public function getBreakId() {
+		return $this->container['break_id'];
+	}
+
+	/**
+	 * Sets break_id
+	 *
+	 * @param string|null $break_id Optional break id to associate with the timesheet entry.
+	 *
+	 * @return self
+	 */
+	public function setBreakId($break_id) {
+		if (is_null($break_id)) {
+			$this->openApiNullablesSetToNull['break_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['break_id'])) {
+				unset($nullablesSetToNull['break_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['break_id'] = $break_id;
+
+		return $this;
+	}
 	/**
 	 * Returns true if offset exists. False otherwise.
 	 *
@@ -582,7 +620,7 @@ class ClockEntrySchema implements ModelInterface, ArrayAccess, \JsonSerializable
 	 * Sets value based on offset.
 	 *
 	 * @param string|null $offset Offset
-	 * @param mixed    $value  Value to be set
+	 * @param mixed       $value  Value to be set
 	 *
 	 * @return void
 	 */

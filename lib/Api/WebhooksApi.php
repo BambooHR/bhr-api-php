@@ -85,6 +85,9 @@ class WebhooksApi {
 		'getMonitorFields' => [
 			'application/json',
         ],
+		'getPostFields' => [
+			'application/json',
+        ],
 		'getWebhook' => [
 			'application/json',
         ],
@@ -103,11 +106,11 @@ class WebhooksApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -153,7 +156,7 @@ class WebhooksApi {
 	 *
 	 * Delete Webhook
 	 *
-	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
+	 * @param  int    $id          The webhook ID to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -170,7 +173,7 @@ class WebhooksApi {
 	 *
 	 * Delete Webhook
 	 *
-	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
+	 * @param  int    $id          The webhook ID to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -198,7 +201,7 @@ class WebhooksApi {
 	 *
 	 * Delete Webhook
 	 *
-	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
+	 * @param  int    $id          The webhook ID to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -218,7 +221,7 @@ class WebhooksApi {
 	 *
 	 * Delete Webhook
 	 *
-	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
+	 * @param  int    $id          The webhook ID to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -260,7 +263,7 @@ class WebhooksApi {
 	/**
 	 * Create request for operation 'deleteWebhook'
 	 *
-	 * @param  string $id {id} is an webhook ID that is associated with the User API key. (required)
+	 * @param  int    $id          The webhook ID to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -546,11 +549,214 @@ class WebhooksApi {
 	}
 
 	/**
+	 * Operation getPostFields
+	 *
+	 * Get Post Fields
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getPostFields'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\WebHookPostFieldResponseObject|\BhrSdk\Model\WebhookError
+	 */
+	public function getPostFields(string $contentType = self::CONTENT_TYPES['getPostFields'][0]) {
+		list($response) = $this->getPostFieldsWithHttpInfo($contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getPostFieldsWithHttpInfo
+	 *
+	 * Get Post Fields
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getPostFields'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\WebHookPostFieldResponseObject|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getPostFieldsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getPostFields'][0]) {
+		$request = $this->getPostFieldsRequest($contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\WebHookPostFieldResponseObject',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\WebHookPostFieldResponseObject',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getPostFieldsAsync
+	 *
+	 * Get Post Fields
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getPostFields'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getPostFieldsAsync(string $contentType = self::CONTENT_TYPES['getPostFields'][0]) {
+		return $this->getPostFieldsAsyncWithHttpInfo($contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getPostFieldsAsyncWithHttpInfo
+	 *
+	 * Get Post Fields
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getPostFields'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getPostFieldsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getPostFields'][0]) {
+		$returnType = '\BhrSdk\Model\WebHookPostFieldResponseObject';
+		$request = $this->getPostFieldsRequest($contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getPostFields'
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getPostFields'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getPostFieldsRequest(string $contentType = self::CONTENT_TYPES['getPostFields'][0]) {
+
+		$resourcePath = '/api/v1/webhooks/post-fields';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
 	 * Operation getWebhook
 	 *
 	 * Get Webhook
 	 *
-	 * @param  int $id The webhook ID to display details about. (required)
+	 * @param  int    $id          The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -567,7 +773,7 @@ class WebhooksApi {
 	 *
 	 * Get Webhook
 	 *
-	 * @param  int $id The webhook ID to display details about. (required)
+	 * @param  int    $id          The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -635,7 +841,7 @@ class WebhooksApi {
 	 *
 	 * Get Webhook
 	 *
-	 * @param  int $id The webhook ID to display details about. (required)
+	 * @param  int    $id          The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -655,7 +861,7 @@ class WebhooksApi {
 	 *
 	 * Get Webhook
 	 *
-	 * @param  int $id The webhook ID to display details about. (required)
+	 * @param  int    $id          The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -699,7 +905,7 @@ class WebhooksApi {
 	/**
 	 * Create request for operation 'getWebhook'
 	 *
-	 * @param  int $id The webhook ID to display details about. (required)
+	 * @param  int    $id          The webhook ID to display details about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -989,12 +1195,12 @@ class WebhooksApi {
 	 *
 	 * Get Webhook Logs
 	 *
-	 * @param  string $id The webhook ID to get logs about. (required)
+	 * @param  int    $id          The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
+	 * @return \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError
 	 */
 	public function getWebhookLogs($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		list($response) = $this->getWebhookLogsWithHttpInfo($id, $contentType);
@@ -1006,12 +1212,12 @@ class WebhooksApi {
 	 *
 	 * Get Webhook Logs
 	 *
-	 * @param  string $id The webhook ID to get logs about. (required)
+	 * @param  int    $id          The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WebHookLogResponse|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError|\BhrSdk\Model\WebhookError, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getWebhookLogsWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getWebhookLogs'][0]) {
 		$request = $this->getWebhookLogsRequest($id, $contentType);
@@ -1041,7 +1247,19 @@ class WebhooksApi {
 					$request,
 					$response,
 				);
+			case 429:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
 			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\WebhookError',
+					$request,
+					$response,
+				);
+			case 503:
 				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\WebhookError',
 					$request,
@@ -1074,7 +1292,7 @@ class WebhooksApi {
 	 *
 	 * Get Webhook Logs
 	 *
-	 * @param  string $id The webhook ID to get logs about. (required)
+	 * @param  int    $id          The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1094,7 +1312,7 @@ class WebhooksApi {
 	 *
 	 * Get Webhook Logs
 	 *
-	 * @param  string $id The webhook ID to get logs about. (required)
+	 * @param  int    $id          The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1138,7 +1356,7 @@ class WebhooksApi {
 	/**
 	 * Create request for operation 'getWebhookLogs'
 	 *
-	 * @param  string $id The webhook ID to get logs about. (required)
+	 * @param  int    $id          The webhook ID to get logs about. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getWebhookLogs'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1226,7 +1444,7 @@ class WebhooksApi {
 	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1243,7 +1461,7 @@ class WebhooksApi {
 	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1311,7 +1529,7 @@ class WebhooksApi {
 	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1331,7 +1549,7 @@ class WebhooksApi {
 	 * Create Webhook
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1375,7 +1593,7 @@ class WebhooksApi {
 	 * Create request for operation 'postWebhook'
 	 *
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['postWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1462,9 +1680,9 @@ class WebhooksApi {
 	 *
 	 * Update Webhook
 	 *
-	 * @param  string $id {id} is a webhook ID. (required)
+	 * @param  int                      $id           The webhook ID to update. (required)
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1480,9 +1698,9 @@ class WebhooksApi {
 	 *
 	 * Update Webhook
 	 *
-	 * @param  string $id {id} is a webhook ID. (required)
+	 * @param  int                      $id           The webhook ID to update. (required)
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1555,9 +1773,9 @@ class WebhooksApi {
 	 *
 	 * Update Webhook
 	 *
-	 * @param  string $id {id} is a webhook ID. (required)
+	 * @param  int                      $id           The webhook ID to update. (required)
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1576,9 +1794,9 @@ class WebhooksApi {
 	 *
 	 * Update Webhook
 	 *
-	 * @param  string $id {id} is a webhook ID. (required)
+	 * @param  int                      $id           The webhook ID to update. (required)
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1621,9 +1839,9 @@ class WebhooksApi {
 	/**
 	 * Create request for operation 'putWebhook'
 	 *
-	 * @param  string $id {id} is a webhook ID. (required)
+	 * @param  int                      $id           The webhook ID to update. (required)
 	 * @param  \BhrSdk\Model\NewWebHook $new_web_hook (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
+	 * @param  string                   $contentType  The value for the Content-Type header. Check self::CONTENT_TYPES['putWebhook'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

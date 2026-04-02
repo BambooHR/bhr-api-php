@@ -63,9 +63,9 @@ class RequestIdMiddleware {
 	 * Handle a request/response and extract request ID
 	 *
 	 * @param callable         $sendRequest Callable that sends the request and returns ResponseInterface
-	 * @param RequestInterface $request The HTTP request
-	 * @param mixed            $client The HTTP client (optional, not used)
-	 * @param array            $options Request options
+	 * @param RequestInterface $request     The HTTP request
+	 * @param mixed            $client      The HTTP client (optional, not used)
+	 * @param array            $options     Request options
 	 * @return ResponseInterface The HTTP response
 	 */
 	public static function handle(
@@ -92,21 +92,21 @@ class RequestIdMiddleware {
 	public static function extractRequestId(ResponseInterface $response): void {
 		// Get all headers for case-insensitive comparison
 		$headers = $response->getHeaders();
-		
+
 		// Target header name (lowercase for comparison)
 		$targetHeader = strtolower(self::REQUEST_ID_HEADER);
-		
+
 		// Track whether header was found and its value
 		$headerFound = false;
 		$requestId = null;
 		$actualHeaderName = null;
-		
+
 		// Case-insensitive search through headers
 		foreach ($headers as $name => $values) {
 			if (strtolower($name) === $targetHeader) {
 				$headerFound = true;
 				$actualHeaderName = $name;
-				
+
 				// Extract the first value if it's an array
 				if (is_array($values) && !empty($values)) {
 					$requestId = $values[0];
@@ -116,11 +116,11 @@ class RequestIdMiddleware {
 				break;
 			}
 		}
-		
+
 		// Store the request ID if found
 		if ($headerFound && $requestId !== null && $requestId !== '') {
 			self::$lastRequestId = $requestId;
-			
+
 			if (self::$logger) {
 				self::$logger->log('debug', 'Request ID extracted', [
 					'request_id' => self::$lastRequestId,

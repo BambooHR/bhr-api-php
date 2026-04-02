@@ -103,11 +103,11 @@ class AccountInformationApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -523,7 +523,7 @@ class AccountInformationApi {
 	 *
 	 * Get States by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int    $country_id  ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -540,7 +540,7 @@ class AccountInformationApi {
 	 *
 	 * Get States by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int    $country_id  ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -590,7 +590,7 @@ class AccountInformationApi {
 	 *
 	 * Get States by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int    $country_id  ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -610,7 +610,7 @@ class AccountInformationApi {
 	 *
 	 * Get States by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int    $country_id  ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -654,7 +654,7 @@ class AccountInformationApi {
 	/**
 	 * Create request for operation 'getStatesByCountryId'
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int    $country_id  ID of the country to get states/provinces for (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -741,9 +741,9 @@ class AccountInformationApi {
 	 *
 	 * Create or Update List Field Values
 	 *
-	 * @param  string $list_field_id list_field_id (required)
+	 * @param  string                        $list_field_id     list_field_id (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -759,9 +759,9 @@ class AccountInformationApi {
 	 *
 	 * Create or Update List Field Values
 	 *
-	 * @param  string $list_field_id (required)
+	 * @param  string                        $list_field_id     (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -788,9 +788,9 @@ class AccountInformationApi {
 	 *
 	 * Create or Update List Field Values
 	 *
-	 * @param  string $list_field_id (required)
+	 * @param  string                        $list_field_id     (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -809,9 +809,9 @@ class AccountInformationApi {
 	 *
 	 * Create or Update List Field Values
 	 *
-	 * @param  string $list_field_id (required)
+	 * @param  string                        $list_field_id     (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -852,9 +852,9 @@ class AccountInformationApi {
 	/**
 	 * Create request for operation 'metadataAddOrUpdateValuesForListFields'
 	 *
-	 * @param  string $list_field_id (required)
+	 * @param  string                        $list_field_id     (required)
 	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -952,7 +952,7 @@ class AccountInformationApi {
 	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -969,7 +969,7 @@ class AccountInformationApi {
 	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -997,7 +997,7 @@ class AccountInformationApi {
 	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1017,7 +1017,7 @@ class AccountInformationApi {
 	 * Get Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1059,7 +1059,7 @@ class AccountInformationApi {
 	 * Create request for operation 'metadataGetAListOfFields'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1135,7 +1135,7 @@ class AccountInformationApi {
 	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1152,7 +1152,7 @@ class AccountInformationApi {
 	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1180,7 +1180,7 @@ class AccountInformationApi {
 	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1200,7 +1200,7 @@ class AccountInformationApi {
 	 * Get Tabular Fields
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1242,7 +1242,7 @@ class AccountInformationApi {
 	 * Create request for operation 'metadataGetAListOfTabularFields'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1318,7 +1318,7 @@ class AccountInformationApi {
 	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1335,7 +1335,7 @@ class AccountInformationApi {
 	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1363,7 +1363,7 @@ class AccountInformationApi {
 	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1383,7 +1383,7 @@ class AccountInformationApi {
 	 * Get List Field Details
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1425,7 +1425,7 @@ class AccountInformationApi {
 	 * Create request for operation 'metadataGetDetailsForListFields'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

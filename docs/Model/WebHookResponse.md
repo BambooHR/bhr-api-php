@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **url** | **string** | The url the webhook should send data to. | [optional]
 **format** | **string** | The format the webhook should use (json, form-encoded). | [optional]
 **include_company_domain** | **bool** | If set to true, the company domain will be added to the header. | [optional]
+**events** | [**\BhrSdk\Model\WebhookEventType[]**](WebhookEventType.md) | Events that trigger this webhook. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

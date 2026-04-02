@@ -100,11 +100,11 @@ class EmployeesApi {
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -151,7 +151,7 @@ class EmployeesApi {
 	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee post_new_employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -168,7 +168,7 @@ class EmployeesApi {
 	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -196,7 +196,7 @@ class EmployeesApi {
 	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,7 +216,7 @@ class EmployeesApi {
 	 * Create Employee
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -258,7 +258,7 @@ class EmployeesApi {
 	 * Create request for operation 'addEmployee'
 	 *
 	 * @param  \BhrSdk\Model\PostNewEmployee $post_new_employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
+	 * @param  string                        $contentType       The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -542,11 +542,11 @@ class EmployeesApi {
 	 *
 	 * Get Employee
 	 *
-	 * @param  string $fields {fields} is a comma separated list of values taken from the official list of field names. (required)
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $fields                  {fields} is a comma separated list of values taken from the official list of field names. (required)
+	 * @param  string      $id                      {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -562,11 +562,11 @@ class EmployeesApi {
 	 *
 	 * Get Employee
 	 *
-	 * @param  string $fields {fields} is a comma separated list of values taken from the official list of field names. (required)
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $fields                  {fields} is a comma separated list of values taken from the official list of field names. (required)
+	 * @param  string      $id                      {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -615,11 +615,11 @@ class EmployeesApi {
 	 *
 	 * Get Employee
 	 *
-	 * @param  string $fields {fields} is a comma separated list of values taken from the official list of field names. (required)
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $fields                  {fields} is a comma separated list of values taken from the official list of field names. (required)
+	 * @param  string      $id                      {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -638,11 +638,11 @@ class EmployeesApi {
 	 *
 	 * Get Employee
 	 *
-	 * @param  string $fields {fields} is a comma separated list of values taken from the official list of field names. (required)
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $fields                  {fields} is a comma separated list of values taken from the official list of field names. (required)
+	 * @param  string      $id                      {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -685,11 +685,11 @@ class EmployeesApi {
 	/**
 	 * Create request for operation 'getEmployee'
 	 *
-	 * @param  string $fields {fields} is a comma separated list of values taken from the official list of field names. (required)
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  bool|null $only_current Setting to false will return future dated values from history table fields. (optional, default to false)
+	 * @param  string      $fields                  {fields} is a comma separated list of values taken from the official list of field names. (required)
+	 * @param  string      $id                      {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  bool|null   $only_current            Setting to false will return future dated values from history table fields. (optional, default to false)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -799,7 +799,7 @@ class EmployeesApi {
 	 * Get Employee Directory
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -816,7 +816,7 @@ class EmployeesApi {
 	 * Get Employee Directory
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -866,7 +866,7 @@ class EmployeesApi {
 	 * Get Employee Directory
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -886,7 +886,7 @@ class EmployeesApi {
 	 * Get Employee Directory
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -930,7 +930,7 @@ class EmployeesApi {
 	 * Create request for operation 'getEmployeesDirectory'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesDirectory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1005,17 +1005,18 @@ class EmployeesApi {
 	 *
 	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter      Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null                                        $sort        Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null     $page        Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
+	 * @param  string|null                                        $fields      Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted. (optional)
+	 * @param  string                                             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\InvalidRequest
 	 */
-	public function getEmployeesList($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
-		list($response) = $this->getEmployeesListWithHttpInfo($filter, $sort, $page, $contentType);
+	public function getEmployeesList($filter = null, $sort = null, $page = null, $fields = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		list($response) = $this->getEmployeesListWithHttpInfo($filter, $sort, $page, $fields, $contentType);
 		return $response;
 	}
 
@@ -1024,17 +1025,18 @@ class EmployeesApi {
 	 *
 	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter      Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null                                        $sort        Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null     $page        Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
+	 * @param  string|null                                        $fields      Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted. (optional)
+	 * @param  string                                             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\GetEmployeesResponseObject|\BhrSdk\Model\InvalidRequest, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getEmployeesListWithHttpInfo($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
-		$request = $this->getEmployeesListRequest($filter, $sort, $page, $contentType);
+	public function getEmployeesListWithHttpInfo($filter = null, $sort = null, $page = null, $fields = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		$request = $this->getEmployeesListRequest($filter, $sort, $page, $fields, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1082,16 +1084,17 @@ class EmployeesApi {
 	 *
 	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter      Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null                                        $sort        Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null     $page        Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
+	 * @param  string|null                                        $fields      Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted. (optional)
+	 * @param  string                                             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getEmployeesListAsync($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
-		return $this->getEmployeesListAsyncWithHttpInfo($filter, $sort, $page, $contentType)
+	public function getEmployeesListAsync($filter = null, $sort = null, $page = null, $fields = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+		return $this->getEmployeesListAsyncWithHttpInfo($filter, $sort, $page, $fields, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1104,17 +1107,18 @@ class EmployeesApi {
 	 *
 	 * Get Employees
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter      Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null                                        $sort        Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null     $page        Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
+	 * @param  string|null                                        $fields      Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted. (optional)
+	 * @param  string                                             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getEmployeesListAsyncWithHttpInfo($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+	public function getEmployeesListAsyncWithHttpInfo($filter = null, $sort = null, $page = null, $fields = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
 		$returnType = '\BhrSdk\Model\GetEmployeesResponseObject';
-		$request = $this->getEmployeesListRequest($filter, $sort, $page, $contentType);
+		$request = $this->getEmployeesListRequest($filter, $sort, $page, $fields, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1150,15 +1154,16 @@ class EmployeesApi {
 	/**
 	 * Create request for operation 'getEmployeesList'
 	 *
-	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
-	 * @param  string|null $sort Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
-	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null $page Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\GetEmployeesFilterRequestObject|null $filter      Filters used to match employees. Encode filter properties using deepObject style. If the caller does not have access to the filtered field on a matching employee, that employee is excluded from the results to avoid leaking sensitive data. (optional)
+	 * @param  string|null                                        $sort        Comma-separated list of sortable fields. Prefix a field with \&quot;-\&quot; for descending order. Allowed fields: &#x60;employeeId&#x60;, &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;preferredName&#x60;, &#x60;jobTitleName&#x60;, &#x60;status&#x60;. Nulls sort first in ascending order and last in descending order. If the caller does not have access to the sort field for an employee, that employee is excluded from the final result set to avoid leaking sensitive information. (optional)
+	 * @param  \BhrSdk\Model\CursorPaginationQueryObject|null     $page        Cursor-based pagination parameters (&#x60;limit&#x60;, &#x60;after&#x60;, &#x60;before&#x60;). (optional)
+	 * @param  string|null                                        $fields      Comma-separated list of additional fields to include in the response. Default fields (employeeId, firstName, lastName, preferredName, photoUrl, jobTitleName, status) are always included. Invalid field names are silently ignored. Field values are subject to permission checks - restricted fields will be null or omitted. (optional)
+	 * @param  string                                             $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeesList'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getEmployeesListRequest($filter = null, $sort = null, $page = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
+	public function getEmployeesListRequest($filter = null, $sort = null, $page = null, $fields = null, string $contentType = self::CONTENT_TYPES['getEmployeesList'][0]) {
 
 		$resourcePath = '/api/v1/employees';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
@@ -1172,6 +1177,7 @@ class EmployeesApi {
 			'filter' => ['value' => $filter, 'type' => 'object', 'required' => false, 'style' => 'deepObject', 'explode' => true],
 			'sort' => ['value' => $sort, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'page' => ['value' => $page, 'type' => 'object', 'required' => false, 'style' => 'deepObject', 'explode' => true],
+			'fields' => ['value' => $fields, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 		];
 
 		// Process parameters and build query values directly
@@ -1241,9 +1247,9 @@ class EmployeesApi {
 	 *
 	 * Update Employee
 	 *
-	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \BhrSdk\Model\Employee $employee employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
+	 * @param  string                 $id          {id} is an employee ID. (required)
+	 * @param  \BhrSdk\Model\Employee $employee    employee (required)
+	 * @param  string                 $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1259,9 +1265,9 @@ class EmployeesApi {
 	 *
 	 * Update Employee
 	 *
-	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \BhrSdk\Model\Employee $employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
+	 * @param  string                 $id          {id} is an employee ID. (required)
+	 * @param  \BhrSdk\Model\Employee $employee    (required)
+	 * @param  string                 $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1288,9 +1294,9 @@ class EmployeesApi {
 	 *
 	 * Update Employee
 	 *
-	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \BhrSdk\Model\Employee $employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
+	 * @param  string                 $id          {id} is an employee ID. (required)
+	 * @param  \BhrSdk\Model\Employee $employee    (required)
+	 * @param  string                 $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1309,9 +1315,9 @@ class EmployeesApi {
 	 *
 	 * Update Employee
 	 *
-	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \BhrSdk\Model\Employee $employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
+	 * @param  string                 $id          {id} is an employee ID. (required)
+	 * @param  \BhrSdk\Model\Employee $employee    (required)
+	 * @param  string                 $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1352,9 +1358,9 @@ class EmployeesApi {
 	/**
 	 * Create request for operation 'updateEmployee'
 	 *
-	 * @param  string $id {id} is an employee ID. (required)
-	 * @param  \BhrSdk\Model\Employee $employee (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
+	 * @param  string                 $id          {id} is an employee ID. (required)
+	 * @param  \BhrSdk\Model\Employee $employee    (required)
+	 * @param  string                 $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployee'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request

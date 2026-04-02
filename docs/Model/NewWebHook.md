@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **url** | **string** | The url the webhook should send data to (must begin with https://). |
 **format** | **string** | The format the webhook should use (json - default, form-encoded). | [optional]
 **include_company_domain** | **bool** | If set to true, the company domain will be added to the header. | [optional]
+**events** | [**\BhrSdk\Model\WebhookEventType[]**](WebhookEventType.md) | Events that trigger this webhook. Defaults to [&#39;employee_with_fields.updated&#39;, &#39;employee_with_fields.deleted&#39;, &#39;employee_with_fields.created&#39;] if not specified. Cannot mix employee_with_fields events with employee events. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

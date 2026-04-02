@@ -9,6 +9,7 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 | ------------- | ------------- | ------------- |
 | [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} | Delete Webhook |
 | [**getMonitorFields()**](WebhooksApi.md#getMonitorFields) | **GET** /api/v1/webhooks/monitor_fields | Get Monitor Fields |
+| [**getPostFields()**](WebhooksApi.md#getPostFields) | **GET** /api/v1/webhooks/post-fields | Get Post Fields |
 | [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /api/v1/webhooks/{id} | Get Webhook |
 | [**getWebhookList()**](WebhooksApi.md#getWebhookList) | **GET** /api/v1/webhooks | Get Webhooks |
 | [**getWebhookLogs()**](WebhooksApi.md#getWebhookLogs) | **GET** /api/v1/webhooks/{id}/log | Get Webhook Logs |
@@ -45,7 +46,7 @@ $apiInstance = new BhrSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | {id} is an webhook ID that is associated with the User API key.
+$id = 56; // int | The webhook ID to delete.
 
 try {
     $apiInstance->deleteWebhook($id);
@@ -58,7 +59,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| {id} is an webhook ID that is associated with the User API key. | |
+| **id** | **int**| The webhook ID to delete. | |
 
 ### Return type
 
@@ -122,6 +123,65 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\BhrSdk\Model\FieldList**](../Model/FieldList.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPostFields()`
+
+```php
+getPostFields(): \BhrSdk\Model\WebHookPostFieldResponseObject
+```
+
+Get Post Fields
+
+Get a list fields webhooks can include in the post body
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\WebhooksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getPostFields();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebhooksApi->getPostFields: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\BhrSdk\Model\WebHookPostFieldResponseObject**](../Model/WebHookPostFieldResponseObject.md)
 
 ### Authorization
 
@@ -206,7 +266,7 @@ getWebhookList(): \BhrSdk\Model\WebhooksList
 
 Get Webhooks
 
-Gets as list of webhooks for the user API key.
+Gets a list of webhooks for the user API key.
 
 ### Example
 
@@ -286,7 +346,7 @@ $apiInstance = new BhrSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | The webhook ID to get logs about.
+$id = 56; // int | The webhook ID to get logs about.
 
 try {
     $result = $apiInstance->getWebhookLogs($id);
@@ -300,7 +360,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| The webhook ID to get logs about. | |
+| **id** | **int**| The webhook ID to get logs about. | |
 
 ### Return type
 
@@ -410,7 +470,7 @@ $apiInstance = new BhrSdk\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | {id} is a webhook ID.
+$id = 56; // int | The webhook ID to update.
 $new_web_hook = new \BhrSdk\Model\NewWebHook(); // \BhrSdk\Model\NewWebHook
 
 try {
@@ -425,7 +485,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| {id} is a webhook ID. | |
+| **id** | **int**| The webhook ID to update. | |
 | **new_web_hook** | [**\BhrSdk\Model\NewWebHook**](../Model/NewWebHook.md)|  | |
 
 ### Return type

@@ -88,6 +88,12 @@ class BenefitsApi {
 		'getBenefitDeductionTypes' => [
 			'application/json',
         ],
+		'getCompanyBenefits' => [
+			'application/json',
+        ],
+		'getEmployeeBenefit' => [
+			'application/json',
+        ],
 		'getEmployeeDependent' => [
 			'application/json',
         ],
@@ -97,17 +103,20 @@ class BenefitsApi {
 		'getMemberBenefit' => [
 			'application/json',
         ],
+		'getMemberBenefits' => [
+			'application/json',
+        ],
 		'updateEmployeeDependent' => [
 			'application/json',
         ],
 	];
 
 	/**
-	 * @param ClientInterface $client
-	 * @param Configuration   $config
-	 * @param HeaderSelector  $selector
-	 * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
-	 * @param LoggerInterface|null $logger (Optional) logger instance for secure logging
+	 * @param ClientInterface|null $client
+	 * @param Configuration|null   $config
+	 * @param HeaderSelector|null  $selector
+	 * @param int                  $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+	 * @param LoggerInterface|null $logger    (Optional) logger instance for secure logging
 	 */
 	public function __construct(
 		?ClientInterface $client = null,
@@ -154,7 +163,7 @@ class BenefitsApi {
 	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -171,7 +180,7 @@ class BenefitsApi {
 	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -199,7 +208,7 @@ class BenefitsApi {
 	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -219,7 +228,7 @@ class BenefitsApi {
 	 * Create Employee Dependent
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -261,7 +270,7 @@ class BenefitsApi {
 	 * Create request for operation 'addEmployeeDependent'
 	 *
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -349,7 +358,7 @@ class BenefitsApi {
 	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -366,7 +375,7 @@ class BenefitsApi {
 	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -394,7 +403,7 @@ class BenefitsApi {
 	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -414,7 +423,7 @@ class BenefitsApi {
 	 * Get Benefit Coverages
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -456,7 +465,7 @@ class BenefitsApi {
 	 * Create request for operation 'getBenefitCoverages'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getBenefitCoverages'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -700,13 +709,432 @@ class BenefitsApi {
 	}
 
 	/**
+	 * Operation getCompanyBenefits
+	 *
+	 * Get Company Benefits
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\CompanyBenefitResponse[]
+	 */
+	public function getCompanyBenefits(string $contentType = self::CONTENT_TYPES['getCompanyBenefits'][0]) {
+		list($response) = $this->getCompanyBenefitsWithHttpInfo($contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getCompanyBenefitsWithHttpInfo
+	 *
+	 * Get Company Benefits
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\CompanyBenefitResponse[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getCompanyBenefitsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyBenefits'][0]) {
+		$request = $this->getCompanyBenefitsRequest($contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CompanyBenefitResponse[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\CompanyBenefitResponse[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getCompanyBenefitsAsync
+	 *
+	 * Get Company Benefits
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getCompanyBenefitsAsync(string $contentType = self::CONTENT_TYPES['getCompanyBenefits'][0]) {
+		return $this->getCompanyBenefitsAsyncWithHttpInfo($contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getCompanyBenefitsAsyncWithHttpInfo
+	 *
+	 * Get Company Benefits
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getCompanyBenefitsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyBenefits'][0]) {
+		$returnType = '\BhrSdk\Model\CompanyBenefitResponse[]';
+		$request = $this->getCompanyBenefitsRequest($contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getCompanyBenefits'
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getCompanyBenefitsRequest(string $contentType = self::CONTENT_TYPES['getCompanyBenefits'][0]) {
+
+		$resourcePath = '/api/v1/benefit/company_benefit';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getEmployeeBenefit
+	 *
+	 * Get Employee Benefits
+	 *
+	 * @param  string|null                               $accept_header_parameter  This endpoint can produce either JSON or XML. (optional)
+	 * @param  \BhrSdk\Model\EmployeeBenefitFilters|null $employee_benefit_filters Employee Benefit Filters (optional)
+	 * @param  string                                    $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeBenefit'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\EmployeeBenefit[]
+	 */
+	public function getEmployeeBenefit($accept_header_parameter = null, $employee_benefit_filters = null, string $contentType = self::CONTENT_TYPES['getEmployeeBenefit'][0]) {
+		list($response) = $this->getEmployeeBenefitWithHttpInfo($accept_header_parameter, $employee_benefit_filters, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getEmployeeBenefitWithHttpInfo
+	 *
+	 * Get Employee Benefits
+	 *
+	 * @param  string|null                               $accept_header_parameter  This endpoint can produce either JSON or XML. (optional)
+	 * @param  \BhrSdk\Model\EmployeeBenefitFilters|null $employee_benefit_filters Employee Benefit Filters (optional)
+	 * @param  string                                    $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeBenefit'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\EmployeeBenefit[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getEmployeeBenefitWithHttpInfo($accept_header_parameter = null, $employee_benefit_filters = null, string $contentType = self::CONTENT_TYPES['getEmployeeBenefit'][0]) {
+		$request = $this->getEmployeeBenefitRequest($accept_header_parameter, $employee_benefit_filters, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\EmployeeBenefit[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\EmployeeBenefit[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getEmployeeBenefitAsync
+	 *
+	 * Get Employee Benefits
+	 *
+	 * @param  string|null                               $accept_header_parameter  This endpoint can produce either JSON or XML. (optional)
+	 * @param  \BhrSdk\Model\EmployeeBenefitFilters|null $employee_benefit_filters Employee Benefit Filters (optional)
+	 * @param  string                                    $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeBenefit'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getEmployeeBenefitAsync($accept_header_parameter = null, $employee_benefit_filters = null, string $contentType = self::CONTENT_TYPES['getEmployeeBenefit'][0]) {
+		return $this->getEmployeeBenefitAsyncWithHttpInfo($accept_header_parameter, $employee_benefit_filters, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getEmployeeBenefitAsyncWithHttpInfo
+	 *
+	 * Get Employee Benefits
+	 *
+	 * @param  string|null                               $accept_header_parameter  This endpoint can produce either JSON or XML. (optional)
+	 * @param  \BhrSdk\Model\EmployeeBenefitFilters|null $employee_benefit_filters Employee Benefit Filters (optional)
+	 * @param  string                                    $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeBenefit'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getEmployeeBenefitAsyncWithHttpInfo($accept_header_parameter = null, $employee_benefit_filters = null, string $contentType = self::CONTENT_TYPES['getEmployeeBenefit'][0]) {
+		$returnType = '\BhrSdk\Model\EmployeeBenefit[]';
+		$request = $this->getEmployeeBenefitRequest($accept_header_parameter, $employee_benefit_filters, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getEmployeeBenefit'
+	 *
+	 * @param  string|null                               $accept_header_parameter  This endpoint can produce either JSON or XML. (optional)
+	 * @param  \BhrSdk\Model\EmployeeBenefitFilters|null $employee_benefit_filters Employee Benefit Filters (optional)
+	 * @param  string                                    $contentType              The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeBenefit'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getEmployeeBenefitRequest($accept_header_parameter = null, $employee_benefit_filters = null, string $contentType = self::CONTENT_TYPES['getEmployeeBenefit'][0]) {
+
+		$resourcePath = '/api/v1/benefit/employee_benefit';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// header params
+		if ($accept_header_parameter !== null) {
+			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($employee_benefit_filters)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_benefit_filters));
+			} else {
+				$httpBody = is_array($employee_benefit_filters) ? json_encode($employee_benefit_filters) : $employee_benefit_filters;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
 	 * Operation getEmployeeDependent
 	 *
 	 * Get Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string      $id                      {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -722,9 +1150,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string      $id                      {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -751,9 +1179,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string      $id                      {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -772,9 +1200,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string      $id                      {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -815,9 +1243,9 @@ class BenefitsApi {
 	/**
 	 * Create request for operation 'getEmployeeDependent'
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string      $id                      {id} is the employee dependent ID. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -908,9 +1336,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependents
 	 *
-	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
+	 * @param  string      $employeeid              {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -926,9 +1354,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependents
 	 *
-	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
+	 * @param  string      $employeeid              {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -955,9 +1383,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependents
 	 *
-	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
+	 * @param  string      $employeeid              {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -976,9 +1404,9 @@ class BenefitsApi {
 	 *
 	 * Get Employee Dependents
 	 *
-	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
+	 * @param  string      $employeeid              {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1019,9 +1447,9 @@ class BenefitsApi {
 	/**
 	 * Create request for operation 'getEmployeeDependents'
 	 *
-	 * @param  string $employeeid {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
+	 * @param  string      $employeeid              {employeeid} is the employee ID. Supplying this ID limits the response to the specific employee. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
+	 * @param  string      $contentType             The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeDependents'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
@@ -1312,13 +1740,266 @@ class BenefitsApi {
 	}
 
 	/**
+	 * Operation getMemberBenefits
+	 *
+	 * Get Member Benefits
+	 *
+	 * @param  string      $calendar_year The 4-digit calendar year to retrieve benefits for (required)
+	 * @param  string|null $page          The page number for pagination (optional, default to '1')
+	 * @param  string|null $page_size     The number of items per page (must be less than 100) (optional, default to '25')
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\MemberBenefitsGetSuccessResponse|\BhrSdk\Model\MemberBenefitsGetValidationErrorResponse|\BhrSdk\Model\MemberBenefitsGetPermissionDeniedResponse
+	 */
+	public function getMemberBenefits($calendar_year, $page = '1', $page_size = '25', string $contentType = self::CONTENT_TYPES['getMemberBenefits'][0]) {
+		list($response) = $this->getMemberBenefitsWithHttpInfo($calendar_year, $page, $page_size, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getMemberBenefitsWithHttpInfo
+	 *
+	 * Get Member Benefits
+	 *
+	 * @param  string      $calendar_year The 4-digit calendar year to retrieve benefits for (required)
+	 * @param  string|null $page          The page number for pagination (optional, default to '1')
+	 * @param  string|null $page_size     The number of items per page (must be less than 100) (optional, default to '25')
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\MemberBenefitsGetSuccessResponse|\BhrSdk\Model\MemberBenefitsGetValidationErrorResponse|\BhrSdk\Model\MemberBenefitsGetPermissionDeniedResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getMemberBenefitsWithHttpInfo($calendar_year, $page = '1', $page_size = '25', string $contentType = self::CONTENT_TYPES['getMemberBenefits'][0]) {
+		$request = $this->getMemberBenefitsRequest($calendar_year, $page, $page_size, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\MemberBenefitsGetSuccessResponse',
+					$request,
+					$response,
+				);
+			case 400:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\MemberBenefitsGetValidationErrorResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\MemberBenefitsGetPermissionDeniedResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\MemberBenefitsGetSuccessResponse',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getMemberBenefitsAsync
+	 *
+	 * Get Member Benefits
+	 *
+	 * @param  string      $calendar_year The 4-digit calendar year to retrieve benefits for (required)
+	 * @param  string|null $page          The page number for pagination (optional, default to '1')
+	 * @param  string|null $page_size     The number of items per page (must be less than 100) (optional, default to '25')
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getMemberBenefitsAsync($calendar_year, $page = '1', $page_size = '25', string $contentType = self::CONTENT_TYPES['getMemberBenefits'][0]) {
+		return $this->getMemberBenefitsAsyncWithHttpInfo($calendar_year, $page, $page_size, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getMemberBenefitsAsyncWithHttpInfo
+	 *
+	 * Get Member Benefits
+	 *
+	 * @param  string      $calendar_year The 4-digit calendar year to retrieve benefits for (required)
+	 * @param  string|null $page          The page number for pagination (optional, default to '1')
+	 * @param  string|null $page_size     The number of items per page (must be less than 100) (optional, default to '25')
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getMemberBenefitsAsyncWithHttpInfo($calendar_year, $page = '1', $page_size = '25', string $contentType = self::CONTENT_TYPES['getMemberBenefits'][0]) {
+		$returnType = '\BhrSdk\Model\MemberBenefitsGetSuccessResponse';
+		$request = $this->getMemberBenefitsRequest($calendar_year, $page, $page_size, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getMemberBenefits'
+	 *
+	 * @param  string      $calendar_year The 4-digit calendar year to retrieve benefits for (required)
+	 * @param  string|null $page          The page number for pagination (optional, default to '1')
+	 * @param  string|null $page_size     The number of items per page (must be less than 100) (optional, default to '25')
+	 * @param  string      $contentType   The value for the Content-Type header. Check self::CONTENT_TYPES['getMemberBenefits'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getMemberBenefitsRequest($calendar_year, $page = '1', $page_size = '25', string $contentType = self::CONTENT_TYPES['getMemberBenefits'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'calendar_year' => $calendar_year,
+			],
+			methodName: 'getMemberBenefits'
+		);
+
+		if (!preg_match("/^\\d{4}$/", $calendar_year)) {
+			throw new \InvalidArgumentException("invalid value for \"calendar_year\" when calling BenefitsApi.getMemberBenefits, must conform to the pattern /^\\d{4}$/.");
+		}
+		
+		$resourcePath = '/api/v1/benefits/member-benefits';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'calendarYear' => ['value' => $calendar_year, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'page' => ['value' => $page, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'pageSize' => ['value' => $page_size, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
 	 * Operation updateEmployeeDependent
 	 *
 	 * Update Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string                          $id                 {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1334,9 +2015,9 @@ class BenefitsApi {
 	 *
 	 * Update Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string                          $id                 {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
@@ -1363,9 +2044,9 @@ class BenefitsApi {
 	 *
 	 * Update Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string                          $id                 {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1384,9 +2065,9 @@ class BenefitsApi {
 	 *
 	 * Update Employee Dependent
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string                          $id                 {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1427,9 +2108,9 @@ class BenefitsApi {
 	/**
 	 * Create request for operation 'updateEmployeeDependent'
 	 *
-	 * @param  string $id {id} is the employee dependent ID. (required)
+	 * @param  string                          $id                 {id} is the employee dependent ID. (required)
 	 * @param  \BhrSdk\Model\EmployeeDependent $employee_dependent (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
+	 * @param  string                          $contentType        The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeDependent'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
