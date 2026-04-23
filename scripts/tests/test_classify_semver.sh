@@ -68,7 +68,7 @@ echo "=== Classification Tests ==="
 OUTPUT="$(run_classify "$FIXTURES/empty.json" 0)"
 assert_bump_level "empty changelog → none" "none" "$OUTPUT"
 
-# Breaking change (oasdiff exit code 1) → major
+# Breaking change (oasdiff exit code 1) → major, even with empty JSON
 OUTPUT="$(run_classify "$FIXTURES/empty.json" 1)"
 assert_bump_level "breaking exit code 1 → major" "major" "$OUTPUT"
 
@@ -219,6 +219,15 @@ if bash "$CLASSIFY" --changelog-json /nonexistent/file.json --breaking-exit 0 > 
     FAIL=$((FAIL + 1))
 else
     echo "  PASS: non-existent changelog file exits non-zero"
+    PASS=$((PASS + 1))
+fi
+
+# oasdiff process error (exit code > 1) is not silently treated as a breaking change
+if bash "$CLASSIFY" --changelog-json "$FIXTURES/empty.json" --breaking-exit 2 > /dev/null 2>&1; then
+    echo "  FAIL: breaking-exit > 1 should exit non-zero (oasdiff error, not a breaking change)"
+    FAIL=$((FAIL + 1))
+else
+    echo "  PASS: breaking-exit > 1 exits non-zero (oasdiff error distinguished from breaking change)"
     PASS=$((PASS + 1))
 fi
 

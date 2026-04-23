@@ -233,17 +233,41 @@ CHANGELOG_JSON=""
 
 if [[ -n "$CHANGELOG_JSON_FILE" ]]; then
     BREAKING_EXIT="$BREAKING_EXIT_OVERRIDE"
+    # Mirror real oasdiff behavior: exit code > 1 means oasdiff itself errored, not a breaking change.
+    if [[ "$BREAKING_EXIT" -gt 1 ]]; then
+        echo "ERROR: Simulated oasdiff error (--breaking-exit ${BREAKING_EXIT}). Only 0 (no breaking) and 1 (breaking found) are valid." >&2
+        exit 1
+    fi
     CHANGELOG_JSON="$(cat "$CHANGELOG_JSON_FILE")"
 else
-    oasdiff breaking --fail-on ERR "${SEVERITY_LEVELS_FLAG[@]}" "$OLD_SPEC" "$NEW_SPEC" > /dev/null 2>&1 || BREAKING_EXIT=$?
-    CHANGELOG_JSON="$(oasdiff changelog -f json "${SEVERITY_LEVELS_FLAG[@]}" "$OLD_SPEC" "$NEW_SPEC" 2>/dev/null || echo '[]')"
+    # oasdiff breaking exits: 0 = no breaking changes, 1 = breaking changes found, >1 = oasdiff error.
+    # Capture stderr so we can surface it on error; send stdout to /dev/null (it's not JSON).
+    BREAKING_STDERR="$(oasdiff breaking --fail-on ERR "${SEVERITY_LEVELS_FLAG[@]}" "$OLD_SPEC" "$NEW_SPEC" 2>&1 >/dev/null)" || BREAKING_EXIT=$?
+    if [[ "$BREAKING_EXIT" -gt 1 ]]; then
+        echo "ERROR: oasdiff breaking failed (exit ${BREAKING_EXIT}). Check your spec files and oasdiff version." >&2
+        [[ -n "$BREAKING_STDERR" ]] && echo "$BREAKING_STDERR" >&2
+        exit 1
+    fi
+
+    # oasdiff changelog exits 0 on success (with or without changes); non-zero is a real error.
+    # Use a temp file for stderr so we can capture JSON output and error output independently.
+    CHANGELOG_STDERR_FILE="$(mktemp)"
+    CHANGELOG_EXIT=0
+    CHANGELOG_JSON="$(oasdiff changelog -f json "${SEVERITY_LEVELS_FLAG[@]}" "$OLD_SPEC" "$NEW_SPEC" 2>"$CHANGELOG_STDERR_FILE")" || CHANGELOG_EXIT=$?
+    if [[ "$CHANGELOG_EXIT" -ne 0 ]]; then
+        echo "ERROR: oasdiff changelog failed (exit ${CHANGELOG_EXIT})." >&2
+        cat "$CHANGELOG_STDERR_FILE" >&2
+        rm -f "$CHANGELOG_STDERR_FILE"
+        exit 1
+    fi
+    rm -f "$CHANGELOG_STDERR_FILE"
 fi
 
 # --- Step 2: Classify ---
 BUMP_LEVEL="none"
 REASON=""
 
-# Highest priority: breaking changes detected by oasdiff breaking
+# Highest priority: breaking changes detected by oasdiff breaking (exit code 1 only)
 if [[ "$BREAKING_EXIT" -ne 0 ]]; then
     BUMP_LEVEL="major"
     BREAKING_COUNT="$(echo "$CHANGELOG_JSON" | jq '[.[] | select(.level == 3)] | length')"
