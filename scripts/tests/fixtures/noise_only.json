@@ -18,5 +18,40 @@
     "path": "/api/v1/employeedependents",
     "source": "new.yaml",
     "section": "paths"
+  },
+  {
+    "id": "api-global-security-scope-added",
+    "text": "the global security scope `employee:read` was added",
+    "level": 1,
+    "source": "new.yaml",
+    "section": "components"
+  },
+  {
+    "id": "api-global-security-scope-removed",
+    "text": "the global security scope `employee` was removed",
+    "level": 1,
+    "source": "new.yaml",
+    "section": "components"
+  },
+  {
+    "id": "api-security-component-oauth-scope-added",
+    "text": "the security component oauth scope `employee:read` was added",
+    "level": 1,
+    "source": "new.yaml",
+    "section": "components"
+  },
+  {
+    "id": "api-security-component-oauth-scope-removed",
+    "text": "the security component oauth scope `employee` was removed",
+    "level": 1,
+    "source": "new.yaml",
+    "section": "components"
+  },
+  {
+    "id": "api-security-component-oauth-scope-changed",
+    "text": "the security component oauth scope `employee` was changed to `employee:read`",
+    "level": 1,
+    "source": "new.yaml",
+    "section": "components"
   }
 ]

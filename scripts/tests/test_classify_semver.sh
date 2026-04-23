@@ -94,6 +94,8 @@ assert_output_contains "metadata reason mentions change ID" "endpoint-deprecated
 # Mixed additive + metadata → minor (additive wins)
 OUTPUT="$(run_classify "$FIXTURES/mixed_additive_and_metadata.json" 0)"
 assert_bump_level "mixed additive + metadata → minor" "minor" "$OUTPUT"
+assert_output_contains "mixed: additive change ID present in reason" "endpoint-added" "$OUTPUT"
+assert_output_contains "mixed: metadata change ID present in reason" "endpoint-deprecated" "$OUTPUT"
 
 # WARN-level change → minor
 OUTPUT="$(run_classify "$FIXTURES/warn_level.json" 0)"

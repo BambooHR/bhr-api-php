@@ -210,6 +210,11 @@ METADATA_IDS=(
 NOISE_IDS=(
     "api-security-scope-added"
     "api-security-scope-removed"
+    "api-global-security-scope-added"
+    "api-global-security-scope-removed"
+    "api-security-component-oauth-scope-added"
+    "api-security-component-oauth-scope-removed"
+    "api-security-component-oauth-scope-changed"
 )
 
 # --- Helper: Check if an ID is in an array ---
@@ -315,13 +320,16 @@ else
                         UNIQUE_UNKNOWN="$(printf '%s\n' "${UNKNOWN_FOUND[@]}" | sort -u | tr '\n' ',' | sed 's/,$//')"
                         REASON_PARTS+=("${UNKNOWN_COUNT} unclassified INFO change(s) (defaulting to minor): ${UNIQUE_UNKNOWN}")
                     fi
-                elif [[ "$METADATA_COUNT" -gt 0 ]]; then
-                    # Only metadata changes and no WARN → patch
+                else
+                    # Metadata-only INFO changes and no WARN → patch
                     if [[ "$BUMP_LEVEL" == "none" ]]; then
                         BUMP_LEVEL="patch"
                     fi
+                fi
+                # Always report metadata changes in the reason, regardless of other INFO changes
+                if [[ "$METADATA_COUNT" -gt 0 ]]; then
                     UNIQUE_METADATA="$(printf '%s\n' "${METADATA_FOUND[@]}" | sort -u | tr '\n' ',' | sed 's/,$//')"
-                    REASON_PARTS+=("${METADATA_COUNT} metadata-only change(s): ${UNIQUE_METADATA}")
+                    REASON_PARTS+=("${METADATA_COUNT} metadata change(s): ${UNIQUE_METADATA}")
                 fi
             fi
 
