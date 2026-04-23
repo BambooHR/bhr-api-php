@@ -392,7 +392,7 @@ if [[ "$APPLY" == "true" && "$BUMP_LEVEL" != "none" ]]; then
     # Extract current version
     case "$VERSION_FILE" in
         *.toml)
-            CURRENT_VERSION="$(grep -E '^version = "' "$VERSION_FILE" | head -1 | sed 's/version = "\(.*\)"/\1/')"
+            CURRENT_VERSION="$(grep -E '^version = "' "$VERSION_FILE" | head -1 | sed 's/version = "\(.*\)"/\1/' || true)"
             ;;
         *.json)
             CURRENT_VERSION="$(jq -r '.version' "$VERSION_FILE")"

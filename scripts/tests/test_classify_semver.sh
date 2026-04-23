@@ -222,6 +222,26 @@ else
     PASS=$((PASS + 1))
 fi
 
+# Missing version field in composer.json produces a friendly error, not a silent crash
+TMPDIR_ERR="$(mktemp -d /tmp/test_err_XXXXXX)"
+cat > "$TMPDIR_ERR/composer.json" <<'EOF'
+{
+    "name": "bamboohr/api",
+    "description": "BambooHR PHP SDK"
+}
+EOF
+ERR_OUTPUT="$(run_classify "$FIXTURES/additive.json" 0 --apply --version-file "$TMPDIR_ERR/composer.json" 2>&1)" || true
+rm -rf "$TMPDIR_ERR"
+if echo "$ERR_OUTPUT" | grep -qF "Could not extract version"; then
+    echo "  PASS: missing composer.json version produces friendly error message"
+    PASS=$((PASS + 1))
+else
+    echo "  FAIL: missing composer.json version should produce friendly error message"
+    echo "    Full output:"
+    echo "$ERR_OUTPUT" | sed 's/^/      /'
+    FAIL=$((FAIL + 1))
+fi
+
 # oasdiff process error (exit code > 1) is not silently treated as a breaking change
 if bash "$CLASSIFY" --changelog-json "$FIXTURES/empty.json" --breaking-exit 2 > /dev/null 2>&1; then
     echo "  FAIL: breaking-exit > 1 should exit non-zero (oasdiff error, not a breaking change)"
