@@ -1,0 +1,12 @@
+[
+  {
+    "id": "request-parameter-type-changed",
+    "text": "request parameter type changed",
+    "level": 2,
+    "operation": "GET",
+    "operationId": "list-something",
+    "path": "/api/v1/something",
+    "source": "new.yaml",
+    "section": "paths"
+  }
+]

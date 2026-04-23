@@ -1,0 +1,22 @@
+[
+  {
+    "id": "api-security-scope-added",
+    "text": "the security scope `employee:dependent:ssn` was added to the endpoint's security scheme `oauth`",
+    "level": 1,
+    "operation": "GET",
+    "operationId": "list-employee-dependents",
+    "path": "/api/v1/employeedependents",
+    "source": "new.yaml",
+    "section": "paths"
+  },
+  {
+    "id": "api-security-scope-removed",
+    "text": "the security scope `employee:dependent` was removed from the endpoint's security scheme `oauth`",
+    "level": 1,
+    "operation": "GET",
+    "operationId": "list-employee-dependents",
+    "path": "/api/v1/employeedependents",
+    "source": "new.yaml",
+    "section": "paths"
+  }
+]

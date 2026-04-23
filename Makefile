@@ -15,7 +15,7 @@ DEVELOPER = BambooHR
 COMPOSER_PACKAGE_NAME = bamboohr/api
 LICENSE_NAME = MIT
 
-.PHONY: help generate clean cleanup-obsolete test phpstan
+.PHONY: help generate clean cleanup-obsolete test phpstan classify-semver
 
 help:
 	@echo "BambooHR API PHP SDK - Available commands:"
@@ -26,6 +26,7 @@ help:
 	@echo "  make test              - Run tests"
 	@echo "  make phpcs             - Run PHP Code Sniffer"
 	@echo "  make phpstan           - Run PHPStan static analysis"
+	@echo "  make classify-semver OLD=old.yaml NEW=new.yaml [APPLY=true] - Classify semver bump"
 
 generate:
 	@echo "Generating PHP SDK from OpenAPI spec at $(OPENAPI_SPEC_PATH)..."
@@ -71,6 +72,8 @@ clean:
 test:
 	@echo "Running tests..."
 	./vendor/bin/phpunit
+	@echo "Running classify_semver.sh unit tests..."
+	@bash scripts/tests/test_classify_semver.sh
 	@echo "Tests complete!"
 
 phpcs:
@@ -82,3 +85,12 @@ phpstan:
 	@echo "Running PHPStan..."
 	./vendor/bin/phpstan analyse --memory-limit=1024M
 	@echo "PHPStan complete!"
+
+classify-semver:
+	@if [ -z "$(OLD)" ] || [ -z "$(NEW)" ]; then \
+		echo "Usage: make classify-semver OLD=old.yaml NEW=new.yaml [APPLY=true]"; \
+		exit 1; \
+	fi
+	@APPLY_FLAG=""; \
+	if [ "$(APPLY)" = "true" ]; then APPLY_FLAG="--apply"; fi; \
+	bash scripts/classify_semver.sh $$APPLY_FLAG $(OLD) $(NEW)

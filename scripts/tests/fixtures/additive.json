@@ -1,0 +1,12 @@
+[
+  {
+    "id": "endpoint-added",
+    "text": "endpoint added",
+    "level": 1,
+    "operation": "GET",
+    "operationId": "get-something-new",
+    "path": "/api/v1/something-new",
+    "source": "new.yaml",
+    "section": "paths"
+  }
+]
