@@ -1,0 +1,12 @@
+[
+  {
+    "id": "api-path-removed-without-deprecation",
+    "text": "api path removed without deprecation",
+    "level": 3,
+    "operation": "POST",
+    "operationId": "create-time-tracking-project",
+    "path": "/api/v1/time_tracking/projects",
+    "source": "new.yaml",
+    "section": "paths"
+  }
+]

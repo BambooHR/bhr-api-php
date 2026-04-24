@@ -1,0 +1,7 @@
+api-security-scope-added none
+api-security-scope-removed none
+api-global-security-scope-added none
+api-global-security-scope-removed none
+api-security-component-oauth-scope-added none
+api-security-component-oauth-scope-removed none
+api-security-component-oauth-scope-changed none

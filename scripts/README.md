@@ -55,3 +55,186 @@ On the first run after adding this script, there will be no `.openapi-generator/
 - **add_custom_headers_to_api_docs.sh** - Adds custom headers to API documentation
 - **generate_error_docs.php** - PHP script for generating error documentation
 - **generate_exceptions.php** - PHP script for generating exception classes
+
+---
+
+## classify_semver.sh
+
+Classifies changes between two OpenAPI specs into a semver bump level
+(`major` / `minor` / `patch` / `none`) and optionally applies the version bump
+to `composer.json` (PHP) or `pyproject.toml` (Python). The script is identical
+across both SDK repos; version-file format is auto-detected.
+
+Part of the automated SDK generation pipeline (epic
+[SPN-2923](https://bamboohr.atlassian.net/browse/SPN-2923), tickets
+[SPN-2928](https://bamboohr.atlassian.net/browse/SPN-2928) /
+[SPN-2929](https://bamboohr.atlassian.net/browse/SPN-2929)).
+
+### Usage
+
+```bash
+# Classify only (prints bump level + reasoning)
+bash scripts/classify_semver.sh OLD_SPEC NEW_SPEC
+
+# Classify and apply version bump
+bash scripts/classify_semver.sh --apply OLD_SPEC NEW_SPEC
+
+# Via Makefile
+make classify-semver OLD=specs/public.yaml NEW=/tmp/new-spec.yaml
+make classify-semver OLD=specs/public.yaml NEW=/tmp/new-spec.yaml APPLY=true
+
+# Test mode — skip running oasdiff, use pre-generated JSON
+bash scripts/classify_semver.sh --changelog-json FILE --breaking-exit N [--apply]
+```
+
+### Output
+
+```
+minor
+Reason: 2 additive change(s): endpoint-added, new-optional-request-parameter. Highest classification: minor.
+Bumped version from 2.0.1 to 2.1.0 in composer.json   # only with --apply
+```
+
+Line 1 is always the bare bump level — easy to capture with `$(... | head -1)`.
+
+### Classification Rules
+
+| Source | Condition | Bump |
+|--------|-----------|------|
+| `oasdiff breaking --fail-on ERR` | exit code 1 | **major** |
+| changelog JSON | any `level: 3` (ERR) entry | **major** (safety net) |
+| changelog JSON | any `level: 2` (WARN) entry | **minor** |
+| changelog JSON | `level: 1` entry with an ID in `ADDITIVE_IDS` | **minor** |
+| changelog JSON | `level: 1` entry with an unknown ID | **minor** (conservative default) |
+| changelog JSON | `level: 1` (METADATA_IDS only, no additive/unknown) | **patch** |
+| changelog JSON (after noise filter) | empty | **none** |
+
+Highest classification wins when multiple change types are present.
+
+### Dependencies
+
+- [`oasdiff`](https://www.oasdiff.com/) — `brew install oasdiff` (v1.14.0 tested)
+- `jq` — `brew install jq` / `apt install jq`
+
+---
+
+## oasdiff-severity-levels.txt
+
+Passed to oasdiff via `--severity-levels` to suppress scope-related check IDs.
+`classify_semver.sh` applies this file automatically when it exists alongside
+the script.
+
+### Why This File Exists — The Scope Noise Problem
+
+Running `oasdiff changelog` against even **identical** copies of `public.yaml`
+produces ~34 `api-security-scope-added` / `api-security-scope-removed` entries.
+These are not real changes. They arise because the public spec has an internal
+inconsistency: the OAuth scope strings declared in `components/securitySchemes`
+differ from those used in individual endpoint security requirements, and oasdiff
+reports the difference as a scope rename on every comparison.
+
+After confirming that the noise is 100% scope IDs and nothing else, we
+investigated native oasdiff suppression options:
+
+- `--level WARN` — filters all INFO-level output, which removes scope noise but
+  also removes legitimate additive changes like `endpoint-added`. Too broad.
+- `--err-ignore` / `--warn-ignore` — only suppress ERR/WARN level checks; scope
+  changes are INFO level so these flags have no effect.
+- `--severity-levels` with value `none` — sets a check's output level to nothing,
+  completely suppressing it. This is the right tool.
+
+**Finding:** `none` is an undocumented but valid severity level value (discovered
+by trial and error). `info`, `warn`, `error`, and `none` are all accepted; only
+`none` fully suppresses a check.
+
+**Why scope changes don't matter for SDKs:** OAuth scope enforcement is handled
+at the API gateway layer. Scope changes never affect which SDK methods are
+generated, their signatures, or their behavior. Excluding them from SDK semver
+analysis is correct.
+
+---
+
+## tests/
+
+Bash unit tests for `classify_semver.sh`. Run via `make test` (runs alongside
+the primary test suite) or directly:
+
+```bash
+bash scripts/tests/test_classify_semver.sh
+```
+
+Uses `--changelog-json` + `--breaking-exit` to bypass oasdiff, making tests
+fast and dependency-free (only `jq` required).
+
+### Fixtures (`tests/fixtures/`)
+
+| File | Simulates | Expected bump |
+|------|-----------|---------------|
+| `empty.json` | No spec changes | none |
+| `additive.json` | New endpoint (`endpoint-added`) | minor |
+| `metadata.json` | Endpoint deprecated (`endpoint-deprecated`) | patch |
+| `breaking.json` | Endpoint removed (ERR level) | major |
+| `mixed_additive_and_metadata.json` | New endpoint + deprecation | minor |
+| `warn_level.json` | WARN-level type change | minor |
+| `noise_only.json` | Scope changes only | none |
+
+---
+
+## Research Notes — oasdiff Internals
+
+### Level values in changelog JSON
+
+| `level` field | oasdiff name | Classification |
+|---------------|-------------|----------------|
+| `3` | ERR | major |
+| `2` | WARN | minor |
+| `1` | INFO | minor or patch (depends on ID) |
+
+ERR-level changes are also caught by `oasdiff breaking --fail-on ERR`
+(exit code 1). The JSON level check is a safety net.
+
+### oasdiff changelog does not report text-only changes
+
+`oasdiff changelog` reports structural changes only. Changes to `description`,
+`summary`, `title`, `example`, and other textual fields are NOT included —
+they appear only in `oasdiff diff`. A spec update that only changes descriptions
+produces an empty changelog and is classified as `none`. No SDK code changes,
+no version bump.
+
+This means IDs like `endpoint-description-changed`, `api-title-changed`, etc.
+do **not exist** in oasdiff's check registry. We verified this against the full
+output of `oasdiff checks` (293 entries).
+
+### Phantom ID Audit
+
+The initial draft of `classify_semver.sh` contained 21 check IDs that don't
+exist in oasdiff. Phantom IDs silently fall through to `unclassified INFO →
+minor`, so classification remains correct — but reasoning output is poor.
+
+**Corrected ADDITIVE_IDS** (fake → real):
+
+| Phantom | Real |
+|---------|------|
+| `response-property-added` | `response-optional-property-added`, `response-required-property-added` |
+| `response-status-code-added` | `response-success-status-added` |
+| `response-mediatype-added` | `response-media-type-added` |
+| `request-mediatype-added` | `request-body-media-type-added` |
+| `api-schema-added` | does not exist |
+| `endpoint-tag-added` | does not exist |
+
+**Removed METADATA_IDS** — all 15 `*-description-changed`, `*-title-changed`,
+`*-license-changed`, `api-schema-deprecated`, etc. do not exist in `oasdiff checks`.
+
+### ADDITIVE_IDS Coverage Strategy
+
+Of ~293 total oasdiff checks, ~110 are ERR (caught by `oasdiff breaking`) and
+~23 are WARN (caught by the WARN block). The remaining ~160 are INFO level.
+`ADDITIVE_IDS` covers the most commonly occurring ones. Any INFO-level ID not
+in `ADDITIVE_IDS` or `METADATA_IDS` defaults to **minor** (conservative).
+This is intentional: unknown additive changes should not be silently downgraded
+to patch.
+
+`METADATA_IDS` covers deprecation notices and planned removals — the only
+INFO-level changes that genuinely warrant just a patch bump.
+
+Run `oasdiff checks` for the full authoritative list with levels.
