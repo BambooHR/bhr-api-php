@@ -1,7 +1,10 @@
 # Makefile for BambooHR API PHP SDK
 
-# Default OpenAPI spec path - you can override this with an environment variable
-OPENAPI_SPEC_PATH ?= $(shell echo ~/repos/main/docs/openapi/generated/public.yaml)
+# Default OpenAPI spec path - defaults to the committed spec; override with OPENAPI_SPEC_PATH=...
+OPENAPI_SPEC_PATH ?= specs/public.yaml
+
+# OpenAPI Generator Docker image
+OPENAPI_GENERATOR_IMAGE ?= openapitools/openapi-generator-cli:v7.16.0
 
 # Set default PHP version
 PHP_VERSION ?= 8.1
@@ -15,7 +18,7 @@ DEVELOPER = BambooHR
 COMPOSER_PACKAGE_NAME = bamboohr/api
 LICENSE_NAME = MIT
 
-.PHONY: help generate clean cleanup-obsolete test phpstan classify-semver
+.PHONY: help generate clean cleanup-obsolete test phpstan classify-semver smoke-test
 
 help:
 	@echo "BambooHR API PHP SDK - Available commands:"
@@ -39,14 +42,20 @@ generate:
 	@if [ -f ".openapi-generator/FILES" ]; then \
 		cp .openapi-generator/FILES .openapi-generator/FILES.old; \
 	fi
-	openapi-generator generate \
-		-i $(OPENAPI_SPEC_PATH) \
+	@# Resolve spec path for Docker mount (absolute path)
+	$(eval SPEC_ABS := $(shell realpath $(OPENAPI_SPEC_PATH)))
+	docker run --rm \
+		-v "$(PWD):/local" \
+		-v "$(SPEC_ABS):/tmp/spec.yaml:ro" \
+		$(OPENAPI_GENERATOR_IMAGE) generate \
+		-i /tmp/spec.yaml \
 		-g php \
-		-t ./templates-php \
+		-t /local/templates-php \
+		-o /local \
 		--global-property modelTests=false \
 		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),developerOrganization=$(DEVELOPER),licenseName=$(LICENSE_NAME),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
-		&& sed -i '' '/\*PublicAPIApi\*/d' README.md \
-		&& sed -i '' '/PublicAPIApi/d' ./.openapi-generator/FILES \
+		&& grep -v '\*PublicAPIApi\*' README.md > README.md.tmp && mv README.md.tmp README.md \
+		&& grep -v 'PublicAPIApi' ./.openapi-generator/FILES > ./.openapi-generator/FILES.tmp && mv ./.openapi-generator/FILES.tmp ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh \
@@ -94,3 +103,8 @@ classify-semver:
 	@APPLY_FLAG=""; \
 	if [ "$(APPLY)" = "true" ]; then APPLY_FLAG="--apply"; fi; \
 	bash scripts/classify_semver.sh $$APPLY_FLAG $(OLD) $(NEW)
+
+smoke-test:
+	@echo "Running autoload smoke test..."
+	php scripts/smoke_test.php
+	@echo "Smoke test complete!"
