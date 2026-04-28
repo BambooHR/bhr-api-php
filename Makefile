@@ -62,7 +62,6 @@ generate:
 		&& grep -v 'PublicAPIApi' ./.openapi-generator/FILES > ./.openapi-generator/FILES.tmp && mv ./.openapi-generator/FILES.tmp ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
 		&& rm -f test/Api/WebhookEventsApiTest.php \
-		&& rm -f test/Api/ATSApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh \
 		&& ./scripts/add_custom_headers_to_api_docs.sh \
