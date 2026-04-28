@@ -13,6 +13,16 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Generate a GitHub App token (for private composer deps)
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            phpcs
+
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -21,6 +31,8 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
+        env:
+          COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ steps.generate-token.outputs.token }}"}}'
         run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Pull OpenAPI Generator Docker image
