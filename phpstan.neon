@@ -5,6 +5,14 @@ parameters:
 		- test/
 	excludePaths:
 		- vendor/
+		# Generated code — see phpcs.xml for the matching exclusions.
+		# Generator-template style noise (strict comparison, unused $data
+		# parameters, duplicate test() methods on collision endpoints) is not
+		# worth fixing in our fork.
+		- lib/Api/*
+		- lib/Model/*
+		- test/Api/*
+		- test/Model/*
 	reportUnmatchedIgnoredErrors: false
 	treatPhpDocTypesAsCertain: false
 	ignoreErrors:

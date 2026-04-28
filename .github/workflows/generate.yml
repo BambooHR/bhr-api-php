@@ -1,0 +1,42 @@
+name: Generate SDK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Generate, lint, and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          tools: composer
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Pull OpenAPI Generator Docker image
+        run: docker pull openapitools/openapi-generator-cli:v7.16.0
+
+      - name: Generate SDK from committed spec
+        run: make generate
+
+      - name: Format generated code
+        run: make format
+
+      - name: Lint generated code
+        run: make lint
+
+      - name: Run autoload smoke test
+        run: make smoke-test
+
+      - name: Run unit tests
+        run: make test

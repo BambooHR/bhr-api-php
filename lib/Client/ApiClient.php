@@ -506,15 +506,6 @@ class ApiClient {
 	}
 
 	/**
-	 * Convenience method to get ATSApi instance
-	 *
-	 * @return \BhrSdk\Api\ATSApi
-	 */
-	public function ats(): \BhrSdk\Api\ATSApi {
-		return $this->getApi(\BhrSdk\Api\ATSApi::class);
-	}
-
-	/**
 	 * Convenience method to get CustomReportsApi instance
 	 *
 	 * @return \BhrSdk\Api\CustomReportsApi

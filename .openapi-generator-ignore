@@ -21,3 +21,14 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# Hand-customized files that the generator would otherwise overwrite.
+# lib/ApiException.php carries the requestId field/getters/setters added in
+# SPN-2309. Without this rule, regeneration silently drops those members and
+# breaks lib/ApiErrorHelper.php (which calls setRequestId()).
+lib/ApiException.php
+
+# phpunit.xml.dist has been customized to drop the auto-generated test/Model
+# directory (we pass --global-property modelTests=false, so the dir never
+# exists) and would otherwise be reset on every regen.
+phpunit.xml.dist

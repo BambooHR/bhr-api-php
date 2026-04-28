@@ -281,11 +281,13 @@ class ApiClientTest extends TestCase {
 	}
 
 	/**
-	 * Test getLogger returns null by default
+	 * By default the client initialises a disabled SecureLogger so callers
+	 * always get a usable LoggerInterface; getLogger() should never return null.
 	 */
-	public function testGetLoggerReturnsNullByDefault(): void {
+	public function testGetLoggerReturnsDisabledLoggerByDefault(): void {
 		$client = new ApiClient();
-		$this->assertNull($client->getLogger());
+		$logger = $client->getLogger();
+		$this->assertInstanceOf(SecureLogger::class, $logger);
 	}
 
 	/**
@@ -582,16 +584,6 @@ class ApiClientTest extends TestCase {
 	/**
 	 * Test ats() convenience method
 	 */
-	public function testAtsConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->ats();
-		$this->assertInstanceOf(\BhrSdk\Api\ATSApi::class, $api);
-	}
-
 	/**
 	 * Test customReports() convenience method
 	 */

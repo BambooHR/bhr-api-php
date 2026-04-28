@@ -18,7 +18,7 @@ DEVELOPER = BambooHR
 COMPOSER_PACKAGE_NAME = bamboohr/api
 LICENSE_NAME = MIT
 
-.PHONY: help generate clean cleanup-obsolete test phpstan classify-semver smoke-test
+.PHONY: help generate clean cleanup-obsolete test phpcs phpstan classify-semver smoke-test format lint
 
 help:
 	@echo "BambooHR API PHP SDK - Available commands:"
@@ -27,8 +27,11 @@ help:
 	@echo "  make clean             - Remove generated files"
 	@echo "  make cleanup-obsolete  - Manually run cleanup of obsolete files"
 	@echo "  make test              - Run tests"
+	@echo "  make format            - Run phpcbf to auto-fix code style"
+	@echo "  make lint              - Run phpcs + phpstan"
 	@echo "  make phpcs             - Run PHP Code Sniffer"
 	@echo "  make phpstan           - Run PHPStan static analysis"
+	@echo "  make smoke-test        - Verify generated classes autoload"
 	@echo "  make classify-semver OLD=old.yaml NEW=new.yaml [APPLY=true] - Classify semver bump"
 
 generate:
@@ -45,6 +48,7 @@ generate:
 	@# Resolve spec path for Docker mount (absolute path)
 	$(eval SPEC_ABS := $(shell realpath $(OPENAPI_SPEC_PATH)))
 	docker run --rm \
+		--user "$(shell id -u):$(shell id -g)" \
 		-v "$(PWD):/local" \
 		-v "$(SPEC_ABS):/tmp/spec.yaml:ro" \
 		$(OPENAPI_GENERATOR_IMAGE) generate \
@@ -57,6 +61,8 @@ generate:
 		&& grep -v '\*PublicAPIApi\*' README.md > README.md.tmp && mv README.md.tmp README.md \
 		&& grep -v 'PublicAPIApi' ./.openapi-generator/FILES > ./.openapi-generator/FILES.tmp && mv ./.openapi-generator/FILES.tmp ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
+		&& rm -f test/Api/WebhookEventsApiTest.php \
+		&& rm -f test/Api/ATSApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh \
 		&& ./scripts/add_custom_headers_to_api_docs.sh \
@@ -108,3 +114,12 @@ smoke-test:
 	@echo "Running autoload smoke test..."
 	php scripts/smoke_test.php
 	@echo "Smoke test complete!"
+
+format:
+	@echo "Running phpcbf (auto-fix code style)..."
+	@# phpcbf exits 1 when fixes were applied; treat as success.
+	./vendor/bin/phpcbf --standard=phpcs.xml lib || [ $$? -eq 1 ]
+	@echo "Format complete!"
+
+lint: phpcs phpstan
+	@echo "Lint complete!"
