@@ -22,8 +22,3 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-# Hand-customized files that the generator would otherwise overwrite.
-# phpunit.xml.dist has been customized to drop the auto-generated test/Model
-# directory (we pass --global-property modelTests=false, so the dir never
-# exists) and would otherwise be reset on every regen.
-phpunit.xml.dist
