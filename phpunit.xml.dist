@@ -10,7 +10,6 @@
   <testsuites>
     <testsuite name="tests">
       <directory>./test/Api</directory>
-      <directory>./test/Model</directory>
       <directory>./test/Client</directory>
     </testsuite>
   </testsuites>

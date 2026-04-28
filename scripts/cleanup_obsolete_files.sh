@@ -45,10 +45,21 @@ grep -v '^$' "$OLD_FILES_PATH" | sort > "$TEMP_OLD" || true
 grep -v '^$' "$FILES_PATH" | sort > "$TEMP_NEW" || true
 
 # Find files that exist in old but not in new, excluding test directory
-OBSOLETE_FILES=$(comm -23 "$TEMP_OLD" "$TEMP_NEW" | grep -v '^test/' || true)
+# and any path explicitly listed in .openapi-generator-ignore (otherwise files
+# we asked the generator to skip would be deleted as "obsolete").
+IGNORE_FILE=$(mktemp)
+if [ -f ".openapi-generator-ignore" ]; then
+    grep -v '^[[:space:]]*#' .openapi-generator-ignore | grep -v '^[[:space:]]*$' > "$IGNORE_FILE" || true
+fi
+
+if [ -s "$IGNORE_FILE" ]; then
+    OBSOLETE_FILES=$(comm -23 "$TEMP_OLD" "$TEMP_NEW" | grep -v '^test/' | grep -Fxvf "$IGNORE_FILE" || true)
+else
+    OBSOLETE_FILES=$(comm -23 "$TEMP_OLD" "$TEMP_NEW" | grep -v '^test/' || true)
+fi
 
 # Clean up temp files
-rm -f "$TEMP_OLD" "$TEMP_NEW"
+rm -f "$TEMP_OLD" "$TEMP_NEW" "$IGNORE_FILE"
 
 # Count obsolete files (fix for proper integer comparison)
 if [ -z "$OBSOLETE_FILES" ]; then

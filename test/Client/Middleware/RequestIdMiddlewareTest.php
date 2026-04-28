@@ -75,15 +75,14 @@ class RequestIdMiddlewareTest extends TestCase {
 	 * @return void
 	 */
 	public function testHandle(): void {
-		// Create mock response with request ID header
+		// Create mock response with request ID header. The middleware iterates
+		// over getHeaders() and matches case-insensitively, so the mock needs
+		// to return the full headers map.
 		$mockResponse = $this->createMock(ResponseInterface::class);
-		$mockResponse->method('hasHeader')
-			->with(RequestIdMiddleware::REQUEST_ID_HEADER)
-			->willReturn(true);
-
-		$mockResponse->method('getHeaderLine')
-			->with(RequestIdMiddleware::REQUEST_ID_HEADER)
-			->willReturn('test-request-id-123');
+		$mockResponse->method('getHeaders')
+			->willReturn([
+				RequestIdMiddleware::REQUEST_ID_HEADER => ['test-request-id-123'],
+			]);
 
 		// Create mock request
 		$mockRequest = $this->createMock(RequestInterface::class);
@@ -94,8 +93,8 @@ class RequestIdMiddlewareTest extends TestCase {
 			->method('log')
 			->with(
 				'debug',
-				'Request ID received',
-				['request_id' => 'test-request-id-123']
+				'Request ID extracted',
+				$this->callback(fn ($ctx) => is_array($ctx) && ($ctx['request_id'] ?? null) === 'test-request-id-123')
 			);
 
 		// Set the logger for middleware
