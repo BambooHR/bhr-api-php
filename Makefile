@@ -46,16 +46,16 @@ generate:
 	$(eval SPEC_ABS := $(shell realpath $(OPENAPI_SPEC_PATH)))
 	docker run --rm \
 		-v "$(PWD):/local" \
-		-v "$(SPEC_ABS):/local/spec.yaml:ro" \
+		-v "$(SPEC_ABS):/tmp/spec.yaml:ro" \
 		$(OPENAPI_GENERATOR_IMAGE) generate \
-		-i /local/spec.yaml \
+		-i /tmp/spec.yaml \
 		-g php \
 		-t /local/templates-php \
 		-o /local \
 		--global-property modelTests=false \
 		--additional-properties=invokerPackage=$(PACKAGE_NAME),artifactUrl=$(PACKAGE_URL),developerOrganizationUrl=$(DEVELOPER_URL),developerOrganization=$(DEVELOPER),licenseName=$(LICENSE_NAME),artifactVersion=$(PACKAGE_VERSION),composerPackageName=$(COMPOSER_PACKAGE_NAME) \
-		&& sed -i '/\*PublicAPIApi\*/d' README.md \
-		&& sed -i '/PublicAPIApi/d' ./.openapi-generator/FILES \
+		&& grep -v '\*PublicAPIApi\*' README.md > README.md.tmp && mv README.md.tmp README.md \
+		&& grep -v 'PublicAPIApi' ./.openapi-generator/FILES > ./.openapi-generator/FILES.tmp && mv ./.openapi-generator/FILES.tmp ./.openapi-generator/FILES \
 		&& rm -f lib/Api/PublicAPIApi.php test/Api/PublicAPIApiTest.php \
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh \
