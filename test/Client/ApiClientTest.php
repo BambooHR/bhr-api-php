@@ -582,9 +582,6 @@ class ApiClientTest extends TestCase {
 	}
 
 	/**
-	 * Test ats() convenience method
-	 */
-	/**
 	 * Test customReports() convenience method
 	 */
 	public function testCustomReportsConvenienceMethod(): void {
