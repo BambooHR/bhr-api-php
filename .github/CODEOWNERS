@@ -1,6 +1,10 @@
 # All files default to the PlatAPI team
 * @BambooHR/platapi
 
+# Spec and automation paths
+/specs/ @BambooHR/platapi
+/.github/workflows/ @BambooHR/platapi
+
 # Auto-generated SDK paths
 /lib/Api/ @BambooHR/platapi
 /lib/Model/ @BambooHR/platapi
