@@ -14,11 +14,13 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Generate a GitHub App token (for private composer deps)
+        # Uses the org-level read-only GitHub App (REPO_RO_APP_ID /
+        # REPO_RO_APP_PRIVATE_KEY) so no per-repo secret setup is needed.
         id: generate-token
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          app-id: ${{ vars.REPO_RO_APP_ID }}
+          private-key: ${{ secrets.REPO_RO_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
           repositories: |
             phpcs
