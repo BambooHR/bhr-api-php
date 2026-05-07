@@ -14,10 +14,6 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Generate a GitHub App token (for private composer deps)
-        # Per the BambooHR "Access other repos with your GitHub Action" doc
-        # (https://bamboohr.slite.com/app/docs/9BqBAxIM14DJ-O), REPO_RO_APP_ID
-        # and REPO_RO_APP_PRIVATE_KEY are the documented org-wide credentials
-        # for granting a workflow read access to other BambooHR repos.
         id: generate-token
         uses: actions/create-github-app-token@v1
         with:
