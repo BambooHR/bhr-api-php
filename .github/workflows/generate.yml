@@ -16,8 +16,16 @@ jobs:
       # Load the deploy key issued by GHM-375 so composer can fetch
       # bamboohr/phpcs over SSH (composer.lock records the SSH URL
       # git@github.com:BambooHR/phpcs.git, which the deploy key authorizes).
+      #
+      # ⚠️ SECURITY: this repository is PUBLIC. The deploy key grants read
+      # access to a private repo. Do NOT add steps that print contents of
+      # vendor/bamboohr/phpcs/** (or anything else from a private dep) to
+      # workflow logs or upload them as artifacts — those become world-
+      # readable. Stick to running tools against the installed files.
       - name: Load private-repo deploy key
-        uses: webfactory/ssh-agent@v0.9.0
+        # v0.10.0 runs on Node 24. v0.9.0 is Node 20 and will break on
+        # GitHub-hosted runners after the Node-20 removal window.
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.GHM_375_PRIVATE_REPO_DEPLOY_KEY }}
 
