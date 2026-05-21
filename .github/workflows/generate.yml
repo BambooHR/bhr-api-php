@@ -13,15 +13,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      - name: Generate a GitHub App token (for private composer deps)
-        id: generate-token
-        uses: actions/create-github-app-token@v1
+      # Load the deploy key issued by GHM-375 so composer can fetch
+      # bamboohr/phpcs over SSH (composer.lock records the SSH URL
+      # git@github.com:BambooHR/phpcs.git, which the deploy key authorizes).
+      - name: Load private-repo deploy key
+        uses: webfactory/ssh-agent@v0.9.0
         with:
-          app-id: ${{ vars.REPO_RO_APP_ID }}
-          private-key: ${{ secrets.REPO_RO_APP_PRIVATE_KEY }}
-          owner: ${{ github.repository_owner }}
-          repositories: |
-            phpcs
+          ssh-private-key: ${{ secrets.GHM_375_PRIVATE_REPO_DEPLOY_KEY }}
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -31,8 +29,6 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
-        env:
-          COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ steps.generate-token.outputs.token }}"}}'
         run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Pull OpenAPI Generator Docker image
