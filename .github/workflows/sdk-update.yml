@@ -125,11 +125,13 @@ jobs:
       - name: Run oasdiff analysis
         if: steps.fetch.outputs.changed == 'true'
         id: analyze
+        env:
+          STAGED_SPEC_PATH: ${{ steps.fetch.outputs.staged_spec_path }}
         run: |
           mkdir -p .sdk-update/analysis
           bash scripts/analyze_spec.sh \
             specs/public.yaml \
-            "${{ steps.fetch.outputs.staged_spec_path }}" \
+            "$STAGED_SPEC_PATH" \
             .sdk-update/analysis
           BREAKING=$(cat .sdk-update/analysis/breaking-exit)
           echo "breaking_exit=$BREAKING" >> "$GITHUB_OUTPUT"
@@ -142,10 +144,12 @@ jobs:
       - name: Classify semver bump
         if: steps.fetch.outputs.changed == 'true'
         id: classify
+        env:
+          BREAKING_EXIT: ${{ steps.analyze.outputs.breaking_exit }}
         run: |
           bash scripts/classify_semver.sh \
             --changelog-json .sdk-update/analysis/changelog.json \
-            --breaking-exit "${{ steps.analyze.outputs.breaking_exit }}" \
+            --breaking-exit "$BREAKING_EXIT" \
             > .sdk-update/classification.txt
           LEVEL=$(head -1 .sdk-update/classification.txt)
           echo "level=$LEVEL" >> "$GITHUB_OUTPUT"
@@ -158,8 +162,9 @@ jobs:
           SOURCE_COMMIT: ${{ steps.fetch.outputs.source_commit }}
           CHECKSUM_SHA256: ${{ steps.fetch.outputs.checksum_sha256 }}
           GENERATED_AT: ${{ steps.fetch.outputs.generated_at }}
+          STAGED_SPEC_PATH: ${{ steps.fetch.outputs.staged_spec_path }}
         run: |
-          cp "${{ steps.fetch.outputs.staged_spec_path }}" specs/public.yaml
+          cp "$STAGED_SPEC_PATH" specs/public.yaml
           python -c '
           import json, os, pathlib
           path = pathlib.Path("specs/spec-source.json")
@@ -224,13 +229,19 @@ jobs:
       - name: Determine generation status
         if: steps.fetch.outputs.changed == 'true'
         id: status
+        env:
+          GENERATE_OUTCOME: ${{ steps.generate.outcome }}
+          FORMAT_OUTCOME: ${{ steps.format.outcome }}
+          LINT_OUTCOME: ${{ steps.lint.outcome }}
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+          TEST_OUTCOME: ${{ steps.test.outcome }}
         run: |
-          if [ "${{ steps.generate.outcome }}" != "success" ]; then
+          if [ "$GENERATE_OUTCOME" != "success" ]; then
             echo "result=generation-failed" >> "$GITHUB_OUTPUT"
-          elif [ "${{ steps.format.outcome }}" = "success" ] \
-               && [ "${{ steps.lint.outcome }}" = "success" ] \
-               && [ "${{ steps.smoke.outcome }}" = "success" ] \
-               && [ "${{ steps.test.outcome }}" = "success" ]; then
+          elif [ "$FORMAT_OUTCOME" = "success" ] \
+               && [ "$LINT_OUTCOME" = "success" ] \
+               && [ "$SMOKE_OUTCOME" = "success" ] \
+               && [ "$TEST_OUTCOME" = "success" ]; then
             echo "result=success" >> "$GITHUB_OUTPUT"
           else
             echo "result=quality-issues" >> "$GITHUB_OUTPUT"
@@ -260,7 +271,9 @@ jobs:
           && steps.classify.outputs.level != 'major'
           && steps.status.outputs.result == 'success'
         id: bump
-        run: python scripts/bump_version.py "${{ steps.classify.outputs.level }}"
+        env:
+          LEVEL: ${{ steps.classify.outputs.level }}
+        run: python scripts/bump_version.py "$LEVEL"
 
       # ----- Compute "since last review" delta ------------------------------
       - name: Compute delta vs existing auto/sdk-update branch
@@ -297,15 +310,19 @@ jobs:
       - name: Build PR body
         if: steps.fetch.outputs.changed == 'true' && steps.diff.outputs.has_changes == 'true'
         id: body
+        env:
+          GENERATION_STATUS: ${{ steps.status.outputs.result }}
+          OLD_VERSION: ${{ steps.bump.outputs.old_version }}
+          NEW_VERSION: ${{ steps.bump.outputs.new_version }}
         run: |
           python scripts/build_pr_body.py \
             --classification .sdk-update/classification.txt \
             --changelog-md .sdk-update/analysis/changelog.md \
             --spec-metadata .sdk-update/metadata.json \
             --since-last-review .sdk-update/since-last-review.txt \
-            --generation-status "${{ steps.status.outputs.result }}" \
-            --old-version "${{ steps.bump.outputs.old_version }}" \
-            --new-version "${{ steps.bump.outputs.new_version }}" \
+            --generation-status "$GENERATION_STATUS" \
+            --old-version "$OLD_VERSION" \
+            --new-version "$NEW_VERSION" \
             > .sdk-update/pr-body.md
 
       # ----- Force-push to auto/sdk-update ----------------------------------
@@ -317,9 +334,11 @@ jobs:
 
       - name: Commit changes
         if: steps.fetch.outputs.changed == 'true' && steps.diff.outputs.has_changes == 'true'
+        env:
+          SOURCE_COMMIT: ${{ steps.fetch.outputs.source_commit }}
         run: |
           git add -A
-          MSG_TITLE="[auto] SDK update — spec ${{ steps.fetch.outputs.source_commit }}"
+          MSG_TITLE="[auto] SDK update — spec $SOURCE_COMMIT"
           git commit -m "$MSG_TITLE" || echo "Nothing to commit"
 
       - name: Force-push to auto/sdk-update
@@ -352,8 +371,12 @@ jobs:
         if: steps.fetch.outputs.changed == 'true' && steps.diff.outputs.has_changes == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LEVEL: ${{ steps.classify.outputs.level }}
+          SOURCE_COMMIT: ${{ steps.fetch.outputs.source_commit }}
+          HAS_BREAKING: ${{ steps.analyze.outputs.has_breaking }}
+          STATUS_RESULT: ${{ steps.status.outputs.result }}
         run: |
-          TITLE="[auto] SDK update (${{ steps.classify.outputs.level }}) — spec ${{ steps.fetch.outputs.source_commit }}"
+          TITLE="[auto] SDK update ($LEVEL) — spec $SOURCE_COMMIT"
 
           # Build the exact label set for this run. `auto-generated` is
           # always present; `breaking`, `generation-failed`, and
@@ -361,12 +384,12 @@ jobs:
           # See the "Determine generation status" step for tier definitions.
           ADD_LABELS=("auto-generated")
           REMOVE_LABELS=()
-          if [ "${{ steps.analyze.outputs.has_breaking }}" = "true" ]; then
+          if [ "$HAS_BREAKING" = "true" ]; then
             ADD_LABELS+=("breaking")
           else
             REMOVE_LABELS+=("breaking")
           fi
-          case "${{ steps.status.outputs.result }}" in
+          case "$STATUS_RESULT" in
             generation-failed)
               ADD_LABELS+=("generation-failed")
               REMOVE_LABELS+=("quality-issues")
