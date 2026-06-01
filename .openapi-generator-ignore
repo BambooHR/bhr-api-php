@@ -22,3 +22,13 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
+# Protect our own CI workflows + CODEOWNERS. The current PHP target
+# template doesn't emit anything under .github/, so this is purely
+# defensive — it future-proofs us against an upstream openapi-generator
+# release that decides to start writing default workflow files there.
+# Mirrors the same defense in bhr-api-python, which DID hit this
+# (the Python target writes .github/workflows/python.yml, and an
+# overly-aggressive post-gen cleanup script collateral-deleted the
+# whole .github/ tree on every regen — see bhr-api-python#29).
+.github/**
+
