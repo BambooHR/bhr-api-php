@@ -72,7 +72,16 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        # --prefer-source (NOT --prefer-dist): forces composer to `git clone`
+        # each package from its source URL. composer.lock records
+        # `git@github.com:BambooHR/phpcs.git` for the private bamboohr/phpcs
+        # dep, which the GHM-375 deploy key authorizes over SSH. With
+        # --prefer-dist composer would instead try the GitHub Archive API
+        # (`https://api.github.com/repos/.../zipball/...`), which is HTTPS
+        # and returns 404 for private repos when the request isn't
+        # API-authenticated (GitHub hides existence of private repos from
+        # unauthenticated callers). The deploy key cannot help with that.
+        run: composer install --prefer-source --no-progress --no-interaction
 
       # Python is needed for the orchestration scripts (fetch_spec.py,
       # build_pr_body.py, bump_version.py). All three are stdlib-only — no
