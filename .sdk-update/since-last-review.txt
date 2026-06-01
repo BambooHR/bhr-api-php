@@ -1,0 +1,32 @@
+ .openapi-generator/FILES                           |  32 +-
+ .sdk-update/analysis/breaking-output.txt           |   2 +-
+ .sdk-update/analysis/changelog.json                |   2 +-
+ .sdk-update/analysis/changelog.md                  |   6 +-
+ .sdk-update/metadata.json                          |   5 -
+ .sdk-update/pr-body.md                             | 643 ---------------------
+ .sdk-update/since-last-review.txt                  |   8 -
+ Makefile                                           |   3 +-
+ README.md                                          |  16 +-
+ docs/Api/CompensationPlanningApi.md                |  16 +-
+ docs/Api/OnboardingApi.md                          |   4 +-
+ ...=> _1d1fc0f164cb51973a0206b8e2fb2d2dRequest.md} |   4 +-
+ ...3a0206b8e2fb2d2dRequestBudgetBreakdownInner.md} |   2 +-
+ ...d64402ee192568adbd5e3179a91e6e2RequestInner.md} |   4 +-
+ ...d5e3179a91e6e2RequestInnerBudgetAllocations.md} |   2 +-
+ ...=> _288aa996aba16d7a495c62321ea999a9Request.md} |   4 +-
+ ...aba16d7a495c62321ea999a9RequestSentDateTime.md} |   2 +-
+ ...=> _3958585c861325ea7a2cd30a8c74f042Request.md} |   2 +-
+ ...=> _89a5068111ec499135c7d6e9a53d5a30Request.md} |   2 +-
+ lib/Api/CompensationPlanningApi.php                |  30 +-
+ lib/Api/OnboardingApi.php                          |  10 +-
+ ...> _1d1fc0f164cb51973a0206b8e2fb2d2dRequest.php} |   6 +-
+ ...a0206b8e2fb2d2dRequestBudgetBreakdownInner.php} |   6 +-
+ ...64402ee192568adbd5e3179a91e6e2RequestInner.php} |   6 +-
+ ...5e3179a91e6e2RequestInnerBudgetAllocations.php} |   6 +-
+ ...> _288aa996aba16d7a495c62321ea999a9Request.php} |   6 +-
+ ...ba16d7a495c62321ea999a9RequestSentDateTime.php} |   6 +-
+ ...> _3958585c861325ea7a2cd30a8c74f042Request.php} |   6 +-
+ ...> _89a5068111ec499135c7d6e9a53d5a30Request.php} |   6 +-
+ scripts/fix_invalid_class_names.php                | 269 +++++++++
+ specs/spec-source.json                             |   4 +-
+ 31 files changed, 367 insertions(+), 753 deletions(-)

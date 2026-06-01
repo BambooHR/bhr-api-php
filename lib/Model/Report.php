@@ -57,7 +57,7 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'string',
+		'id' => 'int',
 		'name' => 'string'
 	];
 
@@ -286,7 +286,7 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets id
 	 *
-	 * @return string|null
+	 * @return int|null
 	 */
 	public function getId() {
 		return $this->container['id'];
@@ -295,7 +295,7 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets id
 	 *
-	 * @param string|null $id id
+	 * @param int|null $id id
 	 *
 	 * @return self
 	 */

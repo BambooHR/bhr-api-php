@@ -11,12 +11,12 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 ## `getCompanyReport()`
 
 ```php
-getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current)
+getCompanyReport($id, $accept, $format, $fd, $only_current): \BhrSdk\Model\GetCompanyReportResponse
 ```
 
 Get Company Report
 
-**Warning: This endpoint will soon be deprecated and replaced with Custom Reports - Get Report by ID.**   Use this resource to request one of your existing custom company reports from the My Reports or Manage Reports sections in the Reports tab. You can get the report number by hovering over the report name and noting the ID from the URL. At present, only reports from the My Reports or Manage Reports sections are supported. In the future we may implement reports from the Standard Reports section if there is enough demand for it. The report numbers used in this request are different in each company.
+**Deprecated. Use Custom Reports > Get Report by ID instead.**  Returns the data from an existing saved custom report. Non-admins can find these reports in My Reports. Admins can find them in Custom Reports under the My Reports and Company Reports tabs. The report ID can be found by hovering over the report name in BambooHR and noting the ID in the URL. Standard Reports are not available via this endpoint, and report IDs are company-specific.  The caller must have permission to view or access the report. The `format` query parameter is case-insensitive (`json`, `JSON`, `Json` are all accepted). If `format` is omitted, the output format is inferred from the `Accept` header, but only these exact values are supported: `application/json`, `text/xml`, `text/csv`, `application/pdf`, `application/vnd.ms-excel`. Any other `Accept` value (including `application/xml` and `*_/_*`) returns 404.
 
 ### Example
 
@@ -37,14 +37,15 @@ $apiInstance = new BhrSdk\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | {id} is a report ID.
-$format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
-$accept_header_parameter = 'accept_header_parameter_example'; // string | This endpoint can produce either JSON or XML.
-$fd = 'fd_example'; // string | yes=apply standard duplicate field filtering, no=return the raw results with no duplicate filtering. Default value is \"yes\"
-$only_current = false; // bool | Setting to false will return future dated values from history table fields.
+$id = 56; // int | The integer ID of the saved custom report to run. Find this ID by hovering over the report name in the BambooHR Reports tab and noting the ID in the URL.
+$accept = 'accept_example'; // string | The desired response content type when `format` is omitted. Accepted values: `application/json`, `text/xml`, `text/csv`, `application/pdf`, `application/vnd.ms-excel`. Any other value returns 404.
+$format = 'format_example'; // string | The output format for the report. Case-insensitive. If omitted, format is inferred from the `Accept` header — only `application/json`, `text/xml`, `text/csv`, `application/pdf`, and `application/vnd.ms-excel` are accepted; any other value returns 404.
+$fd = 'fd_example'; // string | Controls duplicate row filtering. `yes` applies standard deduplication (default for JSON and XML formats). `no` returns raw results without filtering (default for CSV and XLS formats).
+$only_current = true; // bool | Whether to restrict historical fields to current values only. Set to false to include future-dated history values in the report output. Defaults to true.
 
 try {
-    $apiInstance->getCompanyReport($id, $format, $accept_header_parameter, $fd, $only_current);
+    $result = $apiInstance->getCompanyReport($id, $accept, $format, $fd, $only_current);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->getCompanyReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -54,15 +55,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| {id} is a report ID. | |
-| **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
-| **accept_header_parameter** | **string**| This endpoint can produce either JSON or XML. | [optional] |
-| **fd** | **string**| yes&#x3D;apply standard duplicate field filtering, no&#x3D;return the raw results with no duplicate filtering. Default value is \&quot;yes\&quot; | [optional] |
-| **only_current** | **bool**| Setting to false will return future dated values from history table fields. | [optional] [default to false] |
+| **id** | **int**| The integer ID of the saved custom report to run. Find this ID by hovering over the report name in the BambooHR Reports tab and noting the ID in the URL. | |
+| **accept** | **string**| The desired response content type when &#x60;format&#x60; is omitted. Accepted values: &#x60;application/json&#x60;, &#x60;text/xml&#x60;, &#x60;text/csv&#x60;, &#x60;application/pdf&#x60;, &#x60;application/vnd.ms-excel&#x60;. Any other value returns 404. | [optional] |
+| **format** | **string**| The output format for the report. Case-insensitive. If omitted, format is inferred from the &#x60;Accept&#x60; header — only &#x60;application/json&#x60;, &#x60;text/xml&#x60;, &#x60;text/csv&#x60;, &#x60;application/pdf&#x60;, and &#x60;application/vnd.ms-excel&#x60; are accepted; any other value returns 404. | [optional] |
+| **fd** | **string**| Controls duplicate row filtering. &#x60;yes&#x60; applies standard deduplication (default for JSON and XML formats). &#x60;no&#x60; returns raw results without filtering (default for CSV and XLS formats). | [optional] |
+| **only_current** | **bool**| Whether to restrict historical fields to current values only. Set to false to include future-dated history values in the report output. Defaults to true. | [optional] [default to true] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\GetCompanyReportResponse**](../Model/GetCompanyReportResponse.md)
 
 ### Authorization
 
@@ -71,7 +72,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `text/xml`, `text/csv`, `application/pdf`, `application/vnd.ms-excel`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -80,12 +81,12 @@ void (empty response body)
 ## `requestCustomReport()`
 
 ```php
-requestCustomReport($format, $request_custom_report, $only_current)
+requestCustomReport($request_custom_report, $accept, $format, $only_current): \BhrSdk\Model\RequestCustomReportResponse
 ```
 
 Request Custom Report
 
-**Warning: This endpoint will soon be deprecated and replaced with Datasets - Get Data from Dataset.**   Use this resource to request BambooHR generate a report. You must specify a type of either \"PDF\", \"XLS\", \"CSV\", \"JSON\", or \"XML\". You must specify a list of fields to show on the report. The list of fields is available here. The custom report will return employees regardless of their status, \"Active\" or \"Inactive\". This differs from the UI, which by default applies a quick filter to display only \"Active\" employees.
+**Deprecated. Use Datasets > Get Data from Dataset instead.**  Generates an ad-hoc employee report based on a caller-specified list of fields and optional filters. Returns report data in the requested format (JSON, XML, CSV, XLS, or PDF). The report includes all employees regardless of status (both Active and Inactive), unlike the BambooHR UI which filters to Active employees by default.  The request body may be submitted as JSON or XML. To submit JSON, set `Content-Type: application/json` exactly — any variation such as `application/json; charset=UTF-8` is not recognised as JSON and the body will be parsed as XML instead, which typically results in `400 Malformed XML`. To submit XML, set `Content-Type` to any other value; the body must be a `<report>` document as described in the XML request body schema.  The `format` query parameter is case-insensitive (`json`, `JSON`, `Json` are all accepted). If `format` is omitted, the output format is inferred from the `Accept` header, but only these exact values are supported: `application/json`, `text/xml`, `text/csv`, `application/pdf`, `application/vnd.ms-excel`. Any other `Accept` value (including `application/xml` and `*_/_*`) will return 404.  Field IDs in the request that are unknown or that the caller does not have permission to view are silently omitted from the report — the endpoint still returns 200. The `filters` object supports `lastChanged` (ISO 8601 date-time to filter employees by last-modified date, with optional `includeNull` control) and `employeeIds` (restrict results to specific employee IDs). The maximum number of fields per request is 400.
 
 ### Example
 
@@ -106,12 +107,14 @@ $apiInstance = new BhrSdk\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$format = 'format_example'; // string | The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON
 $request_custom_report = new \BhrSdk\Model\RequestCustomReport(); // \BhrSdk\Model\RequestCustomReport
-$only_current = false; // bool | Limits the report to only current employees. Setting to false will include future-dated employees in the report.
+$accept = 'accept_example'; // string | The desired response content type when `format` is omitted. Accepted values: `application/json`, `text/xml`, `text/csv`, `application/pdf`, `application/vnd.ms-excel`. Any other value returns 404.
+$format = 'format_example'; // string | The output format for the report. Case-insensitive. If omitted, format is inferred from the `Accept` header — only `application/json`, `text/xml`, `text/csv`, `application/pdf`, and `application/vnd.ms-excel` are accepted; any other value returns 404.
+$only_current = true; // bool | Whether to restrict historical fields to current values only. Set to false to include future-dated history values in the report output. Defaults to true.
 
 try {
-    $apiInstance->requestCustomReport($format, $request_custom_report, $only_current);
+    $result = $apiInstance->requestCustomReport($request_custom_report, $accept, $format, $only_current);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->requestCustomReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -121,13 +124,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **format** | **string**| The output format for the report. Supported formats: CSV, PDF, XLS, XML, JSON | |
 | **request_custom_report** | [**\BhrSdk\Model\RequestCustomReport**](../Model/RequestCustomReport.md)|  | |
-| **only_current** | **bool**| Limits the report to only current employees. Setting to false will include future-dated employees in the report. | [optional] [default to false] |
+| **accept** | **string**| The desired response content type when &#x60;format&#x60; is omitted. Accepted values: &#x60;application/json&#x60;, &#x60;text/xml&#x60;, &#x60;text/csv&#x60;, &#x60;application/pdf&#x60;, &#x60;application/vnd.ms-excel&#x60;. Any other value returns 404. | [optional] |
+| **format** | **string**| The output format for the report. Case-insensitive. If omitted, format is inferred from the &#x60;Accept&#x60; header — only &#x60;application/json&#x60;, &#x60;text/xml&#x60;, &#x60;text/csv&#x60;, &#x60;application/pdf&#x60;, and &#x60;application/vnd.ms-excel&#x60; are accepted; any other value returns 404. | [optional] |
+| **only_current** | **bool**| Whether to restrict historical fields to current values only. Set to false to include future-dated history values in the report output. Defaults to true. | [optional] [default to true] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\RequestCustomReportResponse**](../Model/RequestCustomReportResponse.md)
 
 ### Authorization
 
@@ -135,8 +139,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `text/xml`, `text/csv`, `application/pdf`, `application/vnd.ms-excel`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

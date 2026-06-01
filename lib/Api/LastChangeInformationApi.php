@@ -133,15 +133,15 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIds
 	 *
-	 * Get Updated Employee IDs
+	 * Get Changed Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
+	 * @param  string|null $type Filter by change type. If omitted, all change types are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\ChangedEmployeeIdsResponse
 	 */
 	public function getChangedEmployeeIds($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
 		list($response) = $this->getChangedEmployeeIdsWithHttpInfo($since, $type, $contentType);
@@ -151,15 +151,15 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIdsWithHttpInfo
 	 *
-	 * Get Updated Employee IDs
+	 * Get Changed Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
+	 * @param  string|null $type Filter by change type. If omitted, all change types are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ChangedEmployeeIdsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getChangedEmployeeIdsWithHttpInfo($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
 		$request = $this->getChangedEmployeeIdsRequest($since, $type, $contentType);
@@ -170,8 +170,30 @@ class LastChangeInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ChangedEmployeeIdsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\ChangedEmployeeIdsResponse',
 			$request,
 			$response,
 		);
@@ -180,10 +202,10 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIdsAsync
 	 *
-	 * Get Updated Employee IDs
+	 * Get Changed Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
+	 * @param  string|null $type Filter by change type. If omitted, all change types are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -201,27 +223,29 @@ class LastChangeInformationApi {
 	/**
 	 * Operation getChangedEmployeeIdsAsyncWithHttpInfo
 	 *
-	 * Get Updated Employee IDs
+	 * Get Changed Employee IDs
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
+	 * @param  string|null $type Filter by change type. If omitted, all change types are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getChangedEmployeeIdsAsyncWithHttpInfo($since, $type = null, string $contentType = self::CONTENT_TYPES['getChangedEmployeeIds'][0]) {
-		
+		$returnType = '\BhrSdk\Model\ChangedEmployeeIdsResponse';
 		$request = $this->getChangedEmployeeIdsRequest($since, $type, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -246,8 +270,8 @@ class LastChangeInformationApi {
 	/**
 	 * Create request for operation 'getChangedEmployeeIds'
 	 *
-	 * @param  string $since URL encoded iso8601 timestamp (required)
-	 * @param  string|null $type Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; (optional)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
+	 * @param  string|null $type Filter by change type. If omitted, all change types are returned. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeIds'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -288,7 +312,7 @@ class LastChangeInformationApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);

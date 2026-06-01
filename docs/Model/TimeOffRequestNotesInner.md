@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from** | **string** |  | [optional]
-**note** | **string** |  | [optional]
+**from** | **string** | Who the note is from. | [optional]
+**note** | **string** | The note text. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

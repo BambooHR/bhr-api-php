@@ -296,7 +296,7 @@ class TrainingCategory implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id id
+	 * @param int|null $id The ID of the training category.
 	 *
 	 * @return self
 	 */
@@ -321,7 +321,7 @@ class TrainingCategory implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name name
+	 * @param string|null $name The name of the training category.
 	 *
 	 * @return self
 	 */

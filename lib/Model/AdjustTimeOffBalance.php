@@ -57,7 +57,7 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'date' => 'string',
+		'date' => '\DateTime',
 		'time_off_type_id' => 'int',
 		'amount' => 'float',
 		'note' => 'string'
@@ -71,7 +71,7 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'date' => null,
+		'date' => 'date',
 		'time_off_type_id' => null,
 		'amount' => null,
 		'note' => null
@@ -309,7 +309,7 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Gets date
 	 *
-	 * @return string
+	 * @return \DateTime
 	 */
 	public function getDate() {
 		return $this->container['date'];
@@ -318,7 +318,7 @@ class AdjustTimeOffBalance implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets date
 	 *
-	 * @param string $date The date the adjustment should be added in history. Should be in ISO8601 date format (YYYY-MM-DD).
+	 * @param \DateTime $date The date the adjustment should be added in history. Should be in ISO8601 date format (YYYY-MM-DD).
 	 *
 	 * @return self
 	 */

@@ -83,6 +83,7 @@ class PhotosApi {
 			'application/json',
         ],
 		'uploadEmployeePhoto' => [
+			'multipart/form-data',
 			'application/json',
         ],
 	];
@@ -138,16 +139,18 @@ class PhotosApi {
 	 *
 	 * Get Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  int $employee_id The ID of the employee whose photo to retrieve. (required)
+	 * @param  string $size The desired photo size. One of: &#x60;original&#x60;, &#x60;large&#x60;, &#x60;medium&#x60;, &#x60;small&#x60;, &#x60;xs&#x60;, &#x60;tiny&#x60;. (required)
+	 * @param  int|null $width Optional. Scales the returned image to the specified pixel width, capped at the natural width of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
+	 * @param  int|null $height Optional. Scales the returned image to the specified pixel height, capped at the natural height of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function getEmployeePhoto($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
-		list($response) = $this->getEmployeePhotoWithHttpInfo($employee_id, $size, $contentType);
+	public function getEmployeePhoto($employee_id, $size, $width = null, $height = null, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
+		list($response) = $this->getEmployeePhotoWithHttpInfo($employee_id, $size, $width, $height, $contentType);
 		return $response;
 	}
 
@@ -156,16 +159,18 @@ class PhotosApi {
 	 *
 	 * Get Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  int $employee_id The ID of the employee whose photo to retrieve. (required)
+	 * @param  string $size The desired photo size. One of: &#x60;original&#x60;, &#x60;large&#x60;, &#x60;medium&#x60;, &#x60;small&#x60;, &#x60;xs&#x60;, &#x60;tiny&#x60;. (required)
+	 * @param  int|null $width Optional. Scales the returned image to the specified pixel width, capped at the natural width of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
+	 * @param  int|null $height Optional. Scales the returned image to the specified pixel height, capped at the natural height of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getEmployeePhotoWithHttpInfo($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
-		$request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
+	public function getEmployeePhotoWithHttpInfo($employee_id, $size, $width = null, $height = null, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
+		$request = $this->getEmployeePhotoRequest($employee_id, $size, $width, $height, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -185,15 +190,17 @@ class PhotosApi {
 	 *
 	 * Get Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  int $employee_id The ID of the employee whose photo to retrieve. (required)
+	 * @param  string $size The desired photo size. One of: &#x60;original&#x60;, &#x60;large&#x60;, &#x60;medium&#x60;, &#x60;small&#x60;, &#x60;xs&#x60;, &#x60;tiny&#x60;. (required)
+	 * @param  int|null $width Optional. Scales the returned image to the specified pixel width, capped at the natural width of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
+	 * @param  int|null $height Optional. Scales the returned image to the specified pixel height, capped at the natural height of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getEmployeePhotoAsync($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
-		return $this->getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, $contentType)
+	public function getEmployeePhotoAsync($employee_id, $size, $width = null, $height = null, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
+		return $this->getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, $width, $height, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -206,16 +213,18 @@ class PhotosApi {
 	 *
 	 * Get Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  int $employee_id The ID of the employee whose photo to retrieve. (required)
+	 * @param  string $size The desired photo size. One of: &#x60;original&#x60;, &#x60;large&#x60;, &#x60;medium&#x60;, &#x60;small&#x60;, &#x60;xs&#x60;, &#x60;tiny&#x60;. (required)
+	 * @param  int|null $width Optional. Scales the returned image to the specified pixel width, capped at the natural width of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
+	 * @param  int|null $height Optional. Scales the returned image to the specified pixel height, capped at the natural height of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
+	public function getEmployeePhotoAsyncWithHttpInfo($employee_id, $size, $width = null, $height = null, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
 		
-		$request = $this->getEmployeePhotoRequest($employee_id, $size, $contentType);
+		$request = $this->getEmployeePhotoRequest($employee_id, $size, $width, $height, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -249,14 +258,16 @@ class PhotosApi {
 	/**
 	 * Create request for operation 'getEmployeePhoto'
 	 *
-	 * @param  string $employee_id The ID for the employee you are getting the photo for. (required)
-	 * @param  string $size Photo size (required)
+	 * @param  int $employee_id The ID of the employee whose photo to retrieve. (required)
+	 * @param  string $size The desired photo size. One of: &#x60;original&#x60;, &#x60;large&#x60;, &#x60;medium&#x60;, &#x60;small&#x60;, &#x60;xs&#x60;, &#x60;tiny&#x60;. (required)
+	 * @param  int|null $width Optional. Scales the returned image to the specified pixel width, capped at the natural width of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
+	 * @param  int|null $height Optional. Scales the returned image to the specified pixel height, capped at the natural height of the requested size. Only applies to &#x60;small&#x60; and &#x60;tiny&#x60; sizes. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getEmployeePhotoRequest($employee_id, $size, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
+	public function getEmployeePhotoRequest($employee_id, $size, $width = null, $height = null, string $contentType = self::CONTENT_TYPES['getEmployeePhoto'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -273,6 +284,23 @@ class PhotosApi {
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		$parameters = [
+			'width' => ['value' => $width, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'height' => ['value' => $height, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// path params
 		if ($employee_id !== null) {
@@ -292,7 +320,7 @@ class PhotosApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			['image/*', 'application/json', ],
 			$contentType,
 			$multipart
 		);
@@ -346,15 +374,16 @@ class PhotosApi {
 	 *
 	 * Upload Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
+	 * @param  int $employee_id The ID of the employee whose photo is being uploaded. (required)
+	 * @param  \SplFileObject $file The image file to upload as the employee&#39;s photo. Supported formats: JPEG, PNG, BMP, GIF (HEIC, SVG, AVIF, and WebP are rejected with 415; TIFF is accepted by the format gate but some variants may fail downstream). Must be square (width and height within 1 pixel), at least 150×150 pixels, and no larger than 20MB. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function uploadEmployeePhoto($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
-		list($response) = $this->uploadEmployeePhotoWithHttpInfo($employee_id, $contentType);
+	public function uploadEmployeePhoto($employee_id, $file, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
+		list($response) = $this->uploadEmployeePhotoWithHttpInfo($employee_id, $file, $contentType);
 		return $response;
 	}
 
@@ -363,15 +392,16 @@ class PhotosApi {
 	 *
 	 * Upload Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
+	 * @param  int $employee_id The ID of the employee whose photo is being uploaded. (required)
+	 * @param  \SplFileObject $file The image file to upload as the employee&#39;s photo. Supported formats: JPEG, PNG, BMP, GIF (HEIC, SVG, AVIF, and WebP are rejected with 415; TIFF is accepted by the format gate but some variants may fail downstream). Must be square (width and height within 1 pixel), at least 150×150 pixels, and no larger than 20MB. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function uploadEmployeePhotoWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
-		$request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
+	public function uploadEmployeePhotoWithHttpInfo($employee_id, $file, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
+		$request = $this->uploadEmployeePhotoRequest($employee_id, $file, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -391,14 +421,15 @@ class PhotosApi {
 	 *
 	 * Upload Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
+	 * @param  int $employee_id The ID of the employee whose photo is being uploaded. (required)
+	 * @param  \SplFileObject $file The image file to upload as the employee&#39;s photo. Supported formats: JPEG, PNG, BMP, GIF (HEIC, SVG, AVIF, and WebP are rejected with 415; TIFF is accepted by the format gate but some variants may fail downstream). Must be square (width and height within 1 pixel), at least 150×150 pixels, and no larger than 20MB. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function uploadEmployeePhotoAsync($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
-		return $this->uploadEmployeePhotoAsyncWithHttpInfo($employee_id, $contentType)
+	public function uploadEmployeePhotoAsync($employee_id, $file, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
+		return $this->uploadEmployeePhotoAsyncWithHttpInfo($employee_id, $file, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -411,15 +442,16 @@ class PhotosApi {
 	 *
 	 * Upload Employee Photo
 	 *
-	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
+	 * @param  int $employee_id The ID of the employee whose photo is being uploaded. (required)
+	 * @param  \SplFileObject $file The image file to upload as the employee&#39;s photo. Supported formats: JPEG, PNG, BMP, GIF (HEIC, SVG, AVIF, and WebP are rejected with 415; TIFF is accepted by the format gate but some variants may fail downstream). Must be square (width and height within 1 pixel), at least 150×150 pixels, and no larger than 20MB. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function uploadEmployeePhotoAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
+	public function uploadEmployeePhotoAsyncWithHttpInfo($employee_id, $file, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
 		
-		$request = $this->uploadEmployeePhotoRequest($employee_id, $contentType);
+		$request = $this->uploadEmployeePhotoRequest($employee_id, $file, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -453,24 +485,26 @@ class PhotosApi {
 	/**
 	 * Create request for operation 'uploadEmployeePhoto'
 	 *
-	 * @param  string $employee_id The ID for the employee you are setting the photo for. (required)
+	 * @param  int $employee_id The ID of the employee whose photo is being uploaded. (required)
+	 * @param  \SplFileObject $file The image file to upload as the employee&#39;s photo. Supported formats: JPEG, PNG, BMP, GIF (HEIC, SVG, AVIF, and WebP are rejected with 415; TIFF is accepted by the format gate but some variants may fail downstream). Must be square (width and height within 1 pixel), at least 150×150 pixels, and no larger than 20MB. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeePhoto'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function uploadEmployeePhotoRequest($employee_id, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
+	public function uploadEmployeePhotoRequest($employee_id, $file, string $contentType = self::CONTENT_TYPES['uploadEmployeePhoto'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
+				'file' => $file,
 			],
 			methodName: 'uploadEmployeePhoto'
 		);
 
 		$resourcePath = '/api/v1/employees/{employeeId}/photo';
 		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
-		
+		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -485,11 +519,46 @@ class PhotosApi {
 			);
 		}
 
+		// form params
+		$formDataProcessor = new FormDataProcessor();
+
+		$formData = $formDataProcessor->prepare([
+			'file' => $file,
+		]);
+
+		$formParams = $formDataProcessor->flatten($formData);
+
+		$multipart = true;
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
+
+		if (count($formParams) > 0) {
+			/* @phpstan-ignore-next-line */
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
 
 		// Authentication methods
 		

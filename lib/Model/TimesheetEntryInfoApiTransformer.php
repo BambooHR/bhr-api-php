@@ -66,7 +66,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'string',
 		'hours' => 'float',
 		'note' => 'string',
-		'project_info' => '\BhrSdk\Model\ProjectInfoApiTransformer'
+		'project_info' => '\BhrSdk\Model\ProjectInfoApiTransformer',
+		'break_info' => 'object'
 	];
 
 	/**
@@ -86,7 +87,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => null,
 		'hours' => 'float',
 		'note' => null,
-		'project_info' => null
+		'project_info' => null,
+		'break_info' => null
 	];
 
 	/**
@@ -105,7 +107,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => true,
 		'hours' => true,
 		'note' => true,
-		'project_info' => true
+		'project_info' => true,
+		'break_info' => true
 	];
 
 	/**
@@ -199,7 +202,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'timezone',
 		'hours' => 'hours',
 		'note' => 'note',
-		'project_info' => 'projectInfo'
+		'project_info' => 'projectInfo',
+		'break_info' => 'breakInfo'
 	];
 
 	/**
@@ -217,7 +221,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'setTimezone',
 		'hours' => 'setHours',
 		'note' => 'setNote',
-		'project_info' => 'setProjectInfo'
+		'project_info' => 'setProjectInfo',
+		'break_info' => 'setBreakInfo'
 	];
 
 	/**
@@ -235,7 +240,8 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		'timezone' => 'getTimezone',
 		'hours' => 'getHours',
 		'note' => 'getNote',
-		'project_info' => 'getProjectInfo'
+		'project_info' => 'getProjectInfo',
+		'break_info' => 'getBreakInfo'
 	];
 
 	/**
@@ -299,6 +305,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 		$this->setIfExists('hours', $data ?? [], null);
 		$this->setIfExists('note', $data ?? [], null);
 		$this->setIfExists('project_info', $data ?? [], null);
+		$this->setIfExists('break_info', $data ?? [], null);
 	}
 
 	/**
@@ -451,7 +458,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets start
 	 *
-	 * @param \DateTime|null $start Start time
+	 * @param \DateTime|null $start start
 	 *
 	 * @return self
 	 */
@@ -482,7 +489,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets end
 	 *
-	 * @param \DateTime|null $end End time
+	 * @param \DateTime|null $end end
 	 *
 	 * @return self
 	 */
@@ -513,7 +520,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets timezone
 	 *
-	 * @param string|null $timezone Timezone
+	 * @param string|null $timezone timezone
 	 *
 	 * @return self
 	 */
@@ -544,7 +551,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets hours
 	 *
-	 * @param float|null $hours Hours worked
+	 * @param float|null $hours hours
 	 *
 	 * @return self
 	 */
@@ -575,7 +582,7 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 	/**
 	 * Sets note
 	 *
-	 * @param string|null $note Note
+	 * @param string|null $note note
 	 *
 	 * @return self
 	 */
@@ -621,6 +628,37 @@ class TimesheetEntryInfoApiTransformer implements ModelInterface, ArrayAccess, \
 			}
 		}
 		$this->container['project_info'] = $project_info;
+
+		return $this;
+	}
+
+	/**
+	 * Gets break_info
+	 *
+	 * @return object|null
+	 */
+	public function getBreakInfo() {
+		return $this->container['break_info'];
+	}
+
+	/**
+	 * Sets break_info
+	 *
+	 * @param object|null $break_info break_info
+	 *
+	 * @return self
+	 */
+	public function setBreakInfo($break_info) {
+		if (is_null($break_info)) {
+			$this->openApiNullablesSetToNull['break_info'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['break_info'])) {
+				unset($nullablesSetToNull['break_info']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['break_info'] = $break_info;
 
 		return $this;
 	}

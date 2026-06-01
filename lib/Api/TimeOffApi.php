@@ -79,44 +79,48 @@ class TimeOffApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'getAListOfWhoIsOut' => [
+		'adjustTimeOffBalance' => [
+			'application/json',
+			'application/xml',
+        ],
+		'assignTimeOffPolicies' => [
 			'application/json',
         ],
-		'getTimeOffPolicies' => [
+		'assignTimeOffPoliciesV11' => [
 			'application/json',
         ],
-		'getTimeOffTypes' => [
+		'createTimeOffHistory' => [
+			'application/json',
+			'application/xml',
+        ],
+		'createTimeOffRequest' => [
+			'application/json',
+			'application/xml',
+        ],
+		'getTimeOffBalance' => [
 			'application/json',
         ],
-		'timeOffAddATimeOffHistoryItemForTimeOffRequest' => [
+		'listEmployeeTimeOffPolicies' => [
 			'application/json',
         ],
-		'timeOffAddATimeOffRequest' => [
+		'listEmployeeTimeOffPoliciesV11' => [
 			'application/json',
         ],
-		'timeOffAdjustTimeOffBalance' => [
+		'listTimeOffPolicies' => [
 			'application/json',
         ],
-		'timeOffAssignTimeOffPoliciesForAnEmployee' => [
+		'listTimeOffRequests' => [
 			'application/json',
         ],
-		'timeOffAssignTimeOffPoliciesForAnEmployeeV11' => [
+		'listTimeOffTypes' => [
 			'application/json',
         ],
-		'timeOffChangeARequestStatus' => [
+		'listWhosOut' => [
 			'application/json',
         ],
-		'timeOffEstimateFutureTimeOffBalances' => [
+		'updateTimeOffRequestStatus' => [
 			'application/json',
-        ],
-		'timeOffGetTimeOffRequests' => [
-			'application/json',
-        ],
-		'timeOffListTimeOffPoliciesForEmployee' => [
-			'application/json',
-        ],
-		'timeOffListTimeOffPoliciesForEmployeeV11' => [
-			'application/json',
+			'application/xml',
         ],
 	];
 
@@ -167,40 +171,38 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation getAListOfWhoIsOut
+	 * Operation adjustTimeOffBalance
 	 *
-	 * Get Who’s Out
+	 * Adjust Time Off Balance
 	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['adjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function getAListOfWhoIsOut($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
-		list($response) = $this->getAListOfWhoIsOutWithHttpInfo($accept_header_parameter, $start, $end, $contentType);
+	public function adjustTimeOffBalance($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['adjustTimeOffBalance'][0]) {
+		list($response) = $this->adjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getAListOfWhoIsOutWithHttpInfo
+	 * Operation adjustTimeOffBalanceWithHttpInfo
 	 *
-	 * Get Who’s Out
+	 * Adjust Time Off Balance
 	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['adjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getAListOfWhoIsOutWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
-		$request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
+	public function adjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['adjustTimeOffBalance'][0]) {
+		$request = $this->adjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -216,20 +218,19 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation getAListOfWhoIsOutAsync
+	 * Operation adjustTimeOffBalanceAsync
 	 *
-	 * Get Who’s Out
+	 * Adjust Time Off Balance
 	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['adjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getAListOfWhoIsOutAsync($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
-		return $this->getAListOfWhoIsOutAsyncWithHttpInfo($accept_header_parameter, $start, $end, $contentType)
+	public function adjustTimeOffBalanceAsync($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['adjustTimeOffBalance'][0]) {
+		return $this->adjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -238,21 +239,20 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation getAListOfWhoIsOutAsyncWithHttpInfo
+	 * Operation adjustTimeOffBalanceAsyncWithHttpInfo
 	 *
-	 * Get Who’s Out
+	 * Adjust Time Off Balance
 	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['adjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getAListOfWhoIsOutAsyncWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
+	public function adjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['adjustTimeOffBalance'][0]) {
 		
-		$request = $this->getAListOfWhoIsOutRequest($accept_header_parameter, $start, $end, $contentType);
+		$request = $this->adjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -284,19 +284,1194 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Create request for operation 'getAListOfWhoIsOut'
+	 * Create request for operation 'adjustTimeOffBalance'
 	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $start A date in the form YYYY-MM-DD - defaults to the current date. (optional)
-	 * @param  string|null $end A date in the form YYYY-MM-DD - defaults to 14 days from the start date. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAListOfWhoIsOut'] to see the possible values for this operation
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['adjustTimeOffBalance'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getAListOfWhoIsOutRequest($accept_header_parameter = null, $start = null, $end = null, string $contentType = self::CONTENT_TYPES['getAListOfWhoIsOut'][0]) {
+	public function adjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['adjustTimeOffBalance'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'adjust_time_off_balance' => $adjust_time_off_balance,
+			],
+			methodName: 'adjustTimeOffBalance'
+		);
 
-		$resourcePath = '/api/v1/time_off/whos_out';
+		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($adjust_time_off_balance)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_off_balance));
+			} else {
+				$httpBody = is_array($adjust_time_off_balance) ? json_encode($adjust_time_off_balance) : $adjust_time_off_balance;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation assignTimeOffPolicies
+	 *
+	 * Assign Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\AssignedTimeOffPolicy[]
+	 */
+	public function assignTimeOffPolicies($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPolicies'][0]) {
+		list($response) = $this->assignTimeOffPoliciesWithHttpInfo($employee_id, $assign_time_off_policies_request_inner, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesWithHttpInfo
+	 *
+	 * Assign Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\AssignedTimeOffPolicy[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function assignTimeOffPoliciesWithHttpInfo($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPolicies'][0]) {
+		$request = $this->assignTimeOffPoliciesRequest($employee_id, $assign_time_off_policies_request_inner, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\AssignedTimeOffPolicy[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\AssignedTimeOffPolicy[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesAsync
+	 *
+	 * Assign Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function assignTimeOffPoliciesAsync($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPolicies'][0]) {
+		return $this->assignTimeOffPoliciesAsyncWithHttpInfo($employee_id, $assign_time_off_policies_request_inner, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesAsyncWithHttpInfo
+	 *
+	 * Assign Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function assignTimeOffPoliciesAsyncWithHttpInfo($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPolicies'][0]) {
+		$returnType = '\BhrSdk\Model\AssignedTimeOffPolicy[]';
+		$request = $this->assignTimeOffPoliciesRequest($employee_id, $assign_time_off_policies_request_inner, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'assignTimeOffPolicies'
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function assignTimeOffPoliciesRequest($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPolicies'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'assign_time_off_policies_request_inner' => $assign_time_off_policies_request_inner,
+			],
+			methodName: 'assignTimeOffPolicies'
+		);
+
+		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($assign_time_off_policies_request_inner)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($assign_time_off_policies_request_inner));
+			} else {
+				$httpBody = is_array($assign_time_off_policies_request_inner) ? json_encode($assign_time_off_policies_request_inner) : $assign_time_off_policies_request_inner;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesV11
+	 *
+	 * Assign Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\AssignedTimeOffPolicyV11[]
+	 */
+	public function assignTimeOffPoliciesV11($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPoliciesV11'][0]) {
+		list($response) = $this->assignTimeOffPoliciesV11WithHttpInfo($employee_id, $assign_time_off_policies_request_inner, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesV11WithHttpInfo
+	 *
+	 * Assign Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\AssignedTimeOffPolicyV11[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function assignTimeOffPoliciesV11WithHttpInfo($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPoliciesV11'][0]) {
+		$request = $this->assignTimeOffPoliciesV11Request($employee_id, $assign_time_off_policies_request_inner, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\AssignedTimeOffPolicyV11[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\AssignedTimeOffPolicyV11[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesV11Async
+	 *
+	 * Assign Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function assignTimeOffPoliciesV11Async($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPoliciesV11'][0]) {
+		return $this->assignTimeOffPoliciesV11AsyncWithHttpInfo($employee_id, $assign_time_off_policies_request_inner, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation assignTimeOffPoliciesV11AsyncWithHttpInfo
+	 *
+	 * Assign Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function assignTimeOffPoliciesV11AsyncWithHttpInfo($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPoliciesV11'][0]) {
+		$returnType = '\BhrSdk\Model\AssignedTimeOffPolicyV11[]';
+		$request = $this->assignTimeOffPoliciesV11Request($employee_id, $assign_time_off_policies_request_inner, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'assignTimeOffPoliciesV11'
+	 *
+	 * @param  int $employee_id The ID of the employee to assign policies to. (required)
+	 * @param  \BhrSdk\Model\AssignTimeOffPoliciesRequestInner[] $assign_time_off_policies_request_inner (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['assignTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function assignTimeOffPoliciesV11Request($employee_id, $assign_time_off_policies_request_inner, string $contentType = self::CONTENT_TYPES['assignTimeOffPoliciesV11'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'assign_time_off_policies_request_inner' => $assign_time_off_policies_request_inner,
+			],
+			methodName: 'assignTimeOffPoliciesV11'
+		);
+
+		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($assign_time_off_policies_request_inner)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($assign_time_off_policies_request_inner));
+			} else {
+				$httpBody = is_array($assign_time_off_policies_request_inner) ? json_encode($assign_time_off_policies_request_inner) : $assign_time_off_policies_request_inner;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation createTimeOffHistory
+	 *
+	 * Create Time Off History Item
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history time_off_history (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffHistory'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return mixed
+	 */
+	public function createTimeOffHistory($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['createTimeOffHistory'][0]) {
+		list($response) = $this->createTimeOffHistoryWithHttpInfo($employee_id, $time_off_history, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation createTimeOffHistoryWithHttpInfo
+	 *
+	 * Create Time Off History Item
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffHistory'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function createTimeOffHistoryWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['createTimeOffHistory'][0]) {
+		$request = $this->createTimeOffHistoryRequest($employee_id, $time_off_history, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		return ApiHelper::handleResponseWithDataType(
+			'object', // or 'mixed' or any other generic type
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation createTimeOffHistoryAsync
+	 *
+	 * Create Time Off History Item
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffHistory'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function createTimeOffHistoryAsync($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['createTimeOffHistory'][0]) {
+		return $this->createTimeOffHistoryAsyncWithHttpInfo($employee_id, $time_off_history, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation createTimeOffHistoryAsyncWithHttpInfo
+	 *
+	 * Create Time Off History Item
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffHistory'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function createTimeOffHistoryAsyncWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['createTimeOffHistory'][0]) {
+		
+		$request = $this->createTimeOffHistoryRequest($employee_id, $time_off_history, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) {
+					$content = (string) $response->getBody();
+					$content = json_decode($content);
+
+					return [
+						ObjectSerializer::deserialize($content, 'object', []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'createTimeOffHistory'
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffHistory'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function createTimeOffHistoryRequest($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['createTimeOffHistory'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'time_off_history' => $time_off_history,
+			],
+			methodName: 'createTimeOffHistory'
+		);
+
+		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_off_history)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_history));
+			} else {
+				$httpBody = is_array($time_off_history) ? json_encode($time_off_history) : $time_off_history;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation createTimeOffRequest
+	 *
+	 * Create Time Off Request
+	 *
+	 * @param  int $employee_id The ID of the employee to create the time off request for. (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request time_off_request (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffRequest'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\CreatedTimeOffRequest
+	 */
+	public function createTimeOffRequest($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['createTimeOffRequest'][0]) {
+		list($response) = $this->createTimeOffRequestWithHttpInfo($employee_id, $time_off_request, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation createTimeOffRequestWithHttpInfo
+	 *
+	 * Create Time Off Request
+	 *
+	 * @param  int $employee_id The ID of the employee to create the time off request for. (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffRequest'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\CreatedTimeOffRequest, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function createTimeOffRequestWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['createTimeOffRequest'][0]) {
+		$request = $this->createTimeOffRequestRequest($employee_id, $time_off_request, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 201:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CreatedTimeOffRequest',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\CreatedTimeOffRequest',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation createTimeOffRequestAsync
+	 *
+	 * Create Time Off Request
+	 *
+	 * @param  int $employee_id The ID of the employee to create the time off request for. (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffRequest'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function createTimeOffRequestAsync($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['createTimeOffRequest'][0]) {
+		return $this->createTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation createTimeOffRequestAsyncWithHttpInfo
+	 *
+	 * Create Time Off Request
+	 *
+	 * @param  int $employee_id The ID of the employee to create the time off request for. (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffRequest'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function createTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['createTimeOffRequest'][0]) {
+		$returnType = '\BhrSdk\Model\CreatedTimeOffRequest';
+		$request = $this->createTimeOffRequestRequest($employee_id, $time_off_request, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'createTimeOffRequest'
+	 *
+	 * @param  int $employee_id The ID of the employee to create the time off request for. (required)
+	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeOffRequest'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function createTimeOffRequestRequest($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['createTimeOffRequest'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+				'time_off_request' => $time_off_request,
+			],
+			methodName: 'createTimeOffRequest'
+		);
+
+		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($time_off_request)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_request));
+			} else {
+				$httpBody = is_array($time_off_request) ? json_encode($time_off_request) : $time_off_request;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getTimeOffBalance
+	 *
+	 * Get Time Off Balance
+	 *
+	 * @param  int $employee_id The ID of the employee to get time off balances for. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. Example: use a future date to project balance. (optional)
+	 * @param  int|null $precision Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffBalance'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeOffBalanceEntry[]|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function getTimeOffBalance($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['getTimeOffBalance'][0]) {
+		list($response) = $this->getTimeOffBalanceWithHttpInfo($employee_id, $accept_header_parameter, $end, $precision, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getTimeOffBalanceWithHttpInfo
+	 *
+	 * Get Time Off Balance
+	 *
+	 * @param  int $employee_id The ID of the employee to get time off balances for. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. Example: use a future date to project balance. (optional)
+	 * @param  int|null $precision Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffBalance'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeOffBalanceEntry[]|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getTimeOffBalanceWithHttpInfo($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['getTimeOffBalance'][0]) {
+		$request = $this->getTimeOffBalanceRequest($employee_id, $accept_header_parameter, $end, $precision, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeOffBalanceEntry[]',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeOffBalanceEntry[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getTimeOffBalanceAsync
+	 *
+	 * Get Time Off Balance
+	 *
+	 * @param  int $employee_id The ID of the employee to get time off balances for. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. Example: use a future date to project balance. (optional)
+	 * @param  int|null $precision Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffBalance'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getTimeOffBalanceAsync($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['getTimeOffBalance'][0]) {
+		return $this->getTimeOffBalanceAsyncWithHttpInfo($employee_id, $accept_header_parameter, $end, $precision, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getTimeOffBalanceAsyncWithHttpInfo
+	 *
+	 * Get Time Off Balance
+	 *
+	 * @param  int $employee_id The ID of the employee to get time off balances for. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. Example: use a future date to project balance. (optional)
+	 * @param  int|null $precision Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffBalance'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getTimeOffBalanceAsyncWithHttpInfo($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['getTimeOffBalance'][0]) {
+		$returnType = '\BhrSdk\Model\TimeOffBalanceEntry[]';
+		$request = $this->getTimeOffBalanceRequest($employee_id, $accept_header_parameter, $end, $precision, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getTimeOffBalance'
+	 *
+	 * @param  int $employee_id The ID of the employee to get time off balances for. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $end The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided. Example: use a future date to project balance. (optional)
+	 * @param  int|null $precision Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2. (optional, default to 2)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffBalance'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getTimeOffBalanceRequest($employee_id, $accept_header_parameter = null, $end = null, $precision = 2, string $contentType = self::CONTENT_TYPES['getTimeOffBalance'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'getTimeOffBalance'
+		);
+
+		if ($precision !== null && $precision > 4) {
+			throw new \InvalidArgumentException('invalid value for "$precision" when calling TimeOffApi.getTimeOffBalance, must be smaller than or equal to 4.');
+		}
+		if ($precision !== null && $precision < 0) {
+			throw new \InvalidArgumentException('invalid value for "$precision" when calling TimeOffApi.getTimeOffBalance, must be bigger than or equal to 0.');
+		}
+		
+		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
@@ -305,8 +1480,938 @@ class TimeOffApi {
 		$multipart = false;
 
 		$parameters = [
-			'start' => ['value' => $start, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'end' => ['value' => $end, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'precision' => ['value' => $precision, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// header params
+		if ($accept_header_parameter !== null) {
+			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/xml', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPolicies
+	 *
+	 * List Employee Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\EmployeeTimeOffPolicyAssignment[]
+	 */
+	public function listEmployeeTimeOffPolicies($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPolicies'][0]) {
+		list($response) = $this->listEmployeeTimeOffPoliciesWithHttpInfo($employee_id, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesWithHttpInfo
+	 *
+	 * List Employee Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\EmployeeTimeOffPolicyAssignment[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function listEmployeeTimeOffPoliciesWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPolicies'][0]) {
+		$request = $this->listEmployeeTimeOffPoliciesRequest($employee_id, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\EmployeeTimeOffPolicyAssignment[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\EmployeeTimeOffPolicyAssignment[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesAsync
+	 *
+	 * List Employee Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listEmployeeTimeOffPoliciesAsync($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPolicies'][0]) {
+		return $this->listEmployeeTimeOffPoliciesAsyncWithHttpInfo($employee_id, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesAsyncWithHttpInfo
+	 *
+	 * List Employee Time Off Policies
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listEmployeeTimeOffPoliciesAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPolicies'][0]) {
+		$returnType = '\BhrSdk\Model\EmployeeTimeOffPolicyAssignment[]';
+		$request = $this->listEmployeeTimeOffPoliciesRequest($employee_id, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listEmployeeTimeOffPolicies'
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function listEmployeeTimeOffPoliciesRequest($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPolicies'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'listEmployeeTimeOffPolicies'
+		);
+
+		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesV11
+	 *
+	 * List Employee Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\EmployeeTimeOffPolicyAssignmentV11[]
+	 */
+	public function listEmployeeTimeOffPoliciesV11($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'][0]) {
+		list($response) = $this->listEmployeeTimeOffPoliciesV11WithHttpInfo($employee_id, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesV11WithHttpInfo
+	 *
+	 * List Employee Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\EmployeeTimeOffPolicyAssignmentV11[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function listEmployeeTimeOffPoliciesV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'][0]) {
+		$request = $this->listEmployeeTimeOffPoliciesV11Request($employee_id, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\EmployeeTimeOffPolicyAssignmentV11[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\EmployeeTimeOffPolicyAssignmentV11[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesV11Async
+	 *
+	 * List Employee Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listEmployeeTimeOffPoliciesV11Async($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'][0]) {
+		return $this->listEmployeeTimeOffPoliciesV11AsyncWithHttpInfo($employee_id, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listEmployeeTimeOffPoliciesV11AsyncWithHttpInfo
+	 *
+	 * List Employee Time Off Policies v1.1
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listEmployeeTimeOffPoliciesV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'][0]) {
+		$returnType = '\BhrSdk\Model\EmployeeTimeOffPolicyAssignmentV11[]';
+		$request = $this->listEmployeeTimeOffPoliciesV11Request($employee_id, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listEmployeeTimeOffPoliciesV11'
+	 *
+	 * @param  int $employee_id The ID of the employee. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function listEmployeeTimeOffPoliciesV11Request($employee_id, string $contentType = self::CONTENT_TYPES['listEmployeeTimeOffPoliciesV11'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'employee_id' => $employee_id,
+			],
+			methodName: 'listEmployeeTimeOffPoliciesV11'
+		);
+
+		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($employee_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'employeeId' . '}',
+				ObjectSerializer::toPathValue((string) $employee_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listTimeOffPolicies
+	 *
+	 * List Time Off Policies
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeOffPolicy[]
+	 */
+	public function listTimeOffPolicies($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTimeOffPolicies'][0]) {
+		list($response) = $this->listTimeOffPoliciesWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listTimeOffPoliciesWithHttpInfo
+	 *
+	 * List Time Off Policies
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeOffPolicy[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function listTimeOffPoliciesWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTimeOffPolicies'][0]) {
+		$request = $this->listTimeOffPoliciesRequest($accept_header_parameter, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeOffPolicy[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeOffPolicy[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listTimeOffPoliciesAsync
+	 *
+	 * List Time Off Policies
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listTimeOffPoliciesAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTimeOffPolicies'][0]) {
+		return $this->listTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listTimeOffPoliciesAsyncWithHttpInfo
+	 *
+	 * List Time Off Policies
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTimeOffPolicies'][0]) {
+		$returnType = '\BhrSdk\Model\TimeOffPolicy[]';
+		$request = $this->listTimeOffPoliciesRequest($accept_header_parameter, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listTimeOffPolicies'
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffPolicies'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function listTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTimeOffPolicies'][0]) {
+
+		$resourcePath = '/api/v1/meta/time_off/policies';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// header params
+		if ($accept_header_parameter !== null) {
+			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listTimeOffRequests
+	 *
+	 * List Time Off Requests
+	 *
+	 * @param  \DateTime $start The left boundary of the search window, in YYYY-MM-DD format. Returns any request whose end date falls on or after this date — i.e., requests that are still active at the start of your window. To find all requests overlapping a date range, pass your range start here. Note: this parameter filters on each request&#39;s *end* date, not its start date. (required)
+	 * @param  \DateTime $end The right boundary of the search window, in YYYY-MM-DD format. Returns any request whose start date falls on or before this date — i.e., requests that have begun by the end of your window. To find all requests overlapping a date range, pass your range end here. Note: this parameter filters on each request&#39;s *start* date, not its end date. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  int|null $id A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action Limit to requests the caller can &#x60;view&#x60;, requests they can &#x60;approve&#x60;, or only their own requests via &#x60;myRequests&#x60;. Defaults to &#x60;view&#x60;. (optional, default to 'view')
+	 * @param  int|null $employee_id A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type A comma-separated list of time off type IDs to filter by. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status A comma-separated list of request status values to filter by. Accepted values are approved, denied, superceded, requested, and canceled. If omitted, requests of all statuses are included. (optional)
+	 * @param  string|null $exclude_note When set to any truthy value, omits the &#x60;notes&#x60; object from each request in the response. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffRequests'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeOffRequest1[]
+	 */
+	public function listTimeOffRequests($start, $end, $accept_header_parameter = null, $id = null, $action = 'view', $employee_id = null, $type = null, $status = null, $exclude_note = null, string $contentType = self::CONTENT_TYPES['listTimeOffRequests'][0]) {
+		list($response) = $this->listTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $exclude_note, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listTimeOffRequestsWithHttpInfo
+	 *
+	 * List Time Off Requests
+	 *
+	 * @param  \DateTime $start The left boundary of the search window, in YYYY-MM-DD format. Returns any request whose end date falls on or after this date — i.e., requests that are still active at the start of your window. To find all requests overlapping a date range, pass your range start here. Note: this parameter filters on each request&#39;s *end* date, not its start date. (required)
+	 * @param  \DateTime $end The right boundary of the search window, in YYYY-MM-DD format. Returns any request whose start date falls on or before this date — i.e., requests that have begun by the end of your window. To find all requests overlapping a date range, pass your range end here. Note: this parameter filters on each request&#39;s *start* date, not its end date. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  int|null $id A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action Limit to requests the caller can &#x60;view&#x60;, requests they can &#x60;approve&#x60;, or only their own requests via &#x60;myRequests&#x60;. Defaults to &#x60;view&#x60;. (optional, default to 'view')
+	 * @param  int|null $employee_id A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type A comma-separated list of time off type IDs to filter by. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status A comma-separated list of request status values to filter by. Accepted values are approved, denied, superceded, requested, and canceled. If omitted, requests of all statuses are included. (optional)
+	 * @param  string|null $exclude_note When set to any truthy value, omits the &#x60;notes&#x60; object from each request in the response. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffRequests'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeOffRequest1[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function listTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = 'view', $employee_id = null, $type = null, $status = null, $exclude_note = null, string $contentType = self::CONTENT_TYPES['listTimeOffRequests'][0]) {
+		$request = $this->listTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $exclude_note, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeOffRequest1[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeOffRequest1[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listTimeOffRequestsAsync
+	 *
+	 * List Time Off Requests
+	 *
+	 * @param  \DateTime $start The left boundary of the search window, in YYYY-MM-DD format. Returns any request whose end date falls on or after this date — i.e., requests that are still active at the start of your window. To find all requests overlapping a date range, pass your range start here. Note: this parameter filters on each request&#39;s *end* date, not its start date. (required)
+	 * @param  \DateTime $end The right boundary of the search window, in YYYY-MM-DD format. Returns any request whose start date falls on or before this date — i.e., requests that have begun by the end of your window. To find all requests overlapping a date range, pass your range end here. Note: this parameter filters on each request&#39;s *start* date, not its end date. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  int|null $id A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action Limit to requests the caller can &#x60;view&#x60;, requests they can &#x60;approve&#x60;, or only their own requests via &#x60;myRequests&#x60;. Defaults to &#x60;view&#x60;. (optional, default to 'view')
+	 * @param  int|null $employee_id A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type A comma-separated list of time off type IDs to filter by. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status A comma-separated list of request status values to filter by. Accepted values are approved, denied, superceded, requested, and canceled. If omitted, requests of all statuses are included. (optional)
+	 * @param  string|null $exclude_note When set to any truthy value, omits the &#x60;notes&#x60; object from each request in the response. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffRequests'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listTimeOffRequestsAsync($start, $end, $accept_header_parameter = null, $id = null, $action = 'view', $employee_id = null, $type = null, $status = null, $exclude_note = null, string $contentType = self::CONTENT_TYPES['listTimeOffRequests'][0]) {
+		return $this->listTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $exclude_note, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listTimeOffRequestsAsyncWithHttpInfo
+	 *
+	 * List Time Off Requests
+	 *
+	 * @param  \DateTime $start The left boundary of the search window, in YYYY-MM-DD format. Returns any request whose end date falls on or after this date — i.e., requests that are still active at the start of your window. To find all requests overlapping a date range, pass your range start here. Note: this parameter filters on each request&#39;s *end* date, not its start date. (required)
+	 * @param  \DateTime $end The right boundary of the search window, in YYYY-MM-DD format. Returns any request whose start date falls on or before this date — i.e., requests that have begun by the end of your window. To find all requests overlapping a date range, pass your range end here. Note: this parameter filters on each request&#39;s *start* date, not its end date. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  int|null $id A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action Limit to requests the caller can &#x60;view&#x60;, requests they can &#x60;approve&#x60;, or only their own requests via &#x60;myRequests&#x60;. Defaults to &#x60;view&#x60;. (optional, default to 'view')
+	 * @param  int|null $employee_id A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type A comma-separated list of time off type IDs to filter by. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status A comma-separated list of request status values to filter by. Accepted values are approved, denied, superceded, requested, and canceled. If omitted, requests of all statuses are included. (optional)
+	 * @param  string|null $exclude_note When set to any truthy value, omits the &#x60;notes&#x60; object from each request in the response. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffRequests'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = 'view', $employee_id = null, $type = null, $status = null, $exclude_note = null, string $contentType = self::CONTENT_TYPES['listTimeOffRequests'][0]) {
+		$returnType = '\BhrSdk\Model\TimeOffRequest1[]';
+		$request = $this->listTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $exclude_note, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listTimeOffRequests'
+	 *
+	 * @param  \DateTime $start The left boundary of the search window, in YYYY-MM-DD format. Returns any request whose end date falls on or after this date — i.e., requests that are still active at the start of your window. To find all requests overlapping a date range, pass your range start here. Note: this parameter filters on each request&#39;s *end* date, not its start date. (required)
+	 * @param  \DateTime $end The right boundary of the search window, in YYYY-MM-DD format. Returns any request whose start date falls on or before this date — i.e., requests that have begun by the end of your window. To find all requests overlapping a date range, pass your range end here. Note: this parameter filters on each request&#39;s *start* date, not its end date. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  int|null $id A particular request ID to limit the response to. (optional)
+	 * @param  string|null $action Limit to requests the caller can &#x60;view&#x60;, requests they can &#x60;approve&#x60;, or only their own requests via &#x60;myRequests&#x60;. Defaults to &#x60;view&#x60;. (optional, default to 'view')
+	 * @param  int|null $employee_id A particular employee ID to limit the response to. (optional)
+	 * @param  string|null $type A comma-separated list of time off type IDs to filter by. If omitted, requests of all types are included. (optional)
+	 * @param  string|null $status A comma-separated list of request status values to filter by. Accepted values are approved, denied, superceded, requested, and canceled. If omitted, requests of all statuses are included. (optional)
+	 * @param  string|null $exclude_note When set to any truthy value, omits the &#x60;notes&#x60; object from each request in the response. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffRequests'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function listTimeOffRequestsRequest($start, $end, $accept_header_parameter = null, $id = null, $action = 'view', $employee_id = null, $type = null, $status = null, $exclude_note = null, string $contentType = self::CONTENT_TYPES['listTimeOffRequests'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'start' => $start,
+				'end' => $end,
+			],
+			methodName: 'listTimeOffRequests'
+		);
+
+		$resourcePath = '/api/v1/time_off/requests';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'id' => ['value' => $id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'action' => ['value' => $action, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'employeeId' => ['value' => $employee_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'start' => ['value' => $start, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
+			'type' => ['value' => $type, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'status' => ['value' => $status, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'excludeNote' => ['value' => $exclude_note, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 		];
 
 		// Process parameters and build query values directly
@@ -377,36 +2482,38 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation getTimeOffPolicies
+	 * Operation listTimeOffTypes
 	 *
-	 * Get Time Off Policies
+	 * List Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string|null $mode Set to &#x60;request&#x60; to limit the results to time off types the authenticated employee can request. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\TimeOffTypesAndDefaultHours
 	 */
-	public function getTimeOffPolicies($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		list($response) = $this->getTimeOffPoliciesWithHttpInfo($accept_header_parameter, $contentType);
+	public function listTimeOffTypes($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['listTimeOffTypes'][0]) {
+		list($response) = $this->listTimeOffTypesWithHttpInfo($accept_header_parameter, $mode, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getTimeOffPoliciesWithHttpInfo
+	 * Operation listTimeOffTypesWithHttpInfo
 	 *
-	 * Get Time Off Policies
+	 * List Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string|null $mode Set to &#x60;request&#x60; to limit the results to time off types the authenticated employee can request. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeOffTypesAndDefaultHours, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getTimeOffPoliciesWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		$request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
+	public function listTimeOffTypesWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['listTimeOffTypes'][0]) {
+		$request = $this->listTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -414,26 +2521,49 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeOffTypesAndDefaultHours',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\TimeOffTypesAndDefaultHours',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation getTimeOffPoliciesAsync
+	 * Operation listTimeOffTypesAsync
 	 *
-	 * Get Time Off Policies
+	 * List Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string|null $mode Set to &#x60;request&#x60; to limit the results to time off types the authenticated employee can request. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getTimeOffPoliciesAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		return $this->getTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter, $contentType)
+	public function listTimeOffTypesAsync($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['listTimeOffTypes'][0]) {
+		return $this->listTimeOffTypesAsyncWithHttpInfo($accept_header_parameter, $mode, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -442,28 +2572,31 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation getTimeOffPoliciesAsyncWithHttpInfo
+	 * Operation listTimeOffTypesAsyncWithHttpInfo
 	 *
-	 * Get Time Off Policies
+	 * List Time Off Types
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string|null $mode Set to &#x60;request&#x60; to limit the results to time off types the authenticated employee can request. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getTimeOffPoliciesAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-		
-		$request = $this->getTimeOffPoliciesRequest($accept_header_parameter, $contentType);
+	public function listTimeOffTypesAsyncWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['listTimeOffTypes'][0]) {
+		$returnType = '\BhrSdk\Model\TimeOffTypesAndDefaultHours';
+		$request = $this->listTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -486,203 +2619,16 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Create request for operation 'getTimeOffPolicies'
+	 * Create request for operation 'listTimeOffTypes'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffPolicies'] to see the possible values for this operation
+	 * @param  string|null $mode Set to &#x60;request&#x60; to limit the results to time off types the authenticated employee can request. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTimeOffTypes'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getTimeOffPoliciesRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getTimeOffPolicies'][0]) {
-
-		$resourcePath = '/api/v1/meta/time_off/policies';
-		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// header params
-		if ($accept_header_parameter !== null) {
-			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'GET',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation getTimeOffTypes
-	 *
-	 * Get Time Off Types
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function getTimeOffTypes($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		list($response) = $this->getTimeOffTypesWithHttpInfo($accept_header_parameter, $mode, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation getTimeOffTypesWithHttpInfo
-	 *
-	 * Get Time Off Types
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function getTimeOffTypesWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation getTimeOffTypesAsync
-	 *
-	 * Get Time Off Types
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function getTimeOffTypesAsync($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		return $this->getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter, $mode, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation getTimeOffTypesAsyncWithHttpInfo
-	 *
-	 * Get Time Off Types
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function getTimeOffTypesAsyncWithHttpInfo($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
-		
-		$request = $this->getTimeOffTypesRequest($accept_header_parameter, $mode, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'getTimeOffTypes'
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $mode set to \\&#39;request\\&#39; to get a list of all time off types with which this user can create a time off request. The default is to return the list of time off types the user has permissions on. This distinction is important, as employees can request time off for types that they don\\&#39;t have permission to view balances and requests for. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeOffTypes'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function getTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['getTimeOffTypes'][0]) {
+	public function listTimeOffTypesRequest($accept_header_parameter = null, $mode = null, string $contentType = self::CONTENT_TYPES['listTimeOffTypes'][0]) {
 
 		$resourcePath = '/api/v1/meta/time_off/types';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
@@ -764,38 +2710,42 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequest
+	 * Operation listWhosOut
 	 *
-	 * Create Time Off Request History Item
+	 * List Who’s Out
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $start Start date in YYYY-MM-DD format. Defaults to today. (optional)
+	 * @param  \DateTime|null $end End date in YYYY-MM-DD format. Defaults to 14 days after the start date. (optional)
+	 * @param  string|null $filter Controls the Who&#39;s Out calendar filter. By default (parameter omitted), results are limited to the set of employees defined by the authenticated user&#39;s saved Who&#39;s Out calendar filter (the same filter applied to their in-app Who&#39;s Out view). A user with no filter configured sees all employees; a user with a saved filter (e.g. by department, location, division) sees only the configured subset. Set to &#x60;off&#x60; to ignore the saved filter and return employee time-off entries for everyone — useful for admins or integrations that need the complete company-wide view, or to diagnose whether incomplete results are caused by the saved filter. Note: this parameter applies to employee &#x60;timeOff&#x60; entries only. &#x60;holiday&#x60; entries are filtered separately on a per-employee basis (holidays can be configured as visible to specific employees) and that filter is not affected by &#x60;filter: off&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listWhosOut'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\WhosOutEntry[]
 	 */
-	public function timeOffAddATimeOffHistoryItemForTimeOffRequest($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		list($response) = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, $contentType);
+	public function listWhosOut($accept_header_parameter = null, $start = null, $end = null, $filter = null, string $contentType = self::CONTENT_TYPES['listWhosOut'][0]) {
+		list($response) = $this->listWhosOutWithHttpInfo($accept_header_parameter, $start, $end, $filter, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo
+	 * Operation listWhosOutWithHttpInfo
 	 *
-	 * Create Time Off Request History Item
+	 * List Who’s Out
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $start Start date in YYYY-MM-DD format. Defaults to today. (optional)
+	 * @param  \DateTime|null $end End date in YYYY-MM-DD format. Defaults to 14 days after the start date. (optional)
+	 * @param  string|null $filter Controls the Who&#39;s Out calendar filter. By default (parameter omitted), results are limited to the set of employees defined by the authenticated user&#39;s saved Who&#39;s Out calendar filter (the same filter applied to their in-app Who&#39;s Out view). A user with no filter configured sees all employees; a user with a saved filter (e.g. by department, location, division) sees only the configured subset. Set to &#x60;off&#x60; to ignore the saved filter and return employee time-off entries for everyone — useful for admins or integrations that need the complete company-wide view, or to diagnose whether incomplete results are caused by the saved filter. Note: this parameter applies to employee &#x60;timeOff&#x60; entries only. &#x60;holiday&#x60; entries are filtered separately on a per-employee basis (holidays can be configured as visible to specific employees) and that filter is not affected by &#x60;filter: off&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listWhosOut'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\WhosOutEntry[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function timeOffAddATimeOffHistoryItemForTimeOffRequestWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		$request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
+	public function listWhosOutWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, $filter = null, string $contentType = self::CONTENT_TYPES['listWhosOut'][0]) {
+		$request = $this->listWhosOutRequest($accept_header_parameter, $start, $end, $filter, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -803,27 +2753,51 @@ class TimeOffApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\WhosOutEntry[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\WhosOutEntry[]',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequestAsync
+	 * Operation listWhosOutAsync
 	 *
-	 * Create Time Off Request History Item
+	 * List Who’s Out
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $start Start date in YYYY-MM-DD format. Defaults to today. (optional)
+	 * @param  \DateTime|null $end End date in YYYY-MM-DD format. Defaults to 14 days after the start date. (optional)
+	 * @param  string|null $filter Controls the Who&#39;s Out calendar filter. By default (parameter omitted), results are limited to the set of employees defined by the authenticated user&#39;s saved Who&#39;s Out calendar filter (the same filter applied to their in-app Who&#39;s Out view). A user with no filter configured sees all employees; a user with a saved filter (e.g. by department, location, division) sees only the configured subset. Set to &#x60;off&#x60; to ignore the saved filter and return employee time-off entries for everyone — useful for admins or integrations that need the complete company-wide view, or to diagnose whether incomplete results are caused by the saved filter. Note: this parameter applies to employee &#x60;timeOff&#x60; entries only. &#x60;holiday&#x60; entries are filtered separately on a per-employee basis (holidays can be configured as visible to specific employees) and that filter is not affected by &#x60;filter: off&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listWhosOut'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsync($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		return $this->timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_history, $contentType)
+	public function listWhosOutAsync($accept_header_parameter = null, $start = null, $end = null, $filter = null, string $contentType = self::CONTENT_TYPES['listWhosOut'][0]) {
+		return $this->listWhosOutAsyncWithHttpInfo($accept_header_parameter, $start, $end, $filter, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -832,29 +2806,33 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo
+	 * Operation listWhosOutAsyncWithHttpInfo
 	 *
-	 * Create Time Off Request History Item
+	 * List Who’s Out
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $start Start date in YYYY-MM-DD format. Defaults to today. (optional)
+	 * @param  \DateTime|null $end End date in YYYY-MM-DD format. Defaults to 14 days after the start date. (optional)
+	 * @param  string|null $filter Controls the Who&#39;s Out calendar filter. By default (parameter omitted), results are limited to the set of employees defined by the authenticated user&#39;s saved Who&#39;s Out calendar filter (the same filter applied to their in-app Who&#39;s Out view). A user with no filter configured sees all employees; a user with a saved filter (e.g. by department, location, division) sees only the configured subset. Set to &#x60;off&#x60; to ignore the saved filter and return employee time-off entries for everyone — useful for admins or integrations that need the complete company-wide view, or to diagnose whether incomplete results are caused by the saved filter. Note: this parameter applies to employee &#x60;timeOff&#x60; entries only. &#x60;holiday&#x60; entries are filtered separately on a per-employee basis (holidays can be configured as visible to specific employees) and that filter is not affected by &#x60;filter: off&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listWhosOut'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function timeOffAddATimeOffHistoryItemForTimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		
-		$request = $this->timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, $contentType);
+	public function listWhosOutAsyncWithHttpInfo($accept_header_parameter = null, $start = null, $end = null, $filter = null, string $contentType = self::CONTENT_TYPES['listWhosOut'][0]) {
+		$returnType = '\BhrSdk\Model\WhosOutEntry[]';
+		$request = $this->listWhosOutRequest($accept_header_parameter, $start, $end, $filter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -877,57 +2855,55 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Create request for operation 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
+	 * Create request for operation 'listWhosOut'
 	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\TimeOffHistory $time_off_history (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  \DateTime|null $start Start date in YYYY-MM-DD format. Defaults to today. (optional)
+	 * @param  \DateTime|null $end End date in YYYY-MM-DD format. Defaults to 14 days after the start date. (optional)
+	 * @param  string|null $filter Controls the Who&#39;s Out calendar filter. By default (parameter omitted), results are limited to the set of employees defined by the authenticated user&#39;s saved Who&#39;s Out calendar filter (the same filter applied to their in-app Who&#39;s Out view). A user with no filter configured sees all employees; a user with a saved filter (e.g. by department, location, division) sees only the configured subset. Set to &#x60;off&#x60; to ignore the saved filter and return employee time-off entries for everyone — useful for admins or integrations that need the complete company-wide view, or to diagnose whether incomplete results are caused by the saved filter. Note: this parameter applies to employee &#x60;timeOff&#x60; entries only. &#x60;holiday&#x60; entries are filtered separately on a per-employee basis (holidays can be configured as visible to specific employees) and that filter is not affected by &#x60;filter: off&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listWhosOut'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function timeOffAddATimeOffHistoryItemForTimeOffRequestRequest($employee_id, $time_off_history, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffHistoryItemForTimeOffRequest'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-				'time_off_history' => $time_off_history,
-			],
-			methodName: 'timeOffAddATimeOffHistoryItemForTimeOffRequest'
-		);
+	public function listWhosOutRequest($accept_header_parameter = null, $start = null, $end = null, $filter = null, string $contentType = self::CONTENT_TYPES['listWhosOut'][0]) {
 
-		$resourcePath = '/api/v1/employees/{employeeId}/time_off/history';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		$resourcePath = '/api/v1/time_off/whos_out';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
 
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
+		$parameters = [
+			'start' => ['value' => $start, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'end' => ['value' => $end, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// header params
+		if ($accept_header_parameter !== null) {
+			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
-
-		// for model (json/xml)
-		if (isset($time_off_history)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_history));
-			} else {
-				$httpBody = is_array($time_off_history) ? json_encode($time_off_history) : $time_off_history;
-			}
-		} 
 
 		// Authentication methods
 		
@@ -966,7 +2942,7 @@ class TimeOffApi {
 		$operationHost = $this->config->getHost();
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
-			'PUT',
+			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody
@@ -974,878 +2950,38 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffAddATimeOffRequest
-	 *
-	 * Create Time Off Request
-	 *
-	 * @param  string $employee_id employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffAddATimeOffRequest($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		list($response) = $this->timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffAddATimeOffRequestWithHttpInfo
-	 *
-	 * Create Time Off Request
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffAddATimeOffRequestWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		$request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffAddATimeOffRequestAsync
-	 *
-	 * Create Time Off Request
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAddATimeOffRequestAsync($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		return $this->timeOffAddATimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffAddATimeOffRequestAsyncWithHttpInfo
-	 *
-	 * Create Time Off Request
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAddATimeOffRequestAsyncWithHttpInfo($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		
-		$request = $this->timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffAddATimeOffRequest'
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffRequest $time_off_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAddATimeOffRequest'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffAddATimeOffRequestRequest($employee_id, $time_off_request, string $contentType = self::CONTENT_TYPES['timeOffAddATimeOffRequest'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-				'time_off_request' => $time_off_request,
-			],
-			methodName: 'timeOffAddATimeOffRequest'
-		);
-
-		$resourcePath = '/api/v1/employees/{employeeId}/time_off/request';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($time_off_request)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_request));
-			} else {
-				$httpBody = is_array($time_off_request) ? json_encode($time_off_request) : $time_off_request;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffAdjustTimeOffBalance
-	 *
-	 * Update Time Off Balance
-	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffAdjustTimeOffBalance($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		list($response) = $this->timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffAdjustTimeOffBalanceWithHttpInfo
-	 *
-	 * Update Time Off Balance
-	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffAdjustTimeOffBalanceWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		$request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffAdjustTimeOffBalanceAsync
-	 *
-	 * Update Time Off Balance
-	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAdjustTimeOffBalanceAsync($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		return $this->timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffAdjustTimeOffBalanceAsyncWithHttpInfo
-	 *
-	 * Update Time Off Balance
-	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAdjustTimeOffBalanceAsyncWithHttpInfo($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		
-		$request = $this->timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffAdjustTimeOffBalance'
-	 *
-	 * @param  int $employee_id The ID of the employee. (required)
-	 * @param  \BhrSdk\Model\AdjustTimeOffBalance $adjust_time_off_balance (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffAdjustTimeOffBalanceRequest($employee_id, $adjust_time_off_balance, string $contentType = self::CONTENT_TYPES['timeOffAdjustTimeOffBalance'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-				'adjust_time_off_balance' => $adjust_time_off_balance,
-			],
-			methodName: 'timeOffAdjustTimeOffBalance'
-		);
-
-		$resourcePath = '/api/v1/employees/{employeeId}/time_off/balance_adjustment';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($adjust_time_off_balance)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_off_balance));
-			} else {
-				$httpBody = is_array($adjust_time_off_balance) ? json_encode($adjust_time_off_balance) : $adjust_time_off_balance;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployee
-	 *
-	 * Assign Time Off Policies
-	 *
-	 * @param  string $employee_id employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployee($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		list($response) = $this->timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo
-	 *
-	 * Assign Time Off Policies
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeAsync
-	 *
-	 * Assign Time Off Policies
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeAsync($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		return $this->timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo
-	 *
-	 * Assign Time Off Policies
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeAsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		
-		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployee'
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeRequest($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployee'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-				'time_off_assign_time_off_policies_for_an_employee_request_inner' => $time_off_assign_time_off_policies_for_an_employee_request_inner,
-			],
-			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployee'
-		);
-
-		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($time_off_assign_time_off_policies_for_an_employee_request_inner)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
-			} else {
-				$httpBody = is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) ? json_encode($time_off_assign_time_off_policies_for_an_employee_request_inner) : $time_off_assign_time_off_policies_for_an_employee_request_inner;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11
-	 *
-	 * Assign Time Off Policies v1.1
-	 *
-	 * @param  string $employee_id employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		list($response) = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo
-	 *
-	 * Assign Time Off Policies v1.1
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11WithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11Async
-	 *
-	 * Assign Time Off Policies v1.1
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Async($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		return $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo
-	 *
-	 * Assign Time Off Policies v1.1
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11AsyncWithHttpInfo($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		
-		$request = $this->timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  \BhrSdk\Model\TimeOffAssignTimeOffPoliciesForAnEmployeeRequestInner[] $time_off_assign_time_off_policies_for_an_employee_request_inner (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffAssignTimeOffPoliciesForAnEmployeeV11Request($employee_id, $time_off_assign_time_off_policies_for_an_employee_request_inner, string $contentType = self::CONTENT_TYPES['timeOffAssignTimeOffPoliciesForAnEmployeeV11'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-				'time_off_assign_time_off_policies_for_an_employee_request_inner' => $time_off_assign_time_off_policies_for_an_employee_request_inner,
-			],
-			methodName: 'timeOffAssignTimeOffPoliciesForAnEmployeeV11'
-		);
-
-		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($time_off_assign_time_off_policies_for_an_employee_request_inner)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_off_assign_time_off_policies_for_an_employee_request_inner));
-			} else {
-				$httpBody = is_array($time_off_assign_time_off_policies_for_an_employee_request_inner) ? json_encode($time_off_assign_time_off_policies_for_an_employee_request_inner) : $time_off_assign_time_off_policies_for_an_employee_request_inner;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffChangeARequestStatus
+	 * Operation updateTimeOffRequestStatus
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id request_id (required)
+	 * @param  int $request_id The ID of the time off request to update. (required)
 	 * @param  \BhrSdk\Model\Request $request request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeOffRequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function timeOffChangeARequestStatus($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
-		list($response) = $this->timeOffChangeARequestStatusWithHttpInfo($request_id, $request, $contentType);
+	public function updateTimeOffRequestStatus($request_id, $request, string $contentType = self::CONTENT_TYPES['updateTimeOffRequestStatus'][0]) {
+		list($response) = $this->updateTimeOffRequestStatusWithHttpInfo($request_id, $request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation timeOffChangeARequestStatusWithHttpInfo
+	 * Operation updateTimeOffRequestStatusWithHttpInfo
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id (required)
+	 * @param  int $request_id The ID of the time off request to update. (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeOffRequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function timeOffChangeARequestStatusWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
-		$request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
+	public function updateTimeOffRequestStatusWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['updateTimeOffRequestStatus'][0]) {
+		$request = $this->updateTimeOffRequestStatusRequest($request_id, $request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1861,19 +2997,19 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffChangeARequestStatusAsync
+	 * Operation updateTimeOffRequestStatusAsync
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id (required)
+	 * @param  int $request_id The ID of the time off request to update. (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeOffRequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function timeOffChangeARequestStatusAsync($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
-		return $this->timeOffChangeARequestStatusAsyncWithHttpInfo($request_id, $request, $contentType)
+	public function updateTimeOffRequestStatusAsync($request_id, $request, string $contentType = self::CONTENT_TYPES['updateTimeOffRequestStatus'][0]) {
+		return $this->updateTimeOffRequestStatusAsyncWithHttpInfo($request_id, $request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1882,20 +3018,20 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Operation timeOffChangeARequestStatusAsyncWithHttpInfo
+	 * Operation updateTimeOffRequestStatusAsyncWithHttpInfo
 	 *
 	 * Update Time Off Request Status
 	 *
-	 * @param  string $request_id (required)
+	 * @param  int $request_id The ID of the time off request to update. (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeOffRequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function timeOffChangeARequestStatusAsyncWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
+	public function updateTimeOffRequestStatusAsyncWithHttpInfo($request_id, $request, string $contentType = self::CONTENT_TYPES['updateTimeOffRequestStatus'][0]) {
 		
-		$request = $this->timeOffChangeARequestStatusRequest($request_id, $request, $contentType);
+		$request = $this->updateTimeOffRequestStatusRequest($request_id, $request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1927,23 +3063,23 @@ class TimeOffApi {
 	}
 
 	/**
-	 * Create request for operation 'timeOffChangeARequestStatus'
+	 * Create request for operation 'updateTimeOffRequestStatus'
 	 *
-	 * @param  string $request_id (required)
+	 * @param  int $request_id The ID of the time off request to update. (required)
 	 * @param  \BhrSdk\Model\Request $request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffChangeARequestStatus'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeOffRequestStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function timeOffChangeARequestStatusRequest($request_id, $request, string $contentType = self::CONTENT_TYPES['timeOffChangeARequestStatus'][0]) {
+	public function updateTimeOffRequestStatusRequest($request_id, $request, string $contentType = self::CONTENT_TYPES['updateTimeOffRequestStatus'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'request_id' => $request_id,
 				'request' => $request,
 			],
-			methodName: 'timeOffChangeARequestStatus'
+			methodName: 'updateTimeOffRequestStatus'
 		);
 
 		$resourcePath = '/api/v1/time_off/requests/{requestId}/status';
@@ -2017,868 +3153,6 @@ class TimeOffApi {
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
 			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffEstimateFutureTimeOffBalances
-	 *
-	 * Estimate Future Time Off Balances
-	 *
-	 * @param  \DateTime $end end (required)
-	 * @param  string $employee_id employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffEstimateFutureTimeOffBalances($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		list($response) = $this->timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffEstimateFutureTimeOffBalancesWithHttpInfo
-	 *
-	 * Estimate Future Time Off Balances
-	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffEstimateFutureTimeOffBalancesWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffEstimateFutureTimeOffBalancesAsync
-	 *
-	 * Estimate Future Time Off Balances
-	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffEstimateFutureTimeOffBalancesAsync($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		return $this->timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo
-	 *
-	 * Estimate Future Time Off Balances
-	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffEstimateFutureTimeOffBalancesAsyncWithHttpInfo($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		
-		$request = $this->timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffEstimateFutureTimeOffBalances'
-	 *
-	 * @param  \DateTime $end (required)
-	 * @param  string $employee_id (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffEstimateFutureTimeOffBalancesRequest($end, $employee_id, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['timeOffEstimateFutureTimeOffBalances'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'end' => $end,
-				'employee_id' => $employee_id,
-			],
-			methodName: 'timeOffEstimateFutureTimeOffBalances'
-		);
-
-		$resourcePath = '/api/v1/employees/{employeeId}/time_off/calculator';
-		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		$parameters = [
-			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
-		];
-
-		// Process parameters and build query values directly
-		$queryParams = [];
-
-		foreach ($parameters as $paramName => $config) {
-			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
-			
-			if ($value !== null) {
-				// Merge each parameter value directly into queryParams
-				$queryParams = array_merge($queryParams, $value);
-			}
-		}
-
-		// header params
-		if ($accept_header_parameter !== null) {
-			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
-			$contentType,
-			$multipart
-		);
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'GET',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffGetTimeOffRequests
-	 *
-	 * Get Time Off Requests
-	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffGetTimeOffRequests($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		list($response) = $this->timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffGetTimeOffRequestsWithHttpInfo
-	 *
-	 * Get Time Off Requests
-	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffGetTimeOffRequestsWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		$request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffGetTimeOffRequestsAsync
-	 *
-	 * Get Time Off Requests
-	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffGetTimeOffRequestsAsync($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		return $this->timeOffGetTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffGetTimeOffRequestsAsyncWithHttpInfo
-	 *
-	 * Get Time Off Requests
-	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffGetTimeOffRequestsAsyncWithHttpInfo($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		
-		$request = $this->timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter, $id, $action, $employee_id, $type, $status, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffGetTimeOffRequests'
-	 *
-	 * @param  string $start YYYY-MM-DD. Only show time off that occurs on/after the specified start date. (required)
-	 * @param  string $end YYYY-MM-DD. Only show time off that occurs on/before the specified end date. (required)
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  int|null $id A particular request ID to limit the response to. (optional)
-	 * @param  string|null $action Limit to requests that the user has a particular level of access to. Legal values are: \&quot;view\&quot; or \&quot;approve\&quot;. Defaults to view. (optional)
-	 * @param  string|null $employee_id A particular employee ID to limit the response to. (optional)
-	 * @param  string|null $type A comma separated list of time off types IDs to include limit the response to. If omitted, requests of all types are included. (optional)
-	 * @param  string|null $status A comma separated list of request status values to include. If omitted, requests of all status values are included. Legal values are \&quot;approved\&quot;, \&quot;denied\&quot;, \&quot;superceded\&quot;, \&quot;requested\&quot;, \&quot;canceled\&quot;. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffGetTimeOffRequests'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffGetTimeOffRequestsRequest($start, $end, $accept_header_parameter = null, $id = null, $action = null, $employee_id = null, $type = null, $status = null, string $contentType = self::CONTENT_TYPES['timeOffGetTimeOffRequests'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'start' => $start,
-				'end' => $end,
-			],
-			methodName: 'timeOffGetTimeOffRequests'
-		);
-
-		$resourcePath = '/api/v1/time_off/requests';
-		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		$parameters = [
-			'id' => ['value' => $id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
-			'action' => ['value' => $action, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
-			'employeeId' => ['value' => $employee_id, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
-			'start' => ['value' => $start, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
-			'end' => ['value' => $end, 'type' => 'string', 'required' => true, 'style' => 'form', 'explode' => true],
-			'type' => ['value' => $type, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
-			'status' => ['value' => $status, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
-		];
-
-		// Process parameters and build query values directly
-		$queryParams = [];
-
-		foreach ($parameters as $paramName => $config) {
-			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
-			
-			if ($value !== null) {
-				// Merge each parameter value directly into queryParams
-				$queryParams = array_merge($queryParams, $value);
-			}
-		}
-
-		// header params
-		if ($accept_header_parameter !== null) {
-			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
-			$contentType,
-			$multipart
-		);
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'GET',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployee
-	 *
-	 * Get Time Off Policies for Employee
-	 *
-	 * @param  string $employee_id employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffListTimeOffPoliciesForEmployee($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		list($response) = $this->timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeWithHttpInfo
-	 *
-	 * Get Time Off Policies for Employee
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		$request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeAsync
-	 *
-	 * Get Time Off Policies for Employee
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeAsync($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		return $this->timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($employee_id, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo
-	 *
-	 * Get Time Off Policies for Employee
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeAsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		
-		$request = $this->timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffListTimeOffPoliciesForEmployee'
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeRequest($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployee'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-			],
-			methodName: 'timeOffListTimeOffPoliciesForEmployee'
-		);
-
-		$resourcePath = '/api/v1/employees/{employeeId}/time_off/policies';
-		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'GET',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeV11
-	 *
-	 * Get Time Off Policies for Employee v1.1
-	 *
-	 * @param  string $employee_id employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeV11($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		list($response) = $this->timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo
-	 *
-	 * Get Time Off Policies for Employee v1.1
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeV11WithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		$request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeV11Async
-	 *
-	 * Get Time Off Policies for Employee v1.1
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeV11Async($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		return $this->timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo($employee_id, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo
-	 *
-	 * Get Time Off Policies for Employee v1.1
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeV11AsyncWithHttpInfo($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		
-		$request = $this->timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'timeOffListTimeOffPoliciesForEmployeeV11'
-	 *
-	 * @param  string $employee_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function timeOffListTimeOffPoliciesForEmployeeV11Request($employee_id, string $contentType = self::CONTENT_TYPES['timeOffListTimeOffPoliciesForEmployeeV11'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'employee_id' => $employee_id,
-			],
-			methodName: 'timeOffListTimeOffPoliciesForEmployeeV11'
-		);
-
-		$resourcePath = '/api/v1_1/employees/{employeeId}/time_off/policies';
-		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($employee_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'employeeId' . '}',
-				ObjectSerializer::toPathValue((string) $employee_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'GET',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody

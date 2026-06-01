@@ -309,7 +309,7 @@ class CompanyInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets legal_name
 	 *
-	 * @param string|null $legal_name The legal name of the company
+	 * @param string|null $legal_name The legal name of the company.
 	 *
 	 * @return self
 	 */
@@ -334,7 +334,7 @@ class CompanyInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets display_name
 	 *
-	 * @param string|null $display_name The display name of the company
+	 * @param string|null $display_name The display name of the company.
 	 *
 	 * @return self
 	 */
@@ -384,7 +384,7 @@ class CompanyInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets phone
 	 *
-	 * @param string|null $phone The phone number of the company
+	 * @param string|null $phone The primary contact phone number of the company.
 	 *
 	 * @return self
 	 */

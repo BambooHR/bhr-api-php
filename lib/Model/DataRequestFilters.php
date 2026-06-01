@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * DataRequestFilters Class Doc Comment
  *
  * @category Class
+ * @description Filter configuration. Combine multiple conditions with a &#x60;match&#x60; strategy.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -227,6 +228,21 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
+	public const MATCH_ALL = 'all';
+	public const MATCH_ANY = 'any';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getMatchAllowableValues() {
+		return [
+			self::MATCH_ALL,
+			self::MATCH_ANY,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -270,6 +286,15 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getMatchAllowableValues();
+		if (!is_null($this->container['match']) && !in_array($this->container['match'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'match', must be one of '%s'",
+				$this->container['match'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -295,13 +320,23 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets match
 	 *
-	 * @param string|null $match match
+	 * @param string|null $match Logical operator for combining filters: `all` (AND) or `any` (OR).
 	 *
 	 * @return self
 	 */
 	public function setMatch($match) {
 		if (is_null($match)) {
 			throw new \InvalidArgumentException('non-nullable match cannot be null');
+		}
+		$allowedValues = $this->getMatchAllowableValues();
+		if (!in_array($match, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'match', must be one of '%s'",
+					$match,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['match'] = $match;
 
@@ -320,7 +355,7 @@ class DataRequestFilters implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets filters
 	 *
-	 * @param \BhrSdk\Model\DataRequestFiltersFiltersInner[]|null $filters filters
+	 * @param \BhrSdk\Model\DataRequestFiltersFiltersInner[]|null $filters Array of filter conditions. Filter fields do not need to appear in the top-level `fields` array.
 	 *
 	 * @return self
 	 */

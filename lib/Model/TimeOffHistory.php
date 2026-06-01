@@ -57,8 +57,11 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'date' => 'string',
+		'date' => '\DateTime',
+		'event_type' => 'string',
 		'time_off_request_id' => 'int',
+		'time_off_type_id' => 'int',
+		'amount' => 'float',
 		'note' => 'string'
 	];
 
@@ -70,8 +73,11 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'date' => null,
+		'date' => 'date',
+		'event_type' => null,
 		'time_off_request_id' => null,
+		'time_off_type_id' => null,
+		'amount' => null,
 		'note' => null
 	];
 
@@ -83,7 +89,10 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static array $openApiNullables = [
 		'date' => false,
+		'event_type' => false,
 		'time_off_request_id' => false,
+		'time_off_type_id' => false,
+		'amount' => false,
 		'note' => false
 	];
 
@@ -170,7 +179,10 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	protected static $attributeMap = [
 		'date' => 'date',
+		'event_type' => 'eventType',
 		'time_off_request_id' => 'timeOffRequestId',
+		'time_off_type_id' => 'timeOffTypeId',
+		'amount' => 'amount',
 		'note' => 'note'
 	];
 
@@ -181,7 +193,10 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	protected static $setters = [
 		'date' => 'setDate',
+		'event_type' => 'setEventType',
 		'time_off_request_id' => 'setTimeOffRequestId',
+		'time_off_type_id' => 'setTimeOffTypeId',
+		'amount' => 'setAmount',
 		'note' => 'setNote'
 	];
 
@@ -192,7 +207,10 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	protected static $getters = [
 		'date' => 'getDate',
+		'event_type' => 'getEventType',
 		'time_off_request_id' => 'getTimeOffRequestId',
+		'time_off_type_id' => 'getTimeOffTypeId',
+		'amount' => 'getAmount',
 		'note' => 'getNote'
 	];
 
@@ -233,6 +251,21 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return self::$openApiModelName;
 	}
 
+	public const EVENT_TYPE_USED = 'used';
+	public const EVENT_TYPE_OVERRIDE = 'override';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getEventTypeAllowableValues() {
+		return [
+			self::EVENT_TYPE_USED,
+			self::EVENT_TYPE_OVERRIDE,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -248,7 +281,10 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	public function __construct(?array $data = null) {
 		$this->setIfExists('date', $data ?? [], null);
+		$this->setIfExists('event_type', $data ?? [], null);
 		$this->setIfExists('time_off_request_id', $data ?? [], null);
+		$this->setIfExists('time_off_type_id', $data ?? [], null);
+		$this->setIfExists('amount', $data ?? [], null);
 		$this->setIfExists('note', $data ?? [], null);
 	}
 
@@ -280,9 +316,15 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 		if ($this->container['date'] === null) {
 			$invalidProperties[] = "'date' can't be null";
 		}
-		if ($this->container['time_off_request_id'] === null) {
-			$invalidProperties[] = "'time_off_request_id' can't be null";
+		$allowedValues = $this->getEventTypeAllowableValues();
+		if (!is_null($this->container['event_type']) && !in_array($this->container['event_type'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'event_type', must be one of '%s'",
+				$this->container['event_type'],
+				implode("', '", $allowedValues)
+			);
 		}
+
 		return $invalidProperties;
 	}
 
@@ -299,7 +341,7 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets date
 	 *
-	 * @return string
+	 * @return \DateTime
 	 */
 	public function getDate() {
 		return $this->container['date'];
@@ -308,7 +350,7 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets date
 	 *
-	 * @param string $date The date the request should be added in history. This will usually be the first date of the request. Should be in ISO8601 date format (YYYY-MM-DD).
+	 * @param \DateTime $date The date for the history item in YYYY-MM-DD format.
 	 *
 	 * @return self
 	 */
@@ -322,9 +364,44 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	}
 
 	/**
+	 * Gets event_type
+	 *
+	 * @return string|null
+	 */
+	public function getEventType() {
+		return $this->container['event_type'];
+	}
+
+	/**
+	 * Sets event_type
+	 *
+	 * @param string|null $event_type The type of history event. Defaults to `used` for the /history path and `override` for the /balance_adjustment path when omitted.
+	 *
+	 * @return self
+	 */
+	public function setEventType($event_type) {
+		if (is_null($event_type)) {
+			throw new \InvalidArgumentException('non-nullable event_type cannot be null');
+		}
+		$allowedValues = $this->getEventTypeAllowableValues();
+		if (!in_array($event_type, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'event_type', must be one of '%s'",
+					$event_type,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['event_type'] = $event_type;
+
+		return $this;
+	}
+
+	/**
 	 * Gets time_off_request_id
 	 *
-	 * @return int
+	 * @return int|null
 	 */
 	public function getTimeOffRequestId() {
 		return $this->container['time_off_request_id'];
@@ -333,7 +410,7 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets time_off_request_id
 	 *
-	 * @param int $time_off_request_id The ID of the time off request.
+	 * @param int|null $time_off_request_id The ID of an approved time off request. Required when eventType is `used`.
 	 *
 	 * @return self
 	 */
@@ -342,6 +419,56 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable time_off_request_id cannot be null');
 		}
 		$this->container['time_off_request_id'] = $time_off_request_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets time_off_type_id
+	 *
+	 * @return int|null
+	 */
+	public function getTimeOffTypeId() {
+		return $this->container['time_off_type_id'];
+	}
+
+	/**
+	 * Sets time_off_type_id
+	 *
+	 * @param int|null $time_off_type_id The ID of the time off type. Required when eventType is `override`.
+	 *
+	 * @return self
+	 */
+	public function setTimeOffTypeId($time_off_type_id) {
+		if (is_null($time_off_type_id)) {
+			throw new \InvalidArgumentException('non-nullable time_off_type_id cannot be null');
+		}
+		$this->container['time_off_type_id'] = $time_off_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets amount
+	 *
+	 * @return float|null
+	 */
+	public function getAmount() {
+		return $this->container['amount'];
+	}
+
+	/**
+	 * Sets amount
+	 *
+	 * @param float|null $amount The number of hours/days to record. Required when eventType is `override`.
+	 *
+	 * @return self
+	 */
+	public function setAmount($amount) {
+		if (is_null($amount)) {
+			throw new \InvalidArgumentException('non-nullable amount cannot be null');
+		}
+		$this->container['amount'] = $amount;
 
 		return $this;
 	}
@@ -358,7 +485,7 @@ class TimeOffHistory implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets note
 	 *
-	 * @param string|null $note This is an optional note to show in history.
+	 * @param string|null $note An optional note to show in history.
 	 *
 	 * @return self
 	 */

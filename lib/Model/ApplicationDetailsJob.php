@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * ApplicationDetailsJob Class Doc Comment
  *
  * @category Class
- * @description Job details
+ * @description Information about the job position applied to
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,9 +59,7 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	  */
 	protected static $openApiTypes = [
 		'id' => 'int',
-		'title' => 'string',
-		'department' => 'object',
-		'location' => 'object',
+		'title' => '\BhrSdk\Model\ApplicationDetailsJobTitle',
 		'hiring_lead' => 'object'
 	];
 
@@ -75,8 +73,6 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	protected static $openApiFormats = [
 		'id' => null,
 		'title' => null,
-		'department' => null,
-		'location' => null,
 		'hiring_lead' => null
 	];
 
@@ -89,9 +85,7 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	protected static array $openApiNullables = [
 		'id' => false,
 		'title' => false,
-		'department' => false,
-		'location' => false,
-		'hiring_lead' => false
+		'hiring_lead' => true
 	];
 
 	/**
@@ -178,8 +172,6 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	protected static $attributeMap = [
 		'id' => 'id',
 		'title' => 'title',
-		'department' => 'department',
-		'location' => 'location',
 		'hiring_lead' => 'hiringLead'
 	];
 
@@ -191,8 +183,6 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	protected static $setters = [
 		'id' => 'setId',
 		'title' => 'setTitle',
-		'department' => 'setDepartment',
-		'location' => 'setLocation',
 		'hiring_lead' => 'setHiringLead'
 	];
 
@@ -204,8 +194,6 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	protected static $getters = [
 		'id' => 'getId',
 		'title' => 'getTitle',
-		'department' => 'getDepartment',
-		'location' => 'getLocation',
 		'hiring_lead' => 'getHiringLead'
 	];
 
@@ -262,8 +250,6 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	public function __construct(?array $data = null) {
 		$this->setIfExists('id', $data ?? [], null);
 		$this->setIfExists('title', $data ?? [], null);
-		$this->setIfExists('department', $data ?? [], null);
-		$this->setIfExists('location', $data ?? [], null);
 		$this->setIfExists('hiring_lead', $data ?? [], null);
 	}
 
@@ -317,7 +303,7 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id Job ID
+	 * @param int|null $id Job opening ID
 	 *
 	 * @return self
 	 */
@@ -333,7 +319,7 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Gets title
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\ApplicationDetailsJobTitle|null
 	 */
 	public function getTitle() {
 		return $this->container['title'];
@@ -342,7 +328,7 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets title
 	 *
-	 * @param string|null $title Job title
+	 * @param \BhrSdk\Model\ApplicationDetailsJobTitle|null $title title
 	 *
 	 * @return self
 	 */
@@ -351,56 +337,6 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 			throw new \InvalidArgumentException('non-nullable title cannot be null');
 		}
 		$this->container['title'] = $title;
-
-		return $this;
-	}
-
-	/**
-	 * Gets department
-	 *
-	 * @return object|null
-	 */
-	public function getDepartment() {
-		return $this->container['department'];
-	}
-
-	/**
-	 * Sets department
-	 *
-	 * @param object|null $department Department information
-	 *
-	 * @return self
-	 */
-	public function setDepartment($department) {
-		if (is_null($department)) {
-			throw new \InvalidArgumentException('non-nullable department cannot be null');
-		}
-		$this->container['department'] = $department;
-
-		return $this;
-	}
-
-	/**
-	 * Gets location
-	 *
-	 * @return object|null
-	 */
-	public function getLocation() {
-		return $this->container['location'];
-	}
-
-	/**
-	 * Sets location
-	 *
-	 * @param object|null $location Location information
-	 *
-	 * @return self
-	 */
-	public function setLocation($location) {
-		if (is_null($location)) {
-			throw new \InvalidArgumentException('non-nullable location cannot be null');
-		}
-		$this->container['location'] = $location;
 
 		return $this;
 	}
@@ -417,13 +353,19 @@ class ApplicationDetailsJob implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets hiring_lead
 	 *
-	 * @param object|null $hiring_lead Hiring lead information
+	 * @param object|null $hiring_lead hiring_lead
 	 *
 	 * @return self
 	 */
 	public function setHiringLead($hiring_lead) {
 		if (is_null($hiring_lead)) {
-			throw new \InvalidArgumentException('non-nullable hiring_lead cannot be null');
+			$this->openApiNullablesSetToNull['hiring_lead'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['hiring_lead'])) {
+				unset($nullablesSetToNull['hiring_lead']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['hiring_lead'] = $hiring_lead;
 

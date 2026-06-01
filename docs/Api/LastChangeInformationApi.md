@@ -4,18 +4,18 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getChangedEmployeeIds()**](LastChangeInformationApi.md#getChangedEmployeeIds) | **GET** /api/v1/employees/changed | Get Updated Employee IDs |
+| [**getChangedEmployeeIds()**](LastChangeInformationApi.md#getChangedEmployeeIds) | **GET** /api/v1/employees/changed | Get Changed Employee IDs |
 
 
 ## `getChangedEmployeeIds()`
 
 ```php
-getChangedEmployeeIds($since, $type)
+getChangedEmployeeIds($since, $type): \BhrSdk\Model\ChangedEmployeeIdsResponse
 ```
 
-Get Updated Employee IDs
+Get Changed Employee IDs
 
-This API allows for efficient syncing of employee data. When you use this API you will provide a timestamp and the results will be limited to just the employees that have changed since the time you provided. This API operates on an employee-last-changed-timestamp, which means that a change in ANY individual field in the employee record, as well as any change to the employment status, job info, or compensation tables, will cause that employee to be returned via this API.
+Returns a list of employee IDs that have changed since the given timestamp. This allows for efficient syncing of employee data — rather than downloading all employees, only those that have changed are returned. A change in ANY individual field in the employee record, as well as any change to the employment status, job info, or compensation tables, will cause that employee to be returned. Each entry includes the employee ID, the type of change (Inserted, Updated, or Deleted), and the last-changed timestamp.
 
 ### Example
 
@@ -36,11 +36,12 @@ $apiInstance = new BhrSdk\Api\LastChangeInformationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$since = 'since_example'; // string | URL encoded iso8601 timestamp
-$type = 'type_example'; // string | Use one of these in the {type} variable in the URL: \"inserted\", \"updated\", \"deleted\"
+$since = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned.
+$type = 'type_example'; // string | Filter by change type. If omitted, all change types are returned.
 
 try {
-    $apiInstance->getChangedEmployeeIds($since, $type);
+    $result = $apiInstance->getChangedEmployeeIds($since, $type);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LastChangeInformationApi->getChangedEmployeeIds: ', $e->getMessage(), PHP_EOL;
 }
@@ -50,12 +51,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **since** | **string**| URL encoded iso8601 timestamp | |
-| **type** | **string**| Use one of these in the {type} variable in the URL: \&quot;inserted\&quot;, \&quot;updated\&quot;, \&quot;deleted\&quot; | [optional] |
+| **since** | **\DateTime**| ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. | |
+| **type** | **string**| Filter by change type. If omitted, all change types are returned. | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\ChangedEmployeeIdsResponse**](../Model/ChangedEmployeeIdsResponse.md)
 
 ### Authorization
 
@@ -64,7 +65,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/xml`
+- **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

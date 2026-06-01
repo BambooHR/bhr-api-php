@@ -59,7 +59,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static $openApiTypes = [
 		'project' => '\BhrSdk\Model\ProjectInfoApiTransformerProject',
-		'task' => '\BhrSdk\Model\ProjectInfoApiTransformerTask'
+		'task' => 'object'
 	];
 
 	/**
@@ -82,7 +82,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static array $openApiNullables = [
 		'project' => false,
-		'task' => false
+		'task' => true
 	];
 
 	/**
@@ -312,7 +312,7 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets task
 	 *
-	 * @return \BhrSdk\Model\ProjectInfoApiTransformerTask|null
+	 * @return object|null
 	 */
 	public function getTask() {
 		return $this->container['task'];
@@ -321,13 +321,19 @@ class ProjectInfoApiTransformer implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets task
 	 *
-	 * @param \BhrSdk\Model\ProjectInfoApiTransformerTask|null $task task
+	 * @param object|null $task task
 	 *
 	 * @return self
 	 */
 	public function setTask($task) {
 		if (is_null($task)) {
-			throw new \InvalidArgumentException('non-nullable task cannot be null');
+			$this->openApiNullablesSetToNull['task'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['task'])) {
+				unset($nullablesSetToNull['task']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['task'] = $task;
 

@@ -89,8 +89,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'total_records' => false,
 		'current_page' => false,
 		'total_pages' => false,
-		'next_page' => false,
-		'prev_page' => false
+		'next_page' => true,
+		'prev_page' => true
 	];
 
 	/**
@@ -397,7 +397,13 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	public function setNextPage($next_page) {
 		if (is_null($next_page)) {
-			throw new \InvalidArgumentException('non-nullable next_page cannot be null');
+			$this->openApiNullablesSetToNull['next_page'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['next_page'])) {
+				unset($nullablesSetToNull['next_page']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['next_page'] = $next_page;
 
@@ -422,7 +428,13 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	public function setPrevPage($prev_page) {
 		if (is_null($prev_page)) {
-			throw new \InvalidArgumentException('non-nullable prev_page cannot be null');
+			$this->openApiNullablesSetToNull['prev_page'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['prev_page'])) {
+				unset($nullablesSetToNull['prev_page']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['prev_page'] = $prev_page;
 

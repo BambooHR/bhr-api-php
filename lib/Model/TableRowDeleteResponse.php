@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * TableRowDeleteResponse Class Doc Comment
  *
  * @category Class
+ * @description Response from deleting an employee table row.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,7 +58,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'sucess' => 'bool'
+		'success' => 'bool',
+		'error' => 'string'
 	];
 
 	/**
@@ -68,7 +70,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'sucess' => null
+		'success' => null,
+		'error' => null
 	];
 
 	/**
@@ -78,7 +81,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'sucess' => false
+		'success' => false,
+		'error' => false
 	];
 
 	/**
@@ -163,7 +167,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'sucess' => 'sucess'
+		'success' => 'success',
+		'error' => 'error'
 	];
 
 	/**
@@ -172,7 +177,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'sucess' => 'setSucess'
+		'success' => 'setSuccess',
+		'error' => 'setError'
 	];
 
 	/**
@@ -181,7 +187,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'sucess' => 'getSucess'
+		'success' => 'getSuccess',
+		'error' => 'getError'
 	];
 
 	/**
@@ -235,7 +242,8 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('sucess', $data ?? [], null);
+		$this->setIfExists('success', $data ?? [], null);
+		$this->setIfExists('error', $data ?? [], null);
 	}
 
 	/**
@@ -277,26 +285,51 @@ class TableRowDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerial
 	}
 
 	/**
-	 * Gets sucess
+	 * Gets success
 	 *
 	 * @return bool|null
 	 */
-	public function getSucess() {
-		return $this->container['sucess'];
+	public function getSuccess() {
+		return $this->container['success'];
 	}
 
 	/**
-	 * Sets sucess
+	 * Sets success
 	 *
-	 * @param bool|null $sucess sucess
+	 * @param bool|null $success Whether the row was successfully deleted.
 	 *
 	 * @return self
 	 */
-	public function setSucess($sucess) {
-		if (is_null($sucess)) {
-			throw new \InvalidArgumentException('non-nullable sucess cannot be null');
+	public function setSuccess($success) {
+		if (is_null($success)) {
+			throw new \InvalidArgumentException('non-nullable success cannot be null');
 		}
-		$this->container['sucess'] = $sucess;
+		$this->container['success'] = $success;
+
+		return $this;
+	}
+
+	/**
+	 * Gets error
+	 *
+	 * @return string|null
+	 */
+	public function getError() {
+		return $this->container['error'];
+	}
+
+	/**
+	 * Sets error
+	 *
+	 * @param string|null $error Error message when success is false. Absent when success is true.
+	 *
+	 * @return self
+	 */
+	public function setError($error) {
+		if (is_null($error)) {
+			throw new \InvalidArgumentException('non-nullable error cannot be null');
+		}
+		$this->container['error'] = $error;
 
 		return $this;
 	}

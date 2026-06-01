@@ -57,7 +57,7 @@ class WebhookBadRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'errors' => '\BhrSdk\Model\UnauthorizedErrorsInner[]'
+		'errors' => '\BhrSdk\Model\WebhookBadRequestErrorsInner[]'
 	];
 
 	/**
@@ -279,7 +279,7 @@ class WebhookBadRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets errors
 	 *
-	 * @return \BhrSdk\Model\UnauthorizedErrorsInner[]|null
+	 * @return \BhrSdk\Model\WebhookBadRequestErrorsInner[]|null
 	 */
 	public function getErrors() {
 		return $this->container['errors'];
@@ -288,7 +288,7 @@ class WebhookBadRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets errors
 	 *
-	 * @param \BhrSdk\Model\UnauthorizedErrorsInner[]|null $errors errors
+	 * @param \BhrSdk\Model\WebhookBadRequestErrorsInner[]|null $errors errors
 	 *
 	 * @return self
 	 */

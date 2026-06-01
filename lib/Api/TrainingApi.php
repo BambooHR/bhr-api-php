@@ -79,13 +79,13 @@ class TrainingApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'addNewEmployeeTrainingRecord' => [
+		'createEmployeeTrainingRecord' => [
 			'application/json',
         ],
-		'addTrainingCategory' => [
+		'createTrainingCategory' => [
 			'application/json',
         ],
-		'addTrainingType' => [
+		'createTrainingType' => [
 			'application/json',
         ],
 		'deleteEmployeeTrainingRecord' => [
@@ -164,38 +164,38 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addNewEmployeeTrainingRecord
+	 * Operation createEmployeeTrainingRecord
 	 *
 	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateEmployeeTrainingRecordRequest $create_employee_training_record_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\TrainingRecord
 	 */
-	public function addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
-		list($response) = $this->addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, $contentType);
+	public function createEmployeeTrainingRecord($employee_id, $create_employee_training_record_request, string $contentType = self::CONTENT_TYPES['createEmployeeTrainingRecord'][0]) {
+		list($response) = $this->createEmployeeTrainingRecordWithHttpInfo($employee_id, $create_employee_training_record_request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addNewEmployeeTrainingRecordWithHttpInfo
+	 * Operation createEmployeeTrainingRecordWithHttpInfo
 	 *
 	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateEmployeeTrainingRecordRequest $create_employee_training_record_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\TrainingRecord, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addNewEmployeeTrainingRecordWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
-		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
+	public function createEmployeeTrainingRecordWithHttpInfo($employee_id, $create_employee_training_record_request, string $contentType = self::CONTENT_TYPES['createEmployeeTrainingRecord'][0]) {
+		$request = $this->createEmployeeTrainingRecordRequest($employee_id, $create_employee_training_record_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -233,19 +233,19 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addNewEmployeeTrainingRecordAsync
+	 * Operation createEmployeeTrainingRecordAsync
 	 *
 	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateEmployeeTrainingRecordRequest $create_employee_training_record_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addNewEmployeeTrainingRecordAsync($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
-		return $this->addNewEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $add_new_employee_training_record_request, $contentType)
+	public function createEmployeeTrainingRecordAsync($employee_id, $create_employee_training_record_request, string $contentType = self::CONTENT_TYPES['createEmployeeTrainingRecord'][0]) {
+		return $this->createEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $create_employee_training_record_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -254,20 +254,20 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addNewEmployeeTrainingRecordAsyncWithHttpInfo
+	 * Operation createEmployeeTrainingRecordAsyncWithHttpInfo
 	 *
 	 * Create Employee Training Record
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateEmployeeTrainingRecordRequest $create_employee_training_record_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addNewEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
+	public function createEmployeeTrainingRecordAsyncWithHttpInfo($employee_id, $create_employee_training_record_request, string $contentType = self::CONTENT_TYPES['createEmployeeTrainingRecord'][0]) {
 		$returnType = '\BhrSdk\Model\TrainingRecord';
-		$request = $this->addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, $contentType);
+		$request = $this->createEmployeeTrainingRecordRequest($employee_id, $create_employee_training_record_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -301,23 +301,23 @@ class TrainingApi {
 	}
 
 	/**
-	 * Create request for operation 'addNewEmployeeTrainingRecord'
+	 * Create request for operation 'createEmployeeTrainingRecord'
 	 *
 	 * @param  int $employee_id The ID of the employee to add a training record to. (required)
-	 * @param  \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest $add_new_employee_training_record_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewEmployeeTrainingRecord'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateEmployeeTrainingRecordRequest $create_employee_training_record_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeTrainingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addNewEmployeeTrainingRecordRequest($employee_id, $add_new_employee_training_record_request, string $contentType = self::CONTENT_TYPES['addNewEmployeeTrainingRecord'][0]) {
+	public function createEmployeeTrainingRecordRequest($employee_id, $create_employee_training_record_request, string $contentType = self::CONTENT_TYPES['createEmployeeTrainingRecord'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'employee_id' => $employee_id,
-				'add_new_employee_training_record_request' => $add_new_employee_training_record_request,
+				'create_employee_training_record_request' => $create_employee_training_record_request,
 			],
-			methodName: 'addNewEmployeeTrainingRecord'
+			methodName: 'createEmployeeTrainingRecord'
 		);
 
 		$resourcePath = '/api/v1/training/record/employee/{employeeId}';
@@ -338,18 +338,18 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
 
 		// for model (json/xml)
-		if (isset($add_new_employee_training_record_request)) {
+		if (isset($create_employee_training_record_request)) {
 			if (stripos($headers['Content-Type'], 'application/json') !== false) {
 				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_new_employee_training_record_request));
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_employee_training_record_request));
 			} else {
-				$httpBody = is_array($add_new_employee_training_record_request) ? json_encode($add_new_employee_training_record_request) : $add_new_employee_training_record_request;
+				$httpBody = is_array($create_employee_training_record_request) ? json_encode($create_employee_training_record_request) : $create_employee_training_record_request;
 			}
 		} 
 
@@ -398,36 +398,36 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addTrainingCategory
+	 * Operation createTrainingCategory
 	 *
 	 * Create Training Category
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingCategoryRequest $create_training_category_request Training category to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\TrainingCategory
 	 */
-	public function addTrainingCategory($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
-		list($response) = $this->addTrainingCategoryWithHttpInfo($add_training_category_request, $contentType);
+	public function createTrainingCategory($create_training_category_request, string $contentType = self::CONTENT_TYPES['createTrainingCategory'][0]) {
+		list($response) = $this->createTrainingCategoryWithHttpInfo($create_training_category_request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addTrainingCategoryWithHttpInfo
+	 * Operation createTrainingCategoryWithHttpInfo
 	 *
 	 * Create Training Category
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingCategoryRequest $create_training_category_request Training category to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\TrainingCategory, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addTrainingCategoryWithHttpInfo($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
-		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
+	public function createTrainingCategoryWithHttpInfo($create_training_category_request, string $contentType = self::CONTENT_TYPES['createTrainingCategory'][0]) {
+		$request = $this->createTrainingCategoryRequest($create_training_category_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -465,18 +465,18 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addTrainingCategoryAsync
+	 * Operation createTrainingCategoryAsync
 	 *
 	 * Create Training Category
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingCategoryRequest $create_training_category_request Training category to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTrainingCategoryAsync($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
-		return $this->addTrainingCategoryAsyncWithHttpInfo($add_training_category_request, $contentType)
+	public function createTrainingCategoryAsync($create_training_category_request, string $contentType = self::CONTENT_TYPES['createTrainingCategory'][0]) {
+		return $this->createTrainingCategoryAsyncWithHttpInfo($create_training_category_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -485,19 +485,19 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addTrainingCategoryAsyncWithHttpInfo
+	 * Operation createTrainingCategoryAsyncWithHttpInfo
 	 *
 	 * Create Training Category
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingCategoryRequest $create_training_category_request Training category to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTrainingCategoryAsyncWithHttpInfo($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
+	public function createTrainingCategoryAsyncWithHttpInfo($create_training_category_request, string $contentType = self::CONTENT_TYPES['createTrainingCategory'][0]) {
 		$returnType = '\BhrSdk\Model\TrainingCategory';
-		$request = $this->addTrainingCategoryRequest($add_training_category_request, $contentType);
+		$request = $this->createTrainingCategoryRequest($create_training_category_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -531,21 +531,21 @@ class TrainingApi {
 	}
 
 	/**
-	 * Create request for operation 'addTrainingCategory'
+	 * Create request for operation 'createTrainingCategory'
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingCategoryRequest $add_training_category_request Training category to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingCategory'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingCategoryRequest $create_training_category_request Training category to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addTrainingCategoryRequest($add_training_category_request, string $contentType = self::CONTENT_TYPES['addTrainingCategory'][0]) {
+	public function createTrainingCategoryRequest($create_training_category_request, string $contentType = self::CONTENT_TYPES['createTrainingCategory'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
-				'add_training_category_request' => $add_training_category_request,
+				'create_training_category_request' => $create_training_category_request,
 			],
-			methodName: 'addTrainingCategory'
+			methodName: 'createTrainingCategory'
 		);
 
 		$resourcePath = '/api/v1/training/category';
@@ -557,18 +557,18 @@ class TrainingApi {
 		$multipart = false;
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
 
 		// for model (json/xml)
-		if (isset($add_training_category_request)) {
+		if (isset($create_training_category_request)) {
 			if (stripos($headers['Content-Type'], 'application/json') !== false) {
 				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_training_category_request));
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_training_category_request));
 			} else {
-				$httpBody = is_array($add_training_category_request) ? json_encode($add_training_category_request) : $add_training_category_request;
+				$httpBody = is_array($create_training_category_request) ? json_encode($create_training_category_request) : $create_training_category_request;
 			}
 		} 
 
@@ -617,36 +617,36 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addTrainingType
+	 * Operation createTrainingType
 	 *
 	 * Create Training Type
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingTypeRequest $create_training_type_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\TrainingType
 	 */
-	public function addTrainingType($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
-		list($response) = $this->addTrainingTypeWithHttpInfo($add_training_type_request, $contentType);
+	public function createTrainingType($create_training_type_request, string $contentType = self::CONTENT_TYPES['createTrainingType'][0]) {
+		list($response) = $this->createTrainingTypeWithHttpInfo($create_training_type_request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addTrainingTypeWithHttpInfo
+	 * Operation createTrainingTypeWithHttpInfo
 	 *
 	 * Create Training Type
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingTypeRequest $create_training_type_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\TrainingType, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addTrainingTypeWithHttpInfo($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
-		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
+	public function createTrainingTypeWithHttpInfo($create_training_type_request, string $contentType = self::CONTENT_TYPES['createTrainingType'][0]) {
+		$request = $this->createTrainingTypeRequest($create_training_type_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -684,18 +684,18 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addTrainingTypeAsync
+	 * Operation createTrainingTypeAsync
 	 *
 	 * Create Training Type
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingTypeRequest $create_training_type_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTrainingTypeAsync($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
-		return $this->addTrainingTypeAsyncWithHttpInfo($add_training_type_request, $contentType)
+	public function createTrainingTypeAsync($create_training_type_request, string $contentType = self::CONTENT_TYPES['createTrainingType'][0]) {
+		return $this->createTrainingTypeAsyncWithHttpInfo($create_training_type_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -704,19 +704,19 @@ class TrainingApi {
 	}
 
 	/**
-	 * Operation addTrainingTypeAsyncWithHttpInfo
+	 * Operation createTrainingTypeAsyncWithHttpInfo
 	 *
 	 * Create Training Type
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingTypeRequest $create_training_type_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTrainingTypeAsyncWithHttpInfo($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
+	public function createTrainingTypeAsyncWithHttpInfo($create_training_type_request, string $contentType = self::CONTENT_TYPES['createTrainingType'][0]) {
 		$returnType = '\BhrSdk\Model\TrainingType';
-		$request = $this->addTrainingTypeRequest($add_training_type_request, $contentType);
+		$request = $this->createTrainingTypeRequest($create_training_type_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -750,21 +750,21 @@ class TrainingApi {
 	}
 
 	/**
-	 * Create request for operation 'addTrainingType'
+	 * Create request for operation 'createTrainingType'
 	 *
-	 * @param  \BhrSdk\Model\AddTrainingTypeRequest $add_training_type_request Training object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTrainingType'] to see the possible values for this operation
+	 * @param  \BhrSdk\Model\CreateTrainingTypeRequest $create_training_type_request Training object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTrainingType'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addTrainingTypeRequest($add_training_type_request, string $contentType = self::CONTENT_TYPES['addTrainingType'][0]) {
+	public function createTrainingTypeRequest($create_training_type_request, string $contentType = self::CONTENT_TYPES['createTrainingType'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
-				'add_training_type_request' => $add_training_type_request,
+				'create_training_type_request' => $create_training_type_request,
 			],
-			methodName: 'addTrainingType'
+			methodName: 'createTrainingType'
 		);
 
 		$resourcePath = '/api/v1/training/type';
@@ -776,18 +776,18 @@ class TrainingApi {
 		$multipart = false;
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
 
 		// for model (json/xml)
-		if (isset($add_training_type_request)) {
+		if (isset($create_training_type_request)) {
 			if (stripos($headers['Content-Type'], 'application/json') !== false) {
 				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_training_type_request));
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_training_type_request));
 			} else {
-				$httpBody = is_array($add_training_type_request) ? json_encode($add_training_type_request) : $add_training_type_request;
+				$httpBody = is_array($create_training_type_request) ? json_encode($create_training_type_request) : $create_training_type_request;
 			}
 		} 
 
@@ -980,7 +980,7 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
@@ -1174,7 +1174,7 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
@@ -1368,7 +1368,7 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
@@ -1420,36 +1420,36 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainings
 	 *
-	 * Get Employee Trainings
+	 * List Employee Training Records
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
+	 * @param  int|null $type Optional training type ID to filter records. Omitting this parameter returns all training records for the employee. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TrainingRecordList[]
+	 * @return \BhrSdk\Model\TrainingRecordMap
 	 */
-	public function listEmployeeTrainings($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
-		list($response) = $this->listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id, $contentType);
+	public function listEmployeeTrainings($employee_id, $type = null, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
+		list($response) = $this->listEmployeeTrainingsWithHttpInfo($employee_id, $type, $contentType);
 		return $response;
 	}
 
 	/**
 	 * Operation listEmployeeTrainingsWithHttpInfo
 	 *
-	 * Get Employee Trainings
+	 * List Employee Training Records
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
+	 * @param  int|null $type Optional training type ID to filter records. Omitting this parameter returns all training records for the employee. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TrainingRecordList[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TrainingRecordMap, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function listEmployeeTrainingsWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
-		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
+	public function listEmployeeTrainingsWithHttpInfo($employee_id, $type = null, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
+		$request = $this->listEmployeeTrainingsRequest($employee_id, $type, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1460,7 +1460,7 @@ class TrainingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TrainingRecordList[]',
+					'\BhrSdk\Model\TrainingRecordMap',
 					$request,
 					$response,
 				);
@@ -1480,7 +1480,7 @@ class TrainingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TrainingRecordList[]',
+			'\BhrSdk\Model\TrainingRecordMap',
 			$request,
 			$response,
 		);
@@ -1489,17 +1489,17 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainingsAsync
 	 *
-	 * Get Employee Trainings
+	 * List Employee Training Records
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
+	 * @param  int|null $type Optional training type ID to filter records. Omitting this parameter returns all training records for the employee. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function listEmployeeTrainingsAsync($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
-		return $this->listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $training_type_id, $contentType)
+	public function listEmployeeTrainingsAsync($employee_id, $type = null, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
+		return $this->listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $type, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1510,18 +1510,18 @@ class TrainingApi {
 	/**
 	 * Operation listEmployeeTrainingsAsyncWithHttpInfo
 	 *
-	 * Get Employee Trainings
+	 * List Employee Training Records
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
+	 * @param  int|null $type Optional training type ID to filter records. Omitting this parameter returns all training records for the employee. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
-		$returnType = '\BhrSdk\Model\TrainingRecordList[]';
-		$request = $this->listEmployeeTrainingsRequest($employee_id, $training_type_id, $contentType);
+	public function listEmployeeTrainingsAsyncWithHttpInfo($employee_id, $type = null, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
+		$returnType = '\BhrSdk\Model\TrainingRecordMap';
+		$request = $this->listEmployeeTrainingsRequest($employee_id, $type, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1558,13 +1558,13 @@ class TrainingApi {
 	 * Create request for operation 'listEmployeeTrainings'
 	 *
 	 * @param  int $employee_id The ID of the employee to get a list of trainings for. (required)
-	 * @param  int|null $training_type_id The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. (optional, default to 0)
+	 * @param  int|null $type Optional training type ID to filter records. Omitting this parameter returns all training records for the employee. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeTrainings'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function listEmployeeTrainingsRequest($employee_id, $training_type_id = 0, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
+	public function listEmployeeTrainingsRequest($employee_id, $type = null, string $contentType = self::CONTENT_TYPES['listEmployeeTrainings'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -1582,7 +1582,7 @@ class TrainingApi {
 		$multipart = false;
 
 		$parameters = [
-			'trainingTypeId' => ['value' => $training_type_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'type' => ['value' => $type, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
 		];
 
 		// Process parameters and build query values directly
@@ -1659,13 +1659,13 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategories
 	 *
-	 * Get Training Categories
+	 * List Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TrainingCategoryList[]
+	 * @return array<string,\BhrSdk\Model\TrainingCategory>
 	 */
 	public function listTrainingCategories(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		list($response) = $this->listTrainingCategoriesWithHttpInfo($contentType);
@@ -1675,13 +1675,13 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategoriesWithHttpInfo
 	 *
-	 * Get Training Categories
+	 * List Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TrainingCategoryList[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of array<string,\BhrSdk\Model\TrainingCategory>, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listTrainingCategoriesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
 		$request = $this->listTrainingCategoriesRequest($contentType);
@@ -1695,7 +1695,7 @@ class TrainingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TrainingCategoryList[]',
+					'array<string,\BhrSdk\Model\TrainingCategory>',
 					$request,
 					$response,
 				);
@@ -1715,7 +1715,7 @@ class TrainingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TrainingCategoryList[]',
+			'array<string,\BhrSdk\Model\TrainingCategory>',
 			$request,
 			$response,
 		);
@@ -1724,7 +1724,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategoriesAsync
 	 *
-	 * Get Training Categories
+	 * List Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
@@ -1743,7 +1743,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingCategoriesAsyncWithHttpInfo
 	 *
-	 * Get Training Categories
+	 * List Training Categories
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingCategories'] to see the possible values for this operation
 	 *
@@ -1751,7 +1751,7 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listTrainingCategoriesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingCategories'][0]) {
-		$returnType = '\BhrSdk\Model\TrainingCategoryList[]';
+		$returnType = 'array<string,\BhrSdk\Model\TrainingCategory>';
 		$request = $this->listTrainingCategoriesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1856,13 +1856,13 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypes
 	 *
-	 * Get Training Types
+	 * List Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TrainingTypeList[]
+	 * @return array<string,\BhrSdk\Model\TrainingType>
 	 */
 	public function listTrainingTypes(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		list($response) = $this->listTrainingTypesWithHttpInfo($contentType);
@@ -1872,13 +1872,13 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypesWithHttpInfo
 	 *
-	 * Get Training Types
+	 * List Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TrainingTypeList[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of array<string,\BhrSdk\Model\TrainingType>, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listTrainingTypesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
 		$request = $this->listTrainingTypesRequest($contentType);
@@ -1892,7 +1892,7 @@ class TrainingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TrainingTypeList[]',
+					'array<string,\BhrSdk\Model\TrainingType>',
 					$request,
 					$response,
 				);
@@ -1912,7 +1912,7 @@ class TrainingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TrainingTypeList[]',
+			'array<string,\BhrSdk\Model\TrainingType>',
 			$request,
 			$response,
 		);
@@ -1921,7 +1921,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypesAsync
 	 *
-	 * Get Training Types
+	 * List Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
@@ -1940,7 +1940,7 @@ class TrainingApi {
 	/**
 	 * Operation listTrainingTypesAsyncWithHttpInfo
 	 *
-	 * Get Training Types
+	 * List Training Types
 	 *
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTrainingTypes'] to see the possible values for this operation
 	 *
@@ -1948,7 +1948,7 @@ class TrainingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listTrainingTypesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listTrainingTypes'][0]) {
-		$returnType = '\BhrSdk\Model\TrainingTypeList[]';
+		$returnType = 'array<string,\BhrSdk\Model\TrainingType>';
 		$request = $this->listTrainingTypesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -2091,7 +2091,7 @@ class TrainingApi {
 		$statusCode = $response->getStatusCode();
 
 		switch($statusCode) {
-			case 200:
+			case 201:
 				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TrainingRecord',
 					$request,
@@ -2225,7 +2225,7 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
@@ -2459,7 +2459,7 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);
@@ -2693,7 +2693,7 @@ class TrainingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
+			['application/json', ],
 			$contentType,
 			$multipart
 		);

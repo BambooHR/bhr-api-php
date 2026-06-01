@@ -63,7 +63,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'string',
 		'date' => '\DateTime',
 		'start' => 'string',
-		'timezone' => 'string'
+		'timezone' => 'string',
+		'break_id' => 'string',
+		'offline' => 'bool'
 	];
 
 	/**
@@ -79,7 +81,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => null,
 		'date' => 'date',
 		'start' => null,
-		'timezone' => null
+		'timezone' => null,
+		'break_id' => 'uuid',
+		'offline' => null
 	];
 
 	/**
@@ -94,7 +98,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => true,
 		'date' => true,
 		'start' => true,
-		'timezone' => true
+		'timezone' => true,
+		'break_id' => true,
+		'offline' => false
 	];
 
 	/**
@@ -184,7 +190,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'note',
 		'date' => 'date',
 		'start' => 'start',
-		'timezone' => 'timezone'
+		'timezone' => 'timezone',
+		'break_id' => 'breakId',
+		'offline' => 'offline'
 	];
 
 	/**
@@ -198,7 +206,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'setNote',
 		'date' => 'setDate',
 		'start' => 'setStart',
-		'timezone' => 'setTimezone'
+		'timezone' => 'setTimezone',
+		'break_id' => 'setBreakId',
+		'offline' => 'setOffline'
 	];
 
 	/**
@@ -212,7 +222,9 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		'note' => 'getNote',
 		'date' => 'getDate',
 		'start' => 'getStart',
-		'timezone' => 'getTimezone'
+		'timezone' => 'getTimezone',
+		'break_id' => 'getBreakId',
+		'offline' => 'getOffline'
 	];
 
 	/**
@@ -272,6 +284,8 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 		$this->setIfExists('date', $data ?? [], null);
 		$this->setIfExists('start', $data ?? [], null);
 		$this->setIfExists('timezone', $data ?? [], null);
+		$this->setIfExists('break_id', $data ?? [], null);
+		$this->setIfExists('offline', $data ?? [], null);
 	}
 
 	/**
@@ -328,7 +342,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets project_id
 	 *
-	 * @param int|null $project_id ID of the time tracking project that should be associated with the timesheet entry. Required if taskId is specified.
+	 * @param int|null $project_id project_id
 	 *
 	 * @return self
 	 */
@@ -359,7 +373,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets task_id
 	 *
-	 * @param int|null $task_id ID of the time tracking task that should be associated with the timesheet entry.
+	 * @param int|null $task_id task_id
 	 *
 	 * @return self
 	 */
@@ -390,7 +404,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets note
 	 *
-	 * @param string|null $note The note that should be associated with the timesheet entry
+	 * @param string|null $note note
 	 *
 	 * @return self
 	 */
@@ -421,7 +435,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets date
 	 *
-	 * @param \DateTime|null $date Date for the timesheet entry. Must be in YYYY-MM-DD format.
+	 * @param \DateTime|null $date date
 	 *
 	 * @return self
 	 */
@@ -452,7 +466,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets start
 	 *
-	 * @param string|null $start The time for the clock in. In 24 hour format HH:MM
+	 * @param string|null $start start
 	 *
 	 * @return self
 	 */
@@ -488,7 +502,7 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 	/**
 	 * Sets timezone
 	 *
-	 * @param string|null $timezone The timezone associated with the clock in.
+	 * @param string|null $timezone timezone
 	 *
 	 * @return self
 	 */
@@ -503,6 +517,62 @@ class ClockInRequestSchema implements ModelInterface, ArrayAccess, \JsonSerializ
 			}
 		}
 		$this->container['timezone'] = $timezone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets break_id
+	 *
+	 * @return string|null
+	 */
+	public function getBreakId() {
+		return $this->container['break_id'];
+	}
+
+	/**
+	 * Sets break_id
+	 *
+	 * @param string|null $break_id break_id
+	 *
+	 * @return self
+	 */
+	public function setBreakId($break_id) {
+		if (is_null($break_id)) {
+			$this->openApiNullablesSetToNull['break_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['break_id'])) {
+				unset($nullablesSetToNull['break_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['break_id'] = $break_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets offline
+	 *
+	 * @return bool|null
+	 */
+	public function getOffline() {
+		return $this->container['offline'];
+	}
+
+	/**
+	 * Sets offline
+	 *
+	 * @param bool|null $offline Whether this is an offline punch. When true, bypasses the shift schedule clock-in restriction. Intended for devices that store punches offline and sync later.
+	 *
+	 * @return self
+	 */
+	public function setOffline($offline) {
+		if (is_null($offline)) {
+			throw new \InvalidArgumentException('non-nullable offline cannot be null');
+		}
+		$this->container['offline'] = $offline;
 
 		return $this;
 	}

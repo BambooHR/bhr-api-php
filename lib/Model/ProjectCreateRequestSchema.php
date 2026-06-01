@@ -302,6 +302,10 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 		if ($this->container['name'] === null) {
 			$invalidProperties[] = "'name' can't be null";
 		}
+		if ((mb_strlen($this->container['name']) > 50)) {
+			$invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
+		}
+
 		return $invalidProperties;
 	}
 
@@ -327,7 +331,7 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets name
 	 *
-	 * @param string $name Name of the project.
+	 * @param string $name Name of the project. Must be unique and no more than 50 characters.
 	 *
 	 * @return self
 	 */
@@ -335,6 +339,10 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 		if (is_null($name)) {
 			throw new \InvalidArgumentException('non-nullable name cannot be null');
 		}
+		if ((mb_strlen($name) > 50)) {
+			throw new \InvalidArgumentException('invalid length for $name when calling ProjectCreateRequestSchema., must be smaller than or equal to 50.');
+		}
+
 		$this->container['name'] = $name;
 
 		return $this;
@@ -402,7 +410,7 @@ class ProjectCreateRequestSchema implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets employee_ids
 	 *
-	 * @param int[]|null $employee_ids A list of employee IDs that can log time for this project.
+	 * @param int[]|null $employee_ids A list of employee IDs that can log time for this project. Only used when `allowAllEmployees` is false.
 	 *
 	 * @return self
 	 */

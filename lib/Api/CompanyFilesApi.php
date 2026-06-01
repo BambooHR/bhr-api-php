@@ -79,8 +79,9 @@ class CompanyFilesApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'addCompanyFileCategory' => [
+		'createCompanyFileCategory' => [
 			'application/json',
+			'application/xml',
         ],
 		'deleteCompanyFile' => [
 			'application/json',
@@ -95,7 +96,7 @@ class CompanyFilesApi {
 			'application/json',
         ],
 		'uploadCompanyFile' => [
-			'application/json',
+			'multipart/form-data',
         ],
 	];
 
@@ -146,36 +147,36 @@ class CompanyFilesApi {
 	}
 
 	/**
-	 * Operation addCompanyFileCategory
+	 * Operation createCompanyFileCategory
 	 *
 	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCompanyFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function addCompanyFileCategory($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
-		list($response) = $this->addCompanyFileCategoryWithHttpInfo($request_body, $contentType);
+	public function createCompanyFileCategory($request_body, string $contentType = self::CONTENT_TYPES['createCompanyFileCategory'][0]) {
+		list($response) = $this->createCompanyFileCategoryWithHttpInfo($request_body, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addCompanyFileCategoryWithHttpInfo
+	 * Operation createCompanyFileCategoryWithHttpInfo
 	 *
 	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCompanyFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addCompanyFileCategoryWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
-		$request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
+	public function createCompanyFileCategoryWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['createCompanyFileCategory'][0]) {
+		$request = $this->createCompanyFileCategoryRequest($request_body, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -191,18 +192,18 @@ class CompanyFilesApi {
 	}
 
 	/**
-	 * Operation addCompanyFileCategoryAsync
+	 * Operation createCompanyFileCategoryAsync
 	 *
 	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCompanyFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addCompanyFileCategoryAsync($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
-		return $this->addCompanyFileCategoryAsyncWithHttpInfo($request_body, $contentType)
+	public function createCompanyFileCategoryAsync($request_body, string $contentType = self::CONTENT_TYPES['createCompanyFileCategory'][0]) {
+		return $this->createCompanyFileCategoryAsyncWithHttpInfo($request_body, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -211,19 +212,19 @@ class CompanyFilesApi {
 	}
 
 	/**
-	 * Operation addCompanyFileCategoryAsyncWithHttpInfo
+	 * Operation createCompanyFileCategoryAsyncWithHttpInfo
 	 *
 	 * Create Company File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCompanyFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addCompanyFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
+	public function createCompanyFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['createCompanyFileCategory'][0]) {
 		
-		$request = $this->addCompanyFileCategoryRequest($request_body, $contentType);
+		$request = $this->createCompanyFileCategoryRequest($request_body, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -255,21 +256,21 @@ class CompanyFilesApi {
 	}
 
 	/**
-	 * Create request for operation 'addCompanyFileCategory'
+	 * Create request for operation 'createCompanyFileCategory'
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addCompanyFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCompanyFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addCompanyFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['addCompanyFileCategory'][0]) {
+	public function createCompanyFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['createCompanyFileCategory'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'request_body' => $request_body,
 			],
-			methodName: 'addCompanyFileCategory'
+			methodName: 'createCompanyFileCategory'
 		);
 
 		$resourcePath = '/api/v1/files/categories';
@@ -281,7 +282,7 @@ class CompanyFilesApi {
 		$multipart = false;
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -345,7 +346,7 @@ class CompanyFilesApi {
 	 *
 	 * Delete Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
+	 * @param  int $file_id The ID of the company file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -362,7 +363,7 @@ class CompanyFilesApi {
 	 *
 	 * Delete Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
+	 * @param  int $file_id The ID of the company file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -390,7 +391,7 @@ class CompanyFilesApi {
 	 *
 	 * Delete Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
+	 * @param  int $file_id The ID of the company file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -410,7 +411,7 @@ class CompanyFilesApi {
 	 *
 	 * Delete Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
+	 * @param  int $file_id The ID of the company file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -452,7 +453,7 @@ class CompanyFilesApi {
 	/**
 	 * Create request for operation 'deleteCompanyFile'
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being deleted. (required)
+	 * @param  int $file_id The ID of the company file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -485,7 +486,7 @@ class CompanyFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -539,7 +540,7 @@ class CompanyFilesApi {
 	 *
 	 * Get Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
+	 * @param  int $file_id The ID of the company file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -556,7 +557,7 @@ class CompanyFilesApi {
 	 *
 	 * Get Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
+	 * @param  int $file_id The ID of the company file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -584,7 +585,7 @@ class CompanyFilesApi {
 	 *
 	 * Get Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
+	 * @param  int $file_id The ID of the company file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -604,7 +605,7 @@ class CompanyFilesApi {
 	 *
 	 * Get Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
+	 * @param  int $file_id The ID of the company file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -646,7 +647,7 @@ class CompanyFilesApi {
 	/**
 	 * Create request for operation 'getCompanyFile'
 	 *
-	 * @param  string $file_id {fileId} is the ID of the company file being retrieved. (required)
+	 * @param  int $file_id The ID of the company file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -679,7 +680,7 @@ class CompanyFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			['application/octet-stream', ],
 			$contentType,
 			$multipart
 		);
@@ -737,7 +738,7 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\CompanyFilesResponse
 	 */
 	public function listCompanyFiles(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
 		list($response) = $this->listCompanyFilesWithHttpInfo($contentType);
@@ -753,7 +754,7 @@ class CompanyFilesApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\CompanyFilesResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function listCompanyFilesWithHttpInfo(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
 		$request = $this->listCompanyFilesRequest($contentType);
@@ -764,8 +765,30 @@ class CompanyFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CompanyFilesResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\CompanyFilesResponse',
 			$request,
 			$response,
 		);
@@ -801,17 +824,19 @@ class CompanyFilesApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function listCompanyFilesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listCompanyFiles'][0]) {
-		
+		$returnType = '\BhrSdk\Model\CompanyFilesResponse';
 		$request = $this->listCompanyFilesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -852,7 +877,7 @@ class CompanyFilesApi {
 		$multipart = false;
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
@@ -906,7 +931,7 @@ class CompanyFilesApi {
 	 *
 	 * Update Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $file_id The ID of the company file to update. (required)
 	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
@@ -924,7 +949,7 @@ class CompanyFilesApi {
 	 *
 	 * Update Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $file_id The ID of the company file to update. (required)
 	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
@@ -953,7 +978,7 @@ class CompanyFilesApi {
 	 *
 	 * Update Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $file_id The ID of the company file to update. (required)
 	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
@@ -974,7 +999,7 @@ class CompanyFilesApi {
 	 *
 	 * Update Company File
 	 *
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $file_id The ID of the company file to update. (required)
 	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
@@ -1017,7 +1042,7 @@ class CompanyFilesApi {
 	/**
 	 * Create request for operation 'updateCompanyFile'
 	 *
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $file_id The ID of the company file to update. (required)
 	 * @param  \BhrSdk\Model\CompanyFileUpdate $company_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateCompanyFile'] to see the possible values for this operation
 	 *
@@ -1052,7 +1077,7 @@ class CompanyFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -1116,14 +1141,18 @@ class CompanyFilesApi {
 	 *
 	 * Upload Company File
 	 *
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the file category (section) to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with all employees. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function uploadCompanyFile(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
-		list($response) = $this->uploadCompanyFileWithHttpInfo($contentType);
+	public function uploadCompanyFile($file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
+		list($response) = $this->uploadCompanyFileWithHttpInfo($file_name, $category, $file, $share, $contentType);
 		return $response;
 	}
 
@@ -1132,14 +1161,18 @@ class CompanyFilesApi {
 	 *
 	 * Upload Company File
 	 *
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the file category (section) to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with all employees. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function uploadCompanyFileWithHttpInfo(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
-		$request = $this->uploadCompanyFileRequest($contentType);
+	public function uploadCompanyFileWithHttpInfo($file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
+		$request = $this->uploadCompanyFileRequest($file_name, $category, $file, $share, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1159,13 +1192,17 @@ class CompanyFilesApi {
 	 *
 	 * Upload Company File
 	 *
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the file category (section) to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with all employees. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function uploadCompanyFileAsync(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
-		return $this->uploadCompanyFileAsyncWithHttpInfo($contentType)
+	public function uploadCompanyFileAsync($file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
+		return $this->uploadCompanyFileAsyncWithHttpInfo($file_name, $category, $file, $share, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1178,14 +1215,18 @@ class CompanyFilesApi {
 	 *
 	 * Upload Company File
 	 *
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the file category (section) to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with all employees. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function uploadCompanyFileAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
+	public function uploadCompanyFileAsyncWithHttpInfo($file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
 		
-		$request = $this->uploadCompanyFileRequest($contentType);
+		$request = $this->uploadCompanyFileRequest($file_name, $category, $file, $share, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1219,26 +1260,77 @@ class CompanyFilesApi {
 	/**
 	 * Create request for operation 'uploadCompanyFile'
 	 *
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the file category (section) to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with all employees. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadCompanyFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function uploadCompanyFileRequest(string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
+	public function uploadCompanyFileRequest($file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadCompanyFile'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'file_name' => $file_name,
+				'category' => $category,
+				'file' => $file,
+			],
+			methodName: 'uploadCompanyFile'
+		);
 
 		$resourcePath = '/api/v1/files';
 		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
-		
+		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
 
+		// form params
+		$formDataProcessor = new FormDataProcessor();
+
+		$formData = $formDataProcessor->prepare([
+			'fileName' => $file_name,
+			'category' => $category,
+			'share' => $share,
+			'file' => $file,
+		]);
+
+		$formParams = $formDataProcessor->flatten($formData);
+
+		$multipart = true;
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
+
+		if (count($formParams) > 0) {
+			/* @phpstan-ignore-next-line */
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
 
 		// Authentication methods
 		

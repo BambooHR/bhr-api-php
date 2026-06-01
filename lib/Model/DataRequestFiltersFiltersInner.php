@@ -356,7 +356,7 @@ class DataRequestFiltersFiltersInner implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Sets field
 	 *
-	 * @param string|null $field field
+	 * @param string|null $field Field name to filter on.
 	 *
 	 * @return self
 	 */
@@ -381,7 +381,7 @@ class DataRequestFiltersFiltersInner implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Sets operator
 	 *
-	 * @param string|null $operator operator
+	 * @param string|null $operator Comparison operator. Available operators depend on field type (see endpoint description).
 	 *
 	 * @return self
 	 */

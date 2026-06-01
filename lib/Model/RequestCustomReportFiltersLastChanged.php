@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * RequestCustomReportFiltersLastChanged Class Doc Comment
  *
  * @category Class
+ * @description Filters employees to those whose data was last changed on or after the given date/time.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,8 +58,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'include_null' => 'string',
-		'value' => 'string'
+		'value' => '\DateTime',
+		'include_null' => 'string'
 	];
 
 	/**
@@ -69,8 +70,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'include_null' => null,
-		'value' => null
+		'value' => 'date-time',
+		'include_null' => null
 	];
 
 	/**
@@ -80,8 +81,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'include_null' => false,
-		'value' => false
+		'value' => false,
+		'include_null' => false
 	];
 
 	/**
@@ -166,8 +167,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'include_null' => 'includeNull',
-		'value' => 'value'
+		'value' => 'value',
+		'include_null' => 'includeNull'
 	];
 
 	/**
@@ -176,8 +177,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'include_null' => 'setIncludeNull',
-		'value' => 'setValue'
+		'value' => 'setValue',
+		'include_null' => 'setIncludeNull'
 	];
 
 	/**
@@ -186,8 +187,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'include_null' => 'getIncludeNull',
-		'value' => 'getValue'
+		'value' => 'getValue',
+		'include_null' => 'getIncludeNull'
 	];
 
 	/**
@@ -227,6 +228,21 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 		return self::$openApiModelName;
 	}
 
+	public const INCLUDE_NULL_YES = 'yes';
+	public const INCLUDE_NULL_NO = 'no';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getIncludeNullAllowableValues() {
+		return [
+			self::INCLUDE_NULL_YES,
+			self::INCLUDE_NULL_NO,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -241,8 +257,8 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('include_null', $data ?? [], null);
 		$this->setIfExists('value', $data ?? [], null);
+		$this->setIfExists('include_null', $data ?? [], null);
 	}
 
 	/**
@@ -270,6 +286,15 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getIncludeNullAllowableValues();
+		if (!is_null($this->container['include_null']) && !in_array($this->container['include_null'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'include_null', must be one of '%s'",
+				$this->container['include_null'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -284,6 +309,31 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	}
 
 	/**
+	 * Gets value
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getValue() {
+		return $this->container['value'];
+	}
+
+	/**
+	 * Sets value
+	 *
+	 * @param \DateTime|null $value ISO 8601 date-time value. Only employees whose data has changed at or after this date-time will be included.
+	 *
+	 * @return self
+	 */
+	public function setValue($value) {
+		if (is_null($value)) {
+			throw new \InvalidArgumentException('non-nullable value cannot be null');
+		}
+		$this->container['value'] = $value;
+
+		return $this;
+	}
+
+	/**
 	 * Gets include_null
 	 *
 	 * @return string|null
@@ -295,7 +345,7 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 	/**
 	 * Sets include_null
 	 *
-	 * @param string|null $include_null yes|no
+	 * @param string|null $include_null Whether to include employees with no last-changed date. `yes` (default) includes them; `no` excludes them.
 	 *
 	 * @return self
 	 */
@@ -303,32 +353,17 @@ class RequestCustomReportFiltersLastChanged implements ModelInterface, ArrayAcce
 		if (is_null($include_null)) {
 			throw new \InvalidArgumentException('non-nullable include_null cannot be null');
 		}
-		$this->container['include_null'] = $include_null;
-
-		return $this;
-	}
-
-	/**
-	 * Gets value
-	 *
-	 * @return string|null
-	 */
-	public function getValue() {
-		return $this->container['value'];
-	}
-
-	/**
-	 * Sets value
-	 *
-	 * @param string|null $value Date last changed
-	 *
-	 * @return self
-	 */
-	public function setValue($value) {
-		if (is_null($value)) {
-			throw new \InvalidArgumentException('non-nullable value cannot be null');
+		$allowedValues = $this->getIncludeNullAllowableValues();
+		if (!in_array($include_null, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'include_null', must be one of '%s'",
+					$include_null,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
-		$this->container['value'] = $value;
+		$this->container['include_null'] = $include_null;
 
 		return $this;
 	}

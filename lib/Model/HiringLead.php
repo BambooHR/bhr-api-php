@@ -295,7 +295,7 @@ class HiringLead implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets employee_id
 	 *
-	 * @param int|null $employee_id The employeeId of the potential hiring lead
+	 * @param int|null $employee_id The employee ID to use as the `hiringLead` value in the Create Job Opening request
 	 *
 	 * @return self
 	 */
@@ -320,7 +320,7 @@ class HiringLead implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets preferred_full_name
 	 *
-	 * @param string|null $preferred_full_name The preferred full name of the potential hiring lead
+	 * @param string|null $preferred_full_name The employee's preferred full name
 	 *
 	 * @return self
 	 */

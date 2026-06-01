@@ -79,26 +79,34 @@ class TabularDataApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'addEmployeeTableRow' => [
+		'createTableRow' => [
 			'application/json',
+			'application/xml',
+			'text/xml',
         ],
-		'addEmployeeTableRowV1' => [
+		'createTableRowV11' => [
 			'application/json',
+			'application/xml',
+			'text/xml',
         ],
-		'deleteEmployeeTableRowV1' => [
+		'deleteEmployeeTableRow' => [
 			'application/json',
         ],
 		'getChangedEmployeeTableData' => [
 			'application/json',
         ],
-		'getEmployeeTableRow' => [
+		'getEmployeeTableData' => [
 			'application/json',
         ],
-		'updateEmployeeTableRow' => [
+		'updateTableRow' => [
 			'application/json',
+			'application/xml',
+			'text/xml',
         ],
-		'updateEmployeeTableRowV' => [
+		'updateTableRowV11' => [
 			'application/json',
+			'application/xml',
+			'text/xml',
         ],
 	];
 
@@ -149,40 +157,40 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation addEmployeeTableRow
+	 * Operation createTableRow
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function addEmployeeTableRow($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
-		list($response) = $this->addEmployeeTableRowWithHttpInfo($id, $table, $table_row_update, $contentType);
+	public function createTableRow($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRow'][0]) {
+		list($response) = $this->createTableRowWithHttpInfo($id, $table, $table_row_update, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addEmployeeTableRowWithHttpInfo
+	 * Operation createTableRowWithHttpInfo
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addEmployeeTableRowWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
-		$request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
+	public function createTableRowWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRow'][0]) {
+		$request = $this->createTableRowRequest($id, $table, $table_row_update, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -198,20 +206,20 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation addEmployeeTableRowAsync
+	 * Operation createTableRowAsync
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addEmployeeTableRowAsync($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
-		return $this->addEmployeeTableRowAsyncWithHttpInfo($id, $table, $table_row_update, $contentType)
+	public function createTableRowAsync($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRow'][0]) {
+		return $this->createTableRowAsyncWithHttpInfo($id, $table, $table_row_update, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -220,21 +228,21 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation addEmployeeTableRowAsyncWithHttpInfo
+	 * Operation createTableRowAsyncWithHttpInfo
 	 *
 	 * Create Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addEmployeeTableRowAsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
+	public function createTableRowAsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRow'][0]) {
 		
-		$request = $this->addEmployeeTableRowRequest($id, $table, $table_row_update, $contentType);
+		$request = $this->createTableRowRequest($id, $table, $table_row_update, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -266,17 +274,17 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Create request for operation 'addEmployeeTableRow'
+	 * Create request for operation 'createTableRow'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addEmployeeTableRowRequest($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRow'][0]) {
+	public function createTableRowRequest($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRow'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -284,7 +292,7 @@ class TabularDataApi {
 				'table' => $table,
 				'table_row_update' => $table_row_update,
 			],
-			methodName: 'addEmployeeTableRow'
+			methodName: 'createTableRow'
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
@@ -313,7 +321,7 @@ class TabularDataApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -373,40 +381,40 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation addEmployeeTableRowV1
+	 * Operation createTableRowV11
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function addEmployeeTableRowV1($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
-		list($response) = $this->addEmployeeTableRowV1WithHttpInfo($id, $table, $table_row_update, $contentType);
+	public function createTableRowV11($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRowV11'][0]) {
+		list($response) = $this->createTableRowV11WithHttpInfo($id, $table, $table_row_update, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addEmployeeTableRowV1WithHttpInfo
+	 * Operation createTableRowV11WithHttpInfo
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addEmployeeTableRowV1WithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
-		$request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
+	public function createTableRowV11WithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRowV11'][0]) {
+		$request = $this->createTableRowV11Request($id, $table, $table_row_update, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -422,20 +430,20 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation addEmployeeTableRowV1Async
+	 * Operation createTableRowV11Async
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addEmployeeTableRowV1Async($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
-		return $this->addEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $table_row_update, $contentType)
+	public function createTableRowV11Async($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRowV11'][0]) {
+		return $this->createTableRowV11AsyncWithHttpInfo($id, $table, $table_row_update, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -444,21 +452,21 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation addEmployeeTableRowV1AsyncWithHttpInfo
+	 * Operation createTableRowV11AsyncWithHttpInfo
 	 *
 	 * Create Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
+	public function createTableRowV11AsyncWithHttpInfo($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRowV11'][0]) {
 		
-		$request = $this->addEmployeeTableRowV1Request($id, $table, $table_row_update, $contentType);
+		$request = $this->createTableRowV11Request($id, $table, $table_row_update, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -490,17 +498,17 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Create request for operation 'addEmployeeTableRowV1'
+	 * Create request for operation 'createTableRowV11'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table to add a row to. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addEmployeeTableRowV1Request($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['addEmployeeTableRowV1'][0]) {
+	public function createTableRowV11Request($id, $table, $table_row_update, string $contentType = self::CONTENT_TYPES['createTableRowV11'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -508,7 +516,7 @@ class TabularDataApi {
 				'table' => $table,
 				'table_row_update' => $table_row_update,
 			],
-			methodName: 'addEmployeeTableRowV1'
+			methodName: 'createTableRowV11'
 		);
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}';
@@ -537,7 +545,7 @@ class TabularDataApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -597,40 +605,40 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation deleteEmployeeTableRowV1
+	 * Operation deleteEmployeeTableRow
 	 *
-	 * Delete Table Row
+	 * Delete Employee Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to delete. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix (e.g., &#x60;customTabularField&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover the complete list. (required)
+	 * @param  string $row_id The ID of the specific row to delete. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\TableRowDeleteResponse
 	 */
-	public function deleteEmployeeTableRowV1($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
-		list($response) = $this->deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, $contentType);
+	public function deleteEmployeeTableRow($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRow'][0]) {
+		list($response) = $this->deleteEmployeeTableRowWithHttpInfo($id, $table, $row_id, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation deleteEmployeeTableRowV1WithHttpInfo
+	 * Operation deleteEmployeeTableRowWithHttpInfo
 	 *
-	 * Delete Table Row
+	 * Delete Employee Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to delete. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix (e.g., &#x60;customTabularField&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover the complete list. (required)
+	 * @param  string $row_id The ID of the specific row to delete. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\TableRowDeleteResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function deleteEmployeeTableRowV1WithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
-		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
+	public function deleteEmployeeTableRowWithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRow'][0]) {
+		$request = $this->deleteEmployeeTableRowRequest($id, $table, $row_id, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -668,20 +676,20 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation deleteEmployeeTableRowV1Async
+	 * Operation deleteEmployeeTableRowAsync
 	 *
-	 * Delete Table Row
+	 * Delete Employee Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to delete. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix (e.g., &#x60;customTabularField&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover the complete list. (required)
+	 * @param  string $row_id The ID of the specific row to delete. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function deleteEmployeeTableRowV1Async($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
-		return $this->deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, $contentType)
+	public function deleteEmployeeTableRowAsync($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRow'][0]) {
+		return $this->deleteEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -690,21 +698,21 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation deleteEmployeeTableRowV1AsyncWithHttpInfo
+	 * Operation deleteEmployeeTableRowAsyncWithHttpInfo
 	 *
-	 * Delete Table Row
+	 * Delete Employee Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to delete. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix (e.g., &#x60;customTabularField&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover the complete list. (required)
+	 * @param  string $row_id The ID of the specific row to delete. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function deleteEmployeeTableRowV1AsyncWithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
+	public function deleteEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRow'][0]) {
 		$returnType = '\BhrSdk\Model\TableRowDeleteResponse';
-		$request = $this->deleteEmployeeTableRowV1Request($id, $table, $row_id, $contentType);
+		$request = $this->deleteEmployeeTableRowRequest($id, $table, $row_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -738,17 +746,17 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Create request for operation 'deleteEmployeeTableRowV1'
+	 * Create request for operation 'deleteEmployeeTableRow'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRowV1'] to see the possible values for this operation
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to delete. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix (e.g., &#x60;customTabularField&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover the complete list. (required)
+	 * @param  string $row_id The ID of the specific row to delete. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function deleteEmployeeTableRowV1Request($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRowV1'][0]) {
+	public function deleteEmployeeTableRowRequest($id, $table, $row_id, string $contentType = self::CONTENT_TYPES['deleteEmployeeTableRow'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -756,7 +764,7 @@ class TabularDataApi {
 				'table' => $table,
 				'row_id' => $row_id,
 			],
-			methodName: 'deleteEmployeeTableRowV1'
+			methodName: 'deleteEmployeeTableRow'
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
@@ -847,13 +855,13 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table The API name of the table to retrieve changed data for. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\ChangedEmployeeTableDataResponse
 	 */
 	public function getChangedEmployeeTableData($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
 		list($response) = $this->getChangedEmployeeTableDataWithHttpInfo($table, $since, $contentType);
@@ -865,13 +873,13 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table The API name of the table to retrieve changed data for. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ChangedEmployeeTableDataResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getChangedEmployeeTableDataWithHttpInfo($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
 		$request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
@@ -882,8 +890,30 @@ class TabularDataApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ChangedEmployeeTableDataResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\ChangedEmployeeTableDataResponse',
 			$request,
 			$response,
 		);
@@ -894,8 +924,8 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table The API name of the table to retrieve changed data for. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -915,25 +945,27 @@ class TabularDataApi {
 	 *
 	 * Get Changed Employee Table Data
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table The API name of the table to retrieve changed data for. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getChangedEmployeeTableDataAsyncWithHttpInfo($table, $since, string $contentType = self::CONTENT_TYPES['getChangedEmployeeTableData'][0]) {
-		
+		$returnType = '\BhrSdk\Model\ChangedEmployeeTableDataResponse';
 		$request = $this->getChangedEmployeeTableDataRequest($table, $since, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -958,8 +990,8 @@ class TabularDataApi {
 	/**
 	 * Create request for operation 'getChangedEmployeeTableData'
 	 *
-	 * @param  string $table Table name (required)
-	 * @param  string $since URL encoded iso8601 timestamp (required)
+	 * @param  string $table The API name of the table to retrieve changed data for. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  \DateTime $since ISO 8601 timestamp (URL-encoded). Only employees changed since this timestamp will be returned. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getChangedEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1009,7 +1041,7 @@ class TabularDataApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
@@ -1059,38 +1091,40 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation getEmployeeTableRow
+	 * Operation getEmployeeTableData
 	 *
-	 * Get Employee Table Rows
+	 * Get Employee Table Data
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $id The employee ID. Use the special value \&quot;all\&quot; to retrieve table data for all employees the API user has access to. (required)
+	 * @param  string $table The API name of the table to retrieve. See the TableName schema for standard values; custom tables also accepted (e.g., &#x60;custom1&#x60;, &#x60;custom42&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover custom table names. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\EmployeeTableRow[]
 	 */
-	public function getEmployeeTableRow($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		list($response) = $this->getEmployeeTableRowWithHttpInfo($id, $table, $contentType);
+	public function getEmployeeTableData($id, $table, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeTableData'][0]) {
+		list($response) = $this->getEmployeeTableDataWithHttpInfo($id, $table, $accept_header_parameter, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getEmployeeTableRowWithHttpInfo
+	 * Operation getEmployeeTableDataWithHttpInfo
 	 *
-	 * Get Employee Table Rows
+	 * Get Employee Table Data
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $id The employee ID. Use the special value \&quot;all\&quot; to retrieve table data for all employees the API user has access to. (required)
+	 * @param  string $table The API name of the table to retrieve. See the TableName schema for standard values; custom tables also accepted (e.g., &#x60;custom1&#x60;, &#x60;custom42&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover custom table names. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeTableRow[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getEmployeeTableRowWithHttpInfo($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		$request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
+	public function getEmployeeTableDataWithHttpInfo($id, $table, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeTableData'][0]) {
+		$request = $this->getEmployeeTableDataRequest($id, $table, $accept_header_parameter, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1098,27 +1132,50 @@ class TabularDataApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\EmployeeTableRow[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\EmployeeTableRow[]',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation getEmployeeTableRowAsync
+	 * Operation getEmployeeTableDataAsync
 	 *
-	 * Get Employee Table Rows
+	 * Get Employee Table Data
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $id The employee ID. Use the special value \&quot;all\&quot; to retrieve table data for all employees the API user has access to. (required)
+	 * @param  string $table The API name of the table to retrieve. See the TableName schema for standard values; custom tables also accepted (e.g., &#x60;custom1&#x60;, &#x60;custom42&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover custom table names. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getEmployeeTableRowAsync($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		return $this->getEmployeeTableRowAsyncWithHttpInfo($id, $table, $contentType)
+	public function getEmployeeTableDataAsync($id, $table, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeTableData'][0]) {
+		return $this->getEmployeeTableDataAsyncWithHttpInfo($id, $table, $accept_header_parameter, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1127,29 +1184,32 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation getEmployeeTableRowAsyncWithHttpInfo
+	 * Operation getEmployeeTableDataAsyncWithHttpInfo
 	 *
-	 * Get Employee Table Rows
+	 * Get Employee Table Data
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $id The employee ID. Use the special value \&quot;all\&quot; to retrieve table data for all employees the API user has access to. (required)
+	 * @param  string $table The API name of the table to retrieve. See the TableName schema for standard values; custom tables also accepted (e.g., &#x60;custom1&#x60;, &#x60;custom42&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover custom table names. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getEmployeeTableRowAsyncWithHttpInfo($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
-		
-		$request = $this->getEmployeeTableRowRequest($id, $table, $contentType);
+	public function getEmployeeTableDataAsyncWithHttpInfo($id, $table, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeTableData'][0]) {
+		$returnType = '\BhrSdk\Model\EmployeeTableRow[]';
+		$request = $this->getEmployeeTableDataRequest($id, $table, $accept_header_parameter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -1172,23 +1232,24 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Create request for operation 'getEmployeeTableRow'
+	 * Create request for operation 'getEmployeeTableData'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $id The employee ID. Use the special value \&quot;all\&quot; to retrieve table data for all employees the API user has access to. (required)
+	 * @param  string $table The API name of the table to retrieve. See the TableName schema for standard values; custom tables also accepted (e.g., &#x60;custom1&#x60;, &#x60;custom42&#x60;). Use the &#x60;list-tabular-fields&#x60; tool (GET /api/v1/meta/tables) to discover custom table names. (required)
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeTableData'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getEmployeeTableRowRequest($id, $table, string $contentType = self::CONTENT_TYPES['getEmployeeTableRow'][0]) {
+	public function getEmployeeTableDataRequest($id, $table, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['getEmployeeTableData'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 				'table' => $table,
 			],
-			methodName: 'getEmployeeTableRow'
+			methodName: 'getEmployeeTableData'
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}';
@@ -1198,6 +1259,11 @@ class TabularDataApi {
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		// header params
+		if ($accept_header_parameter !== null) {
+			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
 
 		// path params
 		if ($id !== null) {
@@ -1217,7 +1283,7 @@ class TabularDataApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
@@ -1267,42 +1333,42 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation updateEmployeeTableRow
+	 * Operation updateTableRow
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function updateEmployeeTableRow($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
-		list($response) = $this->updateEmployeeTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
+	public function updateTableRow($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRow'][0]) {
+		list($response) = $this->updateTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowWithHttpInfo
+	 * Operation updateTableRowWithHttpInfo
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function updateEmployeeTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
-		$request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
+	public function updateTableRowWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRow'][0]) {
+		$request = $this->updateTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1318,21 +1384,21 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowAsync
+	 * Operation updateTableRowAsync
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function updateEmployeeTableRowAsync($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
-		return $this->updateEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType)
+	public function updateTableRowAsync($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRow'][0]) {
+		return $this->updateTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1341,22 +1407,22 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowAsyncWithHttpInfo
+	 * Operation updateTableRowAsyncWithHttpInfo
 	 *
 	 * Update Table Row
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function updateEmployeeTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
+	public function updateTableRowAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRow'][0]) {
 		
-		$request = $this->updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
+		$request = $this->updateTableRowRequest($id, $table, $row_id, $table_row_update, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1388,18 +1454,18 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Create request for operation 'updateEmployeeTableRow'
+	 * Create request for operation 'updateTableRow'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRow'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRow'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function updateEmployeeTableRowRequest($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRow'][0]) {
+	public function updateTableRowRequest($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRow'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -1408,7 +1474,7 @@ class TabularDataApi {
 				'row_id' => $row_id,
 				'table_row_update' => $table_row_update,
 			],
-			methodName: 'updateEmployeeTableRow'
+			methodName: 'updateTableRow'
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/tables/{table}/{rowId}';
@@ -1445,7 +1511,7 @@ class TabularDataApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -1505,42 +1571,42 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowV
+	 * Operation updateTableRowV11
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function updateEmployeeTableRowV($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
-		list($response) = $this->updateEmployeeTableRowVWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
+	public function updateTableRowV11($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRowV11'][0]) {
+		list($response) = $this->updateTableRowV11WithHttpInfo($id, $table, $row_id, $table_row_update, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowVWithHttpInfo
+	 * Operation updateTableRowV11WithHttpInfo
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function updateEmployeeTableRowVWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
-		$request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
+	public function updateTableRowV11WithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRowV11'][0]) {
+		$request = $this->updateTableRowV11Request($id, $table, $row_id, $table_row_update, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1556,21 +1622,21 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowVAsync
+	 * Operation updateTableRowV11Async
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function updateEmployeeTableRowVAsync($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
-		return $this->updateEmployeeTableRowVAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType)
+	public function updateTableRowV11Async($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRowV11'][0]) {
+		return $this->updateTableRowV11AsyncWithHttpInfo($id, $table, $row_id, $table_row_update, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1579,22 +1645,22 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Operation updateEmployeeTableRowVAsyncWithHttpInfo
+	 * Operation updateTableRowV11AsyncWithHttpInfo
 	 *
 	 * Update Table Row v1.1
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function updateEmployeeTableRowVAsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
+	public function updateTableRowV11AsyncWithHttpInfo($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRowV11'][0]) {
 		
-		$request = $this->updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, $contentType);
+		$request = $this->updateTableRowV11Request($id, $table, $row_id, $table_row_update, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1626,18 +1692,18 @@ class TabularDataApi {
 	}
 
 	/**
-	 * Create request for operation 'updateEmployeeTableRowV'
+	 * Create request for operation 'updateTableRowV11'
 	 *
-	 * @param  string $id {id} is the employee ID. (required)
-	 * @param  string $table Table name (required)
-	 * @param  string $row_id Row ID (required)
+	 * @param  string $id The employee ID. (required)
+	 * @param  string $table The API name of the table containing the row to update. See the TableName schema for valid standard values; custom tables use a &#x60;custom&#x60; prefix. Use GET /api/v1/meta/tables to discover the complete list. (required)
+	 * @param  string $row_id The ID of the row to update. (required)
 	 * @param  \BhrSdk\Model\TableRowUpdate $table_row_update (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeTableRowV'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTableRowV11'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function updateEmployeeTableRowVRequest($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateEmployeeTableRowV'][0]) {
+	public function updateTableRowV11Request($id, $table, $row_id, $table_row_update, string $contentType = self::CONTENT_TYPES['updateTableRowV11'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -1646,7 +1712,7 @@ class TabularDataApi {
 				'row_id' => $row_id,
 				'table_row_update' => $table_row_update,
 			],
-			methodName: 'updateEmployeeTableRowV'
+			methodName: 'updateTableRowV11'
 		);
 
 		$resourcePath = '/api/v1_1/employees/{id}/tables/{table}/{rowId}';
@@ -1683,7 +1749,7 @@ class TabularDataApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);

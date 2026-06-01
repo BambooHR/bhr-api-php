@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ymd** | **string** |  | [optional]
-**amount** | **int** |  | [optional]
+**ymd** | **\DateTime** | Date in YYYY-MM-DD format. | [optional]
+**amount** | **float** | Hours or days for this date. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -58,8 +58,9 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	  */
 	protected static $openApiTypes = [
 		'name' => 'string',
-		'category_id' => 'string',
-		'share_with_employee' => 'string'
+		'category_id' => 'int',
+		'share_with_employee' => 'string',
+		'share_with_employees' => 'string'
 	];
 
 	/**
@@ -72,7 +73,8 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	protected static $openApiFormats = [
 		'name' => null,
 		'category_id' => null,
-		'share_with_employee' => null
+		'share_with_employee' => null,
+		'share_with_employees' => null
 	];
 
 	/**
@@ -84,7 +86,8 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	protected static array $openApiNullables = [
 		'name' => false,
 		'category_id' => false,
-		'share_with_employee' => false
+		'share_with_employee' => false,
+		'share_with_employees' => false
 	];
 
 	/**
@@ -171,7 +174,8 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	protected static $attributeMap = [
 		'name' => 'name',
 		'category_id' => 'categoryId',
-		'share_with_employee' => 'shareWithEmployee'
+		'share_with_employee' => 'shareWithEmployee',
+		'share_with_employees' => 'shareWithEmployees'
 	];
 
 	/**
@@ -182,7 +186,8 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	protected static $setters = [
 		'name' => 'setName',
 		'category_id' => 'setCategoryId',
-		'share_with_employee' => 'setShareWithEmployee'
+		'share_with_employee' => 'setShareWithEmployee',
+		'share_with_employees' => 'setShareWithEmployees'
 	];
 
 	/**
@@ -193,7 +198,8 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	protected static $getters = [
 		'name' => 'getName',
 		'category_id' => 'getCategoryId',
-		'share_with_employee' => 'getShareWithEmployee'
+		'share_with_employee' => 'getShareWithEmployee',
+		'share_with_employees' => 'getShareWithEmployees'
 	];
 
 	/**
@@ -233,6 +239,35 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
+	public const SHARE_WITH_EMPLOYEE_YES = 'yes';
+	public const SHARE_WITH_EMPLOYEE_NO = 'no';
+	public const SHARE_WITH_EMPLOYEES_YES = 'yes';
+	public const SHARE_WITH_EMPLOYEES_NO = 'no';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getShareWithEmployeeAllowableValues() {
+		return [
+			self::SHARE_WITH_EMPLOYEE_YES,
+			self::SHARE_WITH_EMPLOYEE_NO,
+		];
+	}
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getShareWithEmployeesAllowableValues() {
+		return [
+			self::SHARE_WITH_EMPLOYEES_YES,
+			self::SHARE_WITH_EMPLOYEES_NO,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -250,6 +285,7 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 		$this->setIfExists('name', $data ?? [], null);
 		$this->setIfExists('category_id', $data ?? [], null);
 		$this->setIfExists('share_with_employee', $data ?? [], null);
+		$this->setIfExists('share_with_employees', $data ?? [], null);
 	}
 
 	/**
@@ -277,6 +313,24 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getShareWithEmployeeAllowableValues();
+		if (!is_null($this->container['share_with_employee']) && !in_array($this->container['share_with_employee'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'share_with_employee', must be one of '%s'",
+				$this->container['share_with_employee'],
+				implode("', '", $allowedValues)
+			);
+		}
+
+		$allowedValues = $this->getShareWithEmployeesAllowableValues();
+		if (!is_null($this->container['share_with_employees']) && !in_array($this->container['share_with_employees'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'share_with_employees', must be one of '%s'",
+				$this->container['share_with_employees'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -302,7 +356,7 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name name
+	 * @param string|null $name The new display name for the file.
 	 *
 	 * @return self
 	 */
@@ -318,7 +372,7 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets category_id
 	 *
-	 * @return string|null
+	 * @return int|null
 	 */
 	public function getCategoryId() {
 		return $this->container['category_id'];
@@ -327,7 +381,7 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets category_id
 	 *
-	 * @param string|null $category_id category_id
+	 * @param int|null $category_id The ID of the file category (section) to move the file into.
 	 *
 	 * @return self
 	 */
@@ -352,7 +406,7 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets share_with_employee
 	 *
-	 * @param string|null $share_with_employee share_with_employee
+	 * @param string|null $share_with_employee Whether the file is shared with the employee. Also accepted as 'shareWithEmployees'.
 	 *
 	 * @return self
 	 */
@@ -360,7 +414,52 @@ class EmployeeFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
 		if (is_null($share_with_employee)) {
 			throw new \InvalidArgumentException('non-nullable share_with_employee cannot be null');
 		}
+		$allowedValues = $this->getShareWithEmployeeAllowableValues();
+		if (!in_array($share_with_employee, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'share_with_employee', must be one of '%s'",
+					$share_with_employee,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
 		$this->container['share_with_employee'] = $share_with_employee;
+
+		return $this;
+	}
+
+	/**
+	 * Gets share_with_employees
+	 *
+	 * @return string|null
+	 */
+	public function getShareWithEmployees() {
+		return $this->container['share_with_employees'];
+	}
+
+	/**
+	 * Sets share_with_employees
+	 *
+	 * @param string|null $share_with_employees Alias for shareWithEmployee. Whether the file is shared with the employee.
+	 *
+	 * @return self
+	 */
+	public function setShareWithEmployees($share_with_employees) {
+		if (is_null($share_with_employees)) {
+			throw new \InvalidArgumentException('non-nullable share_with_employees cannot be null');
+		}
+		$allowedValues = $this->getShareWithEmployeesAllowableValues();
+		if (!in_array($share_with_employees, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'share_with_employees', must be one of '%s'",
+					$share_with_employees,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['share_with_employees'] = $share_with_employees;
 
 		return $this;
 	}

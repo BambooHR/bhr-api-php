@@ -321,7 +321,7 @@ class TimeTrackingBulkResponseSchemaResponse implements ModelInterface, ArrayAcc
 	/**
 	 * Sets message
 	 *
-	 * @param string|null $message Response message, typically used for error details
+	 * @param string|null $message message
 	 *
 	 * @return self
 	 */

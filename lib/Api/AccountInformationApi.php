@@ -79,26 +79,45 @@ class AccountInformationApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
+		'baa7162824294d030115568d1d8e6ca7' => [
+			'application/json',
+        ],
+		'call10d66d8561dd7dac50ff9c21ef63d83b' => [
+			'application/json',
+        ],
+		'call5c5fb0f1211ae1c9451753f92f1053b6' => [
+			'application/json',
+        ],
+		'getAllCurrencyTypes' => [
+			'application/json',
+        ],
+		'getAllProvinces' => [
+			'application/json',
+        ],
 		'getCountriesOptions' => [
 			'application/json',
         ],
-		'getListOfUsers' => [
+		'getMetaCompany' => [
 			'application/json',
         ],
 		'getStatesByCountryId' => [
 			'application/json',
         ],
-		'metadataAddOrUpdateValuesForListFields' => [
+		'listFields' => [
 			'application/json',
         ],
-		'metadataGetAListOfFields' => [
+		'listListFields' => [
 			'application/json',
         ],
-		'metadataGetAListOfTabularFields' => [
+		'listTabularFields' => [
 			'application/json',
         ],
-		'metadataGetDetailsForListFields' => [
+		'listUsers' => [
 			'application/json',
+        ],
+		'updateListFieldValues' => [
+			'application/json',
+			'text/xml',
         ],
 	];
 
@@ -149,34 +168,36 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation getCountriesOptions
+	 * Operation baa7162824294d030115568d1d8e6ca7
 	 *
-	 * Get Countries
+	 * Get timezone by ID
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 * @param  int $id The numeric ID of the timezone to retrieve. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\CountrySchema[]
+	 * @return \BhrSdk\Model\TimezoneResource|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
 	 */
-	public function getCountriesOptions(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
-		list($response) = $this->getCountriesOptionsWithHttpInfo($contentType);
+	public function baa7162824294d030115568d1d8e6ca7($id, string $contentType = self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'][0]) {
+		list($response) = $this->baa7162824294d030115568d1d8e6ca7WithHttpInfo($id, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getCountriesOptionsWithHttpInfo
+	 * Operation baa7162824294d030115568d1d8e6ca7WithHttpInfo
 	 *
-	 * Get Countries
+	 * Get timezone by ID
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 * @param  int $id The numeric ID of the timezone to retrieve. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\CountrySchema[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimezoneResource|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getCountriesOptionsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
-		$request = $this->getCountriesOptionsRequest($contentType);
+	public function baa7162824294d030115568d1d8e6ca7WithHttpInfo($id, string $contentType = self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'][0]) {
+		$request = $this->baa7162824294d030115568d1d8e6ca7Request($id, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -187,7 +208,31 @@ class AccountInformationApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\CountrySchema[]',
+					'\BhrSdk\Model\TimezoneResource',
+					$request,
+					$response,
+				);
+			case 401:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
 					$request,
 					$response,
 				);
@@ -207,24 +252,25 @@ class AccountInformationApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\CountrySchema[]',
+			'\BhrSdk\Model\TimezoneResource',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation getCountriesOptionsAsync
+	 * Operation baa7162824294d030115568d1d8e6ca7Async
 	 *
-	 * Get Countries
+	 * Get timezone by ID
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 * @param  int $id The numeric ID of the timezone to retrieve. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getCountriesOptionsAsync(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
-		return $this->getCountriesOptionsAsyncWithHttpInfo($contentType)
+	public function baa7162824294d030115568d1d8e6ca7Async($id, string $contentType = self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'][0]) {
+		return $this->baa7162824294d030115568d1d8e6ca7AsyncWithHttpInfo($id, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -233,18 +279,19 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation getCountriesOptionsAsyncWithHttpInfo
+	 * Operation baa7162824294d030115568d1d8e6ca7AsyncWithHttpInfo
 	 *
-	 * Get Countries
+	 * Get timezone by ID
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 * @param  int $id The numeric ID of the timezone to retrieve. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getCountriesOptionsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
-		$returnType = '\BhrSdk\Model\CountrySchema[]';
-		$request = $this->getCountriesOptionsRequest($contentType);
+	public function baa7162824294d030115568d1d8e6ca7AsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'][0]) {
+		$returnType = '\BhrSdk\Model\TimezoneResource';
+		$request = $this->baa7162824294d030115568d1d8e6ca7Request($id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -278,16 +325,748 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Create request for operation 'getCountriesOptions'
+	 * Create request for operation 'baa7162824294d030115568d1d8e6ca7'
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 * @param  int $id The numeric ID of the timezone to retrieve. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getCountriesOptionsRequest(string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
+	public function baa7162824294d030115568d1d8e6ca7Request($id, string $contentType = self::CONTENT_TYPES['baa7162824294d030115568d1d8e6ca7'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'id' => $id,
+			],
+			methodName: 'baa7162824294d030115568d1d8e6ca7'
+		);
 
-		$resourcePath = '/api/v1/meta/countries/options';
+		$resourcePath = '/api/v1/meta/timezones/{id}';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'id' . '}',
+				ObjectSerializer::toPathValue((string) $id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/problem+json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation call10d66d8561dd7dac50ff9c21ef63d83b
+	 *
+	 * Get timezone by ZIP code
+	 *
+	 * @param  string $zip A 5-digit US ZIP code. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimezoneResource|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function call10d66d8561dd7dac50ff9c21ef63d83b($zip, string $contentType = self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'][0]) {
+		list($response) = $this->call10d66d8561dd7dac50ff9c21ef63d83bWithHttpInfo($zip, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation call10d66d8561dd7dac50ff9c21ef63d83bWithHttpInfo
+	 *
+	 * Get timezone by ZIP code
+	 *
+	 * @param  string $zip A 5-digit US ZIP code. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimezoneResource|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function call10d66d8561dd7dac50ff9c21ef63d83bWithHttpInfo($zip, string $contentType = self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'][0]) {
+		$request = $this->call10d66d8561dd7dac50ff9c21ef63d83bRequest($zip, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimezoneResource',
+					$request,
+					$response,
+				);
+			case 401:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimezoneResource',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation call10d66d8561dd7dac50ff9c21ef63d83bAsync
+	 *
+	 * Get timezone by ZIP code
+	 *
+	 * @param  string $zip A 5-digit US ZIP code. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function call10d66d8561dd7dac50ff9c21ef63d83bAsync($zip, string $contentType = self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'][0]) {
+		return $this->call10d66d8561dd7dac50ff9c21ef63d83bAsyncWithHttpInfo($zip, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation call10d66d8561dd7dac50ff9c21ef63d83bAsyncWithHttpInfo
+	 *
+	 * Get timezone by ZIP code
+	 *
+	 * @param  string $zip A 5-digit US ZIP code. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function call10d66d8561dd7dac50ff9c21ef63d83bAsyncWithHttpInfo($zip, string $contentType = self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'][0]) {
+		$returnType = '\BhrSdk\Model\TimezoneResource';
+		$request = $this->call10d66d8561dd7dac50ff9c21ef63d83bRequest($zip, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'call10d66d8561dd7dac50ff9c21ef63d83b'
+	 *
+	 * @param  string $zip A 5-digit US ZIP code. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function call10d66d8561dd7dac50ff9c21ef63d83bRequest($zip, string $contentType = self::CONTENT_TYPES['call10d66d8561dd7dac50ff9c21ef63d83b'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'zip' => $zip,
+			],
+			methodName: 'call10d66d8561dd7dac50ff9c21ef63d83b'
+		);
+
+		if (!preg_match("/^\\d{5}$/", $zip)) {
+			throw new \InvalidArgumentException("invalid value for \"zip\" when calling AccountInformationApi.call10d66d8561dd7dac50ff9c21ef63d83b, must conform to the pattern /^\\d{5}$/.");
+		}
+		
+		$resourcePath = '/api/v1/meta/timezones/by-zip/{zip}';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($zip !== null) {
+			$resourcePath = str_replace(
+				'{' . 'zip' . '}',
+				ObjectSerializer::toPathValue((string) $zip),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/problem+json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation call5c5fb0f1211ae1c9451753f92f1053b6
+	 *
+	 * List timezones
+	 *
+	 * @param  int|null $page_size The number of items to return per page. (optional, default to 500)
+	 * @param  int|null $page The page number to retrieve. (optional, default to 1)
+	 * @param  string|null $sort Ordering by OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string|null $select Projection (field selection) by OData specification (optional, default to '')
+	 * @param  string|null $filter Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimezoneListResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function call5c5fb0f1211ae1c9451753f92f1053b6($page_size = 500, $page = 1, $sort = '', $select = '', $filter = '', string $contentType = self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'][0]) {
+		list($response) = $this->call5c5fb0f1211ae1c9451753f92f1053b6WithHttpInfo($page_size, $page, $sort, $select, $filter, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation call5c5fb0f1211ae1c9451753f92f1053b6WithHttpInfo
+	 *
+	 * List timezones
+	 *
+	 * @param  int|null $page_size The number of items to return per page. (optional, default to 500)
+	 * @param  int|null $page The page number to retrieve. (optional, default to 1)
+	 * @param  string|null $sort Ordering by OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string|null $select Projection (field selection) by OData specification (optional, default to '')
+	 * @param  string|null $filter Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimezoneListResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function call5c5fb0f1211ae1c9451753f92f1053b6WithHttpInfo($page_size = 500, $page = 1, $sort = '', $select = '', $filter = '', string $contentType = self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'][0]) {
+		$request = $this->call5c5fb0f1211ae1c9451753f92f1053b6Request($page_size, $page, $sort, $select, $filter, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimezoneListResponse',
+					$request,
+					$response,
+				);
+			case 400:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 401:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimezoneListResponse',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation call5c5fb0f1211ae1c9451753f92f1053b6Async
+	 *
+	 * List timezones
+	 *
+	 * @param  int|null $page_size The number of items to return per page. (optional, default to 500)
+	 * @param  int|null $page The page number to retrieve. (optional, default to 1)
+	 * @param  string|null $sort Ordering by OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string|null $select Projection (field selection) by OData specification (optional, default to '')
+	 * @param  string|null $filter Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function call5c5fb0f1211ae1c9451753f92f1053b6Async($page_size = 500, $page = 1, $sort = '', $select = '', $filter = '', string $contentType = self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'][0]) {
+		return $this->call5c5fb0f1211ae1c9451753f92f1053b6AsyncWithHttpInfo($page_size, $page, $sort, $select, $filter, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation call5c5fb0f1211ae1c9451753f92f1053b6AsyncWithHttpInfo
+	 *
+	 * List timezones
+	 *
+	 * @param  int|null $page_size The number of items to return per page. (optional, default to 500)
+	 * @param  int|null $page The page number to retrieve. (optional, default to 1)
+	 * @param  string|null $sort Ordering by OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string|null $select Projection (field selection) by OData specification (optional, default to '')
+	 * @param  string|null $filter Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function call5c5fb0f1211ae1c9451753f92f1053b6AsyncWithHttpInfo($page_size = 500, $page = 1, $sort = '', $select = '', $filter = '', string $contentType = self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'][0]) {
+		$returnType = '\BhrSdk\Model\TimezoneListResponse';
+		$request = $this->call5c5fb0f1211ae1c9451753f92f1053b6Request($page_size, $page, $sort, $select, $filter, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'call5c5fb0f1211ae1c9451753f92f1053b6'
+	 *
+	 * @param  int|null $page_size The number of items to return per page. (optional, default to 500)
+	 * @param  int|null $page The page number to retrieve. (optional, default to 1)
+	 * @param  string|null $sort Ordering by OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string|null $select Projection (field selection) by OData specification (optional, default to '')
+	 * @param  string|null $filter Filter by an OData (Open Data Protocol) v4 specification (optional, default to '')
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function call5c5fb0f1211ae1c9451753f92f1053b6Request($page_size = 500, $page = 1, $sort = '', $select = '', $filter = '', string $contentType = self::CONTENT_TYPES['call5c5fb0f1211ae1c9451753f92f1053b6'][0]) {
+
+		$resourcePath = '/api/v1/meta/timezones';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'pageSize' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'sort' => ['value' => $sort, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'select' => ['value' => $select, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'filter' => ['value' => $filter, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/problem+json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getAllCurrencyTypes
+	 *
+	 * Get all currency types
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllCurrencyTypes'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\MetaCurrencyTypeItem[]
+	 */
+	public function getAllCurrencyTypes(string $contentType = self::CONTENT_TYPES['getAllCurrencyTypes'][0]) {
+		list($response) = $this->getAllCurrencyTypesWithHttpInfo($contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getAllCurrencyTypesWithHttpInfo
+	 *
+	 * Get all currency types
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllCurrencyTypes'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\MetaCurrencyTypeItem[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getAllCurrencyTypesWithHttpInfo(string $contentType = self::CONTENT_TYPES['getAllCurrencyTypes'][0]) {
+		$request = $this->getAllCurrencyTypesRequest($contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\MetaCurrencyTypeItem[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\MetaCurrencyTypeItem[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getAllCurrencyTypesAsync
+	 *
+	 * Get all currency types
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllCurrencyTypes'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getAllCurrencyTypesAsync(string $contentType = self::CONTENT_TYPES['getAllCurrencyTypes'][0]) {
+		return $this->getAllCurrencyTypesAsyncWithHttpInfo($contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getAllCurrencyTypesAsyncWithHttpInfo
+	 *
+	 * Get all currency types
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllCurrencyTypes'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getAllCurrencyTypesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getAllCurrencyTypes'][0]) {
+		$returnType = '\BhrSdk\Model\MetaCurrencyTypeItem[]';
+		$request = $this->getAllCurrencyTypesRequest($contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getAllCurrencyTypes'
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllCurrencyTypes'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getAllCurrencyTypesRequest(string $contentType = self::CONTENT_TYPES['getAllCurrencyTypes'][0]) {
+
+		$resourcePath = '/api/v1/meta/currency/types';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
@@ -346,34 +1125,34 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation getListOfUsers
+	 * Operation getAllProvinces
 	 *
-	 * Get Users
+	 * Get All Provinces
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllProvinces'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\ProvinceItem[]
 	 */
-	public function getListOfUsers(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		list($response) = $this->getListOfUsersWithHttpInfo($contentType);
+	public function getAllProvinces(string $contentType = self::CONTENT_TYPES['getAllProvinces'][0]) {
+		list($response) = $this->getAllProvincesWithHttpInfo($contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getListOfUsersWithHttpInfo
+	 * Operation getAllProvincesWithHttpInfo
 	 *
-	 * Get Users
+	 * Get All Provinces
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllProvinces'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ProvinceItem[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getListOfUsersWithHttpInfo(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		$request = $this->getListOfUsersRequest($contentType);
+	public function getAllProvincesWithHttpInfo(string $contentType = self::CONTENT_TYPES['getAllProvinces'][0]) {
+		$request = $this->getAllProvincesRequest($contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -381,25 +1160,47 @@ class AccountInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProvinceItem[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\ProvinceItem[]',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation getListOfUsersAsync
+	 * Operation getAllProvincesAsync
 	 *
-	 * Get Users
+	 * Get All Provinces
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllProvinces'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getListOfUsersAsync(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		return $this->getListOfUsersAsyncWithHttpInfo($contentType)
+	public function getAllProvincesAsync(string $contentType = self::CONTENT_TYPES['getAllProvinces'][0]) {
+		return $this->getAllProvincesAsyncWithHttpInfo($contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -408,27 +1209,29 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation getListOfUsersAsyncWithHttpInfo
+	 * Operation getAllProvincesAsyncWithHttpInfo
 	 *
-	 * Get Users
+	 * Get All Provinces
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllProvinces'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getListOfUsersAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
-		
-		$request = $this->getListOfUsersRequest($contentType);
+	public function getAllProvincesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getAllProvinces'][0]) {
+		$returnType = '\BhrSdk\Model\ProvinceItem[]';
+		$request = $this->getAllProvincesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -451,16 +1254,441 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Create request for operation 'getListOfUsers'
+	 * Create request for operation 'getAllProvinces'
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getListOfUsers'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getAllProvinces'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getListOfUsersRequest(string $contentType = self::CONTENT_TYPES['getListOfUsers'][0]) {
+	public function getAllProvincesRequest(string $contentType = self::CONTENT_TYPES['getAllProvinces'][0]) {
 
-		$resourcePath = '/api/v1/meta/users';
+		$resourcePath = '/api/v1/meta/provinces';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getCountriesOptions
+	 *
+	 * Get Countries
+	 *
+	 * @param  string|null $iso_code ISO 3166-1 alpha-2 country code (exactly two letters). When present, returns the matching country as a single object instead of the full array. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\CountriesOptionsResponse
+	 */
+	public function getCountriesOptions($iso_code = null, string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
+		list($response) = $this->getCountriesOptionsWithHttpInfo($iso_code, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getCountriesOptionsWithHttpInfo
+	 *
+	 * Get Countries
+	 *
+	 * @param  string|null $iso_code ISO 3166-1 alpha-2 country code (exactly two letters). When present, returns the matching country as a single object instead of the full array. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\CountriesOptionsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getCountriesOptionsWithHttpInfo($iso_code = null, string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
+		$request = $this->getCountriesOptionsRequest($iso_code, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CountriesOptionsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\CountriesOptionsResponse',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getCountriesOptionsAsync
+	 *
+	 * Get Countries
+	 *
+	 * @param  string|null $iso_code ISO 3166-1 alpha-2 country code (exactly two letters). When present, returns the matching country as a single object instead of the full array. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getCountriesOptionsAsync($iso_code = null, string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
+		return $this->getCountriesOptionsAsyncWithHttpInfo($iso_code, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getCountriesOptionsAsyncWithHttpInfo
+	 *
+	 * Get Countries
+	 *
+	 * @param  string|null $iso_code ISO 3166-1 alpha-2 country code (exactly two letters). When present, returns the matching country as a single object instead of the full array. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getCountriesOptionsAsyncWithHttpInfo($iso_code = null, string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
+		$returnType = '\BhrSdk\Model\CountriesOptionsResponse';
+		$request = $this->getCountriesOptionsRequest($iso_code, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getCountriesOptions'
+	 *
+	 * @param  string|null $iso_code ISO 3166-1 alpha-2 country code (exactly two letters). When present, returns the matching country as a single object instead of the full array. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getCountriesOptions'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getCountriesOptionsRequest($iso_code = null, string $contentType = self::CONTENT_TYPES['getCountriesOptions'][0]) {
+
+		if ($iso_code !== null && strlen($iso_code) > 2) {
+			throw new \InvalidArgumentException('invalid length for "$iso_code" when calling AccountInformationApi.getCountriesOptions, must be smaller than or equal to 2.');
+		}
+		if ($iso_code !== null && strlen($iso_code) < 2) {
+			throw new \InvalidArgumentException('invalid length for "$iso_code" when calling AccountInformationApi.getCountriesOptions, must be bigger than or equal to 2.');
+		}
+		if ($iso_code !== null && !preg_match("/^[A-Za-z]{2}$/", $iso_code)) {
+			throw new \InvalidArgumentException("invalid value for \"iso_code\" when calling AccountInformationApi.getCountriesOptions, must conform to the pattern /^[A-Za-z]{2}$/.");
+		}
+		
+		$resourcePath = '/api/v1/meta/countries/options';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'isoCode' => ['value' => $iso_code, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getMetaCompany
+	 *
+	 * Get company properties
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMetaCompany'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\MetaCompanyPropertiesResponse
+	 */
+	public function getMetaCompany(string $contentType = self::CONTENT_TYPES['getMetaCompany'][0]) {
+		list($response) = $this->getMetaCompanyWithHttpInfo($contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getMetaCompanyWithHttpInfo
+	 *
+	 * Get company properties
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMetaCompany'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\MetaCompanyPropertiesResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getMetaCompanyWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMetaCompany'][0]) {
+		$request = $this->getMetaCompanyRequest($contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\MetaCompanyPropertiesResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\MetaCompanyPropertiesResponse',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getMetaCompanyAsync
+	 *
+	 * Get company properties
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMetaCompany'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getMetaCompanyAsync(string $contentType = self::CONTENT_TYPES['getMetaCompany'][0]) {
+		return $this->getMetaCompanyAsyncWithHttpInfo($contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getMetaCompanyAsyncWithHttpInfo
+	 *
+	 * Get company properties
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMetaCompany'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getMetaCompanyAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getMetaCompany'][0]) {
+		$returnType = '\BhrSdk\Model\MetaCompanyPropertiesResponse';
+		$request = $this->getMetaCompanyRequest($contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getMetaCompany'
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getMetaCompany'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getMetaCompanyRequest(string $contentType = self::CONTENT_TYPES['getMetaCompany'][0]) {
+
+		$resourcePath = '/api/v1/meta/company';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
@@ -521,9 +1749,9 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryId
 	 *
-	 * Get States by Country ID
+	 * List states and provinces for a country by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int $country_id Numeric id of the country, taken from the countries options list. Use the &#x60;id&#x60; of the target country from &#x60;GET /api/v1/meta/countries/options&#x60;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -538,9 +1766,9 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryIdWithHttpInfo
 	 *
-	 * Get States by Country ID
+	 * List states and provinces for a country by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int $country_id Numeric id of the country, taken from the countries options list. Use the &#x60;id&#x60; of the target country from &#x60;GET /api/v1/meta/countries/options&#x60;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -588,9 +1816,9 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryIdAsync
 	 *
-	 * Get States by Country ID
+	 * List states and provinces for a country by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int $country_id Numeric id of the country, taken from the countries options list. Use the &#x60;id&#x60; of the target country from &#x60;GET /api/v1/meta/countries/options&#x60;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -608,9 +1836,9 @@ class AccountInformationApi {
 	/**
 	 * Operation getStatesByCountryIdAsyncWithHttpInfo
 	 *
-	 * Get States by Country ID
+	 * List states and provinces for a country by Country ID
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int $country_id Numeric id of the country, taken from the countries options list. Use the &#x60;id&#x60; of the target country from &#x60;GET /api/v1/meta/countries/options&#x60;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -654,7 +1882,7 @@ class AccountInformationApi {
 	/**
 	 * Create request for operation 'getStatesByCountryId'
 	 *
-	 * @param  int $country_id ID of the country to get states/provinces for (required)
+	 * @param  int $country_id Numeric id of the country, taken from the countries options list. Use the &#x60;id&#x60; of the target country from &#x60;GET /api/v1/meta/countries/options&#x60;. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getStatesByCountryId'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -737,38 +1965,36 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation metadataAddOrUpdateValuesForListFields
+	 * Operation listFields
 	 *
-	 * Create or Update List Field Values
+	 * List Fields
 	 *
-	 * @param  string $list_field_id list_field_id (required)
-	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\Field1[]
 	 */
-	public function metadataAddOrUpdateValuesForListFields($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		list($response) = $this->metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, $contentType);
+	public function listFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listFields'][0]) {
+		list($response) = $this->listFieldsWithHttpInfo($accept_header_parameter, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation metadataAddOrUpdateValuesForListFieldsWithHttpInfo
+	 * Operation listFieldsWithHttpInfo
 	 *
-	 * Create or Update List Field Values
+	 * List Fields
 	 *
-	 * @param  string $list_field_id (required)
-	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\Field1[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function metadataAddOrUpdateValuesForListFieldsWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		$request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
+	public function listFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listFields'][0]) {
+		$request = $this->listFieldsRequest($accept_header_parameter, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -776,27 +2002,48 @@ class AccountInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\Field1[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\Field1[]',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation metadataAddOrUpdateValuesForListFieldsAsync
+	 * Operation listFieldsAsync
 	 *
-	 * Create or Update List Field Values
+	 * List Fields
 	 *
-	 * @param  string $list_field_id (required)
-	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function metadataAddOrUpdateValuesForListFieldsAsync($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		return $this->metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($list_field_id, $list_field_values, $contentType)
+	public function listFieldsAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listFields'][0]) {
+		return $this->listFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -805,29 +2052,30 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo
+	 * Operation listFieldsAsyncWithHttpInfo
 	 *
-	 * Create or Update List Field Values
+	 * List Fields
 	 *
-	 * @param  string $list_field_id (required)
-	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function metadataAddOrUpdateValuesForListFieldsAsyncWithHttpInfo($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		
-		$request = $this->metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, $contentType);
+	public function listFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listFields'][0]) {
+		$returnType = '\BhrSdk\Model\Field1[]';
+		$request = $this->listFieldsRequest($accept_header_parameter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -850,221 +2098,15 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Create request for operation 'metadataAddOrUpdateValuesForListFields'
+	 * Create request for operation 'listFields'
 	 *
-	 * @param  string $list_field_id (required)
-	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'] to see the possible values for this operation
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function metadataAddOrUpdateValuesForListFieldsRequest($list_field_id, $list_field_values, string $contentType = self::CONTENT_TYPES['metadataAddOrUpdateValuesForListFields'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'list_field_id' => $list_field_id,
-				'list_field_values' => $list_field_values,
-			],
-			methodName: 'metadataAddOrUpdateValuesForListFields'
-		);
-
-		$resourcePath = '/api/v1/meta/lists/{listFieldId}';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($list_field_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'listFieldId' . '}',
-				ObjectSerializer::toPathValue((string) $list_field_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($list_field_values)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($list_field_values));
-			} else {
-				$httpBody = is_array($list_field_values) ? json_encode($list_field_values) : $list_field_values;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation metadataGetAListOfFields
-	 *
-	 * Get Fields
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function metadataGetAListOfFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		list($response) = $this->metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation metadataGetAListOfFieldsWithHttpInfo
-	 *
-	 * Get Fields
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function metadataGetAListOfFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		$request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation metadataGetAListOfFieldsAsync
-	 *
-	 * Get Fields
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function metadataGetAListOfFieldsAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		return $this->metadataGetAListOfFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation metadataGetAListOfFieldsAsyncWithHttpInfo
-	 *
-	 * Get Fields
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function metadataGetAListOfFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
-		
-		$request = $this->metadataGetAListOfFieldsRequest($accept_header_parameter, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'metadataGetAListOfFields'
-	 *
-	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfFields'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function metadataGetAListOfFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfFields'][0]) {
+	public function listFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listFields'][0]) {
 
 		$resourcePath = '/api/v1/meta/fields';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
@@ -1130,36 +2172,38 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation metadataGetAListOfTabularFields
+	 * Operation listListFields
 	 *
-	 * Get Tabular Fields
+	 * List List Fields
 	 *
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listListFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\ListFieldDetail[]
 	 */
-	public function metadataGetAListOfTabularFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		list($response) = $this->metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter, $contentType);
+	public function listListFields($format = null, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listListFields'][0]) {
+		list($response) = $this->listListFieldsWithHttpInfo($format, $accept_header_parameter, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation metadataGetAListOfTabularFieldsWithHttpInfo
+	 * Operation listListFieldsWithHttpInfo
 	 *
-	 * Get Tabular Fields
+	 * List List Fields
 	 *
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listListFields'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ListFieldDetail[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function metadataGetAListOfTabularFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		$request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
+	public function listListFieldsWithHttpInfo($format = null, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listListFields'][0]) {
+		$request = $this->listListFieldsRequest($format, $accept_header_parameter, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1167,26 +2211,49 @@ class AccountInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ListFieldDetail[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\ListFieldDetail[]',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation metadataGetAListOfTabularFieldsAsync
+	 * Operation listListFieldsAsync
 	 *
-	 * Get Tabular Fields
+	 * List List Fields
 	 *
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function metadataGetAListOfTabularFieldsAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		return $this->metadataGetAListOfTabularFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
+	public function listListFieldsAsync($format = null, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listListFields'][0]) {
+		return $this->listListFieldsAsyncWithHttpInfo($format, $accept_header_parameter, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1195,28 +2262,31 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation metadataGetAListOfTabularFieldsAsyncWithHttpInfo
+	 * Operation listListFieldsAsyncWithHttpInfo
 	 *
-	 * Get Tabular Fields
+	 * List List Fields
 	 *
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function metadataGetAListOfTabularFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
-		
-		$request = $this->metadataGetAListOfTabularFieldsRequest($accept_header_parameter, $contentType);
+	public function listListFieldsAsyncWithHttpInfo($format = null, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listListFields'][0]) {
+		$returnType = '\BhrSdk\Model\ListFieldDetail[]';
+		$request = $this->listListFieldsRequest($format, $accept_header_parameter, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -1239,15 +2309,239 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Create request for operation 'metadataGetAListOfTabularFields'
+	 * Create request for operation 'listListFields'
 	 *
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetAListOfTabularFields'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listListFields'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function metadataGetAListOfTabularFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetAListOfTabularFields'][0]) {
+	public function listListFieldsRequest($format = null, $accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listListFields'][0]) {
+
+		$resourcePath = '/api/v1/meta/lists';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'format' => ['value' => $format, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// header params
+		if ($accept_header_parameter !== null) {
+			$headerParams['AcceptHeaderParameter'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/xml', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listTabularFields
+	 *
+	 * List Tabular Fields
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTabularFields'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TabularField[]
+	 */
+	public function listTabularFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTabularFields'][0]) {
+		list($response) = $this->listTabularFieldsWithHttpInfo($accept_header_parameter, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listTabularFieldsWithHttpInfo
+	 *
+	 * List Tabular Fields
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTabularFields'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TabularField[], HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function listTabularFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTabularFields'][0]) {
+		$request = $this->listTabularFieldsRequest($accept_header_parameter, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TabularField[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TabularField[]',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listTabularFieldsAsync
+	 *
+	 * List Tabular Fields
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTabularFields'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listTabularFieldsAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTabularFields'][0]) {
+		return $this->listTabularFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listTabularFieldsAsyncWithHttpInfo
+	 *
+	 * List Tabular Fields
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTabularFields'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listTabularFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTabularFields'][0]) {
+		$returnType = '\BhrSdk\Model\TabularField[]';
+		$request = $this->listTabularFieldsRequest($accept_header_parameter, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listTabularFields'
+	 *
+	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listTabularFields'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function listTabularFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['listTabularFields'][0]) {
 
 		$resourcePath = '/api/v1/meta/tables';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
@@ -1313,36 +2607,38 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation metadataGetDetailsForListFields
+	 * Operation listUsers
 	 *
-	 * Get List Field Details
+	 * List Users
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string|null $status Comma-separated list of statuses to filter by. Valid values: &#x60;enabled&#x60;, &#x60;disabled&#x60;. Defaults to returning users of all statuses when omitted or when no recognized value is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listUsers'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return array<string,\BhrSdk\Model\ListUsersResponseValue>
 	 */
-	public function metadataGetDetailsForListFields($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		list($response) = $this->metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter, $contentType);
+	public function listUsers($accept_header_parameter = null, $status = null, string $contentType = self::CONTENT_TYPES['listUsers'][0]) {
+		list($response) = $this->listUsersWithHttpInfo($accept_header_parameter, $status, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation metadataGetDetailsForListFieldsWithHttpInfo
+	 * Operation listUsersWithHttpInfo
 	 *
-	 * Get List Field Details
+	 * List Users
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string|null $status Comma-separated list of statuses to filter by. Valid values: &#x60;enabled&#x60;, &#x60;disabled&#x60;. Defaults to returning users of all statuses when omitted or when no recognized value is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listUsers'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of array<string,\BhrSdk\Model\ListUsersResponseValue>, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function metadataGetDetailsForListFieldsWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		$request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
+	public function listUsersWithHttpInfo($accept_header_parameter = null, $status = null, string $contentType = self::CONTENT_TYPES['listUsers'][0]) {
+		$request = $this->listUsersRequest($accept_header_parameter, $status, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1350,26 +2646,49 @@ class AccountInformationApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'array<string,\BhrSdk\Model\ListUsersResponseValue>',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'array<string,\BhrSdk\Model\ListUsersResponseValue>',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation metadataGetDetailsForListFieldsAsync
+	 * Operation listUsersAsync
 	 *
-	 * Get List Field Details
+	 * List Users
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string|null $status Comma-separated list of statuses to filter by. Valid values: &#x60;enabled&#x60;, &#x60;disabled&#x60;. Defaults to returning users of all statuses when omitted or when no recognized value is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listUsers'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function metadataGetDetailsForListFieldsAsync($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		return $this->metadataGetDetailsForListFieldsAsyncWithHttpInfo($accept_header_parameter, $contentType)
+	public function listUsersAsync($accept_header_parameter = null, $status = null, string $contentType = self::CONTENT_TYPES['listUsers'][0]) {
+		return $this->listUsersAsyncWithHttpInfo($accept_header_parameter, $status, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1378,28 +2697,31 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Operation metadataGetDetailsForListFieldsAsyncWithHttpInfo
+	 * Operation listUsersAsyncWithHttpInfo
 	 *
-	 * Get List Field Details
+	 * List Users
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string|null $status Comma-separated list of statuses to filter by. Valid values: &#x60;enabled&#x60;, &#x60;disabled&#x60;. Defaults to returning users of all statuses when omitted or when no recognized value is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listUsers'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function metadataGetDetailsForListFieldsAsyncWithHttpInfo($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
-		
-		$request = $this->metadataGetDetailsForListFieldsRequest($accept_header_parameter, $contentType);
+	public function listUsersAsyncWithHttpInfo($accept_header_parameter = null, $status = null, string $contentType = self::CONTENT_TYPES['listUsers'][0]) {
+		$returnType = 'array<string,\BhrSdk\Model\ListUsersResponseValue>';
+		$request = $this->listUsersRequest($accept_header_parameter, $status, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -1422,23 +2744,40 @@ class AccountInformationApi {
 	}
 
 	/**
-	 * Create request for operation 'metadataGetDetailsForListFields'
+	 * Create request for operation 'listUsers'
 	 *
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['metadataGetDetailsForListFields'] to see the possible values for this operation
+	 * @param  string|null $status Comma-separated list of statuses to filter by. Valid values: &#x60;enabled&#x60;, &#x60;disabled&#x60;. Defaults to returning users of all statuses when omitted or when no recognized value is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listUsers'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function metadataGetDetailsForListFieldsRequest($accept_header_parameter = null, string $contentType = self::CONTENT_TYPES['metadataGetDetailsForListFields'][0]) {
+	public function listUsersRequest($accept_header_parameter = null, $status = null, string $contentType = self::CONTENT_TYPES['listUsers'][0]) {
 
-		$resourcePath = '/api/v1/meta/lists';
+		$resourcePath = '/api/v1/meta/users';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		$parameters = [
+			'status' => ['value' => $status, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -1489,6 +2828,261 @@ class AccountInformationApi {
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
 			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation updateListFieldValues
+	 *
+	 * Update List Field Values
+	 *
+	 * @param  string $list_field_id The field ID of the list to update. This is the &#x60;fieldId&#x60; value returned by the GET endpoint, not the list &#x60;id&#x60;. (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values list_field_values (required)
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateListFieldValues'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\ListFieldDetail
+	 */
+	public function updateListFieldValues($list_field_id, $list_field_values, $format = null, string $contentType = self::CONTENT_TYPES['updateListFieldValues'][0]) {
+		list($response) = $this->updateListFieldValuesWithHttpInfo($list_field_id, $list_field_values, $format, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation updateListFieldValuesWithHttpInfo
+	 *
+	 * Update List Field Values
+	 *
+	 * @param  string $list_field_id The field ID of the list to update. This is the &#x60;fieldId&#x60; value returned by the GET endpoint, not the list &#x60;id&#x60;. (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateListFieldValues'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\ListFieldDetail, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function updateListFieldValuesWithHttpInfo($list_field_id, $list_field_values, $format = null, string $contentType = self::CONTENT_TYPES['updateListFieldValues'][0]) {
+		$request = $this->updateListFieldValuesRequest($list_field_id, $list_field_values, $format, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ListFieldDetail',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\ListFieldDetail',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation updateListFieldValuesAsync
+	 *
+	 * Update List Field Values
+	 *
+	 * @param  string $list_field_id The field ID of the list to update. This is the &#x60;fieldId&#x60; value returned by the GET endpoint, not the list &#x60;id&#x60;. (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateListFieldValues'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function updateListFieldValuesAsync($list_field_id, $list_field_values, $format = null, string $contentType = self::CONTENT_TYPES['updateListFieldValues'][0]) {
+		return $this->updateListFieldValuesAsyncWithHttpInfo($list_field_id, $list_field_values, $format, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation updateListFieldValuesAsyncWithHttpInfo
+	 *
+	 * Update List Field Values
+	 *
+	 * @param  string $list_field_id The field ID of the list to update. This is the &#x60;fieldId&#x60; value returned by the GET endpoint, not the list &#x60;id&#x60;. (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateListFieldValues'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function updateListFieldValuesAsyncWithHttpInfo($list_field_id, $list_field_values, $format = null, string $contentType = self::CONTENT_TYPES['updateListFieldValues'][0]) {
+		$returnType = '\BhrSdk\Model\ListFieldDetail';
+		$request = $this->updateListFieldValuesRequest($list_field_id, $list_field_values, $format, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'updateListFieldValues'
+	 *
+	 * @param  string $list_field_id The field ID of the list to update. This is the &#x60;fieldId&#x60; value returned by the GET endpoint, not the list &#x60;id&#x60;. (required)
+	 * @param  \BhrSdk\Model\ListFieldValues $list_field_values (required)
+	 * @param  string|null $format Set to \&quot;json\&quot; to receive JSON output as an alternative to using the Accept header. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateListFieldValues'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function updateListFieldValuesRequest($list_field_id, $list_field_values, $format = null, string $contentType = self::CONTENT_TYPES['updateListFieldValues'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'list_field_id' => $list_field_id,
+				'list_field_values' => $list_field_values,
+			],
+			methodName: 'updateListFieldValues'
+		);
+
+		$resourcePath = '/api/v1/meta/lists/{listFieldId}';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'format' => ['value' => $format, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($list_field_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'listFieldId' . '}',
+				ObjectSerializer::toPathValue((string) $list_field_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'text/xml', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($list_field_values)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($list_field_values));
+			} else {
+				$httpBody = is_array($list_field_values) ? json_encode($list_field_values) : $list_field_values;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody

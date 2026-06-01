@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * RequestCustomReportFilters Class Doc Comment
  *
  * @category Class
+ * @description Optional filters to restrict which employees appear in the report.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,7 +58,8 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'last_changed' => '\BhrSdk\Model\RequestCustomReportFiltersLastChanged'
+		'last_changed' => '\BhrSdk\Model\RequestCustomReportFiltersLastChanged',
+		'employee_ids' => 'int[]'
 	];
 
 	/**
@@ -68,7 +70,8 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'last_changed' => null
+		'last_changed' => null,
+		'employee_ids' => null
 	];
 
 	/**
@@ -78,7 +81,8 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'last_changed' => false
+		'last_changed' => false,
+		'employee_ids' => false
 	];
 
 	/**
@@ -163,7 +167,8 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'last_changed' => 'lastChanged'
+		'last_changed' => 'lastChanged',
+		'employee_ids' => 'employeeIds'
 	];
 
 	/**
@@ -172,7 +177,8 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'last_changed' => 'setLastChanged'
+		'last_changed' => 'setLastChanged',
+		'employee_ids' => 'setEmployeeIds'
 	];
 
 	/**
@@ -181,7 +187,8 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'last_changed' => 'getLastChanged'
+		'last_changed' => 'getLastChanged',
+		'employee_ids' => 'getEmployeeIds'
 	];
 
 	/**
@@ -236,6 +243,7 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 	 */
 	public function __construct(?array $data = null) {
 		$this->setIfExists('last_changed', $data ?? [], null);
+		$this->setIfExists('employee_ids', $data ?? [], null);
 	}
 
 	/**
@@ -297,6 +305,31 @@ class RequestCustomReportFilters implements ModelInterface, ArrayAccess, \JsonSe
 			throw new \InvalidArgumentException('non-nullable last_changed cannot be null');
 		}
 		$this->container['last_changed'] = $last_changed;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employee_ids
+	 *
+	 * @return int[]|null
+	 */
+	public function getEmployeeIds() {
+		return $this->container['employee_ids'];
+	}
+
+	/**
+	 * Sets employee_ids
+	 *
+	 * @param int[]|null $employee_ids Restricts the report to only the specified employee IDs.
+	 *
+	 * @return self
+	 */
+	public function setEmployeeIds($employee_ids) {
+		if (is_null($employee_ids)) {
+			throw new \InvalidArgumentException('non-nullable employee_ids cannot be null');
+		}
+		$this->container['employee_ids'] = $employee_ids;
 
 		return $this;
 	}

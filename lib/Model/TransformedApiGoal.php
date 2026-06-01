@@ -57,7 +57,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'goal' => '\BhrSdk\Model\TransformedApiGoalGoal'
+		'id' => 'string',
+		'title' => 'string',
+		'description' => 'string',
+		'percent_complete' => 'int',
+		'aligns_with_option_id' => 'string',
+		'shared_with_employee_ids' => 'int[]',
+		'due_date' => 'string',
+		'completion_date' => 'string',
+		'last_changed_date_time' => 'string',
+		'status' => 'string',
+		'milestones' => '\BhrSdk\Model\TransformedApiGoalMilestonesInner[]',
+		'actions' => 'object'
 	];
 
 	/**
@@ -68,7 +79,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'goal' => null
+		'id' => null,
+		'title' => null,
+		'description' => null,
+		'percent_complete' => null,
+		'aligns_with_option_id' => null,
+		'shared_with_employee_ids' => null,
+		'due_date' => null,
+		'completion_date' => null,
+		'last_changed_date_time' => null,
+		'status' => null,
+		'milestones' => null,
+		'actions' => null
 	];
 
 	/**
@@ -78,7 +100,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'goal' => false
+		'id' => false,
+		'title' => false,
+		'description' => false,
+		'percent_complete' => false,
+		'aligns_with_option_id' => true,
+		'shared_with_employee_ids' => false,
+		'due_date' => false,
+		'completion_date' => true,
+		'last_changed_date_time' => true,
+		'status' => false,
+		'milestones' => true,
+		'actions' => true
 	];
 
 	/**
@@ -163,7 +196,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'goal' => 'goal'
+		'id' => 'id',
+		'title' => 'title',
+		'description' => 'description',
+		'percent_complete' => 'percentComplete',
+		'aligns_with_option_id' => 'alignsWithOptionId',
+		'shared_with_employee_ids' => 'sharedWithEmployeeIds',
+		'due_date' => 'dueDate',
+		'completion_date' => 'completionDate',
+		'last_changed_date_time' => 'lastChangedDateTime',
+		'status' => 'status',
+		'milestones' => 'milestones',
+		'actions' => 'actions'
 	];
 
 	/**
@@ -172,7 +216,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'goal' => 'setGoal'
+		'id' => 'setId',
+		'title' => 'setTitle',
+		'description' => 'setDescription',
+		'percent_complete' => 'setPercentComplete',
+		'aligns_with_option_id' => 'setAlignsWithOptionId',
+		'shared_with_employee_ids' => 'setSharedWithEmployeeIds',
+		'due_date' => 'setDueDate',
+		'completion_date' => 'setCompletionDate',
+		'last_changed_date_time' => 'setLastChangedDateTime',
+		'status' => 'setStatus',
+		'milestones' => 'setMilestones',
+		'actions' => 'setActions'
 	];
 
 	/**
@@ -181,7 +236,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'goal' => 'getGoal'
+		'id' => 'getId',
+		'title' => 'getTitle',
+		'description' => 'getDescription',
+		'percent_complete' => 'getPercentComplete',
+		'aligns_with_option_id' => 'getAlignsWithOptionId',
+		'shared_with_employee_ids' => 'getSharedWithEmployeeIds',
+		'due_date' => 'getDueDate',
+		'completion_date' => 'getCompletionDate',
+		'last_changed_date_time' => 'getLastChangedDateTime',
+		'status' => 'getStatus',
+		'milestones' => 'getMilestones',
+		'actions' => 'getActions'
 	];
 
 	/**
@@ -221,6 +287,23 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 		return self::$openApiModelName;
 	}
 
+	public const STATUS_IN_PROGRESS = 'in_progress';
+	public const STATUS_COMPLETED = 'completed';
+	public const STATUS_CLOSED = 'closed';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getStatusAllowableValues() {
+		return [
+			self::STATUS_IN_PROGRESS,
+			self::STATUS_COMPLETED,
+			self::STATUS_CLOSED,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -235,7 +318,18 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('goal', $data ?? [], null);
+		$this->setIfExists('id', $data ?? [], null);
+		$this->setIfExists('title', $data ?? [], null);
+		$this->setIfExists('description', $data ?? [], null);
+		$this->setIfExists('percent_complete', $data ?? [], null);
+		$this->setIfExists('aligns_with_option_id', $data ?? [], null);
+		$this->setIfExists('shared_with_employee_ids', $data ?? [], null);
+		$this->setIfExists('due_date', $data ?? [], null);
+		$this->setIfExists('completion_date', $data ?? [], null);
+		$this->setIfExists('last_changed_date_time', $data ?? [], null);
+		$this->setIfExists('status', $data ?? [], null);
+		$this->setIfExists('milestones', $data ?? [], null);
+		$this->setIfExists('actions', $data ?? [], null);
 	}
 
 	/**
@@ -263,6 +357,15 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'status', must be one of '%s'",
+				$this->container['status'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -277,26 +380,341 @@ class TransformedApiGoal implements ModelInterface, ArrayAccess, \JsonSerializab
 	}
 
 	/**
-	 * Gets goal
+	 * Gets id
 	 *
-	 * @return \BhrSdk\Model\TransformedApiGoalGoal|null
+	 * @return string|null
 	 */
-	public function getGoal() {
-		return $this->container['goal'];
+	public function getId() {
+		return $this->container['id'];
 	}
 
 	/**
-	 * Sets goal
+	 * Sets id
 	 *
-	 * @param \BhrSdk\Model\TransformedApiGoalGoal|null $goal goal
+	 * @param string|null $id The id of the goal.
 	 *
 	 * @return self
 	 */
-	public function setGoal($goal) {
-		if (is_null($goal)) {
-			throw new \InvalidArgumentException('non-nullable goal cannot be null');
+	public function setId($id) {
+		if (is_null($id)) {
+			throw new \InvalidArgumentException('non-nullable id cannot be null');
 		}
-		$this->container['goal'] = $goal;
+		$this->container['id'] = $id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets title
+	 *
+	 * @return string|null
+	 */
+	public function getTitle() {
+		return $this->container['title'];
+	}
+
+	/**
+	 * Sets title
+	 *
+	 * @param string|null $title Title of the goal.
+	 *
+	 * @return self
+	 */
+	public function setTitle($title) {
+		if (is_null($title)) {
+			throw new \InvalidArgumentException('non-nullable title cannot be null');
+		}
+		$this->container['title'] = $title;
+
+		return $this;
+	}
+
+	/**
+	 * Gets description
+	 *
+	 * @return string|null
+	 */
+	public function getDescription() {
+		return $this->container['description'];
+	}
+
+	/**
+	 * Sets description
+	 *
+	 * @param string|null $description A description of the goal.
+	 *
+	 * @return self
+	 */
+	public function setDescription($description) {
+		if (is_null($description)) {
+			throw new \InvalidArgumentException('non-nullable description cannot be null');
+		}
+		$this->container['description'] = $description;
+
+		return $this;
+	}
+
+	/**
+	 * Gets percent_complete
+	 *
+	 * @return int|null
+	 */
+	public function getPercentComplete() {
+		return $this->container['percent_complete'];
+	}
+
+	/**
+	 * Sets percent_complete
+	 *
+	 * @param int|null $percent_complete A percentage (0-100) that denotes how complete the goal is.
+	 *
+	 * @return self
+	 */
+	public function setPercentComplete($percent_complete) {
+		if (is_null($percent_complete)) {
+			throw new \InvalidArgumentException('non-nullable percent_complete cannot be null');
+		}
+		$this->container['percent_complete'] = $percent_complete;
+
+		return $this;
+	}
+
+	/**
+	 * Gets aligns_with_option_id
+	 *
+	 * @return string|null
+	 */
+	public function getAlignsWithOptionId() {
+		return $this->container['aligns_with_option_id'];
+	}
+
+	/**
+	 * Sets aligns_with_option_id
+	 *
+	 * @param string|null $aligns_with_option_id aligns_with_option_id
+	 *
+	 * @return self
+	 */
+	public function setAlignsWithOptionId($aligns_with_option_id) {
+		if (is_null($aligns_with_option_id)) {
+			$this->openApiNullablesSetToNull['aligns_with_option_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['aligns_with_option_id'])) {
+				unset($nullablesSetToNull['aligns_with_option_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['aligns_with_option_id'] = $aligns_with_option_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets shared_with_employee_ids
+	 *
+	 * @return int[]|null
+	 */
+	public function getSharedWithEmployeeIds() {
+		return $this->container['shared_with_employee_ids'];
+	}
+
+	/**
+	 * Sets shared_with_employee_ids
+	 *
+	 * @param int[]|null $shared_with_employee_ids Ids of the employees that have access to this goal.
+	 *
+	 * @return self
+	 */
+	public function setSharedWithEmployeeIds($shared_with_employee_ids) {
+		if (is_null($shared_with_employee_ids)) {
+			throw new \InvalidArgumentException('non-nullable shared_with_employee_ids cannot be null');
+		}
+		$this->container['shared_with_employee_ids'] = $shared_with_employee_ids;
+
+		return $this;
+	}
+
+	/**
+	 * Gets due_date
+	 *
+	 * @return string|null
+	 */
+	public function getDueDate() {
+		return $this->container['due_date'];
+	}
+
+	/**
+	 * Sets due_date
+	 *
+	 * @param string|null $due_date The due date of the goal.
+	 *
+	 * @return self
+	 */
+	public function setDueDate($due_date) {
+		if (is_null($due_date)) {
+			throw new \InvalidArgumentException('non-nullable due_date cannot be null');
+		}
+		$this->container['due_date'] = $due_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets completion_date
+	 *
+	 * @return string|null
+	 */
+	public function getCompletionDate() {
+		return $this->container['completion_date'];
+	}
+
+	/**
+	 * Sets completion_date
+	 *
+	 * @param string|null $completion_date completion_date
+	 *
+	 * @return self
+	 */
+	public function setCompletionDate($completion_date) {
+		if (is_null($completion_date)) {
+			$this->openApiNullablesSetToNull['completion_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['completion_date'])) {
+				unset($nullablesSetToNull['completion_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['completion_date'] = $completion_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets last_changed_date_time
+	 *
+	 * @return string|null
+	 */
+	public function getLastChangedDateTime() {
+		return $this->container['last_changed_date_time'];
+	}
+
+	/**
+	 * Sets last_changed_date_time
+	 *
+	 * @param string|null $last_changed_date_time last_changed_date_time
+	 *
+	 * @return self
+	 */
+	public function setLastChangedDateTime($last_changed_date_time) {
+		if (is_null($last_changed_date_time)) {
+			$this->openApiNullablesSetToNull['last_changed_date_time'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['last_changed_date_time'])) {
+				unset($nullablesSetToNull['last_changed_date_time']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['last_changed_date_time'] = $last_changed_date_time;
+
+		return $this;
+	}
+
+	/**
+	 * Gets status
+	 *
+	 * @return string|null
+	 */
+	public function getStatus() {
+		return $this->container['status'];
+	}
+
+	/**
+	 * Sets status
+	 *
+	 * @param string|null $status The status of the goal.
+	 *
+	 * @return self
+	 */
+	public function setStatus($status) {
+		if (is_null($status)) {
+			throw new \InvalidArgumentException('non-nullable status cannot be null');
+		}
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!in_array($status, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'status', must be one of '%s'",
+					$status,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['status'] = $status;
+
+		return $this;
+	}
+
+	/**
+	 * Gets milestones
+	 *
+	 * @return \BhrSdk\Model\TransformedApiGoalMilestonesInner[]|null
+	 */
+	public function getMilestones() {
+		return $this->container['milestones'];
+	}
+
+	/**
+	 * Sets milestones
+	 *
+	 * @param \BhrSdk\Model\TransformedApiGoalMilestonesInner[]|null $milestones milestones
+	 *
+	 * @return self
+	 */
+	public function setMilestones($milestones) {
+		if (is_null($milestones)) {
+			$this->openApiNullablesSetToNull['milestones'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['milestones'])) {
+				unset($nullablesSetToNull['milestones']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['milestones'] = $milestones;
+
+		return $this;
+	}
+
+	/**
+	 * Gets actions
+	 *
+	 * @return object|null
+	 */
+	public function getActions() {
+		return $this->container['actions'];
+	}
+
+	/**
+	 * Sets actions
+	 *
+	 * @param object|null $actions actions
+	 *
+	 * @return self
+	 */
+	public function setActions($actions) {
+		if (is_null($actions)) {
+			$this->openApiNullablesSetToNull['actions'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['actions'])) {
+				unset($nullablesSetToNull['actions']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['actions'] = $actions;
 
 		return $this;
 	}

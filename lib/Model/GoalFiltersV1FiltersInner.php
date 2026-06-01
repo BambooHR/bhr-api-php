@@ -233,7 +233,7 @@ class GoalFiltersV1FiltersInner implements ModelInterface, ArrayAccess, \JsonSer
 		return self::$openApiModelName;
 	}
 
-	public const ID_STATUS_IN_PROGRESS = 'status-in_progress';
+	public const ID_STATUS_IN_PROGRESS = 'status-inProgress';
 	public const ID_STATUS_COMPLETED = 'status-completed';
 	public const NAME_IN_PROGRESS = 'In Progress';
 	public const NAME_COMPLETED = 'Completed';

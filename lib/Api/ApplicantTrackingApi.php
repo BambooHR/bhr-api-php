@@ -79,10 +79,13 @@ class ApplicantTrackingApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'addNewCandidate' => [
+		'createApplicationComment' => [
+			'application/json',
+        ],
+		'createCandidate' => [
 			'multipart/form-data',
         ],
-		'addNewJobOpening' => [
+		'createJobOpening' => [
 			'multipart/form-data',
         ],
 		'getApplicationDetails' => [
@@ -103,10 +106,7 @@ class ApplicantTrackingApi {
 		'getStatuses' => [
 			'application/json',
         ],
-		'postApplicantStatus' => [
-			'application/json',
-        ],
-		'postApplicationComment' => [
+		'updateApplicantStatus' => [
 			'application/json',
         ],
 	];
@@ -158,76 +158,38 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Operation addNewCandidate
+	 * Operation createApplicationComment
 	 *
-	 * Create Candidate
+	 * Create Job Application Comment
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
-	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  \BhrSdk\Model\CreateApplicationCommentRequest $create_application_comment_request Comment object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\CreateCommentResponse
 	 */
-	public function addNewCandidate($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
-		list($response) = $this->addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+	public function createApplicationComment($application_id, $create_application_comment_request, string $contentType = self::CONTENT_TYPES['createApplicationComment'][0]) {
+		list($response) = $this->createApplicationCommentWithHttpInfo($application_id, $create_application_comment_request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addNewCandidateWithHttpInfo
+	 * Operation createApplicationCommentWithHttpInfo
 	 *
-	 * Create Candidate
+	 * Create Job Application Comment
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
-	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  \BhrSdk\Model\CreateApplicationCommentRequest $create_application_comment_request Comment object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\CreateCommentResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addNewCandidateWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
-		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+	public function createApplicationCommentWithHttpInfo($application_id, $create_application_comment_request, string $contentType = self::CONTENT_TYPES['createApplicationComment'][0]) {
+		$request = $this->createApplicationCommentRequest($application_id, $create_application_comment_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -235,46 +197,49 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CreateCommentResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\CreateCommentResponse',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation addNewCandidateAsync
+	 * Operation createApplicationCommentAsync
 	 *
-	 * Create Candidate
+	 * Create Job Application Comment
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
-	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  \BhrSdk\Model\CreateApplicationCommentRequest $create_application_comment_request Comment object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addNewCandidateAsync($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
-		return $this->addNewCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType)
+	public function createApplicationCommentAsync($application_id, $create_application_comment_request, string $contentType = self::CONTENT_TYPES['createApplicationComment'][0]) {
+		return $this->createApplicationCommentAsyncWithHttpInfo($application_id, $create_application_comment_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -283,48 +248,31 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Operation addNewCandidateAsyncWithHttpInfo
+	 * Operation createApplicationCommentAsyncWithHttpInfo
 	 *
-	 * Create Candidate
+	 * Create Job Application Comment
 	 *
-	 * @param  string $first_name The first name of the candidate. (required)
-	 * @param  string $last_name The last name of the candidate. (required)
-	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
-	 * @param  string|null $phone_number The phone number of the candidate. (optional)
-	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
-	 * @param  string|null $address The street address of the candidate. (optional)
-	 * @param  string|null $city The city of the candidate. (optional)
-	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
-	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
-	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
-	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
-	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
-	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
-	 * @param  string|null $college_name The college or university of the candidate. (optional)
-	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  \BhrSdk\Model\CreateApplicationCommentRequest $create_application_comment_request Comment object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createApplicationComment'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addNewCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
-		
-		$request = $this->addNewCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+	public function createApplicationCommentAsyncWithHttpInfo($application_id, $create_application_comment_request, string $contentType = self::CONTENT_TYPES['createApplicationComment'][0]) {
+		$returnType = '\BhrSdk\Model\CreateCommentResponse';
+		$request = $this->createApplicationCommentRequest($application_id, $create_application_comment_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -347,12 +295,111 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Create request for operation 'addNewCandidate'
+	 * Create request for operation 'createApplicationComment'
+	 *
+	 * @param  int $application_id The ID of the application to add a comment to. (required)
+	 * @param  \BhrSdk\Model\CreateApplicationCommentRequest $create_application_comment_request Comment object to post (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createApplicationComment'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function createApplicationCommentRequest($application_id, $create_application_comment_request, string $contentType = self::CONTENT_TYPES['createApplicationComment'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'application_id' => $application_id,
+				'create_application_comment_request' => $create_application_comment_request,
+			],
+			methodName: 'createApplicationComment'
+		);
+
+		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($application_id !== null) {
+			$resourcePath = str_replace(
+				'{' . 'applicationId' . '}',
+				ObjectSerializer::toPathValue((string) $application_id),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($create_application_comment_request)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_application_comment_request));
+			} else {
+				$httpBody = is_array($create_application_comment_request) ? json_encode($create_application_comment_request) : $create_application_comment_request;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation createCandidate
+	 *
+	 * Create Candidate
 	 *
 	 * @param  string $first_name The first name of the candidate. (required)
 	 * @param  string $last_name The last name of the candidate. (required)
 	 * @param  int $job_id The id of the job opening for the candidate application. (required)
-	 * @param  string|null $email The email address of the candidate. (optional)
+	 * @param  string|null $email The email address of the candidate. Must be a valid email address. (optional)
 	 * @param  string|null $phone_number The phone number of the candidate. (optional)
 	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
 	 * @param  string|null $address The street address of the candidate. (optional)
@@ -360,22 +407,233 @@ class ApplicantTrackingApi {
 	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
 	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
 	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
-	 * @param  string|null $linkedin_url The LinkedIn profile url of the candidate. (optional)
-	 * @param  string|null $date_available The available start date of the candidate with the format YYYY-MM-DD. (optional)
+	 * @param  string|null $linkedin_url The LinkedIn profile URL of the candidate. Must match &#x60;https?://(.*\\\\.)?linkedin.com/...&#x60;. (optional)
+	 * @param  \DateTime|null $date_available The available start date of the candidate. Format: &#x60;Y-m-d&#x60; (e.g. &#x60;2024-06-01&#x60;). (optional)
 	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
 	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
-	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. (optional)
+	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. Must be a valid URL. (optional)
 	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
 	 * @param  string|null $college_name The college or university of the candidate. (optional)
 	 * @param  string|null $references A list of references supplied by the candidate. (optional)
-	 * @param  string|null $resume Resume of the candidate. (optional)
-	 * @param  string|null $cover_letter Cover letter of the candidate. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewCandidate'] to see the possible values for this operation
+	 * @param  \SplFileObject|null $resume Resume file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  \SplFileObject|null $cover_letter Cover letter file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCandidate'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\CreateCandidateResponse
+	 */
+	public function createCandidate($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['createCandidate'][0]) {
+		list($response) = $this->createCandidateWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation createCandidateWithHttpInfo
+	 *
+	 * Create Candidate
+	 *
+	 * @param  string $first_name The first name of the candidate. (required)
+	 * @param  string $last_name The last name of the candidate. (required)
+	 * @param  int $job_id The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email The email address of the candidate. Must be a valid email address. (optional)
+	 * @param  string|null $phone_number The phone number of the candidate. (optional)
+	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address The street address of the candidate. (optional)
+	 * @param  string|null $city The city of the candidate. (optional)
+	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url The LinkedIn profile URL of the candidate. Must match &#x60;https?://(.*\\\\.)?linkedin.com/...&#x60;. (optional)
+	 * @param  \DateTime|null $date_available The available start date of the candidate. Format: &#x60;Y-m-d&#x60; (e.g. &#x60;2024-06-01&#x60;). (optional)
+	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. Must be a valid URL. (optional)
+	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
+	 * @param  string|null $college_name The college or university of the candidate. (optional)
+	 * @param  string|null $references A list of references supplied by the candidate. (optional)
+	 * @param  \SplFileObject|null $resume Resume file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  \SplFileObject|null $cover_letter Cover letter file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCandidate'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\CreateCandidateResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function createCandidateWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['createCandidate'][0]) {
+		$request = $this->createCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CreateCandidateResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\CreateCandidateResponse',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation createCandidateAsync
+	 *
+	 * Create Candidate
+	 *
+	 * @param  string $first_name The first name of the candidate. (required)
+	 * @param  string $last_name The last name of the candidate. (required)
+	 * @param  int $job_id The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email The email address of the candidate. Must be a valid email address. (optional)
+	 * @param  string|null $phone_number The phone number of the candidate. (optional)
+	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address The street address of the candidate. (optional)
+	 * @param  string|null $city The city of the candidate. (optional)
+	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url The LinkedIn profile URL of the candidate. Must match &#x60;https?://(.*\\\\.)?linkedin.com/...&#x60;. (optional)
+	 * @param  \DateTime|null $date_available The available start date of the candidate. Format: &#x60;Y-m-d&#x60; (e.g. &#x60;2024-06-01&#x60;). (optional)
+	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. Must be a valid URL. (optional)
+	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
+	 * @param  string|null $college_name The college or university of the candidate. (optional)
+	 * @param  string|null $references A list of references supplied by the candidate. (optional)
+	 * @param  \SplFileObject|null $resume Resume file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  \SplFileObject|null $cover_letter Cover letter file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCandidate'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function createCandidateAsync($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['createCandidate'][0]) {
+		return $this->createCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation createCandidateAsyncWithHttpInfo
+	 *
+	 * Create Candidate
+	 *
+	 * @param  string $first_name The first name of the candidate. (required)
+	 * @param  string $last_name The last name of the candidate. (required)
+	 * @param  int $job_id The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email The email address of the candidate. Must be a valid email address. (optional)
+	 * @param  string|null $phone_number The phone number of the candidate. (optional)
+	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address The street address of the candidate. (optional)
+	 * @param  string|null $city The city of the candidate. (optional)
+	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url The LinkedIn profile URL of the candidate. Must match &#x60;https?://(.*\\\\.)?linkedin.com/...&#x60;. (optional)
+	 * @param  \DateTime|null $date_available The available start date of the candidate. Format: &#x60;Y-m-d&#x60; (e.g. &#x60;2024-06-01&#x60;). (optional)
+	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. Must be a valid URL. (optional)
+	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
+	 * @param  string|null $college_name The college or university of the candidate. (optional)
+	 * @param  string|null $references A list of references supplied by the candidate. (optional)
+	 * @param  \SplFileObject|null $resume Resume file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  \SplFileObject|null $cover_letter Cover letter file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCandidate'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function createCandidateAsyncWithHttpInfo($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['createCandidate'][0]) {
+		$returnType = '\BhrSdk\Model\CreateCandidateResponse';
+		$request = $this->createCandidateRequest($first_name, $last_name, $job_id, $email, $phone_number, $source, $address, $city, $state, $zip, $country, $linkedin_url, $date_available, $desired_salary, $referred_by, $website_url, $highest_education, $college_name, $references, $resume, $cover_letter, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'createCandidate'
+	 *
+	 * @param  string $first_name The first name of the candidate. (required)
+	 * @param  string $last_name The last name of the candidate. (required)
+	 * @param  int $job_id The id of the job opening for the candidate application. (required)
+	 * @param  string|null $email The email address of the candidate. Must be a valid email address. (optional)
+	 * @param  string|null $phone_number The phone number of the candidate. (optional)
+	 * @param  string|null $source The source of the candidate application, e.g. LinkedIn, Indeed, etc. (optional)
+	 * @param  string|null $address The street address of the candidate. (optional)
+	 * @param  string|null $city The city of the candidate. (optional)
+	 * @param  string|null $state The state or province of the candidate. Accepts state name, abbreviation, or ISO code. (optional)
+	 * @param  string|null $zip The zip code or postal code of the candidate. (optional)
+	 * @param  string|null $country The country of the candidate. Accepts country name or ISO code. (optional)
+	 * @param  string|null $linkedin_url The LinkedIn profile URL of the candidate. Must match &#x60;https?://(.*\\\\.)?linkedin.com/...&#x60;. (optional)
+	 * @param  \DateTime|null $date_available The available start date of the candidate. Format: &#x60;Y-m-d&#x60; (e.g. &#x60;2024-06-01&#x60;). (optional)
+	 * @param  string|null $desired_salary The desired salary of the candidate. (optional)
+	 * @param  string|null $referred_by The person or entity that referred the candidate. (optional)
+	 * @param  string|null $website_url The personal website, blog, or online portfolio of the candidate. Must be a valid URL. (optional)
+	 * @param  string|null $highest_education The highest completed education level of the candidate. (optional)
+	 * @param  string|null $college_name The college or university of the candidate. (optional)
+	 * @param  string|null $references A list of references supplied by the candidate. (optional)
+	 * @param  \SplFileObject|null $resume Resume file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  \SplFileObject|null $cover_letter Cover letter file for the candidate. Accepted MIME types: &#x60;application/pdf&#x60;, &#x60;application/msword&#x60;, &#x60;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x60;, &#x60;text/plain&#x60;, &#x60;application/rtf&#x60;, &#x60;image/jpeg&#x60;, &#x60;image/gif&#x60;, &#x60;image/png&#x60;, &#x60;image/tiff&#x60;, &#x60;image/bmp&#x60;. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createCandidate'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addNewCandidateRequest($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['addNewCandidate'][0]) {
+	public function createCandidateRequest($first_name, $last_name, $job_id, $email = null, $phone_number = null, $source = null, $address = null, $city = null, $state = null, $zip = null, $country = null, $linkedin_url = null, $date_available = null, $desired_salary = null, $referred_by = null, $website_url = null, $highest_education = null, $college_name = null, $references = null, $resume = null, $cover_letter = null, string $contentType = self::CONTENT_TYPES['createCandidate'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -383,7 +641,7 @@ class ApplicantTrackingApi {
 				'last_name' => $last_name,
 				'job_id' => $job_id,
 			],
-			methodName: 'addNewCandidate'
+			methodName: 'createCandidate'
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/application';
@@ -500,7 +758,7 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Operation addNewJobOpening
+	 * Operation createJobOpening
 	 *
 	 * Create Job Opening
 	 *
@@ -525,19 +783,20 @@ class ApplicantTrackingApi {
 	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
 	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  int|null $location_type The location type for the job opening. &#x60;0&#x60; &#x3D; on-site (requires &#x60;jobLocation&#x60;), &#x60;1&#x60; &#x3D; remote (no &#x60;jobLocation&#x60;), &#x60;2&#x60; &#x3D; hybrid (requires &#x60;jobLocation&#x60;). Defaults to &#x60;1&#x60; if omitted and no &#x60;jobLocation&#x60; is provided, or &#x60;0&#x60; if &#x60;jobLocation&#x60; is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\CreateJobOpeningResponse
 	 */
-	public function addNewJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
-		list($response) = $this->addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+	public function createJobOpening($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, $location_type = null, string $contentType = self::CONTENT_TYPES['createJobOpening'][0]) {
+		list($response) = $this->createJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $location_type, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addNewJobOpeningWithHttpInfo
+	 * Operation createJobOpeningWithHttpInfo
 	 *
 	 * Create Job Opening
 	 *
@@ -562,14 +821,15 @@ class ApplicantTrackingApi {
 	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
 	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  int|null $location_type The location type for the job opening. &#x60;0&#x60; &#x3D; on-site (requires &#x60;jobLocation&#x60;), &#x60;1&#x60; &#x3D; remote (no &#x60;jobLocation&#x60;), &#x60;2&#x60; &#x3D; hybrid (requires &#x60;jobLocation&#x60;). Defaults to &#x60;1&#x60; if omitted and no &#x60;jobLocation&#x60; is provided, or &#x60;0&#x60; if &#x60;jobLocation&#x60; is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\CreateJobOpeningResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addNewJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
-		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+	public function createJobOpeningWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, $location_type = null, string $contentType = self::CONTENT_TYPES['createJobOpening'][0]) {
+		$request = $this->createJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $location_type, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -577,15 +837,37 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\CreateJobOpeningResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\CreateJobOpeningResponse',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation addNewJobOpeningAsync
+	 * Operation createJobOpeningAsync
 	 *
 	 * Create Job Opening
 	 *
@@ -610,13 +892,14 @@ class ApplicantTrackingApi {
 	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
 	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  int|null $location_type The location type for the job opening. &#x60;0&#x60; &#x3D; on-site (requires &#x60;jobLocation&#x60;), &#x60;1&#x60; &#x3D; remote (no &#x60;jobLocation&#x60;), &#x60;2&#x60; &#x3D; hybrid (requires &#x60;jobLocation&#x60;). Defaults to &#x60;1&#x60; if omitted and no &#x60;jobLocation&#x60; is provided, or &#x60;0&#x60; if &#x60;jobLocation&#x60; is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addNewJobOpeningAsync($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
-		return $this->addNewJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType)
+	public function createJobOpeningAsync($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, $location_type = null, string $contentType = self::CONTENT_TYPES['createJobOpening'][0]) {
+		return $this->createJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $location_type, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -625,7 +908,7 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Operation addNewJobOpeningAsyncWithHttpInfo
+	 * Operation createJobOpeningAsyncWithHttpInfo
 	 *
 	 * Create Job Opening
 	 *
@@ -650,23 +933,26 @@ class ApplicantTrackingApi {
 	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
 	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  int|null $location_type The location type for the job opening. &#x60;0&#x60; &#x3D; on-site (requires &#x60;jobLocation&#x60;), &#x60;1&#x60; &#x3D; remote (no &#x60;jobLocation&#x60;), &#x60;2&#x60; &#x3D; hybrid (requires &#x60;jobLocation&#x60;). Defaults to &#x60;1&#x60; if omitted and no &#x60;jobLocation&#x60; is provided, or &#x60;0&#x60; if &#x60;jobLocation&#x60; is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addNewJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
-		
-		$request = $this->addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $contentType);
+	public function createJobOpeningAsyncWithHttpInfo($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, $location_type = null, string $contentType = self::CONTENT_TYPES['createJobOpening'][0]) {
+		$returnType = '\BhrSdk\Model\CreateJobOpeningResponse';
+		$request = $this->createJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department, $minimum_experience, $compensation, $job_location, $application_question_resume, $application_question_address, $application_question_linkedin_url, $application_question_date_available, $application_question_desired_salary, $application_question_cover_letter, $application_question_referred_by, $application_question_website_url, $application_question_highest_education, $application_question_college, $application_question_references, $internal_job_code, $location_type, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -689,7 +975,7 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Create request for operation 'addNewJobOpening'
+	 * Create request for operation 'createJobOpening'
 	 *
 	 * @param  string $posting_title The posting title of the job opening. (required)
 	 * @param  string $job_status The status of the job opening. (required)
@@ -712,12 +998,13 @@ class ApplicantTrackingApi {
 	 * @param  string|null $application_question_college Whether the job opening application has a standard question for college (true) or not (false) or if entering a college is mandatory (required). (optional)
 	 * @param  string|null $application_question_references Whether the job opening application has a standard question for references (true) or not (false) or if entering references is mandatory (required). (optional)
 	 * @param  string|null $internal_job_code The internal job code for the job opening. (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addNewJobOpening'] to see the possible values for this operation
+	 * @param  int|null $location_type The location type for the job opening. &#x60;0&#x60; &#x3D; on-site (requires &#x60;jobLocation&#x60;), &#x60;1&#x60; &#x3D; remote (no &#x60;jobLocation&#x60;), &#x60;2&#x60; &#x3D; hybrid (requires &#x60;jobLocation&#x60;). Defaults to &#x60;1&#x60; if omitted and no &#x60;jobLocation&#x60; is provided, or &#x60;0&#x60; if &#x60;jobLocation&#x60; is provided. (optional)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createJobOpening'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addNewJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, string $contentType = self::CONTENT_TYPES['addNewJobOpening'][0]) {
+	public function createJobOpeningRequest($posting_title, $job_status, $hiring_lead, $employment_type, $job_description, $department = null, $minimum_experience = null, $compensation = null, $job_location = null, $application_question_resume = null, $application_question_address = null, $application_question_linkedin_url = null, $application_question_date_available = null, $application_question_desired_salary = null, $application_question_cover_letter = null, $application_question_referred_by = null, $application_question_website_url = null, $application_question_highest_education = null, $application_question_college = null, $application_question_references = null, $internal_job_code = null, $location_type = null, string $contentType = self::CONTENT_TYPES['createJobOpening'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -727,7 +1014,7 @@ class ApplicantTrackingApi {
 				'employment_type' => $employment_type,
 				'job_description' => $job_description,
 			],
-			methodName: 'addNewJobOpening'
+			methodName: 'createJobOpening'
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/job_opening';
@@ -763,6 +1050,7 @@ class ApplicantTrackingApi {
 			'applicationQuestionCollege' => $application_question_college,
 			'applicationQuestionReferences' => $application_question_references,
 			'internalJobCode' => $internal_job_code,
+			'locationType' => $location_type,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);
@@ -848,7 +1136,7 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  int $application_id The ID of the application to retrieve details for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -865,7 +1153,7 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  int $application_id The ID of the application to retrieve details for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -915,7 +1203,7 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  int $application_id The ID of the application to retrieve details for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -935,7 +1223,7 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Application Details
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  int $application_id The ID of the application to retrieve details for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -979,7 +1267,7 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'getApplicationDetails'
 	 *
-	 * @param  int $application_id The ID of the application to look up details. (required)
+	 * @param  int $application_id The ID of the application to retrieve details for. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplicationDetails'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1068,13 +1356,13 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
+	 * @param  string|null $application_status_id One or more application status IDs to filter by, comma-separated (e.g. &#x60;1,2,3&#x60;). (optional)
+	 * @param  string|null $application_status One or more application status group codes to filter by, comma-separated (e.g. &#x60;NEW,ACTIVE&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;ALL_ACTIVE&#x60;, &#x60;NEW&#x60;, &#x60;ACTIVE&#x60;, &#x60;INACTIVE&#x60;, &#x60;HIRED&#x60;. (optional)
+	 * @param  string|null $job_status_groups One or more position status groups to filter by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. (optional)
 	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string|null $new_since Only return applications submitted after this UTC timestamp. Format: &#x60;Y-m-d H:i:s&#x60; (e.g. &#x60;2024-01-01 13:00:00&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1093,13 +1381,13 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
+	 * @param  string|null $application_status_id One or more application status IDs to filter by, comma-separated (e.g. &#x60;1,2,3&#x60;). (optional)
+	 * @param  string|null $application_status One or more application status group codes to filter by, comma-separated (e.g. &#x60;NEW,ACTIVE&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;ALL_ACTIVE&#x60;, &#x60;NEW&#x60;, &#x60;ACTIVE&#x60;, &#x60;INACTIVE&#x60;, &#x60;HIRED&#x60;. (optional)
+	 * @param  string|null $job_status_groups One or more position status groups to filter by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. (optional)
 	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string|null $new_since Only return applications submitted after this UTC timestamp. Format: &#x60;Y-m-d H:i:s&#x60; (e.g. &#x60;2024-01-01 13:00:00&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1151,13 +1439,13 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
+	 * @param  string|null $application_status_id One or more application status IDs to filter by, comma-separated (e.g. &#x60;1,2,3&#x60;). (optional)
+	 * @param  string|null $application_status One or more application status group codes to filter by, comma-separated (e.g. &#x60;NEW,ACTIVE&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;ALL_ACTIVE&#x60;, &#x60;NEW&#x60;, &#x60;ACTIVE&#x60;, &#x60;INACTIVE&#x60;, &#x60;HIRED&#x60;. (optional)
+	 * @param  string|null $job_status_groups One or more position status groups to filter by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. (optional)
 	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string|null $new_since Only return applications submitted after this UTC timestamp. Format: &#x60;Y-m-d H:i:s&#x60; (e.g. &#x60;2024-01-01 13:00:00&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1179,13 +1467,13 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
+	 * @param  string|null $application_status_id One or more application status IDs to filter by, comma-separated (e.g. &#x60;1,2,3&#x60;). (optional)
+	 * @param  string|null $application_status One or more application status group codes to filter by, comma-separated (e.g. &#x60;NEW,ACTIVE&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;ALL_ACTIVE&#x60;, &#x60;NEW&#x60;, &#x60;ACTIVE&#x60;, &#x60;INACTIVE&#x60;, &#x60;HIRED&#x60;. (optional)
+	 * @param  string|null $job_status_groups One or more position status groups to filter by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. (optional)
 	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string|null $new_since Only return applications submitted after this UTC timestamp. Format: &#x60;Y-m-d H:i:s&#x60; (e.g. &#x60;2024-01-01 13:00:00&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1231,13 +1519,13 @@ class ApplicantTrackingApi {
 	 *
 	 * @param  int|null $page The page number (optional)
 	 * @param  int|null $job_id A Job Id to limit results to (optional)
-	 * @param  int|null $application_status_id Application status id to filter by. (optional)
-	 * @param  string|null $application_status A list of application status groups to filter by. (optional)
-	 * @param  string|null $job_status_groups A list of position status groups to filter by. (optional)
+	 * @param  string|null $application_status_id One or more application status IDs to filter by, comma-separated (e.g. &#x60;1,2,3&#x60;). (optional)
+	 * @param  string|null $application_status One or more application status group codes to filter by, comma-separated (e.g. &#x60;NEW,ACTIVE&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;ALL_ACTIVE&#x60;, &#x60;NEW&#x60;, &#x60;ACTIVE&#x60;, &#x60;INACTIVE&#x60;, &#x60;HIRED&#x60;. (optional)
+	 * @param  string|null $job_status_groups One or more position status groups to filter by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. (optional)
 	 * @param  string|null $search_string A general search criteria by which to find applications. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
-	 * @param  \DateTime|null $new_since Only get applications newer than a given UTC timestamp, for example 2024-01-01 13:00:00 (optional)
+	 * @param  string|null $new_since Only return applications submitted after this UTC timestamp. Format: &#x60;Y-m-d H:i:s&#x60; (e.g. &#x60;2024-01-01 13:00:00&#x60;). (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getApplications'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1256,7 +1544,7 @@ class ApplicantTrackingApi {
 		$parameters = [
 			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
 			'jobId' => ['value' => $job_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
-			'applicationStatusId' => ['value' => $application_status_id, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'applicationStatusId' => ['value' => $application_status_id, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'applicationStatus' => ['value' => $application_status, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'jobStatusGroups' => ['value' => $job_status_groups, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'searchString' => ['value' => $search_string, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
@@ -1336,7 +1624,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\LocationsList[]
+	 * @return \BhrSdk\Model\Location[]
 	 */
 	public function getCompanyLocations(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		list($response) = $this->getCompanyLocationsWithHttpInfo($contentType);
@@ -1352,7 +1640,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\LocationsList[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\Location[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getCompanyLocationsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
 		$request = $this->getCompanyLocationsRequest($contentType);
@@ -1366,7 +1654,7 @@ class ApplicantTrackingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\LocationsList[]',
+					'\BhrSdk\Model\Location[]',
 					$request,
 					$response,
 				);
@@ -1386,7 +1674,7 @@ class ApplicantTrackingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\LocationsList[]',
+			'\BhrSdk\Model\Location[]',
 			$request,
 			$response,
 		);
@@ -1422,7 +1710,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getCompanyLocationsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getCompanyLocations'][0]) {
-		$returnType = '\BhrSdk\Model\LocationsList[]';
+		$returnType = '\BhrSdk\Model\Location[]';
 		$request = $this->getCompanyLocationsRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1533,7 +1821,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\HiringLeadsList[]
+	 * @return \BhrSdk\Model\HiringLead[]
 	 */
 	public function getHiringLeads(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		list($response) = $this->getHiringLeadsWithHttpInfo($contentType);
@@ -1549,7 +1837,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\HiringLeadsList[], HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\HiringLead[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getHiringLeadsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
 		$request = $this->getHiringLeadsRequest($contentType);
@@ -1563,7 +1851,7 @@ class ApplicantTrackingApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\HiringLeadsList[]',
+					'\BhrSdk\Model\HiringLead[]',
 					$request,
 					$response,
 				);
@@ -1583,7 +1871,7 @@ class ApplicantTrackingApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\HiringLeadsList[]',
+			'\BhrSdk\Model\HiringLead[]',
 			$request,
 			$response,
 		);
@@ -1619,7 +1907,7 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getHiringLeadsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getHiringLeads'][0]) {
-		$returnType = '\BhrSdk\Model\HiringLeadsList[]';
+		$returnType = '\BhrSdk\Model\HiringLead[]';
 		$request = $this->getHiringLeadsRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
@@ -1726,17 +2014,18 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Summaries
 	 *
-	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
+	 * @param  string|null $status_groups One or more status groups to filter positions by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. Defaults to all non-deleted positions. (optional)
+	 * @param  string|null $status_ids One or more specific job opening status IDs to filter by, comma-separated (e.g. &#x60;1,2&#x60;). Combined with &#x60;statusGroups&#x60; when both are provided. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\JobSummary[]
 	 */
-	public function getJobSummaries($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
-		list($response) = $this->getJobSummariesWithHttpInfo($status_groups, $sort_by, $sort_order, $contentType);
+	public function getJobSummaries($status_groups = null, $status_ids = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
+		list($response) = $this->getJobSummariesWithHttpInfo($status_groups, $status_ids, $sort_by, $sort_order, $contentType);
 		return $response;
 	}
 
@@ -1745,17 +2034,18 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Summaries
 	 *
-	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
+	 * @param  string|null $status_groups One or more status groups to filter positions by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. Defaults to all non-deleted positions. (optional)
+	 * @param  string|null $status_ids One or more specific job opening status IDs to filter by, comma-separated (e.g. &#x60;1,2&#x60;). Combined with &#x60;statusGroups&#x60; when both are provided. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\JobSummary[], HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getJobSummariesWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
-		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
+	public function getJobSummariesWithHttpInfo($status_groups = null, $status_ids = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
+		$request = $this->getJobSummariesRequest($status_groups, $status_ids, $sort_by, $sort_order, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1763,8 +2053,30 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\JobSummary[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\JobSummary[]',
 			$request,
 			$response,
 		);
@@ -1775,7 +2087,8 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Summaries
 	 *
-	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
+	 * @param  string|null $status_groups One or more status groups to filter positions by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. Defaults to all non-deleted positions. (optional)
+	 * @param  string|null $status_ids One or more specific job opening status IDs to filter by, comma-separated (e.g. &#x60;1,2&#x60;). Combined with &#x60;statusGroups&#x60; when both are provided. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
@@ -1783,8 +2096,8 @@ class ApplicantTrackingApi {
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getJobSummariesAsync($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
-		return $this->getJobSummariesAsyncWithHttpInfo($status_groups, $sort_by, $sort_order, $contentType)
+	public function getJobSummariesAsync($status_groups = null, $status_ids = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
+		return $this->getJobSummariesAsyncWithHttpInfo($status_groups, $status_ids, $sort_by, $sort_order, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1797,7 +2110,8 @@ class ApplicantTrackingApi {
 	 *
 	 * Get Job Summaries
 	 *
-	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
+	 * @param  string|null $status_groups One or more status groups to filter positions by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. Defaults to all non-deleted positions. (optional)
+	 * @param  string|null $status_ids One or more specific job opening status IDs to filter by, comma-separated (e.g. &#x60;1,2&#x60;). Combined with &#x60;statusGroups&#x60; when both are provided. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
@@ -1805,18 +2119,20 @@ class ApplicantTrackingApi {
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getJobSummariesAsyncWithHttpInfo($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
-		
-		$request = $this->getJobSummariesRequest($status_groups, $sort_by, $sort_order, $contentType);
+	public function getJobSummariesAsyncWithHttpInfo($status_groups = null, $status_ids = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
+		$returnType = '\BhrSdk\Model\JobSummary[]';
+		$request = $this->getJobSummariesRequest($status_groups, $status_ids, $sort_by, $sort_order, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -1841,7 +2157,8 @@ class ApplicantTrackingApi {
 	/**
 	 * Create request for operation 'getJobSummaries'
 	 *
-	 * @param  string|null $status_groups A list of status groups to filter positions by. (optional)
+	 * @param  string|null $status_groups One or more status groups to filter positions by, comma-separated (e.g. &#x60;Draft,Open&#x60;). Allowed values: &#x60;ALL&#x60;, &#x60;DRAFT_AND_OPEN&#x60;, &#x60;Open&#x60;, &#x60;Filled&#x60;, &#x60;Draft&#x60;, &#x60;Deleted&#x60;, &#x60;On Hold&#x60;, &#x60;Canceled&#x60;. Defaults to all non-deleted positions. (optional)
+	 * @param  string|null $status_ids One or more specific job opening status IDs to filter by, comma-separated (e.g. &#x60;1,2&#x60;). Combined with &#x60;statusGroups&#x60; when both are provided. (optional)
 	 * @param  string|null $sort_by A specific field to sort the results by. (optional)
 	 * @param  string|null $sort_order Order by which to sort results. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getJobSummaries'] to see the possible values for this operation
@@ -1849,7 +2166,7 @@ class ApplicantTrackingApi {
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getJobSummariesRequest($status_groups = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
+	public function getJobSummariesRequest($status_groups = null, $status_ids = null, $sort_by = null, $sort_order = null, string $contentType = self::CONTENT_TYPES['getJobSummaries'][0]) {
 
 		$resourcePath = '/api/v1/applicant_tracking/jobs';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
@@ -1861,6 +2178,7 @@ class ApplicantTrackingApi {
 
 		$parameters = [
 			'statusGroups' => ['value' => $status_groups, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+			'status_ids' => ['value' => $status_ids, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'sortBy' => ['value' => $sort_by, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 			'sortOrder' => ['value' => $sort_order, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
 		];
@@ -1936,7 +2254,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\ApplicantStatus[]
 	 */
 	public function getStatuses(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 		list($response) = $this->getStatusesWithHttpInfo($contentType);
@@ -1952,7 +2270,7 @@ class ApplicantTrackingApi {
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ApplicantStatus[], HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getStatusesWithHttpInfo(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
 		$request = $this->getStatusesRequest($contentType);
@@ -1963,8 +2281,30 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ApplicantStatus[]',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\ApplicantStatus[]',
 			$request,
 			$response,
 		);
@@ -2000,17 +2340,19 @@ class ApplicantTrackingApi {
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getStatusesAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getStatuses'][0]) {
-		
+		$returnType = '\BhrSdk\Model\ApplicantStatus[]';
 		$request = $this->getStatusesRequest($contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -2101,38 +2443,38 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Operation postApplicantStatus
+	 * Operation updateApplicantStatus
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application whose status should be updated. (required)
+	 * @param  \BhrSdk\Model\UpdateApplicantStatusRequest $update_applicant_status_request The new status to assign to the application. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\UpdateApplicantStatusResponse
 	 */
-	public function postApplicantStatus($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
-		list($response) = $this->postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, $contentType);
+	public function updateApplicantStatus($application_id, $update_applicant_status_request, string $contentType = self::CONTENT_TYPES['updateApplicantStatus'][0]) {
+		list($response) = $this->updateApplicantStatusWithHttpInfo($application_id, $update_applicant_status_request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation postApplicantStatusWithHttpInfo
+	 * Operation updateApplicantStatusWithHttpInfo
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application whose status should be updated. (required)
+	 * @param  \BhrSdk\Model\UpdateApplicantStatusRequest $update_applicant_status_request The new status to assign to the application. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\UpdateApplicantStatusResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function postApplicantStatusWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
-		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
+	public function updateApplicantStatusWithHttpInfo($application_id, $update_applicant_status_request, string $contentType = self::CONTENT_TYPES['updateApplicantStatus'][0]) {
+		$request = $this->updateApplicantStatusRequest($application_id, $update_applicant_status_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -2140,27 +2482,49 @@ class ApplicantTrackingApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\UpdateApplicantStatusResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\UpdateApplicantStatusResponse',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation postApplicantStatusAsync
+	 * Operation updateApplicantStatusAsync
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application whose status should be updated. (required)
+	 * @param  \BhrSdk\Model\UpdateApplicantStatusRequest $update_applicant_status_request The new status to assign to the application. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function postApplicantStatusAsync($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
-		return $this->postApplicantStatusAsyncWithHttpInfo($application_id, $post_applicant_status_request, $contentType)
+	public function updateApplicantStatusAsync($application_id, $update_applicant_status_request, string $contentType = self::CONTENT_TYPES['updateApplicantStatus'][0]) {
+		return $this->updateApplicantStatusAsyncWithHttpInfo($application_id, $update_applicant_status_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -2169,29 +2533,31 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Operation postApplicantStatusAsyncWithHttpInfo
+	 * Operation updateApplicantStatusAsyncWithHttpInfo
 	 *
 	 * Update Applicant Status
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application whose status should be updated. (required)
+	 * @param  \BhrSdk\Model\UpdateApplicantStatusRequest $update_applicant_status_request The new status to assign to the application. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function postApplicantStatusAsyncWithHttpInfo($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
-		
-		$request = $this->postApplicantStatusRequest($application_id, $post_applicant_status_request, $contentType);
+	public function updateApplicantStatusAsyncWithHttpInfo($application_id, $update_applicant_status_request, string $contentType = self::CONTENT_TYPES['updateApplicantStatus'][0]) {
+		$returnType = '\BhrSdk\Model\UpdateApplicantStatusResponse';
+		$request = $this->updateApplicantStatusRequest($application_id, $update_applicant_status_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -2214,23 +2580,23 @@ class ApplicantTrackingApi {
 	}
 
 	/**
-	 * Create request for operation 'postApplicantStatus'
+	 * Create request for operation 'updateApplicantStatus'
 	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicantStatusRequest $post_applicant_status_request Sample Post Data. (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicantStatus'] to see the possible values for this operation
+	 * @param  int $application_id The ID of the application whose status should be updated. (required)
+	 * @param  \BhrSdk\Model\UpdateApplicantStatusRequest $update_applicant_status_request The new status to assign to the application. (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateApplicantStatus'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function postApplicantStatusRequest($application_id, $post_applicant_status_request, string $contentType = self::CONTENT_TYPES['postApplicantStatus'][0]) {
+	public function updateApplicantStatusRequest($application_id, $update_applicant_status_request, string $contentType = self::CONTENT_TYPES['updateApplicantStatus'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'application_id' => $application_id,
-				'post_applicant_status_request' => $post_applicant_status_request,
+				'update_applicant_status_request' => $update_applicant_status_request,
 			],
-			methodName: 'postApplicantStatus'
+			methodName: 'updateApplicantStatus'
 		);
 
 		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/status';
@@ -2251,228 +2617,18 @@ class ApplicantTrackingApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			['application/json', 'text/html', ],
 			$contentType,
 			$multipart
 		);
 
 		// for model (json/xml)
-		if (isset($post_applicant_status_request)) {
+		if (isset($update_applicant_status_request)) {
 			if (stripos($headers['Content-Type'], 'application/json') !== false) {
 				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_applicant_status_request));
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_applicant_status_request));
 			} else {
-				$httpBody = is_array($post_applicant_status_request) ? json_encode($post_applicant_status_request) : $post_applicant_status_request;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'POST',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
-	 * Operation postApplicationComment
-	 *
-	 * Create Job Application Comment
-	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return mixed
-	 */
-	public function postApplicationComment($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		list($response) = $this->postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation postApplicationCommentWithHttpInfo
-	 *
-	 * Create Job Application Comment
-	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function postApplicationCommentWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation postApplicationCommentAsync
-	 *
-	 * Create Job Application Comment
-	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function postApplicationCommentAsync($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		return $this->postApplicationCommentAsyncWithHttpInfo($application_id, $post_application_comment_request, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation postApplicationCommentAsyncWithHttpInfo
-	 *
-	 * Create Job Application Comment
-	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function postApplicationCommentAsyncWithHttpInfo($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		
-		$request = $this->postApplicationCommentRequest($application_id, $post_application_comment_request, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) {
-					$content = (string) $response->getBody();
-					$content = json_decode($content);
-
-					return [
-						ObjectSerializer::deserialize($content, 'object', []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'postApplicationComment'
-	 *
-	 * @param  int $application_id The ID of the application to add a comment to. (required)
-	 * @param  \BhrSdk\Model\PostApplicationCommentRequest $post_application_comment_request Comment object to post (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['postApplicationComment'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function postApplicationCommentRequest($application_id, $post_application_comment_request, string $contentType = self::CONTENT_TYPES['postApplicationComment'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'application_id' => $application_id,
-				'post_application_comment_request' => $post_application_comment_request,
-			],
-			methodName: 'postApplicationComment'
-		);
-
-		$resourcePath = '/api/v1/applicant_tracking/applications/{applicationId}/comments';
-		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		// path params
-		if ($application_id !== null) {
-			$resourcePath = str_replace(
-				'{' . 'applicationId' . '}',
-				ObjectSerializer::toPathValue((string) $application_id),
-				$resourcePath
-			);
-		}
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', 'application/xml', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($post_application_comment_request)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_application_comment_request));
-			} else {
-				$httpBody = is_array($post_application_comment_request) ? json_encode($post_application_comment_request) : $post_application_comment_request;
+				$httpBody = is_array($update_applicant_status_request) ? json_encode($update_applicant_status_request) : $update_applicant_status_request;
 			}
 		} 
 

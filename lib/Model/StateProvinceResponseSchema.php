@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * StateProvinceResponseSchema Class Doc Comment
  *
  * @category Class
- * @description Schema for states/provinces response
+ * @description Response from &#x60;GET /api/v1/meta/provinces/{countryId}&#x60;. The &#x60;options&#x60; list is sorted by &#x60;label&#x60; (subdivision abbreviation).
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -289,7 +289,7 @@ class StateProvinceResponseSchema implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets options
 	 *
-	 * @param \BhrSdk\Model\StateProvinceSchema[]|null $options Array of state/province options
+	 * @param \BhrSdk\Model\StateProvinceSchema[]|null $options Subdivisions for the requested `countryId`. Each object matches StateProvinceSchema; `label` is the subdivision abbreviation, `name` the full name, `iso` the ISO 3166-2 code.
 	 *
 	 * @return self
 	 */

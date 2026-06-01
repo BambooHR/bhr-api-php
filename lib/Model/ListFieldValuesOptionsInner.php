@@ -239,6 +239,21 @@ class ListFieldValuesOptionsInner implements ModelInterface, ArrayAccess, \JsonS
 		return self::$openApiModelName;
 	}
 
+	public const ARCHIVED_YES = 'yes';
+	public const ARCHIVED_NO = 'no';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getArchivedAllowableValues() {
+		return [
+			self::ARCHIVED_YES,
+			self::ARCHIVED_NO,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -284,6 +299,15 @@ class ListFieldValuesOptionsInner implements ModelInterface, ArrayAccess, \JsonS
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getArchivedAllowableValues();
+		if (!is_null($this->container['archived']) && !in_array($this->container['archived'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'archived', must be one of '%s'",
+				$this->container['archived'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -309,7 +333,7 @@ class ListFieldValuesOptionsInner implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id id
+	 * @param int|null $id The existing option ID. Omit this field to create a new option. Required when archiving an existing option.
 	 *
 	 * @return self
 	 */
@@ -334,7 +358,7 @@ class ListFieldValuesOptionsInner implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets value
 	 *
-	 * @param string|null $value value
+	 * @param string|null $value The display value for the option. Required when creating a new option (i.e., when id is omitted).
 	 *
 	 * @return self
 	 */
@@ -359,13 +383,23 @@ class ListFieldValuesOptionsInner implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets archived
 	 *
-	 * @param string|null $archived archived
+	 * @param string|null $archived Whether the option should be archived. Use `yes` to soft-delete an option or `no` to reactivate a previously archived option. Archived options continue to appear in GET responses for historical data integrity.
 	 *
 	 * @return self
 	 */
 	public function setArchived($archived) {
 		if (is_null($archived)) {
 			throw new \InvalidArgumentException('non-nullable archived cannot be null');
+		}
+		$allowedValues = $this->getArchivedAllowableValues();
+		if (!in_array($archived, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'archived', must be one of '%s'",
+					$archived,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['archived'] = $archived;
 
@@ -384,7 +418,7 @@ class ListFieldValuesOptionsInner implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets adp_code
 	 *
-	 * @param string|null $adp_code adp_code
+	 * @param string|null $adp_code Optional payroll-mapping code associated with the option.
 	 *
 	 * @return self
 	 */

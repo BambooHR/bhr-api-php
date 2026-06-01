@@ -133,42 +133,46 @@ class LoginApi {
 	/**
 	 * Operation login
 	 *
-	 * User Login
+	 * Login
 	 *
+	 * @param  string $application_key The API key of the registered application making the login request. Mobile application keys (iOS/Android) are not accepted. (required)
+	 * @param  string $user The user&#39;s email address or username. (required)
+	 * @param  string $password The user&#39;s password. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key application_key (optional)
-	 * @param  string|null $user user (optional)
-	 * @param  string|null $password password (optional)
+	 * @param  string|null $format When set to &#x60;json&#x60;, forces a JSON response regardless of the &#x60;Accept&#x60; header. (optional)
+	 * @param  string|null $device_id Optional device identifier. When provided, the generated API key is associated with this device. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\LoginResponse|\BhrSdk\Model\LoginFailureResponse|\BhrSdk\Model\LoginFailureResponse
 	 * @deprecated
 	 */
-	public function login($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		list($response) = $this->loginWithHttpInfo($accept_header_parameter, $application_key, $user, $password, $contentType);
+	public function login($application_key, $user, $password, $accept_header_parameter = null, $format = null, $device_id = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
+		list($response) = $this->loginWithHttpInfo($application_key, $user, $password, $accept_header_parameter, $format, $device_id, $contentType);
 		return $response;
 	}
 
 	/**
 	 * Operation loginWithHttpInfo
 	 *
-	 * User Login
+	 * Login
 	 *
+	 * @param  string $application_key The API key of the registered application making the login request. Mobile application keys (iOS/Android) are not accepted. (required)
+	 * @param  string $user The user&#39;s email address or username. (required)
+	 * @param  string $password The user&#39;s password. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
+	 * @param  string|null $format When set to &#x60;json&#x60;, forces a JSON response regardless of the &#x60;Accept&#x60; header. (optional)
+	 * @param  string|null $device_id Optional device identifier. When provided, the generated API key is associated with this device. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\LoginResponse|\BhrSdk\Model\LoginFailureResponse|\BhrSdk\Model\LoginFailureResponse, HTTP status code, HTTP response headers (array of strings)
 	 * @deprecated
 	 */
-	public function loginWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		$request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
+	public function loginWithHttpInfo($application_key, $user, $password, $accept_header_parameter = null, $format = null, $device_id = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
+		$request = $this->loginRequest($application_key, $user, $password, $accept_header_parameter, $format, $device_id, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -176,8 +180,42 @@ class LoginApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\LoginResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\LoginFailureResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\LoginFailureResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\LoginResponse',
 			$request,
 			$response,
 		);
@@ -186,20 +224,22 @@ class LoginApi {
 	/**
 	 * Operation loginAsync
 	 *
-	 * User Login
+	 * Login
 	 *
+	 * @param  string $application_key The API key of the registered application making the login request. Mobile application keys (iOS/Android) are not accepted. (required)
+	 * @param  string $user The user&#39;s email address or username. (required)
+	 * @param  string $password The user&#39;s password. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
+	 * @param  string|null $format When set to &#x60;json&#x60;, forces a JSON response regardless of the &#x60;Accept&#x60; header. (optional)
+	 * @param  string|null $device_id Optional device identifier. When provided, the generated API key is associated with this device. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 * @deprecated
 	 */
-	public function loginAsync($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		return $this->loginAsyncWithHttpInfo($accept_header_parameter, $application_key, $user, $password, $contentType)
+	public function loginAsync($application_key, $user, $password, $accept_header_parameter = null, $format = null, $device_id = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
+		return $this->loginAsyncWithHttpInfo($application_key, $user, $password, $accept_header_parameter, $format, $device_id, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -210,30 +250,34 @@ class LoginApi {
 	/**
 	 * Operation loginAsyncWithHttpInfo
 	 *
-	 * User Login
+	 * Login
 	 *
+	 * @param  string $application_key The API key of the registered application making the login request. Mobile application keys (iOS/Android) are not accepted. (required)
+	 * @param  string $user The user&#39;s email address or username. (required)
+	 * @param  string $password The user&#39;s password. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
+	 * @param  string|null $format When set to &#x60;json&#x60;, forces a JSON response regardless of the &#x60;Accept&#x60; header. (optional)
+	 * @param  string|null $device_id Optional device identifier. When provided, the generated API key is associated with this device. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 * @deprecated
 	 */
-	public function loginAsyncWithHttpInfo($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
-		
-		$request = $this->loginRequest($accept_header_parameter, $application_key, $user, $password, $contentType);
+	public function loginAsyncWithHttpInfo($application_key, $user, $password, $accept_header_parameter = null, $format = null, $device_id = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
+		$returnType = '\BhrSdk\Model\LoginResponse';
+		$request = $this->loginRequest($application_key, $user, $password, $accept_header_parameter, $format, $device_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -258,17 +302,28 @@ class LoginApi {
 	/**
 	 * Create request for operation 'login'
 	 *
+	 * @param  string $application_key The API key of the registered application making the login request. Mobile application keys (iOS/Android) are not accepted. (required)
+	 * @param  string $user The user&#39;s email address or username. (required)
+	 * @param  string $password The user&#39;s password. (required)
 	 * @param  string|null $accept_header_parameter This endpoint can produce either JSON or XML. (optional)
-	 * @param  string|null $application_key (optional)
-	 * @param  string|null $user (optional)
-	 * @param  string|null $password (optional)
+	 * @param  string|null $format When set to &#x60;json&#x60;, forces a JSON response regardless of the &#x60;Accept&#x60; header. (optional)
+	 * @param  string|null $device_id Optional device identifier. When provided, the generated API key is associated with this device. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['login'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 * @deprecated
 	 */
-	public function loginRequest($accept_header_parameter = null, $application_key = null, $user = null, $password = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
+	public function loginRequest($application_key, $user, $password, $accept_header_parameter = null, $format = null, $device_id = null, string $contentType = self::CONTENT_TYPES['login'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'application_key' => $application_key,
+				'user' => $user,
+				'password' => $password,
+			],
+			methodName: 'login'
+		);
 
 		$resourcePath = '/api/v1/login';
 		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
@@ -277,6 +332,22 @@ class LoginApi {
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		$parameters = [
+			'format' => ['value' => $format, 'type' => 'string', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// header params
 		if ($accept_header_parameter !== null) {
@@ -290,6 +361,7 @@ class LoginApi {
 			'applicationKey' => $application_key,
 			'user' => $user,
 			'password' => $password,
+			'deviceId' => $device_id,
 		]);
 
 		$formParams = $formDataProcessor->flatten($formData);

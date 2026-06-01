@@ -61,9 +61,10 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'applied_date' => '\DateTime',
 		'status' => '\BhrSdk\Model\ApplicationDetailsStatus',
 		'rating' => 'int',
-		'education' => 'object',
 		'resume_file_id' => 'int',
 		'cover_letter_file_id' => 'int',
+		'attachment_count' => 'int',
+		'attachments' => '\BhrSdk\Model\ApplicationDetailsAttachmentsInner[]',
 		'moved_to' => 'object[]',
 		'moved_from' => 'object[]',
 		'also_considered_for_count' => 'int',
@@ -74,7 +75,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'email_count' => 'int',
 		'event_count' => 'int',
 		'questions_and_answers' => '\BhrSdk\Model\ApplicationDetailsQuestionsAndAnswersInner[]',
-		'application_references' => 'object[]',
+		'application_references' => 'string',
 		'applicant' => '\BhrSdk\Model\ApplicationDetailsApplicant',
 		'job' => '\BhrSdk\Model\ApplicationDetailsJob'
 	];
@@ -91,9 +92,10 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'applied_date' => 'date-time',
 		'status' => null,
 		'rating' => null,
-		'education' => null,
 		'resume_file_id' => null,
 		'cover_letter_file_id' => null,
+		'attachment_count' => null,
+		'attachments' => null,
 		'moved_to' => null,
 		'moved_from' => null,
 		'also_considered_for_count' => null,
@@ -120,11 +122,12 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'applied_date' => false,
 		'status' => false,
 		'rating' => true,
-		'education' => false,
 		'resume_file_id' => true,
 		'cover_letter_file_id' => true,
-		'moved_to' => false,
-		'moved_from' => false,
+		'attachment_count' => true,
+		'attachments' => true,
+		'moved_to' => true,
+		'moved_from' => true,
 		'also_considered_for_count' => false,
 		'duplicate_application_count' => false,
 		'referred_by' => true,
@@ -133,7 +136,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'email_count' => false,
 		'event_count' => false,
 		'questions_and_answers' => false,
-		'application_references' => false,
+		'application_references' => true,
 		'applicant' => false,
 		'job' => false
 	];
@@ -224,9 +227,10 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'applied_date' => 'appliedDate',
 		'status' => 'status',
 		'rating' => 'rating',
-		'education' => 'education',
 		'resume_file_id' => 'resumeFileId',
 		'cover_letter_file_id' => 'coverLetterFileId',
+		'attachment_count' => 'attachmentCount',
+		'attachments' => 'attachments',
 		'moved_to' => 'movedTo',
 		'moved_from' => 'movedFrom',
 		'also_considered_for_count' => 'alsoConsideredForCount',
@@ -252,9 +256,10 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'applied_date' => 'setAppliedDate',
 		'status' => 'setStatus',
 		'rating' => 'setRating',
-		'education' => 'setEducation',
 		'resume_file_id' => 'setResumeFileId',
 		'cover_letter_file_id' => 'setCoverLetterFileId',
+		'attachment_count' => 'setAttachmentCount',
+		'attachments' => 'setAttachments',
 		'moved_to' => 'setMovedTo',
 		'moved_from' => 'setMovedFrom',
 		'also_considered_for_count' => 'setAlsoConsideredForCount',
@@ -280,9 +285,10 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		'applied_date' => 'getAppliedDate',
 		'status' => 'getStatus',
 		'rating' => 'getRating',
-		'education' => 'getEducation',
 		'resume_file_id' => 'getResumeFileId',
 		'cover_letter_file_id' => 'getCoverLetterFileId',
+		'attachment_count' => 'getAttachmentCount',
+		'attachments' => 'getAttachments',
 		'moved_to' => 'getMovedTo',
 		'moved_from' => 'getMovedFrom',
 		'also_considered_for_count' => 'getAlsoConsideredForCount',
@@ -353,9 +359,10 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 		$this->setIfExists('applied_date', $data ?? [], null);
 		$this->setIfExists('status', $data ?? [], null);
 		$this->setIfExists('rating', $data ?? [], null);
-		$this->setIfExists('education', $data ?? [], null);
 		$this->setIfExists('resume_file_id', $data ?? [], null);
 		$this->setIfExists('cover_letter_file_id', $data ?? [], null);
+		$this->setIfExists('attachment_count', $data ?? [], null);
+		$this->setIfExists('attachments', $data ?? [], null);
 		$this->setIfExists('moved_to', $data ?? [], null);
 		$this->setIfExists('moved_from', $data ?? [], null);
 		$this->setIfExists('also_considered_for_count', $data ?? [], null);
@@ -446,7 +453,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets applied_date
 	 *
-	 * @param \DateTime|null $applied_date Date when the application was submitted
+	 * @param \DateTime|null $applied_date ISO 8601 datetime when the application was submitted
 	 *
 	 * @return self
 	 */
@@ -496,7 +503,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets rating
 	 *
-	 * @param int|null $rating Applicant rating
+	 * @param int|null $rating rating
 	 *
 	 * @return self
 	 */
@@ -516,31 +523,6 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	}
 
 	/**
-	 * Gets education
-	 *
-	 * @return object|null
-	 */
-	public function getEducation() {
-		return $this->container['education'];
-	}
-
-	/**
-	 * Sets education
-	 *
-	 * @param object|null $education Applicant education information
-	 *
-	 * @return self
-	 */
-	public function setEducation($education) {
-		if (is_null($education)) {
-			throw new \InvalidArgumentException('non-nullable education cannot be null');
-		}
-		$this->container['education'] = $education;
-
-		return $this;
-	}
-
-	/**
 	 * Gets resume_file_id
 	 *
 	 * @return int|null
@@ -552,7 +534,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets resume_file_id
 	 *
-	 * @param int|null $resume_file_id ID of the resume file
+	 * @param int|null $resume_file_id resume_file_id
 	 *
 	 * @return self
 	 */
@@ -583,7 +565,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets cover_letter_file_id
 	 *
-	 * @param int|null $cover_letter_file_id ID of the cover letter file
+	 * @param int|null $cover_letter_file_id cover_letter_file_id
 	 *
 	 * @return self
 	 */
@@ -603,6 +585,68 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	}
 
 	/**
+	 * Gets attachment_count
+	 *
+	 * @return int|null
+	 */
+	public function getAttachmentCount() {
+		return $this->container['attachment_count'];
+	}
+
+	/**
+	 * Sets attachment_count
+	 *
+	 * @param int|null $attachment_count attachment_count
+	 *
+	 * @return self
+	 */
+	public function setAttachmentCount($attachment_count) {
+		if (is_null($attachment_count)) {
+			$this->openApiNullablesSetToNull['attachment_count'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['attachment_count'])) {
+				unset($nullablesSetToNull['attachment_count']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['attachment_count'] = $attachment_count;
+
+		return $this;
+	}
+
+	/**
+	 * Gets attachments
+	 *
+	 * @return \BhrSdk\Model\ApplicationDetailsAttachmentsInner[]|null
+	 */
+	public function getAttachments() {
+		return $this->container['attachments'];
+	}
+
+	/**
+	 * Sets attachments
+	 *
+	 * @param \BhrSdk\Model\ApplicationDetailsAttachmentsInner[]|null $attachments attachments
+	 *
+	 * @return self
+	 */
+	public function setAttachments($attachments) {
+		if (is_null($attachments)) {
+			$this->openApiNullablesSetToNull['attachments'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['attachments'])) {
+				unset($nullablesSetToNull['attachments']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['attachments'] = $attachments;
+
+		return $this;
+	}
+
+	/**
 	 * Gets moved_to
 	 *
 	 * @return object[]|null
@@ -614,13 +658,19 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets moved_to
 	 *
-	 * @param object[]|null $moved_to Positions the applicant was moved to
+	 * @param object[]|null $moved_to moved_to
 	 *
 	 * @return self
 	 */
 	public function setMovedTo($moved_to) {
 		if (is_null($moved_to)) {
-			throw new \InvalidArgumentException('non-nullable moved_to cannot be null');
+			$this->openApiNullablesSetToNull['moved_to'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['moved_to'])) {
+				unset($nullablesSetToNull['moved_to']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['moved_to'] = $moved_to;
 
@@ -639,13 +689,19 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets moved_from
 	 *
-	 * @param object[]|null $moved_from Positions the applicant was moved from
+	 * @param object[]|null $moved_from moved_from
 	 *
 	 * @return self
 	 */
 	public function setMovedFrom($moved_from) {
 		if (is_null($moved_from)) {
-			throw new \InvalidArgumentException('non-nullable moved_from cannot be null');
+			$this->openApiNullablesSetToNull['moved_from'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['moved_from'])) {
+				unset($nullablesSetToNull['moved_from']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['moved_from'] = $moved_from;
 
@@ -664,7 +720,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets also_considered_for_count
 	 *
-	 * @param int|null $also_considered_for_count Count of other positions this applicant is being considered for
+	 * @param int|null $also_considered_for_count Count of other job openings this applicant is also being considered for
 	 *
 	 * @return self
 	 */
@@ -689,7 +745,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets duplicate_application_count
 	 *
-	 * @param int|null $duplicate_application_count Count of duplicate applications
+	 * @param int|null $duplicate_application_count Count of duplicate applications from this applicant
 	 *
 	 * @return self
 	 */
@@ -714,7 +770,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets referred_by
 	 *
-	 * @param string|null $referred_by Who referred this applicant
+	 * @param string|null $referred_by referred_by
 	 *
 	 * @return self
 	 */
@@ -745,7 +801,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets desired_salary
 	 *
-	 * @param string|null $desired_salary Applicant's desired salary
+	 * @param string|null $desired_salary desired_salary
 	 *
 	 * @return self
 	 */
@@ -801,7 +857,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets email_count
 	 *
-	 * @param int|null $email_count Number of emails for this application
+	 * @param int|null $email_count Number of emails sent for this application
 	 *
 	 * @return self
 	 */
@@ -826,7 +882,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets event_count
 	 *
-	 * @param int|null $event_count Number of events for this application
+	 * @param int|null $event_count Number of events associated with this application
 	 *
 	 * @return self
 	 */
@@ -851,7 +907,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets questions_and_answers
 	 *
-	 * @param \BhrSdk\Model\ApplicationDetailsQuestionsAndAnswersInner[]|null $questions_and_answers Custom questions and answers
+	 * @param \BhrSdk\Model\ApplicationDetailsQuestionsAndAnswersInner[]|null $questions_and_answers List of custom application questions and the applicant's answers
 	 *
 	 * @return self
 	 */
@@ -867,7 +923,7 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets application_references
 	 *
-	 * @return object[]|null
+	 * @return string|null
 	 */
 	public function getApplicationReferences() {
 		return $this->container['application_references'];
@@ -876,13 +932,19 @@ class ApplicationDetails implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets application_references
 	 *
-	 * @param object[]|null $application_references Application references
+	 * @param string|null $application_references application_references
 	 *
 	 * @return self
 	 */
 	public function setApplicationReferences($application_references) {
 		if (is_null($application_references)) {
-			throw new \InvalidArgumentException('non-nullable application_references cannot be null');
+			$this->openApiNullablesSetToNull['application_references'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['application_references'])) {
+				unset($nullablesSetToNull['application_references']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['application_references'] = $application_references;
 

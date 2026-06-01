@@ -57,7 +57,7 @@ class GoalsAggregateV12CommentsInner implements ModelInterface, ArrayAccess, \Js
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'goal_id' => 'int',
+		'goal_id' => 'string',
 		'comment_count' => 'int'
 	];
 
@@ -286,7 +286,7 @@ class GoalsAggregateV12CommentsInner implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Gets goal_id
 	 *
-	 * @return int|null
+	 * @return string|null
 	 */
 	public function getGoalId() {
 		return $this->container['goal_id'];
@@ -295,7 +295,7 @@ class GoalsAggregateV12CommentsInner implements ModelInterface, ArrayAccess, \Js
 	/**
 	 * Sets goal_id
 	 *
-	 * @param int|null $goal_id The goalId that the comments are linked to.
+	 * @param string|null $goal_id The goalId that the comments are linked to.
 	 *
 	 * @return self
 	 */

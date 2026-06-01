@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * ListFieldValues Class Doc Comment
  *
  * @category Class
+ * @description Payload for creating, updating, or archiving options on a list field.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -288,7 +289,7 @@ class ListFieldValues implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets options
 	 *
-	 * @param \BhrSdk\Model\ListFieldValuesOptionsInner[]|null $options options
+	 * @param \BhrSdk\Model\ListFieldValuesOptionsInner[]|null $options The list field options to create, update, or archive.
 	 *
 	 * @return self
 	 */

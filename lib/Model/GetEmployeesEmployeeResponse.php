@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * GetEmployeesEmployeeResponse Class Doc Comment
  *
  * @category Class
- * @description Employee data response object containing basic employee information and permission-restricted fields
+ * @description Employee data response object containing basic employee information and optionally requested fields. When the &#x60;fields&#x60; parameter is provided, additional requested fields will be included. Field values are subject to permission checks — restricted fields are returned as &#x60;null&#x60; and their names are listed in &#x60;_restrictedFields&#x60;.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,130 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'string',
 		'job_title_name' => 'string',
 		'status' => 'string',
-		'_restricted_fields' => 'string[]'
+		'_restricted_fields' => 'string[]',
+		'address_line1' => 'string',
+		'address_line2' => 'string',
+		'age' => 'string',
+		'allergies' => 'string',
+		'best_email' => 'string',
+		'birth_date' => 'string',
+		'birthplace' => 'string',
+		'citizenship' => 'string',
+		'citizenship_id' => 'string',
+		'city' => 'string',
+		'compensation_change_reason' => 'string',
+		'compensation_change_reason_id' => 'string',
+		'compensation_comment' => 'string',
+		'compensation_effective_date' => 'string',
+		'compensation_end_date' => 'string',
+		'contract_end_date' => 'string',
+		'country' => 'string',
+		'country_id' => 'string',
+		'department_id' => 'string',
+		'department_name' => 'string',
+		'dietary_restrictions' => 'string',
+		'display_name' => 'string',
+		'division_id' => 'string',
+		'division_name' => 'string',
+		'eeo_job_category' => 'string',
+		'eeo_job_category_id' => 'string',
+		'ein' => 'string',
+		'eligible_for_rehire' => 'string',
+		'eligible_for_rehire_id' => 'string',
+		'employee_name' => 'string',
+		'employee_number' => 'string',
+		'employment_status_comment' => 'string',
+		'employment_status_effective_date' => 'string',
+		'employment_status_id' => 'string',
+		'employment_status_name' => 'string',
+		'employment_type' => 'string',
+		'employment_type_id' => 'string',
+		'ethnicity' => 'string',
+		'ethnicity_id' => 'string',
+		'facebook_url' => 'string',
+		'final_dose_administration_date' => 'string',
+		'final_pay_date' => 'string',
+		'first_name_last_name' => 'string',
+		'first_name_middle_initial' => 'string',
+		'flsa_code' => 'string',
+		'flsa_code_id' => 'string',
+		'gender' => 'string',
+		'gender_identity' => 'string',
+		'gender_identity_id' => 'int[]',
+		'hire_date' => 'string',
+		'home_email' => 'string',
+		'home_phone' => 'string',
+		'hours_per_pay_cycle' => 'string',
+		'instagram_url' => 'string',
+		'is_manager' => 'bool',
+		'jacket_size' => 'string',
+		'jacket_size_id' => 'string',
+		'job_information_effective_date' => 'string',
+		'job_title_id' => 'string',
+		'linkedin_url' => 'string',
+		'location_id' => 'string',
+		'location_name' => 'string',
+		'marital_status' => 'string',
+		'middle_initial' => 'string',
+		'middle_name' => 'string',
+		'mobile_phone' => 'string',
+		'national_id' => 'string',
+		'national_insurance_category' => 'string',
+		'national_insurance_category_id' => 'string',
+		'nationality' => 'string',
+		'nationality_id' => 'string',
+		'nick_name' => 'string',
+		'nin' => 'string',
+		'notice_period' => 'string',
+		'notice_period_id' => 'string',
+		'original_hire_date' => 'string',
+		'overtime' => 'string',
+		'overtime_rate' => '\BhrSdk\Model\GetEmployeesEmployeeResponseAllOfOvertimeRate',
+		'paid_per' => 'string',
+		'pay_rate' => '\BhrSdk\Model\GetEmployeesEmployeeResponseAllOfPayRate',
+		'pay_schedule' => 'string',
+		'pay_schedule_id' => 'string',
+		'pay_type' => 'string',
+		'pinterest_url' => 'string',
+		'preferred_name_last_name' => 'string',
+		'probation_end_date' => 'string',
+		'pronouns' => 'string',
+		'pronouns_id' => 'string',
+		'proof_of_vaccination' => 'bool',
+		'reports_to_id' => 'string',
+		'reports_to_name' => 'string',
+		'secondary_language' => 'string',
+		'shirt_size' => 'string',
+		'shirt_size_id' => 'string',
+		'sin' => 'string',
+		'skype_username' => 'string',
+		'ssn' => 'string',
+		'state' => 'string',
+		'state_id' => 'string',
+		'tax_type_id' => 'string',
+		'teams' => '\BhrSdk\Model\GetEmployeesEmployeeResponseAllOfTeams[]',
+		'tenure' => 'string',
+		'termination_date' => 'string',
+		'termination_reason' => 'string',
+		'termination_reason_id' => 'string',
+		'termination_regrettable' => 'string',
+		'termination_regrettable_id' => 'string',
+		'termination_type' => 'string',
+		'termination_type_id' => 'string',
+		't_shirt_size' => 'string',
+		't_shirt_size_id' => 'string',
+		'twitter_url' => 'string',
+		'user_id' => 'string',
+		'vaccination_status' => 'string',
+		'vaccination_status_id' => 'string',
+		'vaccine_received' => 'string',
+		'vaccine_received_id' => 'string',
+		'veteran_status' => 'string',
+		'veteran_status_id' => 'int[]',
+		'work_email' => 'string',
+		'work_phone' => 'string',
+		'work_phone_extension' => 'string',
+		'zipcode' => 'string'
 	];
 
 	/**
@@ -83,7 +206,130 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => null,
 		'job_title_name' => null,
 		'status' => null,
-		'_restricted_fields' => null
+		'_restricted_fields' => null,
+		'address_line1' => null,
+		'address_line2' => null,
+		'age' => null,
+		'allergies' => null,
+		'best_email' => null,
+		'birth_date' => null,
+		'birthplace' => null,
+		'citizenship' => null,
+		'citizenship_id' => null,
+		'city' => null,
+		'compensation_change_reason' => null,
+		'compensation_change_reason_id' => null,
+		'compensation_comment' => null,
+		'compensation_effective_date' => null,
+		'compensation_end_date' => null,
+		'contract_end_date' => null,
+		'country' => null,
+		'country_id' => null,
+		'department_id' => null,
+		'department_name' => null,
+		'dietary_restrictions' => null,
+		'display_name' => null,
+		'division_id' => null,
+		'division_name' => null,
+		'eeo_job_category' => null,
+		'eeo_job_category_id' => null,
+		'ein' => null,
+		'eligible_for_rehire' => null,
+		'eligible_for_rehire_id' => null,
+		'employee_name' => null,
+		'employee_number' => null,
+		'employment_status_comment' => null,
+		'employment_status_effective_date' => null,
+		'employment_status_id' => null,
+		'employment_status_name' => null,
+		'employment_type' => null,
+		'employment_type_id' => null,
+		'ethnicity' => null,
+		'ethnicity_id' => null,
+		'facebook_url' => null,
+		'final_dose_administration_date' => null,
+		'final_pay_date' => null,
+		'first_name_last_name' => null,
+		'first_name_middle_initial' => null,
+		'flsa_code' => null,
+		'flsa_code_id' => null,
+		'gender' => null,
+		'gender_identity' => null,
+		'gender_identity_id' => null,
+		'hire_date' => null,
+		'home_email' => null,
+		'home_phone' => null,
+		'hours_per_pay_cycle' => null,
+		'instagram_url' => null,
+		'is_manager' => null,
+		'jacket_size' => null,
+		'jacket_size_id' => null,
+		'job_information_effective_date' => null,
+		'job_title_id' => null,
+		'linkedin_url' => null,
+		'location_id' => null,
+		'location_name' => null,
+		'marital_status' => null,
+		'middle_initial' => null,
+		'middle_name' => null,
+		'mobile_phone' => null,
+		'national_id' => null,
+		'national_insurance_category' => null,
+		'national_insurance_category_id' => null,
+		'nationality' => null,
+		'nationality_id' => null,
+		'nick_name' => null,
+		'nin' => null,
+		'notice_period' => null,
+		'notice_period_id' => null,
+		'original_hire_date' => null,
+		'overtime' => null,
+		'overtime_rate' => null,
+		'paid_per' => null,
+		'pay_rate' => null,
+		'pay_schedule' => null,
+		'pay_schedule_id' => null,
+		'pay_type' => null,
+		'pinterest_url' => null,
+		'preferred_name_last_name' => null,
+		'probation_end_date' => null,
+		'pronouns' => null,
+		'pronouns_id' => null,
+		'proof_of_vaccination' => null,
+		'reports_to_id' => null,
+		'reports_to_name' => null,
+		'secondary_language' => null,
+		'shirt_size' => null,
+		'shirt_size_id' => null,
+		'sin' => null,
+		'skype_username' => null,
+		'ssn' => null,
+		'state' => null,
+		'state_id' => null,
+		'tax_type_id' => null,
+		'teams' => null,
+		'tenure' => null,
+		'termination_date' => null,
+		'termination_reason' => null,
+		'termination_reason_id' => null,
+		'termination_regrettable' => null,
+		'termination_regrettable_id' => null,
+		'termination_type' => null,
+		'termination_type_id' => null,
+		't_shirt_size' => null,
+		't_shirt_size_id' => null,
+		'twitter_url' => null,
+		'user_id' => null,
+		'vaccination_status' => null,
+		'vaccination_status_id' => null,
+		'vaccine_received' => null,
+		'vaccine_received_id' => null,
+		'veteran_status' => null,
+		'veteran_status_id' => null,
+		'work_email' => null,
+		'work_phone' => null,
+		'work_phone_extension' => null,
+		'zipcode' => null
 	];
 
 	/**
@@ -94,13 +340,136 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	  */
 	protected static array $openApiNullables = [
 		'employee_id' => false,
-		'first_name' => true,
-		'last_name' => true,
-		'preferred_name' => true,
-		'photo_url' => true,
-		'job_title_name' => true,
-		'status' => true,
-		'_restricted_fields' => false
+		'first_name' => false,
+		'last_name' => false,
+		'preferred_name' => false,
+		'photo_url' => false,
+		'job_title_name' => false,
+		'status' => false,
+		'_restricted_fields' => false,
+		'address_line1' => true,
+		'address_line2' => true,
+		'age' => true,
+		'allergies' => true,
+		'best_email' => true,
+		'birth_date' => true,
+		'birthplace' => true,
+		'citizenship' => true,
+		'citizenship_id' => true,
+		'city' => true,
+		'compensation_change_reason' => true,
+		'compensation_change_reason_id' => true,
+		'compensation_comment' => true,
+		'compensation_effective_date' => true,
+		'compensation_end_date' => true,
+		'contract_end_date' => true,
+		'country' => true,
+		'country_id' => true,
+		'department_id' => true,
+		'department_name' => true,
+		'dietary_restrictions' => true,
+		'display_name' => true,
+		'division_id' => true,
+		'division_name' => true,
+		'eeo_job_category' => true,
+		'eeo_job_category_id' => true,
+		'ein' => true,
+		'eligible_for_rehire' => true,
+		'eligible_for_rehire_id' => true,
+		'employee_name' => true,
+		'employee_number' => true,
+		'employment_status_comment' => true,
+		'employment_status_effective_date' => true,
+		'employment_status_id' => true,
+		'employment_status_name' => true,
+		'employment_type' => true,
+		'employment_type_id' => true,
+		'ethnicity' => true,
+		'ethnicity_id' => true,
+		'facebook_url' => true,
+		'final_dose_administration_date' => true,
+		'final_pay_date' => true,
+		'first_name_last_name' => true,
+		'first_name_middle_initial' => true,
+		'flsa_code' => true,
+		'flsa_code_id' => true,
+		'gender' => true,
+		'gender_identity' => true,
+		'gender_identity_id' => false,
+		'hire_date' => true,
+		'home_email' => true,
+		'home_phone' => true,
+		'hours_per_pay_cycle' => true,
+		'instagram_url' => true,
+		'is_manager' => true,
+		'jacket_size' => true,
+		'jacket_size_id' => true,
+		'job_information_effective_date' => true,
+		'job_title_id' => true,
+		'linkedin_url' => true,
+		'location_id' => true,
+		'location_name' => true,
+		'marital_status' => true,
+		'middle_initial' => true,
+		'middle_name' => true,
+		'mobile_phone' => true,
+		'national_id' => true,
+		'national_insurance_category' => true,
+		'national_insurance_category_id' => true,
+		'nationality' => true,
+		'nationality_id' => true,
+		'nick_name' => true,
+		'nin' => true,
+		'notice_period' => true,
+		'notice_period_id' => true,
+		'original_hire_date' => true,
+		'overtime' => true,
+		'overtime_rate' => false,
+		'paid_per' => true,
+		'pay_rate' => false,
+		'pay_schedule' => true,
+		'pay_schedule_id' => true,
+		'pay_type' => true,
+		'pinterest_url' => true,
+		'preferred_name_last_name' => true,
+		'probation_end_date' => true,
+		'pronouns' => true,
+		'pronouns_id' => true,
+		'proof_of_vaccination' => true,
+		'reports_to_id' => true,
+		'reports_to_name' => true,
+		'secondary_language' => true,
+		'shirt_size' => true,
+		'shirt_size_id' => true,
+		'sin' => true,
+		'skype_username' => true,
+		'ssn' => true,
+		'state' => true,
+		'state_id' => true,
+		'tax_type_id' => true,
+		'teams' => false,
+		'tenure' => true,
+		'termination_date' => true,
+		'termination_reason' => true,
+		'termination_reason_id' => true,
+		'termination_regrettable' => true,
+		'termination_regrettable_id' => true,
+		'termination_type' => true,
+		'termination_type_id' => true,
+		't_shirt_size' => true,
+		't_shirt_size_id' => true,
+		'twitter_url' => true,
+		'user_id' => true,
+		'vaccination_status' => true,
+		'vaccination_status_id' => true,
+		'vaccine_received' => true,
+		'vaccine_received_id' => true,
+		'veteran_status' => true,
+		'veteran_status_id' => false,
+		'work_email' => true,
+		'work_phone' => true,
+		'work_phone_extension' => true,
+		'zipcode' => true
 	];
 
 	/**
@@ -192,7 +561,130 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'photoUrl',
 		'job_title_name' => 'jobTitleName',
 		'status' => 'status',
-		'_restricted_fields' => '_restrictedFields'
+		'_restricted_fields' => '_restrictedFields',
+		'address_line1' => 'addressLine1',
+		'address_line2' => 'addressLine2',
+		'age' => 'age',
+		'allergies' => 'allergies',
+		'best_email' => 'bestEmail',
+		'birth_date' => 'birthDate',
+		'birthplace' => 'birthplace',
+		'citizenship' => 'citizenship',
+		'citizenship_id' => 'citizenshipId',
+		'city' => 'city',
+		'compensation_change_reason' => 'compensationChangeReason',
+		'compensation_change_reason_id' => 'compensationChangeReasonId',
+		'compensation_comment' => 'compensationComment',
+		'compensation_effective_date' => 'compensationEffectiveDate',
+		'compensation_end_date' => 'compensationEndDate',
+		'contract_end_date' => 'contractEndDate',
+		'country' => 'country',
+		'country_id' => 'countryId',
+		'department_id' => 'departmentId',
+		'department_name' => 'departmentName',
+		'dietary_restrictions' => 'dietaryRestrictions',
+		'display_name' => 'displayName',
+		'division_id' => 'divisionId',
+		'division_name' => 'divisionName',
+		'eeo_job_category' => 'eeoJobCategory',
+		'eeo_job_category_id' => 'eeoJobCategoryId',
+		'ein' => 'ein',
+		'eligible_for_rehire' => 'eligibleForRehire',
+		'eligible_for_rehire_id' => 'eligibleForRehireId',
+		'employee_name' => 'employeeName',
+		'employee_number' => 'employeeNumber',
+		'employment_status_comment' => 'employmentStatusComment',
+		'employment_status_effective_date' => 'employmentStatusEffectiveDate',
+		'employment_status_id' => 'employmentStatusId',
+		'employment_status_name' => 'employmentStatusName',
+		'employment_type' => 'employmentType',
+		'employment_type_id' => 'employmentTypeId',
+		'ethnicity' => 'ethnicity',
+		'ethnicity_id' => 'ethnicityId',
+		'facebook_url' => 'facebookUrl',
+		'final_dose_administration_date' => 'finalDoseAdministrationDate',
+		'final_pay_date' => 'finalPayDate',
+		'first_name_last_name' => 'firstNameLastName',
+		'first_name_middle_initial' => 'firstNameMiddleInitial',
+		'flsa_code' => 'flsaCode',
+		'flsa_code_id' => 'flsaCodeId',
+		'gender' => 'gender',
+		'gender_identity' => 'genderIdentity',
+		'gender_identity_id' => 'genderIdentityId',
+		'hire_date' => 'hireDate',
+		'home_email' => 'homeEmail',
+		'home_phone' => 'homePhone',
+		'hours_per_pay_cycle' => 'hoursPerPayCycle',
+		'instagram_url' => 'instagramUrl',
+		'is_manager' => 'isManager',
+		'jacket_size' => 'jacketSize',
+		'jacket_size_id' => 'jacketSizeId',
+		'job_information_effective_date' => 'jobInformationEffectiveDate',
+		'job_title_id' => 'jobTitleId',
+		'linkedin_url' => 'linkedinUrl',
+		'location_id' => 'locationId',
+		'location_name' => 'locationName',
+		'marital_status' => 'maritalStatus',
+		'middle_initial' => 'middleInitial',
+		'middle_name' => 'middleName',
+		'mobile_phone' => 'mobilePhone',
+		'national_id' => 'nationalId',
+		'national_insurance_category' => 'nationalInsuranceCategory',
+		'national_insurance_category_id' => 'nationalInsuranceCategoryId',
+		'nationality' => 'nationality',
+		'nationality_id' => 'nationalityId',
+		'nick_name' => 'nickName',
+		'nin' => 'nin',
+		'notice_period' => 'noticePeriod',
+		'notice_period_id' => 'noticePeriodId',
+		'original_hire_date' => 'originalHireDate',
+		'overtime' => 'overtime',
+		'overtime_rate' => 'overtimeRate',
+		'paid_per' => 'paidPer',
+		'pay_rate' => 'payRate',
+		'pay_schedule' => 'paySchedule',
+		'pay_schedule_id' => 'payScheduleId',
+		'pay_type' => 'payType',
+		'pinterest_url' => 'pinterestUrl',
+		'preferred_name_last_name' => 'preferredNameLastName',
+		'probation_end_date' => 'probationEndDate',
+		'pronouns' => 'pronouns',
+		'pronouns_id' => 'pronounsId',
+		'proof_of_vaccination' => 'proofOfVaccination',
+		'reports_to_id' => 'reportsToId',
+		'reports_to_name' => 'reportsToName',
+		'secondary_language' => 'secondaryLanguage',
+		'shirt_size' => 'shirtSize',
+		'shirt_size_id' => 'shirtSizeId',
+		'sin' => 'sin',
+		'skype_username' => 'skypeUsername',
+		'ssn' => 'ssn',
+		'state' => 'state',
+		'state_id' => 'stateId',
+		'tax_type_id' => 'taxTypeId',
+		'teams' => 'teams',
+		'tenure' => 'tenure',
+		'termination_date' => 'terminationDate',
+		'termination_reason' => 'terminationReason',
+		'termination_reason_id' => 'terminationReasonId',
+		'termination_regrettable' => 'terminationRegrettable',
+		'termination_regrettable_id' => 'terminationRegrettableId',
+		'termination_type' => 'terminationType',
+		'termination_type_id' => 'terminationTypeId',
+		't_shirt_size' => 'tShirtSize',
+		't_shirt_size_id' => 'tShirtSizeId',
+		'twitter_url' => 'twitterUrl',
+		'user_id' => 'userId',
+		'vaccination_status' => 'vaccinationStatus',
+		'vaccination_status_id' => 'vaccinationStatusId',
+		'vaccine_received' => 'vaccineReceived',
+		'vaccine_received_id' => 'vaccineReceivedId',
+		'veteran_status' => 'veteranStatus',
+		'veteran_status_id' => 'veteranStatusId',
+		'work_email' => 'workEmail',
+		'work_phone' => 'workPhone',
+		'work_phone_extension' => 'workPhoneExtension',
+		'zipcode' => 'zipcode'
 	];
 
 	/**
@@ -208,7 +700,130 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'setPhotoUrl',
 		'job_title_name' => 'setJobTitleName',
 		'status' => 'setStatus',
-		'_restricted_fields' => 'setRestrictedFields'
+		'_restricted_fields' => 'setRestrictedFields',
+		'address_line1' => 'setAddressLine1',
+		'address_line2' => 'setAddressLine2',
+		'age' => 'setAge',
+		'allergies' => 'setAllergies',
+		'best_email' => 'setBestEmail',
+		'birth_date' => 'setBirthDate',
+		'birthplace' => 'setBirthplace',
+		'citizenship' => 'setCitizenship',
+		'citizenship_id' => 'setCitizenshipId',
+		'city' => 'setCity',
+		'compensation_change_reason' => 'setCompensationChangeReason',
+		'compensation_change_reason_id' => 'setCompensationChangeReasonId',
+		'compensation_comment' => 'setCompensationComment',
+		'compensation_effective_date' => 'setCompensationEffectiveDate',
+		'compensation_end_date' => 'setCompensationEndDate',
+		'contract_end_date' => 'setContractEndDate',
+		'country' => 'setCountry',
+		'country_id' => 'setCountryId',
+		'department_id' => 'setDepartmentId',
+		'department_name' => 'setDepartmentName',
+		'dietary_restrictions' => 'setDietaryRestrictions',
+		'display_name' => 'setDisplayName',
+		'division_id' => 'setDivisionId',
+		'division_name' => 'setDivisionName',
+		'eeo_job_category' => 'setEeoJobCategory',
+		'eeo_job_category_id' => 'setEeoJobCategoryId',
+		'ein' => 'setEin',
+		'eligible_for_rehire' => 'setEligibleForRehire',
+		'eligible_for_rehire_id' => 'setEligibleForRehireId',
+		'employee_name' => 'setEmployeeName',
+		'employee_number' => 'setEmployeeNumber',
+		'employment_status_comment' => 'setEmploymentStatusComment',
+		'employment_status_effective_date' => 'setEmploymentStatusEffectiveDate',
+		'employment_status_id' => 'setEmploymentStatusId',
+		'employment_status_name' => 'setEmploymentStatusName',
+		'employment_type' => 'setEmploymentType',
+		'employment_type_id' => 'setEmploymentTypeId',
+		'ethnicity' => 'setEthnicity',
+		'ethnicity_id' => 'setEthnicityId',
+		'facebook_url' => 'setFacebookUrl',
+		'final_dose_administration_date' => 'setFinalDoseAdministrationDate',
+		'final_pay_date' => 'setFinalPayDate',
+		'first_name_last_name' => 'setFirstNameLastName',
+		'first_name_middle_initial' => 'setFirstNameMiddleInitial',
+		'flsa_code' => 'setFlsaCode',
+		'flsa_code_id' => 'setFlsaCodeId',
+		'gender' => 'setGender',
+		'gender_identity' => 'setGenderIdentity',
+		'gender_identity_id' => 'setGenderIdentityId',
+		'hire_date' => 'setHireDate',
+		'home_email' => 'setHomeEmail',
+		'home_phone' => 'setHomePhone',
+		'hours_per_pay_cycle' => 'setHoursPerPayCycle',
+		'instagram_url' => 'setInstagramUrl',
+		'is_manager' => 'setIsManager',
+		'jacket_size' => 'setJacketSize',
+		'jacket_size_id' => 'setJacketSizeId',
+		'job_information_effective_date' => 'setJobInformationEffectiveDate',
+		'job_title_id' => 'setJobTitleId',
+		'linkedin_url' => 'setLinkedinUrl',
+		'location_id' => 'setLocationId',
+		'location_name' => 'setLocationName',
+		'marital_status' => 'setMaritalStatus',
+		'middle_initial' => 'setMiddleInitial',
+		'middle_name' => 'setMiddleName',
+		'mobile_phone' => 'setMobilePhone',
+		'national_id' => 'setNationalId',
+		'national_insurance_category' => 'setNationalInsuranceCategory',
+		'national_insurance_category_id' => 'setNationalInsuranceCategoryId',
+		'nationality' => 'setNationality',
+		'nationality_id' => 'setNationalityId',
+		'nick_name' => 'setNickName',
+		'nin' => 'setNin',
+		'notice_period' => 'setNoticePeriod',
+		'notice_period_id' => 'setNoticePeriodId',
+		'original_hire_date' => 'setOriginalHireDate',
+		'overtime' => 'setOvertime',
+		'overtime_rate' => 'setOvertimeRate',
+		'paid_per' => 'setPaidPer',
+		'pay_rate' => 'setPayRate',
+		'pay_schedule' => 'setPaySchedule',
+		'pay_schedule_id' => 'setPayScheduleId',
+		'pay_type' => 'setPayType',
+		'pinterest_url' => 'setPinterestUrl',
+		'preferred_name_last_name' => 'setPreferredNameLastName',
+		'probation_end_date' => 'setProbationEndDate',
+		'pronouns' => 'setPronouns',
+		'pronouns_id' => 'setPronounsId',
+		'proof_of_vaccination' => 'setProofOfVaccination',
+		'reports_to_id' => 'setReportsToId',
+		'reports_to_name' => 'setReportsToName',
+		'secondary_language' => 'setSecondaryLanguage',
+		'shirt_size' => 'setShirtSize',
+		'shirt_size_id' => 'setShirtSizeId',
+		'sin' => 'setSin',
+		'skype_username' => 'setSkypeUsername',
+		'ssn' => 'setSsn',
+		'state' => 'setState',
+		'state_id' => 'setStateId',
+		'tax_type_id' => 'setTaxTypeId',
+		'teams' => 'setTeams',
+		'tenure' => 'setTenure',
+		'termination_date' => 'setTerminationDate',
+		'termination_reason' => 'setTerminationReason',
+		'termination_reason_id' => 'setTerminationReasonId',
+		'termination_regrettable' => 'setTerminationRegrettable',
+		'termination_regrettable_id' => 'setTerminationRegrettableId',
+		'termination_type' => 'setTerminationType',
+		'termination_type_id' => 'setTerminationTypeId',
+		't_shirt_size' => 'setTShirtSize',
+		't_shirt_size_id' => 'setTShirtSizeId',
+		'twitter_url' => 'setTwitterUrl',
+		'user_id' => 'setUserId',
+		'vaccination_status' => 'setVaccinationStatus',
+		'vaccination_status_id' => 'setVaccinationStatusId',
+		'vaccine_received' => 'setVaccineReceived',
+		'vaccine_received_id' => 'setVaccineReceivedId',
+		'veteran_status' => 'setVeteranStatus',
+		'veteran_status_id' => 'setVeteranStatusId',
+		'work_email' => 'setWorkEmail',
+		'work_phone' => 'setWorkPhone',
+		'work_phone_extension' => 'setWorkPhoneExtension',
+		'zipcode' => 'setZipcode'
 	];
 
 	/**
@@ -224,7 +839,130 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		'photo_url' => 'getPhotoUrl',
 		'job_title_name' => 'getJobTitleName',
 		'status' => 'getStatus',
-		'_restricted_fields' => 'getRestrictedFields'
+		'_restricted_fields' => 'getRestrictedFields',
+		'address_line1' => 'getAddressLine1',
+		'address_line2' => 'getAddressLine2',
+		'age' => 'getAge',
+		'allergies' => 'getAllergies',
+		'best_email' => 'getBestEmail',
+		'birth_date' => 'getBirthDate',
+		'birthplace' => 'getBirthplace',
+		'citizenship' => 'getCitizenship',
+		'citizenship_id' => 'getCitizenshipId',
+		'city' => 'getCity',
+		'compensation_change_reason' => 'getCompensationChangeReason',
+		'compensation_change_reason_id' => 'getCompensationChangeReasonId',
+		'compensation_comment' => 'getCompensationComment',
+		'compensation_effective_date' => 'getCompensationEffectiveDate',
+		'compensation_end_date' => 'getCompensationEndDate',
+		'contract_end_date' => 'getContractEndDate',
+		'country' => 'getCountry',
+		'country_id' => 'getCountryId',
+		'department_id' => 'getDepartmentId',
+		'department_name' => 'getDepartmentName',
+		'dietary_restrictions' => 'getDietaryRestrictions',
+		'display_name' => 'getDisplayName',
+		'division_id' => 'getDivisionId',
+		'division_name' => 'getDivisionName',
+		'eeo_job_category' => 'getEeoJobCategory',
+		'eeo_job_category_id' => 'getEeoJobCategoryId',
+		'ein' => 'getEin',
+		'eligible_for_rehire' => 'getEligibleForRehire',
+		'eligible_for_rehire_id' => 'getEligibleForRehireId',
+		'employee_name' => 'getEmployeeName',
+		'employee_number' => 'getEmployeeNumber',
+		'employment_status_comment' => 'getEmploymentStatusComment',
+		'employment_status_effective_date' => 'getEmploymentStatusEffectiveDate',
+		'employment_status_id' => 'getEmploymentStatusId',
+		'employment_status_name' => 'getEmploymentStatusName',
+		'employment_type' => 'getEmploymentType',
+		'employment_type_id' => 'getEmploymentTypeId',
+		'ethnicity' => 'getEthnicity',
+		'ethnicity_id' => 'getEthnicityId',
+		'facebook_url' => 'getFacebookUrl',
+		'final_dose_administration_date' => 'getFinalDoseAdministrationDate',
+		'final_pay_date' => 'getFinalPayDate',
+		'first_name_last_name' => 'getFirstNameLastName',
+		'first_name_middle_initial' => 'getFirstNameMiddleInitial',
+		'flsa_code' => 'getFlsaCode',
+		'flsa_code_id' => 'getFlsaCodeId',
+		'gender' => 'getGender',
+		'gender_identity' => 'getGenderIdentity',
+		'gender_identity_id' => 'getGenderIdentityId',
+		'hire_date' => 'getHireDate',
+		'home_email' => 'getHomeEmail',
+		'home_phone' => 'getHomePhone',
+		'hours_per_pay_cycle' => 'getHoursPerPayCycle',
+		'instagram_url' => 'getInstagramUrl',
+		'is_manager' => 'getIsManager',
+		'jacket_size' => 'getJacketSize',
+		'jacket_size_id' => 'getJacketSizeId',
+		'job_information_effective_date' => 'getJobInformationEffectiveDate',
+		'job_title_id' => 'getJobTitleId',
+		'linkedin_url' => 'getLinkedinUrl',
+		'location_id' => 'getLocationId',
+		'location_name' => 'getLocationName',
+		'marital_status' => 'getMaritalStatus',
+		'middle_initial' => 'getMiddleInitial',
+		'middle_name' => 'getMiddleName',
+		'mobile_phone' => 'getMobilePhone',
+		'national_id' => 'getNationalId',
+		'national_insurance_category' => 'getNationalInsuranceCategory',
+		'national_insurance_category_id' => 'getNationalInsuranceCategoryId',
+		'nationality' => 'getNationality',
+		'nationality_id' => 'getNationalityId',
+		'nick_name' => 'getNickName',
+		'nin' => 'getNin',
+		'notice_period' => 'getNoticePeriod',
+		'notice_period_id' => 'getNoticePeriodId',
+		'original_hire_date' => 'getOriginalHireDate',
+		'overtime' => 'getOvertime',
+		'overtime_rate' => 'getOvertimeRate',
+		'paid_per' => 'getPaidPer',
+		'pay_rate' => 'getPayRate',
+		'pay_schedule' => 'getPaySchedule',
+		'pay_schedule_id' => 'getPayScheduleId',
+		'pay_type' => 'getPayType',
+		'pinterest_url' => 'getPinterestUrl',
+		'preferred_name_last_name' => 'getPreferredNameLastName',
+		'probation_end_date' => 'getProbationEndDate',
+		'pronouns' => 'getPronouns',
+		'pronouns_id' => 'getPronounsId',
+		'proof_of_vaccination' => 'getProofOfVaccination',
+		'reports_to_id' => 'getReportsToId',
+		'reports_to_name' => 'getReportsToName',
+		'secondary_language' => 'getSecondaryLanguage',
+		'shirt_size' => 'getShirtSize',
+		'shirt_size_id' => 'getShirtSizeId',
+		'sin' => 'getSin',
+		'skype_username' => 'getSkypeUsername',
+		'ssn' => 'getSsn',
+		'state' => 'getState',
+		'state_id' => 'getStateId',
+		'tax_type_id' => 'getTaxTypeId',
+		'teams' => 'getTeams',
+		'tenure' => 'getTenure',
+		'termination_date' => 'getTerminationDate',
+		'termination_reason' => 'getTerminationReason',
+		'termination_reason_id' => 'getTerminationReasonId',
+		'termination_regrettable' => 'getTerminationRegrettable',
+		'termination_regrettable_id' => 'getTerminationRegrettableId',
+		'termination_type' => 'getTerminationType',
+		'termination_type_id' => 'getTerminationTypeId',
+		't_shirt_size' => 'getTShirtSize',
+		't_shirt_size_id' => 'getTShirtSizeId',
+		'twitter_url' => 'getTwitterUrl',
+		'user_id' => 'getUserId',
+		'vaccination_status' => 'getVaccinationStatus',
+		'vaccination_status_id' => 'getVaccinationStatusId',
+		'vaccine_received' => 'getVaccineReceived',
+		'vaccine_received_id' => 'getVaccineReceivedId',
+		'veteran_status' => 'getVeteranStatus',
+		'veteran_status_id' => 'getVeteranStatusId',
+		'work_email' => 'getWorkEmail',
+		'work_phone' => 'getWorkPhone',
+		'work_phone_extension' => 'getWorkPhoneExtension',
+		'zipcode' => 'getZipcode'
 	];
 
 	/**
@@ -286,6 +1024,129 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 		$this->setIfExists('job_title_name', $data ?? [], null);
 		$this->setIfExists('status', $data ?? [], null);
 		$this->setIfExists('_restricted_fields', $data ?? [], null);
+		$this->setIfExists('address_line1', $data ?? [], null);
+		$this->setIfExists('address_line2', $data ?? [], null);
+		$this->setIfExists('age', $data ?? [], null);
+		$this->setIfExists('allergies', $data ?? [], null);
+		$this->setIfExists('best_email', $data ?? [], null);
+		$this->setIfExists('birth_date', $data ?? [], null);
+		$this->setIfExists('birthplace', $data ?? [], null);
+		$this->setIfExists('citizenship', $data ?? [], null);
+		$this->setIfExists('citizenship_id', $data ?? [], null);
+		$this->setIfExists('city', $data ?? [], null);
+		$this->setIfExists('compensation_change_reason', $data ?? [], null);
+		$this->setIfExists('compensation_change_reason_id', $data ?? [], null);
+		$this->setIfExists('compensation_comment', $data ?? [], null);
+		$this->setIfExists('compensation_effective_date', $data ?? [], null);
+		$this->setIfExists('compensation_end_date', $data ?? [], null);
+		$this->setIfExists('contract_end_date', $data ?? [], null);
+		$this->setIfExists('country', $data ?? [], null);
+		$this->setIfExists('country_id', $data ?? [], null);
+		$this->setIfExists('department_id', $data ?? [], null);
+		$this->setIfExists('department_name', $data ?? [], null);
+		$this->setIfExists('dietary_restrictions', $data ?? [], null);
+		$this->setIfExists('display_name', $data ?? [], null);
+		$this->setIfExists('division_id', $data ?? [], null);
+		$this->setIfExists('division_name', $data ?? [], null);
+		$this->setIfExists('eeo_job_category', $data ?? [], null);
+		$this->setIfExists('eeo_job_category_id', $data ?? [], null);
+		$this->setIfExists('ein', $data ?? [], null);
+		$this->setIfExists('eligible_for_rehire', $data ?? [], null);
+		$this->setIfExists('eligible_for_rehire_id', $data ?? [], null);
+		$this->setIfExists('employee_name', $data ?? [], null);
+		$this->setIfExists('employee_number', $data ?? [], null);
+		$this->setIfExists('employment_status_comment', $data ?? [], null);
+		$this->setIfExists('employment_status_effective_date', $data ?? [], null);
+		$this->setIfExists('employment_status_id', $data ?? [], null);
+		$this->setIfExists('employment_status_name', $data ?? [], null);
+		$this->setIfExists('employment_type', $data ?? [], null);
+		$this->setIfExists('employment_type_id', $data ?? [], null);
+		$this->setIfExists('ethnicity', $data ?? [], null);
+		$this->setIfExists('ethnicity_id', $data ?? [], null);
+		$this->setIfExists('facebook_url', $data ?? [], null);
+		$this->setIfExists('final_dose_administration_date', $data ?? [], null);
+		$this->setIfExists('final_pay_date', $data ?? [], null);
+		$this->setIfExists('first_name_last_name', $data ?? [], null);
+		$this->setIfExists('first_name_middle_initial', $data ?? [], null);
+		$this->setIfExists('flsa_code', $data ?? [], null);
+		$this->setIfExists('flsa_code_id', $data ?? [], null);
+		$this->setIfExists('gender', $data ?? [], null);
+		$this->setIfExists('gender_identity', $data ?? [], null);
+		$this->setIfExists('gender_identity_id', $data ?? [], null);
+		$this->setIfExists('hire_date', $data ?? [], null);
+		$this->setIfExists('home_email', $data ?? [], null);
+		$this->setIfExists('home_phone', $data ?? [], null);
+		$this->setIfExists('hours_per_pay_cycle', $data ?? [], null);
+		$this->setIfExists('instagram_url', $data ?? [], null);
+		$this->setIfExists('is_manager', $data ?? [], null);
+		$this->setIfExists('jacket_size', $data ?? [], null);
+		$this->setIfExists('jacket_size_id', $data ?? [], null);
+		$this->setIfExists('job_information_effective_date', $data ?? [], null);
+		$this->setIfExists('job_title_id', $data ?? [], null);
+		$this->setIfExists('linkedin_url', $data ?? [], null);
+		$this->setIfExists('location_id', $data ?? [], null);
+		$this->setIfExists('location_name', $data ?? [], null);
+		$this->setIfExists('marital_status', $data ?? [], null);
+		$this->setIfExists('middle_initial', $data ?? [], null);
+		$this->setIfExists('middle_name', $data ?? [], null);
+		$this->setIfExists('mobile_phone', $data ?? [], null);
+		$this->setIfExists('national_id', $data ?? [], null);
+		$this->setIfExists('national_insurance_category', $data ?? [], null);
+		$this->setIfExists('national_insurance_category_id', $data ?? [], null);
+		$this->setIfExists('nationality', $data ?? [], null);
+		$this->setIfExists('nationality_id', $data ?? [], null);
+		$this->setIfExists('nick_name', $data ?? [], null);
+		$this->setIfExists('nin', $data ?? [], null);
+		$this->setIfExists('notice_period', $data ?? [], null);
+		$this->setIfExists('notice_period_id', $data ?? [], null);
+		$this->setIfExists('original_hire_date', $data ?? [], null);
+		$this->setIfExists('overtime', $data ?? [], null);
+		$this->setIfExists('overtime_rate', $data ?? [], null);
+		$this->setIfExists('paid_per', $data ?? [], null);
+		$this->setIfExists('pay_rate', $data ?? [], null);
+		$this->setIfExists('pay_schedule', $data ?? [], null);
+		$this->setIfExists('pay_schedule_id', $data ?? [], null);
+		$this->setIfExists('pay_type', $data ?? [], null);
+		$this->setIfExists('pinterest_url', $data ?? [], null);
+		$this->setIfExists('preferred_name_last_name', $data ?? [], null);
+		$this->setIfExists('probation_end_date', $data ?? [], null);
+		$this->setIfExists('pronouns', $data ?? [], null);
+		$this->setIfExists('pronouns_id', $data ?? [], null);
+		$this->setIfExists('proof_of_vaccination', $data ?? [], null);
+		$this->setIfExists('reports_to_id', $data ?? [], null);
+		$this->setIfExists('reports_to_name', $data ?? [], null);
+		$this->setIfExists('secondary_language', $data ?? [], null);
+		$this->setIfExists('shirt_size', $data ?? [], null);
+		$this->setIfExists('shirt_size_id', $data ?? [], null);
+		$this->setIfExists('sin', $data ?? [], null);
+		$this->setIfExists('skype_username', $data ?? [], null);
+		$this->setIfExists('ssn', $data ?? [], null);
+		$this->setIfExists('state', $data ?? [], null);
+		$this->setIfExists('state_id', $data ?? [], null);
+		$this->setIfExists('tax_type_id', $data ?? [], null);
+		$this->setIfExists('teams', $data ?? [], null);
+		$this->setIfExists('tenure', $data ?? [], null);
+		$this->setIfExists('termination_date', $data ?? [], null);
+		$this->setIfExists('termination_reason', $data ?? [], null);
+		$this->setIfExists('termination_reason_id', $data ?? [], null);
+		$this->setIfExists('termination_regrettable', $data ?? [], null);
+		$this->setIfExists('termination_regrettable_id', $data ?? [], null);
+		$this->setIfExists('termination_type', $data ?? [], null);
+		$this->setIfExists('termination_type_id', $data ?? [], null);
+		$this->setIfExists('t_shirt_size', $data ?? [], null);
+		$this->setIfExists('t_shirt_size_id', $data ?? [], null);
+		$this->setIfExists('twitter_url', $data ?? [], null);
+		$this->setIfExists('user_id', $data ?? [], null);
+		$this->setIfExists('vaccination_status', $data ?? [], null);
+		$this->setIfExists('vaccination_status_id', $data ?? [], null);
+		$this->setIfExists('vaccine_received', $data ?? [], null);
+		$this->setIfExists('vaccine_received_id', $data ?? [], null);
+		$this->setIfExists('veteran_status', $data ?? [], null);
+		$this->setIfExists('veteran_status_id', $data ?? [], null);
+		$this->setIfExists('work_email', $data ?? [], null);
+		$this->setIfExists('work_phone', $data ?? [], null);
+		$this->setIfExists('work_phone_extension', $data ?? [], null);
+		$this->setIfExists('zipcode', $data ?? [], null);
 	}
 
 	/**
@@ -387,19 +1248,13 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Sets first_name
 	 *
-	 * @param string $first_name Employee's first name
+	 * @param string $first_name first_name
 	 *
 	 * @return self
 	 */
 	public function setFirstName($first_name) {
 		if (is_null($first_name)) {
-			$this->openApiNullablesSetToNull['first_name'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['first_name'])) {
-				unset($nullablesSetToNull['first_name']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable first_name cannot be null');
 		}
 		$this->container['first_name'] = $first_name;
 
@@ -418,19 +1273,13 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Sets last_name
 	 *
-	 * @param string $last_name Employee's last name
+	 * @param string $last_name last_name
 	 *
 	 * @return self
 	 */
 	public function setLastName($last_name) {
 		if (is_null($last_name)) {
-			$this->openApiNullablesSetToNull['last_name'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['last_name'])) {
-				unset($nullablesSetToNull['last_name']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable last_name cannot be null');
 		}
 		$this->container['last_name'] = $last_name;
 
@@ -449,19 +1298,13 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Sets preferred_name
 	 *
-	 * @param string $preferred_name Employee's preferred name
+	 * @param string $preferred_name preferred_name
 	 *
 	 * @return self
 	 */
 	public function setPreferredName($preferred_name) {
 		if (is_null($preferred_name)) {
-			$this->openApiNullablesSetToNull['preferred_name'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['preferred_name'])) {
-				unset($nullablesSetToNull['preferred_name']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable preferred_name cannot be null');
 		}
 		$this->container['preferred_name'] = $preferred_name;
 
@@ -480,19 +1323,13 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Sets photo_url
 	 *
-	 * @param string $photo_url URL to employee's profile photo
+	 * @param string $photo_url photo_url
 	 *
 	 * @return self
 	 */
 	public function setPhotoUrl($photo_url) {
 		if (is_null($photo_url)) {
-			$this->openApiNullablesSetToNull['photo_url'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['photo_url'])) {
-				unset($nullablesSetToNull['photo_url']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable photo_url cannot be null');
 		}
 		$this->container['photo_url'] = $photo_url;
 
@@ -511,19 +1348,13 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Sets job_title_name
 	 *
-	 * @param string $job_title_name Employee's current job title
+	 * @param string $job_title_name job_title_name
 	 *
 	 * @return self
 	 */
 	public function setJobTitleName($job_title_name) {
 		if (is_null($job_title_name)) {
-			$this->openApiNullablesSetToNull['job_title_name'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['job_title_name'])) {
-				unset($nullablesSetToNull['job_title_name']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable job_title_name cannot be null');
 		}
 		$this->container['job_title_name'] = $job_title_name;
 
@@ -542,19 +1373,13 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 	/**
 	 * Sets status
 	 *
-	 * @param string $status Employee's current status (active/inactive)
+	 * @param string $status status
 	 *
 	 * @return self
 	 */
 	public function setStatus($status) {
 		if (is_null($status)) {
-			$this->openApiNullablesSetToNull['status'] = true;
-		} else {
-			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
-			if (isset($nullablesSetToNull['status'])) {
-				unset($nullablesSetToNull['status']);
-				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
-			}
+			throw new \InvalidArgumentException('non-nullable status cannot be null');
 		}
 		$this->container['status'] = $status;
 
@@ -582,6 +1407,3789 @@ class GetEmployeesEmployeeResponse implements ModelInterface, ArrayAccess, \Json
 			throw new \InvalidArgumentException('non-nullable _restricted_fields cannot be null');
 		}
 		$this->container['_restricted_fields'] = $_restricted_fields;
+
+		return $this;
+	}
+
+	/**
+	 * Gets address_line1
+	 *
+	 * @return string|null
+	 */
+	public function getAddressLine1() {
+		return $this->container['address_line1'];
+	}
+
+	/**
+	 * Sets address_line1
+	 *
+	 * @param string|null $address_line1 address_line1
+	 *
+	 * @return self
+	 */
+	public function setAddressLine1($address_line1) {
+		if (is_null($address_line1)) {
+			$this->openApiNullablesSetToNull['address_line1'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['address_line1'])) {
+				unset($nullablesSetToNull['address_line1']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['address_line1'] = $address_line1;
+
+		return $this;
+	}
+
+	/**
+	 * Gets address_line2
+	 *
+	 * @return string|null
+	 */
+	public function getAddressLine2() {
+		return $this->container['address_line2'];
+	}
+
+	/**
+	 * Sets address_line2
+	 *
+	 * @param string|null $address_line2 address_line2
+	 *
+	 * @return self
+	 */
+	public function setAddressLine2($address_line2) {
+		if (is_null($address_line2)) {
+			$this->openApiNullablesSetToNull['address_line2'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['address_line2'])) {
+				unset($nullablesSetToNull['address_line2']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['address_line2'] = $address_line2;
+
+		return $this;
+	}
+
+	/**
+	 * Gets age
+	 *
+	 * @return string|null
+	 */
+	public function getAge() {
+		return $this->container['age'];
+	}
+
+	/**
+	 * Sets age
+	 *
+	 * @param string|null $age age
+	 *
+	 * @return self
+	 */
+	public function setAge($age) {
+		if (is_null($age)) {
+			$this->openApiNullablesSetToNull['age'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['age'])) {
+				unset($nullablesSetToNull['age']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['age'] = $age;
+
+		return $this;
+	}
+
+	/**
+	 * Gets allergies
+	 *
+	 * @return string|null
+	 */
+	public function getAllergies() {
+		return $this->container['allergies'];
+	}
+
+	/**
+	 * Sets allergies
+	 *
+	 * @param string|null $allergies allergies
+	 *
+	 * @return self
+	 */
+	public function setAllergies($allergies) {
+		if (is_null($allergies)) {
+			$this->openApiNullablesSetToNull['allergies'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['allergies'])) {
+				unset($nullablesSetToNull['allergies']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['allergies'] = $allergies;
+
+		return $this;
+	}
+
+	/**
+	 * Gets best_email
+	 *
+	 * @return string|null
+	 */
+	public function getBestEmail() {
+		return $this->container['best_email'];
+	}
+
+	/**
+	 * Sets best_email
+	 *
+	 * @param string|null $best_email best_email
+	 *
+	 * @return self
+	 */
+	public function setBestEmail($best_email) {
+		if (is_null($best_email)) {
+			$this->openApiNullablesSetToNull['best_email'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['best_email'])) {
+				unset($nullablesSetToNull['best_email']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['best_email'] = $best_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets birth_date
+	 *
+	 * @return string|null
+	 */
+	public function getBirthDate() {
+		return $this->container['birth_date'];
+	}
+
+	/**
+	 * Sets birth_date
+	 *
+	 * @param string|null $birth_date birth_date
+	 *
+	 * @return self
+	 */
+	public function setBirthDate($birth_date) {
+		if (is_null($birth_date)) {
+			$this->openApiNullablesSetToNull['birth_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['birth_date'])) {
+				unset($nullablesSetToNull['birth_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['birth_date'] = $birth_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets birthplace
+	 *
+	 * @return string|null
+	 */
+	public function getBirthplace() {
+		return $this->container['birthplace'];
+	}
+
+	/**
+	 * Sets birthplace
+	 *
+	 * @param string|null $birthplace birthplace
+	 *
+	 * @return self
+	 */
+	public function setBirthplace($birthplace) {
+		if (is_null($birthplace)) {
+			$this->openApiNullablesSetToNull['birthplace'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['birthplace'])) {
+				unset($nullablesSetToNull['birthplace']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['birthplace'] = $birthplace;
+
+		return $this;
+	}
+
+	/**
+	 * Gets citizenship
+	 *
+	 * @return string|null
+	 */
+	public function getCitizenship() {
+		return $this->container['citizenship'];
+	}
+
+	/**
+	 * Sets citizenship
+	 *
+	 * @param string|null $citizenship citizenship
+	 *
+	 * @return self
+	 */
+	public function setCitizenship($citizenship) {
+		if (is_null($citizenship)) {
+			$this->openApiNullablesSetToNull['citizenship'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['citizenship'])) {
+				unset($nullablesSetToNull['citizenship']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['citizenship'] = $citizenship;
+
+		return $this;
+	}
+
+	/**
+	 * Gets citizenship_id
+	 *
+	 * @return string|null
+	 */
+	public function getCitizenshipId() {
+		return $this->container['citizenship_id'];
+	}
+
+	/**
+	 * Sets citizenship_id
+	 *
+	 * @param string|null $citizenship_id citizenship_id
+	 *
+	 * @return self
+	 */
+	public function setCitizenshipId($citizenship_id) {
+		if (is_null($citizenship_id)) {
+			$this->openApiNullablesSetToNull['citizenship_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['citizenship_id'])) {
+				unset($nullablesSetToNull['citizenship_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['citizenship_id'] = $citizenship_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets city
+	 *
+	 * @return string|null
+	 */
+	public function getCity() {
+		return $this->container['city'];
+	}
+
+	/**
+	 * Sets city
+	 *
+	 * @param string|null $city city
+	 *
+	 * @return self
+	 */
+	public function setCity($city) {
+		if (is_null($city)) {
+			$this->openApiNullablesSetToNull['city'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['city'])) {
+				unset($nullablesSetToNull['city']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['city'] = $city;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_change_reason
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationChangeReason() {
+		return $this->container['compensation_change_reason'];
+	}
+
+	/**
+	 * Sets compensation_change_reason
+	 *
+	 * @param string|null $compensation_change_reason compensation_change_reason
+	 *
+	 * @return self
+	 */
+	public function setCompensationChangeReason($compensation_change_reason) {
+		if (is_null($compensation_change_reason)) {
+			$this->openApiNullablesSetToNull['compensation_change_reason'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['compensation_change_reason'])) {
+				unset($nullablesSetToNull['compensation_change_reason']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['compensation_change_reason'] = $compensation_change_reason;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_change_reason_id
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationChangeReasonId() {
+		return $this->container['compensation_change_reason_id'];
+	}
+
+	/**
+	 * Sets compensation_change_reason_id
+	 *
+	 * @param string|null $compensation_change_reason_id compensation_change_reason_id
+	 *
+	 * @return self
+	 */
+	public function setCompensationChangeReasonId($compensation_change_reason_id) {
+		if (is_null($compensation_change_reason_id)) {
+			$this->openApiNullablesSetToNull['compensation_change_reason_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['compensation_change_reason_id'])) {
+				unset($nullablesSetToNull['compensation_change_reason_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['compensation_change_reason_id'] = $compensation_change_reason_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_comment
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationComment() {
+		return $this->container['compensation_comment'];
+	}
+
+	/**
+	 * Sets compensation_comment
+	 *
+	 * @param string|null $compensation_comment compensation_comment
+	 *
+	 * @return self
+	 */
+	public function setCompensationComment($compensation_comment) {
+		if (is_null($compensation_comment)) {
+			$this->openApiNullablesSetToNull['compensation_comment'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['compensation_comment'])) {
+				unset($nullablesSetToNull['compensation_comment']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['compensation_comment'] = $compensation_comment;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_effective_date
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationEffectiveDate() {
+		return $this->container['compensation_effective_date'];
+	}
+
+	/**
+	 * Sets compensation_effective_date
+	 *
+	 * @param string|null $compensation_effective_date compensation_effective_date
+	 *
+	 * @return self
+	 */
+	public function setCompensationEffectiveDate($compensation_effective_date) {
+		if (is_null($compensation_effective_date)) {
+			$this->openApiNullablesSetToNull['compensation_effective_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['compensation_effective_date'])) {
+				unset($nullablesSetToNull['compensation_effective_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['compensation_effective_date'] = $compensation_effective_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_end_date
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationEndDate() {
+		return $this->container['compensation_end_date'];
+	}
+
+	/**
+	 * Sets compensation_end_date
+	 *
+	 * @param string|null $compensation_end_date compensation_end_date
+	 *
+	 * @return self
+	 */
+	public function setCompensationEndDate($compensation_end_date) {
+		if (is_null($compensation_end_date)) {
+			$this->openApiNullablesSetToNull['compensation_end_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['compensation_end_date'])) {
+				unset($nullablesSetToNull['compensation_end_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['compensation_end_date'] = $compensation_end_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets contract_end_date
+	 *
+	 * @return string|null
+	 */
+	public function getContractEndDate() {
+		return $this->container['contract_end_date'];
+	}
+
+	/**
+	 * Sets contract_end_date
+	 *
+	 * @param string|null $contract_end_date contract_end_date
+	 *
+	 * @return self
+	 */
+	public function setContractEndDate($contract_end_date) {
+		if (is_null($contract_end_date)) {
+			$this->openApiNullablesSetToNull['contract_end_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['contract_end_date'])) {
+				unset($nullablesSetToNull['contract_end_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['contract_end_date'] = $contract_end_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets country
+	 *
+	 * @return string|null
+	 */
+	public function getCountry() {
+		return $this->container['country'];
+	}
+
+	/**
+	 * Sets country
+	 *
+	 * @param string|null $country country
+	 *
+	 * @return self
+	 */
+	public function setCountry($country) {
+		if (is_null($country)) {
+			$this->openApiNullablesSetToNull['country'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['country'])) {
+				unset($nullablesSetToNull['country']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['country'] = $country;
+
+		return $this;
+	}
+
+	/**
+	 * Gets country_id
+	 *
+	 * @return string|null
+	 */
+	public function getCountryId() {
+		return $this->container['country_id'];
+	}
+
+	/**
+	 * Sets country_id
+	 *
+	 * @param string|null $country_id country_id
+	 *
+	 * @return self
+	 */
+	public function setCountryId($country_id) {
+		if (is_null($country_id)) {
+			$this->openApiNullablesSetToNull['country_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['country_id'])) {
+				unset($nullablesSetToNull['country_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['country_id'] = $country_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets department_id
+	 *
+	 * @return string|null
+	 */
+	public function getDepartmentId() {
+		return $this->container['department_id'];
+	}
+
+	/**
+	 * Sets department_id
+	 *
+	 * @param string|null $department_id department_id
+	 *
+	 * @return self
+	 */
+	public function setDepartmentId($department_id) {
+		if (is_null($department_id)) {
+			$this->openApiNullablesSetToNull['department_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['department_id'])) {
+				unset($nullablesSetToNull['department_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['department_id'] = $department_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets department_name
+	 *
+	 * @return string|null
+	 */
+	public function getDepartmentName() {
+		return $this->container['department_name'];
+	}
+
+	/**
+	 * Sets department_name
+	 *
+	 * @param string|null $department_name department_name
+	 *
+	 * @return self
+	 */
+	public function setDepartmentName($department_name) {
+		if (is_null($department_name)) {
+			$this->openApiNullablesSetToNull['department_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['department_name'])) {
+				unset($nullablesSetToNull['department_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['department_name'] = $department_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets dietary_restrictions
+	 *
+	 * @return string|null
+	 */
+	public function getDietaryRestrictions() {
+		return $this->container['dietary_restrictions'];
+	}
+
+	/**
+	 * Sets dietary_restrictions
+	 *
+	 * @param string|null $dietary_restrictions dietary_restrictions
+	 *
+	 * @return self
+	 */
+	public function setDietaryRestrictions($dietary_restrictions) {
+		if (is_null($dietary_restrictions)) {
+			$this->openApiNullablesSetToNull['dietary_restrictions'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['dietary_restrictions'])) {
+				unset($nullablesSetToNull['dietary_restrictions']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['dietary_restrictions'] = $dietary_restrictions;
+
+		return $this;
+	}
+
+	/**
+	 * Gets display_name
+	 *
+	 * @return string|null
+	 */
+	public function getDisplayName() {
+		return $this->container['display_name'];
+	}
+
+	/**
+	 * Sets display_name
+	 *
+	 * @param string|null $display_name display_name
+	 *
+	 * @return self
+	 */
+	public function setDisplayName($display_name) {
+		if (is_null($display_name)) {
+			$this->openApiNullablesSetToNull['display_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['display_name'])) {
+				unset($nullablesSetToNull['display_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['display_name'] = $display_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets division_id
+	 *
+	 * @return string|null
+	 */
+	public function getDivisionId() {
+		return $this->container['division_id'];
+	}
+
+	/**
+	 * Sets division_id
+	 *
+	 * @param string|null $division_id division_id
+	 *
+	 * @return self
+	 */
+	public function setDivisionId($division_id) {
+		if (is_null($division_id)) {
+			$this->openApiNullablesSetToNull['division_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['division_id'])) {
+				unset($nullablesSetToNull['division_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['division_id'] = $division_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets division_name
+	 *
+	 * @return string|null
+	 */
+	public function getDivisionName() {
+		return $this->container['division_name'];
+	}
+
+	/**
+	 * Sets division_name
+	 *
+	 * @param string|null $division_name division_name
+	 *
+	 * @return self
+	 */
+	public function setDivisionName($division_name) {
+		if (is_null($division_name)) {
+			$this->openApiNullablesSetToNull['division_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['division_name'])) {
+				unset($nullablesSetToNull['division_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['division_name'] = $division_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eeo_job_category
+	 *
+	 * @return string|null
+	 */
+	public function getEeoJobCategory() {
+		return $this->container['eeo_job_category'];
+	}
+
+	/**
+	 * Sets eeo_job_category
+	 *
+	 * @param string|null $eeo_job_category eeo_job_category
+	 *
+	 * @return self
+	 */
+	public function setEeoJobCategory($eeo_job_category) {
+		if (is_null($eeo_job_category)) {
+			$this->openApiNullablesSetToNull['eeo_job_category'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['eeo_job_category'])) {
+				unset($nullablesSetToNull['eeo_job_category']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['eeo_job_category'] = $eeo_job_category;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eeo_job_category_id
+	 *
+	 * @return string|null
+	 */
+	public function getEeoJobCategoryId() {
+		return $this->container['eeo_job_category_id'];
+	}
+
+	/**
+	 * Sets eeo_job_category_id
+	 *
+	 * @param string|null $eeo_job_category_id eeo_job_category_id
+	 *
+	 * @return self
+	 */
+	public function setEeoJobCategoryId($eeo_job_category_id) {
+		if (is_null($eeo_job_category_id)) {
+			$this->openApiNullablesSetToNull['eeo_job_category_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['eeo_job_category_id'])) {
+				unset($nullablesSetToNull['eeo_job_category_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['eeo_job_category_id'] = $eeo_job_category_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets ein
+	 *
+	 * @return string|null
+	 */
+	public function getEin() {
+		return $this->container['ein'];
+	}
+
+	/**
+	 * Sets ein
+	 *
+	 * @param string|null $ein ein
+	 *
+	 * @return self
+	 */
+	public function setEin($ein) {
+		if (is_null($ein)) {
+			$this->openApiNullablesSetToNull['ein'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['ein'])) {
+				unset($nullablesSetToNull['ein']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['ein'] = $ein;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eligible_for_rehire
+	 *
+	 * @return string|null
+	 */
+	public function getEligibleForRehire() {
+		return $this->container['eligible_for_rehire'];
+	}
+
+	/**
+	 * Sets eligible_for_rehire
+	 *
+	 * @param string|null $eligible_for_rehire eligible_for_rehire
+	 *
+	 * @return self
+	 */
+	public function setEligibleForRehire($eligible_for_rehire) {
+		if (is_null($eligible_for_rehire)) {
+			$this->openApiNullablesSetToNull['eligible_for_rehire'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['eligible_for_rehire'])) {
+				unset($nullablesSetToNull['eligible_for_rehire']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['eligible_for_rehire'] = $eligible_for_rehire;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eligible_for_rehire_id
+	 *
+	 * @return string|null
+	 */
+	public function getEligibleForRehireId() {
+		return $this->container['eligible_for_rehire_id'];
+	}
+
+	/**
+	 * Sets eligible_for_rehire_id
+	 *
+	 * @param string|null $eligible_for_rehire_id eligible_for_rehire_id
+	 *
+	 * @return self
+	 */
+	public function setEligibleForRehireId($eligible_for_rehire_id) {
+		if (is_null($eligible_for_rehire_id)) {
+			$this->openApiNullablesSetToNull['eligible_for_rehire_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['eligible_for_rehire_id'])) {
+				unset($nullablesSetToNull['eligible_for_rehire_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['eligible_for_rehire_id'] = $eligible_for_rehire_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employee_name
+	 *
+	 * @return string|null
+	 */
+	public function getEmployeeName() {
+		return $this->container['employee_name'];
+	}
+
+	/**
+	 * Sets employee_name
+	 *
+	 * @param string|null $employee_name employee_name
+	 *
+	 * @return self
+	 */
+	public function setEmployeeName($employee_name) {
+		if (is_null($employee_name)) {
+			$this->openApiNullablesSetToNull['employee_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employee_name'])) {
+				unset($nullablesSetToNull['employee_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employee_name'] = $employee_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employee_number
+	 *
+	 * @return string|null
+	 */
+	public function getEmployeeNumber() {
+		return $this->container['employee_number'];
+	}
+
+	/**
+	 * Sets employee_number
+	 *
+	 * @param string|null $employee_number employee_number
+	 *
+	 * @return self
+	 */
+	public function setEmployeeNumber($employee_number) {
+		if (is_null($employee_number)) {
+			$this->openApiNullablesSetToNull['employee_number'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employee_number'])) {
+				unset($nullablesSetToNull['employee_number']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employee_number'] = $employee_number;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_comment
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentStatusComment() {
+		return $this->container['employment_status_comment'];
+	}
+
+	/**
+	 * Sets employment_status_comment
+	 *
+	 * @param string|null $employment_status_comment employment_status_comment
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusComment($employment_status_comment) {
+		if (is_null($employment_status_comment)) {
+			$this->openApiNullablesSetToNull['employment_status_comment'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employment_status_comment'])) {
+				unset($nullablesSetToNull['employment_status_comment']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employment_status_comment'] = $employment_status_comment;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_effective_date
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentStatusEffectiveDate() {
+		return $this->container['employment_status_effective_date'];
+	}
+
+	/**
+	 * Sets employment_status_effective_date
+	 *
+	 * @param string|null $employment_status_effective_date employment_status_effective_date
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusEffectiveDate($employment_status_effective_date) {
+		if (is_null($employment_status_effective_date)) {
+			$this->openApiNullablesSetToNull['employment_status_effective_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employment_status_effective_date'])) {
+				unset($nullablesSetToNull['employment_status_effective_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employment_status_effective_date'] = $employment_status_effective_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_id
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentStatusId() {
+		return $this->container['employment_status_id'];
+	}
+
+	/**
+	 * Sets employment_status_id
+	 *
+	 * @param string|null $employment_status_id employment_status_id
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusId($employment_status_id) {
+		if (is_null($employment_status_id)) {
+			$this->openApiNullablesSetToNull['employment_status_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employment_status_id'])) {
+				unset($nullablesSetToNull['employment_status_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employment_status_id'] = $employment_status_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_name
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentStatusName() {
+		return $this->container['employment_status_name'];
+	}
+
+	/**
+	 * Sets employment_status_name
+	 *
+	 * @param string|null $employment_status_name employment_status_name
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusName($employment_status_name) {
+		if (is_null($employment_status_name)) {
+			$this->openApiNullablesSetToNull['employment_status_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employment_status_name'])) {
+				unset($nullablesSetToNull['employment_status_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employment_status_name'] = $employment_status_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_type
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentType() {
+		return $this->container['employment_type'];
+	}
+
+	/**
+	 * Sets employment_type
+	 *
+	 * @param string|null $employment_type employment_type
+	 *
+	 * @return self
+	 */
+	public function setEmploymentType($employment_type) {
+		if (is_null($employment_type)) {
+			$this->openApiNullablesSetToNull['employment_type'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employment_type'])) {
+				unset($nullablesSetToNull['employment_type']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employment_type'] = $employment_type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_type_id
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentTypeId() {
+		return $this->container['employment_type_id'];
+	}
+
+	/**
+	 * Sets employment_type_id
+	 *
+	 * @param string|null $employment_type_id employment_type_id
+	 *
+	 * @return self
+	 */
+	public function setEmploymentTypeId($employment_type_id) {
+		if (is_null($employment_type_id)) {
+			$this->openApiNullablesSetToNull['employment_type_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['employment_type_id'])) {
+				unset($nullablesSetToNull['employment_type_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['employment_type_id'] = $employment_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets ethnicity
+	 *
+	 * @return string|null
+	 */
+	public function getEthnicity() {
+		return $this->container['ethnicity'];
+	}
+
+	/**
+	 * Sets ethnicity
+	 *
+	 * @param string|null $ethnicity ethnicity
+	 *
+	 * @return self
+	 */
+	public function setEthnicity($ethnicity) {
+		if (is_null($ethnicity)) {
+			$this->openApiNullablesSetToNull['ethnicity'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['ethnicity'])) {
+				unset($nullablesSetToNull['ethnicity']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['ethnicity'] = $ethnicity;
+
+		return $this;
+	}
+
+	/**
+	 * Gets ethnicity_id
+	 *
+	 * @return string|null
+	 */
+	public function getEthnicityId() {
+		return $this->container['ethnicity_id'];
+	}
+
+	/**
+	 * Sets ethnicity_id
+	 *
+	 * @param string|null $ethnicity_id ethnicity_id
+	 *
+	 * @return self
+	 */
+	public function setEthnicityId($ethnicity_id) {
+		if (is_null($ethnicity_id)) {
+			$this->openApiNullablesSetToNull['ethnicity_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['ethnicity_id'])) {
+				unset($nullablesSetToNull['ethnicity_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['ethnicity_id'] = $ethnicity_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets facebook_url
+	 *
+	 * @return string|null
+	 */
+	public function getFacebookUrl() {
+		return $this->container['facebook_url'];
+	}
+
+	/**
+	 * Sets facebook_url
+	 *
+	 * @param string|null $facebook_url facebook_url
+	 *
+	 * @return self
+	 */
+	public function setFacebookUrl($facebook_url) {
+		if (is_null($facebook_url)) {
+			$this->openApiNullablesSetToNull['facebook_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['facebook_url'])) {
+				unset($nullablesSetToNull['facebook_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['facebook_url'] = $facebook_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets final_dose_administration_date
+	 *
+	 * @return string|null
+	 */
+	public function getFinalDoseAdministrationDate() {
+		return $this->container['final_dose_administration_date'];
+	}
+
+	/**
+	 * Sets final_dose_administration_date
+	 *
+	 * @param string|null $final_dose_administration_date final_dose_administration_date
+	 *
+	 * @return self
+	 */
+	public function setFinalDoseAdministrationDate($final_dose_administration_date) {
+		if (is_null($final_dose_administration_date)) {
+			$this->openApiNullablesSetToNull['final_dose_administration_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['final_dose_administration_date'])) {
+				unset($nullablesSetToNull['final_dose_administration_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['final_dose_administration_date'] = $final_dose_administration_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets final_pay_date
+	 *
+	 * @return string|null
+	 */
+	public function getFinalPayDate() {
+		return $this->container['final_pay_date'];
+	}
+
+	/**
+	 * Sets final_pay_date
+	 *
+	 * @param string|null $final_pay_date final_pay_date
+	 *
+	 * @return self
+	 */
+	public function setFinalPayDate($final_pay_date) {
+		if (is_null($final_pay_date)) {
+			$this->openApiNullablesSetToNull['final_pay_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['final_pay_date'])) {
+				unset($nullablesSetToNull['final_pay_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['final_pay_date'] = $final_pay_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets first_name_last_name
+	 *
+	 * @return string|null
+	 */
+	public function getFirstNameLastName() {
+		return $this->container['first_name_last_name'];
+	}
+
+	/**
+	 * Sets first_name_last_name
+	 *
+	 * @param string|null $first_name_last_name first_name_last_name
+	 *
+	 * @return self
+	 */
+	public function setFirstNameLastName($first_name_last_name) {
+		if (is_null($first_name_last_name)) {
+			$this->openApiNullablesSetToNull['first_name_last_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['first_name_last_name'])) {
+				unset($nullablesSetToNull['first_name_last_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['first_name_last_name'] = $first_name_last_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets first_name_middle_initial
+	 *
+	 * @return string|null
+	 */
+	public function getFirstNameMiddleInitial() {
+		return $this->container['first_name_middle_initial'];
+	}
+
+	/**
+	 * Sets first_name_middle_initial
+	 *
+	 * @param string|null $first_name_middle_initial first_name_middle_initial
+	 *
+	 * @return self
+	 */
+	public function setFirstNameMiddleInitial($first_name_middle_initial) {
+		if (is_null($first_name_middle_initial)) {
+			$this->openApiNullablesSetToNull['first_name_middle_initial'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['first_name_middle_initial'])) {
+				unset($nullablesSetToNull['first_name_middle_initial']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['first_name_middle_initial'] = $first_name_middle_initial;
+
+		return $this;
+	}
+
+	/**
+	 * Gets flsa_code
+	 *
+	 * @return string|null
+	 */
+	public function getFlsaCode() {
+		return $this->container['flsa_code'];
+	}
+
+	/**
+	 * Sets flsa_code
+	 *
+	 * @param string|null $flsa_code flsa_code
+	 *
+	 * @return self
+	 */
+	public function setFlsaCode($flsa_code) {
+		if (is_null($flsa_code)) {
+			$this->openApiNullablesSetToNull['flsa_code'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['flsa_code'])) {
+				unset($nullablesSetToNull['flsa_code']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['flsa_code'] = $flsa_code;
+
+		return $this;
+	}
+
+	/**
+	 * Gets flsa_code_id
+	 *
+	 * @return string|null
+	 */
+	public function getFlsaCodeId() {
+		return $this->container['flsa_code_id'];
+	}
+
+	/**
+	 * Sets flsa_code_id
+	 *
+	 * @param string|null $flsa_code_id flsa_code_id
+	 *
+	 * @return self
+	 */
+	public function setFlsaCodeId($flsa_code_id) {
+		if (is_null($flsa_code_id)) {
+			$this->openApiNullablesSetToNull['flsa_code_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['flsa_code_id'])) {
+				unset($nullablesSetToNull['flsa_code_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['flsa_code_id'] = $flsa_code_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets gender
+	 *
+	 * @return string|null
+	 */
+	public function getGender() {
+		return $this->container['gender'];
+	}
+
+	/**
+	 * Sets gender
+	 *
+	 * @param string|null $gender gender
+	 *
+	 * @return self
+	 */
+	public function setGender($gender) {
+		if (is_null($gender)) {
+			$this->openApiNullablesSetToNull['gender'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['gender'])) {
+				unset($nullablesSetToNull['gender']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['gender'] = $gender;
+
+		return $this;
+	}
+
+	/**
+	 * Gets gender_identity
+	 *
+	 * @return string|null
+	 */
+	public function getGenderIdentity() {
+		return $this->container['gender_identity'];
+	}
+
+	/**
+	 * Sets gender_identity
+	 *
+	 * @param string|null $gender_identity gender_identity
+	 *
+	 * @return self
+	 */
+	public function setGenderIdentity($gender_identity) {
+		if (is_null($gender_identity)) {
+			$this->openApiNullablesSetToNull['gender_identity'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['gender_identity'])) {
+				unset($nullablesSetToNull['gender_identity']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['gender_identity'] = $gender_identity;
+
+		return $this;
+	}
+
+	/**
+	 * Gets gender_identity_id
+	 *
+	 * @return int[]|null
+	 */
+	public function getGenderIdentityId() {
+		return $this->container['gender_identity_id'];
+	}
+
+	/**
+	 * Sets gender_identity_id
+	 *
+	 * @param int[]|null $gender_identity_id Employee's gender identity ID. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setGenderIdentityId($gender_identity_id) {
+		if (is_null($gender_identity_id)) {
+			throw new \InvalidArgumentException('non-nullable gender_identity_id cannot be null');
+		}
+		$this->container['gender_identity_id'] = $gender_identity_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets hire_date
+	 *
+	 * @return string|null
+	 */
+	public function getHireDate() {
+		return $this->container['hire_date'];
+	}
+
+	/**
+	 * Sets hire_date
+	 *
+	 * @param string|null $hire_date hire_date
+	 *
+	 * @return self
+	 */
+	public function setHireDate($hire_date) {
+		if (is_null($hire_date)) {
+			$this->openApiNullablesSetToNull['hire_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['hire_date'])) {
+				unset($nullablesSetToNull['hire_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['hire_date'] = $hire_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_email
+	 *
+	 * @return string|null
+	 */
+	public function getHomeEmail() {
+		return $this->container['home_email'];
+	}
+
+	/**
+	 * Sets home_email
+	 *
+	 * @param string|null $home_email home_email
+	 *
+	 * @return self
+	 */
+	public function setHomeEmail($home_email) {
+		if (is_null($home_email)) {
+			$this->openApiNullablesSetToNull['home_email'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['home_email'])) {
+				unset($nullablesSetToNull['home_email']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['home_email'] = $home_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_phone
+	 *
+	 * @return string|null
+	 */
+	public function getHomePhone() {
+		return $this->container['home_phone'];
+	}
+
+	/**
+	 * Sets home_phone
+	 *
+	 * @param string|null $home_phone home_phone
+	 *
+	 * @return self
+	 */
+	public function setHomePhone($home_phone) {
+		if (is_null($home_phone)) {
+			$this->openApiNullablesSetToNull['home_phone'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['home_phone'])) {
+				unset($nullablesSetToNull['home_phone']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['home_phone'] = $home_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets hours_per_pay_cycle
+	 *
+	 * @return string|null
+	 */
+	public function getHoursPerPayCycle() {
+		return $this->container['hours_per_pay_cycle'];
+	}
+
+	/**
+	 * Sets hours_per_pay_cycle
+	 *
+	 * @param string|null $hours_per_pay_cycle hours_per_pay_cycle
+	 *
+	 * @return self
+	 */
+	public function setHoursPerPayCycle($hours_per_pay_cycle) {
+		if (is_null($hours_per_pay_cycle)) {
+			$this->openApiNullablesSetToNull['hours_per_pay_cycle'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['hours_per_pay_cycle'])) {
+				unset($nullablesSetToNull['hours_per_pay_cycle']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['hours_per_pay_cycle'] = $hours_per_pay_cycle;
+
+		return $this;
+	}
+
+	/**
+	 * Gets instagram_url
+	 *
+	 * @return string|null
+	 */
+	public function getInstagramUrl() {
+		return $this->container['instagram_url'];
+	}
+
+	/**
+	 * Sets instagram_url
+	 *
+	 * @param string|null $instagram_url instagram_url
+	 *
+	 * @return self
+	 */
+	public function setInstagramUrl($instagram_url) {
+		if (is_null($instagram_url)) {
+			$this->openApiNullablesSetToNull['instagram_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['instagram_url'])) {
+				unset($nullablesSetToNull['instagram_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['instagram_url'] = $instagram_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets is_manager
+	 *
+	 * @return bool|null
+	 */
+	public function getIsManager() {
+		return $this->container['is_manager'];
+	}
+
+	/**
+	 * Sets is_manager
+	 *
+	 * @param bool|null $is_manager is_manager
+	 *
+	 * @return self
+	 */
+	public function setIsManager($is_manager) {
+		if (is_null($is_manager)) {
+			$this->openApiNullablesSetToNull['is_manager'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['is_manager'])) {
+				unset($nullablesSetToNull['is_manager']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['is_manager'] = $is_manager;
+
+		return $this;
+	}
+
+	/**
+	 * Gets jacket_size
+	 *
+	 * @return string|null
+	 */
+	public function getJacketSize() {
+		return $this->container['jacket_size'];
+	}
+
+	/**
+	 * Sets jacket_size
+	 *
+	 * @param string|null $jacket_size jacket_size
+	 *
+	 * @return self
+	 */
+	public function setJacketSize($jacket_size) {
+		if (is_null($jacket_size)) {
+			$this->openApiNullablesSetToNull['jacket_size'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['jacket_size'])) {
+				unset($nullablesSetToNull['jacket_size']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['jacket_size'] = $jacket_size;
+
+		return $this;
+	}
+
+	/**
+	 * Gets jacket_size_id
+	 *
+	 * @return string|null
+	 */
+	public function getJacketSizeId() {
+		return $this->container['jacket_size_id'];
+	}
+
+	/**
+	 * Sets jacket_size_id
+	 *
+	 * @param string|null $jacket_size_id jacket_size_id
+	 *
+	 * @return self
+	 */
+	public function setJacketSizeId($jacket_size_id) {
+		if (is_null($jacket_size_id)) {
+			$this->openApiNullablesSetToNull['jacket_size_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['jacket_size_id'])) {
+				unset($nullablesSetToNull['jacket_size_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['jacket_size_id'] = $jacket_size_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets job_information_effective_date
+	 *
+	 * @return string|null
+	 */
+	public function getJobInformationEffectiveDate() {
+		return $this->container['job_information_effective_date'];
+	}
+
+	/**
+	 * Sets job_information_effective_date
+	 *
+	 * @param string|null $job_information_effective_date job_information_effective_date
+	 *
+	 * @return self
+	 */
+	public function setJobInformationEffectiveDate($job_information_effective_date) {
+		if (is_null($job_information_effective_date)) {
+			$this->openApiNullablesSetToNull['job_information_effective_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['job_information_effective_date'])) {
+				unset($nullablesSetToNull['job_information_effective_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['job_information_effective_date'] = $job_information_effective_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets job_title_id
+	 *
+	 * @return string|null
+	 */
+	public function getJobTitleId() {
+		return $this->container['job_title_id'];
+	}
+
+	/**
+	 * Sets job_title_id
+	 *
+	 * @param string|null $job_title_id job_title_id
+	 *
+	 * @return self
+	 */
+	public function setJobTitleId($job_title_id) {
+		if (is_null($job_title_id)) {
+			$this->openApiNullablesSetToNull['job_title_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['job_title_id'])) {
+				unset($nullablesSetToNull['job_title_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['job_title_id'] = $job_title_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets linkedin_url
+	 *
+	 * @return string|null
+	 */
+	public function getLinkedinUrl() {
+		return $this->container['linkedin_url'];
+	}
+
+	/**
+	 * Sets linkedin_url
+	 *
+	 * @param string|null $linkedin_url linkedin_url
+	 *
+	 * @return self
+	 */
+	public function setLinkedinUrl($linkedin_url) {
+		if (is_null($linkedin_url)) {
+			$this->openApiNullablesSetToNull['linkedin_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['linkedin_url'])) {
+				unset($nullablesSetToNull['linkedin_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['linkedin_url'] = $linkedin_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets location_id
+	 *
+	 * @return string|null
+	 */
+	public function getLocationId() {
+		return $this->container['location_id'];
+	}
+
+	/**
+	 * Sets location_id
+	 *
+	 * @param string|null $location_id location_id
+	 *
+	 * @return self
+	 */
+	public function setLocationId($location_id) {
+		if (is_null($location_id)) {
+			$this->openApiNullablesSetToNull['location_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['location_id'])) {
+				unset($nullablesSetToNull['location_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['location_id'] = $location_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets location_name
+	 *
+	 * @return string|null
+	 */
+	public function getLocationName() {
+		return $this->container['location_name'];
+	}
+
+	/**
+	 * Sets location_name
+	 *
+	 * @param string|null $location_name location_name
+	 *
+	 * @return self
+	 */
+	public function setLocationName($location_name) {
+		if (is_null($location_name)) {
+			$this->openApiNullablesSetToNull['location_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['location_name'])) {
+				unset($nullablesSetToNull['location_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['location_name'] = $location_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets marital_status
+	 *
+	 * @return string|null
+	 */
+	public function getMaritalStatus() {
+		return $this->container['marital_status'];
+	}
+
+	/**
+	 * Sets marital_status
+	 *
+	 * @param string|null $marital_status marital_status
+	 *
+	 * @return self
+	 */
+	public function setMaritalStatus($marital_status) {
+		if (is_null($marital_status)) {
+			$this->openApiNullablesSetToNull['marital_status'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['marital_status'])) {
+				unset($nullablesSetToNull['marital_status']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['marital_status'] = $marital_status;
+
+		return $this;
+	}
+
+	/**
+	 * Gets middle_initial
+	 *
+	 * @return string|null
+	 */
+	public function getMiddleInitial() {
+		return $this->container['middle_initial'];
+	}
+
+	/**
+	 * Sets middle_initial
+	 *
+	 * @param string|null $middle_initial middle_initial
+	 *
+	 * @return self
+	 */
+	public function setMiddleInitial($middle_initial) {
+		if (is_null($middle_initial)) {
+			$this->openApiNullablesSetToNull['middle_initial'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['middle_initial'])) {
+				unset($nullablesSetToNull['middle_initial']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['middle_initial'] = $middle_initial;
+
+		return $this;
+	}
+
+	/**
+	 * Gets middle_name
+	 *
+	 * @return string|null
+	 */
+	public function getMiddleName() {
+		return $this->container['middle_name'];
+	}
+
+	/**
+	 * Sets middle_name
+	 *
+	 * @param string|null $middle_name middle_name
+	 *
+	 * @return self
+	 */
+	public function setMiddleName($middle_name) {
+		if (is_null($middle_name)) {
+			$this->openApiNullablesSetToNull['middle_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['middle_name'])) {
+				unset($nullablesSetToNull['middle_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['middle_name'] = $middle_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets mobile_phone
+	 *
+	 * @return string|null
+	 */
+	public function getMobilePhone() {
+		return $this->container['mobile_phone'];
+	}
+
+	/**
+	 * Sets mobile_phone
+	 *
+	 * @param string|null $mobile_phone mobile_phone
+	 *
+	 * @return self
+	 */
+	public function setMobilePhone($mobile_phone) {
+		if (is_null($mobile_phone)) {
+			$this->openApiNullablesSetToNull['mobile_phone'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['mobile_phone'])) {
+				unset($nullablesSetToNull['mobile_phone']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['mobile_phone'] = $mobile_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets national_id
+	 *
+	 * @return string|null
+	 */
+	public function getNationalId() {
+		return $this->container['national_id'];
+	}
+
+	/**
+	 * Sets national_id
+	 *
+	 * @param string|null $national_id national_id
+	 *
+	 * @return self
+	 */
+	public function setNationalId($national_id) {
+		if (is_null($national_id)) {
+			$this->openApiNullablesSetToNull['national_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['national_id'])) {
+				unset($nullablesSetToNull['national_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['national_id'] = $national_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets national_insurance_category
+	 *
+	 * @return string|null
+	 */
+	public function getNationalInsuranceCategory() {
+		return $this->container['national_insurance_category'];
+	}
+
+	/**
+	 * Sets national_insurance_category
+	 *
+	 * @param string|null $national_insurance_category national_insurance_category
+	 *
+	 * @return self
+	 */
+	public function setNationalInsuranceCategory($national_insurance_category) {
+		if (is_null($national_insurance_category)) {
+			$this->openApiNullablesSetToNull['national_insurance_category'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['national_insurance_category'])) {
+				unset($nullablesSetToNull['national_insurance_category']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['national_insurance_category'] = $national_insurance_category;
+
+		return $this;
+	}
+
+	/**
+	 * Gets national_insurance_category_id
+	 *
+	 * @return string|null
+	 */
+	public function getNationalInsuranceCategoryId() {
+		return $this->container['national_insurance_category_id'];
+	}
+
+	/**
+	 * Sets national_insurance_category_id
+	 *
+	 * @param string|null $national_insurance_category_id national_insurance_category_id
+	 *
+	 * @return self
+	 */
+	public function setNationalInsuranceCategoryId($national_insurance_category_id) {
+		if (is_null($national_insurance_category_id)) {
+			$this->openApiNullablesSetToNull['national_insurance_category_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['national_insurance_category_id'])) {
+				unset($nullablesSetToNull['national_insurance_category_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['national_insurance_category_id'] = $national_insurance_category_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nationality
+	 *
+	 * @return string|null
+	 */
+	public function getNationality() {
+		return $this->container['nationality'];
+	}
+
+	/**
+	 * Sets nationality
+	 *
+	 * @param string|null $nationality nationality
+	 *
+	 * @return self
+	 */
+	public function setNationality($nationality) {
+		if (is_null($nationality)) {
+			$this->openApiNullablesSetToNull['nationality'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['nationality'])) {
+				unset($nullablesSetToNull['nationality']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['nationality'] = $nationality;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nationality_id
+	 *
+	 * @return string|null
+	 */
+	public function getNationalityId() {
+		return $this->container['nationality_id'];
+	}
+
+	/**
+	 * Sets nationality_id
+	 *
+	 * @param string|null $nationality_id nationality_id
+	 *
+	 * @return self
+	 */
+	public function setNationalityId($nationality_id) {
+		if (is_null($nationality_id)) {
+			$this->openApiNullablesSetToNull['nationality_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['nationality_id'])) {
+				unset($nullablesSetToNull['nationality_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['nationality_id'] = $nationality_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nick_name
+	 *
+	 * @return string|null
+	 */
+	public function getNickName() {
+		return $this->container['nick_name'];
+	}
+
+	/**
+	 * Sets nick_name
+	 *
+	 * @param string|null $nick_name nick_name
+	 *
+	 * @return self
+	 */
+	public function setNickName($nick_name) {
+		if (is_null($nick_name)) {
+			$this->openApiNullablesSetToNull['nick_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['nick_name'])) {
+				unset($nullablesSetToNull['nick_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['nick_name'] = $nick_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nin
+	 *
+	 * @return string|null
+	 */
+	public function getNin() {
+		return $this->container['nin'];
+	}
+
+	/**
+	 * Sets nin
+	 *
+	 * @param string|null $nin nin
+	 *
+	 * @return self
+	 */
+	public function setNin($nin) {
+		if (is_null($nin)) {
+			$this->openApiNullablesSetToNull['nin'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['nin'])) {
+				unset($nullablesSetToNull['nin']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['nin'] = $nin;
+
+		return $this;
+	}
+
+	/**
+	 * Gets notice_period
+	 *
+	 * @return string|null
+	 */
+	public function getNoticePeriod() {
+		return $this->container['notice_period'];
+	}
+
+	/**
+	 * Sets notice_period
+	 *
+	 * @param string|null $notice_period notice_period
+	 *
+	 * @return self
+	 */
+	public function setNoticePeriod($notice_period) {
+		if (is_null($notice_period)) {
+			$this->openApiNullablesSetToNull['notice_period'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['notice_period'])) {
+				unset($nullablesSetToNull['notice_period']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['notice_period'] = $notice_period;
+
+		return $this;
+	}
+
+	/**
+	 * Gets notice_period_id
+	 *
+	 * @return string|null
+	 */
+	public function getNoticePeriodId() {
+		return $this->container['notice_period_id'];
+	}
+
+	/**
+	 * Sets notice_period_id
+	 *
+	 * @param string|null $notice_period_id notice_period_id
+	 *
+	 * @return self
+	 */
+	public function setNoticePeriodId($notice_period_id) {
+		if (is_null($notice_period_id)) {
+			$this->openApiNullablesSetToNull['notice_period_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['notice_period_id'])) {
+				unset($nullablesSetToNull['notice_period_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['notice_period_id'] = $notice_period_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets original_hire_date
+	 *
+	 * @return string|null
+	 */
+	public function getOriginalHireDate() {
+		return $this->container['original_hire_date'];
+	}
+
+	/**
+	 * Sets original_hire_date
+	 *
+	 * @param string|null $original_hire_date original_hire_date
+	 *
+	 * @return self
+	 */
+	public function setOriginalHireDate($original_hire_date) {
+		if (is_null($original_hire_date)) {
+			$this->openApiNullablesSetToNull['original_hire_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['original_hire_date'])) {
+				unset($nullablesSetToNull['original_hire_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['original_hire_date'] = $original_hire_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets overtime
+	 *
+	 * @return string|null
+	 */
+	public function getOvertime() {
+		return $this->container['overtime'];
+	}
+
+	/**
+	 * Sets overtime
+	 *
+	 * @param string|null $overtime overtime
+	 *
+	 * @return self
+	 */
+	public function setOvertime($overtime) {
+		if (is_null($overtime)) {
+			$this->openApiNullablesSetToNull['overtime'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['overtime'])) {
+				unset($nullablesSetToNull['overtime']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['overtime'] = $overtime;
+
+		return $this;
+	}
+
+	/**
+	 * Gets overtime_rate
+	 *
+	 * @return \BhrSdk\Model\GetEmployeesEmployeeResponseAllOfOvertimeRate|null
+	 */
+	public function getOvertimeRate() {
+		return $this->container['overtime_rate'];
+	}
+
+	/**
+	 * Sets overtime_rate
+	 *
+	 * @param \BhrSdk\Model\GetEmployeesEmployeeResponseAllOfOvertimeRate|null $overtime_rate overtime_rate
+	 *
+	 * @return self
+	 */
+	public function setOvertimeRate($overtime_rate) {
+		if (is_null($overtime_rate)) {
+			throw new \InvalidArgumentException('non-nullable overtime_rate cannot be null');
+		}
+		$this->container['overtime_rate'] = $overtime_rate;
+
+		return $this;
+	}
+
+	/**
+	 * Gets paid_per
+	 *
+	 * @return string|null
+	 */
+	public function getPaidPer() {
+		return $this->container['paid_per'];
+	}
+
+	/**
+	 * Sets paid_per
+	 *
+	 * @param string|null $paid_per paid_per
+	 *
+	 * @return self
+	 */
+	public function setPaidPer($paid_per) {
+		if (is_null($paid_per)) {
+			$this->openApiNullablesSetToNull['paid_per'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['paid_per'])) {
+				unset($nullablesSetToNull['paid_per']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['paid_per'] = $paid_per;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_rate
+	 *
+	 * @return \BhrSdk\Model\GetEmployeesEmployeeResponseAllOfPayRate|null
+	 */
+	public function getPayRate() {
+		return $this->container['pay_rate'];
+	}
+
+	/**
+	 * Sets pay_rate
+	 *
+	 * @param \BhrSdk\Model\GetEmployeesEmployeeResponseAllOfPayRate|null $pay_rate pay_rate
+	 *
+	 * @return self
+	 */
+	public function setPayRate($pay_rate) {
+		if (is_null($pay_rate)) {
+			throw new \InvalidArgumentException('non-nullable pay_rate cannot be null');
+		}
+		$this->container['pay_rate'] = $pay_rate;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_schedule
+	 *
+	 * @return string|null
+	 */
+	public function getPaySchedule() {
+		return $this->container['pay_schedule'];
+	}
+
+	/**
+	 * Sets pay_schedule
+	 *
+	 * @param string|null $pay_schedule pay_schedule
+	 *
+	 * @return self
+	 */
+	public function setPaySchedule($pay_schedule) {
+		if (is_null($pay_schedule)) {
+			$this->openApiNullablesSetToNull['pay_schedule'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pay_schedule'])) {
+				unset($nullablesSetToNull['pay_schedule']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pay_schedule'] = $pay_schedule;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_schedule_id
+	 *
+	 * @return string|null
+	 */
+	public function getPayScheduleId() {
+		return $this->container['pay_schedule_id'];
+	}
+
+	/**
+	 * Sets pay_schedule_id
+	 *
+	 * @param string|null $pay_schedule_id pay_schedule_id
+	 *
+	 * @return self
+	 */
+	public function setPayScheduleId($pay_schedule_id) {
+		if (is_null($pay_schedule_id)) {
+			$this->openApiNullablesSetToNull['pay_schedule_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pay_schedule_id'])) {
+				unset($nullablesSetToNull['pay_schedule_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pay_schedule_id'] = $pay_schedule_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_type
+	 *
+	 * @return string|null
+	 */
+	public function getPayType() {
+		return $this->container['pay_type'];
+	}
+
+	/**
+	 * Sets pay_type
+	 *
+	 * @param string|null $pay_type pay_type
+	 *
+	 * @return self
+	 */
+	public function setPayType($pay_type) {
+		if (is_null($pay_type)) {
+			$this->openApiNullablesSetToNull['pay_type'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pay_type'])) {
+				unset($nullablesSetToNull['pay_type']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pay_type'] = $pay_type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pinterest_url
+	 *
+	 * @return string|null
+	 */
+	public function getPinterestUrl() {
+		return $this->container['pinterest_url'];
+	}
+
+	/**
+	 * Sets pinterest_url
+	 *
+	 * @param string|null $pinterest_url pinterest_url
+	 *
+	 * @return self
+	 */
+	public function setPinterestUrl($pinterest_url) {
+		if (is_null($pinterest_url)) {
+			$this->openApiNullablesSetToNull['pinterest_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pinterest_url'])) {
+				unset($nullablesSetToNull['pinterest_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pinterest_url'] = $pinterest_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets preferred_name_last_name
+	 *
+	 * @return string|null
+	 */
+	public function getPreferredNameLastName() {
+		return $this->container['preferred_name_last_name'];
+	}
+
+	/**
+	 * Sets preferred_name_last_name
+	 *
+	 * @param string|null $preferred_name_last_name preferred_name_last_name
+	 *
+	 * @return self
+	 */
+	public function setPreferredNameLastName($preferred_name_last_name) {
+		if (is_null($preferred_name_last_name)) {
+			$this->openApiNullablesSetToNull['preferred_name_last_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['preferred_name_last_name'])) {
+				unset($nullablesSetToNull['preferred_name_last_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['preferred_name_last_name'] = $preferred_name_last_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets probation_end_date
+	 *
+	 * @return string|null
+	 */
+	public function getProbationEndDate() {
+		return $this->container['probation_end_date'];
+	}
+
+	/**
+	 * Sets probation_end_date
+	 *
+	 * @param string|null $probation_end_date probation_end_date
+	 *
+	 * @return self
+	 */
+	public function setProbationEndDate($probation_end_date) {
+		if (is_null($probation_end_date)) {
+			$this->openApiNullablesSetToNull['probation_end_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['probation_end_date'])) {
+				unset($nullablesSetToNull['probation_end_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['probation_end_date'] = $probation_end_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pronouns
+	 *
+	 * @return string|null
+	 */
+	public function getPronouns() {
+		return $this->container['pronouns'];
+	}
+
+	/**
+	 * Sets pronouns
+	 *
+	 * @param string|null $pronouns pronouns
+	 *
+	 * @return self
+	 */
+	public function setPronouns($pronouns) {
+		if (is_null($pronouns)) {
+			$this->openApiNullablesSetToNull['pronouns'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pronouns'])) {
+				unset($nullablesSetToNull['pronouns']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pronouns'] = $pronouns;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pronouns_id
+	 *
+	 * @return string|null
+	 */
+	public function getPronounsId() {
+		return $this->container['pronouns_id'];
+	}
+
+	/**
+	 * Sets pronouns_id
+	 *
+	 * @param string|null $pronouns_id pronouns_id
+	 *
+	 * @return self
+	 */
+	public function setPronounsId($pronouns_id) {
+		if (is_null($pronouns_id)) {
+			$this->openApiNullablesSetToNull['pronouns_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['pronouns_id'])) {
+				unset($nullablesSetToNull['pronouns_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['pronouns_id'] = $pronouns_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets proof_of_vaccination
+	 *
+	 * @return bool|null
+	 */
+	public function getProofOfVaccination() {
+		return $this->container['proof_of_vaccination'];
+	}
+
+	/**
+	 * Sets proof_of_vaccination
+	 *
+	 * @param bool|null $proof_of_vaccination proof_of_vaccination
+	 *
+	 * @return self
+	 */
+	public function setProofOfVaccination($proof_of_vaccination) {
+		if (is_null($proof_of_vaccination)) {
+			$this->openApiNullablesSetToNull['proof_of_vaccination'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['proof_of_vaccination'])) {
+				unset($nullablesSetToNull['proof_of_vaccination']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['proof_of_vaccination'] = $proof_of_vaccination;
+
+		return $this;
+	}
+
+	/**
+	 * Gets reports_to_id
+	 *
+	 * @return string|null
+	 */
+	public function getReportsToId() {
+		return $this->container['reports_to_id'];
+	}
+
+	/**
+	 * Sets reports_to_id
+	 *
+	 * @param string|null $reports_to_id reports_to_id
+	 *
+	 * @return self
+	 */
+	public function setReportsToId($reports_to_id) {
+		if (is_null($reports_to_id)) {
+			$this->openApiNullablesSetToNull['reports_to_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['reports_to_id'])) {
+				unset($nullablesSetToNull['reports_to_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['reports_to_id'] = $reports_to_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets reports_to_name
+	 *
+	 * @return string|null
+	 */
+	public function getReportsToName() {
+		return $this->container['reports_to_name'];
+	}
+
+	/**
+	 * Sets reports_to_name
+	 *
+	 * @param string|null $reports_to_name reports_to_name
+	 *
+	 * @return self
+	 */
+	public function setReportsToName($reports_to_name) {
+		if (is_null($reports_to_name)) {
+			$this->openApiNullablesSetToNull['reports_to_name'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['reports_to_name'])) {
+				unset($nullablesSetToNull['reports_to_name']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['reports_to_name'] = $reports_to_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets secondary_language
+	 *
+	 * @return string|null
+	 */
+	public function getSecondaryLanguage() {
+		return $this->container['secondary_language'];
+	}
+
+	/**
+	 * Sets secondary_language
+	 *
+	 * @param string|null $secondary_language secondary_language
+	 *
+	 * @return self
+	 */
+	public function setSecondaryLanguage($secondary_language) {
+		if (is_null($secondary_language)) {
+			$this->openApiNullablesSetToNull['secondary_language'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['secondary_language'])) {
+				unset($nullablesSetToNull['secondary_language']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['secondary_language'] = $secondary_language;
+
+		return $this;
+	}
+
+	/**
+	 * Gets shirt_size
+	 *
+	 * @return string|null
+	 */
+	public function getShirtSize() {
+		return $this->container['shirt_size'];
+	}
+
+	/**
+	 * Sets shirt_size
+	 *
+	 * @param string|null $shirt_size shirt_size
+	 *
+	 * @return self
+	 */
+	public function setShirtSize($shirt_size) {
+		if (is_null($shirt_size)) {
+			$this->openApiNullablesSetToNull['shirt_size'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['shirt_size'])) {
+				unset($nullablesSetToNull['shirt_size']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['shirt_size'] = $shirt_size;
+
+		return $this;
+	}
+
+	/**
+	 * Gets shirt_size_id
+	 *
+	 * @return string|null
+	 */
+	public function getShirtSizeId() {
+		return $this->container['shirt_size_id'];
+	}
+
+	/**
+	 * Sets shirt_size_id
+	 *
+	 * @param string|null $shirt_size_id shirt_size_id
+	 *
+	 * @return self
+	 */
+	public function setShirtSizeId($shirt_size_id) {
+		if (is_null($shirt_size_id)) {
+			$this->openApiNullablesSetToNull['shirt_size_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['shirt_size_id'])) {
+				unset($nullablesSetToNull['shirt_size_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['shirt_size_id'] = $shirt_size_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets sin
+	 *
+	 * @return string|null
+	 */
+	public function getSin() {
+		return $this->container['sin'];
+	}
+
+	/**
+	 * Sets sin
+	 *
+	 * @param string|null $sin sin
+	 *
+	 * @return self
+	 */
+	public function setSin($sin) {
+		if (is_null($sin)) {
+			$this->openApiNullablesSetToNull['sin'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['sin'])) {
+				unset($nullablesSetToNull['sin']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['sin'] = $sin;
+
+		return $this;
+	}
+
+	/**
+	 * Gets skype_username
+	 *
+	 * @return string|null
+	 */
+	public function getSkypeUsername() {
+		return $this->container['skype_username'];
+	}
+
+	/**
+	 * Sets skype_username
+	 *
+	 * @param string|null $skype_username skype_username
+	 *
+	 * @return self
+	 */
+	public function setSkypeUsername($skype_username) {
+		if (is_null($skype_username)) {
+			$this->openApiNullablesSetToNull['skype_username'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['skype_username'])) {
+				unset($nullablesSetToNull['skype_username']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['skype_username'] = $skype_username;
+
+		return $this;
+	}
+
+	/**
+	 * Gets ssn
+	 *
+	 * @return string|null
+	 */
+	public function getSsn() {
+		return $this->container['ssn'];
+	}
+
+	/**
+	 * Sets ssn
+	 *
+	 * @param string|null $ssn ssn
+	 *
+	 * @return self
+	 */
+	public function setSsn($ssn) {
+		if (is_null($ssn)) {
+			$this->openApiNullablesSetToNull['ssn'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['ssn'])) {
+				unset($nullablesSetToNull['ssn']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['ssn'] = $ssn;
+
+		return $this;
+	}
+
+	/**
+	 * Gets state
+	 *
+	 * @return string|null
+	 */
+	public function getState() {
+		return $this->container['state'];
+	}
+
+	/**
+	 * Sets state
+	 *
+	 * @param string|null $state state
+	 *
+	 * @return self
+	 */
+	public function setState($state) {
+		if (is_null($state)) {
+			$this->openApiNullablesSetToNull['state'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['state'])) {
+				unset($nullablesSetToNull['state']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['state'] = $state;
+
+		return $this;
+	}
+
+	/**
+	 * Gets state_id
+	 *
+	 * @return string|null
+	 */
+	public function getStateId() {
+		return $this->container['state_id'];
+	}
+
+	/**
+	 * Sets state_id
+	 *
+	 * @param string|null $state_id state_id
+	 *
+	 * @return self
+	 */
+	public function setStateId($state_id) {
+		if (is_null($state_id)) {
+			$this->openApiNullablesSetToNull['state_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['state_id'])) {
+				unset($nullablesSetToNull['state_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['state_id'] = $state_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets tax_type_id
+	 *
+	 * @return string|null
+	 */
+	public function getTaxTypeId() {
+		return $this->container['tax_type_id'];
+	}
+
+	/**
+	 * Sets tax_type_id
+	 *
+	 * @param string|null $tax_type_id tax_type_id
+	 *
+	 * @return self
+	 */
+	public function setTaxTypeId($tax_type_id) {
+		if (is_null($tax_type_id)) {
+			$this->openApiNullablesSetToNull['tax_type_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['tax_type_id'])) {
+				unset($nullablesSetToNull['tax_type_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['tax_type_id'] = $tax_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets teams
+	 *
+	 * @return \BhrSdk\Model\GetEmployeesEmployeeResponseAllOfTeams[]|null
+	 */
+	public function getTeams() {
+		return $this->container['teams'];
+	}
+
+	/**
+	 * Sets teams
+	 *
+	 * @param \BhrSdk\Model\GetEmployeesEmployeeResponseAllOfTeams[]|null $teams Employee's teams. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setTeams($teams) {
+		if (is_null($teams)) {
+			throw new \InvalidArgumentException('non-nullable teams cannot be null');
+		}
+		$this->container['teams'] = $teams;
+
+		return $this;
+	}
+
+	/**
+	 * Gets tenure
+	 *
+	 * @return string|null
+	 */
+	public function getTenure() {
+		return $this->container['tenure'];
+	}
+
+	/**
+	 * Sets tenure
+	 *
+	 * @param string|null $tenure tenure
+	 *
+	 * @return self
+	 */
+	public function setTenure($tenure) {
+		if (is_null($tenure)) {
+			$this->openApiNullablesSetToNull['tenure'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['tenure'])) {
+				unset($nullablesSetToNull['tenure']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['tenure'] = $tenure;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_date
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationDate() {
+		return $this->container['termination_date'];
+	}
+
+	/**
+	 * Sets termination_date
+	 *
+	 * @param string|null $termination_date termination_date
+	 *
+	 * @return self
+	 */
+	public function setTerminationDate($termination_date) {
+		if (is_null($termination_date)) {
+			$this->openApiNullablesSetToNull['termination_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_date'])) {
+				unset($nullablesSetToNull['termination_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_date'] = $termination_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_reason
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationReason() {
+		return $this->container['termination_reason'];
+	}
+
+	/**
+	 * Sets termination_reason
+	 *
+	 * @param string|null $termination_reason termination_reason
+	 *
+	 * @return self
+	 */
+	public function setTerminationReason($termination_reason) {
+		if (is_null($termination_reason)) {
+			$this->openApiNullablesSetToNull['termination_reason'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_reason'])) {
+				unset($nullablesSetToNull['termination_reason']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_reason'] = $termination_reason;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_reason_id
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationReasonId() {
+		return $this->container['termination_reason_id'];
+	}
+
+	/**
+	 * Sets termination_reason_id
+	 *
+	 * @param string|null $termination_reason_id termination_reason_id
+	 *
+	 * @return self
+	 */
+	public function setTerminationReasonId($termination_reason_id) {
+		if (is_null($termination_reason_id)) {
+			$this->openApiNullablesSetToNull['termination_reason_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_reason_id'])) {
+				unset($nullablesSetToNull['termination_reason_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_reason_id'] = $termination_reason_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_regrettable
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationRegrettable() {
+		return $this->container['termination_regrettable'];
+	}
+
+	/**
+	 * Sets termination_regrettable
+	 *
+	 * @param string|null $termination_regrettable termination_regrettable
+	 *
+	 * @return self
+	 */
+	public function setTerminationRegrettable($termination_regrettable) {
+		if (is_null($termination_regrettable)) {
+			$this->openApiNullablesSetToNull['termination_regrettable'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_regrettable'])) {
+				unset($nullablesSetToNull['termination_regrettable']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_regrettable'] = $termination_regrettable;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_regrettable_id
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationRegrettableId() {
+		return $this->container['termination_regrettable_id'];
+	}
+
+	/**
+	 * Sets termination_regrettable_id
+	 *
+	 * @param string|null $termination_regrettable_id termination_regrettable_id
+	 *
+	 * @return self
+	 */
+	public function setTerminationRegrettableId($termination_regrettable_id) {
+		if (is_null($termination_regrettable_id)) {
+			$this->openApiNullablesSetToNull['termination_regrettable_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_regrettable_id'])) {
+				unset($nullablesSetToNull['termination_regrettable_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_regrettable_id'] = $termination_regrettable_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_type
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationType() {
+		return $this->container['termination_type'];
+	}
+
+	/**
+	 * Sets termination_type
+	 *
+	 * @param string|null $termination_type termination_type
+	 *
+	 * @return self
+	 */
+	public function setTerminationType($termination_type) {
+		if (is_null($termination_type)) {
+			$this->openApiNullablesSetToNull['termination_type'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_type'])) {
+				unset($nullablesSetToNull['termination_type']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_type'] = $termination_type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_type_id
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationTypeId() {
+		return $this->container['termination_type_id'];
+	}
+
+	/**
+	 * Sets termination_type_id
+	 *
+	 * @param string|null $termination_type_id termination_type_id
+	 *
+	 * @return self
+	 */
+	public function setTerminationTypeId($termination_type_id) {
+		if (is_null($termination_type_id)) {
+			$this->openApiNullablesSetToNull['termination_type_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['termination_type_id'])) {
+				unset($nullablesSetToNull['termination_type_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['termination_type_id'] = $termination_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets t_shirt_size
+	 *
+	 * @return string|null
+	 */
+	public function getTShirtSize() {
+		return $this->container['t_shirt_size'];
+	}
+
+	/**
+	 * Sets t_shirt_size
+	 *
+	 * @param string|null $t_shirt_size t_shirt_size
+	 *
+	 * @return self
+	 */
+	public function setTShirtSize($t_shirt_size) {
+		if (is_null($t_shirt_size)) {
+			$this->openApiNullablesSetToNull['t_shirt_size'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['t_shirt_size'])) {
+				unset($nullablesSetToNull['t_shirt_size']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['t_shirt_size'] = $t_shirt_size;
+
+		return $this;
+	}
+
+	/**
+	 * Gets t_shirt_size_id
+	 *
+	 * @return string|null
+	 */
+	public function getTShirtSizeId() {
+		return $this->container['t_shirt_size_id'];
+	}
+
+	/**
+	 * Sets t_shirt_size_id
+	 *
+	 * @param string|null $t_shirt_size_id t_shirt_size_id
+	 *
+	 * @return self
+	 */
+	public function setTShirtSizeId($t_shirt_size_id) {
+		if (is_null($t_shirt_size_id)) {
+			$this->openApiNullablesSetToNull['t_shirt_size_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['t_shirt_size_id'])) {
+				unset($nullablesSetToNull['t_shirt_size_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['t_shirt_size_id'] = $t_shirt_size_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets twitter_url
+	 *
+	 * @return string|null
+	 */
+	public function getTwitterUrl() {
+		return $this->container['twitter_url'];
+	}
+
+	/**
+	 * Sets twitter_url
+	 *
+	 * @param string|null $twitter_url twitter_url
+	 *
+	 * @return self
+	 */
+	public function setTwitterUrl($twitter_url) {
+		if (is_null($twitter_url)) {
+			$this->openApiNullablesSetToNull['twitter_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['twitter_url'])) {
+				unset($nullablesSetToNull['twitter_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['twitter_url'] = $twitter_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets user_id
+	 *
+	 * @return string|null
+	 */
+	public function getUserId() {
+		return $this->container['user_id'];
+	}
+
+	/**
+	 * Sets user_id
+	 *
+	 * @param string|null $user_id user_id
+	 *
+	 * @return self
+	 */
+	public function setUserId($user_id) {
+		if (is_null($user_id)) {
+			$this->openApiNullablesSetToNull['user_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['user_id'])) {
+				unset($nullablesSetToNull['user_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['user_id'] = $user_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccination_status
+	 *
+	 * @return string|null
+	 */
+	public function getVaccinationStatus() {
+		return $this->container['vaccination_status'];
+	}
+
+	/**
+	 * Sets vaccination_status
+	 *
+	 * @param string|null $vaccination_status vaccination_status
+	 *
+	 * @return self
+	 */
+	public function setVaccinationStatus($vaccination_status) {
+		if (is_null($vaccination_status)) {
+			$this->openApiNullablesSetToNull['vaccination_status'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['vaccination_status'])) {
+				unset($nullablesSetToNull['vaccination_status']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['vaccination_status'] = $vaccination_status;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccination_status_id
+	 *
+	 * @return string|null
+	 */
+	public function getVaccinationStatusId() {
+		return $this->container['vaccination_status_id'];
+	}
+
+	/**
+	 * Sets vaccination_status_id
+	 *
+	 * @param string|null $vaccination_status_id vaccination_status_id
+	 *
+	 * @return self
+	 */
+	public function setVaccinationStatusId($vaccination_status_id) {
+		if (is_null($vaccination_status_id)) {
+			$this->openApiNullablesSetToNull['vaccination_status_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['vaccination_status_id'])) {
+				unset($nullablesSetToNull['vaccination_status_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['vaccination_status_id'] = $vaccination_status_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccine_received
+	 *
+	 * @return string|null
+	 */
+	public function getVaccineReceived() {
+		return $this->container['vaccine_received'];
+	}
+
+	/**
+	 * Sets vaccine_received
+	 *
+	 * @param string|null $vaccine_received vaccine_received
+	 *
+	 * @return self
+	 */
+	public function setVaccineReceived($vaccine_received) {
+		if (is_null($vaccine_received)) {
+			$this->openApiNullablesSetToNull['vaccine_received'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['vaccine_received'])) {
+				unset($nullablesSetToNull['vaccine_received']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['vaccine_received'] = $vaccine_received;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccine_received_id
+	 *
+	 * @return string|null
+	 */
+	public function getVaccineReceivedId() {
+		return $this->container['vaccine_received_id'];
+	}
+
+	/**
+	 * Sets vaccine_received_id
+	 *
+	 * @param string|null $vaccine_received_id vaccine_received_id
+	 *
+	 * @return self
+	 */
+	public function setVaccineReceivedId($vaccine_received_id) {
+		if (is_null($vaccine_received_id)) {
+			$this->openApiNullablesSetToNull['vaccine_received_id'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['vaccine_received_id'])) {
+				unset($nullablesSetToNull['vaccine_received_id']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['vaccine_received_id'] = $vaccine_received_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets veteran_status
+	 *
+	 * @return string|null
+	 */
+	public function getVeteranStatus() {
+		return $this->container['veteran_status'];
+	}
+
+	/**
+	 * Sets veteran_status
+	 *
+	 * @param string|null $veteran_status veteran_status
+	 *
+	 * @return self
+	 */
+	public function setVeteranStatus($veteran_status) {
+		if (is_null($veteran_status)) {
+			$this->openApiNullablesSetToNull['veteran_status'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['veteran_status'])) {
+				unset($nullablesSetToNull['veteran_status']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['veteran_status'] = $veteran_status;
+
+		return $this;
+	}
+
+	/**
+	 * Gets veteran_status_id
+	 *
+	 * @return int[]|null
+	 */
+	public function getVeteranStatusId() {
+		return $this->container['veteran_status_id'];
+	}
+
+	/**
+	 * Sets veteran_status_id
+	 *
+	 * @param int[]|null $veteran_status_id Employee's veteran status ID. Only included when requested via the `fields` parameter.
+	 *
+	 * @return self
+	 */
+	public function setVeteranStatusId($veteran_status_id) {
+		if (is_null($veteran_status_id)) {
+			throw new \InvalidArgumentException('non-nullable veteran_status_id cannot be null');
+		}
+		$this->container['veteran_status_id'] = $veteran_status_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_email
+	 *
+	 * @return string|null
+	 */
+	public function getWorkEmail() {
+		return $this->container['work_email'];
+	}
+
+	/**
+	 * Sets work_email
+	 *
+	 * @param string|null $work_email work_email
+	 *
+	 * @return self
+	 */
+	public function setWorkEmail($work_email) {
+		if (is_null($work_email)) {
+			$this->openApiNullablesSetToNull['work_email'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['work_email'])) {
+				unset($nullablesSetToNull['work_email']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['work_email'] = $work_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhone() {
+		return $this->container['work_phone'];
+	}
+
+	/**
+	 * Sets work_phone
+	 *
+	 * @param string|null $work_phone work_phone
+	 *
+	 * @return self
+	 */
+	public function setWorkPhone($work_phone) {
+		if (is_null($work_phone)) {
+			$this->openApiNullablesSetToNull['work_phone'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['work_phone'])) {
+				unset($nullablesSetToNull['work_phone']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['work_phone'] = $work_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone_extension
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhoneExtension() {
+		return $this->container['work_phone_extension'];
+	}
+
+	/**
+	 * Sets work_phone_extension
+	 *
+	 * @param string|null $work_phone_extension work_phone_extension
+	 *
+	 * @return self
+	 */
+	public function setWorkPhoneExtension($work_phone_extension) {
+		if (is_null($work_phone_extension)) {
+			$this->openApiNullablesSetToNull['work_phone_extension'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['work_phone_extension'])) {
+				unset($nullablesSetToNull['work_phone_extension']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['work_phone_extension'] = $work_phone_extension;
+
+		return $this;
+	}
+
+	/**
+	 * Gets zipcode
+	 *
+	 * @return string|null
+	 */
+	public function getZipcode() {
+		return $this->container['zipcode'];
+	}
+
+	/**
+	 * Sets zipcode
+	 *
+	 * @param string|null $zipcode zipcode
+	 *
+	 * @return self
+	 */
+	public function setZipcode($zipcode) {
+		if (is_null($zipcode)) {
+			$this->openApiNullablesSetToNull['zipcode'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['zipcode'])) {
+				unset($nullablesSetToNull['zipcode']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['zipcode'] = $zipcode;
 
 		return $this;
 	}

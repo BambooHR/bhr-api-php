@@ -59,7 +59,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static $openApiTypes = [
 		'fields' => 'string[]',
-		'dependent_fields' => 'array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>'
+		'dependent_fields' => 'array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>',
+		'filters' => 'object'
 	];
 
 	/**
@@ -71,7 +72,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static $openApiFormats = [
 		'fields' => null,
-		'dependent_fields' => null
+		'dependent_fields' => null,
+		'filters' => null
 	];
 
 	/**
@@ -82,7 +84,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	  */
 	protected static array $openApiNullables = [
 		'fields' => false,
-		'dependent_fields' => false
+		'dependent_fields' => true,
+		'filters' => true
 	];
 
 	/**
@@ -168,7 +171,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 */
 	protected static $attributeMap = [
 		'fields' => 'fields',
-		'dependent_fields' => 'dependentFields'
+		'dependent_fields' => 'dependentFields',
+		'filters' => 'filters'
 	];
 
 	/**
@@ -178,7 +182,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 */
 	protected static $setters = [
 		'fields' => 'setFields',
-		'dependent_fields' => 'setDependentFields'
+		'dependent_fields' => 'setDependentFields',
+		'filters' => 'setFilters'
 	];
 
 	/**
@@ -188,7 +193,8 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	 */
 	protected static $getters = [
 		'fields' => 'getFields',
-		'dependent_fields' => 'getDependentFields'
+		'dependent_fields' => 'getDependentFields',
+		'filters' => 'getFilters'
 	];
 
 	/**
@@ -244,6 +250,7 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	public function __construct(?array $data = null) {
 		$this->setIfExists('fields', $data ?? [], null);
 		$this->setIfExists('dependent_fields', $data ?? [], null);
+		$this->setIfExists('filters', $data ?? [], null);
 	}
 
 	/**
@@ -324,15 +331,52 @@ class FieldOptionsRequestSchema implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets dependent_fields
 	 *
-	 * @param array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>|null $dependent_fields Dependent fields and their values that affect the options of the requested fields
+	 * @param array<string,\BhrSdk\Model\FieldOptionsRequestSchemaDependentFieldsValueInner[]>|null $dependent_fields dependent_fields
 	 *
 	 * @return self
 	 */
 	public function setDependentFields($dependent_fields) {
 		if (is_null($dependent_fields)) {
-			throw new \InvalidArgumentException('non-nullable dependent_fields cannot be null');
+			$this->openApiNullablesSetToNull['dependent_fields'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['dependent_fields'])) {
+				unset($nullablesSetToNull['dependent_fields']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['dependent_fields'] = $dependent_fields;
+
+		return $this;
+	}
+
+	/**
+	 * Gets filters
+	 *
+	 * @return object|null
+	 */
+	public function getFilters() {
+		return $this->container['filters'];
+	}
+
+	/**
+	 * Sets filters
+	 *
+	 * @param object|null $filters filters
+	 *
+	 * @return self
+	 */
+	public function setFilters($filters) {
+		if (is_null($filters)) {
+			$this->openApiNullablesSetToNull['filters'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['filters'])) {
+				unset($nullablesSetToNull['filters']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['filters'] = $filters;
 
 		return $this;
 	}
