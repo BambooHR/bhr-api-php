@@ -142,6 +142,28 @@ function renameIfExists(string $oldPath, string $newPath): bool {
 
 // ---- main -----------------------------------------------------------------
 
+// Sanity guard: this fix targets lib/Model/ only. Digit-prefixed names come
+// from inline request/response schemas that openapi-generator hashes when
+// they lack a `title`; those always land in lib/Model/. API classes
+// (lib/Api/) are named from OpenAPI tags, which are human-readable and never
+// hashed, so a digit-prefixed API class should be impossible. If that
+// assumption ever breaks, fail loudly here rather than letting smoke_test.php
+// (which autoloads lib/Api/ too) surface it as a confusing autoload error.
+$brokenApis = findBrokenModels(PROJECT_ROOT . '/lib/Api');
+if (!empty($brokenApis)) {
+    fwrite(STDERR, "fix_invalid_class_names: ERROR — digit-prefixed class(es) found in lib/Api/:\n");
+    foreach ($brokenApis as $name) {
+        fwrite(STDERR, "  - $name\n");
+    }
+    fwrite(
+        STDERR,
+        "This script only handles lib/Model/. API classes were assumed to be\n"
+        . "tag-derived and never hash-named — that assumption no longer holds.\n"
+        . "Extend this script to cover lib/Api/ (+ docs/Api/, test/Api/).\n"
+    );
+    exit(1);
+}
+
 $broken = findBrokenModels(MODEL_DIR);
 
 if (empty($broken)) {
@@ -154,25 +176,46 @@ foreach ($broken as $name) {
     echo "  - $name\n";
 }
 
-// Build rename map: oldName => newName
+// Build the token-rename map applied to file *contents* (class
+// declarations, `use` statements, type hints, markdown links, manifest
+// paths). For each broken model we always rename the model class token.
+//
+// Model test stubs (emitted only when --global-property modelTests isn't
+// false) are named `<name>Test`, and that class ALSO starts with a digit.
+// It needs its own entry because rewriteFile()'s \b boundary cannot match
+// the `<name>` token inside `<name>Test`: the join is t→T, word-char to
+// word-char, so there's no boundary for `\b<name>\b` to anchor on. A lone
+// `<name>` entry would leave `class <name>Test`, its `<name>Test` manifest
+// path, and any `<name>Test::class` references digit-prefixed — still a
+// PHP syntax error.
+//
+// Entry order is irrelevant: every key is matched with \b on both ends,
+// so `<name>` can never match inside the longer `<name>Test` token and
+// vice-versa, regardless of which is substituted first.
 $renames = [];
 foreach ($broken as $name) {
     $renames[$name] = '_' . $name;
+    if (file_exists(TEST_MODEL_DIR . "/{$name}Test.php")) {
+        $renames["{$name}Test"] = "_{$name}Test";
+    }
 }
 
-// Step 1: Rename the derived files for each broken model. The PHP class
-// itself + its markdown doc + its optional test stub. The class file is
-// guaranteed to exist (we found it via scandir above); the others are
-// best-effort.
+// Step 1: Physically rename the derived files for each broken model — the
+// PHP class itself + its markdown doc + its optional test stub. Iterate
+// $broken (one model => one set of files) rather than $renames, since
+// $renames now also contains the `<name>Test` content-token which has no
+// independent file of its own. The class file is guaranteed to exist (we
+// found it via scandir above); the doc and test files are best-effort.
 $renamedCount = ['php' => 0, 'md' => 0, 'test' => 0];
-foreach ($renames as $oldName => $newName) {
-    if (renameIfExists(MODEL_DIR . "/$oldName.php", MODEL_DIR . "/$newName.php")) {
+foreach ($broken as $name) {
+    $newName = '_' . $name;
+    if (renameIfExists(MODEL_DIR . "/$name.php", MODEL_DIR . "/$newName.php")) {
         $renamedCount['php']++;
     }
-    if (renameIfExists(DOCS_MODEL_DIR . "/$oldName.md", DOCS_MODEL_DIR . "/$newName.md")) {
+    if (renameIfExists(DOCS_MODEL_DIR . "/$name.md", DOCS_MODEL_DIR . "/$newName.md")) {
         $renamedCount['md']++;
     }
-    if (renameIfExists(TEST_MODEL_DIR . "/{$oldName}Test.php", TEST_MODEL_DIR . "/{$newName}Test.php")) {
+    if (renameIfExists(TEST_MODEL_DIR . "/{$name}Test.php", TEST_MODEL_DIR . "/{$newName}Test.php")) {
         $renamedCount['test']++;
     }
 }
