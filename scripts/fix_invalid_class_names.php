@@ -13,23 +13,27 @@
  * the underscore and emits raw hex like `3958585c861325ea7a2cd30a8c74f042Request`,
  * which is a PHP **syntax error** at parse time (`unexpected integer "3958585"`).
  *
- * Affected lines look like:
- *   lib/Model/1d64402ee192568adbd5e3179a91e6e2RequestInner.php
- *     class 1d64402ee192568adbd5e3179a91e6e2RequestInner extends ...
- *
  * This script
  * -----------
- *   1. Finds every `lib/Model/<digit>*.php` file.
- *   2. For each, renames the class to `_<original>` (matching the convention
- *      Python's generator follows) and renames the file to match.
- *   3. Rewrites cross-references throughout `lib/`, `test/`, and `docs/`:
- *        - `BhrSdk\Model\1d64...` → `BhrSdk\Model\_1d64...`
- *        - bare `1d64...::class` → `_1d64...::class`
- *        - `'1d64...'` in serializer maps (ObjectSerializer / etc.)
+ *   1. Finds every `lib/Model/<digit>*.php`.
+ *   2. For each, locates the associated derived files:
+ *        - `lib/Model/<name>.php`   (the class)
+ *        - `docs/Model/<name>.md`   (the doc page)
+ *        - `test/Model/<name>Test.php` (only when --global-property
+ *          modelTests is not false — we set it false, so usually absent)
+ *      and renames them to `_<name>.…`.
+ *   3. Rewrites every cross-reference in the rest of the SDK:
+ *        - `BhrSdk\Model\1d64...` and bare `1d64...::class`
+ *        - markdown link text and link targets like `[1d64...](1d64...md)`
+ *        - entries in `.openapi-generator/FILES` (both `.php` and `.md`
+ *          paths) so the obsolete-cleanup pass on the next regen doesn't
+ *          think the renamed files are stale
+ *        - the top-level `README.md`, which openapi-generator regenerates
+ *          and which links to every model under `docs/Model/`.
  *
- * Run as a post-generation step from the Makefile. Re-running is safe:
- * once a class has been prefixed with `_` it no longer starts with a
- * digit, so the next pass leaves it alone.
+ * Re-running is safe: once a class has been prefixed with `_` it no
+ * longer starts with a digit, so the scanner finds nothing on the next
+ * pass.
  *
  * If/when upstream openapi-generator fixes the PHP target's inline-schema
  * naming (or the source spec adds proper `title` / `operationId` values),
@@ -38,13 +42,27 @@
 
 declare(strict_types=1);
 
-const MODEL_DIR = __DIR__ . '/../lib/Model';
+const PROJECT_ROOT = __DIR__ . '/..';
+const MODEL_DIR    = PROJECT_ROOT . '/lib/Model';
+const DOCS_MODEL_DIR = PROJECT_ROOT . '/docs/Model';
+const TEST_MODEL_DIR = PROJECT_ROOT . '/test/Model';
+const FILES_MANIFEST = PROJECT_ROOT . '/.openapi-generator/FILES';
+const README         = PROJECT_ROOT . '/README.md';
+
+// Directories whose .php and .md content we rewrite via the renames map.
+// README.md is added explicitly below (it's a single top-level file, not
+// a directory tree, so the recursive walker doesn't naturally see it).
 const SCAN_ROOTS = [
-    __DIR__ . '/../lib',
-    __DIR__ . '/../test',
-    __DIR__ . '/../docs',
+    PROJECT_ROOT . '/lib',
+    PROJECT_ROOT . '/test',
+    PROJECT_ROOT . '/docs',
 ];
 
+/**
+ * Discover every digit-prefixed model basename in lib/Model/.
+ *
+ * Returns an array of class names (without the .php extension).
+ */
 function findBrokenModels(string $dir): array {
     if (!is_dir($dir)) {
         return [];
@@ -52,24 +70,31 @@ function findBrokenModels(string $dir): array {
     $broken = [];
     foreach (scandir($dir) as $entry) {
         if (preg_match('/^([0-9][A-Za-z0-9_]*)\.php$/', $entry, $matches)) {
-            $broken[] = $matches[1];  // class name without .php
+            $broken[] = $matches[1];
         }
     }
+    sort($broken);
     return $broken;
 }
 
+/**
+ * Apply a {oldName => newName} substitution to a single file. Returns
+ * true iff the file actually changed.
+ *
+ * Uses \b word boundaries so a short token can't accidentally match
+ * inside a longer one — e.g. when both `1d64aRequest` and
+ * `1d64aRequestInner` need renaming, processing one won't clobber the
+ * other (the `r` ↔ `I` transition between them is word-char ↔ word-char,
+ * no boundary).
+ */
 function rewriteFile(string $path, array $renames): bool {
-    $original = file_get_contents($path);
+    $original = @file_get_contents($path);
     if ($original === false) {
         fwrite(STDERR, "  WARN: unreadable: $path\n");
         return false;
     }
     $updated = $original;
     foreach ($renames as $oldName => $newName) {
-        // Replace the bare token wherever it appears as an identifier.
-        // Word boundaries (\b) keep us from clobbering substrings of
-        // longer hex hashes (e.g. a 32-char hash that happens to contain
-        // a 30-char hash as a prefix).
         $updated = preg_replace(
             '/\b' . preg_quote($oldName, '/') . '\b/',
             $newName,
@@ -83,16 +108,36 @@ function rewriteFile(string $path, array $renames): bool {
     return true;
 }
 
-function walkPhpFiles(string $dir, callable $fn): void {
+/**
+ * Recurse `$dir` and call `$fn($absPath)` for each .php / .md file.
+ */
+function walkSourceFiles(string $dir, callable $fn): void {
     if (!is_dir($dir)) {
         return;
     }
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
     foreach ($iterator as $file) {
-        if ($file->getExtension() === 'php' || $file->getExtension() === 'md') {
+        $ext = strtolower($file->getExtension());
+        if ($ext === 'php' || $ext === 'md') {
             $fn($file->getPathname());
         }
     }
+}
+
+/**
+ * Rename `$oldPath` to `$newPath` if `$oldPath` exists. Returns true on
+ * actual rename, false if the source file wasn't present (which is fine
+ * — not every model has every kind of derived file).
+ */
+function renameIfExists(string $oldPath, string $newPath): bool {
+    if (!file_exists($oldPath)) {
+        return false;
+    }
+    if (!rename($oldPath, $newPath)) {
+        fwrite(STDERR, "  ERROR: rename failed: $oldPath -> $newPath\n");
+        exit(1);
+    }
+    return true;
 }
 
 // ---- main -----------------------------------------------------------------
@@ -115,40 +160,51 @@ foreach ($broken as $name) {
     $renames[$name] = '_' . $name;
 }
 
-// 1. Rename files in lib/Model/ and rewrite their internal references.
+// Step 1: Rename the derived files for each broken model. The PHP class
+// itself + its markdown doc + its optional test stub. The class file is
+// guaranteed to exist (we found it via scandir above); the others are
+// best-effort.
+$renamedCount = ['php' => 0, 'md' => 0, 'test' => 0];
 foreach ($renames as $oldName => $newName) {
-    $oldPath = MODEL_DIR . "/$oldName.php";
-    $newPath = MODEL_DIR . "/$newName.php";
-    if (!file_exists($oldPath)) {
-        fwrite(STDERR, "  WARN: expected file missing: $oldPath\n");
-        continue;
+    if (renameIfExists(MODEL_DIR . "/$oldName.php", MODEL_DIR . "/$newName.php")) {
+        $renamedCount['php']++;
     }
-    // Rewrite class name inside before renaming the file.
-    rewriteFile($oldPath, [$oldName => $newName]);
-    if (!rename($oldPath, $newPath)) {
-        fwrite(STDERR, "  ERROR: rename failed: $oldPath -> $newPath\n");
-        exit(1);
+    if (renameIfExists(DOCS_MODEL_DIR . "/$oldName.md", DOCS_MODEL_DIR . "/$newName.md")) {
+        $renamedCount['md']++;
     }
-    echo "  Renamed $oldName -> $newName\n";
+    if (renameIfExists(TEST_MODEL_DIR . "/{$oldName}Test.php", TEST_MODEL_DIR . "/{$newName}Test.php")) {
+        $renamedCount['test']++;
+    }
 }
+echo "fix_invalid_class_names: renamed {$renamedCount['php']} .php / "
+   . "{$renamedCount['md']} .md / {$renamedCount['test']} test file(s).\n";
 
-// 2. Update cross-references everywhere else (other models, API classes,
-//    serializer maps, docs, tests).
+// Step 2: Rewrite cross-references across lib/, test/, docs/. This pass
+// updates: the renamed class file's internal `class …` declaration,
+// `use` statements in importers, type hints, markdown link text, and
+// markdown link targets. Walks .php and .md.
 $touched = 0;
 foreach (SCAN_ROOTS as $root) {
-    walkPhpFiles($root, function (string $path) use ($renames, &$touched): void {
+    walkSourceFiles($root, function (string $path) use ($renames, &$touched): void {
         if (rewriteFile($path, $renames)) {
             $touched++;
         }
     });
 }
+
+// Step 3: Top-level README.md is regenerated by openapi-generator and
+// links into docs/Model/. It's outside SCAN_ROOTS, so handle it
+// explicitly. Skipping silently if absent (some setups may .ignore it).
+if (file_exists(README) && rewriteFile(README, $renames)) {
+    $touched++;
+}
+
 echo "fix_invalid_class_names: updated references in $touched file(s).\n";
 
-// 3. Patch .openapi-generator/FILES so the cleanup script doesn't think the
-//    renamed files are "obsolete" on the next run.
-$filesManifest = __DIR__ . '/../.openapi-generator/FILES';
-if (file_exists($filesManifest)) {
-    if (rewriteFile($filesManifest, $renames)) {
-        echo "fix_invalid_class_names: patched .openapi-generator/FILES manifest.\n";
-    }
+// Step 4: Patch the FILES manifest so the obsolete-cleanup pass on the
+// NEXT regen doesn't think the underscored paths are missing files. The
+// manifest contains both .php and .md paths, both of which must move in
+// lockstep with the actual renames above.
+if (file_exists(FILES_MANIFEST) && rewriteFile(FILES_MANIFEST, $renames)) {
+    echo "fix_invalid_class_names: patched .openapi-generator/FILES manifest.\n";
 }
