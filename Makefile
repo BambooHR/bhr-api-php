@@ -65,7 +65,8 @@ generate:
 		&& ./scripts/normalize_line_breaks.sh ./lib ./test \
 		&& ./scripts/update_error_docs.sh \
 		&& ./scripts/add_custom_headers_to_api_docs.sh \
-		&& ./scripts/cleanup_obsolete_files.sh --force
+		&& ./scripts/cleanup_obsolete_files.sh --force \
+		&& php ./scripts/fix_invalid_class_names.php
 	@echo "SDK generation complete!"
 
 generate-error-docs:
