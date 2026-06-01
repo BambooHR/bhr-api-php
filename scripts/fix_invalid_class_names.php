@@ -95,11 +95,27 @@ function rewriteFile(string $path, array $renames): bool {
     }
     $updated = $original;
     foreach ($renames as $oldName => $newName) {
-        $updated = preg_replace(
+        $result = preg_replace(
             '/\b' . preg_quote($oldName, '/') . '\b/',
             $newName,
             $updated
         );
+        // preg_replace returns null on a PCRE error (backtrack/JIT-stack
+        // limit, bad UTF-8, etc.). Without this guard the null would slip
+        // past the `$updated === $original` check below (null !== string)
+        // and file_put_contents() would blank the file — silently
+        // destroying generated source mid-rename. Abort loudly instead:
+        // a half-rewritten tree is worse than a failed pipeline step.
+        if ($result === null) {
+            fwrite(
+                STDERR,
+                "  ERROR: preg_replace failed (" . preg_last_error_msg() . ") "
+                . "while rewriting '$oldName' in $path. Aborting to avoid "
+                . "corrupting the file.\n"
+            );
+            exit(1);
+        }
+        $updated = $result;
     }
     if ($updated === $original) {
         return false;
