@@ -227,6 +227,27 @@ class Request implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return self::$openApiModelName;
 	}
 
+	public const STATUS_APPROVED = 'approved';
+	public const STATUS_DENIED = 'denied';
+	public const STATUS_DECLINED = 'declined';
+	public const STATUS_CANCELED = 'canceled';
+	public const STATUS_CANCELLED = 'cancelled';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getStatusAllowableValues() {
+		return [
+			self::STATUS_APPROVED,
+			self::STATUS_DENIED,
+			self::STATUS_DECLINED,
+			self::STATUS_CANCELED,
+			self::STATUS_CANCELLED,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -270,6 +291,18 @@ class Request implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		if ($this->container['status'] === null) {
+			$invalidProperties[] = "'status' can't be null";
+		}
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'status', must be one of '%s'",
+				$this->container['status'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -286,7 +319,7 @@ class Request implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets status
 	 *
-	 * @return string|null
+	 * @return string
 	 */
 	public function getStatus() {
 		return $this->container['status'];
@@ -295,13 +328,23 @@ class Request implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets status
 	 *
-	 * @param string|null $status One of approved, cancelled, denied
+	 * @param string $status The new status for the time off request.
 	 *
 	 * @return self
 	 */
 	public function setStatus($status) {
 		if (is_null($status)) {
 			throw new \InvalidArgumentException('non-nullable status cannot be null');
+		}
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!in_array($status, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'status', must be one of '%s'",
+					$status,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['status'] = $status;
 
@@ -320,7 +363,7 @@ class Request implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets note
 	 *
-	 * @param string|null $note A note to attach to the change in status
+	 * @param string|null $note A note to attach to the change in status.
 	 *
 	 * @return self
 	 */

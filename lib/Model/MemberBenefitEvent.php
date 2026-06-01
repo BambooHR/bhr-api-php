@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * MemberBenefitEvent Class Doc Comment
  *
  * @category Class
+ * @description A single member (employee or dependent) and their benefit coverage events across all enrolled plans.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,7 +58,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'members' => '\BhrSdk\Model\MemberBenefitEventMembersInner[]'
+		'member_id' => 'string',
+		'coverages' => '\BhrSdk\Model\MemberBenefitEventCoveragesInner[]'
 	];
 
 	/**
@@ -68,7 +70,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'members' => null
+		'member_id' => null,
+		'coverages' => null
 	];
 
 	/**
@@ -78,7 +81,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
-		'members' => false
+		'member_id' => false,
+		'coverages' => false
 	];
 
 	/**
@@ -163,7 +167,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
-		'members' => 'members'
+		'member_id' => 'memberId',
+		'coverages' => 'coverages'
 	];
 
 	/**
@@ -172,7 +177,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $setters = [
-		'members' => 'setMembers'
+		'member_id' => 'setMemberId',
+		'coverages' => 'setCoverages'
 	];
 
 	/**
@@ -181,7 +187,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	 * @var string[]
 	 */
 	protected static $getters = [
-		'members' => 'getMembers'
+		'member_id' => 'getMemberId',
+		'coverages' => 'getCoverages'
 	];
 
 	/**
@@ -235,7 +242,8 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
-		$this->setIfExists('members', $data ?? [], null);
+		$this->setIfExists('member_id', $data ?? [], null);
+		$this->setIfExists('coverages', $data ?? [], null);
 	}
 
 	/**
@@ -277,26 +285,51 @@ class MemberBenefitEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 	}
 
 	/**
-	 * Gets members
+	 * Gets member_id
 	 *
-	 * @return \BhrSdk\Model\MemberBenefitEventMembersInner[]|null
+	 * @return string|null
 	 */
-	public function getMembers() {
-		return $this->container['members'];
+	public function getMemberId() {
+		return $this->container['member_id'];
 	}
 
 	/**
-	 * Sets members
+	 * Sets member_id
 	 *
-	 * @param \BhrSdk\Model\MemberBenefitEventMembersInner[]|null $members Members
+	 * @param string|null $member_id The unique identifier of the member. Format: 'employee.{id}' for employees, 'dependent.{id}' for dependents.
 	 *
 	 * @return self
 	 */
-	public function setMembers($members) {
-		if (is_null($members)) {
-			throw new \InvalidArgumentException('non-nullable members cannot be null');
+	public function setMemberId($member_id) {
+		if (is_null($member_id)) {
+			throw new \InvalidArgumentException('non-nullable member_id cannot be null');
 		}
-		$this->container['members'] = $members;
+		$this->container['member_id'] = $member_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets coverages
+	 *
+	 * @return \BhrSdk\Model\MemberBenefitEventCoveragesInner[]|null
+	 */
+	public function getCoverages() {
+		return $this->container['coverages'];
+	}
+
+	/**
+	 * Sets coverages
+	 *
+	 * @param \BhrSdk\Model\MemberBenefitEventCoveragesInner[]|null $coverages The benefit plan coverages for this member, one entry per plan.
+	 *
+	 * @return self
+	 */
+	public function setCoverages($coverages) {
+		if (is_null($coverages)) {
+			throw new \InvalidArgumentException('non-nullable coverages cannot be null');
+		}
+		$this->container['coverages'] = $coverages;
 
 		return $this;
 	}

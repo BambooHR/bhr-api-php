@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * ApplicationDetailsApplicant Class Doc Comment
  *
  * @category Class
- * @description Applicant details
+ * @description Information about the applicant
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,8 +62,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		'first_name' => 'string',
 		'last_name' => 'string',
 		'email' => 'string',
-		'phone' => 'string',
-		'address' => 'object'
+		'phone_number' => 'string',
+		'avatar' => 'string',
+		'source' => 'string',
+		'twitter_username' => 'string',
+		'address' => 'object',
+		'linkedin_url' => 'string',
+		'website_url' => 'string',
+		'available_start_date' => '\DateTime',
+		'education' => 'object'
 	];
 
 	/**
@@ -78,8 +85,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		'first_name' => null,
 		'last_name' => null,
 		'email' => null,
-		'phone' => null,
-		'address' => null
+		'phone_number' => null,
+		'avatar' => null,
+		'source' => null,
+		'twitter_username' => null,
+		'address' => null,
+		'linkedin_url' => null,
+		'website_url' => null,
+		'available_start_date' => 'date',
+		'education' => null
 	];
 
 	/**
@@ -93,8 +107,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		'first_name' => false,
 		'last_name' => false,
 		'email' => false,
-		'phone' => false,
-		'address' => true
+		'phone_number' => true,
+		'avatar' => true,
+		'source' => true,
+		'twitter_username' => true,
+		'address' => true,
+		'linkedin_url' => true,
+		'website_url' => true,
+		'available_start_date' => true,
+		'education' => true
 	];
 
 	/**
@@ -183,8 +204,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		'first_name' => 'firstName',
 		'last_name' => 'lastName',
 		'email' => 'email',
-		'phone' => 'phone',
-		'address' => 'address'
+		'phone_number' => 'phoneNumber',
+		'avatar' => 'avatar',
+		'source' => 'source',
+		'twitter_username' => 'twitterUsername',
+		'address' => 'address',
+		'linkedin_url' => 'linkedinUrl',
+		'website_url' => 'websiteUrl',
+		'available_start_date' => 'availableStartDate',
+		'education' => 'education'
 	];
 
 	/**
@@ -197,8 +225,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		'first_name' => 'setFirstName',
 		'last_name' => 'setLastName',
 		'email' => 'setEmail',
-		'phone' => 'setPhone',
-		'address' => 'setAddress'
+		'phone_number' => 'setPhoneNumber',
+		'avatar' => 'setAvatar',
+		'source' => 'setSource',
+		'twitter_username' => 'setTwitterUsername',
+		'address' => 'setAddress',
+		'linkedin_url' => 'setLinkedinUrl',
+		'website_url' => 'setWebsiteUrl',
+		'available_start_date' => 'setAvailableStartDate',
+		'education' => 'setEducation'
 	];
 
 	/**
@@ -211,8 +246,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		'first_name' => 'getFirstName',
 		'last_name' => 'getLastName',
 		'email' => 'getEmail',
-		'phone' => 'getPhone',
-		'address' => 'getAddress'
+		'phone_number' => 'getPhoneNumber',
+		'avatar' => 'getAvatar',
+		'source' => 'getSource',
+		'twitter_username' => 'getTwitterUsername',
+		'address' => 'getAddress',
+		'linkedin_url' => 'getLinkedinUrl',
+		'website_url' => 'getWebsiteUrl',
+		'available_start_date' => 'getAvailableStartDate',
+		'education' => 'getEducation'
 	];
 
 	/**
@@ -270,8 +312,15 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 		$this->setIfExists('first_name', $data ?? [], null);
 		$this->setIfExists('last_name', $data ?? [], null);
 		$this->setIfExists('email', $data ?? [], null);
-		$this->setIfExists('phone', $data ?? [], null);
+		$this->setIfExists('phone_number', $data ?? [], null);
+		$this->setIfExists('avatar', $data ?? [], null);
+		$this->setIfExists('source', $data ?? [], null);
+		$this->setIfExists('twitter_username', $data ?? [], null);
 		$this->setIfExists('address', $data ?? [], null);
+		$this->setIfExists('linkedin_url', $data ?? [], null);
+		$this->setIfExists('website_url', $data ?? [], null);
+		$this->setIfExists('available_start_date', $data ?? [], null);
+		$this->setIfExists('education', $data ?? [], null);
 	}
 
 	/**
@@ -413,26 +462,125 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 	}
 
 	/**
-	 * Gets phone
+	 * Gets phone_number
 	 *
 	 * @return string|null
 	 */
-	public function getPhone() {
-		return $this->container['phone'];
+	public function getPhoneNumber() {
+		return $this->container['phone_number'];
 	}
 
 	/**
-	 * Sets phone
+	 * Sets phone_number
 	 *
-	 * @param string|null $phone Phone number
+	 * @param string|null $phone_number phone_number
 	 *
 	 * @return self
 	 */
-	public function setPhone($phone) {
-		if (is_null($phone)) {
-			throw new \InvalidArgumentException('non-nullable phone cannot be null');
+	public function setPhoneNumber($phone_number) {
+		if (is_null($phone_number)) {
+			$this->openApiNullablesSetToNull['phone_number'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['phone_number'])) {
+				unset($nullablesSetToNull['phone_number']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
-		$this->container['phone'] = $phone;
+		$this->container['phone_number'] = $phone_number;
+
+		return $this;
+	}
+
+	/**
+	 * Gets avatar
+	 *
+	 * @return string|null
+	 */
+	public function getAvatar() {
+		return $this->container['avatar'];
+	}
+
+	/**
+	 * Sets avatar
+	 *
+	 * @param string|null $avatar avatar
+	 *
+	 * @return self
+	 */
+	public function setAvatar($avatar) {
+		if (is_null($avatar)) {
+			$this->openApiNullablesSetToNull['avatar'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['avatar'])) {
+				unset($nullablesSetToNull['avatar']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['avatar'] = $avatar;
+
+		return $this;
+	}
+
+	/**
+	 * Gets source
+	 *
+	 * @return string|null
+	 */
+	public function getSource() {
+		return $this->container['source'];
+	}
+
+	/**
+	 * Sets source
+	 *
+	 * @param string|null $source source
+	 *
+	 * @return self
+	 */
+	public function setSource($source) {
+		if (is_null($source)) {
+			$this->openApiNullablesSetToNull['source'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['source'])) {
+				unset($nullablesSetToNull['source']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['source'] = $source;
+
+		return $this;
+	}
+
+	/**
+	 * Gets twitter_username
+	 *
+	 * @return string|null
+	 */
+	public function getTwitterUsername() {
+		return $this->container['twitter_username'];
+	}
+
+	/**
+	 * Sets twitter_username
+	 *
+	 * @param string|null $twitter_username twitter_username
+	 *
+	 * @return self
+	 */
+	public function setTwitterUsername($twitter_username) {
+		if (is_null($twitter_username)) {
+			$this->openApiNullablesSetToNull['twitter_username'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['twitter_username'])) {
+				unset($nullablesSetToNull['twitter_username']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['twitter_username'] = $twitter_username;
 
 		return $this;
 	}
@@ -449,7 +597,7 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets address
 	 *
-	 * @param object|null $address Address information
+	 * @param object|null $address address
 	 *
 	 * @return self
 	 */
@@ -464,6 +612,130 @@ class ApplicationDetailsApplicant implements ModelInterface, ArrayAccess, \JsonS
 			}
 		}
 		$this->container['address'] = $address;
+
+		return $this;
+	}
+
+	/**
+	 * Gets linkedin_url
+	 *
+	 * @return string|null
+	 */
+	public function getLinkedinUrl() {
+		return $this->container['linkedin_url'];
+	}
+
+	/**
+	 * Sets linkedin_url
+	 *
+	 * @param string|null $linkedin_url linkedin_url
+	 *
+	 * @return self
+	 */
+	public function setLinkedinUrl($linkedin_url) {
+		if (is_null($linkedin_url)) {
+			$this->openApiNullablesSetToNull['linkedin_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['linkedin_url'])) {
+				unset($nullablesSetToNull['linkedin_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['linkedin_url'] = $linkedin_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets website_url
+	 *
+	 * @return string|null
+	 */
+	public function getWebsiteUrl() {
+		return $this->container['website_url'];
+	}
+
+	/**
+	 * Sets website_url
+	 *
+	 * @param string|null $website_url website_url
+	 *
+	 * @return self
+	 */
+	public function setWebsiteUrl($website_url) {
+		if (is_null($website_url)) {
+			$this->openApiNullablesSetToNull['website_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['website_url'])) {
+				unset($nullablesSetToNull['website_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['website_url'] = $website_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets available_start_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getAvailableStartDate() {
+		return $this->container['available_start_date'];
+	}
+
+	/**
+	 * Sets available_start_date
+	 *
+	 * @param \DateTime|null $available_start_date available_start_date
+	 *
+	 * @return self
+	 */
+	public function setAvailableStartDate($available_start_date) {
+		if (is_null($available_start_date)) {
+			$this->openApiNullablesSetToNull['available_start_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['available_start_date'])) {
+				unset($nullablesSetToNull['available_start_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['available_start_date'] = $available_start_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets education
+	 *
+	 * @return object|null
+	 */
+	public function getEducation() {
+		return $this->container['education'];
+	}
+
+	/**
+	 * Sets education
+	 *
+	 * @param object|null $education education
+	 *
+	 * @return self
+	 */
+	public function setEducation($education) {
+		if (is_null($education)) {
+			$this->openApiNullablesSetToNull['education'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['education'])) {
+				unset($nullablesSetToNull['education']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['education'] = $education;
 
 		return $this;
 	}

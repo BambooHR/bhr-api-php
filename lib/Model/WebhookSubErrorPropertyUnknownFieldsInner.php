@@ -57,7 +57,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'int',
+		'id' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInnerId',
 		'name' => 'string'
 	];
 
@@ -286,7 +286,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 	/**
 	 * Gets id
 	 *
-	 * @return int|null
+	 * @return \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInnerId|null
 	 */
 	public function getId() {
 		return $this->container['id'];
@@ -295,7 +295,7 @@ class WebhookSubErrorPropertyUnknownFieldsInner implements ModelInterface, Array
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id id
+	 * @param \BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInnerId|null $id id
 	 *
 	 * @return self
 	 */

@@ -58,11 +58,11 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	  */
 	protected static $openApiTypes = [
 		'completed' => 'string',
-		'cost' => '\BhrSdk\Model\AddNewEmployeeTrainingRecordRequestCost',
+		'cost' => '\BhrSdk\Model\CreateEmployeeTrainingRecordRequestCost',
 		'instructor' => 'string',
 		'hours' => 'float',
 		'credits' => 'float',
-		'notes' => 'float'
+		'notes' => 'string'
 	];
 
 	/**
@@ -342,7 +342,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Gets cost
 	 *
-	 * @return \BhrSdk\Model\AddNewEmployeeTrainingRecordRequestCost|null
+	 * @return \BhrSdk\Model\CreateEmployeeTrainingRecordRequestCost|null
 	 */
 	public function getCost() {
 		return $this->container['cost'];
@@ -351,7 +351,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Sets cost
 	 *
-	 * @param \BhrSdk\Model\AddNewEmployeeTrainingRecordRequestCost|null $cost cost
+	 * @param \BhrSdk\Model\CreateEmployeeTrainingRecordRequestCost|null $cost cost
 	 *
 	 * @return self
 	 */
@@ -376,7 +376,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Sets instructor
 	 *
-	 * @param string|null $instructor instructor
+	 * @param string|null $instructor Name of the training instructor.
 	 *
 	 * @return self
 	 */
@@ -401,7 +401,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Sets hours
 	 *
-	 * @param float|null $hours hours
+	 * @param float|null $hours Number of hours for the training.
 	 *
 	 * @return self
 	 */
@@ -426,7 +426,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Sets credits
 	 *
-	 * @param float|null $credits credits
+	 * @param float|null $credits Credits earned for the training.
 	 *
 	 * @return self
 	 */
@@ -442,7 +442,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Gets notes
 	 *
-	 * @return float|null
+	 * @return string|null
 	 */
 	public function getNotes() {
 		return $this->container['notes'];
@@ -451,7 +451,7 @@ class UpdateEmployeeTrainingRecordRequest implements ModelInterface, ArrayAccess
 	/**
 	 * Sets notes
 	 *
-	 * @param float|null $notes notes
+	 * @param string|null $notes Optional notes about the training record.
 	 *
 	 * @return self
 	 */

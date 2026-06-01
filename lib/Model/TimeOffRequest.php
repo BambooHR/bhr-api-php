@@ -58,10 +58,11 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiTypes = [
 		'status' => 'string',
-		'start' => 'string',
-		'end' => 'string',
+		'start' => '\DateTime',
+		'end' => '\DateTime',
 		'time_off_type_id' => 'int',
-		'amount' => 'int',
+		'amount' => 'float',
+		'previous_request' => 'int',
 		'notes' => '\BhrSdk\Model\TimeOffRequestNotesInner[]',
 		'dates' => '\BhrSdk\Model\TimeOffRequestDatesInner[]'
 	];
@@ -75,10 +76,11 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiFormats = [
 		'status' => null,
-		'start' => null,
-		'end' => null,
+		'start' => 'date',
+		'end' => 'date',
 		'time_off_type_id' => null,
 		'amount' => null,
+		'previous_request' => null,
 		'notes' => null,
 		'dates' => null
 	];
@@ -95,6 +97,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'end' => false,
 		'time_off_type_id' => false,
 		'amount' => false,
+		'previous_request' => false,
 		'notes' => false,
 		'dates' => false
 	];
@@ -186,6 +189,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'end' => 'end',
 		'time_off_type_id' => 'timeOffTypeId',
 		'amount' => 'amount',
+		'previous_request' => 'previousRequest',
 		'notes' => 'notes',
 		'dates' => 'dates'
 	];
@@ -201,6 +205,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'end' => 'setEnd',
 		'time_off_type_id' => 'setTimeOffTypeId',
 		'amount' => 'setAmount',
+		'previous_request' => 'setPreviousRequest',
 		'notes' => 'setNotes',
 		'dates' => 'setDates'
 	];
@@ -216,6 +221,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'end' => 'getEnd',
 		'time_off_type_id' => 'getTimeOffTypeId',
 		'amount' => 'getAmount',
+		'previous_request' => 'getPreviousRequest',
 		'notes' => 'getNotes',
 		'dates' => 'getDates'
 	];
@@ -257,6 +263,25 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return self::$openApiModelName;
 	}
 
+	public const STATUS_APPROVED = 'approved';
+	public const STATUS_DENIED = 'denied';
+	public const STATUS_DECLINED = 'declined';
+	public const STATUS_REQUESTED = 'requested';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getStatusAllowableValues() {
+		return [
+			self::STATUS_APPROVED,
+			self::STATUS_DENIED,
+			self::STATUS_DECLINED,
+			self::STATUS_REQUESTED,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -276,6 +301,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('end', $data ?? [], null);
 		$this->setIfExists('time_off_type_id', $data ?? [], null);
 		$this->setIfExists('amount', $data ?? [], null);
+		$this->setIfExists('previous_request', $data ?? [], null);
 		$this->setIfExists('notes', $data ?? [], null);
 		$this->setIfExists('dates', $data ?? [], null);
 	}
@@ -305,6 +331,27 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		if ($this->container['status'] === null) {
+			$invalidProperties[] = "'status' can't be null";
+		}
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'status', must be one of '%s'",
+				$this->container['status'],
+				implode("', '", $allowedValues)
+			);
+		}
+
+		if ($this->container['start'] === null) {
+			$invalidProperties[] = "'start' can't be null";
+		}
+		if ($this->container['end'] === null) {
+			$invalidProperties[] = "'end' can't be null";
+		}
+		if ($this->container['time_off_type_id'] === null) {
+			$invalidProperties[] = "'time_off_type_id' can't be null";
+		}
 		return $invalidProperties;
 	}
 
@@ -321,7 +368,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets status
 	 *
-	 * @return string|null
+	 * @return string
 	 */
 	public function getStatus() {
 		return $this->container['status'];
@@ -330,13 +377,23 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets status
 	 *
-	 * @param string|null $status status
+	 * @param string $status The initial status of the request.
 	 *
 	 * @return self
 	 */
 	public function setStatus($status) {
 		if (is_null($status)) {
 			throw new \InvalidArgumentException('non-nullable status cannot be null');
+		}
+		$allowedValues = $this->getStatusAllowableValues();
+		if (!in_array($status, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'status', must be one of '%s'",
+					$status,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['status'] = $status;
 
@@ -346,7 +403,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets start
 	 *
-	 * @return string|null
+	 * @return \DateTime
 	 */
 	public function getStart() {
 		return $this->container['start'];
@@ -355,7 +412,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets start
 	 *
-	 * @param string|null $start start
+	 * @param \DateTime $start Start date in YYYY-MM-DD format.
 	 *
 	 * @return self
 	 */
@@ -371,7 +428,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets end
 	 *
-	 * @return string|null
+	 * @return \DateTime
 	 */
 	public function getEnd() {
 		return $this->container['end'];
@@ -380,7 +437,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets end
 	 *
-	 * @param string|null $end end
+	 * @param \DateTime $end End date in YYYY-MM-DD format. Must be on or after the start date.
 	 *
 	 * @return self
 	 */
@@ -396,7 +453,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets time_off_type_id
 	 *
-	 * @return int|null
+	 * @return int
 	 */
 	public function getTimeOffTypeId() {
 		return $this->container['time_off_type_id'];
@@ -405,7 +462,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets time_off_type_id
 	 *
-	 * @param int|null $time_off_type_id time_off_type_id
+	 * @param int $time_off_type_id The ID of the time off type for this request.
 	 *
 	 * @return self
 	 */
@@ -421,7 +478,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets amount
 	 *
-	 * @return int|null
+	 * @return float|null
 	 */
 	public function getAmount() {
 		return $this->container['amount'];
@@ -430,7 +487,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets amount
 	 *
-	 * @param int|null $amount amount
+	 * @param float|null $amount Total hours or days requested. Ignored when `dates` array is provided (sum of daily amounts is used instead).
 	 *
 	 * @return self
 	 */
@@ -439,6 +496,31 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable amount cannot be null');
 		}
 		$this->container['amount'] = $amount;
+
+		return $this;
+	}
+
+	/**
+	 * Gets previous_request
+	 *
+	 * @return int|null
+	 */
+	public function getPreviousRequest() {
+		return $this->container['previous_request'];
+	}
+
+	/**
+	 * Sets previous_request
+	 *
+	 * @param int|null $previous_request The ID of a previous time off request to supersede. The previous request will be cancelled.
+	 *
+	 * @return self
+	 */
+	public function setPreviousRequest($previous_request) {
+		if (is_null($previous_request)) {
+			throw new \InvalidArgumentException('non-nullable previous_request cannot be null');
+		}
+		$this->container['previous_request'] = $previous_request;
 
 		return $this;
 	}
@@ -455,7 +537,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets notes
 	 *
-	 * @param \BhrSdk\Model\TimeOffRequestNotesInner[]|null $notes notes
+	 * @param \BhrSdk\Model\TimeOffRequestNotesInner[]|null $notes Optional notes from the employee or manager.
 	 *
 	 * @return self
 	 */
@@ -480,7 +562,7 @@ class TimeOffRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets dates
 	 *
-	 * @param \BhrSdk\Model\TimeOffRequestDatesInner[]|null $dates dates
+	 * @param \BhrSdk\Model\TimeOffRequestDatesInner[]|null $dates Optional per-day breakdown. When provided, the top-level `amount` is ignored and the sum of daily amounts is used.
 	 *
 	 * @return self
 	 */

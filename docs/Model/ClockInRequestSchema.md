@@ -4,11 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **int** | ID of the time tracking project that should be associated with the timesheet entry. Required if taskId is specified. | [optional]
-**task_id** | **int** | ID of the time tracking task that should be associated with the timesheet entry. | [optional]
-**note** | **string** | The note that should be associated with the timesheet entry | [optional]
-**date** | **\DateTime** | Date for the timesheet entry. Must be in YYYY-MM-DD format. | [optional]
-**start** | **string** | The time for the clock in. In 24 hour format HH:MM | [optional]
-**timezone** | **string** | The timezone associated with the clock in. | [optional]
+**project_id** | **int** |  | [optional]
+**task_id** | **int** |  | [optional]
+**note** | **string** |  | [optional]
+**date** | **\DateTime** |  | [optional]
+**start** | **string** |  | [optional]
+**timezone** | **string** |  | [optional]
+**break_id** | **string** |  | [optional]
+**offline** | **bool** | Whether this is an offline punch. When true, bypasses the shift schedule clock-in restriction. Intended for devices that store punches offline and sync later. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

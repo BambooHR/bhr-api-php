@@ -334,7 +334,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name name
+	 * @param string|null $name Machine-readable dataset identifier matching the requested datasetName.
 	 *
 	 * @return self
 	 */
@@ -359,7 +359,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets label
 	 *
-	 * @param string|null $label label
+	 * @param string|null $label Human-readable display name for the dataset.
 	 *
 	 * @return self
 	 */
@@ -384,7 +384,7 @@ class DatasetFieldsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 	/**
 	 * Sets fields
 	 *
-	 * @param \BhrSdk\Model\Field[]|null $fields fields
+	 * @param \BhrSdk\Model\Field[]|null $fields Paginated array of field descriptors for this dataset.
 	 *
 	 * @return self
 	 */

@@ -58,7 +58,12 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	  */
 	protected static $openApiTypes = [
 		'question' => '\BhrSdk\Model\ApplicationDetailsQuestionsAndAnswersInnerQuestion',
-		'answer' => '\BhrSdk\Model\ApplicationDetailsQuestionsAndAnswersInnerAnswer'
+		'answer' => '\BhrSdk\Model\ApplicationDetailsQuestionsAndAnswersInnerAnswer',
+		'has_revisions' => 'bool',
+		'is_archived' => 'bool',
+		'archived_date' => '\DateTime',
+		'edited_date' => '\DateTime',
+		'edited_end_date' => '\DateTime'
 	];
 
 	/**
@@ -70,7 +75,12 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	  */
 	protected static $openApiFormats = [
 		'question' => null,
-		'answer' => null
+		'answer' => null,
+		'has_revisions' => null,
+		'is_archived' => null,
+		'archived_date' => 'date-time',
+		'edited_date' => 'date-time',
+		'edited_end_date' => 'date-time'
 	];
 
 	/**
@@ -81,7 +91,12 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	  */
 	protected static array $openApiNullables = [
 		'question' => false,
-		'answer' => false
+		'answer' => false,
+		'has_revisions' => true,
+		'is_archived' => true,
+		'archived_date' => true,
+		'edited_date' => true,
+		'edited_end_date' => true
 	];
 
 	/**
@@ -167,7 +182,12 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	 */
 	protected static $attributeMap = [
 		'question' => 'question',
-		'answer' => 'answer'
+		'answer' => 'answer',
+		'has_revisions' => 'hasRevisions',
+		'is_archived' => 'isArchived',
+		'archived_date' => 'archivedDate',
+		'edited_date' => 'editedDate',
+		'edited_end_date' => 'editedEndDate'
 	];
 
 	/**
@@ -177,7 +197,12 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	 */
 	protected static $setters = [
 		'question' => 'setQuestion',
-		'answer' => 'setAnswer'
+		'answer' => 'setAnswer',
+		'has_revisions' => 'setHasRevisions',
+		'is_archived' => 'setIsArchived',
+		'archived_date' => 'setArchivedDate',
+		'edited_date' => 'setEditedDate',
+		'edited_end_date' => 'setEditedEndDate'
 	];
 
 	/**
@@ -187,7 +212,12 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	 */
 	protected static $getters = [
 		'question' => 'getQuestion',
-		'answer' => 'getAnswer'
+		'answer' => 'getAnswer',
+		'has_revisions' => 'getHasRevisions',
+		'is_archived' => 'getIsArchived',
+		'archived_date' => 'getArchivedDate',
+		'edited_date' => 'getEditedDate',
+		'edited_end_date' => 'getEditedEndDate'
 	];
 
 	/**
@@ -243,6 +273,11 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 	public function __construct(?array $data = null) {
 		$this->setIfExists('question', $data ?? [], null);
 		$this->setIfExists('answer', $data ?? [], null);
+		$this->setIfExists('has_revisions', $data ?? [], null);
+		$this->setIfExists('is_archived', $data ?? [], null);
+		$this->setIfExists('archived_date', $data ?? [], null);
+		$this->setIfExists('edited_date', $data ?? [], null);
+		$this->setIfExists('edited_end_date', $data ?? [], null);
 	}
 
 	/**
@@ -329,6 +364,161 @@ class ApplicationDetailsQuestionsAndAnswersInner implements ModelInterface, Arra
 			throw new \InvalidArgumentException('non-nullable answer cannot be null');
 		}
 		$this->container['answer'] = $answer;
+
+		return $this;
+	}
+
+	/**
+	 * Gets has_revisions
+	 *
+	 * @return bool|null
+	 */
+	public function getHasRevisions() {
+		return $this->container['has_revisions'];
+	}
+
+	/**
+	 * Sets has_revisions
+	 *
+	 * @param bool|null $has_revisions has_revisions
+	 *
+	 * @return self
+	 */
+	public function setHasRevisions($has_revisions) {
+		if (is_null($has_revisions)) {
+			$this->openApiNullablesSetToNull['has_revisions'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['has_revisions'])) {
+				unset($nullablesSetToNull['has_revisions']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['has_revisions'] = $has_revisions;
+
+		return $this;
+	}
+
+	/**
+	 * Gets is_archived
+	 *
+	 * @return bool|null
+	 */
+	public function getIsArchived() {
+		return $this->container['is_archived'];
+	}
+
+	/**
+	 * Sets is_archived
+	 *
+	 * @param bool|null $is_archived is_archived
+	 *
+	 * @return self
+	 */
+	public function setIsArchived($is_archived) {
+		if (is_null($is_archived)) {
+			$this->openApiNullablesSetToNull['is_archived'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['is_archived'])) {
+				unset($nullablesSetToNull['is_archived']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['is_archived'] = $is_archived;
+
+		return $this;
+	}
+
+	/**
+	 * Gets archived_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getArchivedDate() {
+		return $this->container['archived_date'];
+	}
+
+	/**
+	 * Sets archived_date
+	 *
+	 * @param \DateTime|null $archived_date archived_date
+	 *
+	 * @return self
+	 */
+	public function setArchivedDate($archived_date) {
+		if (is_null($archived_date)) {
+			$this->openApiNullablesSetToNull['archived_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['archived_date'])) {
+				unset($nullablesSetToNull['archived_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['archived_date'] = $archived_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets edited_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getEditedDate() {
+		return $this->container['edited_date'];
+	}
+
+	/**
+	 * Sets edited_date
+	 *
+	 * @param \DateTime|null $edited_date edited_date
+	 *
+	 * @return self
+	 */
+	public function setEditedDate($edited_date) {
+		if (is_null($edited_date)) {
+			$this->openApiNullablesSetToNull['edited_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['edited_date'])) {
+				unset($nullablesSetToNull['edited_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['edited_date'] = $edited_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets edited_end_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getEditedEndDate() {
+		return $this->container['edited_end_date'];
+	}
+
+	/**
+	 * Sets edited_end_date
+	 *
+	 * @param \DateTime|null $edited_end_date edited_end_date
+	 *
+	 * @return self
+	 */
+	public function setEditedEndDate($edited_end_date) {
+		if (is_null($edited_end_date)) {
+			$this->openApiNullablesSetToNull['edited_end_date'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['edited_end_date'])) {
+				unset($nullablesSetToNull['edited_end_date']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['edited_end_date'] = $edited_end_date;
 
 		return $this;
 	}

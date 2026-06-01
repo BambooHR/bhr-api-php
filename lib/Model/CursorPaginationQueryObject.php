@@ -277,6 +277,14 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		if (!is_null($this->container['limit']) && ($this->container['limit'] > 100)) {
+			$invalidProperties[] = "invalid value for 'limit', must be smaller than or equal to 100.";
+		}
+
+		if (!is_null($this->container['limit']) && ($this->container['limit'] < 1)) {
+			$invalidProperties[] = "invalid value for 'limit', must be bigger than or equal to 1.";
+		}
+
 		return $invalidProperties;
 	}
 
@@ -302,7 +310,7 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets before
 	 *
-	 * @param string|null $before before
+	 * @param string|null $before Cursor pointing to the start of the previous page. Use the `prevCursor` value from the last response to paginate backward.
 	 *
 	 * @return self
 	 */
@@ -327,7 +335,7 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 	/**
 	 * Sets after
 	 *
-	 * @param string|null $after after
+	 * @param string|null $after Cursor pointing to the start of the next page. Use the `nextCursor` value from the last response to paginate forward.
 	 *
 	 * @return self
 	 */
@@ -360,6 +368,14 @@ class CursorPaginationQueryObject implements ModelInterface, ArrayAccess, \JsonS
 		if (is_null($limit)) {
 			throw new \InvalidArgumentException('non-nullable limit cannot be null');
 		}
+
+		if (($limit > 100)) {
+			throw new \InvalidArgumentException('invalid value for $limit when calling CursorPaginationQueryObject., must be smaller than or equal to 100.');
+		}
+		if (($limit < 1)) {
+			throw new \InvalidArgumentException('invalid value for $limit when calling CursorPaginationQueryObject., must be bigger than or equal to 1.');
+		}
+
 		$this->container['limit'] = $limit;
 
 		return $this;

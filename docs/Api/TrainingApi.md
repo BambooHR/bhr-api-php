@@ -4,29 +4,29 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addNewEmployeeTrainingRecord()**](TrainingApi.md#addNewEmployeeTrainingRecord) | **POST** /api/v1/training/record/employee/{employeeId} | Create Employee Training Record |
-| [**addTrainingCategory()**](TrainingApi.md#addTrainingCategory) | **POST** /api/v1/training/category | Create Training Category |
-| [**addTrainingType()**](TrainingApi.md#addTrainingType) | **POST** /api/v1/training/type | Create Training Type |
+| [**createEmployeeTrainingRecord()**](TrainingApi.md#createEmployeeTrainingRecord) | **POST** /api/v1/training/record/employee/{employeeId} | Create Employee Training Record |
+| [**createTrainingCategory()**](TrainingApi.md#createTrainingCategory) | **POST** /api/v1/training/category | Create Training Category |
+| [**createTrainingType()**](TrainingApi.md#createTrainingType) | **POST** /api/v1/training/type | Create Training Type |
 | [**deleteEmployeeTrainingRecord()**](TrainingApi.md#deleteEmployeeTrainingRecord) | **DELETE** /api/v1/training/record/{employeeTrainingRecordId} | Delete Employee Training Record |
 | [**deleteTrainingCategory()**](TrainingApi.md#deleteTrainingCategory) | **DELETE** /api/v1/training/category/{trainingCategoryId} | Delete Training Category |
 | [**deleteTrainingType()**](TrainingApi.md#deleteTrainingType) | **DELETE** /api/v1/training/type/{trainingTypeId} | Delete Training Type |
-| [**listEmployeeTrainings()**](TrainingApi.md#listEmployeeTrainings) | **GET** /api/v1/training/record/employee/{employeeId} | Get Employee Trainings |
-| [**listTrainingCategories()**](TrainingApi.md#listTrainingCategories) | **GET** /api/v1/training/category | Get Training Categories |
-| [**listTrainingTypes()**](TrainingApi.md#listTrainingTypes) | **GET** /api/v1/training/type | Get Training Types |
+| [**listEmployeeTrainings()**](TrainingApi.md#listEmployeeTrainings) | **GET** /api/v1/training/record/employee/{employeeId} | List Employee Training Records |
+| [**listTrainingCategories()**](TrainingApi.md#listTrainingCategories) | **GET** /api/v1/training/category | List Training Categories |
+| [**listTrainingTypes()**](TrainingApi.md#listTrainingTypes) | **GET** /api/v1/training/type | List Training Types |
 | [**updateEmployeeTrainingRecord()**](TrainingApi.md#updateEmployeeTrainingRecord) | **PUT** /api/v1/training/record/{employeeTrainingRecordId} | Update Employee Training Record |
 | [**updateTrainingCategory()**](TrainingApi.md#updateTrainingCategory) | **PUT** /api/v1/training/category/{trainingCategoryId} | Update Training Category |
 | [**updateTrainingType()**](TrainingApi.md#updateTrainingType) | **PUT** /api/v1/training/type/{trainingTypeId} | Update Training Type |
 
 
-## `addNewEmployeeTrainingRecord()`
+## `createEmployeeTrainingRecord()`
 
 ```php
-addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request): \BhrSdk\Model\TrainingRecord
+createEmployeeTrainingRecord($employee_id, $create_employee_training_record_request): \BhrSdk\Model\TrainingRecord
 ```
 
 Create Employee Training Record
 
-Add a new employee training record. The owner of the API key used must have permission to add trainings for the selected employee.
+Creates a new training record for the specified employee. The 'completed' date (yyyy-mm-dd) and 'type' (training type ID) are required. Optional fields include instructor, hours, credits, notes, and cost. The owner of the API key must have permission to add trainings for the employee.
 
 ### Example
 
@@ -47,14 +47,14 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$employee_id = 0; // int | The ID of the employee to add a training record to.
-$add_new_employee_training_record_request = new \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest(); // \BhrSdk\Model\AddNewEmployeeTrainingRecordRequest | Training object to post
+$employee_id = 56; // int | The ID of the employee to add a training record to.
+$create_employee_training_record_request = new \BhrSdk\Model\CreateEmployeeTrainingRecordRequest(); // \BhrSdk\Model\CreateEmployeeTrainingRecordRequest | Training object to post
 
 try {
-    $result = $apiInstance->addNewEmployeeTrainingRecord($employee_id, $add_new_employee_training_record_request);
+    $result = $apiInstance->createEmployeeTrainingRecord($employee_id, $create_employee_training_record_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TrainingApi->addNewEmployeeTrainingRecord: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TrainingApi->createEmployeeTrainingRecord: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -62,8 +62,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **int**| The ID of the employee to add a training record to. | [default to 0] |
-| **add_new_employee_training_record_request** | [**\BhrSdk\Model\AddNewEmployeeTrainingRecordRequest**](../Model/AddNewEmployeeTrainingRecordRequest.md)| Training object to post | |
+| **employee_id** | **int**| The ID of the employee to add a training record to. | |
+| **create_employee_training_record_request** | [**\BhrSdk\Model\CreateEmployeeTrainingRecordRequest**](../Model/CreateEmployeeTrainingRecordRequest.md)| Training object to post | |
 
 ### Return type
 
@@ -76,21 +76,21 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `addTrainingCategory()`
+## `createTrainingCategory()`
 
 ```php
-addTrainingCategory($add_training_category_request): \BhrSdk\Model\TrainingCategory
+createTrainingCategory($create_training_category_request): \BhrSdk\Model\TrainingCategory
 ```
 
 Create Training Category
 
-Add a training category. The owner of the API key used must have access to training settings.
+Creates a new training category. The 'name' field is required. Returns the created TrainingCategory on success. The owner of the API key must have access to training settings.
 
 ### Example
 
@@ -111,13 +111,13 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$add_training_category_request = new \BhrSdk\Model\AddTrainingCategoryRequest(); // \BhrSdk\Model\AddTrainingCategoryRequest | Training category to post
+$create_training_category_request = new \BhrSdk\Model\CreateTrainingCategoryRequest(); // \BhrSdk\Model\CreateTrainingCategoryRequest | Training category to post
 
 try {
-    $result = $apiInstance->addTrainingCategory($add_training_category_request);
+    $result = $apiInstance->createTrainingCategory($create_training_category_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TrainingApi->addTrainingCategory: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TrainingApi->createTrainingCategory: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -125,7 +125,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **add_training_category_request** | [**\BhrSdk\Model\AddTrainingCategoryRequest**](../Model/AddTrainingCategoryRequest.md)| Training category to post | |
+| **create_training_category_request** | [**\BhrSdk\Model\CreateTrainingCategoryRequest**](../Model/CreateTrainingCategoryRequest.md)| Training category to post | |
 
 ### Return type
 
@@ -138,21 +138,21 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `addTrainingType()`
+## `createTrainingType()`
 
 ```php
-addTrainingType($add_training_type_request): \BhrSdk\Model\TrainingType
+createTrainingType($create_training_type_request): \BhrSdk\Model\TrainingType
 ```
 
 Create Training Type
 
-Add a training type. The owner of the API key used must have access to training settings.
+Creates a new training type. Only 'name' is required; all other fields are optional. When 'renewable' is true, 'frequency' (months between renewals) must also be provided. The 'dueFromHireDate' field is only valid when 'required' is true. The owner of the API key must have access to training settings.
 
 ### Example
 
@@ -173,13 +173,13 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$add_training_type_request = new \BhrSdk\Model\AddTrainingTypeRequest(); // \BhrSdk\Model\AddTrainingTypeRequest | Training object to post
+$create_training_type_request = new \BhrSdk\Model\CreateTrainingTypeRequest(); // \BhrSdk\Model\CreateTrainingTypeRequest | Training object to post
 
 try {
-    $result = $apiInstance->addTrainingType($add_training_type_request);
+    $result = $apiInstance->createTrainingType($create_training_type_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TrainingApi->addTrainingType: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TrainingApi->createTrainingType: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -187,7 +187,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **add_training_type_request** | [**\BhrSdk\Model\AddTrainingTypeRequest**](../Model/AddTrainingTypeRequest.md)| Training object to post | |
+| **create_training_type_request** | [**\BhrSdk\Model\CreateTrainingTypeRequest**](../Model/CreateTrainingTypeRequest.md)| Training object to post | |
 
 ### Return type
 
@@ -200,7 +200,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -235,7 +235,7 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$employee_training_record_id = 0; // int | The ID of the training record to delete.
+$employee_training_record_id = 56; // int | The ID of the training record to delete.
 
 try {
     $apiInstance->deleteEmployeeTrainingRecord($employee_training_record_id);
@@ -248,7 +248,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_training_record_id** | **int**| The ID of the training record to delete. | [default to 0] |
+| **employee_training_record_id** | **int**| The ID of the training record to delete. | |
 
 ### Return type
 
@@ -261,7 +261,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -296,7 +296,7 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$training_category_id = 0; // int | The ID of the training category to delete.
+$training_category_id = 56; // int | The ID of the training category to delete.
 
 try {
     $apiInstance->deleteTrainingCategory($training_category_id);
@@ -309,7 +309,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **training_category_id** | **int**| The ID of the training category to delete. | [default to 0] |
+| **training_category_id** | **int**| The ID of the training category to delete. | |
 
 ### Return type
 
@@ -322,7 +322,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -336,7 +336,7 @@ deleteTrainingType($training_type_id)
 
 Delete Training Type
 
-Delete an existing training type. The owner of the API key used must have access to training settings. Deleting a training type will only be successful if all employee trainings for this type have been removed prior to this request.
+Delete an existing training type. The owner of the API key must have access to training settings. Deleting a training type will only be successful if all employee trainings for this type have been removed prior to this request.
 
 ### Example
 
@@ -357,7 +357,7 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$training_type_id = 0; // int | The ID of the training type to delete.
+$training_type_id = 56; // int | The ID of the training type to delete.
 
 try {
     $apiInstance->deleteTrainingType($training_type_id);
@@ -370,7 +370,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **training_type_id** | **int**| The ID of the training type to delete. | [default to 0] |
+| **training_type_id** | **int**| The ID of the training type to delete. | |
 
 ### Return type
 
@@ -383,7 +383,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -392,12 +392,12 @@ void (empty response body)
 ## `listEmployeeTrainings()`
 
 ```php
-listEmployeeTrainings($employee_id, $training_type_id): \BhrSdk\Model\TrainingRecordList[]
+listEmployeeTrainings($employee_id, $type): \BhrSdk\Model\TrainingRecordMap
 ```
 
-Get Employee Trainings
+List Employee Training Records
 
-Get all employee training records. The owner of the API key used must have access to view the employee. The API will only return trainings for the employee that the owner of the API key has permission to see. Included with each employee training is the training information that has been selected for tracking in settings.
+Returns all training records for the specified employee as an object keyed by training record ID. Use the optional 'type' query parameter to filter by training type ID. Fields such as instructor, credits, hours, and cost are only included when enabled in the company's training settings. The owner of the API key must have permission to view the employee.
 
 ### Example
 
@@ -418,11 +418,11 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$employee_id = 0; // int | The ID of the employee to get a list of trainings for.
-$training_type_id = 0; // int | The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee.
+$employee_id = 56; // int | The ID of the employee to get a list of trainings for.
+$type = 56; // int | Optional training type ID to filter records. Omitting this parameter returns all training records for the employee.
 
 try {
-    $result = $apiInstance->listEmployeeTrainings($employee_id, $training_type_id);
+    $result = $apiInstance->listEmployeeTrainings($employee_id, $type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrainingApi->listEmployeeTrainings: ', $e->getMessage(), PHP_EOL;
@@ -433,12 +433,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **int**| The ID of the employee to get a list of trainings for. | [default to 0] |
-| **training_type_id** | **int**| The training type id is optional. Not supplying a training type id will return the collection of all training records for the employee. | [optional] [default to 0] |
+| **employee_id** | **int**| The ID of the employee to get a list of trainings for. | |
+| **type** | **int**| Optional training type ID to filter records. Omitting this parameter returns all training records for the employee. | [optional] |
 
 ### Return type
 
-[**\BhrSdk\Model\TrainingRecordList[]**](../Model/TrainingRecordList.md)
+[**\BhrSdk\Model\TrainingRecordMap**](../Model/TrainingRecordMap.md)
 
 ### Authorization
 
@@ -456,12 +456,12 @@ try {
 ## `listTrainingCategories()`
 
 ```php
-listTrainingCategories(): \BhrSdk\Model\TrainingCategoryList[]
+listTrainingCategories(): array<string,\BhrSdk\Model\TrainingCategory>
 ```
 
-Get Training Categories
+List Training Categories
 
-Get a list of training categories. The owner of the API key used must have access to training settings.
+Returns all training categories for the company as an object keyed by category ID. Each entry contains the category ID and name. The owner of the API key must have access to training settings.
 
 ### Example
 
@@ -497,7 +497,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\TrainingCategoryList[]**](../Model/TrainingCategoryList.md)
+[**array<string,\BhrSdk\Model\TrainingCategory>**](../Model/TrainingCategory.md)
 
 ### Authorization
 
@@ -515,12 +515,12 @@ This endpoint does not need any parameter.
 ## `listTrainingTypes()`
 
 ```php
-listTrainingTypes(): \BhrSdk\Model\TrainingTypeList[]
+listTrainingTypes(): array<string,\BhrSdk\Model\TrainingType>
 ```
 
-Get Training Types
+List Training Types
 
-Get a list of training types. The owner of the API key used must have access to training settings.
+Returns all training types for the company as an object keyed by training type ID. Each entry includes the training name, renewable status, renewal frequency, required status, due-date window for new hires, category, link URL, description, and self-completion permission. The owner of the API key must have access to training settings.
 
 ### Example
 
@@ -556,7 +556,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BhrSdk\Model\TrainingTypeList[]**](../Model/TrainingTypeList.md)
+[**array<string,\BhrSdk\Model\TrainingType>**](../Model/TrainingType.md)
 
 ### Authorization
 
@@ -579,7 +579,7 @@ updateEmployeeTrainingRecord($employee_training_record_id, $update_employee_trai
 
 Update Employee Training Record
 
-Update an existing exmployee training record. The owner of the API key used must have permission to add trainings for the selected employee
+Updates an existing employee training record. The 'completed' date (yyyy-mm-dd) is required; all other fields are optional. Returns the updated TrainingRecord with HTTP 201. Returns 405 when the record cannot be updated. The owner of the API key must have permission to edit trainings for the employee.
 
 ### Example
 
@@ -600,7 +600,7 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$employee_training_record_id = 0; // int | The ID of the training record to update.
+$employee_training_record_id = 56; // int | The ID of the training record to update.
 $update_employee_training_record_request = new \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest(); // \BhrSdk\Model\UpdateEmployeeTrainingRecordRequest | Training object to update
 
 try {
@@ -615,7 +615,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_training_record_id** | **int**| The ID of the training record to update. | [default to 0] |
+| **employee_training_record_id** | **int**| The ID of the training record to update. | |
 | **update_employee_training_record_request** | [**\BhrSdk\Model\UpdateEmployeeTrainingRecordRequest**](../Model/UpdateEmployeeTrainingRecordRequest.md)| Training object to update | |
 
 ### Return type
@@ -629,7 +629,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -643,7 +643,7 @@ updateTrainingCategory($training_category_id, $update_training_category_request)
 
 Update Training Category
 
-Update an existing training category. The owner of the API key used must have access to training settings.
+Updates the name of an existing training category. Returns 409 if a category with the same name already exists. The owner of the API key must have access to training settings.
 
 ### Example
 
@@ -664,7 +664,7 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$training_category_id = 0; // int | The ID of the training category to update.
+$training_category_id = 56; // int | The ID of the training category to update.
 $update_training_category_request = new \BhrSdk\Model\UpdateTrainingCategoryRequest(); // \BhrSdk\Model\UpdateTrainingCategoryRequest | Training category to update
 
 try {
@@ -679,7 +679,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **training_category_id** | **int**| The ID of the training category to update. | [default to 0] |
+| **training_category_id** | **int**| The ID of the training category to update. | |
 | **update_training_category_request** | [**\BhrSdk\Model\UpdateTrainingCategoryRequest**](../Model/UpdateTrainingCategoryRequest.md)| Training category to update | |
 
 ### Return type
@@ -693,7 +693,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -707,7 +707,7 @@ updateTrainingType($training_type_id, $update_training_type_request): \BhrSdk\Mo
 
 Update Training Type
 
-Update an existing training type. The owner of the API key used must have access to training settings.
+Updates an existing training type. Only provided fields are updated. To remove a category, pass an empty string or null for the category field. Returns 405 when the training type cannot be modified. The owner of the API key must have access to training settings.
 
 ### Example
 
@@ -728,7 +728,7 @@ $apiInstance = new BhrSdk\Api\TrainingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$training_type_id = 0; // int | The ID of the training type to update.
+$training_type_id = 56; // int | The ID of the training type to update.
 $update_training_type_request = new \BhrSdk\Model\UpdateTrainingTypeRequest(); // \BhrSdk\Model\UpdateTrainingTypeRequest | Training type object to update to
 
 try {
@@ -743,7 +743,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **training_type_id** | **int**| The ID of the training type to update. | [default to 0] |
+| **training_type_id** | **int**| The ID of the training type to update. | |
 | **update_training_type_request** | [**\BhrSdk\Model\UpdateTrainingTypeRequest**](../Model/UpdateTrainingTypeRequest.md)| Training type object to update to | |
 
 ### Return type
@@ -757,7 +757,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

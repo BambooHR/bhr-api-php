@@ -59,7 +59,7 @@ class ApplicationsList implements ModelInterface, ArrayAccess, \JsonSerializable
 	protected static $openApiTypes = [
 		'pagination_complete' => 'bool',
 		'next_page_url' => 'string',
-		'applications' => '\BhrSdk\Model\ApplicationsListApplications'
+		'applications' => '\BhrSdk\Model\ApplicationsListApplicationsInner[]'
 	];
 
 	/**
@@ -327,7 +327,7 @@ class ApplicationsList implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Sets next_page_url
 	 *
-	 * @param string|null $next_page_url URL to fetch the next page of results, or null if there are no more results
+	 * @param string|null $next_page_url next_page_url
 	 *
 	 * @return self
 	 */
@@ -349,7 +349,7 @@ class ApplicationsList implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Gets applications
 	 *
-	 * @return \BhrSdk\Model\ApplicationsListApplications|null
+	 * @return \BhrSdk\Model\ApplicationsListApplicationsInner[]|null
 	 */
 	public function getApplications() {
 		return $this->container['applications'];
@@ -358,7 +358,7 @@ class ApplicationsList implements ModelInterface, ArrayAccess, \JsonSerializable
 	/**
 	 * Sets applications
 	 *
-	 * @param \BhrSdk\Model\ApplicationsListApplications|null $applications applications
+	 * @param \BhrSdk\Model\ApplicationsListApplicationsInner[]|null $applications List of application objects
 	 *
 	 * @return self
 	 */

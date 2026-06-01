@@ -316,7 +316,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name name
+	 * @param string|null $name Machine-readable field identifier. Use this value in the `fields` array when querying data.
 	 *
 	 * @return self
 	 */
@@ -341,7 +341,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets label
 	 *
-	 * @param string|null $label label
+	 * @param string|null $label Human-readable display name for the field.
 	 *
 	 * @return self
 	 */
@@ -366,7 +366,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets parent_type
 	 *
-	 * @param string|null $parent_type parent_type
+	 * @param string|null $parent_type The type of the parent section (e.g. `page`, `table`).
 	 *
 	 * @return self
 	 */
@@ -391,7 +391,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets parent_name
 	 *
-	 * @param string|null $parent_name parent_name
+	 * @param string|null $parent_name The name of the parent section this field belongs to.
 	 *
 	 * @return self
 	 */
@@ -416,7 +416,7 @@ class Field implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets entity_name
 	 *
-	 * @param string|null $entity_name entity_name
+	 * @param string|null $entity_name The entity name for the field, used in `showHistory` when querying historical table fields.
 	 *
 	 * @return self
 	 */

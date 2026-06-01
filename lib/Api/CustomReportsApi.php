@@ -79,7 +79,7 @@ class CustomReportsApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'getByReportId' => [
+		'getReportById' => [
 			'application/json',
         ],
 		'listReports' => [
@@ -134,36 +134,40 @@ class CustomReportsApi {
 	}
 
 	/**
-	 * Operation getByReportId
+	 * Operation getReportById
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id report_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
+	 * @param  int $report_id The numeric ID of the saved custom report to execute. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getReportById'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\EmployeeResponse
+	 * @return \BhrSdk\Model\EmployeeResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse
 	 */
-	public function getByReportId($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
-		list($response) = $this->getByReportIdWithHttpInfo($report_id, $contentType);
+	public function getReportById($report_id, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getReportById'][0]) {
+		list($response) = $this->getReportByIdWithHttpInfo($report_id, $page, $page_size, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getByReportIdWithHttpInfo
+	 * Operation getReportByIdWithHttpInfo
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
+	 * @param  int $report_id The numeric ID of the saved custom report to execute. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getReportById'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\EmployeeResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getByReportIdWithHttpInfo($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
-		$request = $this->getByReportIdRequest($report_id, $contentType);
+	public function getReportByIdWithHttpInfo($report_id, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getReportById'][0]) {
+		$request = $this->getReportByIdRequest($report_id, $page, $page_size, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -175,6 +179,30 @@ class CustomReportsApi {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\EmployeeResponse',
+					$request,
+					$response,
+				);
+			case 400:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ErrorResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ErrorResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ErrorResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ErrorResponse',
 					$request,
 					$response,
 				);
@@ -201,18 +229,20 @@ class CustomReportsApi {
 	}
 
 	/**
-	 * Operation getByReportIdAsync
+	 * Operation getReportByIdAsync
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
+	 * @param  int $report_id The numeric ID of the saved custom report to execute. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getReportById'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getByReportIdAsync($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
-		return $this->getByReportIdAsyncWithHttpInfo($report_id, $contentType)
+	public function getReportByIdAsync($report_id, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getReportById'][0]) {
+		return $this->getReportByIdAsyncWithHttpInfo($report_id, $page, $page_size, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -221,19 +251,21 @@ class CustomReportsApi {
 	}
 
 	/**
-	 * Operation getByReportIdAsyncWithHttpInfo
+	 * Operation getReportByIdAsyncWithHttpInfo
 	 *
 	 * Get Report by ID
 	 *
-	 * @param  int $report_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
+	 * @param  int $report_id The numeric ID of the saved custom report to execute. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getReportById'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getByReportIdAsyncWithHttpInfo($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
+	public function getReportByIdAsyncWithHttpInfo($report_id, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getReportById'][0]) {
 		$returnType = '\BhrSdk\Model\EmployeeResponse';
-		$request = $this->getByReportIdRequest($report_id, $contentType);
+		$request = $this->getReportByIdRequest($report_id, $page, $page_size, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -267,23 +299,36 @@ class CustomReportsApi {
 	}
 
 	/**
-	 * Create request for operation 'getByReportId'
+	 * Create request for operation 'getReportById'
 	 *
-	 * @param  int $report_id (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getByReportId'] to see the possible values for this operation
+	 * @param  int $report_id The numeric ID of the saved custom report to execute. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getReportById'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getByReportIdRequest($report_id, string $contentType = self::CONTENT_TYPES['getByReportId'][0]) {
+	public function getReportByIdRequest($report_id, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getReportById'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'report_id' => $report_id,
 			],
-			methodName: 'getByReportId'
+			methodName: 'getReportById'
 		);
 
+		if ($page !== null && $page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page" when calling CustomReportsApi.getReportById, must be bigger than or equal to 1.');
+		}
+		
+		if ($page_size !== null && $page_size > 1000) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomReportsApi.getReportById, must be smaller than or equal to 1000.');
+		}
+		if ($page_size !== null && $page_size < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomReportsApi.getReportById, must be bigger than or equal to 1.');
+		}
+		
 		$resourcePath = '/api/v1/custom-reports/{reportId}';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
@@ -291,6 +336,23 @@ class CustomReportsApi {
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page_size' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// path params
 		if ($report_id !== null) {
@@ -354,17 +416,17 @@ class CustomReportsApi {
 	/**
 	 * Operation listReports
 	 *
-	 * Get Reports
+	 * List Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\ReportsResponse
+	 * @return \BhrSdk\Model\ReportsResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse
 	 */
-	public function listReports($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
+	public function listReports($page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		list($response) = $this->listReportsWithHttpInfo($page, $page_size, $contentType);
 		return $response;
 	}
@@ -372,17 +434,17 @@ class CustomReportsApi {
 	/**
 	 * Operation listReportsWithHttpInfo
 	 *
-	 * Get Reports
+	 * List Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\ReportsResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\ReportsResponse|\BhrSdk\Model\ErrorResponse|\BhrSdk\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function listReportsWithHttpInfo($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
+	public function listReportsWithHttpInfo($page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		$request = $this->listReportsRequest($page, $page_size, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
@@ -395,6 +457,18 @@ class CustomReportsApi {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\ReportsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ErrorResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ErrorResponse',
 					$request,
 					$response,
 				);
@@ -423,16 +497,16 @@ class CustomReportsApi {
 	/**
 	 * Operation listReportsAsync
 	 *
-	 * Get Reports
+	 * List Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function listReportsAsync($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
+	public function listReportsAsync($page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		return $this->listReportsAsyncWithHttpInfo($page, $page_size, $contentType)
 			->then(
 				function ($response) {
@@ -444,16 +518,16 @@ class CustomReportsApi {
 	/**
 	 * Operation listReportsAsyncWithHttpInfo
 	 *
-	 * Get Reports
+	 * List Reports
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function listReportsAsyncWithHttpInfo($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
+	public function listReportsAsyncWithHttpInfo($page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 		$returnType = '\BhrSdk\Model\ReportsResponse';
 		$request = $this->listReportsRequest($page, $page_size, $contentType);
 
@@ -491,15 +565,26 @@ class CustomReportsApi {
 	/**
 	 * Create request for operation 'listReports'
 	 *
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listReports'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function listReportsRequest($page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
+	public function listReportsRequest($page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['listReports'][0]) {
 
+		if ($page !== null && $page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page" when calling CustomReportsApi.listReports, must be bigger than or equal to 1.');
+		}
+		
+		if ($page_size !== null && $page_size > 1000) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomReportsApi.listReports, must be smaller than or equal to 1000.');
+		}
+		if ($page_size !== null && $page_size < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomReportsApi.listReports, must be bigger than or equal to 1.');
+		}
+		
 		$resourcePath = '/api/v1/custom-reports';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		

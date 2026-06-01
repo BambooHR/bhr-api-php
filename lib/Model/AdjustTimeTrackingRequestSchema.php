@@ -380,7 +380,7 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets project_id
 	 *
-	 * @param int|null $project_id ID of the project associated with this time tracking record
+	 * @param int|null $project_id project_id
 	 *
 	 * @return self
 	 */
@@ -411,7 +411,7 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets task_id
 	 *
-	 * @param int|null $task_id ID of the task associated with this time tracking record
+	 * @param int|null $task_id task_id
 	 *
 	 * @return self
 	 */
@@ -442,7 +442,7 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets shift_differential_id
 	 *
-	 * @param int|null $shift_differential_id ID of the shift differential associated with this time tracking record
+	 * @param int|null $shift_differential_id shift_differential_id
 	 *
 	 * @return self
 	 */
@@ -473,7 +473,7 @@ class AdjustTimeTrackingRequestSchema implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets holiday_id
 	 *
-	 * @param int|null $holiday_id ID of the holiday associated with this time tracking record
+	 * @param int|null $holiday_id holiday_id
 	 *
 	 * @return self
 	 */

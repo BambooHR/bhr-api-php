@@ -79,19 +79,19 @@ class HoursApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'addTimeTrackingBulk' => [
+		'createOrUpdateTimeTrackingHourRecords' => [
 			'application/json',
         ],
-		'addTimeTrackingHourRecord' => [
+		'createTimeTrackingHourRecord' => [
 			'application/json',
         ],
-		'deleteTimeTrackingById' => [
-			'application/json',
-        ],
-		'editTimeTrackingRecord' => [
+		'deleteTimeTrackingHourRecord' => [
 			'application/json',
         ],
 		'getTimeTrackingRecord' => [
+			'application/json',
+        ],
+		'updateTimeTrackingRecord' => [
 			'application/json',
         ],
 	];
@@ -143,36 +143,36 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation addTimeTrackingBulk
+	 * Operation createOrUpdateTimeTrackingHourRecords
 	 *
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TimeTrackingBulkResponseSchema
+	 * @return \BhrSdk\Model\TimeTrackingBulkResponseSchema|\BhrSdk\Model\ProblemDetailsResponse
 	 */
-	public function addTimeTrackingBulk($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
-		list($response) = $this->addTimeTrackingBulkWithHttpInfo($time_tracking_record, $contentType);
+	public function createOrUpdateTimeTrackingHourRecords($time_tracking_record, string $contentType = self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'][0]) {
+		list($response) = $this->createOrUpdateTimeTrackingHourRecordsWithHttpInfo($time_tracking_record, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addTimeTrackingBulkWithHttpInfo
+	 * Operation createOrUpdateTimeTrackingHourRecordsWithHttpInfo
 	 *
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TimeTrackingBulkResponseSchema, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingBulkResponseSchema|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addTimeTrackingBulkWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
-		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
+	public function createOrUpdateTimeTrackingHourRecordsWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'][0]) {
+		$request = $this->createOrUpdateTimeTrackingHourRecordsRequest($time_tracking_record, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -184,6 +184,12 @@ class HoursApi {
 			case 201:
 				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TimeTrackingBulkResponseSchema',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
 					$request,
 					$response,
 				);
@@ -210,18 +216,18 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation addTimeTrackingBulkAsync
+	 * Operation createOrUpdateTimeTrackingHourRecordsAsync
 	 *
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTimeTrackingBulkAsync($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
-		return $this->addTimeTrackingBulkAsyncWithHttpInfo($time_tracking_record, $contentType)
+	public function createOrUpdateTimeTrackingHourRecordsAsync($time_tracking_record, string $contentType = self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'][0]) {
+		return $this->createOrUpdateTimeTrackingHourRecordsAsyncWithHttpInfo($time_tracking_record, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -230,19 +236,19 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation addTimeTrackingBulkAsyncWithHttpInfo
+	 * Operation createOrUpdateTimeTrackingHourRecordsAsyncWithHttpInfo
 	 *
 	 * Create or Update Hour Records
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTimeTrackingBulkAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
+	public function createOrUpdateTimeTrackingHourRecordsAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'][0]) {
 		$returnType = '\BhrSdk\Model\TimeTrackingBulkResponseSchema';
-		$request = $this->addTimeTrackingBulkRequest($time_tracking_record, $contentType);
+		$request = $this->createOrUpdateTimeTrackingHourRecordsRequest($time_tracking_record, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -276,21 +282,21 @@ class HoursApi {
 	}
 
 	/**
-	 * Create request for operation 'addTimeTrackingBulk'
+	 * Create request for operation 'createOrUpdateTimeTrackingHourRecords'
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord[] $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingBulk'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addTimeTrackingBulkRequest($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingBulk'][0]) {
+	public function createOrUpdateTimeTrackingHourRecordsRequest($time_tracking_record, string $contentType = self::CONTENT_TYPES['createOrUpdateTimeTrackingHourRecords'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'time_tracking_record' => $time_tracking_record,
 			],
-			methodName: 'addTimeTrackingBulk'
+			methodName: 'createOrUpdateTimeTrackingHourRecords'
 		);
 
 		$resourcePath = '/api/v1/timetracking/record';
@@ -362,36 +368,36 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation addTimeTrackingHourRecord
+	 * Operation createTimeTrackingHourRecord
 	 *
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
 	 */
-	public function addTimeTrackingHourRecord($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
-		list($response) = $this->addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, $contentType);
+	public function createTimeTrackingHourRecord($time_tracking_record, string $contentType = self::CONTENT_TYPES['createTimeTrackingHourRecord'][0]) {
+		list($response) = $this->createTimeTrackingHourRecordWithHttpInfo($time_tracking_record, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addTimeTrackingHourRecordWithHttpInfo
+	 * Operation createTimeTrackingHourRecordWithHttpInfo
 	 *
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addTimeTrackingHourRecordWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
-		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
+	public function createTimeTrackingHourRecordWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['createTimeTrackingHourRecord'][0]) {
+		$request = $this->createTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -408,7 +414,13 @@ class HoursApi {
 				);
 			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'mixed',
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
 					$request,
 					$response,
 				);
@@ -435,18 +447,18 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation addTimeTrackingHourRecordAsync
+	 * Operation createTimeTrackingHourRecordAsync
 	 *
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTimeTrackingHourRecordAsync($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
-		return $this->addTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, $contentType)
+	public function createTimeTrackingHourRecordAsync($time_tracking_record, string $contentType = self::CONTENT_TYPES['createTimeTrackingHourRecord'][0]) {
+		return $this->createTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -455,19 +467,19 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation addTimeTrackingHourRecordAsyncWithHttpInfo
+	 * Operation createTimeTrackingHourRecordAsyncWithHttpInfo
 	 *
 	 * Create Hour Record
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
+	public function createTimeTrackingHourRecordAsyncWithHttpInfo($time_tracking_record, string $contentType = self::CONTENT_TYPES['createTimeTrackingHourRecord'][0]) {
 		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
-		$request = $this->addTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
+		$request = $this->createTimeTrackingHourRecordRequest($time_tracking_record, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -501,21 +513,21 @@ class HoursApi {
 	}
 
 	/**
-	 * Create request for operation 'addTimeTrackingHourRecord'
+	 * Create request for operation 'createTimeTrackingHourRecord'
 	 *
 	 * @param  \BhrSdk\Model\TimeTrackingRecord $time_tracking_record (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addTimeTrackingHourRecord'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addTimeTrackingHourRecordRequest($time_tracking_record, string $contentType = self::CONTENT_TYPES['addTimeTrackingHourRecord'][0]) {
+	public function createTimeTrackingHourRecordRequest($time_tracking_record, string $contentType = self::CONTENT_TYPES['createTimeTrackingHourRecord'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'time_tracking_record' => $time_tracking_record,
 			],
-			methodName: 'addTimeTrackingHourRecord'
+			methodName: 'createTimeTrackingHourRecord'
 		);
 
 		$resourcePath = '/api/v1/timetracking/add';
@@ -587,36 +599,36 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation deleteTimeTrackingById
+	 * Operation deleteTimeTrackingHourRecord
 	 *
 	 * Delete Hour Record
 	 *
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TimeTrackingDeleteResponseSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingDeleteResponseSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
 	 */
-	public function deleteTimeTrackingById($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
-		list($response) = $this->deleteTimeTrackingByIdWithHttpInfo($id, $contentType);
+	public function deleteTimeTrackingHourRecord($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingHourRecord'][0]) {
+		list($response) = $this->deleteTimeTrackingHourRecordWithHttpInfo($id, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation deleteTimeTrackingByIdWithHttpInfo
+	 * Operation deleteTimeTrackingHourRecordWithHttpInfo
 	 *
 	 * Delete Hour Record
 	 *
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TimeTrackingDeleteResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingDeleteResponseSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function deleteTimeTrackingByIdWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
-		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
+	public function deleteTimeTrackingHourRecordWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingHourRecord'][0]) {
+		$request = $this->deleteTimeTrackingHourRecordRequest($id, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -625,7 +637,7 @@ class HoursApi {
 		$statusCode = $response->getStatusCode();
 
 		switch($statusCode) {
-			case 201:
+			case 200:
 				return ApiHelper::handleResponseWithDataType(
 					'\BhrSdk\Model\TimeTrackingDeleteResponseSchema',
 					$request,
@@ -633,7 +645,13 @@ class HoursApi {
 				);
 			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'mixed',
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
 					$request,
 					$response,
 				);
@@ -660,18 +678,18 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation deleteTimeTrackingByIdAsync
+	 * Operation deleteTimeTrackingHourRecordAsync
 	 *
 	 * Delete Hour Record
 	 *
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function deleteTimeTrackingByIdAsync($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
-		return $this->deleteTimeTrackingByIdAsyncWithHttpInfo($id, $contentType)
+	public function deleteTimeTrackingHourRecordAsync($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingHourRecord'][0]) {
+		return $this->deleteTimeTrackingHourRecordAsyncWithHttpInfo($id, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -680,19 +698,19 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation deleteTimeTrackingByIdAsyncWithHttpInfo
+	 * Operation deleteTimeTrackingHourRecordAsyncWithHttpInfo
 	 *
 	 * Delete Hour Record
 	 *
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function deleteTimeTrackingByIdAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
+	public function deleteTimeTrackingHourRecordAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingHourRecord'][0]) {
 		$returnType = '\BhrSdk\Model\TimeTrackingDeleteResponseSchema';
-		$request = $this->deleteTimeTrackingByIdRequest($id, $contentType);
+		$request = $this->deleteTimeTrackingHourRecordRequest($id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -726,21 +744,21 @@ class HoursApi {
 	}
 
 	/**
-	 * Create request for operation 'deleteTimeTrackingById'
+	 * Create request for operation 'deleteTimeTrackingHourRecord'
 	 *
 	 * @param  string $id The time tracking id is the id that was used to track the record up to 36 characters in length. (i.e. UUID). (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingById'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteTimeTrackingHourRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function deleteTimeTrackingByIdRequest($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingById'][0]) {
+	public function deleteTimeTrackingHourRecordRequest($id, string $contentType = self::CONTENT_TYPES['deleteTimeTrackingHourRecord'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
 			],
-			methodName: 'deleteTimeTrackingById'
+			methodName: 'deleteTimeTrackingHourRecord'
 		);
 
 		$resourcePath = '/api/v1/timetracking/delete/{id}';
@@ -811,241 +829,16 @@ class HoursApi {
 	}
 
 	/**
-	 * Operation editTimeTrackingRecord
-	 *
-	 * Update Hour Record
-	 *
-	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed
-	 */
-	public function editTimeTrackingRecord($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		list($response) = $this->editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, $contentType);
-		return $response;
-	}
-
-	/**
-	 * Operation editTimeTrackingRecordWithHttpInfo
-	 *
-	 * Update Hour Record
-	 *
-	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
-	 *
-	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
-	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|mixed, HTTP status code, HTTP response headers (array of strings)
-	 */
-	public function editTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
-		$options = ApiHelper::createHttpClientOption($this->config);
-		
-		// Send request with retry support for timeout errors
-		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
-
-		$statusCode = $response->getStatusCode();
-
-		switch($statusCode) {
-			case 201:
-				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-					$request,
-					$response,
-				);
-			case 400:
-				return ApiHelper::handleResponseWithDataType(
-					'mixed',
-					$request,
-					$response,
-				);
-		}
-
-		if ($statusCode < 200 || $statusCode > 299) {
-			throw new ApiException(
-				sprintf(
-					'[%d] Error connecting to the API (%s)',
-					$statusCode,
-					(string) $request->getUri()
-				),
-				$statusCode,
-				$response->getHeaders(),
-				(string) $response->getBody()
-			);
-		}
-
-		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\TimeTrackingIdResponseSchema',
-			$request,
-			$response,
-		);
-	}
-
-	/**
-	 * Operation editTimeTrackingRecordAsync
-	 *
-	 * Update Hour Record
-	 *
-	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function editTimeTrackingRecordAsync($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		return $this->editTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, $contentType)
-			->then(
-				function ($response) {
-					return $response[0];
-				}
-			);
-	}
-
-	/**
-	 * Operation editTimeTrackingRecordAsyncWithHttpInfo
-	 *
-	 * Update Hour Record
-	 *
-	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Promise\PromiseInterface
-	 */
-	public function editTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
-		$request = $this->editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
-
-		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
-			->then(
-				function ($response) use ($returnType) {
-					$content = (string) $response->getBody();
-					if ($returnType !== 'string') {
-						$content = json_decode($content);
-					}
-
-					return [
-						ObjectSerializer::deserialize($content, $returnType, []),
-						$response->getStatusCode(),
-						$response->getHeaders()
-					];
-				},
-				function ($exception) {
-					$response = $exception->getResponse();
-					$statusCode = $response->getStatusCode();
-					throw new ApiException(
-						sprintf(
-							'[%d] Error connecting to the API (%s)',
-							$statusCode,
-							$exception->getRequest()->getUri()
-						),
-						$statusCode,
-						$response->getHeaders(),
-						(string) $response->getBody()
-					);
-				}
-			);
-	}
-
-	/**
-	 * Create request for operation 'editTimeTrackingRecord'
-	 *
-	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['editTimeTrackingRecord'] to see the possible values for this operation
-	 *
-	 * @throws \InvalidArgumentException
-	 * @return \GuzzleHttp\Psr7\Request
-	 */
-	public function editTimeTrackingRecordRequest($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['editTimeTrackingRecord'][0]) {
-		// PHP 8.0+ only
-		ApiHelper::validateRequiredParameters(
-			params: [
-				'adjust_time_tracking_request_schema' => $adjust_time_tracking_request_schema,
-			],
-			methodName: 'editTimeTrackingRecord'
-		);
-
-		$resourcePath = '/api/v1/timetracking/adjust';
-		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
-		
-		$queryParams = [];
-		$headerParams = [];
-		$httpBody = '';
-		$multipart = false;
-
-		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
-			$contentType,
-			$multipart
-		);
-
-		// for model (json/xml)
-		if (isset($adjust_time_tracking_request_schema)) {
-			if (stripos($headers['Content-Type'], 'application/json') !== false) {
-				# if Content-Type contains "application/json", json_encode the body
-				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_tracking_request_schema));
-			} else {
-				$httpBody = is_array($adjust_time_tracking_request_schema) ? json_encode($adjust_time_tracking_request_schema) : $adjust_time_tracking_request_schema;
-			}
-		} 
-
-		// Authentication methods
-		
-		// Basic authentication
-		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-			$this->logger?->info('Using Basic authentication');	
-			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-		}
-		
-		// OAuth/Bearer authentication
-		if (!empty($this->config->getAccessToken())) {
-			$this->logger?->info('Using Bearer authentication');
-			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-		}
-
-		$defaultHeaders = [];
-		if ($this->config->getUserAgent()) {
-			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
-			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-		}
-
-		$headers = array_merge(
-			$defaultHeaders,
-			$headerParams,
-			$headers
-		);
-		
-		// Special handling for accept_header_parameter to set the Accept header directly
-		/** @phpstan-ignore-next-line */
-		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
-			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
-			/** @phpstan-ignore-next-line */
-			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
-		}
-
-		$operationHost = $this->config->getHost();
-		$query = ObjectSerializer::buildQuery($queryParams);
-		return new Request(
-			'PUT',
-			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-			$headers,
-			is_string($httpBody) ? $httpBody : (string)$httpBody
-		);
-	}
-
-	/**
 	 * Operation getTimeTrackingRecord
 	 *
-	 * Get Hour Record
+	 * Get Time Tracking Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id The time tracking record ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\TimeTrackingRecordSchema|mixed
+	 * @return \BhrSdk\Model\TimeTrackingRecordSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
 	 */
 	public function getTimeTrackingRecord($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		list($response) = $this->getTimeTrackingRecordWithHttpInfo($id, $contentType);
@@ -1055,14 +848,14 @@ class HoursApi {
 	/**
 	 * Operation getTimeTrackingRecordWithHttpInfo
 	 *
-	 * Get Hour Record
+	 * Get Time Tracking Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id The time tracking record ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\TimeTrackingRecordSchema|mixed, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\TimeTrackingRecordSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getTimeTrackingRecordWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['getTimeTrackingRecord'][0]) {
 		$request = $this->getTimeTrackingRecordRequest($id, $contentType);
@@ -1082,7 +875,25 @@ class HoursApi {
 				);
 			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'mixed',
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 401:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
 					$request,
 					$response,
 				);
@@ -1111,9 +922,9 @@ class HoursApi {
 	/**
 	 * Operation getTimeTrackingRecordAsync
 	 *
-	 * Get Hour Record
+	 * Get Time Tracking Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id The time tracking record ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1131,9 +942,9 @@ class HoursApi {
 	/**
 	 * Operation getTimeTrackingRecordAsyncWithHttpInfo
 	 *
-	 * Get Hour Record
+	 * Get Time Tracking Record
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id The time tracking record ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1177,7 +988,7 @@ class HoursApi {
 	/**
 	 * Create request for operation 'getTimeTrackingRecord'
 	 *
-	 * @param  string $id {id} is the time tracking ID used to originally create the record. (required)
+	 * @param  string $id The time tracking record ID used to originally create the record. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getTimeTrackingRecord'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -1253,6 +1064,237 @@ class HoursApi {
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
 			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation updateTimeTrackingRecord
+	 *
+	 * Update Hour Record
+	 *
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema adjust_time_tracking_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeTrackingRecord'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\TimeTrackingIdResponseSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function updateTimeTrackingRecord($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['updateTimeTrackingRecord'][0]) {
+		list($response) = $this->updateTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation updateTimeTrackingRecordWithHttpInfo
+	 *
+	 * Update Hour Record
+	 *
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeTrackingRecord'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\TimeTrackingIdResponseSchema|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function updateTimeTrackingRecordWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['updateTimeTrackingRecord'][0]) {
+		$request = $this->updateTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 201:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\TimeTrackingIdResponseSchema',
+					$request,
+					$response,
+				);
+			case 400:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\TimeTrackingIdResponseSchema',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation updateTimeTrackingRecordAsync
+	 *
+	 * Update Hour Record
+	 *
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeTrackingRecord'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function updateTimeTrackingRecordAsync($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['updateTimeTrackingRecord'][0]) {
+		return $this->updateTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation updateTimeTrackingRecordAsyncWithHttpInfo
+	 *
+	 * Update Hour Record
+	 *
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeTrackingRecord'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function updateTimeTrackingRecordAsyncWithHttpInfo($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['updateTimeTrackingRecord'][0]) {
+		$returnType = '\BhrSdk\Model\TimeTrackingIdResponseSchema';
+		$request = $this->updateTimeTrackingRecordRequest($adjust_time_tracking_request_schema, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'updateTimeTrackingRecord'
+	 *
+	 * @param  \BhrSdk\Model\AdjustTimeTrackingRequestSchema $adjust_time_tracking_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateTimeTrackingRecord'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function updateTimeTrackingRecordRequest($adjust_time_tracking_request_schema, string $contentType = self::CONTENT_TYPES['updateTimeTrackingRecord'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'adjust_time_tracking_request_schema' => $adjust_time_tracking_request_schema,
+			],
+			methodName: 'updateTimeTrackingRecord'
+		);
+
+		$resourcePath = '/api/v1/timetracking/adjust';
+		$this->logger?->info('Request method: [PUT], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($adjust_time_tracking_request_schema)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_time_tracking_request_schema));
+			} else {
+				$httpBody = is_array($adjust_time_tracking_request_schema) ? json_encode($adjust_time_tracking_request_schema) : $adjust_time_tracking_request_schema;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'PUT',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody

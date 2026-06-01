@@ -1,0 +1,2 @@
+major
+Reason: Breaking changes detected. 863 ERR-level change(s): api-removed-without-deprecation, request-body-added-required, request-body-type-changed, request-parameter-default-value-removed, request-parameter-type-changed, request-property-any-of-removed, request-property-became-not-nullable, request-property-enum-value-removed, response-body-one-of-added, response-body-type-changed, response-media-type-removed, response-property-list-of-types-widened, response-property-one-of-added, response-property-type-changed.

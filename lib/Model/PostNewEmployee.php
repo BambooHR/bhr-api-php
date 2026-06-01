@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * PostNewEmployee Class Doc Comment
  *
  * @category Class
+ * @description A dictionary of employee field names and their values for the new employee. At minimum, firstName and lastName are required. The properties listed below are commonly used fields, but any valid writable employee field name can be used as a key. To discover all available field names, call the List Fields endpoint (operationId: list-fields, GET /api/v1/meta/fields). Additional fields may use string, number, boolean, array, object, or null values depending on the field type. Some string-valued fields are backed by lists or lookups, so callers should use valid option values from BambooHR metadata rather than assuming any free-text string will persist as entered. Photo data is not writable through this schema: photo-related keys are silently ignored. After creation, use the Upload Employee Photo endpoint (operationId: upload-employee-photo) to attach a profile photo.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +59,11 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  */
 	protected static $openApiTypes = [
 		'first_name' => 'string',
-		'last_name' => 'string'
+		'last_name' => 'string',
+		'work_email' => 'string',
+		'job_title' => 'string',
+		'department' => 'string',
+		'hire_date' => '\DateTime'
 	];
 
 	/**
@@ -70,7 +75,11 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  */
 	protected static $openApiFormats = [
 		'first_name' => null,
-		'last_name' => null
+		'last_name' => null,
+		'work_email' => null,
+		'job_title' => null,
+		'department' => null,
+		'hire_date' => 'date'
 	];
 
 	/**
@@ -81,7 +90,11 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	  */
 	protected static array $openApiNullables = [
 		'first_name' => false,
-		'last_name' => false
+		'last_name' => false,
+		'work_email' => false,
+		'job_title' => false,
+		'department' => false,
+		'hire_date' => false
 	];
 
 	/**
@@ -167,7 +180,11 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 */
 	protected static $attributeMap = [
 		'first_name' => 'firstName',
-		'last_name' => 'lastName'
+		'last_name' => 'lastName',
+		'work_email' => 'workEmail',
+		'job_title' => 'jobTitle',
+		'department' => 'department',
+		'hire_date' => 'hireDate'
 	];
 
 	/**
@@ -177,7 +194,11 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 */
 	protected static $setters = [
 		'first_name' => 'setFirstName',
-		'last_name' => 'setLastName'
+		'last_name' => 'setLastName',
+		'work_email' => 'setWorkEmail',
+		'job_title' => 'setJobTitle',
+		'department' => 'setDepartment',
+		'hire_date' => 'setHireDate'
 	];
 
 	/**
@@ -187,7 +208,11 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	 */
 	protected static $getters = [
 		'first_name' => 'getFirstName',
-		'last_name' => 'getLastName'
+		'last_name' => 'getLastName',
+		'work_email' => 'getWorkEmail',
+		'job_title' => 'getJobTitle',
+		'department' => 'getDepartment',
+		'hire_date' => 'getHireDate'
 	];
 
 	/**
@@ -243,6 +268,10 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	public function __construct(?array $data = null) {
 		$this->setIfExists('first_name', $data ?? [], null);
 		$this->setIfExists('last_name', $data ?? [], null);
+		$this->setIfExists('work_email', $data ?? [], null);
+		$this->setIfExists('job_title', $data ?? [], null);
+		$this->setIfExists('department', $data ?? [], null);
+		$this->setIfExists('hire_date', $data ?? [], null);
 	}
 
 	/**
@@ -270,6 +299,12 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		if ($this->container['first_name'] === null) {
+			$invalidProperties[] = "'first_name' can't be null";
+		}
+		if ($this->container['last_name'] === null) {
+			$invalidProperties[] = "'last_name' can't be null";
+		}
 		return $invalidProperties;
 	}
 
@@ -286,7 +321,7 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets first_name
 	 *
-	 * @return string|null
+	 * @return string
 	 */
 	public function getFirstName() {
 		return $this->container['first_name'];
@@ -295,7 +330,7 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets first_name
 	 *
-	 * @param string|null $first_name first_name
+	 * @param string $first_name Legal first name (required).
 	 *
 	 * @return self
 	 */
@@ -311,7 +346,7 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Gets last_name
 	 *
-	 * @return string|null
+	 * @return string
 	 */
 	public function getLastName() {
 		return $this->container['last_name'];
@@ -320,7 +355,7 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 	/**
 	 * Sets last_name
 	 *
-	 * @param string|null $last_name last_name
+	 * @param string $last_name Legal last name (required).
 	 *
 	 * @return self
 	 */
@@ -329,6 +364,106 @@ class PostNewEmployee implements ModelInterface, ArrayAccess, \JsonSerializable 
 			throw new \InvalidArgumentException('non-nullable last_name cannot be null');
 		}
 		$this->container['last_name'] = $last_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_email
+	 *
+	 * @return string|null
+	 */
+	public function getWorkEmail() {
+		return $this->container['work_email'];
+	}
+
+	/**
+	 * Sets work_email
+	 *
+	 * @param string|null $work_email Work email address.
+	 *
+	 * @return self
+	 */
+	public function setWorkEmail($work_email) {
+		if (is_null($work_email)) {
+			throw new \InvalidArgumentException('non-nullable work_email cannot be null');
+		}
+		$this->container['work_email'] = $work_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets job_title
+	 *
+	 * @return string|null
+	 */
+	public function getJobTitle() {
+		return $this->container['job_title'];
+	}
+
+	/**
+	 * Sets job_title
+	 *
+	 * @param string|null $job_title Job title.
+	 *
+	 * @return self
+	 */
+	public function setJobTitle($job_title) {
+		if (is_null($job_title)) {
+			throw new \InvalidArgumentException('non-nullable job_title cannot be null');
+		}
+		$this->container['job_title'] = $job_title;
+
+		return $this;
+	}
+
+	/**
+	 * Gets department
+	 *
+	 * @return string|null
+	 */
+	public function getDepartment() {
+		return $this->container['department'];
+	}
+
+	/**
+	 * Sets department
+	 *
+	 * @param string|null $department Department name.
+	 *
+	 * @return self
+	 */
+	public function setDepartment($department) {
+		if (is_null($department)) {
+			throw new \InvalidArgumentException('non-nullable department cannot be null');
+		}
+		$this->container['department'] = $department;
+
+		return $this;
+	}
+
+	/**
+	 * Gets hire_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getHireDate() {
+		return $this->container['hire_date'];
+	}
+
+	/**
+	 * Sets hire_date
+	 *
+	 * @param \DateTime|null $hire_date Hire date in YYYY-MM-DD format.
+	 *
+	 * @return self
+	 */
+	public function setHireDate($hire_date) {
+		if (is_null($hire_date)) {
+			throw new \InvalidArgumentException('non-nullable hire_date cannot be null');
+		}
+		$this->container['hire_date'] = $hire_date;
 
 		return $this;
 	}

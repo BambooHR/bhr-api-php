@@ -59,9 +59,7 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	  */
 	protected static $openApiTypes = [
 		'id' => 'int',
-		'name' => 'string',
-		'accuracy' => 'int',
-		'address' => 'string'
+		'name' => 'string'
 	];
 
 	/**
@@ -73,9 +71,7 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	  */
 	protected static $openApiFormats = [
 		'id' => null,
-		'name' => null,
-		'accuracy' => null,
-		'address' => null
+		'name' => null
 	];
 
 	/**
@@ -86,9 +82,7 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	  */
 	protected static array $openApiNullables = [
 		'id' => false,
-		'name' => false,
-		'accuracy' => false,
-		'address' => false
+		'name' => false
 	];
 
 	/**
@@ -174,9 +168,7 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	 */
 	protected static $attributeMap = [
 		'id' => 'id',
-		'name' => 'name',
-		'accuracy' => 'accuracy',
-		'address' => 'address'
+		'name' => 'name'
 	];
 
 	/**
@@ -186,9 +178,7 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	 */
 	protected static $setters = [
 		'id' => 'setId',
-		'name' => 'setName',
-		'accuracy' => 'setAccuracy',
-		'address' => 'setAddress'
+		'name' => 'setName'
 	];
 
 	/**
@@ -198,9 +188,7 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	 */
 	protected static $getters = [
 		'id' => 'getId',
-		'name' => 'getName',
-		'accuracy' => 'getAccuracy',
-		'address' => 'getAddress'
+		'name' => 'getName'
 	];
 
 	/**
@@ -256,8 +244,6 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 	public function __construct(?array $data = null) {
 		$this->setIfExists('id', $data ?? [], null);
 		$this->setIfExists('name', $data ?? [], null);
-		$this->setIfExists('accuracy', $data ?? [], null);
-		$this->setIfExists('address', $data ?? [], null);
 	}
 
 	/**
@@ -344,56 +330,6 @@ class UpdateTrainingTypeRequestCategory implements ModelInterface, ArrayAccess, 
 			throw new \InvalidArgumentException('non-nullable name cannot be null');
 		}
 		$this->container['name'] = $name;
-
-		return $this;
-	}
-
-	/**
-	 * Gets accuracy
-	 *
-	 * @return int|null
-	 */
-	public function getAccuracy() {
-		return $this->container['accuracy'];
-	}
-
-	/**
-	 * Sets accuracy
-	 *
-	 * @param int|null $accuracy Accuracy in meters of the clock in location
-	 *
-	 * @return self
-	 */
-	public function setAccuracy($accuracy) {
-		if (is_null($accuracy)) {
-			throw new \InvalidArgumentException('non-nullable accuracy cannot be null');
-		}
-		$this->container['accuracy'] = $accuracy;
-
-		return $this;
-	}
-
-	/**
-	 * Gets address
-	 *
-	 * @return string|null
-	 */
-	public function getAddress() {
-		return $this->container['address'];
-	}
-
-	/**
-	 * Sets address
-	 *
-	 * @param string|null $address Address...
-	 *
-	 * @return self
-	 */
-	public function setAddress($address) {
-		if (is_null($address)) {
-			throw new \InvalidArgumentException('non-nullable address cannot be null');
-		}
-		$this->container['address'] = $address;
 
 		return $this;
 	}

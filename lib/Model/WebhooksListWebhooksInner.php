@@ -89,7 +89,7 @@ class WebhooksListWebhooksInner implements ModelInterface, ArrayAccess, \JsonSer
 		'id' => false,
 		'name' => false,
 		'created' => false,
-		'last_sent' => false,
+		'last_sent' => true,
 		'url' => false
 	];
 
@@ -366,7 +366,7 @@ class WebhooksListWebhooksInner implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets created
 	 *
-	 * @param string|null $created The creation date of the webhook.
+	 * @param string|null $created Datetime when the webhook was created (UTC, format: YYYY-MM-DD HH:MM:SS).
 	 *
 	 * @return self
 	 */
@@ -391,13 +391,19 @@ class WebhooksListWebhooksInner implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets last_sent
 	 *
-	 * @param string|null $last_sent The date the webhook was last sent.
+	 * @param string|null $last_sent last_sent
 	 *
 	 * @return self
 	 */
 	public function setLastSent($last_sent) {
 		if (is_null($last_sent)) {
-			throw new \InvalidArgumentException('non-nullable last_sent cannot be null');
+			$this->openApiNullablesSetToNull['last_sent'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['last_sent'])) {
+				unset($nullablesSetToNull['last_sent']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['last_sent'] = $last_sent;
 
@@ -416,7 +422,7 @@ class WebhooksListWebhooksInner implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets url
 	 *
-	 * @param string|null $url The url of the webhook.
+	 * @param string|null $url The URL the webhook sends data to.
 	 *
 	 * @return self
 	 */

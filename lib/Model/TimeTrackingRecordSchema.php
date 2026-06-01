@@ -77,8 +77,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 		'task_id' => 'string',
 		'shift_differential_id' => 'string',
 		'holiday_id' => 'string',
-		'project' => '\BhrSdk\Model\TimeTrackingRecordSchemaProject',
-		'shift_differential' => '\BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential'
+		'project' => 'object',
+		'shift_differential' => 'object'
 	];
 
 	/**
@@ -138,8 +138,8 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 		'task_id' => true,
 		'shift_differential_id' => true,
 		'holiday_id' => true,
-		'project' => false,
-		'shift_differential' => false
+		'project' => true,
+		'shift_differential' => true
 	];
 
 	/**
@@ -479,7 +479,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets division_id
 	 *
-	 * @param string|null $division_id ID of the division associated with this time tracking record
+	 * @param string|null $division_id division_id
 	 *
 	 * @return self
 	 */
@@ -510,7 +510,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets department_id
 	 *
-	 * @param string|null $department_id ID of the department associated with this time tracking record
+	 * @param string|null $department_id department_id
 	 *
 	 * @return self
 	 */
@@ -541,7 +541,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets job_title_id
 	 *
-	 * @param string|null $job_title_id ID of the job title associated with this time tracking record
+	 * @param string|null $job_title_id job_title_id
 	 *
 	 * @return self
 	 */
@@ -572,7 +572,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets pay_code
 	 *
-	 * @param string|null $pay_code Pay code for this time tracking record
+	 * @param string|null $pay_code pay_code
 	 *
 	 * @return self
 	 */
@@ -778,7 +778,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets job_code
 	 *
-	 * @param string|null $job_code Job code associated with this time tracking record
+	 * @param string|null $job_code job_code
 	 *
 	 * @return self
 	 */
@@ -809,7 +809,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets job_data
 	 *
-	 * @param string|null $job_data Additional job data for this time tracking record
+	 * @param string|null $job_data job_data
 	 *
 	 * @return self
 	 */
@@ -840,7 +840,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets project_id
 	 *
-	 * @param string|null $project_id ID of the project associated with this time tracking record
+	 * @param string|null $project_id project_id
 	 *
 	 * @return self
 	 */
@@ -871,7 +871,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets task_id
 	 *
-	 * @param string|null $task_id ID of the task associated with this time tracking record
+	 * @param string|null $task_id task_id
 	 *
 	 * @return self
 	 */
@@ -902,7 +902,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets shift_differential_id
 	 *
-	 * @param string|null $shift_differential_id ID of the shift differential associated with this time tracking record
+	 * @param string|null $shift_differential_id shift_differential_id
 	 *
 	 * @return self
 	 */
@@ -933,7 +933,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets holiday_id
 	 *
-	 * @param string|null $holiday_id ID of the holiday associated with this time tracking record
+	 * @param string|null $holiday_id holiday_id
 	 *
 	 * @return self
 	 */
@@ -955,7 +955,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets project
 	 *
-	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaProject|null
+	 * @return object|null
 	 */
 	public function getProject() {
 		return $this->container['project'];
@@ -964,13 +964,19 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets project
 	 *
-	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaProject|null $project project
+	 * @param object|null $project project
 	 *
 	 * @return self
 	 */
 	public function setProject($project) {
 		if (is_null($project)) {
-			throw new \InvalidArgumentException('non-nullable project cannot be null');
+			$this->openApiNullablesSetToNull['project'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['project'])) {
+				unset($nullablesSetToNull['project']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['project'] = $project;
 
@@ -980,7 +986,7 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets shift_differential
 	 *
-	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential|null
+	 * @return object|null
 	 */
 	public function getShiftDifferential() {
 		return $this->container['shift_differential'];
@@ -989,13 +995,19 @@ class TimeTrackingRecordSchema implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets shift_differential
 	 *
-	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaShiftDifferential|null $shift_differential shift_differential
+	 * @param object|null $shift_differential shift_differential
 	 *
 	 * @return self
 	 */
 	public function setShiftDifferential($shift_differential) {
 		if (is_null($shift_differential)) {
-			throw new \InvalidArgumentException('non-nullable shift_differential cannot be null');
+			$this->openApiNullablesSetToNull['shift_differential'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['shift_differential'])) {
+				unset($nullablesSetToNull['shift_differential']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['shift_differential'] = $shift_differential;
 

@@ -58,7 +58,8 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	  */
 	protected static $openApiTypes = [
 		'field' => 'string',
-		'sort' => 'string'
+		'sort' => 'string',
+		'aggregation_type' => 'string'
 	];
 
 	/**
@@ -70,7 +71,8 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	  */
 	protected static $openApiFormats = [
 		'field' => null,
-		'sort' => null
+		'sort' => null,
+		'aggregation_type' => null
 	];
 
 	/**
@@ -81,7 +83,8 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	  */
 	protected static array $openApiNullables = [
 		'field' => false,
-		'sort' => false
+		'sort' => false,
+		'aggregation_type' => false
 	];
 
 	/**
@@ -167,7 +170,8 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	 */
 	protected static $attributeMap = [
 		'field' => 'field',
-		'sort' => 'sort'
+		'sort' => 'sort',
+		'aggregation_type' => 'aggregationType'
 	];
 
 	/**
@@ -177,7 +181,8 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	 */
 	protected static $setters = [
 		'field' => 'setField',
-		'sort' => 'setSort'
+		'sort' => 'setSort',
+		'aggregation_type' => 'setAggregationType'
 	];
 
 	/**
@@ -187,7 +192,8 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	 */
 	protected static $getters = [
 		'field' => 'getField',
-		'sort' => 'getSort'
+		'sort' => 'getSort',
+		'aggregation_type' => 'getAggregationType'
 	];
 
 	/**
@@ -229,6 +235,12 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 
 	public const SORT_ASC = 'asc';
 	public const SORT_DESC = 'desc';
+	public const AGGREGATION_TYPE_COUNT = 'count';
+	public const AGGREGATION_TYPE_COUNT_UNIQUE = 'count_unique';
+	public const AGGREGATION_TYPE_SUM = 'sum';
+	public const AGGREGATION_TYPE_AVG = 'avg';
+	public const AGGREGATION_TYPE_MIN = 'min';
+	public const AGGREGATION_TYPE_MAX = 'max';
 
 	/**
 	 * Gets allowable values of the enum
@@ -239,6 +251,22 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 		return [
 			self::SORT_ASC,
 			self::SORT_DESC,
+		];
+	}
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getAggregationTypeAllowableValues() {
+		return [
+			self::AGGREGATION_TYPE_COUNT,
+			self::AGGREGATION_TYPE_COUNT_UNIQUE,
+			self::AGGREGATION_TYPE_SUM,
+			self::AGGREGATION_TYPE_AVG,
+			self::AGGREGATION_TYPE_MIN,
+			self::AGGREGATION_TYPE_MAX,
 		];
 	}
 
@@ -258,6 +286,7 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	public function __construct(?array $data = null) {
 		$this->setIfExists('field', $data ?? [], null);
 		$this->setIfExists('sort', $data ?? [], null);
+		$this->setIfExists('aggregation_type', $data ?? [], null);
 	}
 
 	/**
@@ -294,6 +323,15 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 			);
 		}
 
+		$allowedValues = $this->getAggregationTypeAllowableValues();
+		if (!is_null($this->container['aggregation_type']) && !in_array($this->container['aggregation_type'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'aggregation_type', must be one of '%s'",
+				$this->container['aggregation_type'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -319,7 +357,7 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Sets field
 	 *
-	 * @param string|null $field field
+	 * @param string|null $field Field name to sort by.
 	 *
 	 * @return self
 	 */
@@ -344,7 +382,7 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 	/**
 	 * Sets sort
 	 *
-	 * @param string|null $sort sort
+	 * @param string|null $sort Sort direction.
 	 *
 	 * @return self
 	 */
@@ -363,6 +401,41 @@ class DataRequestSortByInner implements ModelInterface, ArrayAccess, \JsonSerial
 			);
 		}
 		$this->container['sort'] = $sort;
+
+		return $this;
+	}
+
+	/**
+	 * Gets aggregation_type
+	 *
+	 * @return string|null
+	 */
+	public function getAggregationType() {
+		return $this->container['aggregation_type'];
+	}
+
+	/**
+	 * Sets aggregation_type
+	 *
+	 * @param string|null $aggregation_type Optional. Use when sorting by an aggregated value; must match the requested aggregation for this field.
+	 *
+	 * @return self
+	 */
+	public function setAggregationType($aggregation_type) {
+		if (is_null($aggregation_type)) {
+			throw new \InvalidArgumentException('non-nullable aggregation_type cannot be null');
+		}
+		$allowedValues = $this->getAggregationTypeAllowableValues();
+		if (!in_array($aggregation_type, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'aggregation_type', must be one of '%s'",
+					$aggregation_type,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['aggregation_type'] = $aggregation_type;
 
 		return $this;
 	}

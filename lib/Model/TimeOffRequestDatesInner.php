@@ -57,8 +57,8 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'ymd' => 'string',
-		'amount' => 'int'
+		'ymd' => '\DateTime',
+		'amount' => 'float'
 	];
 
 	/**
@@ -69,7 +69,7 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'ymd' => null,
+		'ymd' => 'date',
 		'amount' => null
 	];
 
@@ -286,7 +286,7 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets ymd
 	 *
-	 * @return string|null
+	 * @return \DateTime|null
 	 */
 	public function getYmd() {
 		return $this->container['ymd'];
@@ -295,7 +295,7 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets ymd
 	 *
-	 * @param string|null $ymd ymd
+	 * @param \DateTime|null $ymd Date in YYYY-MM-DD format.
 	 *
 	 * @return self
 	 */
@@ -311,7 +311,7 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets amount
 	 *
-	 * @return int|null
+	 * @return float|null
 	 */
 	public function getAmount() {
 		return $this->container['amount'];
@@ -320,7 +320,7 @@ class TimeOffRequestDatesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets amount
 	 *
-	 * @param int|null $amount amount
+	 * @param float|null $amount Hours or days for this date.
 	 *
 	 * @return self
 	 */

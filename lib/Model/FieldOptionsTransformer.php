@@ -57,7 +57,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'string',
+		'id' => '\BhrSdk\Model\FieldOptionsTransformerId',
 		'value' => 'string'
 	];
 
@@ -286,7 +286,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Gets id
 	 *
-	 * @return string|null
+	 * @return \BhrSdk\Model\FieldOptionsTransformerId|null
 	 */
 	public function getId() {
 		return $this->container['id'];
@@ -295,7 +295,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Sets id
 	 *
-	 * @param string|null $id The ID of the field option
+	 * @param \BhrSdk\Model\FieldOptionsTransformerId|null $id id
 	 *
 	 * @return self
 	 */
@@ -320,7 +320,7 @@ class FieldOptionsTransformer implements ModelInterface, ArrayAccess, \JsonSeria
 	/**
 	 * Sets value
 	 *
-	 * @param string|null $value The value of the field option
+	 * @param string|null $value The human-readable label of the field option
 	 *
 	 * @return self
 	 */

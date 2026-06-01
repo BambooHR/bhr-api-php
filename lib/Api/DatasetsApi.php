@@ -79,16 +79,28 @@ class DatasetsApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'getDataFromDataset' => [
+		'getDataFromDatasetV1' => [
 			'application/json',
         ],
-		'getDatasets' => [
+		'getDataFromDatasetV2' => [
 			'application/json',
         ],
-		'getFieldOptions' => [
+		'getFieldOptionsV1' => [
 			'application/json',
         ],
-		'getFieldsFromDataset' => [
+		'getFieldOptionsV12' => [
+			'application/json',
+        ],
+		'getFieldsFromDatasetV1' => [
+			'application/json',
+        ],
+		'getFieldsFromDatasetV12' => [
+			'application/json',
+        ],
+		'listDatasetsV1' => [
+			'application/json',
+        ],
+		'listDatasetsV12' => [
 			'application/json',
         ],
 	];
@@ -140,38 +152,44 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDataFromDataset
+	 * Operation getDataFromDatasetV1
 	 *
-	 * Get Data from Dataset
+	 * Get Data from Dataset (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want data from (required)
+	 * @param  string $dataset_name The machine-readable name of the dataset to query. Use \&quot;List Datasets (v1.2)\&quot; to discover available names. (required)
 	 * @param  \BhrSdk\Model\DataRequest $data_request data_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return \BhrSdk\Model\EmployeeResponse
+	 * @deprecated
 	 */
-	public function getDataFromDataset($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
-		list($response) = $this->getDataFromDatasetWithHttpInfo($dataset_name, $data_request, $contentType);
+	public function getDataFromDatasetV1($dataset_name, $data_request, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV1'][0]) {
+		list($response) = $this->getDataFromDatasetV1WithHttpInfo($dataset_name, $data_request, $page, $page_size, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getDataFromDatasetWithHttpInfo
+	 * Operation getDataFromDatasetV1WithHttpInfo
 	 *
-	 * Get Data from Dataset
+	 * Get Data from Dataset (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want data from (required)
+	 * @param  string $dataset_name The machine-readable name of the dataset to query. Use \&quot;List Datasets (v1.2)\&quot; to discover available names. (required)
 	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\EmployeeResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @deprecated
 	 */
-	public function getDataFromDatasetWithHttpInfo($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
-		$request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
+	public function getDataFromDatasetV1WithHttpInfo($dataset_name, $data_request, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV1'][0]) {
+		$request = $this->getDataFromDatasetV1Request($dataset_name, $data_request, $page, $page_size, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -209,19 +227,22 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDataFromDatasetAsync
+	 * Operation getDataFromDatasetV1Async
 	 *
-	 * Get Data from Dataset
+	 * Get Data from Dataset (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want data from (required)
+	 * @param  string $dataset_name The machine-readable name of the dataset to query. Use \&quot;List Datasets (v1.2)\&quot; to discover available names. (required)
 	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
 	 */
-	public function getDataFromDatasetAsync($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
-		return $this->getDataFromDatasetAsyncWithHttpInfo($dataset_name, $data_request, $contentType)
+	public function getDataFromDatasetV1Async($dataset_name, $data_request, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV1'][0]) {
+		return $this->getDataFromDatasetV1AsyncWithHttpInfo($dataset_name, $data_request, $page, $page_size, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -230,20 +251,23 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDataFromDatasetAsyncWithHttpInfo
+	 * Operation getDataFromDatasetV1AsyncWithHttpInfo
 	 *
-	 * Get Data from Dataset
+	 * Get Data from Dataset (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want data from (required)
+	 * @param  string $dataset_name The machine-readable name of the dataset to query. Use \&quot;List Datasets (v1.2)\&quot; to discover available names. (required)
 	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
 	 */
-	public function getDataFromDatasetAsyncWithHttpInfo($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
+	public function getDataFromDatasetV1AsyncWithHttpInfo($dataset_name, $data_request, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV1'][0]) {
 		$returnType = '\BhrSdk\Model\EmployeeResponse';
-		$request = $this->getDataFromDatasetRequest($dataset_name, $data_request, $contentType);
+		$request = $this->getDataFromDatasetV1Request($dataset_name, $data_request, $page, $page_size, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -277,25 +301,39 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Create request for operation 'getDataFromDataset'
+	 * Create request for operation 'getDataFromDatasetV1'
 	 *
-	 * @param  string $dataset_name The name of the dataset you want data from (required)
+	 * @param  string $dataset_name The machine-readable name of the dataset to query. Use \&quot;List Datasets (v1.2)\&quot; to discover available names. (required)
 	 * @param  \BhrSdk\Model\DataRequest $data_request (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDataset'] to see the possible values for this operation
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
+	 * @deprecated
 	 */
-	public function getDataFromDatasetRequest($dataset_name, $data_request, string $contentType = self::CONTENT_TYPES['getDataFromDataset'][0]) {
+	public function getDataFromDatasetV1Request($dataset_name, $data_request, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV1'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'dataset_name' => $dataset_name,
 				'data_request' => $data_request,
 			],
-			methodName: 'getDataFromDataset'
+			methodName: 'getDataFromDatasetV1'
 		);
 
+		if ($page !== null && $page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page" when calling DatasetsApi.getDataFromDatasetV1, must be bigger than or equal to 1.');
+		}
+		
+		if ($page_size !== null && $page_size > 1000) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling DatasetsApi.getDataFromDatasetV1, must be smaller than or equal to 1000.');
+		}
+		if ($page_size !== null && $page_size < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling DatasetsApi.getDataFromDatasetV1, must be bigger than or equal to 1.');
+		}
+		
 		$resourcePath = '/api/v1/datasets/{datasetName}';
 		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
@@ -303,6 +341,23 @@ class DatasetsApi {
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
+
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page_size' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
 
 		// path params
 		if ($dataset_name !== null) {
@@ -374,34 +429,38 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDatasets
+	 * Operation getDataFromDatasetV2
 	 *
-	 * Get Datasets
+	 * Get Data from Dataset (v2)
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
+	 * @param  string $dataset_name Machine-readable name of the dataset to query. Discover valid values via List Datasets (v1.2) (&#x60;list-datasets-v1-2&#x60;); examples include &#x60;employee&#x60;, &#x60;benefit&#x60;, and &#x60;applicants&#x60;. Unknown or inaccessible names return &#x60;404&#x60;. (required)
+	 * @param  \BhrSdk\Model\GetDataFromDatasetV2Request $get_data_from_dataset_v2_request Request parameters for dataset data retrieval (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV2'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\DatasetResponse
+	 * @return \BhrSdk\Model\DatasetDataResponseV2|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
 	 */
-	public function getDatasets(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
-		list($response) = $this->getDatasetsWithHttpInfo($contentType);
+	public function getDataFromDatasetV2($dataset_name, $get_data_from_dataset_v2_request, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV2'][0]) {
+		list($response) = $this->getDataFromDatasetV2WithHttpInfo($dataset_name, $get_data_from_dataset_v2_request, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getDatasetsWithHttpInfo
+	 * Operation getDataFromDatasetV2WithHttpInfo
 	 *
-	 * Get Datasets
+	 * Get Data from Dataset (v2)
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
+	 * @param  string $dataset_name Machine-readable name of the dataset to query. Discover valid values via List Datasets (v1.2) (&#x60;list-datasets-v1-2&#x60;); examples include &#x60;employee&#x60;, &#x60;benefit&#x60;, and &#x60;applicants&#x60;. Unknown or inaccessible names return &#x60;404&#x60;. (required)
+	 * @param  \BhrSdk\Model\GetDataFromDatasetV2Request $get_data_from_dataset_v2_request Request parameters for dataset data retrieval (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV2'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\DatasetResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\DatasetDataResponseV2|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function getDatasetsWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
-		$request = $this->getDatasetsRequest($contentType);
+	public function getDataFromDatasetV2WithHttpInfo($dataset_name, $get_data_from_dataset_v2_request, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV2'][0]) {
+		$request = $this->getDataFromDatasetV2Request($dataset_name, $get_data_from_dataset_v2_request, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -412,7 +471,43 @@ class DatasetsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\DatasetResponse',
+					'\BhrSdk\Model\DatasetDataResponseV2',
+					$request,
+					$response,
+				);
+			case 400:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 404:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 413:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
 					$request,
 					$response,
 				);
@@ -432,24 +527,26 @@ class DatasetsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\DatasetResponse',
+			'\BhrSdk\Model\DatasetDataResponseV2',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation getDatasetsAsync
+	 * Operation getDataFromDatasetV2Async
 	 *
-	 * Get Datasets
+	 * Get Data from Dataset (v2)
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
+	 * @param  string $dataset_name Machine-readable name of the dataset to query. Discover valid values via List Datasets (v1.2) (&#x60;list-datasets-v1-2&#x60;); examples include &#x60;employee&#x60;, &#x60;benefit&#x60;, and &#x60;applicants&#x60;. Unknown or inaccessible names return &#x60;404&#x60;. (required)
+	 * @param  \BhrSdk\Model\GetDataFromDatasetV2Request $get_data_from_dataset_v2_request Request parameters for dataset data retrieval (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV2'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getDatasetsAsync(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
-		return $this->getDatasetsAsyncWithHttpInfo($contentType)
+	public function getDataFromDatasetV2Async($dataset_name, $get_data_from_dataset_v2_request, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV2'][0]) {
+		return $this->getDataFromDatasetV2AsyncWithHttpInfo($dataset_name, $get_data_from_dataset_v2_request, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -458,18 +555,20 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getDatasetsAsyncWithHttpInfo
+	 * Operation getDataFromDatasetV2AsyncWithHttpInfo
 	 *
-	 * Get Datasets
+	 * Get Data from Dataset (v2)
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
+	 * @param  string $dataset_name Machine-readable name of the dataset to query. Discover valid values via List Datasets (v1.2) (&#x60;list-datasets-v1-2&#x60;); examples include &#x60;employee&#x60;, &#x60;benefit&#x60;, and &#x60;applicants&#x60;. Unknown or inaccessible names return &#x60;404&#x60;. (required)
+	 * @param  \BhrSdk\Model\GetDataFromDatasetV2Request $get_data_from_dataset_v2_request Request parameters for dataset data retrieval (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV2'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function getDatasetsAsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
-		$returnType = '\BhrSdk\Model\DatasetResponse';
-		$request = $this->getDatasetsRequest($contentType);
+	public function getDataFromDatasetV2AsyncWithHttpInfo($dataset_name, $get_data_from_dataset_v2_request, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV2'][0]) {
+		$returnType = '\BhrSdk\Model\DatasetDataResponseV2';
+		$request = $this->getDataFromDatasetV2Request($dataset_name, $get_data_from_dataset_v2_request, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -503,28 +602,57 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Create request for operation 'getDatasets'
+	 * Create request for operation 'getDataFromDatasetV2'
 	 *
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDatasets'] to see the possible values for this operation
+	 * @param  string $dataset_name Machine-readable name of the dataset to query. Discover valid values via List Datasets (v1.2) (&#x60;list-datasets-v1-2&#x60;); examples include &#x60;employee&#x60;, &#x60;benefit&#x60;, and &#x60;applicants&#x60;. Unknown or inaccessible names return &#x60;404&#x60;. (required)
+	 * @param  \BhrSdk\Model\GetDataFromDatasetV2Request $get_data_from_dataset_v2_request Request parameters for dataset data retrieval (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getDataFromDatasetV2'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getDatasetsRequest(string $contentType = self::CONTENT_TYPES['getDatasets'][0]) {
+	public function getDataFromDatasetV2Request($dataset_name, $get_data_from_dataset_v2_request, string $contentType = self::CONTENT_TYPES['getDataFromDatasetV2'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'dataset_name' => $dataset_name,
+				'get_data_from_dataset_v2_request' => $get_data_from_dataset_v2_request,
+			],
+			methodName: 'getDataFromDatasetV2'
+		);
 
-		$resourcePath = '/api/v1/datasets';
-		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		$resourcePath = '/api/v2/datasets/{datasetName}/data';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
 		
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
 		$multipart = false;
 
+		// path params
+		if ($dataset_name !== null) {
+			$resourcePath = str_replace(
+				'{' . 'datasetName' . '}',
+				ObjectSerializer::toPathValue((string) $dataset_name),
+				$resourcePath
+			);
+		}
+
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			['application/json', 'application/problem+json', ],
 			$contentType,
 			$multipart
 		);
+
+		// for model (json/xml)
+		if (isset($get_data_from_dataset_v2_request)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($get_data_from_dataset_v2_request));
+			} else {
+				$httpBody = is_array($get_data_from_dataset_v2_request) ? json_encode($get_data_from_dataset_v2_request) : $get_data_from_dataset_v2_request;
+			}
+		} 
 
 		// Authentication methods
 		
@@ -563,7 +691,7 @@ class DatasetsApi {
 		$operationHost = $this->config->getHost();
 		$query = ObjectSerializer::buildQuery($queryParams);
 		return new Request(
-			'GET',
+			'POST',
 			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
 			$headers,
 			is_string($httpBody) ? $httpBody : (string)$httpBody
@@ -571,38 +699,40 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getFieldOptions
+	 * Operation getFieldOptionsV1
 	 *
-	 * Get Field Options
+	 * Get Field Options (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  string $dataset_name The name of the dataset to retrieve field options for. (required)
 	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema field_options_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\FieldOptionsTransformer[]|\BhrSdk\Model\InternalServerError|\BhrSdk\Model\Forbidden
+	 * @return array<string,\BhrSdk\Model\FieldOptionsTransformer[]>|\BhrSdk\Model\BadRequestV1|\BhrSdk\Model\ForbiddenV1
+	 * @deprecated
 	 */
-	public function getFieldOptions($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
-		list($response) = $this->getFieldOptionsWithHttpInfo($dataset_name, $field_options_request_schema, $contentType);
+	public function getFieldOptionsV1($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV1'][0]) {
+		list($response) = $this->getFieldOptionsV1WithHttpInfo($dataset_name, $field_options_request_schema, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getFieldOptionsWithHttpInfo
+	 * Operation getFieldOptionsV1WithHttpInfo
 	 *
-	 * Get Field Options
+	 * Get Field Options (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  string $dataset_name The name of the dataset to retrieve field options for. (required)
 	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of \BhrSdk\Model\FieldOptionsTransformer[]|\BhrSdk\Model\InternalServerError|\BhrSdk\Model\Forbidden, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of array<string,\BhrSdk\Model\FieldOptionsTransformer[]>|\BhrSdk\Model\BadRequestV1|\BhrSdk\Model\ForbiddenV1, HTTP status code, HTTP response headers (array of strings)
+	 * @deprecated
 	 */
-	public function getFieldOptionsWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
-		$request = $this->getFieldOptionsRequest($dataset_name, $field_options_request_schema, $contentType);
+	public function getFieldOptionsV1WithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV1'][0]) {
+		$request = $this->getFieldOptionsV1Request($dataset_name, $field_options_request_schema, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -613,19 +743,19 @@ class DatasetsApi {
 		switch($statusCode) {
 			case 200:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\FieldOptionsTransformer[]',
+					'array<string,\BhrSdk\Model\FieldOptionsTransformer[]>',
 					$request,
 					$response,
 				);
-			case 500:
+			case 400:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\InternalServerError',
+					'\BhrSdk\Model\BadRequestV1',
 					$request,
 					$response,
 				);
 			case 403:
 				return ApiHelper::handleResponseWithDataType(
-					'\BhrSdk\Model\Forbidden',
+					'\BhrSdk\Model\ForbiddenV1',
 					$request,
 					$response,
 				);
@@ -645,26 +775,27 @@ class DatasetsApi {
 		}
 
 		return ApiHelper::handleResponseWithDataType(
-			'\BhrSdk\Model\FieldOptionsTransformer[]',
+			'array<string,\BhrSdk\Model\FieldOptionsTransformer[]>',
 			$request,
 			$response,
 		);
 	}
 
 	/**
-	 * Operation getFieldOptionsAsync
+	 * Operation getFieldOptionsV1Async
 	 *
-	 * Get Field Options
+	 * Get Field Options (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  string $dataset_name The name of the dataset to retrieve field options for. (required)
 	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
 	 */
-	public function getFieldOptionsAsync($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
-		return $this->getFieldOptionsAsyncWithHttpInfo($dataset_name, $field_options_request_schema, $contentType)
+	public function getFieldOptionsV1Async($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV1'][0]) {
+		return $this->getFieldOptionsV1AsyncWithHttpInfo($dataset_name, $field_options_request_schema, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -673,20 +804,21 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getFieldOptionsAsyncWithHttpInfo
+	 * Operation getFieldOptionsV1AsyncWithHttpInfo
 	 *
-	 * Get Field Options
+	 * Get Field Options (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  string $dataset_name The name of the dataset to retrieve field options for. (required)
 	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
 	 */
-	public function getFieldOptionsAsyncWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
-		$returnType = '\BhrSdk\Model\FieldOptionsTransformer[]';
-		$request = $this->getFieldOptionsRequest($dataset_name, $field_options_request_schema, $contentType);
+	public function getFieldOptionsV1AsyncWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV1'][0]) {
+		$returnType = 'array<string,\BhrSdk\Model\FieldOptionsTransformer[]>';
+		$request = $this->getFieldOptionsV1Request($dataset_name, $field_options_request_schema, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -720,23 +852,24 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Create request for operation 'getFieldOptions'
+	 * Create request for operation 'getFieldOptionsV1'
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see field options for (required)
+	 * @param  string $dataset_name The name of the dataset to retrieve field options for. (required)
 	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptions'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
+	 * @deprecated
 	 */
-	public function getFieldOptionsRequest($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptions'][0]) {
+	public function getFieldOptionsV1Request($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV1'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'dataset_name' => $dataset_name,
 				'field_options_request_schema' => $field_options_request_schema,
 			],
-			methodName: 'getFieldOptions'
+			methodName: 'getFieldOptionsV1'
 		);
 
 		$resourcePath = '/api/v1/datasets/{datasetName}/field-options';
@@ -817,40 +950,288 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getFieldsFromDataset
+	 * Operation getFieldOptionsV12
 	 *
-	 * Get Fields from Dataset
+	 * Get Field Options (v1.2)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see fields for (required)
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
+	 * @param  string $dataset_name The name of the dataset you want to see field options for. Use \&quot;List Datasets (v1.2)\&quot; to discover available dataset names. (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV12'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \BhrSdk\Model\DatasetFieldsResponse
+	 * @return array<string,\BhrSdk\Model\FieldOptionsTransformer[]>|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
 	 */
-	public function getFieldsFromDataset($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
-		list($response) = $this->getFieldsFromDatasetWithHttpInfo($dataset_name, $page, $page_size, $contentType);
+	public function getFieldOptionsV12($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV12'][0]) {
+		list($response) = $this->getFieldOptionsV12WithHttpInfo($dataset_name, $field_options_request_schema, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation getFieldsFromDatasetWithHttpInfo
+	 * Operation getFieldOptionsV12WithHttpInfo
 	 *
-	 * Get Fields from Dataset
+	 * Get Field Options (v1.2)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see fields for (required)
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
+	 * @param  string $dataset_name The name of the dataset you want to see field options for. Use \&quot;List Datasets (v1.2)\&quot; to discover available dataset names. (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV12'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of array<string,\BhrSdk\Model\FieldOptionsTransformer[]>|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getFieldOptionsV12WithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV12'][0]) {
+		$request = $this->getFieldOptionsV12Request($dataset_name, $field_options_request_schema, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'array<string,\BhrSdk\Model\FieldOptionsTransformer[]>',
+					$request,
+					$response,
+				);
+			case 400:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'array<string,\BhrSdk\Model\FieldOptionsTransformer[]>',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getFieldOptionsV12Async
+	 *
+	 * Get Field Options (v1.2)
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for. Use \&quot;List Datasets (v1.2)\&quot; to discover available dataset names. (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getFieldOptionsV12Async($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV12'][0]) {
+		return $this->getFieldOptionsV12AsyncWithHttpInfo($dataset_name, $field_options_request_schema, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getFieldOptionsV12AsyncWithHttpInfo
+	 *
+	 * Get Field Options (v1.2)
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for. Use \&quot;List Datasets (v1.2)\&quot; to discover available dataset names. (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getFieldOptionsV12AsyncWithHttpInfo($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV12'][0]) {
+		$returnType = 'array<string,\BhrSdk\Model\FieldOptionsTransformer[]>';
+		$request = $this->getFieldOptionsV12Request($dataset_name, $field_options_request_schema, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getFieldOptionsV12'
+	 *
+	 * @param  string $dataset_name The name of the dataset you want to see field options for. Use \&quot;List Datasets (v1.2)\&quot; to discover available dataset names. (required)
+	 * @param  \BhrSdk\Model\FieldOptionsRequestSchema $field_options_request_schema (required)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldOptionsV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getFieldOptionsV12Request($dataset_name, $field_options_request_schema, string $contentType = self::CONTENT_TYPES['getFieldOptionsV12'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'dataset_name' => $dataset_name,
+				'field_options_request_schema' => $field_options_request_schema,
+			],
+			methodName: 'getFieldOptionsV12'
+		);
+
+		$resourcePath = '/api/v1_2/datasets/{datasetName}/field-options';
+		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		// path params
+		if ($dataset_name !== null) {
+			$resourcePath = str_replace(
+				'{' . 'datasetName' . '}',
+				ObjectSerializer::toPathValue((string) $dataset_name),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/problem+json', ],
+			$contentType,
+			$multipart
+		);
+
+		// for model (json/xml)
+		if (isset($field_options_request_schema)) {
+			if (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the body
+				$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($field_options_request_schema));
+			} else {
+				$httpBody = is_array($field_options_request_schema) ? json_encode($field_options_request_schema) : $field_options_request_schema;
+			}
+		} 
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'POST',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getFieldsFromDatasetV1
+	 *
+	 * Get Fields from Dataset (v1)
+	 *
+	 * @param  string $dataset_name The machine-readable name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of field records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV1'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\DatasetFieldsResponse
+	 * @deprecated
+	 */
+	public function getFieldsFromDatasetV1($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV1'][0]) {
+		list($response) = $this->getFieldsFromDatasetV1WithHttpInfo($dataset_name, $page, $page_size, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getFieldsFromDatasetV1WithHttpInfo
+	 *
+	 * Get Fields from Dataset (v1)
+	 *
+	 * @param  string $dataset_name The machine-readable name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of field records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of \BhrSdk\Model\DatasetFieldsResponse, HTTP status code, HTTP response headers (array of strings)
+	 * @deprecated
 	 */
-	public function getFieldsFromDatasetWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
-		$request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
+	public function getFieldsFromDatasetV1WithHttpInfo($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV1'][0]) {
+		$request = $this->getFieldsFromDatasetV1Request($dataset_name, $page, $page_size, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -888,20 +1269,21 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getFieldsFromDatasetAsync
+	 * Operation getFieldsFromDatasetV1Async
 	 *
-	 * Get Fields from Dataset
+	 * Get Fields from Dataset (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see fields for (required)
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
+	 * @param  string $dataset_name The machine-readable name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of field records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
 	 */
-	public function getFieldsFromDatasetAsync($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
-		return $this->getFieldsFromDatasetAsyncWithHttpInfo($dataset_name, $page, $page_size, $contentType)
+	public function getFieldsFromDatasetV1Async($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV1'][0]) {
+		return $this->getFieldsFromDatasetV1AsyncWithHttpInfo($dataset_name, $page, $page_size, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -910,21 +1292,22 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Operation getFieldsFromDatasetAsyncWithHttpInfo
+	 * Operation getFieldsFromDatasetV1AsyncWithHttpInfo
 	 *
-	 * Get Fields from Dataset
+	 * Get Fields from Dataset (v1)
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see fields for (required)
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
+	 * @param  string $dataset_name The machine-readable name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of field records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
 	 */
-	public function getFieldsFromDatasetAsyncWithHttpInfo($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
+	public function getFieldsFromDatasetV1AsyncWithHttpInfo($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV1'][0]) {
 		$returnType = '\BhrSdk\Model\DatasetFieldsResponse';
-		$request = $this->getFieldsFromDatasetRequest($dataset_name, $page, $page_size, $contentType);
+		$request = $this->getFieldsFromDatasetV1Request($dataset_name, $page, $page_size, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -958,25 +1341,37 @@ class DatasetsApi {
 	}
 
 	/**
-	 * Create request for operation 'getFieldsFromDataset'
+	 * Create request for operation 'getFieldsFromDatasetV1'
 	 *
-	 * @param  string $dataset_name The name of the dataset you want to see fields for (required)
-	 * @param  int|null $page The page number to retrieve (optional)
-	 * @param  int|null $page_size The number of records to retrieve per page. Default is 500 and the Max is 1000 (optional)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDataset'] to see the possible values for this operation
+	 * @param  string $dataset_name The machine-readable name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Out-of-range values are clamped to the nearest valid page. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of field records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV1'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
+	 * @deprecated
 	 */
-	public function getFieldsFromDatasetRequest($dataset_name, $page = null, $page_size = null, string $contentType = self::CONTENT_TYPES['getFieldsFromDataset'][0]) {
+	public function getFieldsFromDatasetV1Request($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV1'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'dataset_name' => $dataset_name,
 			],
-			methodName: 'getFieldsFromDataset'
+			methodName: 'getFieldsFromDatasetV1'
 		);
 
+		if ($page !== null && $page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page" when calling DatasetsApi.getFieldsFromDatasetV1, must be bigger than or equal to 1.');
+		}
+		
+		if ($page_size !== null && $page_size > 1000) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling DatasetsApi.getFieldsFromDatasetV1, must be smaller than or equal to 1000.');
+		}
+		if ($page_size !== null && $page_size < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling DatasetsApi.getFieldsFromDatasetV1, must be bigger than or equal to 1.');
+		}
+		
 		$resourcePath = '/api/v1/datasets/{datasetName}/fields';
 		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
 		
@@ -1013,6 +1408,691 @@ class DatasetsApi {
 
 		$headers = $this->headerSelector->selectHeaders(
 			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation getFieldsFromDatasetV12
+	 *
+	 * Get Fields from Dataset (v1.2)
+	 *
+	 * @param  string $dataset_name The name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV12'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\DatasetFieldsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function getFieldsFromDatasetV12($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV12'][0]) {
+		list($response) = $this->getFieldsFromDatasetV12WithHttpInfo($dataset_name, $page, $page_size, $contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation getFieldsFromDatasetV12WithHttpInfo
+	 *
+	 * Get Fields from Dataset (v1.2)
+	 *
+	 * @param  string $dataset_name The name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV12'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\DatasetFieldsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function getFieldsFromDatasetV12WithHttpInfo($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV12'][0]) {
+		$request = $this->getFieldsFromDatasetV12Request($dataset_name, $page, $page_size, $contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\DatasetFieldsResponse',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 422:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\DatasetFieldsResponse',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation getFieldsFromDatasetV12Async
+	 *
+	 * Get Fields from Dataset (v1.2)
+	 *
+	 * @param  string $dataset_name The name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getFieldsFromDatasetV12Async($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV12'][0]) {
+		return $this->getFieldsFromDatasetV12AsyncWithHttpInfo($dataset_name, $page, $page_size, $contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation getFieldsFromDatasetV12AsyncWithHttpInfo
+	 *
+	 * Get Fields from Dataset (v1.2)
+	 *
+	 * @param  string $dataset_name The name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function getFieldsFromDatasetV12AsyncWithHttpInfo($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV12'][0]) {
+		$returnType = '\BhrSdk\Model\DatasetFieldsResponse';
+		$request = $this->getFieldsFromDatasetV12Request($dataset_name, $page, $page_size, $contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'getFieldsFromDatasetV12'
+	 *
+	 * @param  string $dataset_name The name of the dataset to retrieve fields for. Use \&quot;List Datasets (v1.2)\&quot; to discover valid names. (required)
+	 * @param  int|null $page The page number to retrieve. Defaults to 1. (optional, default to 1)
+	 * @param  int|null $page_size The number of records to retrieve per page. Defaults to 500. Maximum is 1000. (optional, default to 500)
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getFieldsFromDatasetV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getFieldsFromDatasetV12Request($dataset_name, $page = 1, $page_size = 500, string $contentType = self::CONTENT_TYPES['getFieldsFromDatasetV12'][0]) {
+		// PHP 8.0+ only
+		ApiHelper::validateRequiredParameters(
+			params: [
+				'dataset_name' => $dataset_name,
+			],
+			methodName: 'getFieldsFromDatasetV12'
+		);
+
+		if ($page !== null && $page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page" when calling DatasetsApi.getFieldsFromDatasetV12, must be bigger than or equal to 1.');
+		}
+		
+		if ($page_size !== null && $page_size > 1000) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling DatasetsApi.getFieldsFromDatasetV12, must be smaller than or equal to 1000.');
+		}
+		if ($page_size !== null && $page_size < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page_size" when calling DatasetsApi.getFieldsFromDatasetV12, must be bigger than or equal to 1.');
+		}
+		
+		$resourcePath = '/api/v1_2/datasets/{datasetName}/fields';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$parameters = [
+			'page' => ['value' => $page, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+			'page_size' => ['value' => $page_size, 'type' => 'integer', 'required' => false, 'style' => 'form', 'explode' => true],
+		];
+
+		// Process parameters and build query values directly
+		$queryParams = [];
+
+		foreach ($parameters as $paramName => $config) {
+			$value = ObjectSerializer::toQueryValue($config['value'], $paramName, $config['type'], $config['style'], $config['explode'], $config['required']);
+			
+			if ($value !== null) {
+				// Merge each parameter value directly into queryParams
+				$queryParams = array_merge($queryParams, $value);
+			}
+		}
+
+		// path params
+		if ($dataset_name !== null) {
+			$resourcePath = str_replace(
+				'{' . 'datasetName' . '}',
+				ObjectSerializer::toPathValue((string) $dataset_name),
+				$resourcePath
+			);
+		}
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/problem+json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listDatasetsV1
+	 *
+	 * List Datasets (v1)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV1'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\DatasetResponseV1
+	 * @deprecated
+	 */
+	public function listDatasetsV1(string $contentType = self::CONTENT_TYPES['listDatasetsV1'][0]) {
+		list($response) = $this->listDatasetsV1WithHttpInfo($contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listDatasetsV1WithHttpInfo
+	 *
+	 * List Datasets (v1)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV1'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\DatasetResponseV1, HTTP status code, HTTP response headers (array of strings)
+	 * @deprecated
+	 */
+	public function listDatasetsV1WithHttpInfo(string $contentType = self::CONTENT_TYPES['listDatasetsV1'][0]) {
+		$request = $this->listDatasetsV1Request($contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\DatasetResponseV1',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\DatasetResponseV1',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listDatasetsV1Async
+	 *
+	 * List Datasets (v1)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV1'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
+	 */
+	public function listDatasetsV1Async(string $contentType = self::CONTENT_TYPES['listDatasetsV1'][0]) {
+		return $this->listDatasetsV1AsyncWithHttpInfo($contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listDatasetsV1AsyncWithHttpInfo
+	 *
+	 * List Datasets (v1)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV1'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 * @deprecated
+	 */
+	public function listDatasetsV1AsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listDatasetsV1'][0]) {
+		$returnType = '\BhrSdk\Model\DatasetResponseV1';
+		$request = $this->listDatasetsV1Request($contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listDatasetsV1'
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV1'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 * @deprecated
+	 */
+	public function listDatasetsV1Request(string $contentType = self::CONTENT_TYPES['listDatasetsV1'][0]) {
+
+		$resourcePath = '/api/v1/datasets';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', ],
+			$contentType,
+			$multipart
+		);
+
+		// Authentication methods
+		
+		// Basic authentication
+		if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+			$this->logger?->info('Using Basic authentication');	
+			$headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+		}
+		
+		// OAuth/Bearer authentication
+		if (!empty($this->config->getAccessToken())) {
+			$this->logger?->info('Using Bearer authentication');
+			$headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		}
+
+		$defaultHeaders = [];
+		if ($this->config->getUserAgent()) {
+			$this->logger?->debug('Using User-Agent: ' . $this->config->getUserAgent());	
+			$defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+		}
+
+		$headers = array_merge(
+			$defaultHeaders,
+			$headerParams,
+			$headers
+		);
+		
+		// Special handling for accept_header_parameter to set the Accept header directly
+		/** @phpstan-ignore-next-line */
+		if (isset($accept_header_parameter) && $accept_header_parameter !== null) {
+			$this->logger?->debug('Overriding Accept header: ' . $accept_header_parameter);
+			/** @phpstan-ignore-next-line */
+			$headers['Accept'] = ObjectSerializer::toHeaderValue($accept_header_parameter);
+		}
+
+		$operationHost = $this->config->getHost();
+		$query = ObjectSerializer::buildQuery($queryParams);
+		return new Request(
+			'GET',
+			$operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+			$headers,
+			is_string($httpBody) ? $httpBody : (string)$httpBody
+		);
+	}
+
+	/**
+	 * Operation listDatasetsV12
+	 *
+	 * List Datasets (v1.2)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV12'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \BhrSdk\Model\DatasetsResponseV12|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse
+	 */
+	public function listDatasetsV12(string $contentType = self::CONTENT_TYPES['listDatasetsV12'][0]) {
+		list($response) = $this->listDatasetsV12WithHttpInfo($contentType);
+		return $response;
+	}
+
+	/**
+	 * Operation listDatasetsV12WithHttpInfo
+	 *
+	 * List Datasets (v1.2)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV12'] to see the possible values for this operation
+	 *
+	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return array of \BhrSdk\Model\DatasetsResponseV12|\BhrSdk\Model\ProblemDetailsResponse|\BhrSdk\Model\ProblemDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+	 */
+	public function listDatasetsV12WithHttpInfo(string $contentType = self::CONTENT_TYPES['listDatasetsV12'][0]) {
+		$request = $this->listDatasetsV12Request($contentType);
+		$options = ApiHelper::createHttpClientOption($this->config);
+		
+		// Send request with retry support for timeout errors
+		$response = ApiHelper::sendRequestWithRetries($this->logger, $this->client, $this->config, $request, $options);
+
+		$statusCode = $response->getStatusCode();
+
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\DatasetsResponseV12',
+					$request,
+					$response,
+				);
+			case 403:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+			case 500:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\ProblemDetailsResponse',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		return ApiHelper::handleResponseWithDataType(
+			'\BhrSdk\Model\DatasetsResponseV12',
+			$request,
+			$response,
+		);
+	}
+
+	/**
+	 * Operation listDatasetsV12Async
+	 *
+	 * List Datasets (v1.2)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listDatasetsV12Async(string $contentType = self::CONTENT_TYPES['listDatasetsV12'][0]) {
+		return $this->listDatasetsV12AsyncWithHttpInfo($contentType)
+			->then(
+				function ($response) {
+					return $response[0];
+				}
+			);
+	}
+
+	/**
+	 * Operation listDatasetsV12AsyncWithHttpInfo
+	 *
+	 * List Datasets (v1.2)
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Promise\PromiseInterface
+	 */
+	public function listDatasetsV12AsyncWithHttpInfo(string $contentType = self::CONTENT_TYPES['listDatasetsV12'][0]) {
+		$returnType = '\BhrSdk\Model\DatasetsResponseV12';
+		$request = $this->listDatasetsV12Request($contentType);
+
+		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
+			->then(
+				function ($response) use ($returnType) {
+					$content = (string) $response->getBody();
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
+
+					return [
+						ObjectSerializer::deserialize($content, $returnType, []),
+						$response->getStatusCode(),
+						$response->getHeaders()
+					];
+				},
+				function ($exception) {
+					$response = $exception->getResponse();
+					$statusCode = $response->getStatusCode();
+					throw new ApiException(
+						sprintf(
+							'[%d] Error connecting to the API (%s)',
+							$statusCode,
+							$exception->getRequest()->getUri()
+						),
+						$statusCode,
+						$response->getHeaders(),
+						(string) $response->getBody()
+					);
+				}
+			);
+	}
+
+	/**
+	 * Create request for operation 'listDatasetsV12'
+	 *
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listDatasetsV12'] to see the possible values for this operation
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function listDatasetsV12Request(string $contentType = self::CONTENT_TYPES['listDatasetsV12'][0]) {
+
+		$resourcePath = '/api/v1_2/datasets';
+		$this->logger?->info('Request method: [GET], URL: ' . $resourcePath);
+		
+		$queryParams = [];
+		$headerParams = [];
+		$httpBody = '';
+		$multipart = false;
+
+		$headers = $this->headerSelector->selectHeaders(
+			['application/json', 'application/problem+json', ],
 			$contentType,
 			$multipart
 		);

@@ -312,7 +312,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets limit
 	 *
-	 * @param int $limit Maximum number of items per page
+	 * @param int $limit limit
 	 *
 	 * @return self
 	 */
@@ -343,7 +343,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets next_cursor
 	 *
-	 * @param string $next_cursor Cursor for the next page of results, null if no more pages. This should be used with the after pagination parameter.
+	 * @param string $next_cursor next_cursor
 	 *
 	 * @return self
 	 */
@@ -374,7 +374,7 @@ class CursorPagesResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets prev_cursor
 	 *
-	 * @param string $prev_cursor Cursor for the previous page of results, null if on first page. This should be used with the before pagination parameter.
+	 * @param string $prev_cursor prev_cursor
 	 *
 	 * @return self
 	 */

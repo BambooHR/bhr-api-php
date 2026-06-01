@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * GetEmployeesFilterRequestObject Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Filter criteria for the employee list endpoint, supplied as &#x60;filter[fieldName]&#x3D;value&#x60; query parameters. All filter fields are optional, and multiple fields are combined with AND logic.  Three matching strategies are used depending on the field:  - **Substring** (case-insensitive &#x60;LIKE&#x60;) — applied to free-text fields such as names, addresses, social URLs, and free-form labels. - **Equality** — applied to IDs (integer), enumerated string values, booleans (&#x60;true&#x60;/&#x60;false&#x60;), numeric values, and ISO 8601 dates (&#x60;YYYY-MM-DD&#x60;). - **Special** — &#x60;ids&#x60; accepts a list of employee IDs (&#x60;filter[ids][]&#x3D;123&amp;filter[ids][]&#x3D;124&#x60; or &#x60;filter[ids]&#x3D;123,124&#x60;).  Filtering is **not supported** for the following fields and will return a 422: &#x60;bestEmail&#x60;, &#x60;ein&#x60;, &#x60;genderIdentity&#x60;, &#x60;genderIdentityId&#x60;, &#x60;nationalId&#x60;, &#x60;nin&#x60;, &#x60;overtime&#x60;, &#x60;overtimeRate&#x60;, &#x60;payRate&#x60;, &#x60;sin&#x60;, &#x60;ssn&#x60;, &#x60;teams&#x60;, &#x60;userId&#x60;, &#x60;veteranStatus&#x60;, &#x60;veteranStatusId&#x60;. Any unrecognized filter key will also return a 422.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,6 +58,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
+		'address_line1' => 'string',
+		'address_line2' => 'string',
+		'allergies' => 'string',
+		'birthplace' => 'string',
+		'citizenship' => 'string',
+		'city' => 'string',
+		'compensation_change_reason' => 'string',
+		'compensation_comment' => 'string',
+		'country' => 'string',
+		'department_name' => 'string',
+		'dietary_restrictions' => 'string',
+		'display_name' => 'string',
+		'division_name' => 'string',
+		'eeo_job_category' => 'string',
+		'eligible_for_rehire' => 'string',
+		'employee_name' => 'string',
+		'employee_number' => 'string',
+		'employment_status_name' => 'string',
+		'employment_status_comment' => 'string',
+		'employment_type' => 'string',
+		'ethnicity' => 'string',
+		'facebook_url' => 'string',
+		'first_name_last_name' => 'string',
+		'first_name_middle_initial' => 'string',
+		'flsa_code' => 'string',
+		'home_email' => 'string',
+		'home_phone' => 'string',
+		'instagram_url' => 'string',
+		'jacket_size' => 'string',
+		'linkedin_url' => 'string',
+		'location_name' => 'string',
+		'marital_status' => 'string',
+		'middle_initial' => 'string',
+		'middle_name' => 'string',
+		'mobile_phone' => 'string',
+		'national_insurance_category' => 'string',
+		'nationality' => 'string',
+		'nick_name' => 'string',
+		'notice_period' => 'string',
+		'pay_schedule' => 'string',
+		'pinterest_url' => 'string',
+		'preferred_name_last_name' => 'string',
+		'pronouns' => 'string',
+		'reports_to_name' => 'string',
+		'secondary_language' => 'string',
+		'shirt_size' => 'string',
+		'skype_username' => 'string',
+		'state' => 'string',
+		'termination_reason' => 'string',
+		'termination_regrettable' => 'string',
+		'termination_type' => 'string',
+		't_shirt_size' => 'string',
+		'twitter_url' => 'string',
+		'vaccination_status' => 'string',
+		'vaccine_received' => 'string',
+		'work_email' => 'string',
+		'work_phone' => 'string',
+		'work_phone_extension' => 'string',
+		'zipcode' => 'string',
+		'gender' => 'string',
+		'paid_per' => 'string',
+		'pay_type' => 'string',
+		'citizenship_id' => 'int',
+		'compensation_change_reason_id' => 'int',
+		'country_id' => 'int',
+		'department_id' => 'int',
+		'division_id' => 'int',
+		'eeo_job_category_id' => 'int',
+		'eligible_for_rehire_id' => 'int',
+		'employment_status_id' => 'int',
+		'employment_type_id' => 'int',
+		'ethnicity_id' => 'int',
+		'flsa_code_id' => 'int',
+		'jacket_size_id' => 'int',
+		'job_title_id' => 'int',
+		'location_id' => 'int',
+		'national_insurance_category_id' => 'int',
+		'nationality_id' => 'int',
+		'notice_period_id' => 'int',
+		'pay_schedule_id' => 'int',
+		'pronouns_id' => 'int',
+		'reports_to_id' => 'int',
+		'shirt_size_id' => 'int',
+		'state_id' => 'int',
+		'tax_type_id' => 'int',
+		'termination_reason_id' => 'int',
+		'termination_regrettable_id' => 'int',
+		'termination_type_id' => 'int',
+		't_shirt_size_id' => 'int',
+		'vaccination_status_id' => 'int',
+		'vaccine_received_id' => 'int',
+		'is_manager' => 'bool',
+		'proof_of_vaccination' => 'bool',
+		'age' => 'float',
+		'tenure' => 'float',
+		'hours_per_pay_cycle' => 'float',
+		'birth_date' => '\DateTime',
+		'compensation_effective_date' => '\DateTime',
+		'compensation_end_date' => '\DateTime',
+		'contract_end_date' => '\DateTime',
+		'employment_status_effective_date' => '\DateTime',
+		'final_dose_administration_date' => '\DateTime',
+		'final_pay_date' => '\DateTime',
+		'hire_date' => '\DateTime',
+		'job_information_effective_date' => '\DateTime',
+		'original_hire_date' => '\DateTime',
+		'probation_end_date' => '\DateTime',
+		'termination_date' => '\DateTime',
 		'first_name' => 'string',
 		'last_name' => 'string',
 		'job_title_name' => 'string',
@@ -73,6 +181,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
+		'address_line1' => null,
+		'address_line2' => null,
+		'allergies' => null,
+		'birthplace' => null,
+		'citizenship' => null,
+		'city' => null,
+		'compensation_change_reason' => null,
+		'compensation_comment' => null,
+		'country' => null,
+		'department_name' => null,
+		'dietary_restrictions' => null,
+		'display_name' => null,
+		'division_name' => null,
+		'eeo_job_category' => null,
+		'eligible_for_rehire' => null,
+		'employee_name' => null,
+		'employee_number' => null,
+		'employment_status_name' => null,
+		'employment_status_comment' => null,
+		'employment_type' => null,
+		'ethnicity' => null,
+		'facebook_url' => null,
+		'first_name_last_name' => null,
+		'first_name_middle_initial' => null,
+		'flsa_code' => null,
+		'home_email' => null,
+		'home_phone' => null,
+		'instagram_url' => null,
+		'jacket_size' => null,
+		'linkedin_url' => null,
+		'location_name' => null,
+		'marital_status' => null,
+		'middle_initial' => null,
+		'middle_name' => null,
+		'mobile_phone' => null,
+		'national_insurance_category' => null,
+		'nationality' => null,
+		'nick_name' => null,
+		'notice_period' => null,
+		'pay_schedule' => null,
+		'pinterest_url' => null,
+		'preferred_name_last_name' => null,
+		'pronouns' => null,
+		'reports_to_name' => null,
+		'secondary_language' => null,
+		'shirt_size' => null,
+		'skype_username' => null,
+		'state' => null,
+		'termination_reason' => null,
+		'termination_regrettable' => null,
+		'termination_type' => null,
+		't_shirt_size' => null,
+		'twitter_url' => null,
+		'vaccination_status' => null,
+		'vaccine_received' => null,
+		'work_email' => null,
+		'work_phone' => null,
+		'work_phone_extension' => null,
+		'zipcode' => null,
+		'gender' => null,
+		'paid_per' => null,
+		'pay_type' => null,
+		'citizenship_id' => null,
+		'compensation_change_reason_id' => null,
+		'country_id' => null,
+		'department_id' => null,
+		'division_id' => null,
+		'eeo_job_category_id' => null,
+		'eligible_for_rehire_id' => null,
+		'employment_status_id' => null,
+		'employment_type_id' => null,
+		'ethnicity_id' => null,
+		'flsa_code_id' => null,
+		'jacket_size_id' => null,
+		'job_title_id' => null,
+		'location_id' => null,
+		'national_insurance_category_id' => null,
+		'nationality_id' => null,
+		'notice_period_id' => null,
+		'pay_schedule_id' => null,
+		'pronouns_id' => null,
+		'reports_to_id' => null,
+		'shirt_size_id' => null,
+		'state_id' => null,
+		'tax_type_id' => null,
+		'termination_reason_id' => null,
+		'termination_regrettable_id' => null,
+		'termination_type_id' => null,
+		't_shirt_size_id' => null,
+		'vaccination_status_id' => null,
+		'vaccine_received_id' => null,
+		'is_manager' => null,
+		'proof_of_vaccination' => null,
+		'age' => null,
+		'tenure' => null,
+		'hours_per_pay_cycle' => null,
+		'birth_date' => 'date',
+		'compensation_effective_date' => 'date',
+		'compensation_end_date' => 'date',
+		'contract_end_date' => 'date',
+		'employment_status_effective_date' => 'date',
+		'final_dose_administration_date' => 'date',
+		'final_pay_date' => 'date',
+		'hire_date' => 'date',
+		'job_information_effective_date' => 'date',
+		'original_hire_date' => 'date',
+		'probation_end_date' => 'date',
+		'termination_date' => 'date',
 		'first_name' => null,
 		'last_name' => null,
 		'job_title_name' => null,
@@ -87,6 +303,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	  * @phpstan-var array<string, bool>
 	  */
 	protected static array $openApiNullables = [
+		'address_line1' => false,
+		'address_line2' => false,
+		'allergies' => false,
+		'birthplace' => false,
+		'citizenship' => false,
+		'city' => false,
+		'compensation_change_reason' => false,
+		'compensation_comment' => false,
+		'country' => false,
+		'department_name' => false,
+		'dietary_restrictions' => false,
+		'display_name' => false,
+		'division_name' => false,
+		'eeo_job_category' => false,
+		'eligible_for_rehire' => false,
+		'employee_name' => false,
+		'employee_number' => false,
+		'employment_status_name' => false,
+		'employment_status_comment' => false,
+		'employment_type' => false,
+		'ethnicity' => false,
+		'facebook_url' => false,
+		'first_name_last_name' => false,
+		'first_name_middle_initial' => false,
+		'flsa_code' => false,
+		'home_email' => false,
+		'home_phone' => false,
+		'instagram_url' => false,
+		'jacket_size' => false,
+		'linkedin_url' => false,
+		'location_name' => false,
+		'marital_status' => false,
+		'middle_initial' => false,
+		'middle_name' => false,
+		'mobile_phone' => false,
+		'national_insurance_category' => false,
+		'nationality' => false,
+		'nick_name' => false,
+		'notice_period' => false,
+		'pay_schedule' => false,
+		'pinterest_url' => false,
+		'preferred_name_last_name' => false,
+		'pronouns' => false,
+		'reports_to_name' => false,
+		'secondary_language' => false,
+		'shirt_size' => false,
+		'skype_username' => false,
+		'state' => false,
+		'termination_reason' => false,
+		'termination_regrettable' => false,
+		'termination_type' => false,
+		't_shirt_size' => false,
+		'twitter_url' => false,
+		'vaccination_status' => false,
+		'vaccine_received' => false,
+		'work_email' => false,
+		'work_phone' => false,
+		'work_phone_extension' => false,
+		'zipcode' => false,
+		'gender' => false,
+		'paid_per' => false,
+		'pay_type' => false,
+		'citizenship_id' => false,
+		'compensation_change_reason_id' => false,
+		'country_id' => false,
+		'department_id' => false,
+		'division_id' => false,
+		'eeo_job_category_id' => false,
+		'eligible_for_rehire_id' => false,
+		'employment_status_id' => false,
+		'employment_type_id' => false,
+		'ethnicity_id' => false,
+		'flsa_code_id' => false,
+		'jacket_size_id' => false,
+		'job_title_id' => false,
+		'location_id' => false,
+		'national_insurance_category_id' => false,
+		'nationality_id' => false,
+		'notice_period_id' => false,
+		'pay_schedule_id' => false,
+		'pronouns_id' => false,
+		'reports_to_id' => false,
+		'shirt_size_id' => false,
+		'state_id' => false,
+		'tax_type_id' => false,
+		'termination_reason_id' => false,
+		'termination_regrettable_id' => false,
+		'termination_type_id' => false,
+		't_shirt_size_id' => false,
+		'vaccination_status_id' => false,
+		'vaccine_received_id' => false,
+		'is_manager' => false,
+		'proof_of_vaccination' => false,
+		'age' => false,
+		'tenure' => false,
+		'hours_per_pay_cycle' => false,
+		'birth_date' => false,
+		'compensation_effective_date' => false,
+		'compensation_end_date' => false,
+		'contract_end_date' => false,
+		'employment_status_effective_date' => false,
+		'final_dose_administration_date' => false,
+		'final_pay_date' => false,
+		'hire_date' => false,
+		'job_information_effective_date' => false,
+		'original_hire_date' => false,
+		'probation_end_date' => false,
+		'termination_date' => false,
 		'first_name' => false,
 		'last_name' => false,
 		'job_title_name' => false,
@@ -176,6 +500,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	 * @var string[]
 	 */
 	protected static $attributeMap = [
+		'address_line1' => 'addressLine1',
+		'address_line2' => 'addressLine2',
+		'allergies' => 'allergies',
+		'birthplace' => 'birthplace',
+		'citizenship' => 'citizenship',
+		'city' => 'city',
+		'compensation_change_reason' => 'compensationChangeReason',
+		'compensation_comment' => 'compensationComment',
+		'country' => 'country',
+		'department_name' => 'departmentName',
+		'dietary_restrictions' => 'dietaryRestrictions',
+		'display_name' => 'displayName',
+		'division_name' => 'divisionName',
+		'eeo_job_category' => 'eeoJobCategory',
+		'eligible_for_rehire' => 'eligibleForRehire',
+		'employee_name' => 'employeeName',
+		'employee_number' => 'employeeNumber',
+		'employment_status_name' => 'employmentStatusName',
+		'employment_status_comment' => 'employmentStatusComment',
+		'employment_type' => 'employmentType',
+		'ethnicity' => 'ethnicity',
+		'facebook_url' => 'facebookUrl',
+		'first_name_last_name' => 'firstNameLastName',
+		'first_name_middle_initial' => 'firstNameMiddleInitial',
+		'flsa_code' => 'flsaCode',
+		'home_email' => 'homeEmail',
+		'home_phone' => 'homePhone',
+		'instagram_url' => 'instagramUrl',
+		'jacket_size' => 'jacketSize',
+		'linkedin_url' => 'linkedinUrl',
+		'location_name' => 'locationName',
+		'marital_status' => 'maritalStatus',
+		'middle_initial' => 'middleInitial',
+		'middle_name' => 'middleName',
+		'mobile_phone' => 'mobilePhone',
+		'national_insurance_category' => 'nationalInsuranceCategory',
+		'nationality' => 'nationality',
+		'nick_name' => 'nickName',
+		'notice_period' => 'noticePeriod',
+		'pay_schedule' => 'paySchedule',
+		'pinterest_url' => 'pinterestUrl',
+		'preferred_name_last_name' => 'preferredNameLastName',
+		'pronouns' => 'pronouns',
+		'reports_to_name' => 'reportsToName',
+		'secondary_language' => 'secondaryLanguage',
+		'shirt_size' => 'shirtSize',
+		'skype_username' => 'skypeUsername',
+		'state' => 'state',
+		'termination_reason' => 'terminationReason',
+		'termination_regrettable' => 'terminationRegrettable',
+		'termination_type' => 'terminationType',
+		't_shirt_size' => 'tShirtSize',
+		'twitter_url' => 'twitterUrl',
+		'vaccination_status' => 'vaccinationStatus',
+		'vaccine_received' => 'vaccineReceived',
+		'work_email' => 'workEmail',
+		'work_phone' => 'workPhone',
+		'work_phone_extension' => 'workPhoneExtension',
+		'zipcode' => 'zipcode',
+		'gender' => 'gender',
+		'paid_per' => 'paidPer',
+		'pay_type' => 'payType',
+		'citizenship_id' => 'citizenshipId',
+		'compensation_change_reason_id' => 'compensationChangeReasonId',
+		'country_id' => 'countryId',
+		'department_id' => 'departmentId',
+		'division_id' => 'divisionId',
+		'eeo_job_category_id' => 'eeoJobCategoryId',
+		'eligible_for_rehire_id' => 'eligibleForRehireId',
+		'employment_status_id' => 'employmentStatusId',
+		'employment_type_id' => 'employmentTypeId',
+		'ethnicity_id' => 'ethnicityId',
+		'flsa_code_id' => 'flsaCodeId',
+		'jacket_size_id' => 'jacketSizeId',
+		'job_title_id' => 'jobTitleId',
+		'location_id' => 'locationId',
+		'national_insurance_category_id' => 'nationalInsuranceCategoryId',
+		'nationality_id' => 'nationalityId',
+		'notice_period_id' => 'noticePeriodId',
+		'pay_schedule_id' => 'payScheduleId',
+		'pronouns_id' => 'pronounsId',
+		'reports_to_id' => 'reportsToId',
+		'shirt_size_id' => 'shirtSizeId',
+		'state_id' => 'stateId',
+		'tax_type_id' => 'taxTypeId',
+		'termination_reason_id' => 'terminationReasonId',
+		'termination_regrettable_id' => 'terminationRegrettableId',
+		'termination_type_id' => 'terminationTypeId',
+		't_shirt_size_id' => 'tShirtSizeId',
+		'vaccination_status_id' => 'vaccinationStatusId',
+		'vaccine_received_id' => 'vaccineReceivedId',
+		'is_manager' => 'isManager',
+		'proof_of_vaccination' => 'proofOfVaccination',
+		'age' => 'age',
+		'tenure' => 'tenure',
+		'hours_per_pay_cycle' => 'hoursPerPayCycle',
+		'birth_date' => 'birthDate',
+		'compensation_effective_date' => 'compensationEffectiveDate',
+		'compensation_end_date' => 'compensationEndDate',
+		'contract_end_date' => 'contractEndDate',
+		'employment_status_effective_date' => 'employmentStatusEffectiveDate',
+		'final_dose_administration_date' => 'finalDoseAdministrationDate',
+		'final_pay_date' => 'finalPayDate',
+		'hire_date' => 'hireDate',
+		'job_information_effective_date' => 'jobInformationEffectiveDate',
+		'original_hire_date' => 'originalHireDate',
+		'probation_end_date' => 'probationEndDate',
+		'termination_date' => 'terminationDate',
 		'first_name' => 'firstName',
 		'last_name' => 'lastName',
 		'job_title_name' => 'jobTitleName',
@@ -189,6 +621,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	 * @var string[]
 	 */
 	protected static $setters = [
+		'address_line1' => 'setAddressLine1',
+		'address_line2' => 'setAddressLine2',
+		'allergies' => 'setAllergies',
+		'birthplace' => 'setBirthplace',
+		'citizenship' => 'setCitizenship',
+		'city' => 'setCity',
+		'compensation_change_reason' => 'setCompensationChangeReason',
+		'compensation_comment' => 'setCompensationComment',
+		'country' => 'setCountry',
+		'department_name' => 'setDepartmentName',
+		'dietary_restrictions' => 'setDietaryRestrictions',
+		'display_name' => 'setDisplayName',
+		'division_name' => 'setDivisionName',
+		'eeo_job_category' => 'setEeoJobCategory',
+		'eligible_for_rehire' => 'setEligibleForRehire',
+		'employee_name' => 'setEmployeeName',
+		'employee_number' => 'setEmployeeNumber',
+		'employment_status_name' => 'setEmploymentStatusName',
+		'employment_status_comment' => 'setEmploymentStatusComment',
+		'employment_type' => 'setEmploymentType',
+		'ethnicity' => 'setEthnicity',
+		'facebook_url' => 'setFacebookUrl',
+		'first_name_last_name' => 'setFirstNameLastName',
+		'first_name_middle_initial' => 'setFirstNameMiddleInitial',
+		'flsa_code' => 'setFlsaCode',
+		'home_email' => 'setHomeEmail',
+		'home_phone' => 'setHomePhone',
+		'instagram_url' => 'setInstagramUrl',
+		'jacket_size' => 'setJacketSize',
+		'linkedin_url' => 'setLinkedinUrl',
+		'location_name' => 'setLocationName',
+		'marital_status' => 'setMaritalStatus',
+		'middle_initial' => 'setMiddleInitial',
+		'middle_name' => 'setMiddleName',
+		'mobile_phone' => 'setMobilePhone',
+		'national_insurance_category' => 'setNationalInsuranceCategory',
+		'nationality' => 'setNationality',
+		'nick_name' => 'setNickName',
+		'notice_period' => 'setNoticePeriod',
+		'pay_schedule' => 'setPaySchedule',
+		'pinterest_url' => 'setPinterestUrl',
+		'preferred_name_last_name' => 'setPreferredNameLastName',
+		'pronouns' => 'setPronouns',
+		'reports_to_name' => 'setReportsToName',
+		'secondary_language' => 'setSecondaryLanguage',
+		'shirt_size' => 'setShirtSize',
+		'skype_username' => 'setSkypeUsername',
+		'state' => 'setState',
+		'termination_reason' => 'setTerminationReason',
+		'termination_regrettable' => 'setTerminationRegrettable',
+		'termination_type' => 'setTerminationType',
+		't_shirt_size' => 'setTShirtSize',
+		'twitter_url' => 'setTwitterUrl',
+		'vaccination_status' => 'setVaccinationStatus',
+		'vaccine_received' => 'setVaccineReceived',
+		'work_email' => 'setWorkEmail',
+		'work_phone' => 'setWorkPhone',
+		'work_phone_extension' => 'setWorkPhoneExtension',
+		'zipcode' => 'setZipcode',
+		'gender' => 'setGender',
+		'paid_per' => 'setPaidPer',
+		'pay_type' => 'setPayType',
+		'citizenship_id' => 'setCitizenshipId',
+		'compensation_change_reason_id' => 'setCompensationChangeReasonId',
+		'country_id' => 'setCountryId',
+		'department_id' => 'setDepartmentId',
+		'division_id' => 'setDivisionId',
+		'eeo_job_category_id' => 'setEeoJobCategoryId',
+		'eligible_for_rehire_id' => 'setEligibleForRehireId',
+		'employment_status_id' => 'setEmploymentStatusId',
+		'employment_type_id' => 'setEmploymentTypeId',
+		'ethnicity_id' => 'setEthnicityId',
+		'flsa_code_id' => 'setFlsaCodeId',
+		'jacket_size_id' => 'setJacketSizeId',
+		'job_title_id' => 'setJobTitleId',
+		'location_id' => 'setLocationId',
+		'national_insurance_category_id' => 'setNationalInsuranceCategoryId',
+		'nationality_id' => 'setNationalityId',
+		'notice_period_id' => 'setNoticePeriodId',
+		'pay_schedule_id' => 'setPayScheduleId',
+		'pronouns_id' => 'setPronounsId',
+		'reports_to_id' => 'setReportsToId',
+		'shirt_size_id' => 'setShirtSizeId',
+		'state_id' => 'setStateId',
+		'tax_type_id' => 'setTaxTypeId',
+		'termination_reason_id' => 'setTerminationReasonId',
+		'termination_regrettable_id' => 'setTerminationRegrettableId',
+		'termination_type_id' => 'setTerminationTypeId',
+		't_shirt_size_id' => 'setTShirtSizeId',
+		'vaccination_status_id' => 'setVaccinationStatusId',
+		'vaccine_received_id' => 'setVaccineReceivedId',
+		'is_manager' => 'setIsManager',
+		'proof_of_vaccination' => 'setProofOfVaccination',
+		'age' => 'setAge',
+		'tenure' => 'setTenure',
+		'hours_per_pay_cycle' => 'setHoursPerPayCycle',
+		'birth_date' => 'setBirthDate',
+		'compensation_effective_date' => 'setCompensationEffectiveDate',
+		'compensation_end_date' => 'setCompensationEndDate',
+		'contract_end_date' => 'setContractEndDate',
+		'employment_status_effective_date' => 'setEmploymentStatusEffectiveDate',
+		'final_dose_administration_date' => 'setFinalDoseAdministrationDate',
+		'final_pay_date' => 'setFinalPayDate',
+		'hire_date' => 'setHireDate',
+		'job_information_effective_date' => 'setJobInformationEffectiveDate',
+		'original_hire_date' => 'setOriginalHireDate',
+		'probation_end_date' => 'setProbationEndDate',
+		'termination_date' => 'setTerminationDate',
 		'first_name' => 'setFirstName',
 		'last_name' => 'setLastName',
 		'job_title_name' => 'setJobTitleName',
@@ -202,6 +742,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	 * @var string[]
 	 */
 	protected static $getters = [
+		'address_line1' => 'getAddressLine1',
+		'address_line2' => 'getAddressLine2',
+		'allergies' => 'getAllergies',
+		'birthplace' => 'getBirthplace',
+		'citizenship' => 'getCitizenship',
+		'city' => 'getCity',
+		'compensation_change_reason' => 'getCompensationChangeReason',
+		'compensation_comment' => 'getCompensationComment',
+		'country' => 'getCountry',
+		'department_name' => 'getDepartmentName',
+		'dietary_restrictions' => 'getDietaryRestrictions',
+		'display_name' => 'getDisplayName',
+		'division_name' => 'getDivisionName',
+		'eeo_job_category' => 'getEeoJobCategory',
+		'eligible_for_rehire' => 'getEligibleForRehire',
+		'employee_name' => 'getEmployeeName',
+		'employee_number' => 'getEmployeeNumber',
+		'employment_status_name' => 'getEmploymentStatusName',
+		'employment_status_comment' => 'getEmploymentStatusComment',
+		'employment_type' => 'getEmploymentType',
+		'ethnicity' => 'getEthnicity',
+		'facebook_url' => 'getFacebookUrl',
+		'first_name_last_name' => 'getFirstNameLastName',
+		'first_name_middle_initial' => 'getFirstNameMiddleInitial',
+		'flsa_code' => 'getFlsaCode',
+		'home_email' => 'getHomeEmail',
+		'home_phone' => 'getHomePhone',
+		'instagram_url' => 'getInstagramUrl',
+		'jacket_size' => 'getJacketSize',
+		'linkedin_url' => 'getLinkedinUrl',
+		'location_name' => 'getLocationName',
+		'marital_status' => 'getMaritalStatus',
+		'middle_initial' => 'getMiddleInitial',
+		'middle_name' => 'getMiddleName',
+		'mobile_phone' => 'getMobilePhone',
+		'national_insurance_category' => 'getNationalInsuranceCategory',
+		'nationality' => 'getNationality',
+		'nick_name' => 'getNickName',
+		'notice_period' => 'getNoticePeriod',
+		'pay_schedule' => 'getPaySchedule',
+		'pinterest_url' => 'getPinterestUrl',
+		'preferred_name_last_name' => 'getPreferredNameLastName',
+		'pronouns' => 'getPronouns',
+		'reports_to_name' => 'getReportsToName',
+		'secondary_language' => 'getSecondaryLanguage',
+		'shirt_size' => 'getShirtSize',
+		'skype_username' => 'getSkypeUsername',
+		'state' => 'getState',
+		'termination_reason' => 'getTerminationReason',
+		'termination_regrettable' => 'getTerminationRegrettable',
+		'termination_type' => 'getTerminationType',
+		't_shirt_size' => 'getTShirtSize',
+		'twitter_url' => 'getTwitterUrl',
+		'vaccination_status' => 'getVaccinationStatus',
+		'vaccine_received' => 'getVaccineReceived',
+		'work_email' => 'getWorkEmail',
+		'work_phone' => 'getWorkPhone',
+		'work_phone_extension' => 'getWorkPhoneExtension',
+		'zipcode' => 'getZipcode',
+		'gender' => 'getGender',
+		'paid_per' => 'getPaidPer',
+		'pay_type' => 'getPayType',
+		'citizenship_id' => 'getCitizenshipId',
+		'compensation_change_reason_id' => 'getCompensationChangeReasonId',
+		'country_id' => 'getCountryId',
+		'department_id' => 'getDepartmentId',
+		'division_id' => 'getDivisionId',
+		'eeo_job_category_id' => 'getEeoJobCategoryId',
+		'eligible_for_rehire_id' => 'getEligibleForRehireId',
+		'employment_status_id' => 'getEmploymentStatusId',
+		'employment_type_id' => 'getEmploymentTypeId',
+		'ethnicity_id' => 'getEthnicityId',
+		'flsa_code_id' => 'getFlsaCodeId',
+		'jacket_size_id' => 'getJacketSizeId',
+		'job_title_id' => 'getJobTitleId',
+		'location_id' => 'getLocationId',
+		'national_insurance_category_id' => 'getNationalInsuranceCategoryId',
+		'nationality_id' => 'getNationalityId',
+		'notice_period_id' => 'getNoticePeriodId',
+		'pay_schedule_id' => 'getPayScheduleId',
+		'pronouns_id' => 'getPronounsId',
+		'reports_to_id' => 'getReportsToId',
+		'shirt_size_id' => 'getShirtSizeId',
+		'state_id' => 'getStateId',
+		'tax_type_id' => 'getTaxTypeId',
+		'termination_reason_id' => 'getTerminationReasonId',
+		'termination_regrettable_id' => 'getTerminationRegrettableId',
+		'termination_type_id' => 'getTerminationTypeId',
+		't_shirt_size_id' => 'getTShirtSizeId',
+		'vaccination_status_id' => 'getVaccinationStatusId',
+		'vaccine_received_id' => 'getVaccineReceivedId',
+		'is_manager' => 'getIsManager',
+		'proof_of_vaccination' => 'getProofOfVaccination',
+		'age' => 'getAge',
+		'tenure' => 'getTenure',
+		'hours_per_pay_cycle' => 'getHoursPerPayCycle',
+		'birth_date' => 'getBirthDate',
+		'compensation_effective_date' => 'getCompensationEffectiveDate',
+		'compensation_end_date' => 'getCompensationEndDate',
+		'contract_end_date' => 'getContractEndDate',
+		'employment_status_effective_date' => 'getEmploymentStatusEffectiveDate',
+		'final_dose_administration_date' => 'getFinalDoseAdministrationDate',
+		'final_pay_date' => 'getFinalPayDate',
+		'hire_date' => 'getHireDate',
+		'job_information_effective_date' => 'getJobInformationEffectiveDate',
+		'original_hire_date' => 'getOriginalHireDate',
+		'probation_end_date' => 'getProbationEndDate',
+		'termination_date' => 'getTerminationDate',
 		'first_name' => 'getFirstName',
 		'last_name' => 'getLastName',
 		'job_title_name' => 'getJobTitleName',
@@ -246,8 +894,64 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 		return self::$openApiModelName;
 	}
 
+	public const GENDER_MALE = 'Male';
+	public const GENDER_FEMALE = 'Female';
+	public const GENDER_NON_BINARY = 'Non-Binary';
+	public const PAID_PER_DAY = 'Day';
+	public const PAID_PER_WEEK = 'Week';
+	public const PAID_PER_MONTH = 'Month';
+	public const PAID_PER_QUARTER = 'Quarter';
+	public const PAID_PER_YEAR = 'Year';
+	public const PAID_PER_PAY_PERIOD = 'PayPeriod';
+	public const PAID_PER_PIECE = 'Piece';
+	public const PAY_TYPE_HOURLY = 'Hourly';
+	public const PAY_TYPE_SALARY = 'Salary';
+	public const PAY_TYPE_COMMISSION = 'Commission';
 	public const STATUS_ACTIVE = 'active';
 	public const STATUS_INACTIVE = 'inactive';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getGenderAllowableValues() {
+		return [
+			self::GENDER_MALE,
+			self::GENDER_FEMALE,
+			self::GENDER_NON_BINARY,
+		];
+	}
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getPaidPerAllowableValues() {
+		return [
+			self::PAID_PER_DAY,
+			self::PAID_PER_WEEK,
+			self::PAID_PER_MONTH,
+			self::PAID_PER_QUARTER,
+			self::PAID_PER_YEAR,
+			self::PAID_PER_PAY_PERIOD,
+			self::PAID_PER_PIECE,
+		];
+	}
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getPayTypeAllowableValues() {
+		return [
+			self::PAY_TYPE_HOURLY,
+			self::PAY_TYPE_SALARY,
+			self::PAY_TYPE_COMMISSION,
+		];
+	}
 
 	/**
 	 * Gets allowable values of the enum
@@ -275,6 +979,114 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	 *                           initializing the model
 	 */
 	public function __construct(?array $data = null) {
+		$this->setIfExists('address_line1', $data ?? [], null);
+		$this->setIfExists('address_line2', $data ?? [], null);
+		$this->setIfExists('allergies', $data ?? [], null);
+		$this->setIfExists('birthplace', $data ?? [], null);
+		$this->setIfExists('citizenship', $data ?? [], null);
+		$this->setIfExists('city', $data ?? [], null);
+		$this->setIfExists('compensation_change_reason', $data ?? [], null);
+		$this->setIfExists('compensation_comment', $data ?? [], null);
+		$this->setIfExists('country', $data ?? [], null);
+		$this->setIfExists('department_name', $data ?? [], null);
+		$this->setIfExists('dietary_restrictions', $data ?? [], null);
+		$this->setIfExists('display_name', $data ?? [], null);
+		$this->setIfExists('division_name', $data ?? [], null);
+		$this->setIfExists('eeo_job_category', $data ?? [], null);
+		$this->setIfExists('eligible_for_rehire', $data ?? [], null);
+		$this->setIfExists('employee_name', $data ?? [], null);
+		$this->setIfExists('employee_number', $data ?? [], null);
+		$this->setIfExists('employment_status_name', $data ?? [], null);
+		$this->setIfExists('employment_status_comment', $data ?? [], null);
+		$this->setIfExists('employment_type', $data ?? [], null);
+		$this->setIfExists('ethnicity', $data ?? [], null);
+		$this->setIfExists('facebook_url', $data ?? [], null);
+		$this->setIfExists('first_name_last_name', $data ?? [], null);
+		$this->setIfExists('first_name_middle_initial', $data ?? [], null);
+		$this->setIfExists('flsa_code', $data ?? [], null);
+		$this->setIfExists('home_email', $data ?? [], null);
+		$this->setIfExists('home_phone', $data ?? [], null);
+		$this->setIfExists('instagram_url', $data ?? [], null);
+		$this->setIfExists('jacket_size', $data ?? [], null);
+		$this->setIfExists('linkedin_url', $data ?? [], null);
+		$this->setIfExists('location_name', $data ?? [], null);
+		$this->setIfExists('marital_status', $data ?? [], null);
+		$this->setIfExists('middle_initial', $data ?? [], null);
+		$this->setIfExists('middle_name', $data ?? [], null);
+		$this->setIfExists('mobile_phone', $data ?? [], null);
+		$this->setIfExists('national_insurance_category', $data ?? [], null);
+		$this->setIfExists('nationality', $data ?? [], null);
+		$this->setIfExists('nick_name', $data ?? [], null);
+		$this->setIfExists('notice_period', $data ?? [], null);
+		$this->setIfExists('pay_schedule', $data ?? [], null);
+		$this->setIfExists('pinterest_url', $data ?? [], null);
+		$this->setIfExists('preferred_name_last_name', $data ?? [], null);
+		$this->setIfExists('pronouns', $data ?? [], null);
+		$this->setIfExists('reports_to_name', $data ?? [], null);
+		$this->setIfExists('secondary_language', $data ?? [], null);
+		$this->setIfExists('shirt_size', $data ?? [], null);
+		$this->setIfExists('skype_username', $data ?? [], null);
+		$this->setIfExists('state', $data ?? [], null);
+		$this->setIfExists('termination_reason', $data ?? [], null);
+		$this->setIfExists('termination_regrettable', $data ?? [], null);
+		$this->setIfExists('termination_type', $data ?? [], null);
+		$this->setIfExists('t_shirt_size', $data ?? [], null);
+		$this->setIfExists('twitter_url', $data ?? [], null);
+		$this->setIfExists('vaccination_status', $data ?? [], null);
+		$this->setIfExists('vaccine_received', $data ?? [], null);
+		$this->setIfExists('work_email', $data ?? [], null);
+		$this->setIfExists('work_phone', $data ?? [], null);
+		$this->setIfExists('work_phone_extension', $data ?? [], null);
+		$this->setIfExists('zipcode', $data ?? [], null);
+		$this->setIfExists('gender', $data ?? [], null);
+		$this->setIfExists('paid_per', $data ?? [], null);
+		$this->setIfExists('pay_type', $data ?? [], null);
+		$this->setIfExists('citizenship_id', $data ?? [], null);
+		$this->setIfExists('compensation_change_reason_id', $data ?? [], null);
+		$this->setIfExists('country_id', $data ?? [], null);
+		$this->setIfExists('department_id', $data ?? [], null);
+		$this->setIfExists('division_id', $data ?? [], null);
+		$this->setIfExists('eeo_job_category_id', $data ?? [], null);
+		$this->setIfExists('eligible_for_rehire_id', $data ?? [], null);
+		$this->setIfExists('employment_status_id', $data ?? [], null);
+		$this->setIfExists('employment_type_id', $data ?? [], null);
+		$this->setIfExists('ethnicity_id', $data ?? [], null);
+		$this->setIfExists('flsa_code_id', $data ?? [], null);
+		$this->setIfExists('jacket_size_id', $data ?? [], null);
+		$this->setIfExists('job_title_id', $data ?? [], null);
+		$this->setIfExists('location_id', $data ?? [], null);
+		$this->setIfExists('national_insurance_category_id', $data ?? [], null);
+		$this->setIfExists('nationality_id', $data ?? [], null);
+		$this->setIfExists('notice_period_id', $data ?? [], null);
+		$this->setIfExists('pay_schedule_id', $data ?? [], null);
+		$this->setIfExists('pronouns_id', $data ?? [], null);
+		$this->setIfExists('reports_to_id', $data ?? [], null);
+		$this->setIfExists('shirt_size_id', $data ?? [], null);
+		$this->setIfExists('state_id', $data ?? [], null);
+		$this->setIfExists('tax_type_id', $data ?? [], null);
+		$this->setIfExists('termination_reason_id', $data ?? [], null);
+		$this->setIfExists('termination_regrettable_id', $data ?? [], null);
+		$this->setIfExists('termination_type_id', $data ?? [], null);
+		$this->setIfExists('t_shirt_size_id', $data ?? [], null);
+		$this->setIfExists('vaccination_status_id', $data ?? [], null);
+		$this->setIfExists('vaccine_received_id', $data ?? [], null);
+		$this->setIfExists('is_manager', $data ?? [], null);
+		$this->setIfExists('proof_of_vaccination', $data ?? [], null);
+		$this->setIfExists('age', $data ?? [], null);
+		$this->setIfExists('tenure', $data ?? [], null);
+		$this->setIfExists('hours_per_pay_cycle', $data ?? [], null);
+		$this->setIfExists('birth_date', $data ?? [], null);
+		$this->setIfExists('compensation_effective_date', $data ?? [], null);
+		$this->setIfExists('compensation_end_date', $data ?? [], null);
+		$this->setIfExists('contract_end_date', $data ?? [], null);
+		$this->setIfExists('employment_status_effective_date', $data ?? [], null);
+		$this->setIfExists('final_dose_administration_date', $data ?? [], null);
+		$this->setIfExists('final_pay_date', $data ?? [], null);
+		$this->setIfExists('hire_date', $data ?? [], null);
+		$this->setIfExists('job_information_effective_date', $data ?? [], null);
+		$this->setIfExists('original_hire_date', $data ?? [], null);
+		$this->setIfExists('probation_end_date', $data ?? [], null);
+		$this->setIfExists('termination_date', $data ?? [], null);
 		$this->setIfExists('first_name', $data ?? [], null);
 		$this->setIfExists('last_name', $data ?? [], null);
 		$this->setIfExists('job_title_name', $data ?? [], null);
@@ -307,6 +1119,33 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getGenderAllowableValues();
+		if (!is_null($this->container['gender']) && !in_array($this->container['gender'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'gender', must be one of '%s'",
+				$this->container['gender'],
+				implode("', '", $allowedValues)
+			);
+		}
+
+		$allowedValues = $this->getPaidPerAllowableValues();
+		if (!is_null($this->container['paid_per']) && !in_array($this->container['paid_per'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'paid_per', must be one of '%s'",
+				$this->container['paid_per'],
+				implode("', '", $allowedValues)
+			);
+		}
+
+		$allowedValues = $this->getPayTypeAllowableValues();
+		if (!is_null($this->container['pay_type']) && !in_array($this->container['pay_type'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'pay_type', must be one of '%s'",
+				$this->container['pay_type'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		$allowedValues = $this->getStatusAllowableValues();
 		if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
 			$invalidProperties[] = sprintf(
@@ -327,6 +1166,2736 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	 */
 	public function valid() {
 		return count($this->listInvalidProperties()) === 0;
+	}
+
+	/**
+	 * Gets address_line1
+	 *
+	 * @return string|null
+	 */
+	public function getAddressLine1() {
+		return $this->container['address_line1'];
+	}
+
+	/**
+	 * Sets address_line1
+	 *
+	 * @param string|null $address_line1 Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setAddressLine1($address_line1) {
+		if (is_null($address_line1)) {
+			throw new \InvalidArgumentException('non-nullable address_line1 cannot be null');
+		}
+		$this->container['address_line1'] = $address_line1;
+
+		return $this;
+	}
+
+	/**
+	 * Gets address_line2
+	 *
+	 * @return string|null
+	 */
+	public function getAddressLine2() {
+		return $this->container['address_line2'];
+	}
+
+	/**
+	 * Sets address_line2
+	 *
+	 * @param string|null $address_line2 Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setAddressLine2($address_line2) {
+		if (is_null($address_line2)) {
+			throw new \InvalidArgumentException('non-nullable address_line2 cannot be null');
+		}
+		$this->container['address_line2'] = $address_line2;
+
+		return $this;
+	}
+
+	/**
+	 * Gets allergies
+	 *
+	 * @return string|null
+	 */
+	public function getAllergies() {
+		return $this->container['allergies'];
+	}
+
+	/**
+	 * Sets allergies
+	 *
+	 * @param string|null $allergies Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setAllergies($allergies) {
+		if (is_null($allergies)) {
+			throw new \InvalidArgumentException('non-nullable allergies cannot be null');
+		}
+		$this->container['allergies'] = $allergies;
+
+		return $this;
+	}
+
+	/**
+	 * Gets birthplace
+	 *
+	 * @return string|null
+	 */
+	public function getBirthplace() {
+		return $this->container['birthplace'];
+	}
+
+	/**
+	 * Sets birthplace
+	 *
+	 * @param string|null $birthplace Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setBirthplace($birthplace) {
+		if (is_null($birthplace)) {
+			throw new \InvalidArgumentException('non-nullable birthplace cannot be null');
+		}
+		$this->container['birthplace'] = $birthplace;
+
+		return $this;
+	}
+
+	/**
+	 * Gets citizenship
+	 *
+	 * @return string|null
+	 */
+	public function getCitizenship() {
+		return $this->container['citizenship'];
+	}
+
+	/**
+	 * Sets citizenship
+	 *
+	 * @param string|null $citizenship Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setCitizenship($citizenship) {
+		if (is_null($citizenship)) {
+			throw new \InvalidArgumentException('non-nullable citizenship cannot be null');
+		}
+		$this->container['citizenship'] = $citizenship;
+
+		return $this;
+	}
+
+	/**
+	 * Gets city
+	 *
+	 * @return string|null
+	 */
+	public function getCity() {
+		return $this->container['city'];
+	}
+
+	/**
+	 * Sets city
+	 *
+	 * @param string|null $city Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setCity($city) {
+		if (is_null($city)) {
+			throw new \InvalidArgumentException('non-nullable city cannot be null');
+		}
+		$this->container['city'] = $city;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_change_reason
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationChangeReason() {
+		return $this->container['compensation_change_reason'];
+	}
+
+	/**
+	 * Sets compensation_change_reason
+	 *
+	 * @param string|null $compensation_change_reason Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setCompensationChangeReason($compensation_change_reason) {
+		if (is_null($compensation_change_reason)) {
+			throw new \InvalidArgumentException('non-nullable compensation_change_reason cannot be null');
+		}
+		$this->container['compensation_change_reason'] = $compensation_change_reason;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_comment
+	 *
+	 * @return string|null
+	 */
+	public function getCompensationComment() {
+		return $this->container['compensation_comment'];
+	}
+
+	/**
+	 * Sets compensation_comment
+	 *
+	 * @param string|null $compensation_comment Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setCompensationComment($compensation_comment) {
+		if (is_null($compensation_comment)) {
+			throw new \InvalidArgumentException('non-nullable compensation_comment cannot be null');
+		}
+		$this->container['compensation_comment'] = $compensation_comment;
+
+		return $this;
+	}
+
+	/**
+	 * Gets country
+	 *
+	 * @return string|null
+	 */
+	public function getCountry() {
+		return $this->container['country'];
+	}
+
+	/**
+	 * Sets country
+	 *
+	 * @param string|null $country Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setCountry($country) {
+		if (is_null($country)) {
+			throw new \InvalidArgumentException('non-nullable country cannot be null');
+		}
+		$this->container['country'] = $country;
+
+		return $this;
+	}
+
+	/**
+	 * Gets department_name
+	 *
+	 * @return string|null
+	 */
+	public function getDepartmentName() {
+		return $this->container['department_name'];
+	}
+
+	/**
+	 * Sets department_name
+	 *
+	 * @param string|null $department_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setDepartmentName($department_name) {
+		if (is_null($department_name)) {
+			throw new \InvalidArgumentException('non-nullable department_name cannot be null');
+		}
+		$this->container['department_name'] = $department_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets dietary_restrictions
+	 *
+	 * @return string|null
+	 */
+	public function getDietaryRestrictions() {
+		return $this->container['dietary_restrictions'];
+	}
+
+	/**
+	 * Sets dietary_restrictions
+	 *
+	 * @param string|null $dietary_restrictions Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setDietaryRestrictions($dietary_restrictions) {
+		if (is_null($dietary_restrictions)) {
+			throw new \InvalidArgumentException('non-nullable dietary_restrictions cannot be null');
+		}
+		$this->container['dietary_restrictions'] = $dietary_restrictions;
+
+		return $this;
+	}
+
+	/**
+	 * Gets display_name
+	 *
+	 * @return string|null
+	 */
+	public function getDisplayName() {
+		return $this->container['display_name'];
+	}
+
+	/**
+	 * Sets display_name
+	 *
+	 * @param string|null $display_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setDisplayName($display_name) {
+		if (is_null($display_name)) {
+			throw new \InvalidArgumentException('non-nullable display_name cannot be null');
+		}
+		$this->container['display_name'] = $display_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets division_name
+	 *
+	 * @return string|null
+	 */
+	public function getDivisionName() {
+		return $this->container['division_name'];
+	}
+
+	/**
+	 * Sets division_name
+	 *
+	 * @param string|null $division_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setDivisionName($division_name) {
+		if (is_null($division_name)) {
+			throw new \InvalidArgumentException('non-nullable division_name cannot be null');
+		}
+		$this->container['division_name'] = $division_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eeo_job_category
+	 *
+	 * @return string|null
+	 */
+	public function getEeoJobCategory() {
+		return $this->container['eeo_job_category'];
+	}
+
+	/**
+	 * Sets eeo_job_category
+	 *
+	 * @param string|null $eeo_job_category Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEeoJobCategory($eeo_job_category) {
+		if (is_null($eeo_job_category)) {
+			throw new \InvalidArgumentException('non-nullable eeo_job_category cannot be null');
+		}
+		$this->container['eeo_job_category'] = $eeo_job_category;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eligible_for_rehire
+	 *
+	 * @return string|null
+	 */
+	public function getEligibleForRehire() {
+		return $this->container['eligible_for_rehire'];
+	}
+
+	/**
+	 * Sets eligible_for_rehire
+	 *
+	 * @param string|null $eligible_for_rehire Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEligibleForRehire($eligible_for_rehire) {
+		if (is_null($eligible_for_rehire)) {
+			throw new \InvalidArgumentException('non-nullable eligible_for_rehire cannot be null');
+		}
+		$this->container['eligible_for_rehire'] = $eligible_for_rehire;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employee_name
+	 *
+	 * @return string|null
+	 */
+	public function getEmployeeName() {
+		return $this->container['employee_name'];
+	}
+
+	/**
+	 * Sets employee_name
+	 *
+	 * @param string|null $employee_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEmployeeName($employee_name) {
+		if (is_null($employee_name)) {
+			throw new \InvalidArgumentException('non-nullable employee_name cannot be null');
+		}
+		$this->container['employee_name'] = $employee_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employee_number
+	 *
+	 * @return string|null
+	 */
+	public function getEmployeeNumber() {
+		return $this->container['employee_number'];
+	}
+
+	/**
+	 * Sets employee_number
+	 *
+	 * @param string|null $employee_number Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEmployeeNumber($employee_number) {
+		if (is_null($employee_number)) {
+			throw new \InvalidArgumentException('non-nullable employee_number cannot be null');
+		}
+		$this->container['employee_number'] = $employee_number;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_name
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentStatusName() {
+		return $this->container['employment_status_name'];
+	}
+
+	/**
+	 * Sets employment_status_name
+	 *
+	 * @param string|null $employment_status_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusName($employment_status_name) {
+		if (is_null($employment_status_name)) {
+			throw new \InvalidArgumentException('non-nullable employment_status_name cannot be null');
+		}
+		$this->container['employment_status_name'] = $employment_status_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_comment
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentStatusComment() {
+		return $this->container['employment_status_comment'];
+	}
+
+	/**
+	 * Sets employment_status_comment
+	 *
+	 * @param string|null $employment_status_comment Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusComment($employment_status_comment) {
+		if (is_null($employment_status_comment)) {
+			throw new \InvalidArgumentException('non-nullable employment_status_comment cannot be null');
+		}
+		$this->container['employment_status_comment'] = $employment_status_comment;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_type
+	 *
+	 * @return string|null
+	 */
+	public function getEmploymentType() {
+		return $this->container['employment_type'];
+	}
+
+	/**
+	 * Sets employment_type
+	 *
+	 * @param string|null $employment_type Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEmploymentType($employment_type) {
+		if (is_null($employment_type)) {
+			throw new \InvalidArgumentException('non-nullable employment_type cannot be null');
+		}
+		$this->container['employment_type'] = $employment_type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets ethnicity
+	 *
+	 * @return string|null
+	 */
+	public function getEthnicity() {
+		return $this->container['ethnicity'];
+	}
+
+	/**
+	 * Sets ethnicity
+	 *
+	 * @param string|null $ethnicity Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setEthnicity($ethnicity) {
+		if (is_null($ethnicity)) {
+			throw new \InvalidArgumentException('non-nullable ethnicity cannot be null');
+		}
+		$this->container['ethnicity'] = $ethnicity;
+
+		return $this;
+	}
+
+	/**
+	 * Gets facebook_url
+	 *
+	 * @return string|null
+	 */
+	public function getFacebookUrl() {
+		return $this->container['facebook_url'];
+	}
+
+	/**
+	 * Sets facebook_url
+	 *
+	 * @param string|null $facebook_url Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setFacebookUrl($facebook_url) {
+		if (is_null($facebook_url)) {
+			throw new \InvalidArgumentException('non-nullable facebook_url cannot be null');
+		}
+		$this->container['facebook_url'] = $facebook_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets first_name_last_name
+	 *
+	 * @return string|null
+	 */
+	public function getFirstNameLastName() {
+		return $this->container['first_name_last_name'];
+	}
+
+	/**
+	 * Sets first_name_last_name
+	 *
+	 * @param string|null $first_name_last_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setFirstNameLastName($first_name_last_name) {
+		if (is_null($first_name_last_name)) {
+			throw new \InvalidArgumentException('non-nullable first_name_last_name cannot be null');
+		}
+		$this->container['first_name_last_name'] = $first_name_last_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets first_name_middle_initial
+	 *
+	 * @return string|null
+	 */
+	public function getFirstNameMiddleInitial() {
+		return $this->container['first_name_middle_initial'];
+	}
+
+	/**
+	 * Sets first_name_middle_initial
+	 *
+	 * @param string|null $first_name_middle_initial Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setFirstNameMiddleInitial($first_name_middle_initial) {
+		if (is_null($first_name_middle_initial)) {
+			throw new \InvalidArgumentException('non-nullable first_name_middle_initial cannot be null');
+		}
+		$this->container['first_name_middle_initial'] = $first_name_middle_initial;
+
+		return $this;
+	}
+
+	/**
+	 * Gets flsa_code
+	 *
+	 * @return string|null
+	 */
+	public function getFlsaCode() {
+		return $this->container['flsa_code'];
+	}
+
+	/**
+	 * Sets flsa_code
+	 *
+	 * @param string|null $flsa_code Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setFlsaCode($flsa_code) {
+		if (is_null($flsa_code)) {
+			throw new \InvalidArgumentException('non-nullable flsa_code cannot be null');
+		}
+		$this->container['flsa_code'] = $flsa_code;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_email
+	 *
+	 * @return string|null
+	 */
+	public function getHomeEmail() {
+		return $this->container['home_email'];
+	}
+
+	/**
+	 * Sets home_email
+	 *
+	 * @param string|null $home_email Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setHomeEmail($home_email) {
+		if (is_null($home_email)) {
+			throw new \InvalidArgumentException('non-nullable home_email cannot be null');
+		}
+		$this->container['home_email'] = $home_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_phone
+	 *
+	 * @return string|null
+	 */
+	public function getHomePhone() {
+		return $this->container['home_phone'];
+	}
+
+	/**
+	 * Sets home_phone
+	 *
+	 * @param string|null $home_phone Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setHomePhone($home_phone) {
+		if (is_null($home_phone)) {
+			throw new \InvalidArgumentException('non-nullable home_phone cannot be null');
+		}
+		$this->container['home_phone'] = $home_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets instagram_url
+	 *
+	 * @return string|null
+	 */
+	public function getInstagramUrl() {
+		return $this->container['instagram_url'];
+	}
+
+	/**
+	 * Sets instagram_url
+	 *
+	 * @param string|null $instagram_url Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setInstagramUrl($instagram_url) {
+		if (is_null($instagram_url)) {
+			throw new \InvalidArgumentException('non-nullable instagram_url cannot be null');
+		}
+		$this->container['instagram_url'] = $instagram_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets jacket_size
+	 *
+	 * @return string|null
+	 */
+	public function getJacketSize() {
+		return $this->container['jacket_size'];
+	}
+
+	/**
+	 * Sets jacket_size
+	 *
+	 * @param string|null $jacket_size Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setJacketSize($jacket_size) {
+		if (is_null($jacket_size)) {
+			throw new \InvalidArgumentException('non-nullable jacket_size cannot be null');
+		}
+		$this->container['jacket_size'] = $jacket_size;
+
+		return $this;
+	}
+
+	/**
+	 * Gets linkedin_url
+	 *
+	 * @return string|null
+	 */
+	public function getLinkedinUrl() {
+		return $this->container['linkedin_url'];
+	}
+
+	/**
+	 * Sets linkedin_url
+	 *
+	 * @param string|null $linkedin_url Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setLinkedinUrl($linkedin_url) {
+		if (is_null($linkedin_url)) {
+			throw new \InvalidArgumentException('non-nullable linkedin_url cannot be null');
+		}
+		$this->container['linkedin_url'] = $linkedin_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets location_name
+	 *
+	 * @return string|null
+	 */
+	public function getLocationName() {
+		return $this->container['location_name'];
+	}
+
+	/**
+	 * Sets location_name
+	 *
+	 * @param string|null $location_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setLocationName($location_name) {
+		if (is_null($location_name)) {
+			throw new \InvalidArgumentException('non-nullable location_name cannot be null');
+		}
+		$this->container['location_name'] = $location_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets marital_status
+	 *
+	 * @return string|null
+	 */
+	public function getMaritalStatus() {
+		return $this->container['marital_status'];
+	}
+
+	/**
+	 * Sets marital_status
+	 *
+	 * @param string|null $marital_status Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setMaritalStatus($marital_status) {
+		if (is_null($marital_status)) {
+			throw new \InvalidArgumentException('non-nullable marital_status cannot be null');
+		}
+		$this->container['marital_status'] = $marital_status;
+
+		return $this;
+	}
+
+	/**
+	 * Gets middle_initial
+	 *
+	 * @return string|null
+	 */
+	public function getMiddleInitial() {
+		return $this->container['middle_initial'];
+	}
+
+	/**
+	 * Sets middle_initial
+	 *
+	 * @param string|null $middle_initial Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setMiddleInitial($middle_initial) {
+		if (is_null($middle_initial)) {
+			throw new \InvalidArgumentException('non-nullable middle_initial cannot be null');
+		}
+		$this->container['middle_initial'] = $middle_initial;
+
+		return $this;
+	}
+
+	/**
+	 * Gets middle_name
+	 *
+	 * @return string|null
+	 */
+	public function getMiddleName() {
+		return $this->container['middle_name'];
+	}
+
+	/**
+	 * Sets middle_name
+	 *
+	 * @param string|null $middle_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setMiddleName($middle_name) {
+		if (is_null($middle_name)) {
+			throw new \InvalidArgumentException('non-nullable middle_name cannot be null');
+		}
+		$this->container['middle_name'] = $middle_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets mobile_phone
+	 *
+	 * @return string|null
+	 */
+	public function getMobilePhone() {
+		return $this->container['mobile_phone'];
+	}
+
+	/**
+	 * Sets mobile_phone
+	 *
+	 * @param string|null $mobile_phone Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setMobilePhone($mobile_phone) {
+		if (is_null($mobile_phone)) {
+			throw new \InvalidArgumentException('non-nullable mobile_phone cannot be null');
+		}
+		$this->container['mobile_phone'] = $mobile_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets national_insurance_category
+	 *
+	 * @return string|null
+	 */
+	public function getNationalInsuranceCategory() {
+		return $this->container['national_insurance_category'];
+	}
+
+	/**
+	 * Sets national_insurance_category
+	 *
+	 * @param string|null $national_insurance_category Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setNationalInsuranceCategory($national_insurance_category) {
+		if (is_null($national_insurance_category)) {
+			throw new \InvalidArgumentException('non-nullable national_insurance_category cannot be null');
+		}
+		$this->container['national_insurance_category'] = $national_insurance_category;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nationality
+	 *
+	 * @return string|null
+	 */
+	public function getNationality() {
+		return $this->container['nationality'];
+	}
+
+	/**
+	 * Sets nationality
+	 *
+	 * @param string|null $nationality Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setNationality($nationality) {
+		if (is_null($nationality)) {
+			throw new \InvalidArgumentException('non-nullable nationality cannot be null');
+		}
+		$this->container['nationality'] = $nationality;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nick_name
+	 *
+	 * @return string|null
+	 */
+	public function getNickName() {
+		return $this->container['nick_name'];
+	}
+
+	/**
+	 * Sets nick_name
+	 *
+	 * @param string|null $nick_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setNickName($nick_name) {
+		if (is_null($nick_name)) {
+			throw new \InvalidArgumentException('non-nullable nick_name cannot be null');
+		}
+		$this->container['nick_name'] = $nick_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets notice_period
+	 *
+	 * @return string|null
+	 */
+	public function getNoticePeriod() {
+		return $this->container['notice_period'];
+	}
+
+	/**
+	 * Sets notice_period
+	 *
+	 * @param string|null $notice_period Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setNoticePeriod($notice_period) {
+		if (is_null($notice_period)) {
+			throw new \InvalidArgumentException('non-nullable notice_period cannot be null');
+		}
+		$this->container['notice_period'] = $notice_period;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_schedule
+	 *
+	 * @return string|null
+	 */
+	public function getPaySchedule() {
+		return $this->container['pay_schedule'];
+	}
+
+	/**
+	 * Sets pay_schedule
+	 *
+	 * @param string|null $pay_schedule Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setPaySchedule($pay_schedule) {
+		if (is_null($pay_schedule)) {
+			throw new \InvalidArgumentException('non-nullable pay_schedule cannot be null');
+		}
+		$this->container['pay_schedule'] = $pay_schedule;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pinterest_url
+	 *
+	 * @return string|null
+	 */
+	public function getPinterestUrl() {
+		return $this->container['pinterest_url'];
+	}
+
+	/**
+	 * Sets pinterest_url
+	 *
+	 * @param string|null $pinterest_url Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setPinterestUrl($pinterest_url) {
+		if (is_null($pinterest_url)) {
+			throw new \InvalidArgumentException('non-nullable pinterest_url cannot be null');
+		}
+		$this->container['pinterest_url'] = $pinterest_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets preferred_name_last_name
+	 *
+	 * @return string|null
+	 */
+	public function getPreferredNameLastName() {
+		return $this->container['preferred_name_last_name'];
+	}
+
+	/**
+	 * Sets preferred_name_last_name
+	 *
+	 * @param string|null $preferred_name_last_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setPreferredNameLastName($preferred_name_last_name) {
+		if (is_null($preferred_name_last_name)) {
+			throw new \InvalidArgumentException('non-nullable preferred_name_last_name cannot be null');
+		}
+		$this->container['preferred_name_last_name'] = $preferred_name_last_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pronouns
+	 *
+	 * @return string|null
+	 */
+	public function getPronouns() {
+		return $this->container['pronouns'];
+	}
+
+	/**
+	 * Sets pronouns
+	 *
+	 * @param string|null $pronouns Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setPronouns($pronouns) {
+		if (is_null($pronouns)) {
+			throw new \InvalidArgumentException('non-nullable pronouns cannot be null');
+		}
+		$this->container['pronouns'] = $pronouns;
+
+		return $this;
+	}
+
+	/**
+	 * Gets reports_to_name
+	 *
+	 * @return string|null
+	 */
+	public function getReportsToName() {
+		return $this->container['reports_to_name'];
+	}
+
+	/**
+	 * Sets reports_to_name
+	 *
+	 * @param string|null $reports_to_name Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setReportsToName($reports_to_name) {
+		if (is_null($reports_to_name)) {
+			throw new \InvalidArgumentException('non-nullable reports_to_name cannot be null');
+		}
+		$this->container['reports_to_name'] = $reports_to_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets secondary_language
+	 *
+	 * @return string|null
+	 */
+	public function getSecondaryLanguage() {
+		return $this->container['secondary_language'];
+	}
+
+	/**
+	 * Sets secondary_language
+	 *
+	 * @param string|null $secondary_language Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setSecondaryLanguage($secondary_language) {
+		if (is_null($secondary_language)) {
+			throw new \InvalidArgumentException('non-nullable secondary_language cannot be null');
+		}
+		$this->container['secondary_language'] = $secondary_language;
+
+		return $this;
+	}
+
+	/**
+	 * Gets shirt_size
+	 *
+	 * @return string|null
+	 */
+	public function getShirtSize() {
+		return $this->container['shirt_size'];
+	}
+
+	/**
+	 * Sets shirt_size
+	 *
+	 * @param string|null $shirt_size Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setShirtSize($shirt_size) {
+		if (is_null($shirt_size)) {
+			throw new \InvalidArgumentException('non-nullable shirt_size cannot be null');
+		}
+		$this->container['shirt_size'] = $shirt_size;
+
+		return $this;
+	}
+
+	/**
+	 * Gets skype_username
+	 *
+	 * @return string|null
+	 */
+	public function getSkypeUsername() {
+		return $this->container['skype_username'];
+	}
+
+	/**
+	 * Sets skype_username
+	 *
+	 * @param string|null $skype_username Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setSkypeUsername($skype_username) {
+		if (is_null($skype_username)) {
+			throw new \InvalidArgumentException('non-nullable skype_username cannot be null');
+		}
+		$this->container['skype_username'] = $skype_username;
+
+		return $this;
+	}
+
+	/**
+	 * Gets state
+	 *
+	 * @return string|null
+	 */
+	public function getState() {
+		return $this->container['state'];
+	}
+
+	/**
+	 * Sets state
+	 *
+	 * @param string|null $state Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setState($state) {
+		if (is_null($state)) {
+			throw new \InvalidArgumentException('non-nullable state cannot be null');
+		}
+		$this->container['state'] = $state;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_reason
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationReason() {
+		return $this->container['termination_reason'];
+	}
+
+	/**
+	 * Sets termination_reason
+	 *
+	 * @param string|null $termination_reason Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setTerminationReason($termination_reason) {
+		if (is_null($termination_reason)) {
+			throw new \InvalidArgumentException('non-nullable termination_reason cannot be null');
+		}
+		$this->container['termination_reason'] = $termination_reason;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_regrettable
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationRegrettable() {
+		return $this->container['termination_regrettable'];
+	}
+
+	/**
+	 * Sets termination_regrettable
+	 *
+	 * @param string|null $termination_regrettable Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setTerminationRegrettable($termination_regrettable) {
+		if (is_null($termination_regrettable)) {
+			throw new \InvalidArgumentException('non-nullable termination_regrettable cannot be null');
+		}
+		$this->container['termination_regrettable'] = $termination_regrettable;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_type
+	 *
+	 * @return string|null
+	 */
+	public function getTerminationType() {
+		return $this->container['termination_type'];
+	}
+
+	/**
+	 * Sets termination_type
+	 *
+	 * @param string|null $termination_type Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setTerminationType($termination_type) {
+		if (is_null($termination_type)) {
+			throw new \InvalidArgumentException('non-nullable termination_type cannot be null');
+		}
+		$this->container['termination_type'] = $termination_type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets t_shirt_size
+	 *
+	 * @return string|null
+	 */
+	public function getTShirtSize() {
+		return $this->container['t_shirt_size'];
+	}
+
+	/**
+	 * Sets t_shirt_size
+	 *
+	 * @param string|null $t_shirt_size Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setTShirtSize($t_shirt_size) {
+		if (is_null($t_shirt_size)) {
+			throw new \InvalidArgumentException('non-nullable t_shirt_size cannot be null');
+		}
+		$this->container['t_shirt_size'] = $t_shirt_size;
+
+		return $this;
+	}
+
+	/**
+	 * Gets twitter_url
+	 *
+	 * @return string|null
+	 */
+	public function getTwitterUrl() {
+		return $this->container['twitter_url'];
+	}
+
+	/**
+	 * Sets twitter_url
+	 *
+	 * @param string|null $twitter_url Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setTwitterUrl($twitter_url) {
+		if (is_null($twitter_url)) {
+			throw new \InvalidArgumentException('non-nullable twitter_url cannot be null');
+		}
+		$this->container['twitter_url'] = $twitter_url;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccination_status
+	 *
+	 * @return string|null
+	 */
+	public function getVaccinationStatus() {
+		return $this->container['vaccination_status'];
+	}
+
+	/**
+	 * Sets vaccination_status
+	 *
+	 * @param string|null $vaccination_status Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setVaccinationStatus($vaccination_status) {
+		if (is_null($vaccination_status)) {
+			throw new \InvalidArgumentException('non-nullable vaccination_status cannot be null');
+		}
+		$this->container['vaccination_status'] = $vaccination_status;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccine_received
+	 *
+	 * @return string|null
+	 */
+	public function getVaccineReceived() {
+		return $this->container['vaccine_received'];
+	}
+
+	/**
+	 * Sets vaccine_received
+	 *
+	 * @param string|null $vaccine_received Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setVaccineReceived($vaccine_received) {
+		if (is_null($vaccine_received)) {
+			throw new \InvalidArgumentException('non-nullable vaccine_received cannot be null');
+		}
+		$this->container['vaccine_received'] = $vaccine_received;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_email
+	 *
+	 * @return string|null
+	 */
+	public function getWorkEmail() {
+		return $this->container['work_email'];
+	}
+
+	/**
+	 * Sets work_email
+	 *
+	 * @param string|null $work_email Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setWorkEmail($work_email) {
+		if (is_null($work_email)) {
+			throw new \InvalidArgumentException('non-nullable work_email cannot be null');
+		}
+		$this->container['work_email'] = $work_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhone() {
+		return $this->container['work_phone'];
+	}
+
+	/**
+	 * Sets work_phone
+	 *
+	 * @param string|null $work_phone Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setWorkPhone($work_phone) {
+		if (is_null($work_phone)) {
+			throw new \InvalidArgumentException('non-nullable work_phone cannot be null');
+		}
+		$this->container['work_phone'] = $work_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone_extension
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhoneExtension() {
+		return $this->container['work_phone_extension'];
+	}
+
+	/**
+	 * Sets work_phone_extension
+	 *
+	 * @param string|null $work_phone_extension Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setWorkPhoneExtension($work_phone_extension) {
+		if (is_null($work_phone_extension)) {
+			throw new \InvalidArgumentException('non-nullable work_phone_extension cannot be null');
+		}
+		$this->container['work_phone_extension'] = $work_phone_extension;
+
+		return $this;
+	}
+
+	/**
+	 * Gets zipcode
+	 *
+	 * @return string|null
+	 */
+	public function getZipcode() {
+		return $this->container['zipcode'];
+	}
+
+	/**
+	 * Sets zipcode
+	 *
+	 * @param string|null $zipcode Substring match (case-insensitive).
+	 *
+	 * @return self
+	 */
+	public function setZipcode($zipcode) {
+		if (is_null($zipcode)) {
+			throw new \InvalidArgumentException('non-nullable zipcode cannot be null');
+		}
+		$this->container['zipcode'] = $zipcode;
+
+		return $this;
+	}
+
+	/**
+	 * Gets gender
+	 *
+	 * @return string|null
+	 */
+	public function getGender() {
+		return $this->container['gender'];
+	}
+
+	/**
+	 * Sets gender
+	 *
+	 * @param string|null $gender Exact match.
+	 *
+	 * @return self
+	 */
+	public function setGender($gender) {
+		if (is_null($gender)) {
+			throw new \InvalidArgumentException('non-nullable gender cannot be null');
+		}
+		$allowedValues = $this->getGenderAllowableValues();
+		if (!in_array($gender, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'gender', must be one of '%s'",
+					$gender,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['gender'] = $gender;
+
+		return $this;
+	}
+
+	/**
+	 * Gets paid_per
+	 *
+	 * @return string|null
+	 */
+	public function getPaidPer() {
+		return $this->container['paid_per'];
+	}
+
+	/**
+	 * Sets paid_per
+	 *
+	 * @param string|null $paid_per Exact match.
+	 *
+	 * @return self
+	 */
+	public function setPaidPer($paid_per) {
+		if (is_null($paid_per)) {
+			throw new \InvalidArgumentException('non-nullable paid_per cannot be null');
+		}
+		$allowedValues = $this->getPaidPerAllowableValues();
+		if (!in_array($paid_per, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'paid_per', must be one of '%s'",
+					$paid_per,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['paid_per'] = $paid_per;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_type
+	 *
+	 * @return string|null
+	 */
+	public function getPayType() {
+		return $this->container['pay_type'];
+	}
+
+	/**
+	 * Sets pay_type
+	 *
+	 * @param string|null $pay_type Exact match.
+	 *
+	 * @return self
+	 */
+	public function setPayType($pay_type) {
+		if (is_null($pay_type)) {
+			throw new \InvalidArgumentException('non-nullable pay_type cannot be null');
+		}
+		$allowedValues = $this->getPayTypeAllowableValues();
+		if (!in_array($pay_type, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'pay_type', must be one of '%s'",
+					$pay_type,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['pay_type'] = $pay_type;
+
+		return $this;
+	}
+
+	/**
+	 * Gets citizenship_id
+	 *
+	 * @return int|null
+	 */
+	public function getCitizenshipId() {
+		return $this->container['citizenship_id'];
+	}
+
+	/**
+	 * Sets citizenship_id
+	 *
+	 * @param int|null $citizenship_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setCitizenshipId($citizenship_id) {
+		if (is_null($citizenship_id)) {
+			throw new \InvalidArgumentException('non-nullable citizenship_id cannot be null');
+		}
+		$this->container['citizenship_id'] = $citizenship_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_change_reason_id
+	 *
+	 * @return int|null
+	 */
+	public function getCompensationChangeReasonId() {
+		return $this->container['compensation_change_reason_id'];
+	}
+
+	/**
+	 * Sets compensation_change_reason_id
+	 *
+	 * @param int|null $compensation_change_reason_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setCompensationChangeReasonId($compensation_change_reason_id) {
+		if (is_null($compensation_change_reason_id)) {
+			throw new \InvalidArgumentException('non-nullable compensation_change_reason_id cannot be null');
+		}
+		$this->container['compensation_change_reason_id'] = $compensation_change_reason_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets country_id
+	 *
+	 * @return int|null
+	 */
+	public function getCountryId() {
+		return $this->container['country_id'];
+	}
+
+	/**
+	 * Sets country_id
+	 *
+	 * @param int|null $country_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setCountryId($country_id) {
+		if (is_null($country_id)) {
+			throw new \InvalidArgumentException('non-nullable country_id cannot be null');
+		}
+		$this->container['country_id'] = $country_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets department_id
+	 *
+	 * @return int|null
+	 */
+	public function getDepartmentId() {
+		return $this->container['department_id'];
+	}
+
+	/**
+	 * Sets department_id
+	 *
+	 * @param int|null $department_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setDepartmentId($department_id) {
+		if (is_null($department_id)) {
+			throw new \InvalidArgumentException('non-nullable department_id cannot be null');
+		}
+		$this->container['department_id'] = $department_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets division_id
+	 *
+	 * @return int|null
+	 */
+	public function getDivisionId() {
+		return $this->container['division_id'];
+	}
+
+	/**
+	 * Sets division_id
+	 *
+	 * @param int|null $division_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setDivisionId($division_id) {
+		if (is_null($division_id)) {
+			throw new \InvalidArgumentException('non-nullable division_id cannot be null');
+		}
+		$this->container['division_id'] = $division_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eeo_job_category_id
+	 *
+	 * @return int|null
+	 */
+	public function getEeoJobCategoryId() {
+		return $this->container['eeo_job_category_id'];
+	}
+
+	/**
+	 * Sets eeo_job_category_id
+	 *
+	 * @param int|null $eeo_job_category_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setEeoJobCategoryId($eeo_job_category_id) {
+		if (is_null($eeo_job_category_id)) {
+			throw new \InvalidArgumentException('non-nullable eeo_job_category_id cannot be null');
+		}
+		$this->container['eeo_job_category_id'] = $eeo_job_category_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets eligible_for_rehire_id
+	 *
+	 * @return int|null
+	 */
+	public function getEligibleForRehireId() {
+		return $this->container['eligible_for_rehire_id'];
+	}
+
+	/**
+	 * Sets eligible_for_rehire_id
+	 *
+	 * @param int|null $eligible_for_rehire_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setEligibleForRehireId($eligible_for_rehire_id) {
+		if (is_null($eligible_for_rehire_id)) {
+			throw new \InvalidArgumentException('non-nullable eligible_for_rehire_id cannot be null');
+		}
+		$this->container['eligible_for_rehire_id'] = $eligible_for_rehire_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_id
+	 *
+	 * @return int|null
+	 */
+	public function getEmploymentStatusId() {
+		return $this->container['employment_status_id'];
+	}
+
+	/**
+	 * Sets employment_status_id
+	 *
+	 * @param int|null $employment_status_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusId($employment_status_id) {
+		if (is_null($employment_status_id)) {
+			throw new \InvalidArgumentException('non-nullable employment_status_id cannot be null');
+		}
+		$this->container['employment_status_id'] = $employment_status_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_type_id
+	 *
+	 * @return int|null
+	 */
+	public function getEmploymentTypeId() {
+		return $this->container['employment_type_id'];
+	}
+
+	/**
+	 * Sets employment_type_id
+	 *
+	 * @param int|null $employment_type_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setEmploymentTypeId($employment_type_id) {
+		if (is_null($employment_type_id)) {
+			throw new \InvalidArgumentException('non-nullable employment_type_id cannot be null');
+		}
+		$this->container['employment_type_id'] = $employment_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets ethnicity_id
+	 *
+	 * @return int|null
+	 */
+	public function getEthnicityId() {
+		return $this->container['ethnicity_id'];
+	}
+
+	/**
+	 * Sets ethnicity_id
+	 *
+	 * @param int|null $ethnicity_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setEthnicityId($ethnicity_id) {
+		if (is_null($ethnicity_id)) {
+			throw new \InvalidArgumentException('non-nullable ethnicity_id cannot be null');
+		}
+		$this->container['ethnicity_id'] = $ethnicity_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets flsa_code_id
+	 *
+	 * @return int|null
+	 */
+	public function getFlsaCodeId() {
+		return $this->container['flsa_code_id'];
+	}
+
+	/**
+	 * Sets flsa_code_id
+	 *
+	 * @param int|null $flsa_code_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setFlsaCodeId($flsa_code_id) {
+		if (is_null($flsa_code_id)) {
+			throw new \InvalidArgumentException('non-nullable flsa_code_id cannot be null');
+		}
+		$this->container['flsa_code_id'] = $flsa_code_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets jacket_size_id
+	 *
+	 * @return int|null
+	 */
+	public function getJacketSizeId() {
+		return $this->container['jacket_size_id'];
+	}
+
+	/**
+	 * Sets jacket_size_id
+	 *
+	 * @param int|null $jacket_size_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setJacketSizeId($jacket_size_id) {
+		if (is_null($jacket_size_id)) {
+			throw new \InvalidArgumentException('non-nullable jacket_size_id cannot be null');
+		}
+		$this->container['jacket_size_id'] = $jacket_size_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets job_title_id
+	 *
+	 * @return int|null
+	 */
+	public function getJobTitleId() {
+		return $this->container['job_title_id'];
+	}
+
+	/**
+	 * Sets job_title_id
+	 *
+	 * @param int|null $job_title_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setJobTitleId($job_title_id) {
+		if (is_null($job_title_id)) {
+			throw new \InvalidArgumentException('non-nullable job_title_id cannot be null');
+		}
+		$this->container['job_title_id'] = $job_title_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets location_id
+	 *
+	 * @return int|null
+	 */
+	public function getLocationId() {
+		return $this->container['location_id'];
+	}
+
+	/**
+	 * Sets location_id
+	 *
+	 * @param int|null $location_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setLocationId($location_id) {
+		if (is_null($location_id)) {
+			throw new \InvalidArgumentException('non-nullable location_id cannot be null');
+		}
+		$this->container['location_id'] = $location_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets national_insurance_category_id
+	 *
+	 * @return int|null
+	 */
+	public function getNationalInsuranceCategoryId() {
+		return $this->container['national_insurance_category_id'];
+	}
+
+	/**
+	 * Sets national_insurance_category_id
+	 *
+	 * @param int|null $national_insurance_category_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setNationalInsuranceCategoryId($national_insurance_category_id) {
+		if (is_null($national_insurance_category_id)) {
+			throw new \InvalidArgumentException('non-nullable national_insurance_category_id cannot be null');
+		}
+		$this->container['national_insurance_category_id'] = $national_insurance_category_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets nationality_id
+	 *
+	 * @return int|null
+	 */
+	public function getNationalityId() {
+		return $this->container['nationality_id'];
+	}
+
+	/**
+	 * Sets nationality_id
+	 *
+	 * @param int|null $nationality_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setNationalityId($nationality_id) {
+		if (is_null($nationality_id)) {
+			throw new \InvalidArgumentException('non-nullable nationality_id cannot be null');
+		}
+		$this->container['nationality_id'] = $nationality_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets notice_period_id
+	 *
+	 * @return int|null
+	 */
+	public function getNoticePeriodId() {
+		return $this->container['notice_period_id'];
+	}
+
+	/**
+	 * Sets notice_period_id
+	 *
+	 * @param int|null $notice_period_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setNoticePeriodId($notice_period_id) {
+		if (is_null($notice_period_id)) {
+			throw new \InvalidArgumentException('non-nullable notice_period_id cannot be null');
+		}
+		$this->container['notice_period_id'] = $notice_period_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pay_schedule_id
+	 *
+	 * @return int|null
+	 */
+	public function getPayScheduleId() {
+		return $this->container['pay_schedule_id'];
+	}
+
+	/**
+	 * Sets pay_schedule_id
+	 *
+	 * @param int|null $pay_schedule_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setPayScheduleId($pay_schedule_id) {
+		if (is_null($pay_schedule_id)) {
+			throw new \InvalidArgumentException('non-nullable pay_schedule_id cannot be null');
+		}
+		$this->container['pay_schedule_id'] = $pay_schedule_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets pronouns_id
+	 *
+	 * @return int|null
+	 */
+	public function getPronounsId() {
+		return $this->container['pronouns_id'];
+	}
+
+	/**
+	 * Sets pronouns_id
+	 *
+	 * @param int|null $pronouns_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setPronounsId($pronouns_id) {
+		if (is_null($pronouns_id)) {
+			throw new \InvalidArgumentException('non-nullable pronouns_id cannot be null');
+		}
+		$this->container['pronouns_id'] = $pronouns_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets reports_to_id
+	 *
+	 * @return int|null
+	 */
+	public function getReportsToId() {
+		return $this->container['reports_to_id'];
+	}
+
+	/**
+	 * Sets reports_to_id
+	 *
+	 * @param int|null $reports_to_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setReportsToId($reports_to_id) {
+		if (is_null($reports_to_id)) {
+			throw new \InvalidArgumentException('non-nullable reports_to_id cannot be null');
+		}
+		$this->container['reports_to_id'] = $reports_to_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets shirt_size_id
+	 *
+	 * @return int|null
+	 */
+	public function getShirtSizeId() {
+		return $this->container['shirt_size_id'];
+	}
+
+	/**
+	 * Sets shirt_size_id
+	 *
+	 * @param int|null $shirt_size_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setShirtSizeId($shirt_size_id) {
+		if (is_null($shirt_size_id)) {
+			throw new \InvalidArgumentException('non-nullable shirt_size_id cannot be null');
+		}
+		$this->container['shirt_size_id'] = $shirt_size_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets state_id
+	 *
+	 * @return int|null
+	 */
+	public function getStateId() {
+		return $this->container['state_id'];
+	}
+
+	/**
+	 * Sets state_id
+	 *
+	 * @param int|null $state_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setStateId($state_id) {
+		if (is_null($state_id)) {
+			throw new \InvalidArgumentException('non-nullable state_id cannot be null');
+		}
+		$this->container['state_id'] = $state_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets tax_type_id
+	 *
+	 * @return int|null
+	 */
+	public function getTaxTypeId() {
+		return $this->container['tax_type_id'];
+	}
+
+	/**
+	 * Sets tax_type_id
+	 *
+	 * @param int|null $tax_type_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setTaxTypeId($tax_type_id) {
+		if (is_null($tax_type_id)) {
+			throw new \InvalidArgumentException('non-nullable tax_type_id cannot be null');
+		}
+		$this->container['tax_type_id'] = $tax_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_reason_id
+	 *
+	 * @return int|null
+	 */
+	public function getTerminationReasonId() {
+		return $this->container['termination_reason_id'];
+	}
+
+	/**
+	 * Sets termination_reason_id
+	 *
+	 * @param int|null $termination_reason_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setTerminationReasonId($termination_reason_id) {
+		if (is_null($termination_reason_id)) {
+			throw new \InvalidArgumentException('non-nullable termination_reason_id cannot be null');
+		}
+		$this->container['termination_reason_id'] = $termination_reason_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_regrettable_id
+	 *
+	 * @return int|null
+	 */
+	public function getTerminationRegrettableId() {
+		return $this->container['termination_regrettable_id'];
+	}
+
+	/**
+	 * Sets termination_regrettable_id
+	 *
+	 * @param int|null $termination_regrettable_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setTerminationRegrettableId($termination_regrettable_id) {
+		if (is_null($termination_regrettable_id)) {
+			throw new \InvalidArgumentException('non-nullable termination_regrettable_id cannot be null');
+		}
+		$this->container['termination_regrettable_id'] = $termination_regrettable_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_type_id
+	 *
+	 * @return int|null
+	 */
+	public function getTerminationTypeId() {
+		return $this->container['termination_type_id'];
+	}
+
+	/**
+	 * Sets termination_type_id
+	 *
+	 * @param int|null $termination_type_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setTerminationTypeId($termination_type_id) {
+		if (is_null($termination_type_id)) {
+			throw new \InvalidArgumentException('non-nullable termination_type_id cannot be null');
+		}
+		$this->container['termination_type_id'] = $termination_type_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets t_shirt_size_id
+	 *
+	 * @return int|null
+	 */
+	public function getTShirtSizeId() {
+		return $this->container['t_shirt_size_id'];
+	}
+
+	/**
+	 * Sets t_shirt_size_id
+	 *
+	 * @param int|null $t_shirt_size_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setTShirtSizeId($t_shirt_size_id) {
+		if (is_null($t_shirt_size_id)) {
+			throw new \InvalidArgumentException('non-nullable t_shirt_size_id cannot be null');
+		}
+		$this->container['t_shirt_size_id'] = $t_shirt_size_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccination_status_id
+	 *
+	 * @return int|null
+	 */
+	public function getVaccinationStatusId() {
+		return $this->container['vaccination_status_id'];
+	}
+
+	/**
+	 * Sets vaccination_status_id
+	 *
+	 * @param int|null $vaccination_status_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setVaccinationStatusId($vaccination_status_id) {
+		if (is_null($vaccination_status_id)) {
+			throw new \InvalidArgumentException('non-nullable vaccination_status_id cannot be null');
+		}
+		$this->container['vaccination_status_id'] = $vaccination_status_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets vaccine_received_id
+	 *
+	 * @return int|null
+	 */
+	public function getVaccineReceivedId() {
+		return $this->container['vaccine_received_id'];
+	}
+
+	/**
+	 * Sets vaccine_received_id
+	 *
+	 * @param int|null $vaccine_received_id Exact match against an integer ID.
+	 *
+	 * @return self
+	 */
+	public function setVaccineReceivedId($vaccine_received_id) {
+		if (is_null($vaccine_received_id)) {
+			throw new \InvalidArgumentException('non-nullable vaccine_received_id cannot be null');
+		}
+		$this->container['vaccine_received_id'] = $vaccine_received_id;
+
+		return $this;
+	}
+
+	/**
+	 * Gets is_manager
+	 *
+	 * @return bool|null
+	 */
+	public function getIsManager() {
+		return $this->container['is_manager'];
+	}
+
+	/**
+	 * Sets is_manager
+	 *
+	 * @param bool|null $is_manager Exact match (true/false).
+	 *
+	 * @return self
+	 */
+	public function setIsManager($is_manager) {
+		if (is_null($is_manager)) {
+			throw new \InvalidArgumentException('non-nullable is_manager cannot be null');
+		}
+		$this->container['is_manager'] = $is_manager;
+
+		return $this;
+	}
+
+	/**
+	 * Gets proof_of_vaccination
+	 *
+	 * @return bool|null
+	 */
+	public function getProofOfVaccination() {
+		return $this->container['proof_of_vaccination'];
+	}
+
+	/**
+	 * Sets proof_of_vaccination
+	 *
+	 * @param bool|null $proof_of_vaccination Exact match (true/false).
+	 *
+	 * @return self
+	 */
+	public function setProofOfVaccination($proof_of_vaccination) {
+		if (is_null($proof_of_vaccination)) {
+			throw new \InvalidArgumentException('non-nullable proof_of_vaccination cannot be null');
+		}
+		$this->container['proof_of_vaccination'] = $proof_of_vaccination;
+
+		return $this;
+	}
+
+	/**
+	 * Gets age
+	 *
+	 * @return float|null
+	 */
+	public function getAge() {
+		return $this->container['age'];
+	}
+
+	/**
+	 * Sets age
+	 *
+	 * @param float|null $age Exact numeric match.
+	 *
+	 * @return self
+	 */
+	public function setAge($age) {
+		if (is_null($age)) {
+			throw new \InvalidArgumentException('non-nullable age cannot be null');
+		}
+		$this->container['age'] = $age;
+
+		return $this;
+	}
+
+	/**
+	 * Gets tenure
+	 *
+	 * @return float|null
+	 */
+	public function getTenure() {
+		return $this->container['tenure'];
+	}
+
+	/**
+	 * Sets tenure
+	 *
+	 * @param float|null $tenure Exact numeric match.
+	 *
+	 * @return self
+	 */
+	public function setTenure($tenure) {
+		if (is_null($tenure)) {
+			throw new \InvalidArgumentException('non-nullable tenure cannot be null');
+		}
+		$this->container['tenure'] = $tenure;
+
+		return $this;
+	}
+
+	/**
+	 * Gets hours_per_pay_cycle
+	 *
+	 * @return float|null
+	 */
+	public function getHoursPerPayCycle() {
+		return $this->container['hours_per_pay_cycle'];
+	}
+
+	/**
+	 * Sets hours_per_pay_cycle
+	 *
+	 * @param float|null $hours_per_pay_cycle Exact numeric match.
+	 *
+	 * @return self
+	 */
+	public function setHoursPerPayCycle($hours_per_pay_cycle) {
+		if (is_null($hours_per_pay_cycle)) {
+			throw new \InvalidArgumentException('non-nullable hours_per_pay_cycle cannot be null');
+		}
+		$this->container['hours_per_pay_cycle'] = $hours_per_pay_cycle;
+
+		return $this;
+	}
+
+	/**
+	 * Gets birth_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getBirthDate() {
+		return $this->container['birth_date'];
+	}
+
+	/**
+	 * Sets birth_date
+	 *
+	 * @param \DateTime|null $birth_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setBirthDate($birth_date) {
+		if (is_null($birth_date)) {
+			throw new \InvalidArgumentException('non-nullable birth_date cannot be null');
+		}
+		$this->container['birth_date'] = $birth_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_effective_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getCompensationEffectiveDate() {
+		return $this->container['compensation_effective_date'];
+	}
+
+	/**
+	 * Sets compensation_effective_date
+	 *
+	 * @param \DateTime|null $compensation_effective_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setCompensationEffectiveDate($compensation_effective_date) {
+		if (is_null($compensation_effective_date)) {
+			throw new \InvalidArgumentException('non-nullable compensation_effective_date cannot be null');
+		}
+		$this->container['compensation_effective_date'] = $compensation_effective_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets compensation_end_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getCompensationEndDate() {
+		return $this->container['compensation_end_date'];
+	}
+
+	/**
+	 * Sets compensation_end_date
+	 *
+	 * @param \DateTime|null $compensation_end_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setCompensationEndDate($compensation_end_date) {
+		if (is_null($compensation_end_date)) {
+			throw new \InvalidArgumentException('non-nullable compensation_end_date cannot be null');
+		}
+		$this->container['compensation_end_date'] = $compensation_end_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets contract_end_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getContractEndDate() {
+		return $this->container['contract_end_date'];
+	}
+
+	/**
+	 * Sets contract_end_date
+	 *
+	 * @param \DateTime|null $contract_end_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setContractEndDate($contract_end_date) {
+		if (is_null($contract_end_date)) {
+			throw new \InvalidArgumentException('non-nullable contract_end_date cannot be null');
+		}
+		$this->container['contract_end_date'] = $contract_end_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets employment_status_effective_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getEmploymentStatusEffectiveDate() {
+		return $this->container['employment_status_effective_date'];
+	}
+
+	/**
+	 * Sets employment_status_effective_date
+	 *
+	 * @param \DateTime|null $employment_status_effective_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setEmploymentStatusEffectiveDate($employment_status_effective_date) {
+		if (is_null($employment_status_effective_date)) {
+			throw new \InvalidArgumentException('non-nullable employment_status_effective_date cannot be null');
+		}
+		$this->container['employment_status_effective_date'] = $employment_status_effective_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets final_dose_administration_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getFinalDoseAdministrationDate() {
+		return $this->container['final_dose_administration_date'];
+	}
+
+	/**
+	 * Sets final_dose_administration_date
+	 *
+	 * @param \DateTime|null $final_dose_administration_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setFinalDoseAdministrationDate($final_dose_administration_date) {
+		if (is_null($final_dose_administration_date)) {
+			throw new \InvalidArgumentException('non-nullable final_dose_administration_date cannot be null');
+		}
+		$this->container['final_dose_administration_date'] = $final_dose_administration_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets final_pay_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getFinalPayDate() {
+		return $this->container['final_pay_date'];
+	}
+
+	/**
+	 * Sets final_pay_date
+	 *
+	 * @param \DateTime|null $final_pay_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setFinalPayDate($final_pay_date) {
+		if (is_null($final_pay_date)) {
+			throw new \InvalidArgumentException('non-nullable final_pay_date cannot be null');
+		}
+		$this->container['final_pay_date'] = $final_pay_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets hire_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getHireDate() {
+		return $this->container['hire_date'];
+	}
+
+	/**
+	 * Sets hire_date
+	 *
+	 * @param \DateTime|null $hire_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setHireDate($hire_date) {
+		if (is_null($hire_date)) {
+			throw new \InvalidArgumentException('non-nullable hire_date cannot be null');
+		}
+		$this->container['hire_date'] = $hire_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets job_information_effective_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getJobInformationEffectiveDate() {
+		return $this->container['job_information_effective_date'];
+	}
+
+	/**
+	 * Sets job_information_effective_date
+	 *
+	 * @param \DateTime|null $job_information_effective_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setJobInformationEffectiveDate($job_information_effective_date) {
+		if (is_null($job_information_effective_date)) {
+			throw new \InvalidArgumentException('non-nullable job_information_effective_date cannot be null');
+		}
+		$this->container['job_information_effective_date'] = $job_information_effective_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets original_hire_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getOriginalHireDate() {
+		return $this->container['original_hire_date'];
+	}
+
+	/**
+	 * Sets original_hire_date
+	 *
+	 * @param \DateTime|null $original_hire_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setOriginalHireDate($original_hire_date) {
+		if (is_null($original_hire_date)) {
+			throw new \InvalidArgumentException('non-nullable original_hire_date cannot be null');
+		}
+		$this->container['original_hire_date'] = $original_hire_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets probation_end_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getProbationEndDate() {
+		return $this->container['probation_end_date'];
+	}
+
+	/**
+	 * Sets probation_end_date
+	 *
+	 * @param \DateTime|null $probation_end_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setProbationEndDate($probation_end_date) {
+		if (is_null($probation_end_date)) {
+			throw new \InvalidArgumentException('non-nullable probation_end_date cannot be null');
+		}
+		$this->container['probation_end_date'] = $probation_end_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets termination_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getTerminationDate() {
+		return $this->container['termination_date'];
+	}
+
+	/**
+	 * Sets termination_date
+	 *
+	 * @param \DateTime|null $termination_date Exact match against an ISO 8601 date (YYYY-MM-DD).
+	 *
+	 * @return self
+	 */
+	public function setTerminationDate($termination_date) {
+		if (is_null($termination_date)) {
+			throw new \InvalidArgumentException('non-nullable termination_date cannot be null');
+		}
+		$this->container['termination_date'] = $termination_date;
+
+		return $this;
 	}
 
 	/**
@@ -451,7 +4020,7 @@ class GetEmployeesFilterRequestObject implements ModelInterface, ArrayAccess, \J
 	/**
 	 * Sets ids
 	 *
-	 * @param int[]|null $ids List of employee IDs for batch fetch. Accepts repeated keys (filter[ids][]=123&filter[ids][]=124) or a single comma-separated string (filter[ids]=123,124).
+	 * @param int[]|null $ids List of employee IDs for batch fetch. Documented form: repeated keys (`filter[ids][]=123&filter[ids][]=124`). For backward compatibility, the endpoint also accepts a single comma-separated string (`filter[ids]=123,124`).
 	 *
 	 * @return self
 	 */

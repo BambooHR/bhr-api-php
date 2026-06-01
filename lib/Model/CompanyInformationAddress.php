@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * CompanyInformationAddress Class Doc Comment
  *
  * @category Class
+ * @description The primary address of the company.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -316,7 +317,7 @@ class CompanyInformationAddress implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets line1
 	 *
-	 * @param string|null $line1 The first line of the address
+	 * @param string|null $line1 The first line of the address.
 	 *
 	 * @return self
 	 */
@@ -341,7 +342,7 @@ class CompanyInformationAddress implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets line2
 	 *
-	 * @param string|null $line2 The second line of the address
+	 * @param string|null $line2 The second line of the address. May be an empty string.
 	 *
 	 * @return self
 	 */
@@ -366,7 +367,7 @@ class CompanyInformationAddress implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets city
 	 *
-	 * @param string|null $city The city of the address
+	 * @param string|null $city The city.
 	 *
 	 * @return self
 	 */
@@ -391,7 +392,7 @@ class CompanyInformationAddress implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets state
 	 *
-	 * @param string|null $state The state of the address
+	 * @param string|null $state The state or province abbreviation.
 	 *
 	 * @return self
 	 */
@@ -416,7 +417,7 @@ class CompanyInformationAddress implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets zip
 	 *
-	 * @param string|null $zip The zip code of the address
+	 * @param string|null $zip The ZIP or postal code.
 	 *
 	 * @return self
 	 */

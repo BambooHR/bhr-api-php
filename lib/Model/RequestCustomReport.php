@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * RequestCustomReport Class Doc Comment
  *
  * @category Class
+ * @description Report definition for an ad-hoc custom report. Specify the fields to include and optionally filter the employee set. Field IDs are the internal BambooHR field names (e.g. &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;department&#x60;). See the fields metadata endpoint for available field IDs.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,8 +59,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	  */
 	protected static $openApiTypes = [
 		'title' => 'string',
+		'fields' => 'string[]',
 		'filters' => '\BhrSdk\Model\RequestCustomReportFilters',
-		'fields' => 'string[]'
+		'filter_duplicates' => 'string'
 	];
 
 	/**
@@ -71,8 +73,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	  */
 	protected static $openApiFormats = [
 		'title' => null,
+		'fields' => null,
 		'filters' => null,
-		'fields' => null
+		'filter_duplicates' => null
 	];
 
 	/**
@@ -83,8 +86,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	  */
 	protected static array $openApiNullables = [
 		'title' => false,
+		'fields' => false,
 		'filters' => false,
-		'fields' => false
+		'filter_duplicates' => false
 	];
 
 	/**
@@ -170,8 +174,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	protected static $attributeMap = [
 		'title' => 'title',
+		'fields' => 'fields',
 		'filters' => 'filters',
-		'fields' => 'fields'
+		'filter_duplicates' => 'filterDuplicates'
 	];
 
 	/**
@@ -181,8 +186,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	protected static $setters = [
 		'title' => 'setTitle',
+		'fields' => 'setFields',
 		'filters' => 'setFilters',
-		'fields' => 'setFields'
+		'filter_duplicates' => 'setFilterDuplicates'
 	];
 
 	/**
@@ -192,8 +198,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	protected static $getters = [
 		'title' => 'getTitle',
+		'fields' => 'getFields',
 		'filters' => 'getFilters',
-		'fields' => 'getFields'
+		'filter_duplicates' => 'getFilterDuplicates'
 	];
 
 	/**
@@ -233,6 +240,21 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 		return self::$openApiModelName;
 	}
 
+	public const FILTER_DUPLICATES_YES = 'yes';
+	public const FILTER_DUPLICATES_NO = 'no';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getFilterDuplicatesAllowableValues() {
+		return [
+			self::FILTER_DUPLICATES_YES,
+			self::FILTER_DUPLICATES_NO,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -248,8 +270,9 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	 */
 	public function __construct(?array $data = null) {
 		$this->setIfExists('title', $data ?? [], null);
-		$this->setIfExists('filters', $data ?? [], null);
 		$this->setIfExists('fields', $data ?? [], null);
+		$this->setIfExists('filters', $data ?? [], null);
+		$this->setIfExists('filter_duplicates', $data ?? [], null);
 	}
 
 	/**
@@ -277,6 +300,15 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getFilterDuplicatesAllowableValues();
+		if (!is_null($this->container['filter_duplicates']) && !in_array($this->container['filter_duplicates'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'filter_duplicates', must be one of '%s'",
+				$this->container['filter_duplicates'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -302,7 +334,7 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets title
 	 *
-	 * @param string|null $title title
+	 * @param string|null $title A label for the report. Included in the response and used as the file name for downloaded reports.
 	 *
 	 * @return self
 	 */
@@ -311,6 +343,31 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 			throw new \InvalidArgumentException('non-nullable title cannot be null');
 		}
 		$this->container['title'] = $title;
+
+		return $this;
+	}
+
+	/**
+	 * Gets fields
+	 *
+	 * @return string[]|null
+	 */
+	public function getFields() {
+		return $this->container['fields'];
+	}
+
+	/**
+	 * Sets fields
+	 *
+	 * @param string[]|null $fields Array of field IDs to include as columns in the report. Maximum of 400 fields.
+	 *
+	 * @return self
+	 */
+	public function setFields($fields) {
+		if (is_null($fields)) {
+			throw new \InvalidArgumentException('non-nullable fields cannot be null');
+		}
+		$this->container['fields'] = $fields;
 
 		return $this;
 	}
@@ -341,26 +398,36 @@ class RequestCustomReport implements ModelInterface, ArrayAccess, \JsonSerializa
 	}
 
 	/**
-	 * Gets fields
+	 * Gets filter_duplicates
 	 *
-	 * @return string[]|null
+	 * @return string|null
 	 */
-	public function getFields() {
-		return $this->container['fields'];
+	public function getFilterDuplicates() {
+		return $this->container['filter_duplicates'];
 	}
 
 	/**
-	 * Sets fields
+	 * Sets filter_duplicates
 	 *
-	 * @param string[]|null $fields fields
+	 * @param string|null $filter_duplicates Whether to apply standard duplicate row filtering. Defaults to enabled. Set to `no` to return raw results without deduplication.
 	 *
 	 * @return self
 	 */
-	public function setFields($fields) {
-		if (is_null($fields)) {
-			throw new \InvalidArgumentException('non-nullable fields cannot be null');
+	public function setFilterDuplicates($filter_duplicates) {
+		if (is_null($filter_duplicates)) {
+			throw new \InvalidArgumentException('non-nullable filter_duplicates cannot be null');
 		}
-		$this->container['fields'] = $fields;
+		$allowedValues = $this->getFilterDuplicatesAllowableValues();
+		if (!in_array($filter_duplicates, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'filter_duplicates', must be one of '%s'",
+					$filter_duplicates,
+					implode("', '", $allowedValues)
+				)
+			);
+		}
+		$this->container['filter_duplicates'] = $filter_duplicates;
 
 		return $this;
 	}

@@ -57,7 +57,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'int',
+		'id' => 'string',
 		'name' => 'string',
 		'created' => 'string',
 		'last_sent' => 'string',
@@ -66,7 +66,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'url' => 'string',
 		'format' => 'string',
 		'private_key' => 'string',
-		'include_company_domain' => 'bool'
+		'include_company_domain' => 'bool',
+		'events' => '\BhrSdk\Model\WebhookEventType[]'
 	];
 
 	/**
@@ -86,7 +87,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'url' => null,
 		'format' => null,
 		'private_key' => null,
-		'include_company_domain' => null
+		'include_company_domain' => null,
+		'events' => null
 	];
 
 	/**
@@ -99,13 +101,14 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'id' => false,
 		'name' => false,
 		'created' => false,
-		'last_sent' => false,
-		'monitor_fields' => false,
+		'last_sent' => true,
+		'monitor_fields' => true,
 		'post_fields' => false,
 		'url' => false,
 		'format' => false,
 		'private_key' => false,
-		'include_company_domain' => false
+		'include_company_domain' => false,
+		'events' => false
 	];
 
 	/**
@@ -199,7 +202,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'url' => 'url',
 		'format' => 'format',
 		'private_key' => 'privateKey',
-		'include_company_domain' => 'includeCompanyDomain'
+		'include_company_domain' => 'includeCompanyDomain',
+		'events' => 'events'
 	];
 
 	/**
@@ -217,7 +221,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'url' => 'setUrl',
 		'format' => 'setFormat',
 		'private_key' => 'setPrivateKey',
-		'include_company_domain' => 'setIncludeCompanyDomain'
+		'include_company_domain' => 'setIncludeCompanyDomain',
+		'events' => 'setEvents'
 	];
 
 	/**
@@ -235,7 +240,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'url' => 'getUrl',
 		'format' => 'getFormat',
 		'private_key' => 'getPrivateKey',
-		'include_company_domain' => 'getIncludeCompanyDomain'
+		'include_company_domain' => 'getIncludeCompanyDomain',
+		'events' => 'getEvents'
 	];
 
 	/**
@@ -275,6 +281,21 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		return self::$openApiModelName;
 	}
 
+	public const FORMAT_JSON = 'json';
+	public const FORMAT_FORM_ENCODED = 'form-encoded';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getFormatAllowableValues() {
+		return [
+			self::FORMAT_JSON,
+			self::FORMAT_FORM_ENCODED,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -299,6 +320,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('format', $data ?? [], null);
 		$this->setIfExists('private_key', $data ?? [], null);
 		$this->setIfExists('include_company_domain', $data ?? [], null);
+		$this->setIfExists('events', $data ?? [], null);
 	}
 
 	/**
@@ -326,6 +348,15 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getFormatAllowableValues();
+		if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'format', must be one of '%s'",
+				$this->container['format'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -342,7 +373,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets id
 	 *
-	 * @return int|null
+	 * @return string|null
 	 */
 	public function getId() {
 		return $this->container['id'];
@@ -351,7 +382,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id The id of the webhook.
+	 * @param string|null $id The ID of the webhook.
 	 *
 	 * @return self
 	 */
@@ -401,7 +432,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets created
 	 *
-	 * @param string|null $created timestamp of creation
+	 * @param string|null $created Datetime when the webhook was created (UTC, format: YYYY-MM-DD HH:MM:SS).
 	 *
 	 * @return self
 	 */
@@ -426,13 +457,19 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets last_sent
 	 *
-	 * @param string|null $last_sent timestamp of last webhook sent
+	 * @param string|null $last_sent last_sent
 	 *
 	 * @return self
 	 */
 	public function setLastSent($last_sent) {
 		if (is_null($last_sent)) {
-			throw new \InvalidArgumentException('non-nullable last_sent cannot be null');
+			$this->openApiNullablesSetToNull['last_sent'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['last_sent'])) {
+				unset($nullablesSetToNull['last_sent']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['last_sent'] = $last_sent;
 
@@ -451,13 +488,19 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets monitor_fields
 	 *
-	 * @param string[]|null $monitor_fields A list of fields to monitor.
+	 * @param string[]|null $monitor_fields monitor_fields
 	 *
 	 * @return self
 	 */
 	public function setMonitorFields($monitor_fields) {
 		if (is_null($monitor_fields)) {
-			throw new \InvalidArgumentException('non-nullable monitor_fields cannot be null');
+			$this->openApiNullablesSetToNull['monitor_fields'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['monitor_fields'])) {
+				unset($nullablesSetToNull['monitor_fields']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['monitor_fields'] = $monitor_fields;
 
@@ -476,7 +519,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets post_fields
 	 *
-	 * @param object|null $post_fields A list of fields to post to the webhook url. Field ID or alias: external name
+	 * @param object|null $post_fields An object map of field ID or alias to the external name used in the webhook payload.
 	 *
 	 * @return self
 	 */
@@ -501,7 +544,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets url
 	 *
-	 * @param string|null $url The url the webhook should send data to.
+	 * @param string|null $url The URL the webhook sends data to.
 	 *
 	 * @return self
 	 */
@@ -526,13 +569,23 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets format
 	 *
-	 * @param string|null $format The format the webhook should use (json, form-encoded).
+	 * @param string|null $format The payload format used by the webhook.
 	 *
 	 * @return self
 	 */
 	public function setFormat($format) {
 		if (is_null($format)) {
 			throw new \InvalidArgumentException('non-nullable format cannot be null');
+		}
+		$allowedValues = $this->getFormatAllowableValues();
+		if (!in_array($format, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'format', must be one of '%s'",
+					$format,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['format'] = $format;
 
@@ -551,7 +604,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets private_key
 	 *
-	 * @param string|null $private_key The private key which can be used to verify that the webhook is secure (uses HMAC-SHA256)
+	 * @param string|null $private_key The private key used to verify webhook authenticity via HMAC-SHA256. Only returned at creation time.
 	 *
 	 * @return self
 	 */
@@ -576,7 +629,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets include_company_domain
 	 *
-	 * @param bool|null $include_company_domain If set to true, the company domain will be added to the header.
+	 * @param bool|null $include_company_domain Whether the company domain is added to the webhook request header.
 	 *
 	 * @return self
 	 */
@@ -585,6 +638,31 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable include_company_domain cannot be null');
 		}
 		$this->container['include_company_domain'] = $include_company_domain;
+
+		return $this;
+	}
+
+	/**
+	 * Gets events
+	 *
+	 * @return \BhrSdk\Model\WebhookEventType[]|null
+	 */
+	public function getEvents() {
+		return $this->container['events'];
+	}
+
+	/**
+	 * Sets events
+	 *
+	 * @param \BhrSdk\Model\WebhookEventType[]|null $events Events that trigger this webhook.
+	 *
+	 * @return self
+	 */
+	public function setEvents($events) {
+		if (is_null($events)) {
+			throw new \InvalidArgumentException('non-nullable events cannot be null');
+		}
+		$this->container['events'] = $events;
 
 		return $this;
 	}

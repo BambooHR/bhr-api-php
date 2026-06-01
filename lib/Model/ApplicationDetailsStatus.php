@@ -60,7 +60,7 @@ class ApplicationDetailsStatus implements ModelInterface, ArrayAccess, \JsonSeri
 		'id' => 'int',
 		'label' => 'string',
 		'date_changed' => '\DateTime',
-		'changed_by_user' => 'int'
+		'changed_by_user' => 'object'
 	];
 
 	/**
@@ -87,7 +87,7 @@ class ApplicationDetailsStatus implements ModelInterface, ArrayAccess, \JsonSeri
 		'id' => false,
 		'label' => false,
 		'date_changed' => false,
-		'changed_by_user' => false
+		'changed_by_user' => true
 	];
 
 	/**
@@ -359,7 +359,7 @@ class ApplicationDetailsStatus implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets date_changed
 	 *
-	 * @param \DateTime|null $date_changed Date when status was last changed
+	 * @param \DateTime|null $date_changed ISO 8601 datetime when status was last changed
 	 *
 	 * @return self
 	 */
@@ -375,7 +375,7 @@ class ApplicationDetailsStatus implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Gets changed_by_user
 	 *
-	 * @return int|null
+	 * @return object|null
 	 */
 	public function getChangedByUser() {
 		return $this->container['changed_by_user'];
@@ -384,13 +384,19 @@ class ApplicationDetailsStatus implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets changed_by_user
 	 *
-	 * @param int|null $changed_by_user ID of the user who changed the status
+	 * @param object|null $changed_by_user changed_by_user
 	 *
 	 * @return self
 	 */
 	public function setChangedByUser($changed_by_user) {
 		if (is_null($changed_by_user)) {
-			throw new \InvalidArgumentException('non-nullable changed_by_user cannot be null');
+			$this->openApiNullablesSetToNull['changed_by_user'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['changed_by_user'])) {
+				unset($nullablesSetToNull['changed_by_user']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['changed_by_user'] = $changed_by_user;
 

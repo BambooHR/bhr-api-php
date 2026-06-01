@@ -66,9 +66,10 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		'shared_with_employee_ids' => 'int[]',
 		'due_date' => 'string',
 		'completion_date' => 'string',
+		'last_changed_date_time' => 'string',
 		'status' => 'string',
-		'milestones' => '\BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]',
-		'actions' => '\BhrSdk\Model\TransformedApiGoalGoalActions'
+		'milestones' => '\BhrSdk\Model\TransformedApiGoalMilestonesInner[]',
+		'actions' => 'object'
 	];
 
 	/**
@@ -87,6 +88,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		'shared_with_employee_ids' => null,
 		'due_date' => null,
 		'completion_date' => null,
+		'last_changed_date_time' => null,
 		'status' => null,
 		'milestones' => null,
 		'actions' => null
@@ -107,9 +109,10 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		'shared_with_employee_ids' => false,
 		'due_date' => false,
 		'completion_date' => true,
+		'last_changed_date_time' => true,
 		'status' => false,
 		'milestones' => true,
-		'actions' => false
+		'actions' => true
 	];
 
 	/**
@@ -202,6 +205,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		'shared_with_employee_ids' => 'sharedWithEmployeeIds',
 		'due_date' => 'dueDate',
 		'completion_date' => 'completionDate',
+		'last_changed_date_time' => 'lastChangedDateTime',
 		'status' => 'status',
 		'milestones' => 'milestones',
 		'actions' => 'actions'
@@ -221,6 +225,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		'shared_with_employee_ids' => 'setSharedWithEmployeeIds',
 		'due_date' => 'setDueDate',
 		'completion_date' => 'setCompletionDate',
+		'last_changed_date_time' => 'setLastChangedDateTime',
 		'status' => 'setStatus',
 		'milestones' => 'setMilestones',
 		'actions' => 'setActions'
@@ -240,6 +245,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		'shared_with_employee_ids' => 'getSharedWithEmployeeIds',
 		'due_date' => 'getDueDate',
 		'completion_date' => 'getCompletionDate',
+		'last_changed_date_time' => 'getLastChangedDateTime',
 		'status' => 'getStatus',
 		'milestones' => 'getMilestones',
 		'actions' => 'getActions'
@@ -321,6 +327,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 		$this->setIfExists('shared_with_employee_ids', $data ?? [], null);
 		$this->setIfExists('due_date', $data ?? [], null);
 		$this->setIfExists('completion_date', $data ?? [], null);
+		$this->setIfExists('last_changed_date_time', $data ?? [], null);
 		$this->setIfExists('status', $data ?? [], null);
 		$this->setIfExists('milestones', $data ?? [], null);
 		$this->setIfExists('actions', $data ?? [], null);
@@ -566,7 +573,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 	/**
 	 * Sets completion_date
 	 *
-	 * @param string|null $completion_date The date the goal was completed.
+	 * @param string|null $completion_date completion_date
 	 *
 	 * @return self
 	 */
@@ -581,6 +588,37 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 			}
 		}
 		$this->container['completion_date'] = $completion_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets last_changed_date_time
+	 *
+	 * @return string|null
+	 */
+	public function getLastChangedDateTime() {
+		return $this->container['last_changed_date_time'];
+	}
+
+	/**
+	 * Sets last_changed_date_time
+	 *
+	 * @param string|null $last_changed_date_time last_changed_date_time
+	 *
+	 * @return self
+	 */
+	public function setLastChangedDateTime($last_changed_date_time) {
+		if (is_null($last_changed_date_time)) {
+			$this->openApiNullablesSetToNull['last_changed_date_time'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['last_changed_date_time'])) {
+				unset($nullablesSetToNull['last_changed_date_time']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
+		}
+		$this->container['last_changed_date_time'] = $last_changed_date_time;
 
 		return $this;
 	}
@@ -623,7 +661,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 	/**
 	 * Gets milestones
 	 *
-	 * @return \BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]|null
+	 * @return \BhrSdk\Model\TransformedApiGoalMilestonesInner[]|null
 	 */
 	public function getMilestones() {
 		return $this->container['milestones'];
@@ -632,7 +670,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 	/**
 	 * Sets milestones
 	 *
-	 * @param \BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]|null $milestones All milestones for the individual goal. This array will not exist if milestones are not selected for this goal.
+	 * @param \BhrSdk\Model\TransformedApiGoalMilestonesInner[]|null $milestones milestones
 	 *
 	 * @return self
 	 */
@@ -654,7 +692,7 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 	/**
 	 * Gets actions
 	 *
-	 * @return \BhrSdk\Model\TransformedApiGoalGoalActions|null
+	 * @return object|null
 	 */
 	public function getActions() {
 		return $this->container['actions'];
@@ -663,13 +701,19 @@ class TransformedApiEmployeeGoalDetailsGoal implements ModelInterface, ArrayAcce
 	/**
 	 * Sets actions
 	 *
-	 * @param \BhrSdk\Model\TransformedApiGoalGoalActions|null $actions actions
+	 * @param object|null $actions actions
 	 *
 	 * @return self
 	 */
 	public function setActions($actions) {
 		if (is_null($actions)) {
-			throw new \InvalidArgumentException('non-nullable actions cannot be null');
+			$this->openApiNullablesSetToNull['actions'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['actions'])) {
+				unset($nullablesSetToNull['actions']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['actions'] = $actions;
 

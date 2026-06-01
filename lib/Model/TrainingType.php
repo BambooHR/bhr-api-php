@@ -62,8 +62,8 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'renewable' => 'bool',
 		'frequency' => 'int',
 		'due_from_hire_date' => 'int',
-		'required' => 'int',
-		'category' => '\BhrSdk\Model\TrainingCategory',
+		'required' => 'bool',
+		'category' => '\BhrSdk\Model\TrainingTypeCategory',
 		'link_url' => 'string',
 		'description' => 'string',
 		'allow_employees_to_mark_complete' => 'bool'
@@ -101,10 +101,10 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'renewable' => false,
 		'frequency' => false,
 		'due_from_hire_date' => false,
-		'required' => false,
+		'required' => true,
 		'category' => false,
-		'link_url' => false,
-		'description' => false,
+		'link_url' => true,
+		'description' => true,
 		'allow_employees_to_mark_complete' => false
 	];
 
@@ -467,7 +467,7 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets required
 	 *
-	 * @return int|null
+	 * @return bool|null
 	 */
 	public function getRequired() {
 		return $this->container['required'];
@@ -476,13 +476,19 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets required
 	 *
-	 * @param int|null $required Is this a required training?
+	 * @param bool|null $required required
 	 *
 	 * @return self
 	 */
 	public function setRequired($required) {
 		if (is_null($required)) {
-			throw new \InvalidArgumentException('non-nullable required cannot be null');
+			$this->openApiNullablesSetToNull['required'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['required'])) {
+				unset($nullablesSetToNull['required']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['required'] = $required;
 
@@ -492,7 +498,7 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets category
 	 *
-	 * @return \BhrSdk\Model\TrainingCategory|null
+	 * @return \BhrSdk\Model\TrainingTypeCategory|null
 	 */
 	public function getCategory() {
 		return $this->container['category'];
@@ -501,7 +507,7 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets category
 	 *
-	 * @param \BhrSdk\Model\TrainingCategory|null $category category
+	 * @param \BhrSdk\Model\TrainingTypeCategory|null $category category
 	 *
 	 * @return self
 	 */
@@ -526,13 +532,19 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets link_url
 	 *
-	 * @param string|null $link_url Optional URL that can be included with a training.
+	 * @param string|null $link_url link_url
 	 *
 	 * @return self
 	 */
 	public function setLinkUrl($link_url) {
 		if (is_null($link_url)) {
-			throw new \InvalidArgumentException('non-nullable link_url cannot be null');
+			$this->openApiNullablesSetToNull['link_url'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['link_url'])) {
+				unset($nullablesSetToNull['link_url']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['link_url'] = $link_url;
 
@@ -551,13 +563,19 @@ class TrainingType implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets description
 	 *
-	 * @param string|null $description Description for the training.
+	 * @param string|null $description description
 	 *
 	 * @return self
 	 */
 	public function setDescription($description) {
 		if (is_null($description)) {
-			throw new \InvalidArgumentException('non-nullable description cannot be null');
+			$this->openApiNullablesSetToNull['description'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['description'])) {
+				unset($nullablesSetToNull['description']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['description'] = $description;
 

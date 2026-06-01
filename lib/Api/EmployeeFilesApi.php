@@ -79,8 +79,9 @@ class EmployeeFilesApi {
 
 	/** @var string[] $CONTENT_TYPES **/
 	public const CONTENT_TYPES = [
-		'addEmployeeFileCategory' => [
+		'createEmployeeFileCategory' => [
 			'application/json',
+			'application/xml',
         ],
 		'deleteEmployeeFile' => [
 			'application/json',
@@ -93,9 +94,10 @@ class EmployeeFilesApi {
         ],
 		'updateEmployeeFile' => [
 			'application/json',
+			'application/xml',
         ],
 		'uploadEmployeeFile' => [
-			'application/json',
+			'multipart/form-data',
         ],
 	];
 
@@ -146,36 +148,36 @@ class EmployeeFilesApi {
 	}
 
 	/**
-	 * Operation addEmployeeFileCategory
+	 * Operation createEmployeeFileCategory
 	 *
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function addEmployeeFileCategory($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
-		list($response) = $this->addEmployeeFileCategoryWithHttpInfo($request_body, $contentType);
+	public function createEmployeeFileCategory($request_body, string $contentType = self::CONTENT_TYPES['createEmployeeFileCategory'][0]) {
+		list($response) = $this->createEmployeeFileCategoryWithHttpInfo($request_body, $contentType);
 		return $response;
 	}
 
 	/**
-	 * Operation addEmployeeFileCategoryWithHttpInfo
+	 * Operation createEmployeeFileCategoryWithHttpInfo
 	 *
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function addEmployeeFileCategoryWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
-		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
+	public function createEmployeeFileCategoryWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['createEmployeeFileCategory'][0]) {
+		$request = $this->createEmployeeFileCategoryRequest($request_body, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -191,18 +193,18 @@ class EmployeeFilesApi {
 	}
 
 	/**
-	 * Operation addEmployeeFileCategoryAsync
+	 * Operation createEmployeeFileCategoryAsync
 	 *
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addEmployeeFileCategoryAsync($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
-		return $this->addEmployeeFileCategoryAsyncWithHttpInfo($request_body, $contentType)
+	public function createEmployeeFileCategoryAsync($request_body, string $contentType = self::CONTENT_TYPES['createEmployeeFileCategory'][0]) {
+		return $this->createEmployeeFileCategoryAsyncWithHttpInfo($request_body, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -211,19 +213,19 @@ class EmployeeFilesApi {
 	}
 
 	/**
-	 * Operation addEmployeeFileCategoryAsyncWithHttpInfo
+	 * Operation createEmployeeFileCategoryAsyncWithHttpInfo
 	 *
 	 * Create Employee File Category
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function addEmployeeFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
+	public function createEmployeeFileCategoryAsyncWithHttpInfo($request_body, string $contentType = self::CONTENT_TYPES['createEmployeeFileCategory'][0]) {
 		
-		$request = $this->addEmployeeFileCategoryRequest($request_body, $contentType);
+		$request = $this->createEmployeeFileCategoryRequest($request_body, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -255,21 +257,21 @@ class EmployeeFilesApi {
 	}
 
 	/**
-	 * Create request for operation 'addEmployeeFileCategory'
+	 * Create request for operation 'createEmployeeFileCategory'
 	 *
 	 * @param  string[] $request_body (required)
-	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['addEmployeeFileCategory'] to see the possible values for this operation
+	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['createEmployeeFileCategory'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function addEmployeeFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['addEmployeeFileCategory'][0]) {
+	public function createEmployeeFileCategoryRequest($request_body, string $contentType = self::CONTENT_TYPES['createEmployeeFileCategory'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'request_body' => $request_body,
 			],
-			methodName: 'addEmployeeFileCategory'
+			methodName: 'createEmployeeFileCategory'
 		);
 
 		$resourcePath = '/api/v1/employees/files/categories';
@@ -281,7 +283,7 @@ class EmployeeFilesApi {
 		$multipart = false;
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -345,8 +347,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  int $id The ID of the employee whose file is being deleted. Use 0 to default to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -363,8 +365,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  int $id The ID of the employee whose file is being deleted. Use 0 to default to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -392,8 +394,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  int $id The ID of the employee whose file is being deleted. Use 0 to default to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -413,8 +415,8 @@ class EmployeeFilesApi {
 	 *
 	 * Delete Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  int $id The ID of the employee whose file is being deleted. Use 0 to default to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -456,8 +458,8 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'deleteEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being deleted. (required)
+	 * @param  int $id The ID of the employee whose file is being deleted. Use 0 to default to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to delete. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['deleteEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -499,7 +501,7 @@ class EmployeeFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -553,13 +555,13 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  int $id The ID of the employee whose file is being retrieved. Use 0 to resolve to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \SplFileObject
 	 */
 	public function getEmployeeFile($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
 		list($response) = $this->getEmployeeFileWithHttpInfo($id, $file_id, $contentType);
@@ -571,13 +573,13 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  int $id The ID of the employee whose file is being retrieved. Use 0 to resolve to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
 	 */
 	public function getEmployeeFileWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
@@ -588,8 +590,30 @@ class EmployeeFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\SplFileObject',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\SplFileObject',
 			$request,
 			$response,
 		);
@@ -600,8 +624,8 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  int $id The ID of the employee whose file is being retrieved. Use 0 to resolve to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -621,25 +645,27 @@ class EmployeeFilesApi {
 	 *
 	 * Get Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  int $id The ID of the employee whose file is being retrieved. Use 0 to resolve to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
 	public function getEmployeeFileAsyncWithHttpInfo($id, $file_id, string $contentType = self::CONTENT_TYPES['getEmployeeFile'][0]) {
-		
+		$returnType = '\SplFileObject';
 		$request = $this->getEmployeeFileRequest($id, $file_id, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -664,8 +690,8 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'getEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being retrieved. (required)
+	 * @param  int $id The ID of the employee whose file is being retrieved. Use 0 to resolve to the employee associated with the API key. (required)
+	 * @param  int $file_id The ID of the employee file to download. (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['getEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
@@ -707,7 +733,7 @@ class EmployeeFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			['application/octet-stream', ],
 			$contentType,
 			$multipart
 		);
@@ -759,34 +785,36 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFiles
 	 *
-	 * Get Employee Files and Categories
+	 * List Employee Files
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  int $id The ID of the employee whose files are being listed. (required)
+	 * @param  string|null $accept Set to &#x60;application/json&#x60; to receive a JSON response. Any other value (or omitted) returns XML. (optional, default to 'application/xml')
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return mixed
+	 * @return \BhrSdk\Model\JsonEmployeeFiles
 	 */
-	public function listEmployeeFiles($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		list($response) = $this->listEmployeeFilesWithHttpInfo($id, $contentType);
+	public function listEmployeeFiles($id, $accept = 'application/xml', string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
+		list($response) = $this->listEmployeeFilesWithHttpInfo($id, $accept, $contentType);
 		return $response;
 	}
 
 	/**
 	 * Operation listEmployeeFilesWithHttpInfo
 	 *
-	 * Get Employee Files and Categories
+	 * List Employee Files
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  int $id The ID of the employee whose files are being listed. (required)
+	 * @param  string|null $accept Set to &#x60;application/json&#x60; to receive a JSON response. Any other value (or omitted) returns XML. (optional, default to 'application/xml')
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
+	 * @return array of \BhrSdk\Model\JsonEmployeeFiles, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function listEmployeeFilesWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		$request = $this->listEmployeeFilesRequest($id, $contentType);
+	public function listEmployeeFilesWithHttpInfo($id, $accept = 'application/xml', string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
+		$request = $this->listEmployeeFilesRequest($id, $accept, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -794,8 +822,30 @@ class EmployeeFilesApi {
 
 		$statusCode = $response->getStatusCode();
 
+		switch($statusCode) {
+			case 200:
+				return ApiHelper::handleResponseWithDataType(
+					'\BhrSdk\Model\JsonEmployeeFiles',
+					$request,
+					$response,
+				);
+		}
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf(
+					'[%d] Error connecting to the API (%s)',
+					$statusCode,
+					(string) $request->getUri()
+				),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
 		return ApiHelper::handleResponseWithDataType(
-			'object', // or 'mixed' or any other generic type
+			'\BhrSdk\Model\JsonEmployeeFiles',
 			$request,
 			$response,
 		);
@@ -804,16 +854,17 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFilesAsync
 	 *
-	 * Get Employee Files and Categories
+	 * List Employee Files
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  int $id The ID of the employee whose files are being listed. (required)
+	 * @param  string|null $accept Set to &#x60;application/json&#x60; to receive a JSON response. Any other value (or omitted) returns XML. (optional, default to 'application/xml')
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function listEmployeeFilesAsync($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		return $this->listEmployeeFilesAsyncWithHttpInfo($id, $contentType)
+	public function listEmployeeFilesAsync($id, $accept = 'application/xml', string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
+		return $this->listEmployeeFilesAsyncWithHttpInfo($id, $accept, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -824,26 +875,29 @@ class EmployeeFilesApi {
 	/**
 	 * Operation listEmployeeFilesAsyncWithHttpInfo
 	 *
-	 * Get Employee Files and Categories
+	 * List Employee Files
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  int $id The ID of the employee whose files are being listed. (required)
+	 * @param  string|null $accept Set to &#x60;application/json&#x60; to receive a JSON response. Any other value (or omitted) returns XML. (optional, default to 'application/xml')
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function listEmployeeFilesAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
-		
-		$request = $this->listEmployeeFilesRequest($id, $contentType);
+	public function listEmployeeFilesAsyncWithHttpInfo($id, $accept = 'application/xml', string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
+		$returnType = '\BhrSdk\Model\JsonEmployeeFiles';
+		$request = $this->listEmployeeFilesRequest($id, $accept, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
-				function ($response) {
+				function ($response) use ($returnType) {
 					$content = (string) $response->getBody();
-					$content = json_decode($content);
+					if ($returnType !== 'string') {
+						$content = json_decode($content);
+					}
 
 					return [
-						ObjectSerializer::deserialize($content, 'object', []),
+						ObjectSerializer::deserialize($content, $returnType, []),
 						$response->getStatusCode(),
 						$response->getHeaders()
 					];
@@ -868,13 +922,14 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'listEmployeeFiles'
 	 *
-	 * @param  string $id Employee ID is required and needs to be a valid employee ID. (required)
+	 * @param  int $id The ID of the employee whose files are being listed. (required)
+	 * @param  string|null $accept Set to &#x60;application/json&#x60; to receive a JSON response. Any other value (or omitted) returns XML. (optional, default to 'application/xml')
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['listEmployeeFiles'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function listEmployeeFilesRequest($id, string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
+	public function listEmployeeFilesRequest($id, $accept = 'application/xml', string $contentType = self::CONTENT_TYPES['listEmployeeFiles'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
@@ -891,6 +946,11 @@ class EmployeeFilesApi {
 		$httpBody = '';
 		$multipart = false;
 
+		// header params
+		if ($accept !== null) {
+			$headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+		}
+
 		// path params
 		if ($id !== null) {
 			$resourcePath = str_replace(
@@ -901,7 +961,7 @@ class EmployeeFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/xml', 'application/json', ],
+			['application/json', 'application/xml', ],
 			$contentType,
 			$multipart
 		);
@@ -955,8 +1015,8 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $id The ID of the employee whose file is being updated. (required)
+	 * @param  int $file_id The ID of the employee file to update. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
@@ -974,8 +1034,8 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $id The ID of the employee whose file is being updated. (required)
+	 * @param  int $file_id The ID of the employee file to update. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
@@ -1004,8 +1064,8 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $id The ID of the employee whose file is being updated. (required)
+	 * @param  int $file_id The ID of the employee file to update. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
@@ -1026,8 +1086,8 @@ class EmployeeFilesApi {
 	 *
 	 * Update Employee File
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $id The ID of the employee whose file is being updated. (required)
+	 * @param  int $file_id The ID of the employee file to update. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
@@ -1070,8 +1130,8 @@ class EmployeeFilesApi {
 	/**
 	 * Create request for operation 'updateEmployeeFile'
 	 *
-	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
-	 * @param  string $file_id {fileId} is the ID of the employee file being updated. (required)
+	 * @param  int $id The ID of the employee whose file is being updated. (required)
+	 * @param  int $file_id The ID of the employee file to update. (required)
 	 * @param  \BhrSdk\Model\EmployeeFileUpdate $employee_file_update (required)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['updateEmployeeFile'] to see the possible values for this operation
 	 *
@@ -1115,7 +1175,7 @@ class EmployeeFilesApi {
 		}
 
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
@@ -1180,14 +1240,18 @@ class EmployeeFilesApi {
 	 * Upload Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the employee file section to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with the employee. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return mixed
 	 */
-	public function uploadEmployeeFile($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
-		list($response) = $this->uploadEmployeeFileWithHttpInfo($id, $contentType);
+	public function uploadEmployeeFile($id, $file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
+		list($response) = $this->uploadEmployeeFileWithHttpInfo($id, $file_name, $category, $file, $share, $contentType);
 		return $response;
 	}
 
@@ -1197,14 +1261,18 @@ class EmployeeFilesApi {
 	 * Upload Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the employee file section to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with the employee. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \BhrSdk\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
 	 * @return array of null, HTTP status code, HTTP response headers (array of strings)
 	 */
-	public function uploadEmployeeFileWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
-		$request = $this->uploadEmployeeFileRequest($id, $contentType);
+	public function uploadEmployeeFileWithHttpInfo($id, $file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
+		$request = $this->uploadEmployeeFileRequest($id, $file_name, $category, $file, $share, $contentType);
 		$options = ApiHelper::createHttpClientOption($this->config);
 		
 		// Send request with retry support for timeout errors
@@ -1225,13 +1293,17 @@ class EmployeeFilesApi {
 	 * Upload Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the employee file section to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with the employee. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function uploadEmployeeFileAsync($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
-		return $this->uploadEmployeeFileAsyncWithHttpInfo($id, $contentType)
+	public function uploadEmployeeFileAsync($id, $file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
+		return $this->uploadEmployeeFileAsyncWithHttpInfo($id, $file_name, $category, $file, $share, $contentType)
 			->then(
 				function ($response) {
 					return $response[0];
@@ -1245,14 +1317,18 @@ class EmployeeFilesApi {
 	 * Upload Employee File
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the employee file section to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with the employee. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Promise\PromiseInterface
 	 */
-	public function uploadEmployeeFileAsyncWithHttpInfo($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
+	public function uploadEmployeeFileAsyncWithHttpInfo($id, $file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
 		
-		$request = $this->uploadEmployeeFileRequest($id, $contentType);
+		$request = $this->uploadEmployeeFileRequest($id, $file_name, $category, $file, $share, $contentType);
 
 		return ApiHelper::sendRequestWithRetriesAsync($this->logger, $this->client, $this->config, $request, ApiHelper::createHttpClientOption($this->config))
 			->then(
@@ -1287,23 +1363,30 @@ class EmployeeFilesApi {
 	 * Create request for operation 'uploadEmployeeFile'
 	 *
 	 * @param  string $id {id} is an employee ID. The special employee ID of zero (0) means to use the employee ID associated with the API key (if any). (required)
+	 * @param  string $file_name The display name for the uploaded file. (required)
+	 * @param  int $category The ID of the employee file section to upload the file into. (required)
+	 * @param  \SplFileObject $file The file to upload. (required)
+	 * @param  string|null $share Whether to share the file with the employee. Accepted values: &#x60;yes&#x60; or &#x60;no&#x60;. Defaults to &#x60;no&#x60;. (optional)
 	 * @param  string $contentType The value for the Content-Type header. Check self::CONTENT_TYPES['uploadEmployeeFile'] to see the possible values for this operation
 	 *
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function uploadEmployeeFileRequest($id, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
+	public function uploadEmployeeFileRequest($id, $file_name, $category, $file, $share = null, string $contentType = self::CONTENT_TYPES['uploadEmployeeFile'][0]) {
 		// PHP 8.0+ only
 		ApiHelper::validateRequiredParameters(
 			params: [
 				'id' => $id,
+				'file_name' => $file_name,
+				'category' => $category,
+				'file' => $file,
 			],
 			methodName: 'uploadEmployeeFile'
 		);
 
 		$resourcePath = '/api/v1/employees/{id}/files';
 		$this->logger?->info('Request method: [POST], URL: ' . $resourcePath);
-		
+		$formParams = [];
 		$queryParams = [];
 		$headerParams = [];
 		$httpBody = '';
@@ -1318,11 +1401,49 @@ class EmployeeFilesApi {
 			);
 		}
 
+		// form params
+		$formDataProcessor = new FormDataProcessor();
+
+		$formData = $formDataProcessor->prepare([
+			'fileName' => $file_name,
+			'category' => $category,
+			'share' => $share,
+			'file' => $file,
+		]);
+
+		$formParams = $formDataProcessor->flatten($formData);
+
+		$multipart = true;
 		$headers = $this->headerSelector->selectHeaders(
-			['application/json', ],
+			[],
 			$contentType,
 			$multipart
 		);
+
+		if (count($formParams) > 0) {
+			/* @phpstan-ignore-next-line */
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
 
 		// Authentication methods
 		

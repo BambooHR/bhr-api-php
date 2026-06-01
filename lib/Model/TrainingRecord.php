@@ -58,14 +58,14 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiTypes = [
 		'id' => 'int',
-		'employee_id' => 'int',
-		'completed' => 'string',
+		'employee_id' => 'string',
+		'completed' => '\DateTime',
 		'notes' => 'string',
 		'instructor' => 'string',
-		'credits' => 'float',
-		'hours' => 'float',
+		'credits' => 'string',
+		'hours' => 'string',
 		'cost' => 'string',
-		'type' => 'int'
+		'type' => '\BhrSdk\Model\TrainingRecordType'
 	];
 
 	/**
@@ -78,7 +78,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	protected static $openApiFormats = [
 		'id' => null,
 		'employee_id' => null,
-		'completed' => null,
+		'completed' => 'date',
 		'notes' => null,
 		'instructor' => null,
 		'credits' => null,
@@ -97,11 +97,11 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'id' => false,
 		'employee_id' => false,
 		'completed' => false,
-		'notes' => false,
-		'instructor' => false,
-		'credits' => false,
-		'hours' => false,
-		'cost' => false,
+		'notes' => true,
+		'instructor' => true,
+		'credits' => true,
+		'hours' => true,
+		'cost' => true,
 		'type' => false
 	];
 
@@ -360,7 +360,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets employee_id
 	 *
-	 * @return int|null
+	 * @return string|null
 	 */
 	public function getEmployeeId() {
 		return $this->container['employee_id'];
@@ -369,7 +369,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets employee_id
 	 *
-	 * @param int|null $employee_id The ID of the employee associated with the training.
+	 * @param string|null $employee_id The ID of the employee associated with the training, returned as a string.
 	 *
 	 * @return self
 	 */
@@ -385,7 +385,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets completed
 	 *
-	 * @return string|null
+	 * @return \DateTime|null
 	 */
 	public function getCompleted() {
 		return $this->container['completed'];
@@ -394,7 +394,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets completed
 	 *
-	 * @param string|null $completed Completed is a date in the format yyyy-mm-dd.
+	 * @param \DateTime|null $completed Completed is a date in the format yyyy-mm-dd.
 	 *
 	 * @return self
 	 */
@@ -419,13 +419,19 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets notes
 	 *
-	 * @param string|null $notes Notes left on the training record.
+	 * @param string|null $notes notes
 	 *
 	 * @return self
 	 */
 	public function setNotes($notes) {
 		if (is_null($notes)) {
-			throw new \InvalidArgumentException('non-nullable notes cannot be null');
+			$this->openApiNullablesSetToNull['notes'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['notes'])) {
+				unset($nullablesSetToNull['notes']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['notes'] = $notes;
 
@@ -444,13 +450,19 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets instructor
 	 *
-	 * @param string|null $instructor Name of the instructor.
+	 * @param string|null $instructor instructor
 	 *
 	 * @return self
 	 */
 	public function setInstructor($instructor) {
 		if (is_null($instructor)) {
-			throw new \InvalidArgumentException('non-nullable instructor cannot be null');
+			$this->openApiNullablesSetToNull['instructor'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['instructor'])) {
+				unset($nullablesSetToNull['instructor']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['instructor'] = $instructor;
 
@@ -460,7 +472,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets credits
 	 *
-	 * @return float|null
+	 * @return string|null
 	 */
 	public function getCredits() {
 		return $this->container['credits'];
@@ -469,13 +481,19 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets credits
 	 *
-	 * @param float|null $credits What was credited for the training record.
+	 * @param string|null $credits credits
 	 *
 	 * @return self
 	 */
 	public function setCredits($credits) {
 		if (is_null($credits)) {
-			throw new \InvalidArgumentException('non-nullable credits cannot be null');
+			$this->openApiNullablesSetToNull['credits'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['credits'])) {
+				unset($nullablesSetToNull['credits']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['credits'] = $credits;
 
@@ -485,7 +503,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets hours
 	 *
-	 * @return float|null
+	 * @return string|null
 	 */
 	public function getHours() {
 		return $this->container['hours'];
@@ -494,13 +512,19 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets hours
 	 *
-	 * @param float|null $hours Hours associated with the training record.
+	 * @param string|null $hours hours
 	 *
 	 * @return self
 	 */
 	public function setHours($hours) {
 		if (is_null($hours)) {
-			throw new \InvalidArgumentException('non-nullable hours cannot be null');
+			$this->openApiNullablesSetToNull['hours'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['hours'])) {
+				unset($nullablesSetToNull['hours']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['hours'] = $hours;
 
@@ -519,13 +543,19 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets cost
 	 *
-	 * @param string|null $cost The currency and cost for the training record.
+	 * @param string|null $cost cost
 	 *
 	 * @return self
 	 */
 	public function setCost($cost) {
 		if (is_null($cost)) {
-			throw new \InvalidArgumentException('non-nullable cost cannot be null');
+			$this->openApiNullablesSetToNull['cost'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['cost'])) {
+				unset($nullablesSetToNull['cost']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['cost'] = $cost;
 
@@ -535,7 +565,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets type
 	 *
-	 * @return int|null
+	 * @return \BhrSdk\Model\TrainingRecordType|null
 	 */
 	public function getType() {
 		return $this->container['type'];
@@ -544,7 +574,7 @@ class TrainingRecord implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets type
 	 *
-	 * @param int|null $type The training type ID.
+	 * @param \BhrSdk\Model\TrainingRecordType|null $type type
 	 *
 	 * @return self
 	 */

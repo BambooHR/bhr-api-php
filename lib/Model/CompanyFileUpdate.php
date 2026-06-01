@@ -233,6 +233,21 @@ class CompanyFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
 		return self::$openApiModelName;
 	}
 
+	public const SHARE_WITH_EMPLOYEE_YES = 'yes';
+	public const SHARE_WITH_EMPLOYEE_NO = 'no';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getShareWithEmployeeAllowableValues() {
+		return [
+			self::SHARE_WITH_EMPLOYEE_YES,
+			self::SHARE_WITH_EMPLOYEE_NO,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -277,6 +292,15 @@ class CompanyFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getShareWithEmployeeAllowableValues();
+		if (!is_null($this->container['share_with_employee']) && !in_array($this->container['share_with_employee'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'share_with_employee', must be one of '%s'",
+				$this->container['share_with_employee'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -302,7 +326,7 @@ class CompanyFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name name
+	 * @param string|null $name The new display name for the file.
 	 *
 	 * @return self
 	 */
@@ -327,7 +351,7 @@ class CompanyFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets category_id
 	 *
-	 * @param string|null $category_id category_id
+	 * @param string|null $category_id The ID of the category (file section) to move the file to.
 	 *
 	 * @return self
 	 */
@@ -352,13 +376,23 @@ class CompanyFileUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets share_with_employee
 	 *
-	 * @param string|null $share_with_employee share_with_employee
+	 * @param string|null $share_with_employee Whether the file is shared with employees.
 	 *
 	 * @return self
 	 */
 	public function setShareWithEmployee($share_with_employee) {
 		if (is_null($share_with_employee)) {
 			throw new \InvalidArgumentException('non-nullable share_with_employee cannot be null');
+		}
+		$allowedValues = $this->getShareWithEmployeeAllowableValues();
+		if (!in_array($share_with_employee, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'share_with_employee', must be one of '%s'",
+					$share_with_employee,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['share_with_employee'] = $share_with_employee;
 

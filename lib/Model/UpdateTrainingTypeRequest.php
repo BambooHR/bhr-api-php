@@ -319,12 +319,6 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
-		if ($this->container['name'] === null) {
-			$invalidProperties[] = "'name' can't be null";
-		}
-		if ($this->container['required'] === null) {
-			$invalidProperties[] = "'required' can't be null";
-		}
 		return $invalidProperties;
 	}
 
@@ -341,7 +335,7 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets name
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 	public function getName() {
 		return $this->container['name'];
@@ -350,7 +344,7 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets name
 	 *
-	 * @param string $name Name of the training type.
+	 * @param string|null $name Name of the training type.
 	 *
 	 * @return self
 	 */
@@ -441,7 +435,7 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Gets required
 	 *
-	 * @return bool
+	 * @return bool|null
 	 */
 	public function getRequired() {
 		return $this->container['required'];
@@ -450,7 +444,7 @@ class UpdateTrainingTypeRequest implements ModelInterface, ArrayAccess, \JsonSer
 	/**
 	 * Sets required
 	 *
-	 * @param bool $required Is this a required training?
+	 * @param bool|null $required Is this a required training?
 	 *
 	 * @return self
 	 */

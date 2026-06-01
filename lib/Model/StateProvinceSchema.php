@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * StateProvinceSchema Class Doc Comment
  *
  * @category Class
- * @description Schema for state/province data
+ * @description One state or province (subdivision) row. The same field meanings as each element of &#x60;StateProvinceResponseSchema.options&#x60; from &#x60;GET /api/v1/meta/provinces/{countryId}&#x60;.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -335,7 +335,7 @@ class StateProvinceSchema implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets label
 	 *
-	 * @param string|null $label State/province abbreviation
+	 * @param string|null $label Subdivision abbreviation (e.g. \"UT\" for Utah). This is the short code used in `options[].label`, not the full name (see `name`).
 	 *
 	 * @return self
 	 */
@@ -360,7 +360,7 @@ class StateProvinceSchema implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets iso
 	 *
-	 * @param string|null $iso ISO code for the state/province
+	 * @param string|null $iso ISO 3166-2 subdivision code (e.g. \"US-UT\" for Utah).
 	 *
 	 * @return self
 	 */
@@ -385,7 +385,7 @@ class StateProvinceSchema implements ModelInterface, ArrayAccess, \JsonSerializa
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name Full name of the state/province
+	 * @param string|null $name Full subdivision name (e.g. \"Utah\"), distinct from the abbreviation in `label`.
 	 *
 	 * @return self
 	 */

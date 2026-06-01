@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * Employee Class Doc Comment
  *
  * @category Class
+ * @description A dictionary of employee field names and their new values. The properties listed below are commonly used fields, but any valid writable employee field name can be used as a key. To discover all available field names, call the List Fields endpoint (operationId: list-fields, GET /api/v1/meta/fields). Only the fields you include will be updated; omitted fields are left unchanged. Some string-valued fields are backed by lists or lookups, so callers should use valid option values from BambooHR metadata rather than assuming any free-text string will persist as entered. **Important for AI agents:** Unknown or misspelled field names are silently ignored — the endpoint returns 200 but the field is not updated. Always use the exact alias from the schema properties below or from the list-fields endpoint; do not invent aliases by adding prefixes such as &#x60;home&#x60; (e.g., &#x60;homeCity&#x60; is wrong — the correct alias is &#x60;city&#x60;). Photo data is not writable through this schema: photo-related keys are silently ignored. Use the Upload Employee Photo endpoint (operationId: upload-employee-photo) to change a profile photo.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +59,22 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiTypes = [
 		'first_name' => 'string',
-		'last_name' => 'string'
+		'last_name' => 'string',
+		'work_email' => 'string',
+		'job_title' => 'string',
+		'department' => 'string',
+		'division' => 'string',
+		'location' => 'string',
+		'hire_date' => '\DateTime',
+		'mobile_phone' => 'string',
+		'home_phone' => 'string',
+		'work_phone' => 'string',
+		'address1' => 'string',
+		'address2' => 'string',
+		'city' => 'string',
+		'state' => 'string',
+		'zipcode' => 'string',
+		'country' => 'string'
 	];
 
 	/**
@@ -70,7 +86,22 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiFormats = [
 		'first_name' => null,
-		'last_name' => null
+		'last_name' => null,
+		'work_email' => null,
+		'job_title' => null,
+		'department' => null,
+		'division' => null,
+		'location' => null,
+		'hire_date' => 'date',
+		'mobile_phone' => null,
+		'home_phone' => null,
+		'work_phone' => null,
+		'address1' => null,
+		'address2' => null,
+		'city' => null,
+		'state' => null,
+		'zipcode' => null,
+		'country' => null
 	];
 
 	/**
@@ -81,7 +112,22 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static array $openApiNullables = [
 		'first_name' => false,
-		'last_name' => false
+		'last_name' => false,
+		'work_email' => false,
+		'job_title' => false,
+		'department' => false,
+		'division' => false,
+		'location' => false,
+		'hire_date' => false,
+		'mobile_phone' => false,
+		'home_phone' => false,
+		'work_phone' => false,
+		'address1' => false,
+		'address2' => false,
+		'city' => false,
+		'state' => false,
+		'zipcode' => false,
+		'country' => false
 	];
 
 	/**
@@ -167,7 +213,22 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	protected static $attributeMap = [
 		'first_name' => 'firstName',
-		'last_name' => 'lastName'
+		'last_name' => 'lastName',
+		'work_email' => 'workEmail',
+		'job_title' => 'jobTitle',
+		'department' => 'department',
+		'division' => 'division',
+		'location' => 'location',
+		'hire_date' => 'hireDate',
+		'mobile_phone' => 'mobilePhone',
+		'home_phone' => 'homePhone',
+		'work_phone' => 'workPhone',
+		'address1' => 'address1',
+		'address2' => 'address2',
+		'city' => 'city',
+		'state' => 'state',
+		'zipcode' => 'zipcode',
+		'country' => 'country'
 	];
 
 	/**
@@ -177,7 +238,22 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	protected static $setters = [
 		'first_name' => 'setFirstName',
-		'last_name' => 'setLastName'
+		'last_name' => 'setLastName',
+		'work_email' => 'setWorkEmail',
+		'job_title' => 'setJobTitle',
+		'department' => 'setDepartment',
+		'division' => 'setDivision',
+		'location' => 'setLocation',
+		'hire_date' => 'setHireDate',
+		'mobile_phone' => 'setMobilePhone',
+		'home_phone' => 'setHomePhone',
+		'work_phone' => 'setWorkPhone',
+		'address1' => 'setAddress1',
+		'address2' => 'setAddress2',
+		'city' => 'setCity',
+		'state' => 'setState',
+		'zipcode' => 'setZipcode',
+		'country' => 'setCountry'
 	];
 
 	/**
@@ -187,7 +263,22 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	 */
 	protected static $getters = [
 		'first_name' => 'getFirstName',
-		'last_name' => 'getLastName'
+		'last_name' => 'getLastName',
+		'work_email' => 'getWorkEmail',
+		'job_title' => 'getJobTitle',
+		'department' => 'getDepartment',
+		'division' => 'getDivision',
+		'location' => 'getLocation',
+		'hire_date' => 'getHireDate',
+		'mobile_phone' => 'getMobilePhone',
+		'home_phone' => 'getHomePhone',
+		'work_phone' => 'getWorkPhone',
+		'address1' => 'getAddress1',
+		'address2' => 'getAddress2',
+		'city' => 'getCity',
+		'state' => 'getState',
+		'zipcode' => 'getZipcode',
+		'country' => 'getCountry'
 	];
 
 	/**
@@ -243,6 +334,21 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	public function __construct(?array $data = null) {
 		$this->setIfExists('first_name', $data ?? [], null);
 		$this->setIfExists('last_name', $data ?? [], null);
+		$this->setIfExists('work_email', $data ?? [], null);
+		$this->setIfExists('job_title', $data ?? [], null);
+		$this->setIfExists('department', $data ?? [], null);
+		$this->setIfExists('division', $data ?? [], null);
+		$this->setIfExists('location', $data ?? [], null);
+		$this->setIfExists('hire_date', $data ?? [], null);
+		$this->setIfExists('mobile_phone', $data ?? [], null);
+		$this->setIfExists('home_phone', $data ?? [], null);
+		$this->setIfExists('work_phone', $data ?? [], null);
+		$this->setIfExists('address1', $data ?? [], null);
+		$this->setIfExists('address2', $data ?? [], null);
+		$this->setIfExists('city', $data ?? [], null);
+		$this->setIfExists('state', $data ?? [], null);
+		$this->setIfExists('zipcode', $data ?? [], null);
+		$this->setIfExists('country', $data ?? [], null);
 	}
 
 	/**
@@ -295,7 +401,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets first_name
 	 *
-	 * @param string|null $first_name first_name
+	 * @param string|null $first_name Legal first name.
 	 *
 	 * @return self
 	 */
@@ -320,7 +426,7 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets last_name
 	 *
-	 * @param string|null $last_name last_name
+	 * @param string|null $last_name Legal last name.
 	 *
 	 * @return self
 	 */
@@ -329,6 +435,381 @@ class Employee implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable last_name cannot be null');
 		}
 		$this->container['last_name'] = $last_name;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_email
+	 *
+	 * @return string|null
+	 */
+	public function getWorkEmail() {
+		return $this->container['work_email'];
+	}
+
+	/**
+	 * Sets work_email
+	 *
+	 * @param string|null $work_email Work email address.
+	 *
+	 * @return self
+	 */
+	public function setWorkEmail($work_email) {
+		if (is_null($work_email)) {
+			throw new \InvalidArgumentException('non-nullable work_email cannot be null');
+		}
+		$this->container['work_email'] = $work_email;
+
+		return $this;
+	}
+
+	/**
+	 * Gets job_title
+	 *
+	 * @return string|null
+	 */
+	public function getJobTitle() {
+		return $this->container['job_title'];
+	}
+
+	/**
+	 * Sets job_title
+	 *
+	 * @param string|null $job_title Job title.
+	 *
+	 * @return self
+	 */
+	public function setJobTitle($job_title) {
+		if (is_null($job_title)) {
+			throw new \InvalidArgumentException('non-nullable job_title cannot be null');
+		}
+		$this->container['job_title'] = $job_title;
+
+		return $this;
+	}
+
+	/**
+	 * Gets department
+	 *
+	 * @return string|null
+	 */
+	public function getDepartment() {
+		return $this->container['department'];
+	}
+
+	/**
+	 * Sets department
+	 *
+	 * @param string|null $department Department name.
+	 *
+	 * @return self
+	 */
+	public function setDepartment($department) {
+		if (is_null($department)) {
+			throw new \InvalidArgumentException('non-nullable department cannot be null');
+		}
+		$this->container['department'] = $department;
+
+		return $this;
+	}
+
+	/**
+	 * Gets division
+	 *
+	 * @return string|null
+	 */
+	public function getDivision() {
+		return $this->container['division'];
+	}
+
+	/**
+	 * Sets division
+	 *
+	 * @param string|null $division Division name.
+	 *
+	 * @return self
+	 */
+	public function setDivision($division) {
+		if (is_null($division)) {
+			throw new \InvalidArgumentException('non-nullable division cannot be null');
+		}
+		$this->container['division'] = $division;
+
+		return $this;
+	}
+
+	/**
+	 * Gets location
+	 *
+	 * @return string|null
+	 */
+	public function getLocation() {
+		return $this->container['location'];
+	}
+
+	/**
+	 * Sets location
+	 *
+	 * @param string|null $location Location name.
+	 *
+	 * @return self
+	 */
+	public function setLocation($location) {
+		if (is_null($location)) {
+			throw new \InvalidArgumentException('non-nullable location cannot be null');
+		}
+		$this->container['location'] = $location;
+
+		return $this;
+	}
+
+	/**
+	 * Gets hire_date
+	 *
+	 * @return \DateTime|null
+	 */
+	public function getHireDate() {
+		return $this->container['hire_date'];
+	}
+
+	/**
+	 * Sets hire_date
+	 *
+	 * @param \DateTime|null $hire_date Hire date in YYYY-MM-DD format.
+	 *
+	 * @return self
+	 */
+	public function setHireDate($hire_date) {
+		if (is_null($hire_date)) {
+			throw new \InvalidArgumentException('non-nullable hire_date cannot be null');
+		}
+		$this->container['hire_date'] = $hire_date;
+
+		return $this;
+	}
+
+	/**
+	 * Gets mobile_phone
+	 *
+	 * @return string|null
+	 */
+	public function getMobilePhone() {
+		return $this->container['mobile_phone'];
+	}
+
+	/**
+	 * Sets mobile_phone
+	 *
+	 * @param string|null $mobile_phone Mobile phone number.
+	 *
+	 * @return self
+	 */
+	public function setMobilePhone($mobile_phone) {
+		if (is_null($mobile_phone)) {
+			throw new \InvalidArgumentException('non-nullable mobile_phone cannot be null');
+		}
+		$this->container['mobile_phone'] = $mobile_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets home_phone
+	 *
+	 * @return string|null
+	 */
+	public function getHomePhone() {
+		return $this->container['home_phone'];
+	}
+
+	/**
+	 * Sets home_phone
+	 *
+	 * @param string|null $home_phone Home phone number.
+	 *
+	 * @return self
+	 */
+	public function setHomePhone($home_phone) {
+		if (is_null($home_phone)) {
+			throw new \InvalidArgumentException('non-nullable home_phone cannot be null');
+		}
+		$this->container['home_phone'] = $home_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets work_phone
+	 *
+	 * @return string|null
+	 */
+	public function getWorkPhone() {
+		return $this->container['work_phone'];
+	}
+
+	/**
+	 * Sets work_phone
+	 *
+	 * @param string|null $work_phone Work phone number.
+	 *
+	 * @return self
+	 */
+	public function setWorkPhone($work_phone) {
+		if (is_null($work_phone)) {
+			throw new \InvalidArgumentException('non-nullable work_phone cannot be null');
+		}
+		$this->container['work_phone'] = $work_phone;
+
+		return $this;
+	}
+
+	/**
+	 * Gets address1
+	 *
+	 * @return string|null
+	 */
+	public function getAddress1() {
+		return $this->container['address1'];
+	}
+
+	/**
+	 * Sets address1
+	 *
+	 * @param string|null $address1 Home street address line 1. The correct alias is `address1` — do not use `homeAddress1`, `homeStreet1`, or `street1`.
+	 *
+	 * @return self
+	 */
+	public function setAddress1($address1) {
+		if (is_null($address1)) {
+			throw new \InvalidArgumentException('non-nullable address1 cannot be null');
+		}
+		$this->container['address1'] = $address1;
+
+		return $this;
+	}
+
+	/**
+	 * Gets address2
+	 *
+	 * @return string|null
+	 */
+	public function getAddress2() {
+		return $this->container['address2'];
+	}
+
+	/**
+	 * Sets address2
+	 *
+	 * @param string|null $address2 Home street address line 2 (apartment, suite, etc.). The correct alias is `address2` — do not use `homeAddress2` or `homeStreet2`.
+	 *
+	 * @return self
+	 */
+	public function setAddress2($address2) {
+		if (is_null($address2)) {
+			throw new \InvalidArgumentException('non-nullable address2 cannot be null');
+		}
+		$this->container['address2'] = $address2;
+
+		return $this;
+	}
+
+	/**
+	 * Gets city
+	 *
+	 * @return string|null
+	 */
+	public function getCity() {
+		return $this->container['city'];
+	}
+
+	/**
+	 * Sets city
+	 *
+	 * @param string|null $city Home city. The correct alias is `city` — do not use `homeCity`.
+	 *
+	 * @return self
+	 */
+	public function setCity($city) {
+		if (is_null($city)) {
+			throw new \InvalidArgumentException('non-nullable city cannot be null');
+		}
+		$this->container['city'] = $city;
+
+		return $this;
+	}
+
+	/**
+	 * Gets state
+	 *
+	 * @return string|null
+	 */
+	public function getState() {
+		return $this->container['state'];
+	}
+
+	/**
+	 * Sets state
+	 *
+	 * @param string|null $state Home state or province. The correct alias is `state` — do not use `homeState`. Values are normalized to standard abbreviations (e.g., \"Pennsylvania\" becomes \"PA\").
+	 *
+	 * @return self
+	 */
+	public function setState($state) {
+		if (is_null($state)) {
+			throw new \InvalidArgumentException('non-nullable state cannot be null');
+		}
+		$this->container['state'] = $state;
+
+		return $this;
+	}
+
+	/**
+	 * Gets zipcode
+	 *
+	 * @return string|null
+	 */
+	public function getZipcode() {
+		return $this->container['zipcode'];
+	}
+
+	/**
+	 * Sets zipcode
+	 *
+	 * @param string|null $zipcode Home ZIP or postal code. The correct alias is `zipcode` — do not use `homeZipcode` or `homeZip`.
+	 *
+	 * @return self
+	 */
+	public function setZipcode($zipcode) {
+		if (is_null($zipcode)) {
+			throw new \InvalidArgumentException('non-nullable zipcode cannot be null');
+		}
+		$this->container['zipcode'] = $zipcode;
+
+		return $this;
+	}
+
+	/**
+	 * Gets country
+	 *
+	 * @return string|null
+	 */
+	public function getCountry() {
+		return $this->container['country'];
+	}
+
+	/**
+	 * Sets country
+	 *
+	 * @param string|null $country Home country name. The correct alias is `country` — do not use `homeCountry`.
+	 *
+	 * @return self
+	 */
+	public function setCountry($country) {
+		if (is_null($country)) {
+			throw new \InvalidArgumentException('non-nullable country cannot be null');
+		}
+		$this->container['country'] = $country;
 
 		return $this;
 	}

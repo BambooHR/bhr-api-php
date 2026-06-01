@@ -57,7 +57,7 @@ class GoalAggregateCommentsInner implements ModelInterface, ArrayAccess, \JsonSe
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'id' => 'int',
+		'id' => 'string',
 		'author_user_id' => 'int',
 		'created_at' => 'string',
 		'text' => 'string',
@@ -314,7 +314,7 @@ class GoalAggregateCommentsInner implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Gets id
 	 *
-	 * @return int|null
+	 * @return string|null
 	 */
 	public function getId() {
 		return $this->container['id'];
@@ -323,7 +323,7 @@ class GoalAggregateCommentsInner implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id Id of the comment.
+	 * @param string|null $id Id of the comment.
 	 *
 	 * @return self
 	 */
@@ -373,7 +373,7 @@ class GoalAggregateCommentsInner implements ModelInterface, ArrayAccess, \JsonSe
 	/**
 	 * Sets created_at
 	 *
-	 * @param string|null $created_at The date and time that the comment was created.
+	 * @param string|null $created_at ISO 8601 UTC timestamp when the comment was created.
 	 *
 	 * @return self
 	 */

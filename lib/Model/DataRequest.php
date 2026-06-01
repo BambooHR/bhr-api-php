@@ -58,7 +58,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  */
 	protected static $openApiTypes = [
 		'fields' => 'string[]',
-		'aggregations' => '\BhrSdk\Model\DataRequestAggregationsInner[]',
+		'aggregations' => '\BhrSdk\Model\DataRequestAggregations',
 		'sort_by' => '\BhrSdk\Model\DataRequestSortByInner[]',
 		'filters' => '\BhrSdk\Model\DataRequestFilters',
 		'group_by' => 'string[]',
@@ -326,7 +326,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets fields
 	 *
-	 * @param string[] $fields fields
+	 * @param string[] $fields Field names to include in each returned record. Use \"Get Fields from Dataset\" to discover available names.
 	 *
 	 * @return self
 	 */
@@ -342,7 +342,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets aggregations
 	 *
-	 * @return \BhrSdk\Model\DataRequestAggregationsInner[]|null
+	 * @return \BhrSdk\Model\DataRequestAggregations|null
 	 */
 	public function getAggregations() {
 		return $this->container['aggregations'];
@@ -351,7 +351,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets aggregations
 	 *
-	 * @param \BhrSdk\Model\DataRequestAggregationsInner[]|null $aggregations aggregations
+	 * @param \BhrSdk\Model\DataRequestAggregations|null $aggregations aggregations
 	 *
 	 * @return self
 	 */
@@ -376,7 +376,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets sort_by
 	 *
-	 * @param \BhrSdk\Model\DataRequestSortByInner[]|null $sort_by sort_by
+	 * @param \BhrSdk\Model\DataRequestSortByInner[]|null $sort_by Ordered list of sort rules. Priority follows array order. Include aggregationType when sorting by an aggregated value in a grouped request; it must match an aggregation requested for the same field.
 	 *
 	 * @return self
 	 */
@@ -426,7 +426,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets group_by
 	 *
-	 * @param string[]|null $group_by group_by
+	 * @param string[]|null $group_by Field names to group results by. Currently supports only one field. When grouping is active, the `data` key in the response becomes an object keyed by group value instead of an array.
 	 *
 	 * @return self
 	 */
@@ -451,7 +451,7 @@ class DataRequest implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets show_history
 	 *
-	 * @param string[]|null $show_history show_history
+	 * @param string[]|null $show_history Entity names of historical table fields whose history rows should be included. Entity names are returned by \"Get Fields from Dataset\".
 	 *
 	 * @return self
 	 */

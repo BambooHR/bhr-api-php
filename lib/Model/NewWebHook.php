@@ -62,7 +62,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'object',
 		'url' => 'string',
 		'format' => 'string',
-		'include_company_domain' => 'bool'
+		'include_company_domain' => 'bool',
+		'events' => '\BhrSdk\Model\WebhookEventType[]'
 	];
 
 	/**
@@ -78,7 +79,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => null,
 		'url' => null,
 		'format' => null,
-		'include_company_domain' => null
+		'include_company_domain' => null,
+		'events' => null
 	];
 
 	/**
@@ -93,7 +95,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => false,
 		'url' => false,
 		'format' => false,
-		'include_company_domain' => false
+		'include_company_domain' => false,
+		'events' => false
 	];
 
 	/**
@@ -183,7 +186,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'postFields',
 		'url' => 'url',
 		'format' => 'format',
-		'include_company_domain' => 'includeCompanyDomain'
+		'include_company_domain' => 'includeCompanyDomain',
+		'events' => 'events'
 	];
 
 	/**
@@ -197,7 +201,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'setPostFields',
 		'url' => 'setUrl',
 		'format' => 'setFormat',
-		'include_company_domain' => 'setIncludeCompanyDomain'
+		'include_company_domain' => 'setIncludeCompanyDomain',
+		'events' => 'setEvents'
 	];
 
 	/**
@@ -211,7 +216,8 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'post_fields' => 'getPostFields',
 		'url' => 'getUrl',
 		'format' => 'getFormat',
-		'include_company_domain' => 'getIncludeCompanyDomain'
+		'include_company_domain' => 'getIncludeCompanyDomain',
+		'events' => 'getEvents'
 	];
 
 	/**
@@ -286,6 +292,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('url', $data ?? [], null);
 		$this->setIfExists('format', $data ?? [], null);
 		$this->setIfExists('include_company_domain', $data ?? [], null);
+		$this->setIfExists('events', $data ?? [], null);
 	}
 
 	/**
@@ -316,11 +323,11 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 		if ($this->container['name'] === null) {
 			$invalidProperties[] = "'name' can't be null";
 		}
-		if ($this->container['monitor_fields'] === null) {
-			$invalidProperties[] = "'monitor_fields' can't be null";
-		}
 		if ($this->container['url'] === null) {
 			$invalidProperties[] = "'url' can't be null";
+		}
+		if ($this->container['format'] === null) {
+			$invalidProperties[] = "'format' can't be null";
 		}
 		$allowedValues = $this->getFormatAllowableValues();
 		if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
@@ -372,7 +379,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets monitor_fields
 	 *
-	 * @return string[]
+	 * @return string[]|null
 	 */
 	public function getMonitorFields() {
 		return $this->container['monitor_fields'];
@@ -381,7 +388,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets monitor_fields
 	 *
-	 * @param string[] $monitor_fields A list of fields to monitor.
+	 * @param string[]|null $monitor_fields A list of fields to monitor. At least one field is required to be monitored if events is empty or contains employee_with_fields.updated or employee.updated.
 	 *
 	 * @return self
 	 */
@@ -406,7 +413,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets post_fields
 	 *
-	 * @param object|null $post_fields A list of fields to post to the webhook url. Field ID or alias: external name
+	 * @param object|null $post_fields An object map of field ID or alias to the external name used in the webhook payload (e.g. `{\"firstName\": \"First Name\"}`). Omit or send an empty object to include no extra fields.
 	 *
 	 * @return self
 	 */
@@ -447,7 +454,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets format
 	 *
-	 * @return string|null
+	 * @return string
 	 */
 	public function getFormat() {
 		return $this->container['format'];
@@ -456,7 +463,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets format
 	 *
-	 * @param string|null $format The format the webhook should use (json - default, form-encoded).
+	 * @param string $format The payload format the webhook uses. Required.
 	 *
 	 * @return self
 	 */
@@ -491,7 +498,7 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets include_company_domain
 	 *
-	 * @param bool|null $include_company_domain If set to true, the company domain will be added to the header.
+	 * @param bool|null $include_company_domain If set to true, the company domain will be added to the webhook request header.
 	 *
 	 * @return self
 	 */
@@ -500,6 +507,31 @@ class NewWebHook implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable include_company_domain cannot be null');
 		}
 		$this->container['include_company_domain'] = $include_company_domain;
+
+		return $this;
+	}
+
+	/**
+	 * Gets events
+	 *
+	 * @return \BhrSdk\Model\WebhookEventType[]|null
+	 */
+	public function getEvents() {
+		return $this->container['events'];
+	}
+
+	/**
+	 * Sets events
+	 *
+	 * @param \BhrSdk\Model\WebhookEventType[]|null $events Events that trigger this webhook. Defaults to ['employee_with_fields.updated', 'employee_with_fields.deleted', 'employee_with_fields.created'] if not specified. Cannot mix employee_with_fields events with employee events.
+	 *
+	 * @return self
+	 */
+	public function setEvents($events) {
+		if (is_null($events)) {
+			throw new \InvalidArgumentException('non-nullable events cannot be null');
+		}
+		$this->container['events'] = $events;
 
 		return $this;
 	}

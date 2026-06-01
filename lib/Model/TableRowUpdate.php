@@ -36,6 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * TableRowUpdate Class Doc Comment
  *
  * @category Class
+ * @description A dictionary of table field names and values for creating or updating a row in an employee table. The listed properties are common examples, but accepted fields depend on the specific table being targeted. Some string-valued fields are backed by lists or lookups, so callers should use valid option values from BambooHR metadata rather than assuming any free-text string will persist as entered.
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,12 +58,13 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @var string[]
 	  */
 	protected static $openApiTypes = [
-		'date' => 'string',
+		'date' => '\DateTime',
 		'location' => 'string',
 		'division' => 'string',
 		'department' => 'string',
 		'job_title' => 'string',
-		'reports_to' => 'string'
+		'reports_to' => 'string',
+		'teams' => 'string[]'
 	];
 
 	/**
@@ -73,12 +75,13 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	  * @psalm-var array<string, string|null>
 	  */
 	protected static $openApiFormats = [
-		'date' => null,
+		'date' => 'date',
 		'location' => null,
 		'division' => null,
 		'department' => null,
 		'job_title' => null,
-		'reports_to' => null
+		'reports_to' => null,
+		'teams' => null
 	];
 
 	/**
@@ -93,7 +96,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => false,
 		'department' => false,
 		'job_title' => false,
-		'reports_to' => false
+		'reports_to' => false,
+		'teams' => false
 	];
 
 	/**
@@ -183,7 +187,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'division',
 		'department' => 'department',
 		'job_title' => 'jobTitle',
-		'reports_to' => 'reportsTo'
+		'reports_to' => 'reportsTo',
+		'teams' => 'teams'
 	];
 
 	/**
@@ -197,7 +202,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'setDivision',
 		'department' => 'setDepartment',
 		'job_title' => 'setJobTitle',
-		'reports_to' => 'setReportsTo'
+		'reports_to' => 'setReportsTo',
+		'teams' => 'setTeams'
 	];
 
 	/**
@@ -211,7 +217,8 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		'division' => 'getDivision',
 		'department' => 'getDepartment',
 		'job_title' => 'getJobTitle',
-		'reports_to' => 'getReportsTo'
+		'reports_to' => 'getReportsTo',
+		'teams' => 'getTeams'
 	];
 
 	/**
@@ -271,6 +278,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 		$this->setIfExists('department', $data ?? [], null);
 		$this->setIfExists('job_title', $data ?? [], null);
 		$this->setIfExists('reports_to', $data ?? [], null);
+		$this->setIfExists('teams', $data ?? [], null);
 	}
 
 	/**
@@ -314,7 +322,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Gets date
 	 *
-	 * @return string|null
+	 * @return \DateTime|null
 	 */
 	public function getDate() {
 		return $this->container['date'];
@@ -323,7 +331,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets date
 	 *
-	 * @param string|null $date date
+	 * @param \DateTime|null $date The effective date for the row in YYYY-MM-DD format.
 	 *
 	 * @return self
 	 */
@@ -348,7 +356,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets location
 	 *
-	 * @param string|null $location location
+	 * @param string|null $location The employee location value for the row.
 	 *
 	 * @return self
 	 */
@@ -373,7 +381,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets division
 	 *
-	 * @param string|null $division division
+	 * @param string|null $division The division value for the row.
 	 *
 	 * @return self
 	 */
@@ -398,7 +406,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets department
 	 *
-	 * @param string|null $department department
+	 * @param string|null $department The department value for the row.
 	 *
 	 * @return self
 	 */
@@ -423,7 +431,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets job_title
 	 *
-	 * @param string|null $job_title job_title
+	 * @param string|null $job_title The job title value for the row.
 	 *
 	 * @return self
 	 */
@@ -448,7 +456,7 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets reports_to
 	 *
-	 * @param string|null $reports_to reports_to
+	 * @param string|null $reports_to The manager or reports-to value for the row.
 	 *
 	 * @return self
 	 */
@@ -457,6 +465,31 @@ class TableRowUpdate implements ModelInterface, ArrayAccess, \JsonSerializable {
 			throw new \InvalidArgumentException('non-nullable reports_to cannot be null');
 		}
 		$this->container['reports_to'] = $reports_to;
+
+		return $this;
+	}
+
+	/**
+	 * Gets teams
+	 *
+	 * @return string[]|null
+	 */
+	public function getTeams() {
+		return $this->container['teams'];
+	}
+
+	/**
+	 * Sets teams
+	 *
+	 * @param string[]|null $teams Team values associated with the row.
+	 *
+	 * @return self
+	 */
+	public function setTeams($teams) {
+		if (is_null($teams)) {
+			throw new \InvalidArgumentException('non-nullable teams cannot be null');
+		}
+		$this->container['teams'] = $teams;
 
 		return $this;
 	}

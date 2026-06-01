@@ -4,41 +4,41 @@ All URIs are relative to https://companySubDomain.bamboohr.com, except if the op
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**closeGoal()**](GoalsApi.md#closeGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal |
+| [**createGoal()**](GoalsApi.md#createGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal |
+| [**createGoalComment()**](GoalsApi.md#createGoalComment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment |
 | [**deleteGoal()**](GoalsApi.md#deleteGoal) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Delete Goal |
 | [**deleteGoalComment()**](GoalsApi.md#deleteGoalComment) | **DELETE** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Delete Goal Comment |
-| [**getCanCreateGoal()**](GoalsApi.md#getCanCreateGoal) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Check Goal Creation Permission |
+| [**getAlignableGoalOptions()**](GoalsApi.md#getAlignableGoalOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Get Alignable Goal Options |
 | [**getGoalAggregate()**](GoalsApi.md#getGoalAggregate) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/aggregate | Get Goal Aggregate |
-| [**getGoalComments()**](GoalsApi.md#getGoalComments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Get Goal Comments |
-| [**getGoals()**](GoalsApi.md#getGoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | Get Goals |
-| [**getGoalsAggregateV1()**](GoalsApi.md#getGoalsAggregateV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate |
-| [**getGoalsAggregateV11()**](GoalsApi.md#getGoalsAggregateV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate v1.1 |
-| [**getGoalsAggregateV12()**](GoalsApi.md#getGoalsAggregateV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate v1.2 |
-| [**getGoalsAlignmentOptions()**](GoalsApi.md#getGoalsAlignmentOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/alignmentOptions | Get Alignable Goal Options |
-| [**getGoalsFiltersV1()**](GoalsApi.md#getGoalsFiltersV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goal Filters |
-| [**getGoalsFiltersV11()**](GoalsApi.md#getGoalsFiltersV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goal Filters v1.1 |
-| [**getGoalsFiltersV12()**](GoalsApi.md#getGoalsFiltersV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Status Counts v1.2 |
-| [**getGoalsShareOptions()**](GoalsApi.md#getGoalsShareOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | Get Available Goal Sharing Options |
-| [**postCloseGoal()**](GoalsApi.md#postCloseGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/close | Close Goal |
-| [**postGoal()**](GoalsApi.md#postGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals | Create Goal |
-| [**postGoalComment()**](GoalsApi.md#postGoalComment) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | Create Goal Comment |
-| [**postReopenGoal()**](GoalsApi.md#postReopenGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen Goal |
-| [**putGoalComment()**](GoalsApi.md#putGoalComment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment |
-| [**putGoalMilestoneProgress()**](GoalsApi.md#putGoalMilestoneProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress |
-| [**putGoalProgress()**](GoalsApi.md#putGoalProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress |
-| [**putGoalSharedWith()**](GoalsApi.md#putGoalSharedWith) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing |
-| [**putGoalV1()**](GoalsApi.md#putGoalV1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal |
-| [**putGoalV11()**](GoalsApi.md#putGoalV11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal v1.1 |
+| [**getGoalCreationPermission()**](GoalsApi.md#getGoalCreationPermission) | **GET** /api/v1/performance/employees/{employeeId}/goals/canCreateGoals | Get Goal Creation Permission |
+| [**getGoalsAggregateV1()**](GoalsApi.md#getGoalsAggregateV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate (v1) |
+| [**getGoalsAggregateV11()**](GoalsApi.md#getGoalsAggregateV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate (v1.1) |
+| [**getGoalsAggregateV12()**](GoalsApi.md#getGoalsAggregateV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/aggregate | Get Goals Aggregate (v1.2) |
+| [**getGoalsFiltersV1()**](GoalsApi.md#getGoalsFiltersV1) | **GET** /api/v1/performance/employees/{employeeId}/goals/filters | Get Goal Filters (v1) |
+| [**getGoalsFiltersV11()**](GoalsApi.md#getGoalsFiltersV11) | **GET** /api/v1_1/performance/employees/{employeeId}/goals/filters | Get Goal Filters (v1.1) |
+| [**getGoalsFiltersV12()**](GoalsApi.md#getGoalsFiltersV12) | **GET** /api/v1_2/performance/employees/{employeeId}/goals/filters | Get Goal Filters (v1.2) |
+| [**listGoalComments()**](GoalsApi.md#listGoalComments) | **GET** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments | List Goal Comments |
+| [**listGoalShareOptions()**](GoalsApi.md#listGoalShareOptions) | **GET** /api/v1/performance/employees/{employeeId}/goals/shareOptions | List Goal Sharing Options |
+| [**listGoals()**](GoalsApi.md#listGoals) | **GET** /api/v1/performance/employees/{employeeId}/goals | List Goals |
+| [**reopenGoal()**](GoalsApi.md#reopenGoal) | **POST** /api/v1/performance/employees/{employeeId}/goals/{goalId}/reopen | Reopen Goal |
+| [**updateGoalComment()**](GoalsApi.md#updateGoalComment) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/comments/{commentId} | Update Goal Comment |
+| [**updateGoalMilestoneProgress()**](GoalsApi.md#updateGoalMilestoneProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/milestones/{milestoneId}/progress | Update Milestone Progress |
+| [**updateGoalProgress()**](GoalsApi.md#updateGoalProgress) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/progress | Update Goal Progress |
+| [**updateGoalSharing()**](GoalsApi.md#updateGoalSharing) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId}/sharedWith | Update Goal Sharing |
+| [**updateGoalV1()**](GoalsApi.md#updateGoalV1) | **PUT** /api/v1/performance/employees/{employeeId}/goals/{goalId} | Update Goal (v1) |
+| [**updateGoalV11()**](GoalsApi.md#updateGoalV11) | **PUT** /api/v1_1/performance/employees/{employeeId}/goals/{goalId} | Update Goal (v1.1) |
 
 
-## `deleteGoal()`
+## `closeGoal()`
 
 ```php
-deleteGoal($employee_id, $goal_id)
+closeGoal($employee_id, $goal_id, $close_goal_request): \BhrSdk\Model\GoalResponse
 ```
 
-Delete Goal
+Close Goal
 
-Delete a goal.
+Closes a goal, moving it to the closed status. An optional comment may be included in the request body to record a note at closing time. Returns the updated goal object. Validate the result using the returned `status`, `percentComplete`, and `completionDate` fields; do not rely solely on `lastChangedDateTime` as the confirmation timestamp, because it may not match the HTTP response time or may reflect BambooHR's internal timezone/update semantics. Note: Cascading goals with visible children cannot be closed.
 
 ### Example
 
@@ -61,11 +61,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
+$close_goal_request = new \BhrSdk\Model\CloseGoalRequest(); // \BhrSdk\Model\CloseGoalRequest | An optional comment to record when closing the goal.
 
 try {
-    $apiInstance->deleteGoal($employee_id, $goal_id);
+    $result = $apiInstance->closeGoal($employee_id, $goal_id, $close_goal_request);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->deleteGoal: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->closeGoal: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -75,10 +77,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
+| **close_goal_request** | [**\BhrSdk\Model\CloseGoalRequest**](../Model/CloseGoalRequest.md)| An optional comment to record when closing the goal. | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\GoalResponse**](../Model/GoalResponse.md)
 
 ### Authorization
 
@@ -93,6 +96,199 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createGoal()`
+
+```php
+createGoal($employee_id, $create_goal_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
+```
+
+Create Goal
+
+Create a new goal for an employee. To create a simple goal without milestones, omit the `milestones` field; the goal's progress can then be changed with `update-goal-progress`. To create a milestone-based goal, provide `milestones` as a non-empty array of `{ \"title\": string }` objects; the goal's percent complete is then derived from milestone completion and should be changed via `update-goal-milestone-progress`. Sending `milestones: null` is treated as omitted (creates a simple goal).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\GoalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
+$create_goal_request = new \BhrSdk\Model\CreateGoalRequest(); // \BhrSdk\Model\CreateGoalRequest
+
+try {
+    $result = $apiInstance->createGoal($employee_id, $create_goal_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GoalsApi->createGoal: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
+| **create_goal_request** | [**\BhrSdk\Model\CreateGoalRequest**](../Model/CreateGoalRequest.md)|  | |
+
+### Return type
+
+[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createGoalComment()`
+
+```php
+createGoalComment($employee_id, $goal_id, $create_goal_comment_request): \BhrSdk\Model\GoalCommentResponse
+```
+
+Create Goal Comment
+
+Creates a new comment on a goal. The goal must belong to the specified employee. Returns the newly created comment object including its assigned ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\GoalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
+$goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
+$create_goal_comment_request = new \BhrSdk\Model\CreateGoalCommentRequest(); // \BhrSdk\Model\CreateGoalCommentRequest
+
+try {
+    $result = $apiInstance->createGoalComment($employee_id, $goal_id, $create_goal_comment_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GoalsApi->createGoalComment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
+| **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
+| **create_goal_comment_request** | [**\BhrSdk\Model\CreateGoalCommentRequest**](../Model/CreateGoalCommentRequest.md)|  | |
+
+### Return type
+
+[**\BhrSdk\Model\GoalCommentResponse**](../Model/GoalCommentResponse.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteGoal()`
+
+```php
+deleteGoal($employee_id, $goal_id)
+```
+
+Delete Goal
+
+Permanently deletes a goal for an employee. The goal must belong to the specified employee. Returns 204 with no response body on success. For natural-language requests that identify a goal by title or partial title, first call `list-goals` with `filter=status-all` and resolve exactly one matching goal. Do not delete if there are multiple matches or no match; ask for clarification or report that the goal was not found.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\GoalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
+$goal_id = 'goal_id_example'; // string | The exact goal ID for the specified employee. Do not infer this from a partial title unless you have resolved a single matching goal via `list-goals`.
+
+try {
+    $apiInstance->deleteGoal($employee_id, $goal_id);
+} catch (Exception $e) {
+    echo 'Exception when calling GoalsApi->deleteGoal: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
+| **goal_id** | **string**| The exact goal ID for the specified employee. Do not infer this from a partial title unless you have resolved a single matching goal via &#x60;list-goals&#x60;. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteGoalComment()`
 
 ```php
@@ -101,7 +297,7 @@ deleteGoalComment($employee_id, $goal_id, $comment_id)
 
 Delete Goal Comment
 
-Delete a goal comment.
+Deletes a goal comment. The comment must belong to the specified goal, and the goal must belong to the specified employee. Returns 204 with no response body on success. If the user does not provide a comment ID, first call `list-goal-comments` and select a single deletable comment (`canDelete` is true) matching the user's description. If multiple comments match or none are deletable, do not delete; ask for clarification.
 
 ### Example
 
@@ -158,15 +354,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCanCreateGoal()`
+## `getAlignableGoalOptions()`
 
 ```php
-getCanCreateGoal($employee_id)
+getAlignableGoalOptions($employee_id, $goal_id): \BhrSdk\Model\AlignmentOptionsResponse
 ```
 
-Check Goal Creation Permission
+Get Alignable Goal Options
 
-Determine if the API user has permission to create a goal for this employee.
+Returns goals that can be used as alignment targets. When a `goalId` query parameter is provided, the currently aligned goal is included in the results even if it would otherwise be excluded. When `goalId` is omitted, returns alignment options for the API user. This endpoint is permission-sensitive: the caller may be able to view a goal through `list-goals` or `get-goal-aggregate` but still receive 403 here if they lack permission to view alignment options for the selected goal. Treat 403 as \"alignment options are permission-restricted,\" not as proof that the goal ID is invalid.
 
 ### Example
 
@@ -187,12 +383,14 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
+$employee_id = 'employee_id_example'; // string | employeeId is the employee ID to get alignable goal options for.
+$goal_id = 56; // int | Optional goal ID whose current alignment should be included in the results. Only pass a goal ID that belongs to the specified employee. If this endpoint returns 403 for an otherwise visible goal, report that alignment options are restricted by permissions rather than treating the goal ID as invalid.
 
 try {
-    $apiInstance->getCanCreateGoal($employee_id);
+    $result = $apiInstance->getAlignableGoalOptions($employee_id, $goal_id);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->getCanCreateGoal: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->getAlignableGoalOptions: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -200,11 +398,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
+| **employee_id** | **string**| employeeId is the employee ID to get alignable goal options for. | |
+| **goal_id** | **int**| Optional goal ID whose current alignment should be included in the results. Only pass a goal ID that belongs to the specified employee. If this endpoint returns 403 for an otherwise visible goal, report that alignment options are restricted by permissions rather than treating the goal ID as invalid. | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\AlignmentOptionsResponse**](../Model/AlignmentOptionsResponse.md)
 
 ### Authorization
 
@@ -227,7 +426,7 @@ getGoalAggregate($employee_id, $goal_id): \BhrSdk\Model\GoalAggregate
 
 Get Goal Aggregate
 
-Provides goal information, goal comments, and employees shared with goals or who have commented on the given goal.
+Returns a single goal with its comments, alignment options, and a list of all persons who are either shared on the goal or have commented on it. Useful for rendering a full goal detail view in a single request.
 
 ### Example
 
@@ -283,15 +482,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getGoalComments()`
+## `getGoalCreationPermission()`
 
 ```php
-getGoalComments($employee_id, $goal_id)
+getGoalCreationPermission($employee_id): \BhrSdk\Model\CanCreateGoalsResponse
 ```
 
-Get Goal Comments
+Get Goal Creation Permission
 
-Get comments for a goal.
+Determine if the API user has permission to create a goal for this employee.
 
 ### Example
 
@@ -313,12 +512,12 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 
 try {
-    $apiInstance->getGoalComments($employee_id, $goal_id);
+    $result = $apiInstance->getGoalCreationPermission($employee_id);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->getGoalComments: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->getGoalCreationPermission: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -327,75 +526,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 
 ### Return type
 
-void (empty response body)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getGoals()`
-
-```php
-getGoals($employee_id, $filter): \BhrSdk\Model\GoalsList
-```
-
-Get Goals
-
-Get goals for an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization
-$config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setApiKey('x-api-key', 'YOUR_API_KEY');
-
-// Or configure OAuth2 access token for authorization
-// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new BhrSdk\Api\GoalsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
-$filter = 'filter_example'; // string | A filter that can be applied to only show the goals that are in a certain state.
-
-try {
-    $result = $apiInstance->getGoals($employee_id, $filter);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->getGoals: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
-| **filter** | **string**| A filter that can be applied to only show the goals that are in a certain state. | [optional] |
-
-### Return type
-
-[**\BhrSdk\Model\GoalsList**](../Model/GoalsList.md)
+[**\BhrSdk\Model\CanCreateGoalsResponse**](../Model/CanCreateGoalsResponse.md)
 
 ### Authorization
 
@@ -413,12 +547,12 @@ try {
 ## `getGoalsAggregateV1()`
 
 ```php
-getGoalsAggregateV1($employee_id): \BhrSdk\Model\GoalsAggregateV1
+getGoalsAggregateV1($employee_id, $filter): \BhrSdk\Model\GoalsAggregateV1
 ```
 
-Get Goals Aggregate
+Get Goals Aggregate (v1)
 
-Provides a list of all goals, type counts, goal comment counts, and employees shared with goals for the given employee. This version of the endpoint will not return any goals with milestones. Milestone functionality for this endpoint begins in version 1.2.
+Deprecated. Use \"Get Goals Aggregate (v1.1)\" instead. Provides a list of all goals, type counts, goal comment counts, and employees shared with goals for the given employee. This version of the endpoint will not return any goals with milestones. Milestone functionality for this endpoint begins in version 1.2.
 
 ### Example
 
@@ -440,9 +574,10 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID used to generate the aggregate information.
+$filter = 'filter_example'; // string | Filter goals by status. Accepts filter IDs returned by the filters endpoint (e.g. status-inProgress). If omitted or invalid, defaults to the first available filter. The API accepts arbitrary strings and returns 200.
 
 try {
-    $result = $apiInstance->getGoalsAggregateV1($employee_id);
+    $result = $apiInstance->getGoalsAggregateV1($employee_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GoalsApi->getGoalsAggregateV1: ', $e->getMessage(), PHP_EOL;
@@ -454,6 +589,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID used to generate the aggregate information. | |
+| **filter** | **string**| Filter goals by status. Accepts filter IDs returned by the filters endpoint (e.g. status-inProgress). If omitted or invalid, defaults to the first available filter. The API accepts arbitrary strings and returns 200. | [optional] |
 
 ### Return type
 
@@ -475,12 +611,12 @@ try {
 ## `getGoalsAggregateV11()`
 
 ```php
-getGoalsAggregateV11($employee_id): \BhrSdk\Model\GoalsAggregateV11
+getGoalsAggregateV11($employee_id, $filter): \BhrSdk\Model\GoalsAggregateV11
 ```
 
-Get Goals Aggregate v1.1
+Get Goals Aggregate (v1.1)
 
-Provides a list of all goals, type counts, filter actions, goal comment counts, and employees shared with goals for the given employee. Difference from Version 1: Returns goals in the closed filter and provides filter actions for each filter. This version of the endpoint will not return any goals with milestones. Milestone functionality for this endpoint begins in version 1.2.
+Deprecated. Use \"Get Goals Aggregate (v1.2)\" instead. Provides a list of all goals, type counts, filter actions, goal comment counts, and employees shared with goals for the given employee. Note: Compared to \"Get Goals Aggregate (v1)\", this version returns goals in the closed filter and provides filter actions for each filter. This version of the endpoint will not return any goals with milestones. Milestone functionality for this endpoint begins in version 1.2.
 
 ### Example
 
@@ -502,9 +638,10 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     $config
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID used to generate the aggregate information.
+$filter = 'filter_example'; // string | Filter goals by status. Accepts filter IDs returned by the filters endpoint (e.g. status-inProgress). If omitted or invalid, defaults to the first available filter. The API accepts arbitrary strings and returns 200.
 
 try {
-    $result = $apiInstance->getGoalsAggregateV11($employee_id);
+    $result = $apiInstance->getGoalsAggregateV11($employee_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GoalsApi->getGoalsAggregateV11: ', $e->getMessage(), PHP_EOL;
@@ -516,6 +653,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID used to generate the aggregate information. | |
+| **filter** | **string**| Filter goals by status. Accepts filter IDs returned by the filters endpoint (e.g. status-inProgress). If omitted or invalid, defaults to the first available filter. The API accepts arbitrary strings and returns 200. | [optional] |
 
 ### Return type
 
@@ -537,12 +675,12 @@ try {
 ## `getGoalsAggregateV12()`
 
 ```php
-getGoalsAggregateV12($employee_id): \BhrSdk\Model\GoalsAggregateV12
+getGoalsAggregateV12($employee_id, $filter): \BhrSdk\Model\GoalsAggregateV12
 ```
 
-Get Goals Aggregate v1.2
+Get Goals Aggregate (v1.2)
 
-Provides a list of all goals, type counts, filter actions, goal comment counts, and employees shared with goals for the given employee. Difference from Version 1.1: Returns all goals, including goals that contain milestones.
+Provides a goals dashboard for an employee: goals matching the selected filter, status filter counts/actions, comment counts, and people shared with or commenting on those goals. This v1.2 endpoint includes milestone-based goals in the returned goal list. Use the optional `filter` query parameter to control which statuses are included; use `status-all` when the user asks for a complete dashboard across active, completed, and closed goals. Note: Compared to \"Get Goals Aggregate (v1.1)\", this version returns goals that contain milestones.
 
 ### Example
 
@@ -564,9 +702,10 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     $config
 );
 $employee_id = 56; // int | employeeId is the employee ID used to generate the aggregate information.
+$filter = 'filter_example'; // string | Optional status filter for the goals collection in the aggregate response. Use `status-all` for a full dashboard across statuses; otherwise pass `status-inProgress`, `status-completed`, or `status-closed`. If omitted or invalid, defaults to the first available filter. The response's `filters` counts may include statuses beyond the selected goal list.
 
 try {
-    $result = $apiInstance->getGoalsAggregateV12($employee_id);
+    $result = $apiInstance->getGoalsAggregateV12($employee_id, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GoalsApi->getGoalsAggregateV12: ', $e->getMessage(), PHP_EOL;
@@ -578,75 +717,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID used to generate the aggregate information. | |
+| **filter** | **string**| Optional status filter for the goals collection in the aggregate response. Use &#x60;status-all&#x60; for a full dashboard across statuses; otherwise pass &#x60;status-inProgress&#x60;, &#x60;status-completed&#x60;, or &#x60;status-closed&#x60;. If omitted or invalid, defaults to the first available filter. The response&#39;s &#x60;filters&#x60; counts may include statuses beyond the selected goal list. | [optional] |
 
 ### Return type
 
 [**\BhrSdk\Model\GoalsAggregateV12**](../Model/GoalsAggregateV12.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getGoalsAlignmentOptions()`
-
-```php
-getGoalsAlignmentOptions($employee_id, $goal_id, $get_goals_alignment_options_request)
-```
-
-Get Alignable Goal Options
-
-Get alignable goal options for an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization
-$config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setApiKey('x-api-key', 'YOUR_API_KEY');
-
-// Or configure OAuth2 access token for authorization
-// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new BhrSdk\Api\GoalsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$employee_id = 'employee_id_example'; // string | employeeId is the employee ID to get alignable goal options for.
-$goal_id = 56; // int | Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body.
-$get_goals_alignment_options_request = new \BhrSdk\Model\GetGoalsAlignmentOptionsRequest(); // \BhrSdk\Model\GetGoalsAlignmentOptionsRequest | Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter.
-
-try {
-    $apiInstance->getGoalsAlignmentOptions($employee_id, $goal_id, $get_goals_alignment_options_request);
-} catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->getGoalsAlignmentOptions: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **string**| employeeId is the employee ID to get alignable goal options for. | |
-| **goal_id** | **int**| Optional. The goal ID to get alignment options for. Can be provided as a query parameter or in the request body. | [optional] |
-| **get_goals_alignment_options_request** | [**\BhrSdk\Model\GetGoalsAlignmentOptionsRequest**](../Model/GetGoalsAlignmentOptionsRequest.md)| Optional. Provide goalId to get alignment options including the option currently aligned with this goal. If omitted, response will be alignment options belonging to the API user. Note: goalId can also be provided as a query parameter. | [optional] |
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 
@@ -667,9 +742,9 @@ void (empty response body)
 getGoalsFiltersV1($employee_id): \BhrSdk\Model\GoalFiltersV1
 ```
 
-Get Goal Filters
+Get Goal Filters (v1)
 
-Get the number of goals per status for an employee.
+Deprecated. Use \"Get Goal Filters (v1.1)\" instead. Get the number of goals per status for an employee. Returns a count of goals in each status (In Progress, Completed) for the specified employee. Goals with milestones are excluded from counts in this version.
 
 ### Example
 
@@ -729,9 +804,9 @@ try {
 getGoalsFiltersV11($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
-Get Goal Filters v1.1
+Get Goal Filters (v1.1)
 
-Get the number of goals per status for an employee. Difference from Version 1: Includes actions.
+Deprecated. Use \"Get Goal Filters (v1.2)\" instead. Get the number of goals per status for an employee. Note: Compared to \"Get Goal Filters (v1)\", this version includes actions.
 
 ### Example
 
@@ -791,9 +866,9 @@ try {
 getGoalsFiltersV12($employee_id): \BhrSdk\Model\GoalFiltersV11
 ```
 
-Get Goal Status Counts v1.2
+Get Goal Filters (v1.2)
 
-Get the number of goals per status for an employee. Difference from Version 1_1: Returns goals with milestones.
+Get the number of goals per status for an employee, including goals with milestones. Note: Compared to \"Get Goal Filters (v1.1)\", this version returns goals with milestones.
 
 ### Example
 
@@ -847,13 +922,77 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getGoalsShareOptions()`
+## `listGoalComments()`
 
 ```php
-getGoalsShareOptions($employee_id, $search, $limit)
+listGoalComments($employee_id, $goal_id): \BhrSdk\Model\GoalCommentsResponse
 ```
 
-Get Available Goal Sharing Options
+List Goal Comments
+
+Returns comments for a goal, including each comment's ID, author, text, creation time, and edit/delete permissions. Use this endpoint before updating or deleting a comment when the user identifies a comment by text or says \"my comment\" rather than providing a comment ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization
+$config = BhrSdk\Configuration::getDefaultConfiguration()
+              ->setApiKey('x-api-key', 'YOUR_API_KEY');
+
+// Or configure OAuth2 access token for authorization
+// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new BhrSdk\Api\GoalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
+$goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
+
+try {
+    $result = $apiInstance->listGoalComments($employee_id, $goal_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GoalsApi->listGoalComments: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
+| **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
+
+### Return type
+
+[**\BhrSdk\Model\GoalCommentsResponse**](../Model/GoalCommentsResponse.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listGoalShareOptions()`
+
+```php
+listGoalShareOptions($employee_id, $search, $limit): \BhrSdk\Model\ShareOptionsResponse
+```
+
+List Goal Sharing Options
 
 Provides a list of employees with whom the specified employee\\'s goals may be shared.
 
@@ -878,12 +1017,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to get sharing options for.
 $search = 'search_example'; // string | The search term used to filter employees returned. Will search name, employee ID and email.
-$limit = 'limit_example'; // string | Limit will restrict results to specified number.
+$limit = 10; // int | Maximum number of employees to return. Defaults to 10, maximum 100.
 
 try {
-    $apiInstance->getGoalsShareOptions($employee_id, $search, $limit);
+    $result = $apiInstance->listGoalShareOptions($employee_id, $search, $limit);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->getGoalsShareOptions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->listGoalShareOptions: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -892,12 +1032,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID to get sharing options for. | |
-| **search** | **string**| The search term used to filter employees returned. Will search name, employee ID and email. | [optional] |
-| **limit** | **string**| Limit will restrict results to specified number. | [optional] |
+| **search** | **string**| The search term used to filter employees returned. Will search name, employee ID and email. | |
+| **limit** | **int**| Maximum number of employees to return. Defaults to 10, maximum 100. | [optional] [default to 10] |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\ShareOptionsResponse**](../Model/ShareOptionsResponse.md)
 
 ### Authorization
 
@@ -912,15 +1052,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `postCloseGoal()`
+## `listGoals()`
 
 ```php
-postCloseGoal($employee_id, $goal_id, $body): \BhrSdk\Model\TransformedApiGoal
+listGoals($employee_id, $filter): \BhrSdk\Model\GoalsList
 ```
 
-Close Goal
+List Goals
 
-Close a goal.
+Returns goals for an employee. Use this endpoint to locate goals by title before updating, commenting on, closing, reopening, or deleting them. Use `filter=status-inProgress` when the user asks for current/active goals, `filter=status-completed` for completed goals, `filter=status-closed` for closed goals, and `filter=status-all` when the user says \"all goals\", \"including closed\", or you are resolving a goal by title for a write operation where the status is unknown. If no filter is provided, closed goals are excluded. Results are capped at 50 goals; if a title lookup is ambiguous or absent, do not update or delete a different goal.
 
 ### Example
 
@@ -941,15 +1081,14 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$body = 'body_example'; // string | Comment field is optional.
+$employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
+$filter = 'filter_example'; // string | Goal status filter. Use `status-inProgress` for current active goals, `status-completed` for completed goals, `status-closed` for closed goals, and `status-all` when locating a goal by title for update/delete/reopen or when the user asks for all goals. If omitted, closed goals are excluded. Unrecognized values behave like omission.
 
 try {
-    $result = $apiInstance->postCloseGoal($employee_id, $goal_id, $body);
+    $result = $apiInstance->listGoals($employee_id, $filter);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->postCloseGoal: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->listGoals: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -957,13 +1096,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **body** | **string**| Comment field is optional. | [optional] |
+| **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
+| **filter** | **string**| Goal status filter. Use &#x60;status-inProgress&#x60; for current active goals, &#x60;status-completed&#x60; for completed goals, &#x60;status-closed&#x60; for closed goals, and &#x60;status-all&#x60; when locating a goal by title for update/delete/reopen or when the user asks for all goals. If omitted, closed goals are excluded. Unrecognized values behave like omission. | [optional] |
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\GoalsList**](../Model/GoalsList.md)
 
 ### Authorization
 
@@ -978,144 +1116,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `postGoal()`
+## `reopenGoal()`
 
 ```php
-postGoal($employee_id, $post_goal_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
-```
-
-Create Goal
-
-Create a new goal for an employee.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization
-$config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setApiKey('x-api-key', 'YOUR_API_KEY');
-
-// Or configure OAuth2 access token for authorization
-// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new BhrSdk\Api\GoalsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$post_goal_request = new \BhrSdk\Model\PostGoalRequest(); // \BhrSdk\Model\PostGoalRequest
-
-try {
-    $result = $apiInstance->postGoal($employee_id, $post_goal_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->postGoal: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **post_goal_request** | [**\BhrSdk\Model\PostGoalRequest**](../Model/PostGoalRequest.md)|  | |
-
-### Return type
-
-[**\BhrSdk\Model\TransformedApiEmployeeGoalDetails**](../Model/TransformedApiEmployeeGoalDetails.md)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `postGoalComment()`
-
-```php
-postGoalComment($employee_id, $goal_id, $body)
-```
-
-Create Goal Comment
-
-Create a new goal comment.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization
-$config = BhrSdk\Configuration::getDefaultConfiguration()
-              ->setApiKey('x-api-key', 'YOUR_API_KEY');
-
-// Or configure OAuth2 access token for authorization
-// $config = BhrSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new BhrSdk\Api\GoalsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
-$goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$body = 'body_example'; // string
-
-try {
-    $apiInstance->postGoalComment($employee_id, $goal_id, $body);
-} catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->postGoalComment: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
-| **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **body** | **string**|  | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic](../../README.md#basic), [oauth](../../README.md#oauth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `postReopenGoal()`
-
-```php
-postReopenGoal($employee_id, $goal_id): \BhrSdk\Model\TransformedApiGoal
+reopenGoal($employee_id, $goal_id): \BhrSdk\Model\GoalResponse
 ```
 
 Reopen Goal
 
-Reopen a goal.
+Reopens a closed goal, returning it to the in-progress status. Returns the updated goal object. Validate the result using the returned `status` and `percentComplete` fields; do not rely solely on `lastChangedDateTime` as the confirmation timestamp, because it may not match the HTTP response time or may reflect BambooHR's internal timezone/update semantics.
 
 ### Example
 
@@ -1140,10 +1149,10 @@ $employee_id = 'employee_id_example'; // string | employeeId is the employee ID 
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 
 try {
-    $result = $apiInstance->postReopenGoal($employee_id, $goal_id);
+    $result = $apiInstance->reopenGoal($employee_id, $goal_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->postReopenGoal: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->reopenGoal: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1156,7 +1165,7 @@ try {
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\GoalResponse**](../Model/GoalResponse.md)
 
 ### Authorization
 
@@ -1171,15 +1180,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `putGoalComment()`
+## `updateGoalComment()`
 
 ```php
-putGoalComment($employee_id, $goal_id, $comment_id, $body)
+updateGoalComment($employee_id, $goal_id, $comment_id, $update_goal_comment_request): \BhrSdk\Model\GoalCommentResponse
 ```
 
 Update Goal Comment
 
-Update a goal comment.
+Updates the text of an existing goal comment. The comment must belong to the specified goal, and the goal must belong to the specified employee. Returns the updated comment object. If the user does not provide a comment ID, first call `list-goal-comments` and select a single editable comment (`canEdit` is true) matching the user's description. If multiple comments match or none are editable, do not update; ask for clarification.
 
 ### Example
 
@@ -1203,12 +1212,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $comment_id = 'comment_id_example'; // string | commentId is the comment ID for the specified goal.
-$body = 'body_example'; // string
+$update_goal_comment_request = new \BhrSdk\Model\UpdateGoalCommentRequest(); // \BhrSdk\Model\UpdateGoalCommentRequest
 
 try {
-    $apiInstance->putGoalComment($employee_id, $goal_id, $comment_id, $body);
+    $result = $apiInstance->updateGoalComment($employee_id, $goal_id, $comment_id, $update_goal_comment_request);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->putGoalComment: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->updateGoalComment: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1219,11 +1229,11 @@ try {
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **comment_id** | **string**| commentId is the comment ID for the specified goal. | |
-| **body** | **string**|  | |
+| **update_goal_comment_request** | [**\BhrSdk\Model\UpdateGoalCommentRequest**](../Model/UpdateGoalCommentRequest.md)|  | |
 
 ### Return type
 
-void (empty response body)
+[**\BhrSdk\Model\GoalCommentResponse**](../Model/GoalCommentResponse.md)
 
 ### Authorization
 
@@ -1238,15 +1248,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `putGoalMilestoneProgress()`
+## `updateGoalMilestoneProgress()`
 
 ```php
-putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
+updateGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $update_goal_milestone_progress_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
 Update Milestone Progress
 
-Update the progress of a milestone in a goal.
+Update the progress of a milestone in a goal. Validate the result using returned domain fields such as the milestone's `completedDateTime`, plus the goal's `status` and `percentComplete`; do not rely solely on `lastChangedDateTime` as the confirmation timestamp, because it may not match the HTTP response time or may reflect BambooHR's internal timezone/update semantics.
 
 ### Example
 
@@ -1270,13 +1280,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID to whom the goals are assigned.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
 $milestone_id = 'milestone_id_example'; // string | milestoneId is the milestone ID for the specified goal.
-$put_goal_milestone_progress_request = new \BhrSdk\Model\PutGoalMilestoneProgressRequest(); // \BhrSdk\Model\PutGoalMilestoneProgressRequest
+$update_goal_milestone_progress_request = new \BhrSdk\Model\UpdateGoalMilestoneProgressRequest(); // \BhrSdk\Model\UpdateGoalMilestoneProgressRequest
 
 try {
-    $result = $apiInstance->putGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $put_goal_milestone_progress_request);
+    $result = $apiInstance->updateGoalMilestoneProgress($employee_id, $goal_id, $milestone_id, $update_goal_milestone_progress_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->putGoalMilestoneProgress: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->updateGoalMilestoneProgress: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1287,7 +1297,7 @@ try {
 | **employee_id** | **string**| employeeId is the employee ID to whom the goals are assigned. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
 | **milestone_id** | **string**| milestoneId is the milestone ID for the specified goal. | |
-| **put_goal_milestone_progress_request** | [**\BhrSdk\Model\PutGoalMilestoneProgressRequest**](../Model/PutGoalMilestoneProgressRequest.md)|  | |
+| **update_goal_milestone_progress_request** | [**\BhrSdk\Model\UpdateGoalMilestoneProgressRequest**](../Model/UpdateGoalMilestoneProgressRequest.md)|  | |
 
 ### Return type
 
@@ -1306,15 +1316,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `putGoalProgress()`
+## `updateGoalProgress()`
 
 ```php
-putGoalProgress($employee_id, $goal_id, $put_goal_progress_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
+updateGoalProgress($employee_id, $goal_id, $update_goal_progress_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
 Update Goal Progress
 
-Update the progress percentage of an individual goal.
+Update the progress percentage of a simple, non-milestone goal. Do not use this endpoint for goals that contain milestones; BambooHR derives percent complete for milestone-based goals from milestone completion and will reject manual percent updates with a 400 response (`UPDATE_GOAL_WITH_MILESTONE_PROGRESS_ERROR`). For milestone-based goals, use `update-goal-milestone-progress` to mark individual milestones complete or incomplete.
 
 ### Example
 
@@ -1337,13 +1347,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 );
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_progress_request = new \BhrSdk\Model\PutGoalProgressRequest(); // \BhrSdk\Model\PutGoalProgressRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$update_goal_progress_request = new \BhrSdk\Model\UpdateGoalProgressRequest(); // \BhrSdk\Model\UpdateGoalProgressRequest | The updated progress for a simple goal. Provide `percentComplete` from 0–100. When `percentComplete` is 100, provide `completionDate`; when less than 100, omit `completionDate` or set it to null. This endpoint is rejected for goals with milestones — use `update-goal-milestone-progress` instead.
 
 try {
-    $result = $apiInstance->putGoalProgress($employee_id, $goal_id, $put_goal_progress_request);
+    $result = $apiInstance->updateGoalProgress($employee_id, $goal_id, $update_goal_progress_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->putGoalProgress: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->updateGoalProgress: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1353,7 +1363,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_progress_request** | [**\BhrSdk\Model\PutGoalProgressRequest**](../Model/PutGoalProgressRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **update_goal_progress_request** | [**\BhrSdk\Model\UpdateGoalProgressRequest**](../Model/UpdateGoalProgressRequest.md)| The updated progress for a simple goal. Provide &#x60;percentComplete&#x60; from 0–100. When &#x60;percentComplete&#x60; is 100, provide &#x60;completionDate&#x60;; when less than 100, omit &#x60;completionDate&#x60; or set it to null. This endpoint is rejected for goals with milestones — use &#x60;update-goal-milestone-progress&#x60; instead. | |
 
 ### Return type
 
@@ -1372,15 +1382,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `putGoalSharedWith()`
+## `updateGoalSharing()`
 
 ```php
-putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request): \BhrSdk\Model\TransformedApiGoal
+updateGoalSharing($employee_id, $goal_id, $update_goal_sharing_request): \BhrSdk\Model\GoalResponse
 ```
 
 Update Goal Sharing
 
-Updates which employees this goal is shared with.
+Replaces the full list of employees this goal is shared with. The provided `sharedWithEmployeeIds` array must include the goal owner's employee ID. Returns the updated goal object.
 
 ### Example
 
@@ -1403,13 +1413,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$put_goal_shared_with_request = new \BhrSdk\Model\PutGoalSharedWithRequest(); // \BhrSdk\Model\PutGoalSharedWithRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
+$update_goal_sharing_request = new \BhrSdk\Model\UpdateGoalSharingRequest(); // \BhrSdk\Model\UpdateGoalSharingRequest | Employee IDs of employees with whom the goal is shared. All goal owners are considered \"shared with\".
 
 try {
-    $result = $apiInstance->putGoalSharedWith($employee_id, $goal_id, $put_goal_shared_with_request);
+    $result = $apiInstance->updateGoalSharing($employee_id, $goal_id, $update_goal_sharing_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->putGoalSharedWith: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->updateGoalSharing: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1419,11 +1429,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **put_goal_shared_with_request** | [**\BhrSdk\Model\PutGoalSharedWithRequest**](../Model/PutGoalSharedWithRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
+| **update_goal_sharing_request** | [**\BhrSdk\Model\UpdateGoalSharingRequest**](../Model/UpdateGoalSharingRequest.md)| Employee IDs of employees with whom the goal is shared. All goal owners are considered \&quot;shared with\&quot;. | |
 
 ### Return type
 
-[**\BhrSdk\Model\TransformedApiGoal**](../Model/TransformedApiGoal.md)
+[**\BhrSdk\Model\GoalResponse**](../Model/GoalResponse.md)
 
 ### Authorization
 
@@ -1438,15 +1448,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `putGoalV1()`
+## `updateGoalV1()`
 
 ```php
-putGoalV1($employee_id, $goal_id, $goal): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
+updateGoalV1($employee_id, $goal_id, $update_goal_v1): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
-Update Goal
+Update Goal (v1)
 
-Update a goal. This version will not update a goal to contain milestones, that functionality is added in version 1.1
+Deprecated. Use \"Update Goal (v1.1)\" instead. Update a goal. This version will not update a goal to contain milestones, that functionality is added in version 1.1.
 
 ### Example
 
@@ -1469,13 +1479,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 );
 $employee_id = 'employee_id_example'; // string | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 'goal_id_example'; // string | goalId is the goal ID for the specified employee.
-$goal = new \BhrSdk\Model\Goal(); // \BhrSdk\Model\Goal | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$update_goal_v1 = new \BhrSdk\Model\UpdateGoalV1(); // \BhrSdk\Model\UpdateGoalV1 | Required fields: title, sharedWithEmployeeIds, dueDate. Omitted optional fields overwrite existing values using the endpoint's default behavior; see individual field descriptions for details.
 
 try {
-    $result = $apiInstance->putGoalV1($employee_id, $goal_id, $goal);
+    $result = $apiInstance->updateGoalV1($employee_id, $goal_id, $update_goal_v1);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->putGoalV1: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->updateGoalV1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1485,7 +1495,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **string**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **string**| goalId is the goal ID for the specified employee. | |
-| **goal** | [**\BhrSdk\Model\Goal**](../Model/Goal.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **update_goal_v1** | [**\BhrSdk\Model\UpdateGoalV1**](../Model/UpdateGoalV1.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Omitted optional fields overwrite existing values using the endpoint&#39;s default behavior; see individual field descriptions for details. | |
 
 ### Return type
 
@@ -1504,15 +1514,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `putGoalV11()`
+## `updateGoalV11()`
 
 ```php
-putGoalV11($employee_id, $goal_id, $put_goal_v11_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
+updateGoalV11($employee_id, $goal_id, $update_goal_v11_request): \BhrSdk\Model\TransformedApiEmployeeGoalDetails
 ```
 
-Update Goal v1.1
+Update Goal (v1.1)
 
-Update a goal. Version 1.1 allows the updating of the milestones contained within the goal, unlike Version 1.
+Update a goal's top-level fields and optionally add or delete milestones. Milestone handling is not a full replace or upsert: objects passed in `milestones` are always added as new milestones, even if their titles match existing milestones. To keep existing milestones unchanged while editing title, description, due date, sharing, or alignment, omit the `milestones` field. To remove milestones, pass their IDs in `deletedMilestoneIds`. There is no field for editing an existing milestone title in place. Note: Compared to \"Update Goal (v1)\", this version adds milestone updates.
 
 ### Example
 
@@ -1535,13 +1545,13 @@ $apiInstance = new BhrSdk\Api\GoalsApi(
 );
 $employee_id = 56; // int | employeeId is the employee ID with whom the goal is associated.
 $goal_id = 56; // int | goalId is the goal ID for the specified employee.
-$put_goal_v11_request = new \BhrSdk\Model\PutGoalV11Request(); // \BhrSdk\Model\PutGoalV11Request | Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value.
+$update_goal_v11_request = new \BhrSdk\Model\UpdateGoalV11Request(); // \BhrSdk\Model\UpdateGoalV11Request | Required fields: `title`, `sharedWithEmployeeIds`, and `dueDate`. Omit optional fields that should remain unchanged. In particular, omit `milestones` unless adding new milestones; included milestones are appended, not reconciled or replaced.
 
 try {
-    $result = $apiInstance->putGoalV11($employee_id, $goal_id, $put_goal_v11_request);
+    $result = $apiInstance->updateGoalV11($employee_id, $goal_id, $update_goal_v11_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GoalsApi->putGoalV11: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GoalsApi->updateGoalV11: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1551,7 +1561,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **employee_id** | **int**| employeeId is the employee ID with whom the goal is associated. | |
 | **goal_id** | **int**| goalId is the goal ID for the specified employee. | |
-| **put_goal_v11_request** | [**\BhrSdk\Model\PutGoalV11Request**](../Model/PutGoalV11Request.md)| Required fields: title, sharedWithEmployeeIds, dueDate. Any non-required field not provided will overwrite existing data with a NULL value. | |
+| **update_goal_v11_request** | [**\BhrSdk\Model\UpdateGoalV11Request**](../Model/UpdateGoalV11Request.md)| Required fields: &#x60;title&#x60;, &#x60;sharedWithEmployeeIds&#x60;, and &#x60;dueDate&#x60;. Omit optional fields that should remain unchanged. In particular, omit &#x60;milestones&#x60; unless adding new milestones; included milestones are appended, not reconciled or replaced. | |
 
 ### Return type
 

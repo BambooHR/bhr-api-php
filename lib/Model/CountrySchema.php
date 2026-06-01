@@ -36,7 +36,7 @@ use \BhrSdk\ObjectSerializer;
  * CountrySchema Class Doc Comment
  *
  * @category Class
- * @description Schema for country data
+ * @description A country in the list returned by the Get Countries endpoint
  * @package  BhrSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -85,7 +85,7 @@ class CountrySchema implements ModelInterface, ArrayAccess, \JsonSerializable {
 	protected static array $openApiNullables = [
 		'id' => false,
 		'name' => false,
-		'iso_code' => false
+		'iso_code' => true
 	];
 
 	/**
@@ -303,7 +303,7 @@ class CountrySchema implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets id
 	 *
-	 * @param int|null $id Unique identifier for the country
+	 * @param int|null $id Internal country identifier. Use the same value as the `countryId` path parameter for Get States by Country ID (this endpoint returns JSON numbers, not stringified digits).
 	 *
 	 * @return self
 	 */
@@ -328,7 +328,7 @@ class CountrySchema implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets name
 	 *
-	 * @param string|null $name Full name of the country
+	 * @param string|null $name Full display name of the country
 	 *
 	 * @return self
 	 */
@@ -353,13 +353,19 @@ class CountrySchema implements ModelInterface, ArrayAccess, \JsonSerializable {
 	/**
 	 * Sets iso_code
 	 *
-	 * @param string|null $iso_code ISO code for the country
+	 * @param string|null $iso_code iso_code
 	 *
 	 * @return self
 	 */
 	public function setIsoCode($iso_code) {
 		if (is_null($iso_code)) {
-			throw new \InvalidArgumentException('non-nullable iso_code cannot be null');
+			$this->openApiNullablesSetToNull['iso_code'] = true;
+		} else {
+			$nullablesSetToNull = $this->getOpenApiNullablesSetToNull();
+			if (isset($nullablesSetToNull['iso_code'])) {
+				unset($nullablesSetToNull['iso_code']);
+				$this->setOpenApiNullablesSetToNull($nullablesSetToNull);
+			}
 		}
 		$this->container['iso_code'] = $iso_code;
 

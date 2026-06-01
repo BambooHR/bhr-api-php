@@ -59,9 +59,9 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	protected static $openApiTypes = [
 		'error' => 'string',
 		'unknown_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyUnknownFieldsInner[]',
-		'monitor_fields' => '\BhrSdk\Model\TimeTrackingRecordSchemaProjectTask[]',
+		'monitor_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyMonitorFieldsInner[]',
 		'duplicate_post_string' => 'string[]',
-		'post_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyPostFieldsInner[]'
+		'post_fields' => '\BhrSdk\Model\WebhookSubErrorPropertyMonitorFieldsInner[]'
 	];
 
 	/**
@@ -357,7 +357,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets monitor_fields
 	 *
-	 * @return \BhrSdk\Model\TimeTrackingRecordSchemaProjectTask[]|null
+	 * @return \BhrSdk\Model\WebhookSubErrorPropertyMonitorFieldsInner[]|null
 	 */
 	public function getMonitorFields() {
 		return $this->container['monitor_fields'];
@@ -366,7 +366,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets monitor_fields
 	 *
-	 * @param \BhrSdk\Model\TimeTrackingRecordSchemaProjectTask[]|null $monitor_fields monitor_fields
+	 * @param \BhrSdk\Model\WebhookSubErrorPropertyMonitorFieldsInner[]|null $monitor_fields monitor_fields
 	 *
 	 * @return self
 	 */
@@ -407,7 +407,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Gets post_fields
 	 *
-	 * @return \BhrSdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null
+	 * @return \BhrSdk\Model\WebhookSubErrorPropertyMonitorFieldsInner[]|null
 	 */
 	public function getPostFields() {
 		return $this->container['post_fields'];
@@ -416,7 +416,7 @@ class WebhookErrorErrors implements ModelInterface, ArrayAccess, \JsonSerializab
 	/**
 	 * Sets post_fields
 	 *
-	 * @param \BhrSdk\Model\WebhookSubErrorPropertyPostFieldsInner[]|null $post_fields post_fields
+	 * @param \BhrSdk\Model\WebhookSubErrorPropertyMonitorFieldsInner[]|null $post_fields post_fields
 	 *
 	 * @return self
 	 */

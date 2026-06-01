@@ -64,7 +64,8 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'relationship' => 'string',
 		'gender' => 'string',
 		'ssn' => 'string',
-		'date_of_birth' => 'string',
+		'sin' => 'string',
+		'date_of_birth' => '\DateTime',
 		'address_line1' => 'string',
 		'address_line2' => 'string',
 		'city' => 'string',
@@ -91,7 +92,8 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'relationship' => null,
 		'gender' => null,
 		'ssn' => null,
-		'date_of_birth' => null,
+		'sin' => null,
+		'date_of_birth' => 'date',
 		'address_line1' => null,
 		'address_line2' => null,
 		'city' => null,
@@ -117,6 +119,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'relationship' => false,
 		'gender' => false,
 		'ssn' => false,
+		'sin' => false,
 		'date_of_birth' => false,
 		'address_line1' => false,
 		'address_line2' => false,
@@ -218,6 +221,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'relationship' => 'relationship',
 		'gender' => 'gender',
 		'ssn' => 'ssn',
+		'sin' => 'sin',
 		'date_of_birth' => 'dateOfBirth',
 		'address_line1' => 'addressLine1',
 		'address_line2' => 'addressLine2',
@@ -243,6 +247,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'relationship' => 'setRelationship',
 		'gender' => 'setGender',
 		'ssn' => 'setSsn',
+		'sin' => 'setSin',
 		'date_of_birth' => 'setDateOfBirth',
 		'address_line1' => 'setAddressLine1',
 		'address_line2' => 'setAddressLine2',
@@ -268,6 +273,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'relationship' => 'getRelationship',
 		'gender' => 'getGender',
 		'ssn' => 'getSsn',
+		'sin' => 'getSin',
 		'date_of_birth' => 'getDateOfBirth',
 		'address_line1' => 'getAddressLine1',
 		'address_line2' => 'getAddressLine2',
@@ -317,6 +323,35 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		return self::$openApiModelName;
 	}
 
+	public const IS_US_CITIZEN_YES = 'yes';
+	public const IS_US_CITIZEN_NO = 'no';
+	public const IS_STUDENT_YES = 'yes';
+	public const IS_STUDENT_NO = 'no';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getIsUsCitizenAllowableValues() {
+		return [
+			self::IS_US_CITIZEN_YES,
+			self::IS_US_CITIZEN_NO,
+		];
+	}
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getIsStudentAllowableValues() {
+		return [
+			self::IS_STUDENT_YES,
+			self::IS_STUDENT_NO,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -338,6 +373,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 		$this->setIfExists('relationship', $data ?? [], null);
 		$this->setIfExists('gender', $data ?? [], null);
 		$this->setIfExists('ssn', $data ?? [], null);
+		$this->setIfExists('sin', $data ?? [], null);
 		$this->setIfExists('date_of_birth', $data ?? [], null);
 		$this->setIfExists('address_line1', $data ?? [], null);
 		$this->setIfExists('address_line2', $data ?? [], null);
@@ -375,6 +411,27 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		if ($this->container['employee_id'] === null) {
+			$invalidProperties[] = "'employee_id' can't be null";
+		}
+		$allowedValues = $this->getIsUsCitizenAllowableValues();
+		if (!is_null($this->container['is_us_citizen']) && !in_array($this->container['is_us_citizen'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'is_us_citizen', must be one of '%s'",
+				$this->container['is_us_citizen'],
+				implode("', '", $allowedValues)
+			);
+		}
+
+		$allowedValues = $this->getIsStudentAllowableValues();
+		if (!is_null($this->container['is_student']) && !in_array($this->container['is_student'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'is_student', must be one of '%s'",
+				$this->container['is_student'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -391,7 +448,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Gets employee_id
 	 *
-	 * @return string|null
+	 * @return string
 	 */
 	public function getEmployeeId() {
 		return $this->container['employee_id'];
@@ -400,7 +457,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets employee_id
 	 *
-	 * @param string|null $employee_id employee_id
+	 * @param string $employee_id The ID of the employee this dependent belongs to. Required.
 	 *
 	 * @return self
 	 */
@@ -425,7 +482,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets first_name
 	 *
-	 * @param string|null $first_name first_name
+	 * @param string|null $first_name The dependent's first name.
 	 *
 	 * @return self
 	 */
@@ -450,7 +507,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets middle_name
 	 *
-	 * @param string|null $middle_name middle_name
+	 * @param string|null $middle_name The dependent's middle name.
 	 *
 	 * @return self
 	 */
@@ -475,7 +532,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets last_name
 	 *
-	 * @param string|null $last_name last_name
+	 * @param string|null $last_name The dependent's last name.
 	 *
 	 * @return self
 	 */
@@ -500,7 +557,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets relationship
 	 *
-	 * @param string|null $relationship relationship
+	 * @param string|null $relationship The dependent's relationship to the employee (e.g. \"spouse\", \"child\", \"domestic_partner\").
 	 *
 	 * @return self
 	 */
@@ -525,7 +582,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets gender
 	 *
-	 * @param string|null $gender gender
+	 * @param string|null $gender The dependent's gender.
 	 *
 	 * @return self
 	 */
@@ -550,7 +607,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets ssn
 	 *
-	 * @param string|null $ssn ssn
+	 * @param string|null $ssn The dependent's Social Security Number, provided as plain text. Stored encrypted. Returned as a masked value (e.g. \"xxx-xx-1234\") on read.
 	 *
 	 * @return self
 	 */
@@ -564,9 +621,34 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	}
 
 	/**
-	 * Gets date_of_birth
+	 * Gets sin
 	 *
 	 * @return string|null
+	 */
+	public function getSin() {
+		return $this->container['sin'];
+	}
+
+	/**
+	 * Sets sin
+	 *
+	 * @param string|null $sin The dependent's Social Insurance Number (Canadian equivalent of SSN), provided as plain text. Stored encrypted. Returned as a masked value on read.
+	 *
+	 * @return self
+	 */
+	public function setSin($sin) {
+		if (is_null($sin)) {
+			throw new \InvalidArgumentException('non-nullable sin cannot be null');
+		}
+		$this->container['sin'] = $sin;
+
+		return $this;
+	}
+
+	/**
+	 * Gets date_of_birth
+	 *
+	 * @return \DateTime|null
 	 */
 	public function getDateOfBirth() {
 		return $this->container['date_of_birth'];
@@ -575,7 +657,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets date_of_birth
 	 *
-	 * @param string|null $date_of_birth date_of_birth
+	 * @param \DateTime|null $date_of_birth The dependent's date of birth in YYYY-MM-DD format.
 	 *
 	 * @return self
 	 */
@@ -600,7 +682,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets address_line1
 	 *
-	 * @param string|null $address_line1 address_line1
+	 * @param string|null $address_line1 The first line of the dependent's address.
 	 *
 	 * @return self
 	 */
@@ -625,7 +707,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets address_line2
 	 *
-	 * @param string|null $address_line2 address_line2
+	 * @param string|null $address_line2 The second line of the dependent's address.
 	 *
 	 * @return self
 	 */
@@ -650,7 +732,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets city
 	 *
-	 * @param string|null $city city
+	 * @param string|null $city The dependent's city.
 	 *
 	 * @return self
 	 */
@@ -675,7 +757,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets state
 	 *
-	 * @param string|null $state state
+	 * @param string|null $state The dependent's state, provided as a state code (e.g. \"UT\"). Returned as a full state name on read.
 	 *
 	 * @return self
 	 */
@@ -700,7 +782,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets zip_code
 	 *
-	 * @param string|null $zip_code zip_code
+	 * @param string|null $zip_code The dependent's ZIP or postal code.
 	 *
 	 * @return self
 	 */
@@ -725,7 +807,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets home_phone
 	 *
-	 * @param string|null $home_phone home_phone
+	 * @param string|null $home_phone The dependent's home phone number.
 	 *
 	 * @return self
 	 */
@@ -750,7 +832,7 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets country
 	 *
-	 * @param string|null $country country
+	 * @param string|null $country The dependent's country, provided as an ISO 3166-1 alpha-2 country code (e.g. \"US\"). Returned as a full country name on read.
 	 *
 	 * @return self
 	 */
@@ -775,13 +857,23 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets is_us_citizen
 	 *
-	 * @param string|null $is_us_citizen is_us_citizen
+	 * @param string|null $is_us_citizen Whether the dependent is a US citizen. Accepted values: \"yes\" or \"no\".
 	 *
 	 * @return self
 	 */
 	public function setIsUsCitizen($is_us_citizen) {
 		if (is_null($is_us_citizen)) {
 			throw new \InvalidArgumentException('non-nullable is_us_citizen cannot be null');
+		}
+		$allowedValues = $this->getIsUsCitizenAllowableValues();
+		if (!in_array($is_us_citizen, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'is_us_citizen', must be one of '%s'",
+					$is_us_citizen,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['is_us_citizen'] = $is_us_citizen;
 
@@ -800,13 +892,23 @@ class EmployeeDependent implements ModelInterface, ArrayAccess, \JsonSerializabl
 	/**
 	 * Sets is_student
 	 *
-	 * @param string|null $is_student is_student
+	 * @param string|null $is_student Whether the dependent is currently a student. Accepted values: \"yes\" or \"no\".
 	 *
 	 * @return self
 	 */
 	public function setIsStudent($is_student) {
 		if (is_null($is_student)) {
 			throw new \InvalidArgumentException('non-nullable is_student cannot be null');
+		}
+		$allowedValues = $this->getIsStudentAllowableValues();
+		if (!in_array($is_student, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'is_student', must be one of '%s'",
+					$is_student,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['is_student'] = $is_student;
 

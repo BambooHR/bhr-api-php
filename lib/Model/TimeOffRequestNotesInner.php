@@ -227,6 +227,21 @@ class TimeOffRequestNotesInner implements ModelInterface, ArrayAccess, \JsonSeri
 		return self::$openApiModelName;
 	}
 
+	public const FROM_EMPLOYEE = 'employee';
+	public const FROM_MANAGER = 'manager';
+
+	/**
+	 * Gets allowable values of the enum
+	 *
+	 * @return string[]
+	 */
+	public function getFromAllowableValues() {
+		return [
+			self::FROM_EMPLOYEE,
+			self::FROM_MANAGER,
+		];
+	}
+
 	/**
 	 * Associative array for storing property values
 	 *
@@ -270,6 +285,15 @@ class TimeOffRequestNotesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	public function listInvalidProperties() {
 		$invalidProperties = [];
 
+		$allowedValues = $this->getFromAllowableValues();
+		if (!is_null($this->container['from']) && !in_array($this->container['from'], $allowedValues, true)) {
+			$invalidProperties[] = sprintf(
+				"invalid value '%s' for 'from', must be one of '%s'",
+				$this->container['from'],
+				implode("', '", $allowedValues)
+			);
+		}
+
 		return $invalidProperties;
 	}
 
@@ -295,13 +319,23 @@ class TimeOffRequestNotesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets from
 	 *
-	 * @param string|null $from from
+	 * @param string|null $from Who the note is from.
 	 *
 	 * @return self
 	 */
 	public function setFrom($from) {
 		if (is_null($from)) {
 			throw new \InvalidArgumentException('non-nullable from cannot be null');
+		}
+		$allowedValues = $this->getFromAllowableValues();
+		if (!in_array($from, $allowedValues, true)) {
+			throw new \InvalidArgumentException(
+				sprintf(
+					"Invalid value '%s' for 'from', must be one of '%s'",
+					$from,
+					implode("', '", $allowedValues)
+				)
+			);
 		}
 		$this->container['from'] = $from;
 
@@ -320,7 +354,7 @@ class TimeOffRequestNotesInner implements ModelInterface, ArrayAccess, \JsonSeri
 	/**
 	 * Sets note
 	 *
-	 * @param string|null $note note
+	 * @param string|null $note The note text.
 	 *
 	 * @return self
 	 */
