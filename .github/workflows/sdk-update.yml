@@ -406,7 +406,14 @@ jobs:
           ADD_LABELS_CSV="$(IFS=,; echo "${ADD_LABELS[*]}")"
 
           # Check for an existing open PR on the auto/sdk-update branch.
-          EXISTING_PR="$(gh pr list --head auto/sdk-update --state open --json number --jq '.[0].number' || true)"
+          # `.[0].number // empty` is the load-bearing detail: on an empty
+          # PR list, `.[0]` returns null, `null.number` returns null, and
+          # gojq renders that as the literal string "null" — which would
+          # pass [ -n "$EXISTING_PR" ] and send us into the gh pr edit
+          # branch with the string "null" as the PR number. `// empty`
+          # substitutes jq's `empty` (no output) for nulls, so EXISTING_PR
+          # is genuinely the empty string when no PR exists.
+          EXISTING_PR="$(gh pr list --head auto/sdk-update --state open --json number --jq '.[0].number // empty' || true)"
           if [ -n "$EXISTING_PR" ]; then
             gh pr edit "$EXISTING_PR" \
               --title "$TITLE" \
