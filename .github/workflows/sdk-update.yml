@@ -323,6 +323,10 @@ jobs:
           GENERATION_STATUS: ${{ steps.status.outputs.result }}
           OLD_VERSION: ${{ steps.bump.outputs.old_version }}
           NEW_VERSION: ${{ steps.bump.outputs.new_version }}
+          # Passed through so the changelog-truncation suffix can deep-link
+          # back to this run when the oasdiff markdown is too big for the
+          # 64-KB PR body cap.
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           python scripts/build_pr_body.py \
             --classification .sdk-update/classification.txt \
@@ -332,6 +336,7 @@ jobs:
             --generation-status "$GENERATION_STATUS" \
             --old-version "$OLD_VERSION" \
             --new-version "$NEW_VERSION" \
+            --run-url "$RUN_URL" \
             > .sdk-update/pr-body.md
 
       # ----- Force-push to auto/sdk-update ----------------------------------

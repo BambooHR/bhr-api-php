@@ -34,6 +34,13 @@ import json
 import sys
 from pathlib import Path
 
+# GitHub caps PR body length at 65,536 characters; gh pr create/edit fails
+# the whole call if we go over. Aim for a budget below that to leave
+# headroom for trailing newlines, gh's own formatting, and any unicode
+# expansion in the GraphQL payload.
+GITHUB_PR_BODY_LIMIT = 65_536
+SAFE_BUDGET = 60_000
+
 
 def read_optional(path: str | None) -> str:
     if not path:
@@ -42,6 +49,26 @@ def read_optional(path: str | None) -> str:
     if not file_path.exists():
         return ""
     return file_path.read_text(encoding="utf-8")
+
+
+def truncate_at_line(content: str, max_chars: int, suffix: str = "") -> str:
+    """Truncate `content` to at most `max_chars` (counting `suffix`).
+
+    Slices on a line boundary so we never cut mid-line, then appends
+    `suffix`. If `content` already fits, returns it unchanged. If the
+    suffix alone is bigger than `max_chars`, returns just the suffix
+    (better to surface the truncation notice than silently drop it).
+    """
+    if len(content) <= max_chars:
+        return content
+    if len(suffix) >= max_chars:
+        return suffix
+    target = max_chars - len(suffix)
+    head = content[:target]
+    last_newline = head.rfind("\n")
+    if last_newline > 0:
+        head = head[:last_newline]
+    return head + suffix
 
 
 def parse_classification(text: str) -> tuple[str, str]:
@@ -134,20 +161,10 @@ def build(args: argparse.Namespace) -> str:
             )
         )
 
-    # --- oasdiff markdown changelog ----------------------------------------
-    changelog_md = read_optional(args.changelog_md).strip()
-    if changelog_md:
-        sections.append(
-            "<details>\n"
-            "<summary><strong>API changelog</strong> (from oasdiff)</summary>\n\n"
-            f"{changelog_md}\n"
-            "</details>"
-        )
-
     # --- Changes since last review -----------------------------------------
     delta = read_optional(args.since_last_review).strip()
     if delta:
-        sections.append(
+        delta_section = (
             "<details>\n"
             "<summary><strong>Changes since last review</strong></summary>\n\n"
             "```diff\n"
@@ -156,16 +173,84 @@ def build(args: argparse.Namespace) -> str:
             "</details>"
         )
     else:
-        sections.append(
+        delta_section = (
             "## Changes since last review\n\n_Initial PR — no prior review baseline._"
         )
 
     # --- Footer -------------------------------------------------------------
-    sections.append(
+    footer = (
         "---\n"
         "_This PR was opened automatically by the `sdk-update` workflow._\n"
         "_Trigger: `workflow_dispatch`._"
     )
+
+    # --- oasdiff markdown changelog (size-budgeted) -------------------------
+    # We build this LAST so we can size it against the remaining budget. The
+    # changelog is the dominant size in practice (an oasdiff markdown for a
+    # major spec rewrite can be 100+ KB, well over GitHub's 65,536-char PR
+    # body limit). Everything before/after the changelog has a stable upper
+    # bound, so we treat the rest of the body as "fixed cost" and give the
+    # changelog whatever budget is left.
+    changelog_md = read_optional(args.changelog_md).strip()
+    fixed_sections = sections + [delta_section, footer]
+    # +2 chars per join boundary, +1 for the trailing newline we add at the
+    # bottom of the final body. Keep this estimation conservative — the
+    # cost of under-allocating is a softer notice; the cost of
+    # over-allocating is a hard PR-create failure.
+    fixed_size = sum(len(s) for s in fixed_sections) + 2 * len(fixed_sections) + 1
+
+    if changelog_md:
+        wrapper_overhead = (
+            "<details>\n"
+            "<summary><strong>API changelog</strong> (from oasdiff)</summary>\n\n"
+            "\n"
+            "</details>"
+        )
+        # Reserve room for the wrapper plus the joiner between this section
+        # and the next one.
+        budget_for_changelog_content = (
+            SAFE_BUDGET - fixed_size - len(wrapper_overhead) - 2
+        )
+        if budget_for_changelog_content > 0 and len(changelog_md) > budget_for_changelog_content:
+            suffix = (
+                "\n\n_…changelog truncated to fit GitHub's PR body size limit."
+            )
+            if args.run_url:
+                suffix += (
+                    f" Full changelog available as `.sdk-update/analysis/changelog.md`"
+                    f" in the workflow run: {args.run_url}"
+                )
+            else:
+                suffix += (
+                    " Full changelog available as `.sdk-update/analysis/changelog.md`"
+                    " in the workflow run logs."
+                )
+            suffix += "_"
+            changelog_md = truncate_at_line(
+                changelog_md, budget_for_changelog_content, suffix=suffix
+            )
+        if budget_for_changelog_content > 0:
+            sections.append(
+                "<details>\n"
+                "<summary><strong>API changelog</strong> (from oasdiff)</summary>\n\n"
+                f"{changelog_md}\n"
+                "</details>"
+            )
+        else:
+            # Pathological: even the wrapper doesn't fit. Skip the changelog
+            # rather than fail the PR create.
+            note = (
+                "_API changelog omitted to fit GitHub's PR body size limit._"
+            )
+            if args.run_url:
+                note = (
+                    f"_API changelog omitted to fit GitHub's PR body size limit."
+                    f" See workflow run: {args.run_url}_"
+                )
+            sections.append(note)
+
+    sections.append(delta_section)
+    sections.append(footer)
 
     return "\n\n".join(sections) + "\n"
 
@@ -184,6 +269,16 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--old-version", default="")
     parser.add_argument("--new-version", default="")
+    parser.add_argument(
+        "--run-url",
+        default="",
+        help=(
+            "URL of this workflow run, used in the truncation notice when "
+            "the oasdiff changelog is too big to fit in the PR body. "
+            "Typically passed as ${{ github.server_url }}/${{ github.repository "
+            "}}/actions/runs/${{ github.run_id }}."
+        ),
+    )
     return parser.parse_args()
 
 
