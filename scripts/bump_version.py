@@ -40,10 +40,18 @@ from pathlib import Path
 
 VALID_LEVELS = {"major", "minor", "patch", "none"}
 SEMVER_RE = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
-# Match `PACKAGE_VERSION = X.Y.Z` allowing surrounding whitespace; preserve
-# everything else on the line (comments, trailing whitespace).
+# Match `PACKAGE_VERSION = X.Y.Z` allowing surrounding horizontal whitespace
+# (spaces/tabs only); preserve everything else on the same line (trailing
+# whitespace, inline comments).
+#
+# All three character classes use [ \t] rather than \s on purpose. \s
+# matches \n too, and combined with re.MULTILINE + greedy .* it would
+# silently let group 5's suffix span into the next line of the Makefile.
+# That's harmless today (the suffix is faithfully spliced back in
+# write_makefile_version), but it's a footgun for any future maintainer
+# who reasons about match.end() expecting it to land at end-of-line.
 MAKEFILE_VERSION_RE = re.compile(
-    r"^(PACKAGE_VERSION\s*=\s*)(\d+)\.(\d+)\.(\d+)(\s*.*)$",
+    r"^(PACKAGE_VERSION[ \t]*=[ \t]*)(\d+)\.(\d+)\.(\d+)([ \t]*.*)$",
     re.MULTILINE,
 )
 
