@@ -11,7 +11,7 @@ PHP_VERSION ?= 8.1
 
 # Package information
 PACKAGE_NAME = BhrSdk
-PACKAGE_VERSION = 2.0.1
+PACKAGE_VERSION = 2.0.2
 PACKAGE_URL = https://www.bamboohr.com/
 DEVELOPER_URL = https://github.com/BambooHR/bhr-api-php
 DEVELOPER = BambooHR

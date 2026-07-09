@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changelog file to track version history
 
+## [2.0.2] - 2026-07-09
+
+### Changed
+
+- Updated OAuth token-storage examples and authentication docs to use the MySQL row-alias form (`VALUES (...) AS new` / `new.column`) in `ON DUPLICATE KEY UPDATE` clauses, replacing the deprecated `VALUES()` function form. The function form is deprecated as of MySQL 8.0.20 and slated for removal in a future release; the row-alias form works on MySQL 8.0.19+. Affects `AUTHENTICATION.md`, `examples/02_oauth_with_auto_refresh.php`, and `examples/08_oauth_complete_flow.php`.
+
 ## [2.0.1] - 2025-12-09
 
 ### Added
@@ -97,6 +103,7 @@ For changes in version 1.x.x and earlier, please refer to the git commit history
 
 ## Version History Links
 
-[Unreleased]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/BambooHR/bhr-api-php/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/BambooHR/bhr-api-php/releases/tag/v2.0.0

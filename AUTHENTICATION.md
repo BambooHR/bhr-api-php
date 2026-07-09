@@ -340,11 +340,11 @@ class TokenStorage
         
         $stmt = $this->pdo->prepare('
             INSERT INTO oauth_tokens (user_id, access_token, refresh_token, expires_at, updated_at)
-            VALUES (:user_id, :access_token, :refresh_token, :expires_at, NOW())
+            VALUES (:user_id, :access_token, :refresh_token, :expires_at, NOW()) AS new
             ON DUPLICATE KEY UPDATE
-                access_token = VALUES(access_token),
-                refresh_token = VALUES(refresh_token),
-                expires_at = VALUES(expires_at),
+                access_token = new.access_token,
+                refresh_token = new.refresh_token,
+                expires_at = new.expires_at,
                 updated_at = NOW()
         ');
         
