@@ -177,11 +177,11 @@ class DatabaseTokenStorage {
     public function saveTokens(string $userId, string $access, string $refresh, int $expiresIn): void {
         $stmt = $this->pdo->prepare('
             INSERT INTO oauth_tokens (user_id, access_token, refresh_token, expires_at)
-            VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL ? SECOND))
+            VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL ? SECOND)) AS new
             ON DUPLICATE KEY UPDATE
-                access_token = VALUES(access_token),
-                refresh_token = VALUES(refresh_token),
-                expires_at = VALUES(expires_at),
+                access_token = new.access_token,
+                refresh_token = new.refresh_token,
+                expires_at = new.expires_at,
                 updated_at = NOW()
         ');
         $stmt->execute([$userId, $access, $refresh, $expiresIn]);

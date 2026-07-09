@@ -1,6 +1,6 @@
 {
     "name": "bamboohr/api",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Official PHP SDK for the BambooHR API. https://documentation.bamboohr.com",
     "keywords": [
         "openapitools",
