@@ -51,7 +51,7 @@
  * -----
  *     php scripts/sync_accessors.php            # rewrite the block in place
  *     php scripts/sync_accessors.php --check    # exit 1 if out of sync (CI)
- *     php scripts/sync_accessors.php --diff     # show what would change
+ *     php scripts/sync_accessors.php --diff     # list accessors that would be added/removed
  */
 
 declare(strict_types=1);
@@ -185,6 +185,30 @@ function renderBlock(array $classes): string {
 }
 
 /**
+ * Extract the accessor method names currently inside the marked region.
+ *
+ * Used only by --diff, to report which accessors would be added or removed.
+ * Returns an empty list if the markers are absent or malformed; --diff is a
+ * preview, so it reports what it can rather than throwing.
+ *
+ * @return string[] Sorted method names.
+ */
+function accessorNamesIn(string $source): array {
+	$start = strpos($source, BEGIN_MARKER);
+	$end = strpos($source, END_MARKER);
+	if ($start === false || $end === false || $end < $start) {
+		return [];
+	}
+
+	$block = substr($source, $start, $end - $start);
+	preg_match_all('/public function (\w+)\(\)/', $block, $matches);
+	$names = $matches[1];
+	sort($names);
+
+	return $names;
+}
+
+/**
  * Splice a rendered block into the client source, replacing everything
  * between the markers. Only the marked region is touched.
  */
@@ -235,13 +259,23 @@ if ($current === $updated) {
 }
 
 if ($showDiff) {
-	$tmpCurrent = tempnam(sys_get_temp_dir(), 'acc_cur_');
-	$tmpUpdated = tempnam(sys_get_temp_dir(), 'acc_new_');
-	file_put_contents($tmpCurrent, $current);
-	file_put_contents($tmpUpdated, $updated);
-	passthru(sprintf('diff -u %s %s', escapeshellarg($tmpCurrent), escapeshellarg($tmpUpdated)));
-	unlink($tmpCurrent);
-	unlink($tmpUpdated);
+	$before = accessorNamesIn($current);
+	$after = array_map('methodNameFor', $classes);
+	sort($after);
+
+	$added = array_values(array_diff($after, $before));
+	$removed = array_values(array_diff($before, $after));
+
+	if ($added === [] && $removed === []) {
+		echo "sync_accessors: same accessor set; block would be rewritten (ordering/formatting only).\n";
+	} else {
+		foreach ($removed as $name) {
+			echo "  - {$name}()\n";
+		}
+		foreach ($added as $name) {
+			echo "  + {$name}()\n";
+		}
+	}
 }
 
 if ($checkOnly) {
