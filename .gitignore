@@ -30,11 +30,3 @@ composer.phar
 
 # Environment variables
 .env
-
-# macOS
-.DS_Store
-
-# SDK update workflow scratch dir (sdk-update.yml). Holds the staged
-# spec, oasdiff outputs, classifier results, and the composed PR body.
-# Must not be swept into the auto/sdk-update PR commit.
-.sdk-update/

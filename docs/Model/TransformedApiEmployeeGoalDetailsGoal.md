@@ -11,9 +11,10 @@ Name | Type | Description | Notes
 **aligns_with_option_id** | **string** |  | [optional]
 **shared_with_employee_ids** | **int[]** | Ids of the employees that have access to this goal. | [optional]
 **due_date** | **string** | The due date of the goal. | [optional]
-**completion_date** | **string** | The date the goal was completed. | [optional]
+**completion_date** | **string** |  | [optional]
+**last_changed_date_time** | **string** |  | [optional]
 **status** | **string** | The status of the goal. | [optional]
-**milestones** | [**\BhrSdk\Model\TransformedApiGoalGoalMilestonesInner[]**](TransformedApiGoalGoalMilestonesInner.md) | All milestones for the individual goal. This array will not exist if milestones are not selected for this goal. | [optional]
-**actions** | [**\BhrSdk\Model\TransformedApiGoalGoalActions**](TransformedApiGoalGoalActions.md) |  | [optional]
+**milestones** | [**\BhrSdk\Model\TransformedApiGoalMilestonesInner[]**](TransformedApiGoalMilestonesInner.md) |  | [optional]
+**actions** | **object** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

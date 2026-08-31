@@ -1,6 +1,6 @@
 {
-  "source_commit": "81c52907f86083e70769fb557df8fb1fddf7bf6d",
-  "checksum_sha256": "6b328e2986455da3d91c22d0cdcf851d67df6c86b428139bc7b48defccc6fa8f",
-  "generated_at": "2026-04-27T22:27:15Z",
+  "source_commit": "587427a4ec8e29f25ff12a4b7a49d7a1261c4013",
+  "checksum_sha256": "c2f99de80e21571d6801c5b6a5bd1aa48d51cc853b9358f784d88f8b7a4a15bc",
+  "generated_at": "2026-08-31T22:29:57Z",
   "url": "https://d40bgjb2zs35x.cloudfront.net/main/latest/docs/openapi/public-openapi.yaml"
 }
