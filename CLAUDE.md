@@ -29,6 +29,8 @@ make clean                 # Remove generated files
 make cleanup-obsolete      # Remove files in old manifest no longer in new manifest
 make generate-error-docs   # Regenerate exception classes and error catalog
 make test                  # Run PHPUnit + classify_semver.sh bash tests
+make sync-accessors        # Regenerate client accessors from the generated APIs
+make check-accessors       # Verify accessors are in sync (used by CI)
 make phpcs                 # Run PHP CodeSniffer
 make phpstan               # Run PHPStan static analysis
 make classify-semver OLD=specs/public.yaml NEW=/tmp/new.yaml           # Classify semver bump
@@ -96,7 +98,25 @@ All builder methods:
 ## API Access
 `$client->employees()` returns an `EmployeesApi` instance — never instantiate API classes directly.
 
-Available accessors: `employees`, `timeOff`, `benefits`, `reports`, `tabularData`, `photos`, `webhooks`, `goals`, `training`, `timeTracking`, `accountInformation`, `applicantTracking`, `companyFiles`, `employeeFiles`, `ats`, `customReports`, `datasets`, `hours`, `lastChangeInformation`, `login`, `manual`
+The accessor list is **generated**, not hand-maintained: `scripts/sync_accessors.php`
+rewrites the block between the `// --- BEGIN/END GENERATED ACCESSORS ---` markers in
+`lib/Client/ApiClient.php` from the `lib/Api/*.php` entries in
+`.openapi-generator/FILES`. It runs automatically at the end of `make generate`, so a
+spec tag rename updates the client instead of breaking it.
+
+Run `make sync-accessors` after regenerating; `make check-accessors` fails if they drift.
+
+**Anything hand-written must live outside the markers.** `manual()` is the example — it
+sits below the END marker, and `ManualApi` is deliberately absent from the FILES
+manifest (it survives regeneration), so the sync cannot touch it. This is also why the
+sync reads the manifest rather than globbing `lib/Api/`, which would sweep `ManualApi`
+in and clobber its hand-written accessor.
+
+For the current list:
+
+```bash
+grep -oE 'public function [a-zA-Z]+\(\)' lib/Client/ApiClient.php
+```
 
 ## Custom / Unsupported Endpoints
 Use `$client->manual()` (returns `ManualApi`) to call endpoints not yet in the generated SDK. Inherits all SDK auth, retry, and logging behavior.

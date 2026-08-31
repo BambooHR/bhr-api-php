@@ -400,250 +400,58 @@ class ApiClientTest extends TestCase {
 	}
 
 	/**
-	 * Test employees() convenience method
+	 * The per-API accessor tests used to be written out by hand, one method
+	 * per API. That list went stale the moment the spec renamed a tag: it
+	 * still asserted on tabularData() and lastChangeInformation() after the
+	 * generator had replaced them with employeeTables() and changeTracking(),
+	 * so the suite failed on APIs that no longer existed while the genuinely
+	 * new ones went completely untested.
+	 *
+	 * Driving the test off the generator's own FILES manifest instead means
+	 * coverage tracks the spec automatically and this list cannot drift.
+	 *
+	 * @param class-string $class
+	 *
+	 * @dataProvider generatedApiProvider
 	 */
-	public function testEmployeesConvenienceMethod(): void {
+	public function testGeneratedAccessorReturnsExpectedApi(string $method, string $class): void {
 		$client = new ApiClient();
 		$client->withApiKey('test-key')
 			   ->forCompany('test-company')
 			   ->build();
 
-		$api = $client->employees();
-		$this->assertInstanceOf(\BhrSdk\Api\EmployeesApi::class, $api);
+		$this->assertTrue(
+			method_exists($client, $method),
+			"ApiClient is missing the {$method}() accessor for {$class}. Run `make sync-accessors`."
+		);
+		$this->assertInstanceOf($class, $client->{$method}());
 	}
 
 	/**
-	 * Test timeOff() convenience method
+	 * Every generated API class, read from the same source of truth that
+	 * scripts/sync_accessors.php uses.
+	 *
+	 * @return array<string, array{string, class-string}>
 	 */
-	public function testTimeOffConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
+	public static function generatedApiProvider(): array {
+		$manifest = __DIR__ . '/../../.openapi-generator/FILES';
+		self::assertFileExists($manifest, 'generator FILES manifest missing — has the SDK been generated?');
 
-		$api = $client->timeOff();
-		$this->assertInstanceOf(\BhrSdk\Api\TimeOffApi::class, $api);
-	}
+		$cases = [];
+		foreach (explode("\n", (string) file_get_contents($manifest)) as $line) {
+			if (preg_match('#^lib/Api/(\w+)\.php$#', trim($line), $matches) !== 1) {
+				continue;
+			}
+			$class = $matches[1];
+			$method = lcfirst((string) preg_replace('/Api$/', '', $class));
+			/** @var class-string $fqcn */
+			$fqcn = '\\BhrSdk\\Api\\' . $class;
+			$cases[$class] = [$method, $fqcn];
+		}
 
-	/**
-	 * Test benefits() convenience method
-	 */
-	public function testBenefitsConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
+		self::assertNotEmpty($cases, 'no lib/Api/*.php entries found in the FILES manifest');
 
-		$api = $client->benefits();
-		$this->assertInstanceOf(\BhrSdk\Api\BenefitsApi::class, $api);
-	}
-
-	/**
-	 * Test reports() convenience method
-	 */
-	public function testReportsConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->reports();
-		$this->assertInstanceOf(\BhrSdk\Api\ReportsApi::class, $api);
-	}
-
-	/**
-	 * Test tabularData() convenience method
-	 */
-	public function testTabularDataConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->tabularData();
-		$this->assertInstanceOf(\BhrSdk\Api\TabularDataApi::class, $api);
-	}
-
-	/**
-	 * Test photos() convenience method
-	 */
-	public function testPhotosConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->photos();
-		$this->assertInstanceOf(\BhrSdk\Api\PhotosApi::class, $api);
-	}
-
-	/**
-	 * Test webhooks() convenience method
-	 */
-	public function testWebhooksConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->webhooks();
-		$this->assertInstanceOf(\BhrSdk\Api\WebhooksApi::class, $api);
-	}
-
-	/**
-	 * Test goals() convenience method
-	 */
-	public function testGoalsConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->goals();
-		$this->assertInstanceOf(\BhrSdk\Api\GoalsApi::class, $api);
-	}
-
-	/**
-	 * Test training() convenience method
-	 */
-	public function testTrainingConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->training();
-		$this->assertInstanceOf(\BhrSdk\Api\TrainingApi::class, $api);
-	}
-
-	/**
-	 * Test timeTracking() convenience method
-	 */
-	public function testTimeTrackingConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->timeTracking();
-		$this->assertInstanceOf(\BhrSdk\Api\TimeTrackingApi::class, $api);
-	}
-
-	/**
-	 * Test accountInformation() convenience method
-	 */
-	public function testAccountInformationConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->accountInformation();
-		$this->assertInstanceOf(\BhrSdk\Api\AccountInformationApi::class, $api);
-	}
-
-	/**
-	 * Test applicantTracking() convenience method
-	 */
-	public function testApplicantTrackingConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->applicantTracking();
-		$this->assertInstanceOf(\BhrSdk\Api\ApplicantTrackingApi::class, $api);
-	}
-
-	/**
-	 * Test companyFiles() convenience method
-	 */
-	public function testCompanyFilesConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->companyFiles();
-		$this->assertInstanceOf(\BhrSdk\Api\CompanyFilesApi::class, $api);
-	}
-
-	/**
-	 * Test employeeFiles() convenience method
-	 */
-	public function testEmployeeFilesConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->employeeFiles();
-		$this->assertInstanceOf(\BhrSdk\Api\EmployeeFilesApi::class, $api);
-	}
-
-	/**
-	 * Test customReports() convenience method
-	 */
-	public function testCustomReportsConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->customReports();
-		$this->assertInstanceOf(\BhrSdk\Api\CustomReportsApi::class, $api);
-	}
-
-	/**
-	 * Test datasets() convenience method
-	 */
-	public function testDatasetsConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->datasets();
-		$this->assertInstanceOf(\BhrSdk\Api\DatasetsApi::class, $api);
-	}
-
-	/**
-	 * Test hours() convenience method
-	 */
-	public function testHoursConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->hours();
-		$this->assertInstanceOf(\BhrSdk\Api\HoursApi::class, $api);
-	}
-
-	/**
-	 * Test lastChangeInformation() convenience method
-	 */
-	public function testLastChangeInformationConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->lastChangeInformation();
-		$this->assertInstanceOf(\BhrSdk\Api\LastChangeInformationApi::class, $api);
-	}
-
-	/**
-	 * Test login() convenience method
-	 */
-	public function testLoginConvenienceMethod(): void {
-		$client = new ApiClient();
-		$client->withApiKey('test-key')
-			   ->forCompany('test-company')
-			   ->build();
-
-		$api = $client->login();
-		$this->assertInstanceOf(\BhrSdk\Api\LoginApi::class, $api);
+		return $cases;
 	}
 
 	/**

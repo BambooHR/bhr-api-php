@@ -211,6 +211,17 @@ jobs:
         continue-on-error: true
         run: make lint
 
+      # `make generate` already ran scripts/sync_accessors.php, so this is a
+      # belt-and-braces assertion that the committed client actually matches
+      # the regenerated API set. It fails only if the sync itself failed
+      # (e.g. a spec tag collided with an existing ApiClient method), which is
+      # precisely the case a human needs to look at before merging.
+      - name: make check-accessors
+        if: steps.fetch.outputs.changed == 'true' && steps.generate.outcome == 'success'
+        id: accessors
+        continue-on-error: true
+        run: make check-accessors
+
       - name: make smoke-test
         if: steps.fetch.outputs.changed == 'true' && steps.generate.outcome == 'success'
         id: smoke
@@ -232,7 +243,7 @@ jobs:
       #                        with the spec update committed but no usable
       #                        SDK; reviewer needs to investigate before merge.
       #   quality-issues     — generate succeeded but one or more of
-      #                        format/lint/smoke/test failed. SDK is structurally
+      #                        format/lint/accessors/smoke/test failed. SDK is structurally
       #                        valid; the issues are usually small and fixable.
       #   success            — everything green; safe to merge once reviewed.
       - name: Determine generation status
@@ -242,6 +253,7 @@ jobs:
           GENERATE_OUTCOME: ${{ steps.generate.outcome }}
           FORMAT_OUTCOME: ${{ steps.format.outcome }}
           LINT_OUTCOME: ${{ steps.lint.outcome }}
+          ACCESSORS_OUTCOME: ${{ steps.accessors.outcome }}
           SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
           TEST_OUTCOME: ${{ steps.test.outcome }}
         run: |
@@ -249,6 +261,7 @@ jobs:
             echo "result=generation-failed" >> "$GITHUB_OUTPUT"
           elif [ "$FORMAT_OUTCOME" = "success" ] \
                && [ "$LINT_OUTCOME" = "success" ] \
+               && [ "$ACCESSORS_OUTCOME" = "success" ] \
                && [ "$SMOKE_OUTCOME" = "success" ] \
                && [ "$TEST_OUTCOME" = "success" ]; then
             echo "result=success" >> "$GITHUB_OUTPUT"
