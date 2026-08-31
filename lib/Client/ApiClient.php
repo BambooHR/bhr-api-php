@@ -394,6 +394,15 @@ class ApiClient {
 	}
 
 	/**
+	 * Convenience method to get AlertsApi instance
+	 *
+	 * @return \BhrSdk\Api\AlertsApi
+	 */
+	public function alerts(): \BhrSdk\Api\AlertsApi {
+		return $this->getApi(\BhrSdk\Api\AlertsApi::class);
+	}
+
+	/**
 	 * Convenience method to get ApplicantTrackingApi instance
 	 *
 	 * @return \BhrSdk\Api\ApplicantTrackingApi
@@ -412,12 +421,84 @@ class ApiClient {
 	}
 
 	/**
+	 * Convenience method to get CalendarEventsApi instance
+	 *
+	 * @return \BhrSdk\Api\CalendarEventsApi
+	 */
+	public function calendarEvents(): \BhrSdk\Api\CalendarEventsApi {
+		return $this->getApi(\BhrSdk\Api\CalendarEventsApi::class);
+	}
+
+	/**
+	 * Convenience method to get ChangeTrackingApi instance
+	 *
+	 * @return \BhrSdk\Api\ChangeTrackingApi
+	 */
+	public function changeTracking(): \BhrSdk\Api\ChangeTrackingApi {
+		return $this->getApi(\BhrSdk\Api\ChangeTrackingApi::class);
+	}
+
+	/**
+	 * Convenience method to get CompanyApi instance
+	 *
+	 * @return \BhrSdk\Api\CompanyApi
+	 */
+	public function company(): \BhrSdk\Api\CompanyApi {
+		return $this->getApi(\BhrSdk\Api\CompanyApi::class);
+	}
+
+	/**
 	 * Convenience method to get CompanyFilesApi instance
 	 *
 	 * @return \BhrSdk\Api\CompanyFilesApi
 	 */
 	public function companyFiles(): \BhrSdk\Api\CompanyFilesApi {
 		return $this->getApi(\BhrSdk\Api\CompanyFilesApi::class);
+	}
+
+	/**
+	 * Convenience method to get CompanyProfileApi instance
+	 *
+	 * @return \BhrSdk\Api\CompanyProfileApi
+	 */
+	public function companyProfile(): \BhrSdk\Api\CompanyProfileApi {
+		return $this->getApi(\BhrSdk\Api\CompanyProfileApi::class);
+	}
+
+	/**
+	 * Convenience method to get CompensationApi instance
+	 *
+	 * @return \BhrSdk\Api\CompensationApi
+	 */
+	public function compensation(): \BhrSdk\Api\CompensationApi {
+		return $this->getApi(\BhrSdk\Api\CompensationApi::class);
+	}
+
+	/**
+	 * Convenience method to get CompensationBenchmarkingApi instance
+	 *
+	 * @return \BhrSdk\Api\CompensationBenchmarkingApi
+	 */
+	public function compensationBenchmarking(): \BhrSdk\Api\CompensationBenchmarkingApi {
+		return $this->getApi(\BhrSdk\Api\CompensationBenchmarkingApi::class);
+	}
+
+	/**
+	 * Convenience method to get CompensationPlanningApi instance
+	 *
+	 * @return \BhrSdk\Api\CompensationPlanningApi
+	 */
+	public function compensationPlanning(): \BhrSdk\Api\CompensationPlanningApi {
+		return $this->getApi(\BhrSdk\Api\CompensationPlanningApi::class);
+	}
+
+	/**
+	 * Convenience method to get CustomFieldsApi instance
+	 *
+	 * @return \BhrSdk\Api\CustomFieldsApi
+	 */
+	public function customFields(): \BhrSdk\Api\CustomFieldsApi {
+		return $this->getApi(\BhrSdk\Api\CustomFieldsApi::class);
 	}
 
 	/**
@@ -448,6 +529,24 @@ class ApiClient {
 	}
 
 	/**
+	 * Convenience method to get EmployeeTablesApi instance
+	 *
+	 * @return \BhrSdk\Api\EmployeeTablesApi
+	 */
+	public function employeeTables(): \BhrSdk\Api\EmployeeTablesApi {
+		return $this->getApi(\BhrSdk\Api\EmployeeTablesApi::class);
+	}
+
+	/**
+	 * Convenience method to get EmployeeVerificationApi instance
+	 *
+	 * @return \BhrSdk\Api\EmployeeVerificationApi
+	 */
+	public function employeeVerification(): \BhrSdk\Api\EmployeeVerificationApi {
+		return $this->getApi(\BhrSdk\Api\EmployeeVerificationApi::class);
+	}
+
+	/**
 	 * Convenience method to get EmployeesApi instance
 	 *
 	 * @return \BhrSdk\Api\EmployeesApi
@@ -466,6 +565,15 @@ class ApiClient {
 	}
 
 	/**
+	 * Convenience method to get HolidaysApi instance
+	 *
+	 * @return \BhrSdk\Api\HolidaysApi
+	 */
+	public function holidays(): \BhrSdk\Api\HolidaysApi {
+		return $this->getApi(\BhrSdk\Api\HolidaysApi::class);
+	}
+
+	/**
 	 * Convenience method to get HoursApi instance
 	 *
 	 * @return \BhrSdk\Api\HoursApi
@@ -475,12 +583,12 @@ class ApiClient {
 	}
 
 	/**
-	 * Convenience method to get LastChangeInformationApi instance
+	 * Convenience method to get LocationsApi instance
 	 *
-	 * @return \BhrSdk\Api\LastChangeInformationApi
+	 * @return \BhrSdk\Api\LocationsApi
 	 */
-	public function lastChangeInformation(): \BhrSdk\Api\LastChangeInformationApi {
-		return $this->getApi(\BhrSdk\Api\LastChangeInformationApi::class);
+	public function locations(): \BhrSdk\Api\LocationsApi {
+		return $this->getApi(\BhrSdk\Api\LocationsApi::class);
 	}
 
 	/**
@@ -490,6 +598,33 @@ class ApiClient {
 	 */
 	public function login(): \BhrSdk\Api\LoginApi {
 		return $this->getApi(\BhrSdk\Api\LoginApi::class);
+	}
+
+	/**
+	 * Convenience method to get MealRestBreaksApi instance
+	 *
+	 * @return \BhrSdk\Api\MealRestBreaksApi
+	 */
+	public function mealRestBreaks(): \BhrSdk\Api\MealRestBreaksApi {
+		return $this->getApi(\BhrSdk\Api\MealRestBreaksApi::class);
+	}
+
+	/**
+	 * Convenience method to get OnboardingApi instance
+	 *
+	 * @return \BhrSdk\Api\OnboardingApi
+	 */
+	public function onboarding(): \BhrSdk\Api\OnboardingApi {
+		return $this->getApi(\BhrSdk\Api\OnboardingApi::class);
+	}
+
+	/**
+	 * Convenience method to get PayGradesBandsApi instance
+	 *
+	 * @return \BhrSdk\Api\PayGradesBandsApi
+	 */
+	public function payGradesBands(): \BhrSdk\Api\PayGradesBandsApi {
+		return $this->getApi(\BhrSdk\Api\PayGradesBandsApi::class);
 	}
 
 	/**
@@ -511,12 +646,12 @@ class ApiClient {
 	}
 
 	/**
-	 * Convenience method to get TabularDataApi instance
+	 * Convenience method to get SchedulingApi instance
 	 *
-	 * @return \BhrSdk\Api\TabularDataApi
+	 * @return \BhrSdk\Api\SchedulingApi
 	 */
-	public function tabularData(): \BhrSdk\Api\TabularDataApi {
-		return $this->getApi(\BhrSdk\Api\TabularDataApi::class);
+	public function scheduling(): \BhrSdk\Api\SchedulingApi {
+		return $this->getApi(\BhrSdk\Api\SchedulingApi::class);
 	}
 
 	/**
@@ -538,12 +673,30 @@ class ApiClient {
 	}
 
 	/**
+	 * Convenience method to get TotalRewardsApi instance
+	 *
+	 * @return \BhrSdk\Api\TotalRewardsApi
+	 */
+	public function totalRewards(): \BhrSdk\Api\TotalRewardsApi {
+		return $this->getApi(\BhrSdk\Api\TotalRewardsApi::class);
+	}
+
+	/**
 	 * Convenience method to get TrainingApi instance
 	 *
 	 * @return \BhrSdk\Api\TrainingApi
 	 */
 	public function training(): \BhrSdk\Api\TrainingApi {
 		return $this->getApi(\BhrSdk\Api\TrainingApi::class);
+	}
+
+	/**
+	 * Convenience method to get WebhookEventsApi instance
+	 *
+	 * @return \BhrSdk\Api\WebhookEventsApi
+	 */
+	public function webhookEvents(): \BhrSdk\Api\WebhookEventsApi {
+		return $this->getApi(\BhrSdk\Api\WebhookEventsApi::class);
 	}
 
 	/**

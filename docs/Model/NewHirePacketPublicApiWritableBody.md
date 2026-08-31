@@ -1,0 +1,19 @@
+# # NewHirePacketPublicApiWritableBody
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**contact_employee_id** | **int** |  | [optional]
+**requires_personal_information** | **bool** | Whether personal information collection is required. | [optional]
+**requires_photo** | **bool** | Whether a photo is required. | [optional]
+**requires_personal_questions** | **bool** | Whether personal questions are required. | [optional]
+**arrive_by_time** | **string** |  | [optional]
+**location** | **string** |  | [optional]
+**send_get_to_know_you_email** | **bool** | Whether to send the Get To Know You email. | [optional]
+**show_payroll_state** | **bool** | Whether to show state payroll fields. | [optional]
+**show_payroll_federal** | **bool** | Whether to show federal payroll fields. | [optional]
+**show_payroll_direct_deposit** | **bool** | Whether to show direct deposit payroll fields. | [optional]
+**nhp_template_id** | **int** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
