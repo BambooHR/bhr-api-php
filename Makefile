@@ -18,7 +18,7 @@ DEVELOPER = BambooHR
 COMPOSER_PACKAGE_NAME = bamboohr/api
 LICENSE_NAME = MIT
 
-.PHONY: help generate clean cleanup-obsolete test phpcs phpstan classify-semver smoke-test format lint
+.PHONY: help generate clean cleanup-obsolete test phpcs phpstan classify-semver smoke-test format lint sync-accessors check-accessors
 
 help:
 	@echo "BambooHR API PHP SDK - Available commands:"
@@ -32,6 +32,8 @@ help:
 	@echo "  make phpcs             - Run PHP Code Sniffer"
 	@echo "  make phpstan           - Run PHPStan static analysis"
 	@echo "  make smoke-test        - Verify generated classes autoload"
+	@echo "  make sync-accessors    - Regenerate client accessors from generated APIs"
+	@echo "  make check-accessors   - Verify client accessors are in sync (CI)"
 	@echo "  make classify-semver OLD=old.yaml NEW=new.yaml [APPLY=true] - Classify semver bump"
 
 generate:
@@ -66,7 +68,8 @@ generate:
 		&& ./scripts/update_error_docs.sh \
 		&& ./scripts/add_custom_headers_to_api_docs.sh \
 		&& ./scripts/cleanup_obsolete_files.sh --force \
-		&& php ./scripts/fix_invalid_class_names.php
+		&& php ./scripts/fix_invalid_class_names.php \
+		&& php ./scripts/sync_accessors.php
 	@echo "SDK generation complete!"
 
 generate-error-docs:
@@ -109,6 +112,16 @@ classify-semver:
 	@APPLY_FLAG=""; \
 	if [ "$(APPLY)" = "true" ]; then APPLY_FLAG="--apply"; fi; \
 	bash scripts/classify_semver.sh $$APPLY_FLAG $(OLD) $(NEW)
+
+sync-accessors:
+	@echo "Syncing client API accessors with generated APIs..."
+	php ./scripts/sync_accessors.php
+	@echo "Accessor sync complete!"
+
+check-accessors:
+	@echo "Checking client API accessors are in sync..."
+	php ./scripts/sync_accessors.php --check
+	@echo "Accessor check complete!"
 
 smoke-test:
 	@echo "Running autoload smoke test..."
